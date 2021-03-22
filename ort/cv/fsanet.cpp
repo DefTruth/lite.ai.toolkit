@@ -20,14 +20,14 @@ FSANet::FSANet(const std::string &_var_onnx_path, const std::string &_conv_onnx_
   ort::AllocatorWithDefaultOptions allocator;
   // 2. var/conv模型的输入是相同的
   input_name = ort_var_session->GetInputName(0, allocator);
-  input_node_names.resize(1);
-  input_node_names.push_back(input_name);
+  input_node_names.resize(1); // resize意味着已经将0位置值留出 用push_back会出问题
+  input_node_names[0] = input_name;
   // 3. type info.
   ort::TypeInfo type_info = ort_var_session->GetInputTypeInfo(0);
   auto tensor_info = type_info.GetTensorTypeAndShapeInfo();
   input_tensor_size = 1;
   input_node_dims = tensor_info.GetShape();
-  for (int i = 0; input_node_dims.size(); ++i) input_tensor_size *= input_node_dims.at(i);
+  for (int i = 0; i < input_node_dims.size(); ++i) input_tensor_size *= input_node_dims.at(i);
   input_tensor_values.resize(input_tensor_size);
 }
 
@@ -60,7 +60,7 @@ void FSANet::preprocess(const cv::Mat &roi) {
     const int ny1 = std::max(0, static_cast<int>((nh - h) / 2));
     const int nx2 = std::min(nw, nx1 + w);
     const int ny2 = std::min(nh, ny1 + h);
-    roi_copy = cv::Mat(nh, nw, CV_8UC2, cv::Scalar(0, 0, 0));
+    roi_copy = cv::Mat(nh, nw, CV_8UC3, cv::Scalar(0, 0, 0));
     roi.copyTo(roi_copy.rowRange(ny1, ny2).colRange(nx1, nx2));
 
   } else { roi.copyTo(roi_copy); }
@@ -106,8 +106,7 @@ void FSANet::detect(const cv::Mat &roi, std::vector<float> &euler_angles) {
   // 3. 两种模型结果求平均
   const float *var_angles = output_var_tensors.front().GetTensorMutableData<float>();
   const float *conv_angles = output_conv_tensors.front().GetTensorMutableData<float>();
-
-  const float mean_yaw = (var_angles[0] + conv_angles[1]) / 2.0f;
+  const float mean_yaw = (var_angles[0] + conv_angles[0]) / 2.0f;
   const float mean_pitch = (var_angles[1] + conv_angles[1]) / 2.0f;
   const float mean_roll = (var_angles[2] + conv_angles[2]) / 2.0f;
 

@@ -10,9 +10,9 @@
 
 static void test_ortcv_fsanet() {
 
-  std::string var_onnx_path = "./hub/onnx/cv/fsanet-var.onnx";
-  std::string conv_onnx_path = "./hub/onnx/cv/fsanet-1x1.onnx";
-  std::string test_img_path = "./examples/ort/resources/test_ortcv_fsanet.jpg";
+  std::string var_onnx_path = "../../../hub/onnx/cv/fsanet-var.onnx";
+  std::string conv_onnx_path = "../../../hub/onnx/cv/fsanet-1x1.onnx";
+  std::string test_img_path = "../../../examples/ort/resources/test_ortcv_fsanet.jpg";
 
   ortcv::FSANet *fsanet = new ortcv::FSANet(var_onnx_path, conv_onnx_path);
   cv::Mat roi = cv::imread(test_img_path);
