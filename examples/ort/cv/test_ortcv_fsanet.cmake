@@ -5,7 +5,7 @@ include(${CMAKE_SOURCE_DIR}/setup_3rdparty.cmake)
 if (APPLE)
     set(CMAKE_MACOSX_RPATH 1)  # 开启rpath update qiuyanjun 20210314
     set(CMAKE_BUILD_TYPE release)
-endif()
+endif ()
 
 # 2. setup onnxruntime include
 include_directories(${ONNXRUNTIMR_INCLUDE_DIR})
@@ -19,7 +19,12 @@ set(ORTCV_FSANET_SRCS
         )
 
 add_executable(ortcv_fsanet ${ORTCV_FSANET_SRCS})
-target_link_libraries(ortcv_fsanet onnxruntime opencv_highgui opencv_core opencv_imgcodecs opencv_imgproc)
+target_link_libraries(ortcv_fsanet
+        onnxruntime
+        opencv_highgui
+        opencv_core
+        opencv_imgcodecs
+        opencv_imgproc)
 
 if (LITEHUB_COPY_BUILD)
     # set 只在当前目录和子目录有效 不会广播到父目录和兄弟目录

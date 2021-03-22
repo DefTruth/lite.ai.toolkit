@@ -1,6 +1,7 @@
 # 1. setup 3rd-party dependences
 message("########## Setting up 3rd-party dependences for: ${CMAKE_CURRENT_SOURCE_DIR} ###########")
 if (EXISTS ${THIRDPARTY_DIR} AND LITEHUB_THIRDPARTY)
+    # 由于rpath无法修改 因此以下设置暂时无用
 #    set(OpenCV_DIR ${THIRDPARTY_DIR}/opencv/4.1.2/lib/cmake/opencv4)
 #
 #    set(ONNXRUNTIME_DIR ${THIRDPARTY_DIR}/onnxruntime/1.7.1)
