@@ -30,16 +30,18 @@ namespace ortcv {
     // 5. 模型输出节点
     std::vector<const char *> output_node_names = {"output"};
     // 6. 模型路径
-    const char *var_onnx_path;
-    const char *conv_onnx_path;
+    const char *var_onnx_path = nullptr;
+    const char *conv_onnx_path = nullptr;
 
     // 其他辅助参数
   private:
-    // c++11 支持const成员类内初始化
-    const float pad = 0.3f; // 0.3f
-    const int input_width = 64;  // 64
-    const int input_height = 64; // 64
-    const bool use_padding = true; // true
+    // c++11 支持const/static constexpr成员类内初始化
+    static constexpr const float pad = 0.3f; // 0.3f
+    static constexpr const int input_width = 64;  // 64
+    static constexpr const int input_height = 64; // 64
+    static constexpr const bool use_padding = true; // true
+
+    static constexpr const float half = 180.f;
 
     /**
      * padding & resize & normalize.
@@ -68,6 +70,23 @@ namespace ortcv {
      * @param euler_angles output (yaw,pitch,row).
      */
     void detect(const cv::Mat &roi, std::vector<float> &euler_angles);
+
+  public:
+
+    /**
+     *
+     * @param mat_inplane
+     * @param yaw
+     * @param pitch
+     * @param roll
+     * @param size
+     * @param thickness
+     */
+    static void draw_axis_inplane(cv::Mat &mat_inplane, float yaw, float pitch, float roll,
+                                  int size = 50, int thickness = 2);
+
+    static cv::Mat draw_axis(const cv::Mat &mat, float yaw, float pitch, float roll,
+                             int size = 50, int thickness = 2);
 
   };
 }
