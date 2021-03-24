@@ -74,7 +74,8 @@ namespace ortcv {
   public:
 
     /**
-     *
+     * reference:
+     *   https://github.com/DefTruth/headpose-fsanet-pytorch/blob/master/src/utils.py
      * @param mat_inplane
      * @param yaw
      * @param pitch

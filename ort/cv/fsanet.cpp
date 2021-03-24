@@ -28,6 +28,10 @@ FSANet::FSANet(const std::string &_var_onnx_path, const std::string &_conv_onnx_
   input_tensor_size = 1;
   input_node_dims = tensor_info.GetShape();
   for (int i = 0; i < input_node_dims.size(); ++i) input_tensor_size *= input_node_dims.at(i);
+#if LITEORT_DEBUG
+  for (int i = 0; i < input_node_dims.size(); ++i)
+    std::cout << "input_node_dims: " << input_node_dims.at(i) << "\n";
+#endif
   input_tensor_values.resize(input_tensor_size);
 }
 
@@ -46,7 +50,7 @@ FSANet::~FSANet() {
 }
 
 void FSANet::preprocess(const cv::Mat &roi) {
-  cv::Mat roi_copy;
+  cv::Mat canva;
   // 0. padding
   if (use_padding) {
     const int h = roi.rows;
@@ -60,27 +64,28 @@ void FSANet::preprocess(const cv::Mat &roi) {
     const int ny1 = std::max(0, static_cast<int>((nh - h) / 2));
     const int nx2 = std::min(nw, nx1 + w);
     const int ny2 = std::min(nh, ny1 + h);
-    roi_copy = cv::Mat(nh, nw, CV_8UC3, cv::Scalar(0, 0, 0));
-    roi.copyTo(roi_copy.rowRange(ny1, ny2).colRange(nx1, nx2));
+    canva = cv::Mat(nh, nw, CV_8UC3, cv::Scalar(0, 0, 0));
+    roi.copyTo(canva(cv::Rect(nx1, ny1, w, h)));
 
-  } else { roi.copyTo(roi_copy); }
+  } else { roi.copyTo(canva); }
 
   // 1. resize & normalize
   cv::Mat resize_norm;
-  cv::resize(roi_copy, roi_copy, cv::Size(input_width, input_height));
-  roi_copy.convertTo(resize_norm, CV_32F, 1.f / 127.5f, -1.0f);
+  cv::resize(canva, canva, cv::Size(input_width, input_height));
+  // reference: https://blog.csdn.net/qq_38701868/article/details/89258565
+  canva.convertTo(resize_norm, CV_32FC3, 1.f / 127.5f, -1.0f);
 
   // 2. convert to tensor.
   std::vector<cv::Mat> channels;
   cv::split(resize_norm, channels);
   std::vector<float> channel_values;
-  channel_values.resize(input_width * input_height);
+  channel_values.resize(input_height * input_width);
   for (int i = 0; i < channels.size(); ++i) {
     channel_values.clear();
     channel_values = channels.at(i).reshape(1, 1);
-    std::memcpy(input_tensor_values.data() + i * (input_width * input_height),
+    std::memcpy(input_tensor_values.data() + i * (input_height * input_width),
                 channel_values.data(),
-                input_width * input_height * sizeof(float));
+                input_height * input_width * sizeof(float)); // CXHXW
   }
 }
 
