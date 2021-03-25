@@ -53,6 +53,7 @@ namespace ortcv {
     ~FSANet();
 
     // 7. 被禁止的构造函数
+  protected:
     FSANet(const FSANet &) = delete;
 
     FSANet(const FSANet &&) = delete;

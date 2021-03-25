@@ -22,9 +22,9 @@ static void test_ortcv_fsanet() {
   // 1. 检测头部姿态
   fsanet->detect(roi, euler_angles);
 
-  const float yaw = euler_angles[0];
-  const float pitch = euler_angles[1];
-  const float roll = euler_angles[2];
+  const float yaw = euler_angles.at(0);
+  const float pitch = euler_angles.at(1);
+  const float roll = euler_angles.at(2);
 
   // 2. 绘制欧拉角
   // cv::Mat out_img = ortcv::FSANet::draw_axis(roi, yaw, pitch, roll);
@@ -32,9 +32,7 @@ static void test_ortcv_fsanet() {
 
   cv::imwrite(save_img_path, roi);
 
-  std::cout << "yaw: " << yaw << " pitch: " << pitch
-            << " roll: " << roll
-            << std::endl;
+  std::cout << "yaw: " << yaw << " pitch: " << pitch << " roll: " << roll << std::endl;
 
   delete fsanet;
 }
