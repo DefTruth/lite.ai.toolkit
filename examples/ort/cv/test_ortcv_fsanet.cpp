@@ -13,6 +13,7 @@ static void test_ortcv_fsanet() {
   std::string var_onnx_path = "../../../hub/onnx/cv/fsanet-var.onnx";
   std::string conv_onnx_path = "../../../hub/onnx/cv/fsanet-1x1.onnx";
   std::string test_img_path = "../../../examples/ort/resources/test_ortcv_fsanet.jpg";
+  std::string save_img_path = "../../../logs/test_ortcv_fsanet.jpg";
 
   ortcv::FSANet *fsanet = new ortcv::FSANet(var_onnx_path, conv_onnx_path);
   cv::Mat roi = cv::imread(test_img_path);
@@ -21,9 +22,18 @@ static void test_ortcv_fsanet() {
   // 1. 检测头部姿态
   fsanet->detect(roi, euler_angles);
 
-  std::cout << "yaw: " << euler_angles[0]
-            << " pitch: " << euler_angles[1]
-            << " roll: " << euler_angles[2]
+  const float yaw = euler_angles[0];
+  const float pitch = euler_angles[1];
+  const float roll = euler_angles[2];
+
+  // 2. 绘制欧拉角
+  // cv::Mat out_img = ortcv::FSANet::draw_axis(roi, yaw, pitch, roll);
+  ortcv::FSANet::draw_axis_inplane(roi, yaw, pitch, roll);
+
+  cv::imwrite(save_img_path, roi);
+
+  std::cout << "yaw: " << yaw << " pitch: " << pitch
+            << " roll: " << roll
             << std::endl;
 
   delete fsanet;

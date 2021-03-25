@@ -40,8 +40,7 @@ namespace ortcv {
     static constexpr const int input_width = 64;  // 64
     static constexpr const int input_height = 64; // 64
     static constexpr const bool use_padding = true; // true
-
-    static constexpr const float half = 180.f;
+    static constexpr const float _PI = 3.1415926f;
 
     /**
      * padding & resize & normalize.
@@ -83,11 +82,11 @@ namespace ortcv {
      * @param size
      * @param thickness
      */
-    static void draw_axis_inplane(cv::Mat &mat_inplane, float yaw, float pitch, float roll,
-                                  int size = 50, int thickness = 2);
+    static void draw_axis_inplane(cv::Mat &mat_inplane, float _yaw, float _pitch, float _roll,
+                                  float size = 50.f, int thickness = 2);
 
-    static cv::Mat draw_axis(const cv::Mat &mat, float yaw, float pitch, float roll,
-                             int size = 50, int thickness = 2);
+    static cv::Mat draw_axis(const cv::Mat &mat, float _yaw, float _pitch, float _roll,
+                             float size = 50.f, int thickness = 2);
 
   };
 }

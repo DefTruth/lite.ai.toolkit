@@ -7,12 +7,13 @@
 using ortcv::FSANet;
 
 FSANet::FSANet(const std::string &_var_onnx_path, const std::string &_conv_onnx_path) :
-    var_onnx_path(_var_onnx_path.data()), conv_onnx_path(_conv_onnx_path.data()){
+    var_onnx_path(_var_onnx_path.data()), conv_onnx_path(_conv_onnx_path.data()) {
   ort_env = ort::Env(ORT_LOGGING_LEVEL_ERROR, "fsanet-onnx");
   // 0. session options
   ort::SessionOptions session_options;
   session_options.SetIntraOpNumThreads(1);
   session_options.SetGraphOptimizationLevel(GraphOptimizationLevel::ORT_ENABLE_EXTENDED);
+  session_options.SetLogSeverityLevel(4);
   // 1. session
   ort_var_session = new ort::Session(ort_env, var_onnx_path, session_options);
   ort_conv_session = new ort::Session(ort_env, conv_onnx_path, session_options);
@@ -122,9 +123,77 @@ void FSANet::detect(const cv::Mat &roi, std::vector<float> &euler_angles) {
   euler_angles.push_back(mean_roll);
 }
 
+void FSANet::draw_axis_inplane(cv::Mat &mat_inplane, float _yaw, float _pitch, float _roll,
+                               float size, int thickness) {
 
+  const float pitch = _pitch * _PI / 180.f;
+  const float yaw = -_yaw * _PI / 180.f;
+  const float roll = _roll * _PI / 180.f;
 
+  const float height = static_cast<float>(mat_inplane.rows);
+  const float width = static_cast<float>(mat_inplane.cols);
 
+  const int tdx = static_cast<int>(width / 2.0f);
+  const int tdy = static_cast<int>(height / 2.0f);
+
+  // X-Axis pointing to right. drawn in red
+  const int x1 = static_cast<int>(size * std::cosf(yaw) * std::cosf(roll)) + tdx;
+  const int y1 = static_cast<int>(
+                     size * (std::cosf(pitch) * std::sinf(roll)
+                             + std::cosf(roll) * std::sinf(pitch) * std::sinf(yaw))
+                 ) + tdy;
+  // Y-Axis | drawn in green
+  const int x2 = static_cast<int>(-size * std::cosf(yaw) * std::sinf(roll)) + tdx;
+  const int y2 = static_cast<int>(
+                     size * (std::cosf(pitch) * std::cosf(roll)
+                             - std::sinf(pitch) * std::sinf(yaw) * std::sinf(roll))
+                 ) + tdy;
+  // Z-Axis (out of the screen) drawn in blue
+  const int x3 = static_cast<int>(size * std::sinf(yaw)) + tdx;
+  const int y3 = static_cast<int>(-size * std::cosf(yaw) * std::sinf(pitch)) + tdy;
+
+  cv::line(mat_inplane, cv::Point2i(tdx, tdy), cv::Point2i(x1, y1), cv::Scalar(0, 0, 255), thickness);
+  cv::line(mat_inplane, cv::Point2i(tdx, tdy), cv::Point2i(x2, y2), cv::Scalar(0, 255, 0), thickness);
+  cv::line(mat_inplane, cv::Point2i(tdx, tdy), cv::Point2i(x3, y3), cv::Scalar(255, 0, 0), thickness);
+}
+
+cv::Mat FSANet::draw_axis(const cv::Mat &mat, float _yaw, float _pitch, float _roll,
+                          float size, int thickness) {
+
+  cv::Mat mat_copy = mat.clone();
+
+  const float pitch = _pitch * _PI / 180.f;
+  const float yaw = -_yaw * _PI / 180.f;
+  const float roll = _roll * _PI / 180.f;
+
+  const float height = static_cast<float>(mat_copy.rows);
+  const float width = static_cast<float>(mat_copy.cols);
+
+  const int tdx = static_cast<int>(width / 2.0f);
+  const int tdy = static_cast<int>(height / 2.0f);
+
+  // X-Axis pointing to right. drawn in red
+  const int x1 = static_cast<int>(size * std::cosf(yaw) * std::cosf(roll)) + tdx;
+  const int y1 = static_cast<int>(
+                     size * (std::cosf(pitch) * std::sinf(roll)
+                             + std::cosf(roll) * std::sinf(pitch) * std::sinf(yaw))
+                 ) + tdy;
+  // Y-Axis | drawn in green
+  const int x2 = static_cast<int>(-size * std::cosf(yaw) * std::sinf(roll)) + tdx;
+  const int y2 = static_cast<int>(
+                     size * (std::cosf(pitch) * std::cosf(roll)
+                             - std::sinf(pitch) * std::sinf(yaw) * std::sinf(roll))
+                 ) + tdy;
+  // Z-Axis (out of the screen) drawn in blue
+  const int x3 = static_cast<int>(size * std::sinf(yaw)) + tdx;
+  const int y3 = static_cast<int>(-size * std::cosf(yaw) * std::sinf(pitch)) + tdy;
+
+  cv::line(mat_copy, cv::Point2i(tdx, tdy), cv::Point2i(x1, y1), cv::Scalar(0, 0, 255), thickness);
+  cv::line(mat_copy, cv::Point2i(tdx, tdy), cv::Point2i(x2, y2), cv::Scalar(0, 255, 0), thickness);
+  cv::line(mat_copy, cv::Point2i(tdx, tdy), cv::Point2i(x3, y3), cv::Scalar(255, 0, 0), thickness);
+
+  return mat_copy;
+}
 
 
 
