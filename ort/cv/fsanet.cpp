@@ -6,12 +6,14 @@
 
 using ortcv::FSANet;
 
-FSANet::FSANet(const std::string &_var_onnx_path, const std::string &_conv_onnx_path) :
-    var_onnx_path(_var_onnx_path.data()), conv_onnx_path(_conv_onnx_path.data()) {
+FSANet::FSANet(const std::string &_var_onnx_path, const std::string &_conv_onnx_path,
+               unsigned int _num_threads) : var_onnx_path(_var_onnx_path.data()),
+                                            conv_onnx_path(_conv_onnx_path.data()),
+                                            num_threads(_num_threads) {
   ort_env = ort::Env(ORT_LOGGING_LEVEL_ERROR, "fsanet-onnx");
   // 0. session options
   ort::SessionOptions session_options;
-  session_options.SetIntraOpNumThreads(1);
+  session_options.SetIntraOpNumThreads(num_threads);
   session_options.SetGraphOptimizationLevel(GraphOptimizationLevel::ORT_ENABLE_EXTENDED);
   session_options.SetLogSeverityLevel(4);
   // 1. session
@@ -37,17 +39,12 @@ FSANet::FSANet(const std::string &_var_onnx_path, const std::string &_conv_onnx_
 }
 
 FSANet::~FSANet() {
-  // 0. 释放相关资源
-  if (ort_var_session) {
-    ort_var_session->release();
+  if (ort_var_session)
     delete ort_var_session;
-    ort_var_session = nullptr;
-  }
-  if (ort_conv_session) {
-    ort_conv_session->release();
+  ort_var_session = nullptr;
+  if (ort_conv_session)
     delete ort_conv_session;
-    ort_conv_session = nullptr;
-  }
+  ort_conv_session = nullptr;
 }
 
 void FSANet::preprocess(const cv::Mat &roi) {

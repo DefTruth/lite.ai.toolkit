@@ -7,7 +7,9 @@
 
 #include <cmath>
 #include <vector>
+#include <cassert>
 #include <iostream>
+#include <algorithm>
 #include <unordered_map>
 #include <unordered_set>
 #include "opencv2/opencv.hpp"
@@ -22,7 +24,7 @@ namespace ortcv {
   class FSANet;
   class PFLD;
   class SSRNet;
-  class UtraFace;
+  class UltraFace;
   class ChineseOCR;
   class ChineseOCRAngleNet;
   class ChineseOCRLiteLSTM;

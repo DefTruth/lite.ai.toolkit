@@ -21,7 +21,7 @@ namespace ortcv {
     // 1. 输入节点的维度
     std::vector<std::int64_t> input_node_dims;
     // 2. 输入数据的size
-    std::size_t input_tensor_size = 0;
+    std::size_t input_tensor_size = 1;
     // 3. 模型输入的数据
     std::vector<float> input_tensor_values;
     // 4. mermory info.
@@ -35,6 +35,7 @@ namespace ortcv {
 
     // 其他辅助参数
   private:
+    const unsigned int num_threads; // const 运行时初始化确定
     // c++11 支持const/static constexpr成员类内初始化
     static constexpr const float pad = 0.3f; // 0.3f
     static constexpr const int input_width = 64;  // 64
@@ -42,13 +43,9 @@ namespace ortcv {
     static constexpr const bool use_padding = true; // true
     static constexpr const float _PI = 3.1415926f;
 
-    /**
-     * padding & resize & normalize.
-     */
-    void preprocess(const cv::Mat &roi);
-
   public:
-    explicit FSANet(const std::string &_var_onnx_path, const std::string &_conv_onnx_path);
+    FSANet(const std::string &_var_onnx_path, const std::string &_conv_onnx_path,
+           unsigned int _num_threads = 1);
 
     ~FSANet();
 
@@ -61,6 +58,12 @@ namespace ortcv {
     FSANet &operator=(const FSANet &) = delete;
 
     FSANet &operator=(const FSANet &&) = delete;
+
+  private:
+    /**
+     * padding & resize & normalize.
+     */
+    void preprocess(const cv::Mat &roi);
 
   public:
 
