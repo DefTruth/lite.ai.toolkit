@@ -4,7 +4,7 @@
 
 #include "ultraface.h"
 
-using ortcv::Box;
+using ortcv::UltraBox;
 using ortcv::UltraFace;
 
 UltraFace::UltraFace(const std::string &_onnx_path, int _input_height, int _input_width,
@@ -42,7 +42,6 @@ UltraFace::UltraFace(const std::string &_onnx_path, int _input_height, int _inpu
   num_outputs = ort_session->GetOutputCount();
 #if LITEORT_DEBUG
   std::cout << "num_outputs: " << num_outputs << "\n";
-  assert(num_outputs > 0 ? 1 : 0);
 #endif
   output_node_names.resize(num_outputs);
   for (unsigned int i = 0; i < num_outputs; ++i) {
@@ -57,7 +56,7 @@ UltraFace::UltraFace(const std::string &_onnx_path, int _input_height, int _inpu
   for (unsigned int i = 0; i < num_outputs; ++i)
     for (unsigned int j = 0; j < output_node_dims.at(i).size(); ++j)
       std::cout << "Output: " << i << " Name: "
-                << output_node_names.at(i) << " Dim: "
+                << output_node_names.at(i) << " Dim: " << j << " :"
                 << output_node_dims.at(i).at(j) << std::endl;
 #endif
 }
@@ -74,10 +73,13 @@ void UltraFace::preprocess(const cv::Mat &mat) {
   cv::cvtColor(canva, canva, cv::COLOR_BGR2RGB);
   // 1. resize & normalize
   cv::Mat resize_norm;
-  cv::resize(canva, canva, cv::Size(input_width, input_height));
-  canva.convertTo(resize_norm, CV_32FC3); // first, convert to float32.
-  resize_norm = (resize_norm - mean_val) * scale_val; // then, normalize.
+  cv::resize(canva, canva, cv::Size(input_width, input_height)); // (640,480) | (320,240)
+  canva.convertTo(resize_norm, CV_32FC3); // Note !!! should convert to float32 firstly.
+  resize_norm = (resize_norm - mean_val) * scale_val; // then, normalize.Deprecated WARN:0
 
+#if LITEORT_DEBUG
+  std::cout << "resize_norm done.\n";
+#endif
   std::vector<cv::Mat> channels;
   cv::split(resize_norm, channels);
   std::vector<float> channel_values;
@@ -89,31 +91,167 @@ void UltraFace::preprocess(const cv::Mat &mat) {
                 channel_values.data(),
                 input_height * input_width * sizeof(float)); // CXHXW
   }
+#if LITEORT_DEBUG
+  std::cout << "preprocess done.\n";
+#endif
 }
 
-void UltraFace::detect(const cv::Mat &mat, std::vector<Box> &detected_boxes,
-                       float score_threshold, float iou_threshold, int top_k) {
+void UltraFace::detect(const cv::Mat &mat, std::vector<UltraBox> &detected_boxes,
+                       float score_threshold, float iou_threshold, int topk) {
+  if (mat.empty()) return;
   this->preprocess(mat);
+  float img_height = static_cast<float>(mat.rows);
+  float img_width = static_cast<float>(mat.cols);
 
-
+  // 1. make input tensor
+  ort::Value input_tensor = ort::Value::CreateTensor<float>(
+      memory_info, input_tensor_values.data(),
+      input_tensor_size, input_node_dims.data(),
+      4
+  );
+  // 2. inference scores & boxes.
+  auto output_tensors = ort_session->Run(
+      ort::RunOptions{nullptr}, input_node_names.data(),
+      &input_tensor, 1, output_node_names.data(), num_outputs
+  );
+#if LITEORT_DEBUG
+  std::cout << "ort_session->Run done.\n";
+#endif
+  // 3. generate bounding boxes.
+  std::vector<UltraBox> bbox_collection;
+  this->generate_bboxes(bbox_collection, output_tensors, score_threshold, img_height, img_width);
+#if LITEORT_DEBUG
+  std::cout << "generate_bboxes done.\n";
+#endif
+  // 4. hard nms.
+  this->hard_nms(bbox_collection, detected_boxes, iou_threshold, topk);
+#if LITEORT_DEBUG
+  std::cout << "hard_nms done.\n";
+#endif
 }
 
-void UltraFace::generate_bounding_boxes(std::vector<Box> &bbox_collection,
-                                        const float *scores, const float *boxes,
-                                        float score_threshold, int num_anchors) {
+void UltraFace::generate_bboxes(std::vector<UltraBox> &bbox_collection,
+                                std::vector<ort::Value> &output_tensors,
+                                float score_threshold, float img_height,
+                                float img_width) {
+  ort::Value &scores = output_tensors.at(0);
+  ort::Value &boxes = output_tensors.at(1);
+  auto scores_dims = output_node_dims.at(0); // (1,n,2)
+  auto boxes_dims = output_node_names.at(1); // (1,n,4) x1,y1,x2,y2
+  const unsigned int num_anchors = scores_dims.at(1); // n = 17640 (640x480)
+#if LITEORT_DEBUG
+  std::cout << "detected num_anchors: " << num_anchors << "\n";
+#endif
+  bbox_collection.clear();
+  for (unsigned int i = 0; i < num_anchors; ++i) {
+    float confidence = scores.At<float>({0, i, 1});
+    if (confidence < score_threshold) continue;
+    UltraBox box;
+    box.x1 = boxes.At<float>({0, i, 0}) * img_width;
+    box.y1 = boxes.At<float>({0, i, 1}) * img_height;
+    box.x2 = boxes.At<float>({0, i, 2}) * img_width;
+    box.y2 = boxes.At<float>({0, i, 3}) * img_height;
+    box.score = confidence;
+    bbox_collection.push_back(box);
+  }
+#if LITEORT_DEBUG
+  std::cout << "generate_bboxes num: " << bbox_collection.size() << "\n";
+#endif
 }
 
-void UltraFace::nms(std::vector<Box> &input, std::vector<Box> &output, int type) {
+// reference: https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB
+//            blob/master/ncnn/src/UltraFace.cpp
+void UltraFace::hard_nms(std::vector<UltraBox> &input,
+                         std::vector<UltraBox> &output,
+                         float iou_threshold, int topk) {
+  if (input.empty()) return;
+  std::sort(input.begin(), input.end(),
+            [](const UltraBox &a, const UltraBox &b) { return a.score > b.score; });
+  const unsigned int box_num = input.size();
+  std::vector<int> merged(box_num, 0);
 
+  int count = 0;
+
+  for (unsigned int i = 0; i < box_num; ++i) {
+
+    if (merged[i]) continue;
+    std::vector<UltraBox> buf;
+
+    buf.push_back(input[i]);
+    merged[i] = 1;
+
+    float h0 = input[i].y2 - input[i].y1 + 1.0f;
+    float w0 = input[i].x2 - input[i].x1 + 1.0f;
+
+    float area0 = h0 * w0;
+
+    for (unsigned int j = i + 1; j < box_num; ++j) {
+      if (merged[j]) continue;
+
+      float inner_x0 = input[i].x1 > input[j].x1 ? input[i].x1 : input[j].x1;
+      float inner_y0 = input[i].y1 > input[j].y1 ? input[i].y1 : input[j].y1;
+
+      float inner_x1 = input[i].x2 < input[j].x2 ? input[i].x2 : input[j].x2;
+      float inner_y1 = input[i].y2 < input[j].y2 ? input[i].y2 : input[j].y2;
+
+      float inner_h = inner_y1 - inner_y0 + 1.0f;
+      float inner_w = inner_x1 - inner_x0 + 1.0f;
+
+      if (inner_h <= 0.f || inner_w <= 0.f)
+        continue;
+
+      float inner_area = inner_h * inner_w;
+
+      float h1 = input[j].y2 - input[j].y1 + 1.0f;
+      float w1 = input[j].x2 - input[j].x1 + 1.0f;
+
+      float area1 = h1 * w1;
+
+      float iou = inner_area / (area0 + area1 - inner_area);
+
+      if (iou > iou_threshold) {
+        merged[j] = 1;
+        buf.push_back(input[j]);
+      }
+
+    }
+    output.push_back(buf[0]);
+
+    // keep top k
+    count += 1;
+    if (count >= topk)
+      break;
+  }
 }
 
-cv::Mat UltraFace::draw_boxes(const cv::Mat &mat, const std::vector<Box> &_boxes) {
-  cv::Mat canva;
+cv::Mat UltraFace::draw_boxes(const cv::Mat &mat, const std::vector<UltraBox> &boxes) {
+  cv::Mat canva = mat.clone();
+  if (boxes.empty()) return canva;
+
+  for (const auto &box: boxes) {
+    int x1 = static_cast<int>(box.x1);
+    int y1 = static_cast<int>(box.y1);
+    int x2 = static_cast<int>(box.x2);
+    int y2 = static_cast<int>(box.y2);
+    int w = x2 - x1 + 1;
+    int h = y2 - y1 + 1;
+    cv::rectangle(canva, cv::Rect(x1, y1, w, h), cv::Scalar(255, 255, 0), 2);
+  }
   return canva;
 }
 
-void UltraFace::draw_boxes_inplane(cv::Mat &mat_inplane, const std::vector<Box> &_boxes) {
+void UltraFace::draw_boxes_inplane(cv::Mat &mat_inplane, const std::vector<UltraBox> &boxes) {
+  if (boxes.empty()) return;
 
+  for (const auto &box: boxes) {
+    int x1 = static_cast<int>(box.x1);
+    int y1 = static_cast<int>(box.y1);
+    int x2 = static_cast<int>(box.x2);
+    int y2 = static_cast<int>(box.y2);
+    int w = x2 - x1 + 1;
+    int h = y2 - y1 + 1;
+    cv::rectangle(mat_inplane, cv::Rect(x1, y1, w, h), cv::Scalar(255, 255, 0), 1);
+  }
 }
 
 
