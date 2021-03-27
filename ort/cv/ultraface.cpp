@@ -84,7 +84,7 @@ void UltraFace::preprocess(const cv::Mat &mat) {
   channel_values.resize(input_height * input_width);
   for (int i = 0; i < channels.size(); ++i) {
     channel_values.clear();
-    channel_values = channels.at(i).reshape(1, 1);
+    channel_values = channels.at(i).reshape(1, 1); // flatten
     std::memcpy(input_tensor_values.data() + i * (input_height * input_width),
                 channel_values.data(),
                 input_height * input_width * sizeof(float)); // CXHXW
@@ -93,6 +93,8 @@ void UltraFace::preprocess(const cv::Mat &mat) {
 
 void UltraFace::detect(const cv::Mat &mat, std::vector<Box> &detected_boxes,
                        float score_threshold, float iou_threshold, int top_k) {
+  this->preprocess(mat);
+
 
 }
 
@@ -102,5 +104,14 @@ void UltraFace::generate_bounding_boxes(std::vector<Box> &bbox_collection,
 }
 
 void UltraFace::nms(std::vector<Box> &input, std::vector<Box> &output, int type) {
+
+}
+
+cv::Mat UltraFace::draw_boxes(const cv::Mat &mat, const std::vector<Box> &_boxes) {
+  cv::Mat canva;
+  return canva;
+}
+
+void UltraFace::draw_boxes_inplane(cv::Mat &mat_inplane, const std::vector<Box> &_boxes) {
 
 }
