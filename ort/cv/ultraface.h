@@ -9,17 +9,13 @@
 
 namespace ortcv {
 
-  typedef struct FaceInfo {
+  typedef struct {
     float x1;
     float y1;
     float x2;
     float y2;
     float score;
   } UltraBox;
-
-  /**
-   * reference: https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB
-   */
 
   class UltraFace {
   private:
@@ -38,9 +34,9 @@ namespace ortcv {
     int num_outputs;
 
   private:
-    const int input_width; // init on runtime. 320 | 640
-    const int input_height;  // init on runtime. 240 | 480
-    const unsigned int num_threads; // init on runtime.
+    const int input_width; // initialize at runtime. 320 | 640
+    const int input_height;  // initialize at runtime. 240 | 480
+    const unsigned int num_threads; // initialize at runtime.
 
     static constexpr const float mean_val = 127.0f;
     static constexpr const float scale_val = 1.0 / 128.0f;
@@ -51,6 +47,7 @@ namespace ortcv {
 
     ~UltraFace();
 
+    // un-copyable
   protected:
     UltraFace(const UltraFace &) = delete;
 
@@ -61,15 +58,12 @@ namespace ortcv {
     UltraFace &operator=(const UltraFace &&) = delete;
 
   private:
-    /**
-     * padding & resize & normalize.
-     */
-    void preprocess(const cv::Mat &mat);
+    void preprocess(const cv::Mat &mat); // padding & resize & normalize.
 
     void generate_bboxes(std::vector<UltraBox> &bbox_collection,
                          std::vector<ort::Value> &output_tensors,
                          float score_threshold, float img_height,
-                         float img_width);
+                         float img_width); // rescale & exclude
 
     void hard_nms(std::vector<UltraBox> &input,
                   std::vector<UltraBox> &output,

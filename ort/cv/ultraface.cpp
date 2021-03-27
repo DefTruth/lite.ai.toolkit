@@ -33,16 +33,9 @@ UltraFace::UltraFace(const std::string &_onnx_path, int _input_height, int _inpu
   input_node_dims = tensor_info.GetShape();
   for (unsigned int i = 0; i < input_node_dims.size(); ++i)
     input_tensor_size *= input_node_dims.at(i);
-#if LITEORT_DEBUG
-  for (unsigned int i = 0; i < input_node_dims.size(); ++i)
-    std::cout << "input_node_dims: " << input_node_dims.at(i) << "\n";
-#endif
   input_tensor_values.resize(input_tensor_size);
   // 4. output names & output dimms
   num_outputs = ort_session->GetOutputCount();
-#if LITEORT_DEBUG
-  std::cout << "num_outputs: " << num_outputs << "\n";
-#endif
   output_node_names.resize(num_outputs);
   for (unsigned int i = 0; i < num_outputs; ++i) {
     output_node_names[i] = ort_session->GetOutputName(i, allocator);
@@ -52,6 +45,9 @@ UltraFace::UltraFace(const std::string &_onnx_path, int _input_height, int _inpu
     output_node_dims.push_back(output_dims);
   }
 #if LITEORT_DEBUG
+  std::cout << "=============== Input-Dims ==============\n";
+  for (unsigned int i = 0; i < input_node_dims.size(); ++i)
+    std::cout << "input_node_dims: " << input_node_dims.at(i) << "\n";
   std::cout << "=============== Output-Dims ==============\n";
   for (unsigned int i = 0; i < num_outputs; ++i)
     for (unsigned int j = 0; j < output_node_dims.at(i).size(); ++j)
@@ -69,17 +65,13 @@ UltraFace::~UltraFace() {
 
 void UltraFace::preprocess(const cv::Mat &mat) {
   cv::Mat canva = mat.clone();
-  // 0.BGR -> RGB assume the channel order of input img is BGR.
   cv::cvtColor(canva, canva, cv::COLOR_BGR2RGB);
-  // 1. resize & normalize
+
   cv::Mat resize_norm;
   cv::resize(canva, canva, cv::Size(input_width, input_height)); // (640,480) | (320,240)
   canva.convertTo(resize_norm, CV_32FC3); // Note !!! should convert to float32 firstly.
-  resize_norm = (resize_norm - mean_val) * scale_val; // then, normalize.Deprecated WARN:0
+  resize_norm = (resize_norm - mean_val) * scale_val; // then, normalize. MatExpr WARN:0
 
-#if LITEORT_DEBUG
-  std::cout << "resize_norm done.\n";
-#endif
   std::vector<cv::Mat> channels;
   cv::split(resize_norm, channels);
   std::vector<float> channel_values;
@@ -91,9 +83,6 @@ void UltraFace::preprocess(const cv::Mat &mat) {
                 channel_values.data(),
                 input_height * input_width * sizeof(float)); // CXHXW
   }
-#if LITEORT_DEBUG
-  std::cout << "preprocess done.\n";
-#endif
 }
 
 void UltraFace::detect(const cv::Mat &mat, std::vector<UltraBox> &detected_boxes,
@@ -114,20 +103,11 @@ void UltraFace::detect(const cv::Mat &mat, std::vector<UltraBox> &detected_boxes
       ort::RunOptions{nullptr}, input_node_names.data(),
       &input_tensor, 1, output_node_names.data(), num_outputs
   );
-#if LITEORT_DEBUG
-  std::cout << "ort_session->Run done.\n";
-#endif
-  // 3. generate bounding boxes.
+  // 3. rescale & exclude.
   std::vector<UltraBox> bbox_collection;
   this->generate_bboxes(bbox_collection, output_tensors, score_threshold, img_height, img_width);
-#if LITEORT_DEBUG
-  std::cout << "generate_bboxes done.\n";
-#endif
-  // 4. hard nms.
+  // 4. hard nms with topk.
   this->hard_nms(bbox_collection, detected_boxes, iou_threshold, topk);
-#if LITEORT_DEBUG
-  std::cout << "hard_nms done.\n";
-#endif
 }
 
 void UltraFace::generate_bboxes(std::vector<UltraBox> &bbox_collection,
@@ -139,9 +119,7 @@ void UltraFace::generate_bboxes(std::vector<UltraBox> &bbox_collection,
   auto scores_dims = output_node_dims.at(0); // (1,n,2)
   auto boxes_dims = output_node_names.at(1); // (1,n,4) x1,y1,x2,y2
   const unsigned int num_anchors = scores_dims.at(1); // n = 17640 (640x480)
-#if LITEORT_DEBUG
-  std::cout << "detected num_anchors: " << num_anchors << "\n";
-#endif
+
   bbox_collection.clear();
   for (unsigned int i = 0; i < num_anchors; ++i) {
     float confidence = scores.At<float>({0, i, 1});
@@ -155,11 +133,12 @@ void UltraFace::generate_bboxes(std::vector<UltraBox> &bbox_collection,
     bbox_collection.push_back(box);
   }
 #if LITEORT_DEBUG
+  std::cout << "detected num_anchors: " << num_anchors << "\n";
   std::cout << "generate_bboxes num: " << bbox_collection.size() << "\n";
 #endif
 }
 
-// reference: https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB
+// reference: https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB/
 //            blob/master/ncnn/src/UltraFace.cpp
 void UltraFace::hard_nms(std::vector<UltraBox> &input,
                          std::vector<UltraBox> &output,
@@ -250,7 +229,7 @@ void UltraFace::draw_boxes_inplane(cv::Mat &mat_inplane, const std::vector<Ultra
     int y2 = static_cast<int>(box.y2);
     int w = x2 - x1 + 1;
     int h = y2 - y1 + 1;
-    cv::rectangle(mat_inplane, cv::Rect(x1, y1, w, h), cv::Scalar(255, 255, 0), 1);
+    cv::rectangle(mat_inplane, cv::Rect(x1, y1, w, h), cv::Scalar(255, 255, 0), 2);
   }
 }
 

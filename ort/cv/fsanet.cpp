@@ -19,23 +19,23 @@ FSANet::FSANet(const std::string &_var_onnx_path, const std::string &_conv_onnx_
   // 1. session
   ort_var_session = new ort::Session(ort_env, var_onnx_path, session_options);
   ort_conv_session = new ort::Session(ort_env, conv_onnx_path, session_options);
-
+  // 2. input info.
   ort::AllocatorWithDefaultOptions allocator;
-  // 2. var/conv模型的输入是相同的
   input_name = ort_var_session->GetInputName(0, allocator);
-  input_node_names.resize(1); // resize意味着已经将0位置值留出 用push_back会出问题
+  input_node_names.resize(1);
   input_node_names[0] = input_name;
   // 3. type info.
   ort::TypeInfo type_info = ort_var_session->GetInputTypeInfo(0);
   auto tensor_info = type_info.GetTensorTypeAndShapeInfo();
   input_tensor_size = 1;
   input_node_dims = tensor_info.GetShape();
-  for (int i = 0; i < input_node_dims.size(); ++i) input_tensor_size *= input_node_dims.at(i);
+  for (unsigned int i = 0; i < input_node_dims.size(); ++i)
+    input_tensor_size *= input_node_dims.at(i);
+  input_tensor_values.resize(input_tensor_size);
 #if LITEORT_DEBUG
-  for (int i = 0; i < input_node_dims.size(); ++i)
+  for (unsigned int i = 0; i < input_node_dims.size(); ++i)
     std::cout << "input_node_dims: " << input_node_dims.at(i) << "\n";
 #endif
-  input_tensor_values.resize(input_tensor_size);
 }
 
 FSANet::~FSANet() {
@@ -47,12 +47,12 @@ FSANet::~FSANet() {
   ort_conv_session = nullptr;
 }
 
-void FSANet::preprocess(const cv::Mat &roi) {
+void FSANet::preprocess(const cv::Mat &mat) {
   cv::Mat canva;
   // 0. padding
   if (use_padding) {
-    const int h = roi.rows;
-    const int w = roi.cols;
+    const int h = mat.rows;
+    const int w = mat.cols;
     const int nh = static_cast<int>(
         (static_cast<float>(h) + pad * static_cast<float>(h)));
     const int nw = static_cast<int>(
@@ -63,9 +63,9 @@ void FSANet::preprocess(const cv::Mat &roi) {
     const int nx2 = std::min(nw, nx1 + w);
     const int ny2 = std::min(nh, ny1 + h);
     canva = cv::Mat(nh, nw, CV_8UC3, cv::Scalar(0, 0, 0));
-    roi.copyTo(canva(cv::Rect(nx1, ny1, w, h)));
+    mat.copyTo(canva(cv::Rect(nx1, ny1, w, h)));
 
-  } else { roi.copyTo(canva); }
+  } else { mat.copyTo(canva); }
 
   // 1. resize & normalize
   cv::Mat resize_norm;
@@ -78,7 +78,7 @@ void FSANet::preprocess(const cv::Mat &roi) {
   cv::split(resize_norm, channels);
   std::vector<float> channel_values;
   channel_values.resize(input_height * input_width);
-  for (int i = 0; i < channels.size(); ++i) {
+  for (unsigned int i = 0; i < channels.size(); ++i) {
     channel_values.clear();
     channel_values = channels.at(i).reshape(1, 1);
     std::memcpy(input_tensor_values.data() + i * (input_height * input_width),
@@ -87,17 +87,16 @@ void FSANet::preprocess(const cv::Mat &roi) {
   }
 }
 
-void FSANet::detect(const cv::Mat &roi, std::vector<float> &euler_angles) {
-  // 0. 对roi进行预处理
-  this->preprocess(roi);
+void FSANet::detect(const cv::Mat &mat, std::vector<float> &euler_angles) {
+  this->preprocess(mat);
 
-  // 1. vector转换成tensor
+  // 1. convert to tensor
   ort::Value input_tensor = ort::Value::CreateTensor<float>(
       memory_info, input_tensor_values.data(),
       input_tensor_size, input_node_dims.data(),
       4
   );
-  // 2. 推理
+  // 2. inference angles (1,3)
   auto output_var_tensors = ort_var_session->Run(
       ort::RunOptions{nullptr}, input_node_names.data(),
       &input_tensor, 1, output_node_names.data(), 1
@@ -106,27 +105,12 @@ void FSANet::detect(const cv::Mat &roi, std::vector<float> &euler_angles) {
       ort::RunOptions{nullptr}, input_node_names.data(),
       &input_tensor, 1, output_node_names.data(), 1
   );
-  // 3. 两种模型结果求平均
   const float *var_angles = output_var_tensors.front().GetTensorMutableData<float>();
   const float *conv_angles = output_conv_tensors.front().GetTensorMutableData<float>();
   const float mean_yaw = (var_angles[0] + conv_angles[0]) / 2.0f;
   const float mean_pitch = (var_angles[1] + conv_angles[1]) / 2.0f;
   const float mean_roll = (var_angles[2] + conv_angles[2]) / 2.0f;
 
-#if LITEORT_DEBUG
-  ort::Value &var_angles_tensor = output_var_tensors.at(0);
-  ort::Value &conv_angles_tensor = output_conv_tensors.at(0);
-  const float mean_ref_yaw =
-      (var_angles_tensor.At<float>({0}) + conv_angles_tensor.At<float>({0})) / 2.0f;
-  const float mean_ref_pitch =
-      (var_angles_tensor.At<float>({1}) + conv_angles_tensor.At<float>({1})) / 2.0f;
-  const float mean_ref_roll =
-      (var_angles_tensor.At<float>({2}) + conv_angles_tensor.At<float>({2})) / 2.0f;
-  std::cout << "mean_ref_yaw: " << mean_ref_yaw
-            << " mean_ref_pitch: " << mean_ref_pitch
-            << "mean_ref_roll: " << mean_ref_roll << "\n";
-#endif
-  // 4. 保存结果
   euler_angles.clear();
   euler_angles.push_back(mean_yaw);
   euler_angles.push_back(mean_pitch);
