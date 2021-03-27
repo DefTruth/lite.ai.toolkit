@@ -76,7 +76,7 @@ void UltraFace::preprocess(const cv::Mat &mat) {
   cv::Mat resize_norm;
   cv::resize(canva, canva, cv::Size(input_width, input_height));
   canva.convertTo(resize_norm, CV_32FC3); // first, convert to float32.
-  resize_norm = (resize_norm - mean_val) / scale_val; // then, normalize.
+  resize_norm = (resize_norm - mean_val) * scale_val; // then, normalize.
 
   std::vector<cv::Mat> channels;
   cv::split(resize_norm, channels);
@@ -115,3 +115,29 @@ cv::Mat UltraFace::draw_boxes(const cv::Mat &mat, const std::vector<Box> &_boxes
 void UltraFace::draw_boxes_inplane(cv::Mat &mat_inplane, const std::vector<Box> &_boxes) {
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

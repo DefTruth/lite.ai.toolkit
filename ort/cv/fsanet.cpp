@@ -113,6 +113,19 @@ void FSANet::detect(const cv::Mat &roi, std::vector<float> &euler_angles) {
   const float mean_pitch = (var_angles[1] + conv_angles[1]) / 2.0f;
   const float mean_roll = (var_angles[2] + conv_angles[2]) / 2.0f;
 
+#if LITEORT_DEBUG
+  ort::Value &var_angles_tensor = output_var_tensors.at(0);
+  ort::Value &conv_angles_tensor = output_conv_tensors.at(0);
+  const float mean_ref_yaw =
+      (var_angles_tensor.At<float>({0}) + conv_angles_tensor.At<float>({0})) / 2.0f;
+  const float mean_ref_pitch =
+      (var_angles_tensor.At<float>({1}) + conv_angles_tensor.At<float>({1})) / 2.0f;
+  const float mean_ref_roll =
+      (var_angles_tensor.At<float>({2}) + conv_angles_tensor.At<float>({2})) / 2.0f;
+  std::cout << "mean_ref_yaw: " << mean_ref_yaw
+            << " mean_ref_pitch: " << mean_ref_pitch
+            << "mean_ref_roll: " << mean_ref_roll << "\n";
+#endif
   // 4. 保存结果
   euler_angles.clear();
   euler_angles.push_back(mean_yaw);
