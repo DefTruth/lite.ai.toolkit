@@ -117,15 +117,15 @@ void FSANet::detect(const cv::Mat &mat, std::vector<float> &euler_angles) {
   euler_angles.push_back(mean_roll);
 }
 
-void FSANet::draw_axis_inplane(cv::Mat &mat_inplane, float _yaw, float _pitch, float _roll,
+void FSANet::draw_axis_inplace(cv::Mat &mat_inplace, float _yaw, float _pitch, float _roll,
                                float size, int thickness) {
 
   const float pitch = _pitch * _PI / 180.f;
   const float yaw = -_yaw * _PI / 180.f;
   const float roll = _roll * _PI / 180.f;
 
-  const float height = static_cast<float>(mat_inplane.rows);
-  const float width = static_cast<float>(mat_inplane.cols);
+  const float height = static_cast<float>(mat_inplace.rows);
+  const float width = static_cast<float>(mat_inplace.cols);
 
   const int tdx = static_cast<int>(width / 2.0f);
   const int tdy = static_cast<int>(height / 2.0f);
@@ -146,9 +146,9 @@ void FSANet::draw_axis_inplane(cv::Mat &mat_inplane, float _yaw, float _pitch, f
   const int x3 = static_cast<int>(size * std::sinf(yaw)) + tdx;
   const int y3 = static_cast<int>(-size * std::cosf(yaw) * std::sinf(pitch)) + tdy;
 
-  cv::line(mat_inplane, cv::Point2i(tdx, tdy), cv::Point2i(x1, y1), cv::Scalar(0, 0, 255), thickness);
-  cv::line(mat_inplane, cv::Point2i(tdx, tdy), cv::Point2i(x2, y2), cv::Scalar(0, 255, 0), thickness);
-  cv::line(mat_inplane, cv::Point2i(tdx, tdy), cv::Point2i(x3, y3), cv::Scalar(255, 0, 0), thickness);
+  cv::line(mat_inplace, cv::Point2i(tdx, tdy), cv::Point2i(x1, y1), cv::Scalar(0, 0, 255), thickness);
+  cv::line(mat_inplace, cv::Point2i(tdx, tdy), cv::Point2i(x2, y2), cv::Scalar(0, 255, 0), thickness);
+  cv::line(mat_inplace, cv::Point2i(tdx, tdy), cv::Point2i(x3, y3), cv::Scalar(255, 0, 0), thickness);
 }
 
 cv::Mat FSANet::draw_axis(const cv::Mat &mat, float _yaw, float _pitch, float _roll,

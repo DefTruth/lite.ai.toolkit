@@ -68,7 +68,7 @@ namespace ortcv {
      * reference:
      *   https://github.com/DefTruth/headpose-fsanet-pytorch/blob/master/src/utils.py
      */
-    static void draw_axis_inplane(cv::Mat &mat_inplane, float _yaw, float _pitch, float _roll,
+    static void draw_axis_inplace(cv::Mat &mat_inplace, float _yaw, float _pitch, float _roll,
                                   float size = 50.f, int thickness = 2);
 
     static cv::Mat draw_axis(const cv::Mat &mat, float _yaw, float _pitch, float _roll,

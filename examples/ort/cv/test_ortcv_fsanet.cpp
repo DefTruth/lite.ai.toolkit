@@ -28,7 +28,7 @@ static void test_ortcv_fsanet() {
 
   // 2. 绘制欧拉角
   // cv::Mat out_img = ortcv::FSANet::draw_axis(roi, yaw, pitch, roll);
-  ortcv::FSANet::draw_axis_inplane(roi, yaw, pitch, roll);
+  ortcv::FSANet::draw_axis_inplace(roi, yaw, pitch, roll);
 
   cv::imwrite(save_img_path, roi);
 

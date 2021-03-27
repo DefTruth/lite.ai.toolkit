@@ -219,7 +219,7 @@ cv::Mat UltraFace::draw_boxes(const cv::Mat &mat, const std::vector<UltraBox> &b
   return canva;
 }
 
-void UltraFace::draw_boxes_inplane(cv::Mat &mat_inplane, const std::vector<UltraBox> &boxes) {
+void UltraFace::draw_boxes_inplace(cv::Mat &mat_inplace, const std::vector<UltraBox> &boxes) {
   if (boxes.empty()) return;
 
   for (const auto &box: boxes) {
@@ -229,7 +229,7 @@ void UltraFace::draw_boxes_inplane(cv::Mat &mat_inplane, const std::vector<Ultra
     int y2 = static_cast<int>(box.y2);
     int w = x2 - x1 + 1;
     int h = y2 - y1 + 1;
-    cv::rectangle(mat_inplane, cv::Rect(x1, y1, w, h), cv::Scalar(255, 255, 0), 2);
+    cv::rectangle(mat_inplace, cv::Rect(x1, y1, w, h), cv::Scalar(255, 255, 0), 2);
   }
 }
 

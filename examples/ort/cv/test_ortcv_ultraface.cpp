@@ -20,7 +20,7 @@ static void test_ortcv_ultraface() {
   cv::Mat img_bgr = cv::imread(test_img_path);
   ultraface->detect(img_bgr, detected_boxes);
 
-  ortcv::UltraFace::draw_boxes_inplane(img_bgr, detected_boxes);
+  ortcv::UltraFace::draw_boxes_inplace(img_bgr, detected_boxes);
 
   cv::imwrite(save_img_path, img_bgr);
 

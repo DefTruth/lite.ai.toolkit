@@ -74,7 +74,7 @@ namespace ortcv {
                 float score_threshold = 0.7f, float iou_threshold = 0.3f,
                 int topk = 100);
 
-    static void draw_boxes_inplane(cv::Mat &mat_inplane, const std::vector<UltraBox> &boxes);
+    static void draw_boxes_inplace(cv::Mat &mat_inplace, const std::vector<UltraBox> &boxes);
 
     static cv::Mat draw_boxes(const cv::Mat &mat, const std::vector<UltraBox> &boxes);
   };
