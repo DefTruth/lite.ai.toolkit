@@ -32,6 +32,10 @@ namespace ortcv {
       value_type height() const;
       value_type area() const;
       cv::Rect rect() const;
+      BoundingBox():
+      x1(static_cast<value_type>(0)),y1(static_cast<value_type>(0)),
+      x2(static_cast<value_type>(0)),y2(static_cast<value_type>(0)),
+      score(static_cast<score_type>(0)) {}
     }; // End BoundingBox.
     // specific alias.
     typedef BoundingBox<int, float> Boxi;

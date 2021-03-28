@@ -132,6 +132,55 @@ void ortcv::utils::hard_nms(std::vector<types::Boxf> &input,
       break;
   }
 }
+
+void ortcv::utils::blending_nms(std::vector<types::Boxf> &input,
+                                std::vector<types::Boxf> &output,
+                                float iou_threshold, int topk) {
+  if (input.empty()) return;
+  std::sort(input.begin(), input.end(),
+            [](const types::Boxf &a, const types::Boxf &b) { return a.score > b.score; });
+  const unsigned int box_num = input.size();
+  std::vector<int> merged(box_num, 0);
+
+  int count = 0;
+  for (unsigned int i = 0; i < box_num; ++i) {
+    if (merged[i]) continue;
+    std::vector<types::Boxf> buf;
+
+    buf.push_back(input[i]);
+    merged[i] = 1;
+
+    for (unsigned int j = i + 1; j < box_num; ++j) {
+      if (merged[j]) continue;
+
+      float iou = static_cast<float>(input[i].iou_of(input[j]));
+      if (iou > iou_threshold) {
+        merged[j] = 1;
+        buf.push_back(input[j]);
+      }
+    }
+
+    float total = 0.f;
+    for (unsigned int k = 0; k < buf.size(); ++k) {
+      total += std::expf(buf[k].score);
+    }
+    types::Boxf rects;
+    for (unsigned int l = 0; l < buf.size(); ++l) {
+      float rate = std::expf(buf[l].score) / total;
+      rects.x1 += buf[l].x1 * rate;
+      rects.y1 += buf[l].y1 * rate;
+      rects.x2 += buf[l].x2 * rate;
+      rects.y2 += buf[l].y2 * rate;
+      rects.score += buf[l].score * rate;
+    }
+    output.push_back(rects);
+
+    // keep top k
+    count += 1;
+    if (count >= topk)
+      break;
+  }
+}
 //*************************************** ortcv::utils **********************************************//
 
 

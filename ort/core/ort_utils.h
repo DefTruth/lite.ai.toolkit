@@ -18,6 +18,8 @@ namespace ortcv {
                            float size = 50.f, int thickness = 2);
     void hard_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
                   float iou_threshold, int topk);
+    void blending_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
+                      float iou_threshold, int topk);
 
   } // NAMESPACE UTILS
 } // NAMESPACE ORTCV
