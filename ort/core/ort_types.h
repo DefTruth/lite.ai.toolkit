@@ -45,6 +45,8 @@ namespace ortcv {
       value_type height() const;
       value_type area() const;
       cv::Rect rect() const;
+      cv::Point2i tl() const;
+      cv::Point2i rb() const;
       BoundingBox():
       x1(static_cast<value_type>(0)), y1(static_cast<value_type>(0)),
       x2(static_cast<value_type>(0)), y2(static_cast<value_type>(0)),
@@ -121,6 +123,20 @@ inline cv::Rect ortcv::types::BoundingBox<T1, T2>::rect() const {
   ::__assert_support_type<value_type, score_type>();
   BoundingBox<int> boxi = this->template convert_type<int>();
   return cv::Rect(boxi.x1, boxi.y1, boxi.width(), boxi.height());
+}
+
+template<typename T1, typename T2>
+inline cv::Point2i ortcv::types::BoundingBox<T1, T2>::tl() const {
+  ::__assert_support_type<value_type, score_type>();
+  BoundingBox<int> boxi = this->template convert_type<int>();
+  return cv::Point2i(boxi.x1, boxi.y1);
+}
+
+template<typename T1, typename T2>
+inline cv::Point2i ortcv::types::BoundingBox<T1, T2>::rb() const {
+  ::__assert_support_type<value_type, score_type>();
+  BoundingBox<int> boxi = this->template convert_type<int>();
+  return cv::Point2i(boxi.x2, boxi.y2);
 }
 
 template<typename T1, typename T2>
