@@ -17,9 +17,9 @@ namespace ortcv {
     void draw_axis_inplace(cv::Mat &mat_inplace, const types::EulerAngles &euler_angles,
                            float size = 50.f, int thickness = 2);
     void hard_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
-                  float iou_threshold, int topk);
+                  float iou_threshold, unsigned int topk);
     void blending_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
-                      float iou_threshold, int topk);
+                      float iou_threshold, unsigned int topk);
 
   } // NAMESPACE UTILS
 } // NAMESPACE ORTCV

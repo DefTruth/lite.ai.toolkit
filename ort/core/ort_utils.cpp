@@ -96,16 +96,15 @@ cv::Mat ortcv::utils::draw_boxes(const cv::Mat &mat, const std::vector<types::Bo
 
 // reference: https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB/
 //            blob/master/ncnn/src/UltraFace.cpp
-void ortcv::utils::hard_nms(std::vector<types::Boxf> &input,
-                            std::vector<types::Boxf> &output,
-                            float iou_threshold, int topk) {
+void ortcv::utils::hard_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
+                            float iou_threshold, unsigned int topk) {
   if (input.empty()) return;
   std::sort(input.begin(), input.end(),
             [](const types::Boxf &a, const types::Boxf &b) { return a.score > b.score; });
   const unsigned int box_num = input.size();
   std::vector<int> merged(box_num, 0);
 
-  int count = 0;
+  unsigned int count = 0;
   for (unsigned int i = 0; i < box_num; ++i) {
     if (merged[i]) continue;
     std::vector<types::Boxf> buf;
@@ -133,16 +132,15 @@ void ortcv::utils::hard_nms(std::vector<types::Boxf> &input,
   }
 }
 
-void ortcv::utils::blending_nms(std::vector<types::Boxf> &input,
-                                std::vector<types::Boxf> &output,
-                                float iou_threshold, int topk) {
+void ortcv::utils::blending_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
+                                float iou_threshold, unsigned int topk) {
   if (input.empty()) return;
   std::sort(input.begin(), input.end(),
             [](const types::Boxf &a, const types::Boxf &b) { return a.score > b.score; });
   const unsigned int box_num = input.size();
   std::vector<int> merged(box_num, 0);
 
-  int count = 0;
+  unsigned int count = 0;
   for (unsigned int i = 0; i < box_num; ++i) {
     if (merged[i]) continue;
     std::vector<types::Boxf> buf;

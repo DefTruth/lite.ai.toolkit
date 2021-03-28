@@ -85,8 +85,8 @@ void UltraFace::preprocess(const cv::Mat &mat) {
   }
 }
 
-void UltraFace::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
-                       float score_threshold, float iou_threshold, int topk) {
+void UltraFace::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes, float score_threshold,
+                       float iou_threshold,  unsigned int topk, unsigned int nms_type) {
   if (mat.empty()) return;
   this->preprocess(mat);
   float img_height = static_cast<float>(mat.rows);
@@ -106,8 +106,8 @@ void UltraFace::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_bo
   // 3. rescale & exclude.
   std::vector<types::Boxf> bbox_collection;
   this->generate_bboxes(bbox_collection, output_tensors, score_threshold, img_height, img_width);
-  // 4. hard nms with topk.
-  this->nms(bbox_collection, detected_boxes, iou_threshold, topk);
+  // 4. hard|blend nms with topk.
+  this->nms(bbox_collection, detected_boxes, iou_threshold, topk, nms_type);
 }
 
 void UltraFace::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
@@ -138,10 +138,10 @@ void UltraFace::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
 #endif
 }
 
-void UltraFace::nms(std::vector<types::Boxf> &input,
-                    std::vector<types::Boxf> &output,
-                    float iou_threshold, int topk) {
-  ortcv::utils::hard_nms(input, output, iou_threshold, topk);
+void UltraFace::nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
+                    float iou_threshold, unsigned int topk, unsigned int nms_type) {
+  if (nms_type == NMS::BLEND) ortcv::utils::blending_nms(input, output, iou_threshold, topk);
+  else ortcv::utils::hard_nms(input, output, iou_threshold, topk);
 }
 
 

@@ -32,6 +32,7 @@ namespace ortcv {
 
     static constexpr const float mean_val = 127.0f;
     static constexpr const float scale_val = 1.0 / 128.0f;
+    enum NMS {HARD=0, BLEND=1};
 
   public:
     UltraFace(const std::string &_onnx_path, int _input_height, int _input_width,
@@ -57,14 +58,13 @@ namespace ortcv {
                          float score_threshold, float img_height,
                          float img_width); // rescale & exclude
 
-    void nms(std::vector<types::Boxf> &input,
-             std::vector<types::Boxf> &output,
-             float iou_threshold, int topk);
+    void nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
+             float iou_threshold, unsigned int topk, unsigned int nms_type);
 
   public:
     void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
                 float score_threshold = 0.7f, float iou_threshold = 0.3f,
-                int topk = 100);
+                unsigned int topk = 100, unsigned int nms_type = 0);
   };
 }
 
