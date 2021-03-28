@@ -8,6 +8,7 @@
 #include <cmath>
 #include <vector>
 #include <cassert>
+#include <string>
 #include <iostream>
 #include <algorithm>
 #include <unordered_map>
@@ -15,12 +16,15 @@
 #include "opencv2/opencv.hpp"
 #include "onnxruntime/core/session/onnxruntime_cxx_api.h"
 
+#include "ort_types.h"
+
 #define LITEORT_DEBUG 1
 
 namespace ort = Ort;
 // namespace cv2 = cv;
 
 namespace ortcv {
+
   class FSANet;
   class PFLD;
   class SSRNet;
@@ -50,7 +54,6 @@ namespace ortnlp {
 namespace ortasr {
 
 }
-
 
 
 #endif //LITEHUB_ORT_ORT_CORE_H

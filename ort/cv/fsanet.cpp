@@ -87,7 +87,7 @@ void FSANet::preprocess(const cv::Mat &mat) {
   }
 }
 
-void FSANet::detect(const cv::Mat &mat, std::vector<float> &euler_angles) {
+void FSANet::detect(const cv::Mat &mat, types::EulerAngles &euler_angles) {
   this->preprocess(mat);
 
   // 1. convert to tensor
@@ -111,82 +111,9 @@ void FSANet::detect(const cv::Mat &mat, std::vector<float> &euler_angles) {
   const float mean_pitch = (var_angles[1] + conv_angles[1]) / 2.0f;
   const float mean_roll = (var_angles[2] + conv_angles[2]) / 2.0f;
 
-  euler_angles.clear();
-  euler_angles.push_back(mean_yaw);
-  euler_angles.push_back(mean_pitch);
-  euler_angles.push_back(mean_roll);
-}
-
-void FSANet::draw_axis_inplace(cv::Mat &mat_inplace, float _yaw, float _pitch, float _roll,
-                               float size, int thickness) {
-
-  const float pitch = _pitch * _PI / 180.f;
-  const float yaw = -_yaw * _PI / 180.f;
-  const float roll = _roll * _PI / 180.f;
-
-  const float height = static_cast<float>(mat_inplace.rows);
-  const float width = static_cast<float>(mat_inplace.cols);
-
-  const int tdx = static_cast<int>(width / 2.0f);
-  const int tdy = static_cast<int>(height / 2.0f);
-
-  // X-Axis pointing to right. drawn in red
-  const int x1 = static_cast<int>(size * std::cosf(yaw) * std::cosf(roll)) + tdx;
-  const int y1 = static_cast<int>(
-                     size * (std::cosf(pitch) * std::sinf(roll)
-                             + std::cosf(roll) * std::sinf(pitch) * std::sinf(yaw))
-                 ) + tdy;
-  // Y-Axis | drawn in green
-  const int x2 = static_cast<int>(-size * std::cosf(yaw) * std::sinf(roll)) + tdx;
-  const int y2 = static_cast<int>(
-                     size * (std::cosf(pitch) * std::cosf(roll)
-                             - std::sinf(pitch) * std::sinf(yaw) * std::sinf(roll))
-                 ) + tdy;
-  // Z-Axis (out of the screen) drawn in blue
-  const int x3 = static_cast<int>(size * std::sinf(yaw)) + tdx;
-  const int y3 = static_cast<int>(-size * std::cosf(yaw) * std::sinf(pitch)) + tdy;
-
-  cv::line(mat_inplace, cv::Point2i(tdx, tdy), cv::Point2i(x1, y1), cv::Scalar(0, 0, 255), thickness);
-  cv::line(mat_inplace, cv::Point2i(tdx, tdy), cv::Point2i(x2, y2), cv::Scalar(0, 255, 0), thickness);
-  cv::line(mat_inplace, cv::Point2i(tdx, tdy), cv::Point2i(x3, y3), cv::Scalar(255, 0, 0), thickness);
-}
-
-cv::Mat FSANet::draw_axis(const cv::Mat &mat, float _yaw, float _pitch, float _roll,
-                          float size, int thickness) {
-
-  cv::Mat mat_copy = mat.clone();
-
-  const float pitch = _pitch * _PI / 180.f;
-  const float yaw = -_yaw * _PI / 180.f;
-  const float roll = _roll * _PI / 180.f;
-
-  const float height = static_cast<float>(mat_copy.rows);
-  const float width = static_cast<float>(mat_copy.cols);
-
-  const int tdx = static_cast<int>(width / 2.0f);
-  const int tdy = static_cast<int>(height / 2.0f);
-
-  // X-Axis pointing to right. drawn in red
-  const int x1 = static_cast<int>(size * std::cosf(yaw) * std::cosf(roll)) + tdx;
-  const int y1 = static_cast<int>(
-                     size * (std::cosf(pitch) * std::sinf(roll)
-                             + std::cosf(roll) * std::sinf(pitch) * std::sinf(yaw))
-                 ) + tdy;
-  // Y-Axis | drawn in green
-  const int x2 = static_cast<int>(-size * std::cosf(yaw) * std::sinf(roll)) + tdx;
-  const int y2 = static_cast<int>(
-                     size * (std::cosf(pitch) * std::cosf(roll)
-                             - std::sinf(pitch) * std::sinf(yaw) * std::sinf(roll))
-                 ) + tdy;
-  // Z-Axis (out of the screen) drawn in blue
-  const int x3 = static_cast<int>(size * std::sinf(yaw)) + tdx;
-  const int y3 = static_cast<int>(-size * std::cosf(yaw) * std::sinf(pitch)) + tdy;
-
-  cv::line(mat_copy, cv::Point2i(tdx, tdy), cv::Point2i(x1, y1), cv::Scalar(0, 0, 255), thickness);
-  cv::line(mat_copy, cv::Point2i(tdx, tdy), cv::Point2i(x2, y2), cv::Scalar(0, 255, 0), thickness);
-  cv::line(mat_copy, cv::Point2i(tdx, tdy), cv::Point2i(x3, y3), cv::Scalar(255, 0, 0), thickness);
-
-  return mat_copy;
+  euler_angles.yaw = mean_yaw;
+  euler_angles.pitch = mean_pitch;
+  euler_angles.roll = mean_roll;
 }
 
 

@@ -32,7 +32,6 @@ namespace ortcv {
     static constexpr const int input_width = 64;
     static constexpr const int input_height = 64;
     static constexpr const bool use_padding = true;
-    static constexpr const float _PI = 3.1415926f;
 
   public:
     FSANet(const std::string &_var_onnx_path, const std::string &_conv_onnx_path,
@@ -60,20 +59,7 @@ namespace ortcv {
      * @param roi cv::Mat contains a single face.
      * @param euler_angles output (yaw,pitch,row).
      */
-    void detect(const cv::Mat &mat, std::vector<float> &euler_angles);
-
-  public:
-
-    /**
-     * reference:
-     *   https://github.com/DefTruth/headpose-fsanet-pytorch/blob/master/src/utils.py
-     */
-    static void draw_axis_inplace(cv::Mat &mat_inplace, float _yaw, float _pitch, float _roll,
-                                  float size = 50.f, int thickness = 2);
-
-    static cv::Mat draw_axis(const cv::Mat &mat, float _yaw, float _pitch, float _roll,
-                             float size = 50.f, int thickness = 2);
-
+    void detect(const cv::Mat &mat, types::EulerAngles &euler_angles);
   };
 }
 

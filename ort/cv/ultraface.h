@@ -9,14 +9,6 @@
 
 namespace ortcv {
 
-  typedef struct {
-    float x1;
-    float y1;
-    float x2;
-    float y2;
-    float score;
-  } UltraBox;
-
   class UltraFace {
   private:
     ort::Env ort_env;
@@ -60,23 +52,19 @@ namespace ortcv {
   private:
     void preprocess(const cv::Mat &mat); // padding & resize & normalize.
 
-    void generate_bboxes(std::vector<UltraBox> &bbox_collection,
+    void generate_bboxes(std::vector<types::Boxf> &bbox_collection,
                          std::vector<ort::Value> &output_tensors,
                          float score_threshold, float img_height,
                          float img_width); // rescale & exclude
 
-    void hard_nms(std::vector<UltraBox> &input,
-                  std::vector<UltraBox> &output,
-                  float iou_threshold, int topk);
+    void nms(std::vector<types::Boxf> &input,
+             std::vector<types::Boxf> &output,
+             float iou_threshold, int topk);
 
   public:
-    void detect(const cv::Mat &mat, std::vector<UltraBox> &detected_boxes,
+    void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
                 float score_threshold = 0.7f, float iou_threshold = 0.3f,
                 int topk = 100);
-
-    static void draw_boxes_inplace(cv::Mat &mat_inplace, const std::vector<UltraBox> &boxes);
-
-    static cv::Mat draw_boxes(const cv::Mat &mat, const std::vector<UltraBox> &boxes);
   };
 }
 

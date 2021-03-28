@@ -6,7 +6,7 @@
 #include <vector>
 
 #include "ort/cv/fsanet.h"
-
+#include "ort/core/ort_utils.h"
 
 static void test_ortcv_fsanet() {
 
@@ -17,21 +17,19 @@ static void test_ortcv_fsanet() {
 
   ortcv::FSANet *fsanet = new ortcv::FSANet(var_onnx_path, conv_onnx_path);
   cv::Mat roi = cv::imread(test_img_path);
-  std::vector<float> euler_angles;
+  ortcv::types::EulerAngles euler_angles;
 
   // 1. detect euler angles.
   fsanet->detect(roi, euler_angles);
 
-  const float yaw = euler_angles.at(0);
-  const float pitch = euler_angles.at(1);
-  const float roll = euler_angles.at(2);
-
   // 2. draw euler angles.
-  ortcv::FSANet::draw_axis_inplace(roi, yaw, pitch, roll);
+  ortcv::utils::draw_axis_inplace(roi, euler_angles);
 
   cv::imwrite(save_img_path, roi);
 
-  std::cout << "yaw: " << yaw << " pitch: " << pitch << " roll: " << roll << std::endl;
+  std::cout << "yaw: " << euler_angles.yaw
+            << " pitch: " << euler_angles.pitch
+            << " roll: " << euler_angles.roll << std::endl;
 
   delete fsanet;
 }

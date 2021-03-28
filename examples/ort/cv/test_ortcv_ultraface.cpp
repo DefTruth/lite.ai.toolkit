@@ -6,6 +6,7 @@
 #include <vector>
 
 #include "ort/cv/ultraface.h"
+#include "ort/core/ort_utils.h"
 
 
 static void test_ortcv_ultraface() {
@@ -16,11 +17,11 @@ static void test_ortcv_ultraface() {
 
   ortcv::UltraFace *ultraface = new ortcv::UltraFace(onnx_path, 480, 640, 1);
 
-  std::vector<ortcv::UltraBox> detected_boxes;
+  std::vector<ortcv::types::Boxf> detected_boxes;
   cv::Mat img_bgr = cv::imread(test_img_path);
   ultraface->detect(img_bgr, detected_boxes);
 
-  ortcv::UltraFace::draw_boxes_inplace(img_bgr, detected_boxes);
+  ortcv::utils::draw_boxes_inplace(img_bgr, detected_boxes);
 
   cv::imwrite(save_img_path, img_bgr);
 
