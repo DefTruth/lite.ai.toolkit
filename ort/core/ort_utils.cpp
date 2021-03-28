@@ -116,7 +116,8 @@ void ortcv::utils::hard_nms(std::vector<types::Boxf> &input,
     for (unsigned int j = i + 1; j < box_num; ++j) {
       if (merged[j]) continue;
 
-      float iou = input[i].iou_of(input[j]);
+      float iou = static_cast<float>(input[i].iou_of(input[j]));
+
       if (iou > iou_threshold) {
         merged[j] = 1;
         buf.push_back(input[j]);
