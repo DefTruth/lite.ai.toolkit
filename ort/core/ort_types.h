@@ -13,7 +13,7 @@
 
 namespace ortcv {
   namespace types {
-    // 1. bounding box.
+    // bounding box.
     template<typename T1 = float, typename T2 = float>
     struct BoundingBox {
       typedef T1 value_type;
@@ -23,6 +23,8 @@ namespace ortcv {
       value_type x2;
       value_type y2;
       score_type score;
+      char *label_text;
+      unsigned int label;
       // convert type.
       template<typename O1, typename O2 = score_type>
       BoundingBox<O1, O2> convert_type() const;
@@ -33,17 +35,23 @@ namespace ortcv {
       value_type area() const;
       cv::Rect rect() const;
       BoundingBox():
-      x1(static_cast<value_type>(0)),y1(static_cast<value_type>(0)),
-      x2(static_cast<value_type>(0)),y2(static_cast<value_type>(0)),
-      score(static_cast<score_type>(0)) {}
+      x1(static_cast<value_type>(0)), y1(static_cast<value_type>(0)),
+      x2(static_cast<value_type>(0)), y2(static_cast<value_type>(0)),
+      score(static_cast<score_type>(0)), label_text(nullptr), label(0)
+      {}
     }; // End BoundingBox.
     // specific alias.
     typedef BoundingBox<int, float> Boxi;
     typedef BoundingBox<float, float> Boxf;
     typedef BoundingBox<double, double> Boxd;
-
-    // 2. euler angles.
     typedef struct { float yaw; float pitch; float roll;} EulerAngles;
+    typedef std::vector<cv::Point2i> Landmarks;
+    typedef std::vector<cv::Point2f> Landmarksf;
+    typedef struct { float happy; float sad; float netural; float angry;
+                     float surprise; float disgust; float fear;} Emotions;
+    typedef struct {float age;} Age;
+    typedef struct {float score; unsigned int label;} Gender;
+    typedef struct {char *text; int *codecs;} OCRContent;
   } // NAMESPACE TYPES
 } // NAMESPACE ORTCV
 
@@ -61,7 +69,7 @@ namespace ortasr {
 
 /* implementation for 'BoundingBox'. */
 template<typename _T1 = float, typename _T2 = float>
-static inline void assert_support_type() {
+static inline void __assert_support_type() {
   static_assert(std::is_pod<_T1>::value && std::is_pod<_T2>::value
                 && std::is_floating_point<_T2>::value
                 && (std::is_integral<_T1>::value || std::is_floating_point<_T1>::value),
@@ -73,8 +81,8 @@ template<typename O1, typename O2>
 inline ortcv::types::BoundingBox<O1, O2>
 ortcv::types::BoundingBox<T1, T2>::convert_type() const {
   typedef O1 other_value_type; typedef O2 other_score_type;
-  assert_support_type<other_value_type, other_score_type>();
-  assert_support_type<value_type, score_type>();
+  __assert_support_type<other_value_type, other_score_type>();
+  __assert_support_type<value_type, score_type>();
   BoundingBox<other_value_type, other_score_type> other;
   other.x1 = static_cast<other_value_type>(x1);
   other.y1 = static_cast<other_value_type>(y1);
@@ -88,8 +96,8 @@ template<typename T1, typename T2>
 template<typename O1, typename O2>
 inline typename ortcv::types::BoundingBox<T1, T2>::value_type
 ortcv::types::BoundingBox<T1, T2>::iou_of(const BoundingBox<O1, O2> &other) const {
-  BoundingBox<value_type, score_type> tbox
-    = other.template convert_type<value_type, score_type>();
+  BoundingBox<value_type, score_type> tbox = \
+    other.template convert_type<value_type, score_type>();
   value_type inner_x1 = x1 > tbox.x1 ? x1: tbox.x1;
   value_type inner_y1 = y1 > tbox.y1 ? y1: tbox.y1;
   value_type inner_x2 = x2 < tbox.x2 ? x2: tbox.x2;
@@ -107,7 +115,7 @@ ortcv::types::BoundingBox<T1, T2>::iou_of(const BoundingBox<O1, O2> &other) cons
 
 template<typename T1, typename T2>
 inline cv::Rect ortcv::types::BoundingBox<T1, T2>::rect() const {
-  assert_support_type<value_type, score_type>();
+  __assert_support_type<value_type, score_type>();
   BoundingBox<int> boxi = this->template convert_type<int>();
   return cv::Rect(boxi.x1, boxi.y1, boxi.width(), boxi.height());
 }
@@ -115,16 +123,16 @@ inline cv::Rect ortcv::types::BoundingBox<T1, T2>::rect() const {
 template<typename T1, typename T2>
 inline typename ortcv::types::BoundingBox<T1, T2>::value_type
 ortcv::types::BoundingBox<T1, T2>::width() const
-{assert_support_type<value_type, score_type>(); return (x2 - x1 + static_cast<value_type>(1)); }
+{__assert_support_type<value_type, score_type>(); return (x2 - x1 + static_cast<value_type>(1)); }
 
 template<typename T1, typename T2>
 inline typename ortcv::types::BoundingBox<T1, T2>::value_type
 ortcv::types::BoundingBox<T1, T2>::height() const
-{assert_support_type<value_type, score_type>(); return (y2 - y1 + static_cast<value_type>(1)); }
+{__assert_support_type<value_type, score_type>(); return (y2 - y1 + static_cast<value_type>(1)); }
 
 template<typename T1, typename T2>
 inline typename ortcv::types::BoundingBox<T1, T2>::value_type
 ortcv::types::BoundingBox<T1, T2>::area() const
-{assert_support_type<value_type, score_type>(); return std::abs<value_type>(width() * height()); }
+{__assert_support_type<value_type, score_type>(); return std::abs<value_type>(width() * height()); }
 
 #endif //LITEHUB_CORE_ORT_TYPES_H
