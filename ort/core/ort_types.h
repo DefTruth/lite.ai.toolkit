@@ -111,16 +111,16 @@ inline cv::Rect ortcv::types::BoundingBox<T1, T2>::rect() const {
 template<typename T1, typename T2>
 inline typename ortcv::types::BoundingBox<T1, T2>::value_type
 ortcv::types::BoundingBox<T1, T2>::width() const
-{assert_support_type<value_type, score_type>(); return (x2 - x1 + static_cast<T1>(1)); }
+{assert_support_type<value_type, score_type>(); return (x2 - x1 + static_cast<value_type>(1)); }
 
 template<typename T1, typename T2>
 inline typename ortcv::types::BoundingBox<T1, T2>::value_type
 ortcv::types::BoundingBox<T1, T2>::height() const
-{assert_support_type<value_type, score_type>(); return (y2 - y1 + static_cast<T1>(1)); }
+{assert_support_type<value_type, score_type>(); return (y2 - y1 + static_cast<value_type>(1)); }
 
 template<typename T1, typename T2>
 inline typename ortcv::types::BoundingBox<T1, T2>::value_type
 ortcv::types::BoundingBox<T1, T2>::area() const
-{assert_support_type<value_type, score_type>(); return std::abs<T1>(width() * height()); }
+{assert_support_type<value_type, score_type>(); return std::abs<value_type>(width() * height()); }
 
 #endif //LITEHUB_CORE_ORT_TYPES_H
