@@ -23,7 +23,7 @@ namespace ortcv {
       T2 score;
       // convert type.
       template<typename O1, typename O2 = T2>
-      BoundingBox<O1, O2> convert() const;
+      BoundingBox<O1, O2> convert_type() const;
       template<typename O1, typename O2 = T2>
       T1 iou_of(const BoundingBox<O1, O2> &other) const;
       T1 width() const;
@@ -32,9 +32,9 @@ namespace ortcv {
       cv::Rect rect() const;
     }; // End BoundingBox.
     // specific alias.
-    typedef BoundingBox<int> Boxi;
-    typedef BoundingBox<float> Boxf;
-    typedef BoundingBox<double> Boxd;
+    typedef BoundingBox<int, float> Boxi;
+    typedef BoundingBox<float, float> Boxf;
+    typedef BoundingBox<double, double> Boxd;
     // 2. euler angles.
     typedef struct { float yaw; float pitch; float roll;} EulerAngles;
   } // NAMESPACE TYPES
@@ -54,14 +54,14 @@ namespace ortasr {
 
 /* implementation for 'BoundingBox'. */
 template<typename TT1, typename TT2 = float>
-static void assert_support_type() {
+static inline void assert_support_type() {
   static_assert(std::is_pod<TT1>::value && std::is_pod<TT2>::value
                 && std::is_floating_point<TT2>::value, "not support type.");
 } // only support for some specific types. check at complie-time.
 
 template<typename T1, typename T2>
 template<typename O1, typename O2>
-ortcv::types::BoundingBox<O1, O2> ortcv::types::BoundingBox<T1, T2>::convert() const {
+inline ortcv::types::BoundingBox<O1, O2> ortcv::types::BoundingBox<T1, T2>::convert_type() const {
   assert_support_type<T1, T2>();
   assert_support_type<O1, O2>();
   BoundingBox<O1, O2> other;
@@ -75,15 +75,15 @@ ortcv::types::BoundingBox<O1, O2> ortcv::types::BoundingBox<T1, T2>::convert() c
 
 template<typename T1, typename T2>
 template<typename O1, typename O2>
-T1 ortcv::types::BoundingBox<T1, T2>::iou_of(const BoundingBox<O1, O2> &other) const {
-  BoundingBox<T1, T2> tbox = other.template convert<T1, T2>();
+inline T1 ortcv::types::BoundingBox<T1, T2>::iou_of(const BoundingBox<O1, O2> &other) const {
+  BoundingBox<T1, T2> tbox = other.template convert_type<T1, T2>();
   T1 inner_x1 = x1 > tbox.x1 ? x1: tbox.x1;
   T1 inner_y1 = y1 > tbox.y1 ? y1: tbox.y1;
   T1 inner_x2 = x2 < tbox.x2 ? x2: tbox.x2;
   T1 inner_y2 = y2 < tbox.y2 ? y2: tbox.y2;
   T1 inner_h = inner_y2 - inner_y1 + static_cast<T1>(1.0f);
   T1 inner_w = inner_x2 - inner_x1 + static_cast<T1>(1.0f);
-  if (inner_h <= 0.f || inner_w <= 0.f)
+  if (inner_h <= static_cast<T1>(0.f) || inner_w <= static_cast<T1>(0.f))
     return std::numeric_limits<T1>::min();
   T1 inner_area = inner_h * inner_w;
   T1 w1 = tbox.x2 - x1 + static_cast<T1>(1.0f);
@@ -93,22 +93,22 @@ T1 ortcv::types::BoundingBox<T1, T2>::iou_of(const BoundingBox<O1, O2> &other) c
 }
 
 template<typename T1, typename T2>
-cv::Rect ortcv::types::BoundingBox<T1, T2>::rect() const {
+inline cv::Rect ortcv::types::BoundingBox<T1, T2>::rect() const {
   assert_support_type<T1, T2>();
-  BoundingBox<int> boxi = this->template convert<int>();
+  BoundingBox<int> boxi = this->template convert_type<int>();
   return cv::Rect(boxi.x1, boxi.y1, boxi.width(), boxi.height());
 }
 
 template<typename T1, typename T2>
-T1 ortcv::types::BoundingBox<T1, T2>::width() const
+inline T1 ortcv::types::BoundingBox<T1, T2>::width() const
 {assert_support_type<T1, T2>(); return (x2 - x1 + static_cast<T1>(1)); }
 
 template<typename T1, typename T2>
-T1 ortcv::types::BoundingBox<T1, T2>::height() const
+inline T1 ortcv::types::BoundingBox<T1, T2>::height() const
 {assert_support_type<T1, T2>(); return (y2 - y1 + static_cast<T1>(1)); }
 
 template<typename T1, typename T2>
-T1 ortcv::types::BoundingBox<T1, T2>::area() const
-{return std::abs<T1>(width() * height());}
+inline T1 ortcv::types::BoundingBox<T1, T2>::area() const
+{assert_support_type<T1, T2>(); return std::abs<T1>(width() * height()); }
 
 #endif //LITEHUB_CORE_ORT_TYPES_H
