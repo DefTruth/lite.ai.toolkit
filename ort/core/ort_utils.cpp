@@ -188,7 +188,7 @@ ort::Value ortcv::utils::transform::mat3f_to_tensor(const cv::Mat &mat3f,
 throw(std::runtime_error) {
   cv::Mat mat3f_ref;
   if (mat3f.type() != CV_32FC3) mat3f.convertTo(mat3f_ref, CV_32FC3);
-  else mat3f_ref = mat3f; // reference only.
+  else mat3f_ref = mat3f; // reference only. zero-time cost.
 
   const unsigned int rows = mat3f_ref.rows;
   const unsigned int cols = mat3f_ref.cols;
@@ -211,7 +211,7 @@ throw(std::runtime_error) {
     cv::Mat resize_mat_ref;
     if (target_height != rows || target_width != cols)
       cv::resize(mat3f_ref, resize_mat_ref, cv::Size(target_width, target_height));
-    else resize_mat_ref = mat3f_ref; // reference only.
+    else resize_mat_ref = mat3f_ref; // reference only. zero-time cost.
 
     std::vector<cv::Mat> mat_channels;
     cv::split(resize_mat_ref, mat_channels);
@@ -241,7 +241,7 @@ throw(std::runtime_error) {
   cv::Mat resize_mat_ref;
   if (target_height != rows || target_width != cols)
     cv::resize(mat3f_ref, resize_mat_ref, cv::Size(target_width, target_height));
-  else resize_mat_ref = mat3f_ref; // reference only.
+  else resize_mat_ref = mat3f_ref; // reference only. zero-time cost.
 
   tensor_value_handler.assign(resize_mat_ref.data, resize_mat_ref.data + target_tensor_size);
 
