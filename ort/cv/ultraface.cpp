@@ -7,11 +7,8 @@
 
 using ortcv::UltraFace;
 
-UltraFace::UltraFace(const std::string &_onnx_path, int _input_height, int _input_width,
-                     unsigned int _num_threads) : onnx_path(_onnx_path.data()),
-                                                  input_height(_input_height),
-                                                  input_width(_input_width),
-                                                  num_threads(_num_threads) {
+UltraFace::UltraFace(const std::string &_onnx_path, unsigned int _num_threads) :
+    onnx_path(_onnx_path.data()), num_threads(_num_threads) {
   ort_env = ort::Env(ORT_LOGGING_LEVEL_ERROR, "ultraface-onnx");
   // 0. session options
   ort::SessionOptions session_options;
@@ -33,7 +30,7 @@ UltraFace::UltraFace(const std::string &_onnx_path, int _input_height, int _inpu
   input_node_dims = tensor_info.GetShape();
   for (unsigned int i = 0; i < input_node_dims.size(); ++i)
     input_tensor_size *= input_node_dims.at(i);
-  input_tensor_values.resize(input_tensor_size);
+  input_values_handler.resize(input_tensor_size);
   // 4. output names & output dimms
   num_outputs = ort_session->GetOutputCount();
   output_node_names.resize(num_outputs);
@@ -63,41 +60,29 @@ UltraFace::~UltraFace() {
   ort_session = nullptr;
 }
 
-void UltraFace::preprocess(const cv::Mat &mat) {
+ort::Value UltraFace::transform(const cv::Mat &mat) {
+
   cv::Mat canva = mat.clone();
   cv::cvtColor(canva, canva, cv::COLOR_BGR2RGB);
+  cv::resize(canva, canva, cv::Size(input_node_dims.at(3),
+                                    input_node_dims.at(2)));
+  // (640,480) | (320,240) | (w,h) 1xCXHXW
 
-  cv::Mat resize_norm;
-  cv::resize(canva, canva, cv::Size(input_width, input_height)); // (640,480) | (320,240)
-  canva.convertTo(resize_norm, CV_32FC3); // Note !!! should convert to float32 firstly.
-  resize_norm = (resize_norm - mean_val) * scale_val; // then, normalize. MatExpr WARN:0
-
-  std::vector<cv::Mat> channels;
-  cv::split(resize_norm, channels);
-  std::vector<float> channel_values;
-  channel_values.resize(input_height * input_width);
-  for (int i = 0; i < channels.size(); ++i) {
-    channel_values.clear();
-    channel_values = channels.at(i).reshape(1, 1); // flatten
-    std::memcpy(input_tensor_values.data() + i * (input_height * input_width),
-                channel_values.data(),
-                input_height * input_width * sizeof(float)); // CXHXW
-  }
+  ortcv::utils::transform::normalize_inplace(canva, mean_val, scale_val); // flaot32
+  return ortcv::utils::transform::mat3f_to_tensor(
+      canva, input_node_dims, memory_info_handler,
+      input_values_handler, ortcv::utils::transform::CHW);
 }
 
 void UltraFace::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes, float score_threshold,
-                       float iou_threshold,  unsigned int topk, unsigned int nms_type) {
+                       float iou_threshold, unsigned int topk, unsigned int nms_type) {
   if (mat.empty()) return;
-  this->preprocess(mat);
+  // this->transform(mat);
   float img_height = static_cast<float>(mat.rows);
   float img_width = static_cast<float>(mat.cols);
 
   // 1. make input tensor
-  ort::Value input_tensor = ort::Value::CreateTensor<float>(
-      memory_info, input_tensor_values.data(),
-      input_tensor_size, input_node_dims.data(),
-      4
-  );
+  ort::Value input_tensor = this->transform(mat);
   // 2. inference scores & boxes.
   auto output_tensors = ort_session->Run(
       ort::RunOptions{nullptr}, input_node_names.data(),
@@ -114,6 +99,7 @@ void UltraFace::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
                                 std::vector<ort::Value> &output_tensors,
                                 float score_threshold, float img_height,
                                 float img_width) {
+
   ort::Value &scores = output_tensors.at(0);
   ort::Value &boxes = output_tensors.at(1);
   auto scores_dims = output_node_dims.at(0); // (1,n,2)

@@ -18,8 +18,8 @@ namespace ortcv {
     std::vector<const char *> input_node_names;
     std::vector<int64_t> input_node_dims;
     std::size_t input_tensor_size = 1;
-    std::vector<float> input_tensor_values;
-    ort::MemoryInfo memory_info = ort::MemoryInfo::CreateCpu(
+    std::vector<float> input_values_handler;
+    ort::MemoryInfo memory_info_handler = ort::MemoryInfo::CreateCpu(
         OrtArenaAllocator, OrtMemTypeDefault);  // mermory context
     std::vector<const char *> output_node_names = {"output"};
     const char *var_onnx_path = nullptr;
@@ -31,7 +31,6 @@ namespace ortcv {
     static constexpr const float pad = 0.3f;
     static constexpr const int input_width = 64;
     static constexpr const int input_height = 64;
-    static constexpr const bool use_padding = true;
 
   public:
     FSANet(const std::string &_var_onnx_path, const std::string &_conv_onnx_path,
@@ -50,7 +49,7 @@ namespace ortcv {
     FSANet &operator=(const FSANet &&) = delete;
 
   private:
-    void preprocess(const cv::Mat &mat); //  padding & resize & normalize.
+    ort::Value transform(const cv::Mat &mat); //  padding & resize & normalize.
 
   public:
 

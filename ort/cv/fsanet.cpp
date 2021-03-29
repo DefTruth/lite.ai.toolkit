@@ -3,6 +3,7 @@
 //
 
 #include "fsanet.h"
+#include "ort/core/ort_utils.h"
 
 using ortcv::FSANet;
 
@@ -31,7 +32,7 @@ FSANet::FSANet(const std::string &_var_onnx_path, const std::string &_conv_onnx_
   input_node_dims = tensor_info.GetShape();
   for (unsigned int i = 0; i < input_node_dims.size(); ++i)
     input_tensor_size *= input_node_dims.at(i);
-  input_tensor_values.resize(input_tensor_size);
+  input_values_handler.resize(input_tensor_size);
 #if LITEORT_DEBUG
   for (unsigned int i = 0; i < input_node_dims.size(); ++i)
     std::cout << "input_node_dims: " << input_node_dims.at(i) << "\n";
@@ -47,64 +48,44 @@ FSANet::~FSANet() {
   ort_conv_session = nullptr;
 }
 
-void FSANet::preprocess(const cv::Mat &mat) {
+ort::Value FSANet::transform(const cv::Mat &mat) {
   cv::Mat canva;
   // 0. padding
-  if (use_padding) {
-    const int h = mat.rows;
-    const int w = mat.cols;
-    const int nh = static_cast<int>(
-        (static_cast<float>(h) + pad * static_cast<float>(h)));
-    const int nw = static_cast<int>(
-        (static_cast<float>(w) + pad * static_cast<float>(w)));
+  const int h = mat.rows;
+  const int w = mat.cols;
+  const int nh = static_cast<int>((static_cast<float>(h) + pad * static_cast<float>(h)));
+  const int nw = static_cast<int>((static_cast<float>(w) + pad * static_cast<float>(w)));
 
-    const int nx1 = std::max(0, static_cast<int>((nw - w) / 2));
-    const int ny1 = std::max(0, static_cast<int>((nh - h) / 2));
-    const int nx2 = std::min(nw, nx1 + w);
-    const int ny2 = std::min(nh, ny1 + h);
-    canva = cv::Mat(nh, nw, CV_8UC3, cv::Scalar(0, 0, 0));
-    mat.copyTo(canva(cv::Rect(nx1, ny1, w, h)));
+  const int nx1 = std::max(0, static_cast<int>((nw - w) / 2));
+  const int ny1 = std::max(0, static_cast<int>((nh - h) / 2));
+  const int nx2 = std::min(nw, nx1 + w);
+  const int ny2 = std::min(nh, ny1 + h);
 
-  } else { mat.copyTo(canva); }
+  canva = cv::Mat(nh, nw, CV_8UC3, cv::Scalar(0, 0, 0));
+  mat.copyTo(canva(cv::Rect(nx1, ny1, w, h)));
 
-  // 1. resize & normalize
-  cv::Mat resize_norm;
   cv::resize(canva, canva, cv::Size(input_width, input_height));
-  // reference: https://blog.csdn.net/qq_38701868/article/details/89258565
-  canva.convertTo(resize_norm, CV_32FC3, 1.f / 127.5f, -1.0f);
+  ortcv::utils::transform::normalize_inplace(canva, 127.5, 1.f / 127.5f);
 
-  // 2. convert to tensor.
-  std::vector<cv::Mat> channels;
-  cv::split(resize_norm, channels);
-  std::vector<float> channel_values;
-  channel_values.resize(input_height * input_width);
-  for (unsigned int i = 0; i < channels.size(); ++i) {
-    channel_values.clear();
-    channel_values = channels.at(i).reshape(1, 1);
-    std::memcpy(input_tensor_values.data() + i * (input_height * input_width),
-                channel_values.data(),
-                input_height * input_width * sizeof(float)); // CXHXW
-  }
+  return ortcv::utils::transform::mat3f_to_tensor(
+      canva, input_node_dims, memory_info_handler,
+      input_values_handler, ortcv::utils::transform::CHW);
 }
 
 void FSANet::detect(const cv::Mat &mat, types::EulerAngles &euler_angles) {
-  this->preprocess(mat);
 
-  // 1. convert to tensor
-  ort::Value input_tensor = ort::Value::CreateTensor<float>(
-      memory_info, input_tensor_values.data(),
-      input_tensor_size, input_node_dims.data(),
-      4
-  );
-  // 2. inference angles (1,3)
+  ort::Value input_tensor = this->transform(mat);
+
   auto output_var_tensors = ort_var_session->Run(
       ort::RunOptions{nullptr}, input_node_names.data(),
       &input_tensor, 1, output_node_names.data(), 1
   );
+
   auto output_conv_tensors = ort_conv_session->Run(
       ort::RunOptions{nullptr}, input_node_names.data(),
       &input_tensor, 1, output_node_names.data(), 1
   );
+
   const float *var_angles = output_var_tensors.front().GetTensorMutableData<float>();
   const float *conv_angles = output_conv_tensors.front().GetTensorMutableData<float>();
   const float mean_yaw = (var_angles[0] + conv_angles[0]) / 2.0f;

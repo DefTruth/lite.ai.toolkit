@@ -179,6 +179,122 @@ void ortcv::utils::blending_nms(std::vector<types::Boxf> &input, std::vector<typ
       break;
   }
 }
+
+ort::Value ortcv::utils::transform::mat3f_to_tensor(const cv::Mat &mat3f,
+                                                    const std::vector<int64_t> &tensor_dims,
+                                                    const ort::MemoryInfo &memory_info_handler,
+                                                    std::vector<float> &tensor_value_handler,
+                                                    unsigned int data_format)
+throw(std::runtime_error) {
+  cv::Mat mat3f_ref;
+  if (mat3f.type() != CV_32FC3) mat3f.convertTo(mat3f_ref, CV_32FC3);
+  else mat3f_ref = mat3f; // reference only.
+
+  const unsigned int rows = mat3f_ref.rows;
+  const unsigned int cols = mat3f_ref.cols;
+  const unsigned int channels = mat3f_ref.channels();
+
+  if (tensor_dims.size() != 4) throw std::runtime_error("dims mismatch.");
+  if (tensor_dims.at(0) != 1) throw std::runtime_error("batch != 1");
+
+  // CXHXW
+  if (data_format == data_format_type::CHW) {
+
+    const unsigned int target_channel = tensor_dims.at(1);
+    const unsigned int target_height = tensor_dims.at(2);
+    const unsigned int target_width = tensor_dims.at(3);
+    const unsigned int target_tensor_size = target_channel * target_height * target_width;
+    if (target_channel != channels) throw std::runtime_error("channel mismatch.");
+
+    tensor_value_handler.resize(target_tensor_size);
+
+    cv::Mat resize_mat_ref;
+    if (target_height != rows || target_width != cols)
+      cv::resize(mat3f_ref, resize_mat_ref, cv::Size(target_width, target_height));
+    else resize_mat_ref = mat3f_ref; // reference only.
+
+    std::vector<cv::Mat> mat_channels;
+    cv::split(resize_mat_ref, mat_channels);
+    std::vector<float> channel_values;
+    channel_values.resize(target_height * target_width);
+    for (unsigned int i = 0; i < channels; ++i) {
+      channel_values.clear();
+      channel_values = mat_channels.at(i).reshape(1, 1); // flatten
+      std::memcpy(tensor_value_handler.data() + i * (target_height * target_width),
+                  channel_values.data(),
+                  target_height * target_width * sizeof(float)); // CXHXW
+    }
+
+    return ort::Value::CreateTensor<float>(memory_info_handler, tensor_value_handler.data(),
+                                           target_tensor_size, tensor_dims.data(),
+                                           tensor_dims.size());
+  }
+
+  // HXWXC
+  const unsigned int target_channel = tensor_dims.at(3);
+  const unsigned int target_height = tensor_dims.at(1);
+  const unsigned int target_width = tensor_dims.at(2);
+  const unsigned int target_tensor_size = target_channel * target_height * target_width;
+  if (target_channel != channels) throw std::runtime_error("channel mismatch!");
+  tensor_value_handler.clear();
+
+  cv::Mat resize_mat_ref;
+  if (target_height != rows || target_width != cols)
+    cv::resize(mat3f_ref, resize_mat_ref, cv::Size(target_width, target_height));
+  else resize_mat_ref = mat3f_ref; // reference only.
+
+  tensor_value_handler.assign(resize_mat_ref.data, resize_mat_ref.data + target_tensor_size);
+
+  return ort::Value::CreateTensor<float>(memory_info_handler, tensor_value_handler.data(),
+                                         target_tensor_size, tensor_dims.data(),
+                                         tensor_dims.size());
+}
+
+cv::Mat ortcv::utils::transform::normalize(const cv::Mat &mat, float mean, float scale) {
+  cv::Mat matf;
+  if (mat.type() != CV_32FC3) mat.convertTo(matf, CV_32FC3);
+  else matf = mat; // reference
+  return (matf - mean) * scale;
+}
+
+cv::Mat ortcv::utils::transform::normalize(const cv::Mat &mat, float *mean, float *scale) {
+  cv::Mat mat_copy;
+  if (mat.type() != CV_32FC3) mat.convertTo(mat_copy, CV_32FC3);
+  else mat_copy = mat.clone();
+  for (unsigned int i = 0; i < mat_copy.rows; ++i) {
+    cv::Vec3f *p = mat_copy.ptr<cv::Vec3f>(i);
+    for (unsigned int j = 0; j < mat_copy.cols; ++i) {
+      p[j][0] = (p[j][0] - mean[0]) * scale[0];
+      p[j][1] = (p[j][1] - mean[1]) * scale[1];
+      p[j][2] = (p[j][2] - mean[2]) * scale[2];
+    }
+  }
+  return mat_copy;
+}
+
+void ortcv::utils::transform::normalize(const cv::Mat &inmat, cv::Mat &outmat,
+                                        float mean, float scale) {
+  outmat = ortcv::utils::transform::normalize(inmat, mean, scale);
+}
+
+void ortcv::utils::transform::normalize_inplace(cv::Mat &mat_inplace, float mean, float scale) {
+  if (mat_inplace.type() != CV_32FC3) mat_inplace.convertTo(mat_inplace, CV_32FC3);
+  ortcv::utils::transform::normalize(mat_inplace, mat_inplace, mean, scale);
+}
+
+void ortcv::utils::transform::normalize_inplace(cv::Mat &mat_inplace, float *mean, float *scale) {
+  if (mat_inplace.type() != CV_32FC3) mat_inplace.convertTo(mat_inplace, CV_32FC3);
+  for (unsigned int i = 0; i < mat_inplace.rows; ++i) {
+    cv::Vec3f *p = mat_inplace.ptr<cv::Vec3f>(i);
+    for (unsigned int j = 0; j < mat_inplace.cols; ++i) {
+      p[j][0] = (p[j][0] - mean[0]) * scale[0];
+      p[j][1] = (p[j][1] - mean[1]) * scale[1];
+      p[j][2] = (p[j][2] - mean[2]) * scale[2];
+    }
+  }
+}
+
+
 //*************************************** ortcv::utils **********************************************//
 
 

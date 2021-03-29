@@ -17,8 +17,8 @@ namespace ortcv {
     std::vector<const char *> input_node_names;
     std::vector<int64_t> input_node_dims; // 1 input only.
     std::size_t input_tensor_size = 1;
-    std::vector<float> input_tensor_values;
-    ort::MemoryInfo memory_info = ort::MemoryInfo::CreateCpu(
+    std::vector<float> input_values_handler;
+    ort::MemoryInfo memory_info_handler = ort::MemoryInfo::CreateCpu(
         OrtArenaAllocator, OrtMemTypeDefault);
     std::vector<const char *> output_node_names;
     std::vector<std::vector<int64_t>> output_node_dims; // 2 outputs
@@ -26,16 +26,13 @@ namespace ortcv {
     int num_outputs;
 
   private:
-    const int input_width; // initialize at runtime. 320 | 640
-    const int input_height;  // initialize at runtime. 240 | 480
     const unsigned int num_threads; // initialize at runtime.
-
     static constexpr const float mean_val = 127.0f;
     static constexpr const float scale_val = 1.0 / 128.0f;
     enum NMS {HARD=0, BLEND=1};
 
   public:
-    UltraFace(const std::string &_onnx_path, int _input_height, int _input_width,
+    UltraFace(const std::string &_onnx_path, /*int _input_height, int _input_width,*/
               unsigned int _num_threads = 1);
 
     ~UltraFace();
@@ -51,7 +48,7 @@ namespace ortcv {
     UltraFace &operator=(const UltraFace &&) = delete;
 
   private:
-    void preprocess(const cv::Mat &mat); // padding & resize & normalize.
+    ort::Value transform(const cv::Mat &mat); // padding & resize & normalize.
 
     void generate_bboxes(std::vector<types::Boxf> &bbox_collection,
                          std::vector<ort::Value> &output_tensors,

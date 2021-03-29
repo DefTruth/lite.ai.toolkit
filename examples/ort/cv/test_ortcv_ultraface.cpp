@@ -15,7 +15,7 @@ static void test_ortcv_ultraface() {
   std::string test_img_path = "../../../examples/ort/resources/test_ortcv_ultraface.jpg";
   std::string save_img_path = "../../../logs/test_ortcv_ultraface.jpg";
 
-  ortcv::UltraFace *ultraface = new ortcv::UltraFace(onnx_path, 480, 640, 1);
+  ortcv::UltraFace *ultraface = new ortcv::UltraFace(onnx_path);
 
   std::vector<ortcv::types::Boxf> detected_boxes;
   cv::Mat img_bgr = cv::imread(test_img_path);
