@@ -73,7 +73,7 @@ void BasicOrtHandler::print_debug_string() {
 BasicMultiOrtHandler::BasicMultiOrtHandler(
     const std::string &_onnx_path, unsigned int _num_threads) :
     onnx_path(_onnx_path.data()), num_threads(_num_threads)
-{ initialize_handler(); }
+    { initialize_handler(); }
 
 void BasicMultiOrtHandler::initialize_handler() {
   ort_env = ort::Env(ORT_LOGGING_LEVEL_ERROR, onnx_path);
