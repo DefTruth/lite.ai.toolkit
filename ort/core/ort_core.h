@@ -38,8 +38,7 @@ namespace ortnlp {
   class ChineseBert;
 }
 
-namespace ortasr {}
-namespace ortcv { using ortcore::BasicOrtHandler; }
-namespace ortnlp { using ortcore::BasicOrtHandler; }
-namespace ortasr { using ortcore::BasicOrtHandler; }
+namespace ortcv { using core::BasicOrtHandler; using core::BasicMultiOrtHandler; }
+namespace ortnlp { using core::BasicOrtHandler; using core::BasicMultiOrtHandler; }
+namespace ortasr { using core::BasicOrtHandler; using core::BasicMultiOrtHandler; }
 #endif //LITEHUB_ORT_ORT_CORE_H

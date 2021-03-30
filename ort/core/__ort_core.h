@@ -20,6 +20,6 @@
 
 namespace ort = Ort;
 
-namespace ortcore {}
+namespace core {}
 
 #endif //LITEHUB_ORT_CORE___ORT_CORE_H

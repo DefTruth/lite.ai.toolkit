@@ -23,7 +23,6 @@ namespace ortcv {
     static constexpr const float scale_val = 1.0 / 128.0f;
     enum NMS { HARD = 0, BLEND = 1};
 
-
     // un-copyable
   private:
     ort::Value transform(const cv::Mat &mat);
