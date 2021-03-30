@@ -35,7 +35,7 @@ namespace ortcv {
       value_type y2;
       score_type score;
       char *label_text;
-      unsigned int label;
+      unsigned int label; // for general object detection.
       // convert type.
       template<typename O1, typename O2 = score_type>
       BoundingBox<O1, O2> convert_type() const;
