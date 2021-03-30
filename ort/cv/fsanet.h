@@ -42,11 +42,11 @@ namespace ortcv {
   protected:
     FSANet(const FSANet &) = delete;
 
-    FSANet(const FSANet &&) = delete;
+    FSANet(FSANet &&) = delete;
 
     FSANet &operator=(const FSANet &) = delete;
 
-    FSANet &operator=(const FSANet &&) = delete;
+    FSANet &operator=(FSANet &&) = delete;
 
   private:
     ort::Value transform(const cv::Mat &mat); //  padding & resize & normalize.

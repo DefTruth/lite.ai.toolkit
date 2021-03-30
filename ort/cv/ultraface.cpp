@@ -8,7 +8,7 @@
 using ortcv::UltraFace;
 
 UltraFace::UltraFace(const std::string &_onnx_path, unsigned int _num_threads) :
-    onnx_path(_onnx_path.data()), num_threads(_num_threads) {
+  onnx_path(_onnx_path.data()), num_threads(_num_threads) {
   ort_env = ort::Env(ORT_LOGGING_LEVEL_ERROR, "ultraface-onnx");
   // 0. session options
   ort::SessionOptions session_options;

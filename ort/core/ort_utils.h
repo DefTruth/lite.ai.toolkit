@@ -29,7 +29,7 @@ namespace ortcv {
                       float iou_threshold, unsigned int topk);
 
     namespace transform {
-      enum data_format_type {
+      enum {
         CHW = 0, HWC = 1
       };
 
@@ -45,8 +45,8 @@ namespace ortcv {
       ort::Value mat3f_to_tensor(const cv::Mat &mat3f,
                                  const std::vector<int64_t> &tensor_dims,
                                  const ort::MemoryInfo &memory_info_handler,
-                                 std::vector<float>& tensor_value_handler,
-                                 unsigned int data_format = data_format_type::CHW)
+                                 std::vector<float> &tensor_value_handler,
+                                 unsigned int data_format = CHW)
       throw(std::runtime_error);
 
       cv::Mat normalize(const cv::Mat &mat, float mean, float scale);

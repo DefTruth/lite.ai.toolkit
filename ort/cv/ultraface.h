@@ -29,7 +29,9 @@ namespace ortcv {
     const unsigned int num_threads; // initialize at runtime.
     static constexpr const float mean_val = 127.0f;
     static constexpr const float scale_val = 1.0 / 128.0f;
-    enum NMS {HARD=0, BLEND=1};
+    enum NMS {
+      HARD = 0, BLEND = 1
+    };
 
   public:
     UltraFace(const std::string &_onnx_path, /*int _input_height, int _input_width,*/
@@ -41,11 +43,11 @@ namespace ortcv {
   protected:
     UltraFace(const UltraFace &) = delete;
 
-    UltraFace(const UltraFace &&) = delete;
+    UltraFace(UltraFace &&) = delete;
 
     UltraFace &operator=(const UltraFace &) = delete;
 
-    UltraFace &operator=(const UltraFace &&) = delete;
+    UltraFace &operator=(UltraFace &&) = delete;
 
   private:
     ort::Value transform(const cv::Mat &mat); // padding & resize & normalize.

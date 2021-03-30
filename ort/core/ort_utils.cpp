@@ -198,7 +198,7 @@ throw(std::runtime_error) {
   if (tensor_dims.at(0) != 1) throw std::runtime_error("batch != 1");
 
   // CXHXW
-  if (data_format == data_format_type::CHW) {
+  if (data_format == transform::CHW) {
 
     const unsigned int target_channel = tensor_dims.at(1);
     const unsigned int target_height = tensor_dims.at(2);
