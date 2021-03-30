@@ -74,8 +74,9 @@ ort::Value UltraFace::transform(const cv::Mat &mat) {
       input_values_handler, ortcv::utils::transform::CHW);
 }
 
-void UltraFace::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes, float score_threshold,
-                       float iou_threshold, unsigned int topk, unsigned int nms_type) {
+void UltraFace::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
+                       float score_threshold, float iou_threshold, unsigned int topk,
+                       unsigned int nms_type) {
   if (mat.empty()) return;
   // this->transform(mat);
   float img_height = static_cast<float>(mat.rows);
