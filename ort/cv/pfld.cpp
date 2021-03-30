@@ -3,3 +3,6 @@
 //
 
 #include "pfld.h"
+#include "ort/core/ort_utils.h"
+
+using ortcv::PFLD;

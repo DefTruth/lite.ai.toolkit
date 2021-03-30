@@ -16,6 +16,7 @@ set(ORTCV_FSANET_SRCS
         cv/test_ortcv_fsanet.cpp
         ${LITEHUB_ROOT_DIR}/ort/cv/fsanet.cpp
         ${LITEHUB_ROOT_DIR}/ort/core/ort_utils.cpp
+        ${LITEHUB_ROOT_DIR}/ort/core/ort_handler.cpp
         )
 
 add_executable(ortcv_fsanet ${ORTCV_FSANET_SRCS})

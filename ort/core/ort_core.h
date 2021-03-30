@@ -6,14 +6,12 @@
 #define LITEHUB_ORT_ORT_CORE_H
 
 #include "__ort_core.h"
+#include "ort_handler.h"
 #include "ort_types.h"
-
-#define LITEORT_DEBUG 1
 
 // namespace cv2 = cv;
 
 namespace ortcv {
-
   class FSANet;
   class PFLD;
   class SSRNet;
@@ -40,9 +38,8 @@ namespace ortnlp {
   class ChineseBert;
 }
 
-namespace ortasr {
-
-}
-
-
+namespace ortasr {}
+namespace ortcv { using ortcore::BasicOrtHandler; }
+namespace ortnlp { using ortcore::BasicOrtHandler; }
+namespace ortasr { using ortcore::BasicOrtHandler; }
 #endif //LITEHUB_ORT_ORT_CORE_H

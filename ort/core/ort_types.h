@@ -58,8 +58,9 @@ namespace ortcv {
     typedef BoundingBox<float, float> Boxf;
     typedef BoundingBox<double, double> Boxd;
     typedef struct { float yaw; float pitch; float roll;} EulerAngles;
-    typedef std::vector<cv::Point2i> Landmarks;
+    typedef std::vector<cv::Point2f> Landmarks;
     typedef std::vector<cv::Point2f> Landmarksf;
+    typedef std::vector<cv::Point2i> Landmarksi;
     typedef struct { float happy; float sad; float netural; float angry;
                      float surprise; float disgust; float fear;} Emotions;
     typedef struct {float age;} Age;

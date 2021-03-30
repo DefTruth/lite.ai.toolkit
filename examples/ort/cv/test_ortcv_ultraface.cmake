@@ -16,6 +16,7 @@ set(ORTCV_FSANET_SRCS
         cv/test_ortcv_ultraface.cpp
         ${LITEHUB_ROOT_DIR}/ort/cv/ultraface.cpp
         ${LITEHUB_ROOT_DIR}/ort/core/ort_utils.cpp
+        ${LITEHUB_ROOT_DIR}/ort/core/ort_handler.cpp
         )
 
 add_executable(ortcv_ultraface ${ORTCV_FSANET_SRCS})

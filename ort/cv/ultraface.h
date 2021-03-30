@@ -9,48 +9,24 @@
 
 namespace ortcv {
 
-  class UltraFace {
-  private:
-    ort::Env ort_env;
-    ort::Session *ort_session = nullptr;
-    const char *input_name = nullptr;
-    std::vector<const char *> input_node_names;
-    std::vector<int64_t> input_node_dims; // 1 input only.
-    std::size_t input_tensor_size = 1;
-    std::vector<float> input_values_handler;
-    ort::MemoryInfo memory_info_handler = ort::MemoryInfo::CreateCpu(
-        OrtArenaAllocator, OrtMemTypeDefault);
-    std::vector<const char *> output_node_names;
-    std::vector<std::vector<int64_t>> output_node_dims; // 2 outputs
-    const char *onnx_path = nullptr;
-    int num_outputs;
-
-  private:
-    const unsigned int num_threads; // initialize at runtime.
-    static constexpr const float mean_val = 127.0f;
-    static constexpr const float scale_val = 1.0 / 128.0f;
-    enum NMS {
-      HARD = 0, BLEND = 1
-    };
+  class UltraFace : public BasicOrtHandler {
 
   public:
-    UltraFace(const std::string &_onnx_path, /*int _input_height, int _input_width,*/
-              unsigned int _num_threads = 1);
 
-    ~UltraFace();
+    UltraFace(const std::string &_onnx_path, unsigned int _num_threads = 1) :
+        BasicOrtHandler(_onnx_path, _num_threads) {};
 
-    // un-copyable
-  protected:
-    UltraFace(const UltraFace &) = delete;
-
-    UltraFace(UltraFace &&) = delete;
-
-    UltraFace &operator=(const UltraFace &) = delete;
-
-    UltraFace &operator=(UltraFace &&) = delete;
+    ~UltraFace(){}; // override
 
   private:
-    ort::Value transform(const cv::Mat &mat); // padding & resize & normalize.
+    static constexpr const float mean_val = 127.0f;
+    static constexpr const float scale_val = 1.0 / 128.0f;
+    enum NMS { HARD = 0, BLEND = 1};
+
+
+    // un-copyable
+  private:
+    ort::Value transform(const cv::Mat &mat);
 
     void generate_bboxes(std::vector<types::Boxf> &bbox_collection,
                          std::vector<ort::Value> &output_tensors,
@@ -65,6 +41,7 @@ namespace ortcv {
                 float score_threshold = 0.7f, float iou_threshold = 0.3f,
                 unsigned int topk = 100, unsigned int nms_type = 0);
   };
+
 }
 
 #endif //LITEHUB_ORT_CV_ULTRAFACE_H
