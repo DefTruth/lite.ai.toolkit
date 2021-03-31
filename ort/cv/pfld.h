@@ -10,6 +10,9 @@
 namespace ortcv {
 
   class PFLD : public BasicOrtHandler {
+  private:
+    static constexpr const float mean_val = 0.f;
+    static constexpr const float scale_val = 1.0f / 255.0f;
 
   public:
 
@@ -23,7 +26,7 @@ namespace ortcv {
     ort::Value transform(const cv::Mat &mat);
 
   public:
-    void detect(const cv::Mat &mat, types::Landmarksf);
+    void detect(const cv::Mat &mat, types::Landmarksf &landmarksf);
 
   };
 }

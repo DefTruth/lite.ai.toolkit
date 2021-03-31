@@ -1,6 +1,6 @@
 option(BUILD_ORT_CV_FSANET "whether to build ortcv_fsanet binary." ON)
 option(BUILD_ORT_CV_ULTRAFACE "whether to build ortcv_utraface binary." ON)
-option(BUILD_ORT_CV_PFLD "whether to build ortcv_pfld binary." OFF)
+option(BUILD_ORT_CV_PFLD "whether to build ortcv_pfld binary." ON)
 
 if (BUILD_ORT_CV_FSANET)
     include(cv/test_ortcv_fsanet.cmake)

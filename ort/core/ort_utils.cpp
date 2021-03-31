@@ -78,6 +78,20 @@ cv::Mat ortcv::utils::draw_axis(const cv::Mat &mat,
   return mat_copy;
 }
 
+cv::Mat ortcv::utils::draw_landmarks(const cv::Mat &mat, types::Landmarks &landmarks) {
+  if (landmarks.empty()) return mat;
+  cv::Mat mat_copy = mat.clone();
+  for (const auto &point: landmarks)
+    cv::circle(mat_copy, point, 2, cv::Scalar(0, 255, 0), -1);
+  return mat_copy;
+}
+
+void ortcv::utils::draw_landmarks_inplace(cv::Mat &mat, types::Landmarks &landmarks) {
+  if (landmarks.empty()) return;
+  for (const auto &point: landmarks)
+    cv::circle(mat, point, 2, cv::Scalar(0, 255, 0), -1);
+}
+
 void ortcv::utils::draw_boxes_inplace(cv::Mat &mat_inplace, const std::vector<types::Boxf> &boxes) {
   if (boxes.empty()) return;
   for (const auto &box: boxes) {

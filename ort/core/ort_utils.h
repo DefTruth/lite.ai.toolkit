@@ -17,10 +17,14 @@ namespace ortcv {
 
     cv::Mat draw_boxes(const cv::Mat &mat, const std::vector<types::Boxf> &boxes);
 
+    cv::Mat draw_landmarks(const cv::Mat &mat, types::Landmarks &landmarks);
+
     void draw_boxes_inplace(cv::Mat &mat_inplace, const std::vector<types::Boxf> &boxes);
 
     void draw_axis_inplace(cv::Mat &mat_inplace, const types::EulerAngles &euler_angles,
                            float size = 50.f, int thickness = 2);
+
+    void draw_landmarks_inplace(cv::Mat &mat, types::Landmarks &landmarks);
 
     void hard_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
                   float iou_threshold, unsigned int topk);
