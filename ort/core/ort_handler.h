@@ -23,7 +23,7 @@ namespace core {
     ort::MemoryInfo memory_info_handler = ort::MemoryInfo::CreateCpu(
         OrtArenaAllocator, OrtMemTypeDefault);
     std::vector<const char *> output_node_names;
-    std::vector<std::vector<int64_t>> output_node_dims; // 2 outputs
+    std::vector<std::vector<int64_t>> output_node_dims; // >=1 outputs
     const char *onnx_path = nullptr;
     int num_outputs = 1;
 
@@ -62,13 +62,13 @@ namespace core {
     ort::Env ort_env;
     ort::Session *ort_session = nullptr;
     std::vector<const char *> input_node_names;
-    std::vector<std::vector<int64_t>> input_node_dims; // 1 input only.
+    std::vector<std::vector<int64_t>> input_node_dims; // >=1 inputs.
     std::vector<size_t> input_tensor_sizes;
     std::vector<std::vector<float>> input_values_handlers; // multi handlers.
     ort::MemoryInfo memory_info_handler = ort::MemoryInfo::CreateCpu(
         OrtArenaAllocator, OrtMemTypeDefault);
     std::vector<const char *> output_node_names;
-    std::vector<std::vector<int64_t>> output_node_dims; // 2 outputs
+    std::vector<std::vector<int64_t>> output_node_dims; // >=1 outputs
     const char *onnx_path = nullptr;
     int num_outputs = 1;
     int num_inputs = 1;
