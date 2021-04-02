@@ -40,6 +40,7 @@ namespace ortcv {
   class EmotionFerPlus;      // reference: https://github.com/onnx/models/blob/master/vision/body_analysis/emotion_ferplus
   class VGG16Age;            // reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
   class FastStyleTransfer;   // reference: https://github.com/onnx/models/blob/master/vision/style_transfer/fast_neural_style
+  class SubPixel2016;        // reference: https://github.com/onnx/models/blob/master/vision/super_resolution/sub_pixel_cnn_2016
 }
 
 namespace ortnlp {
