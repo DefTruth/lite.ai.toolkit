@@ -12,9 +12,7 @@ ort::Value AgeGoogleNet::transform(const cv::Mat &mat) {
   cv::resize(canva, canva, cv::Size(input_node_dims.at(3),
                                     input_node_dims.at(2)));
   // (1,3,224,224)
-  std::cout << "Start normalize.\n";
   ortcv::utils::transform::normalize_inplace(canva, mean_val, scale_val); // float32
-  std::cout << "Done normalize.\n";
 
   return ortcv::utils::transform::mat3f_to_tensor(
       canva, input_node_dims, memory_info_handler,
@@ -26,12 +24,10 @@ void AgeGoogleNet::detect(const cv::Mat &mat, types::Age &age) {
   // 1. make input tensor
   ort::Value input_tensor = this->transform(mat);
   // 2. inference scores & boxes.
-  std::cout << "Start Detect.\n";
   auto output_tensors = ort_session->Run(
       ort::RunOptions{nullptr}, input_node_names.data(),
       &input_tensor, 1, output_node_names.data(), num_outputs
   );
-  std::cout << "Done Detect.\n";
   ort::Value &age_logits = output_tensors.at(0); // (1,8)
   auto age_dims = output_node_dims.at(0);
   float pred_age, pred_prob = -1.f, total_exp = 0.f;
