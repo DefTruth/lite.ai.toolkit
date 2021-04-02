@@ -17,6 +17,8 @@ namespace ortcv {
   class UltraFace;           // reference: https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB
   class AgeGoogleNet;        // reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
   class GenderGoogleNet;     // reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
+  class EmotionFerPlus;      // reference: https://github.com/onnx/models/blob/master/vision/body_analysis/emotion_ferplus
+  class VGG16Age;            // reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
   class SSRNet;              // reference: https://github.com/oukohou/SSR_Net_Pytorch
   class ChineseOCR;          // reference: https://github.com/DayBreak-u/chineseocr_lite
   class ChineseOCRAngleNet;  // reference: https://github.com/DayBreak-u/chineseocr_lite
@@ -37,8 +39,6 @@ namespace ortcv {
   class SSD;                 // reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd
   class SSDMobileNetV1;      // reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd-mobilenetv1
   class ArcFaceResNet;       // reference: https://github.com/onnx/models/blob/master/vision/body_analysis/arcface
-  class EmotionFerPlus;      // reference: https://github.com/onnx/models/blob/master/vision/body_analysis/emotion_ferplus
-  class VGG16Age;            // reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
   class FastStyleTransfer;   // reference: https://github.com/onnx/models/blob/master/vision/style_transfer/fast_neural_style
   class SubPixelCNN;         // reference: https://github.com/onnx/models/blob/master/vision/super_resolution/sub_pixel_cnn_2016
 }
