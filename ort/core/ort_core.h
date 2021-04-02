@@ -14,8 +14,10 @@
 namespace ortcv {
   class FSANet;              // reference: https://github.com/omasaht/headpose-fsanet-pytorch
   class PFLD;                // reference: https://github.com/Hsintao/pfld_106_face_landmarks
-  class SSRNet;              // reference: https://github.com/oukohou/SSR_Net_Pytorch
   class UltraFace;           // reference: https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB
+  class AgeGoogleNet;        // reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
+  class GenderGoogleNet;     // reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
+  class SSRNet;              // reference: https://github.com/oukohou/SSR_Net_Pytorch
   class ChineseOCR;          // reference: https://github.com/DayBreak-u/chineseocr_lite
   class ChineseOCRAngleNet;  // reference: https://github.com/DayBreak-u/chineseocr_lite
   class ChineseOCRLiteLSTM;  // reference: https://github.com/DayBreak-u/chineseocr_lite
@@ -34,13 +36,11 @@ namespace ortcv {
   class TinyYoloV3;          // reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/tiny-yolov3
   class SSD;                 // reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd
   class SSDMobileNetV1;      // reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd-mobilenetv1
-  class AgeGoogleNet;        // reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
-  class GenderGoogleNet;     // reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
   class ArcFaceResNet;       // reference: https://github.com/onnx/models/blob/master/vision/body_analysis/arcface
   class EmotionFerPlus;      // reference: https://github.com/onnx/models/blob/master/vision/body_analysis/emotion_ferplus
   class VGG16Age;            // reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
   class FastStyleTransfer;   // reference: https://github.com/onnx/models/blob/master/vision/style_transfer/fast_neural_style
-  class SubPixel2016;        // reference: https://github.com/onnx/models/blob/master/vision/super_resolution/sub_pixel_cnn_2016
+  class SubPixelCNN;         // reference: https://github.com/onnx/models/blob/master/vision/super_resolution/sub_pixel_cnn_2016
 }
 
 namespace ortnlp {
