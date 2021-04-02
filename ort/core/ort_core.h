@@ -28,9 +28,6 @@ namespace ortcv {
   class EmotionFerPlus;
   class VGG16Age;
 
-  namespace reid {}
-  namespace track {}
-  namespace faceid {}
 }
 
 namespace ortnlp {
