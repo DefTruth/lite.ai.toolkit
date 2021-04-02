@@ -1,5 +1,5 @@
 //
-// Created by YanJun Qiu on 2021/3/28.
+// Created by DefTruth on 2021/3/28.
 //
 
 #ifndef LITEHUB_ORT_CORE_ORT_UTILS_H
@@ -19,12 +19,16 @@ namespace ortcv {
 
     cv::Mat draw_landmarks(const cv::Mat &mat, types::Landmarks &landmarks);
 
+    cv::Mat draw_age(const cv::Mat &mat, types::Age &age);
+
     void draw_boxes_inplace(cv::Mat &mat_inplace, const std::vector<types::Boxf> &boxes);
 
     void draw_axis_inplace(cv::Mat &mat_inplace, const types::EulerAngles &euler_angles,
                            float size = 50.f, int thickness = 2);
 
     void draw_landmarks_inplace(cv::Mat &mat, types::Landmarks &landmarks);
+
+    void draw_age_inplace(cv::Mat &mat_inplace, types::Age &age);
 
     void hard_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
                   float iou_threshold, unsigned int topk);
@@ -57,11 +61,11 @@ namespace ortcv {
 
       void normalize(const cv::Mat &inmat, cv::Mat &outmat, float mean, float scale);
 
-      cv::Mat normalize(const cv::Mat &mat, float mean[3], float scale[3]);
+      cv::Mat normalize(const cv::Mat &mat, const float mean[3], const float scale[3]);
 
       void normalize_inplace(cv::Mat &mat_inplace, float mean, float scale);
 
-      void normalize_inplace(cv::Mat &mat_inplace, float mean[3], float scale[3]);
+      void normalize_inplace(cv::Mat &mat_inplace, const float mean[3], const float scale[3]);
 
     }
 

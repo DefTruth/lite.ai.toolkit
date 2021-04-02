@@ -1,5 +1,5 @@
 //
-// Created by YanJun Qiu on 2021/3/14.
+// Created by DefTruth on 2021/3/14.
 //
 
 #include "fsanet.h"
@@ -42,7 +42,8 @@ void FSANet::detect(const cv::Mat &mat, types::EulerAngles &euler_angles) {
 
   const float *angles = output_tensors.front().GetTensorMutableData<float>();
 
-  euler_angles.yaw = angles[0]; euler_angles.pitch = angles[1]; euler_angles.roll = angles[2];
+  euler_angles.yaw = angles[0]; euler_angles.pitch = angles[1];
+  euler_angles.roll = angles[2]; euler_angles.flag = true;
 }
 
 

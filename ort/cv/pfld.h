@@ -1,5 +1,5 @@
 //
-// Created by YanJun Qiu on 2021/3/14.
+// Created by DefTruth on 2021/3/14.
 //
 
 #ifndef LITEHUB_ORT_CV_PFLD_H
@@ -21,12 +21,11 @@ namespace ortcv {
 
     ~PFLD() {}; // override
 
-    // un-copyable
   private:
     ort::Value transform(const cv::Mat &mat);
 
   public:
-    void detect(const cv::Mat &mat, types::Landmarksf &landmarksf);
+    void detect(const cv::Mat &mat, types::Landmarks &landmarks);
 
   };
 }

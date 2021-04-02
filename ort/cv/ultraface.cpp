@@ -1,5 +1,5 @@
 //
-// Created by YanJun Qiu on 2021/3/14.
+// Created by DefTruth on 2021/3/14.
 //
 
 #include "ultraface.h"
@@ -64,6 +64,7 @@ void UltraFace::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
     box.x2 = boxes.At<float>({0, i, 2}) * img_width;
     box.y2 = boxes.At<float>({0, i, 3}) * img_height;
     box.score = confidence;
+    box.flag = true;
     bbox_collection.push_back(box);
   }
 #if LITEORT_DEBUG

@@ -1,5 +1,5 @@
 //
-// Created by YanJun Qiu on 2021/3/18.
+// Created by DefTruth on 2021/3/18.
 //
 
 #ifndef LITEHUB_ORT_ORT_CORE_H

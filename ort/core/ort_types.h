@@ -1,5 +1,5 @@
 //
-// Created by YanJun Qiu on 2021/3/28.
+// Created by DefTruth on 2021/3/28.
 //
 
 #ifndef LITEHUB_ORT_CORE_ORT_TYPES_H
@@ -36,6 +36,7 @@ namespace ortcv {
       score_type score;
       char *label_text;
       unsigned int label; // for general object detection.
+      bool flag; // future use.
       // convert type.
       template<typename O1, typename O2 = score_type>
       BoundingBox<O1, O2> convert_type() const;
@@ -50,22 +51,25 @@ namespace ortcv {
       BoundingBox():
       x1(static_cast<value_type>(0)), y1(static_cast<value_type>(0)),
       x2(static_cast<value_type>(0)), y2(static_cast<value_type>(0)),
-      score(static_cast<score_type>(0)), label_text(nullptr), label(0)
-      {::__assert_bbox_support_type<value_type, score_type>();}
+      score(static_cast<score_type>(0)), label_text(nullptr),label(0),
+      flag(false) {::__assert_bbox_support_type<value_type, score_type>();}
     }; // End BoundingBox.
     // specific alias.
     typedef BoundingBox<int, float> Boxi;
     typedef BoundingBox<float, float> Boxf;
     typedef BoundingBox<double, double> Boxd;
-    typedef struct { float yaw; float pitch; float roll;} EulerAngles;
-    typedef std::vector<cv::Point2f> Landmarks;
-    typedef std::vector<cv::Point2f> Landmarksf;
-    typedef std::vector<cv::Point2i> Landmarksi;
-    typedef struct { float happy; float sad; float netural; float angry;
-                     float surprise; float disgust; float fear;} Emotions;
-    typedef struct {float age;} Age;
-    typedef struct {float score; unsigned int label;} Gender;
-    typedef struct {char *text; int *codecs;} OCRContent;
+    typedef struct LandmarksType {std::vector<cv::Point2f> points; bool flag;
+    LandmarksType(): flag(false) {};} Landmarks;
+    typedef struct EulerAnglesType { float yaw; float pitch; float roll; bool flag;
+    EulerAnglesType(): flag(false) {}; } EulerAngles;
+    typedef struct EmotionsType{ float happy; float sad; float netural; float angry;
+    float surprise; float disgust; float fear; bool flag; EmotionsType(): flag(false){}; } Emotions;
+    typedef struct AgeType { float age; unsigned int age_interval[2];
+    float interval_prob; bool flag; AgeType(): flag(false){}; } Age;
+    typedef struct GenderType { float score; unsigned int label; bool flag;
+    GenderType(): flag(false) {};} Gender;
+    typedef struct OCRContentType { char *text; unsigned int *codecs; bool flag;
+    OCRContentType(): flag(false) {};} OCRContent;
   } // NAMESPACE TYPES
 } // NAMESPACE ORTCV
 

@@ -1,5 +1,5 @@
 //
-// Created by YanJun Qiu on 2021/3/14.
+// Created by DefTruth on 2021/3/14.
 //
 
 #include "pfld.h"
@@ -38,9 +38,10 @@ void PFLD::detect(const cv::Mat &mat, types::Landmarks &landmarks) {
   const unsigned int num_landmarks = landmrk_dims.at(1);
 
   for (unsigned int i = 0; i < num_landmarks; i += 2) {
-    landmarks.push_back(
+    landmarks.points.push_back(
         cv::Point2f(_landmarks.At<float>({0, i}) * img_width,
                     _landmarks.At<float>({0, i + 1}) * img_height
         ));
   }
+  landmarks.flag = true;
 }

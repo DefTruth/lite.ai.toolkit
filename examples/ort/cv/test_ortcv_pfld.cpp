@@ -1,9 +1,5 @@
 //
-// Created by YanJun Qiu on 2021/3/31.
-//
-
-//
-// Created by YanJun Qiu on 2021/3/27.
+// Created by DefTruth on 2021/3/31.
 //
 
 #include <iostream>
@@ -29,7 +25,7 @@ static void test_ortcv_pfld() {
 
   cv::imwrite(save_img_path, img_bgr);
 
-  std::cout << "Detected Landmarks Num: " << landmarks.size() << std::endl;
+  std::cout << "Detected Landmarks Num: " << landmarks.points.size() << std::endl;
 
   delete pfld;
 

@@ -1,5 +1,5 @@
 //
-// Created by YanJun Qiu on 2021/3/28.
+// Created by DefTruth on 2021/3/28.
 //
 
 #include "ort_utils.h"
@@ -9,6 +9,8 @@
 void ortcv::utils::draw_axis_inplace(cv::Mat &mat_inplace,
                                      const types::EulerAngles &euler_angles,
                                      float size, int thickness) {
+  if (!euler_angles.flag) return;
+
   const float pitch = euler_angles.pitch * _PI / 180.f;
   const float yaw = -euler_angles.yaw * _PI / 180.f;
   const float roll = euler_angles.roll * _PI / 180.f;
@@ -43,8 +45,9 @@ void ortcv::utils::draw_axis_inplace(cv::Mat &mat_inplace,
 cv::Mat ortcv::utils::draw_axis(const cv::Mat &mat,
                                 const types::EulerAngles &euler_angles,
                                 float size, int thickness) {
-  cv::Mat mat_copy = mat.clone();
+  if (!euler_angles.flag) return mat;
 
+  cv::Mat mat_copy = mat.clone();
   const float pitch = euler_angles.pitch * _PI / 180.f;
   const float yaw = -euler_angles.yaw * _PI / 180.f;
   const float roll = euler_angles.roll * _PI / 180.f;
@@ -79,23 +82,23 @@ cv::Mat ortcv::utils::draw_axis(const cv::Mat &mat,
 }
 
 cv::Mat ortcv::utils::draw_landmarks(const cv::Mat &mat, types::Landmarks &landmarks) {
-  if (landmarks.empty()) return mat;
+  if (landmarks.points.empty() || !landmarks.flag) return mat;
   cv::Mat mat_copy = mat.clone();
-  for (const auto &point: landmarks)
+  for (const auto &point: landmarks.points)
     cv::circle(mat_copy, point, 2, cv::Scalar(0, 255, 0), -1);
   return mat_copy;
 }
 
 void ortcv::utils::draw_landmarks_inplace(cv::Mat &mat, types::Landmarks &landmarks) {
-  if (landmarks.empty()) return;
-  for (const auto &point: landmarks)
+  if (landmarks.points.empty() || !landmarks.flag) return;
+  for (const auto &point: landmarks.points)
     cv::circle(mat, point, 2, cv::Scalar(0, 255, 0), -1);
 }
 
 void ortcv::utils::draw_boxes_inplace(cv::Mat &mat_inplace, const std::vector<types::Boxf> &boxes) {
   if (boxes.empty()) return;
   for (const auto &box: boxes) {
-    cv::rectangle(mat_inplace, box.rect(), cv::Scalar(255, 255, 0), 2);
+    if (box.flag) cv::rectangle(mat_inplace, box.rect(), cv::Scalar(255, 255, 0), 2);
   }
 }
 
@@ -103,9 +106,43 @@ cv::Mat ortcv::utils::draw_boxes(const cv::Mat &mat, const std::vector<types::Bo
   if (boxes.empty()) return mat;
   cv::Mat canva = mat.clone();
   for (const auto &box: boxes) {
-    cv::rectangle(canva, box.rect(), cv::Scalar(255, 255, 0), 2);
+    if (box.flag) cv::rectangle(canva, box.rect(), cv::Scalar(255, 255, 0), 2);
   }
   return canva;
+}
+
+cv::Mat ortcv::utils::draw_age(const cv::Mat &mat, types::Age &age) {
+  if (!age.flag) return mat;
+  cv::Mat canva = mat.clone();
+  const unsigned int offset = static_cast<unsigned int>(
+      0.1f * static_cast<float>(mat.rows));
+  std::string age_text = "Age:" + std::to_string(age.age).substr(0, 4);
+  std::string interval_text = "Interval" + std::to_string(age.age_interval[0])
+                              + "_" + std::to_string(age.age_interval[1]);
+  std::string interval_prob = "Prob:" + std::to_string(age.interval_prob).substr(0, 4);
+  cv::putText(canva, age_text, cv::Point2i(10, offset),
+              cv::FONT_HERSHEY_SIMPLEX, 0.6f, cv::Scalar(0, 255, 0), 2);
+  cv::putText(canva, interval_text, cv::Point2i(10, offset * 2),
+              cv::FONT_HERSHEY_SIMPLEX, 0.6f, cv::Scalar(255, 0, 0), 2);
+  cv::putText(canva, interval_prob, cv::Point2i(10, offset * 3),
+              cv::FONT_HERSHEY_SIMPLEX, 0.6f, cv::Scalar(0, 0, 255), 2);
+  return canva;
+}
+
+void ortcv::utils::draw_age_inplace(cv::Mat &mat_inplace, types::Age &age) {
+  if (!age.flag) return;
+  const unsigned int offset = static_cast<unsigned int>(
+      0.1f * static_cast<float>(mat_inplace.rows));
+  std::string age_text = "Age:" + std::to_string(age.age).substr(0, 4);
+  std::string interval_text = "Interval" + std::to_string(age.age_interval[0])
+                              + "_" + std::to_string(age.age_interval[1]);
+  std::string interval_prob = "Prob:" + std::to_string(age.interval_prob).substr(0, 4);
+  cv::putText(mat_inplace, age_text, cv::Point2i(10, offset),
+              cv::FONT_HERSHEY_SIMPLEX, 0.6f, cv::Scalar(0, 255, 0), 2);
+  cv::putText(mat_inplace, interval_text, cv::Point2i(10, offset * 2),
+              cv::FONT_HERSHEY_SIMPLEX, 0.6f, cv::Scalar(255, 0, 0), 2);
+  cv::putText(mat_inplace, interval_prob, cv::Point2i(10, offset * 3),
+              cv::FONT_HERSHEY_SIMPLEX, 0.6f, cv::Scalar(0, 0, 255), 2);
 }
 
 // reference: https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB/
@@ -185,6 +222,7 @@ void ortcv::utils::blending_nms(std::vector<types::Boxf> &input, std::vector<typ
       rects.y2 += buf[l].y2 * rate;
       rects.score += buf[l].score * rate;
     }
+    rects.flag = true;
     output.push_back(rects);
 
     // keep top k
@@ -271,13 +309,13 @@ cv::Mat ortcv::utils::transform::normalize(const cv::Mat &mat, float mean, float
   return (matf - mean) * scale;
 }
 
-cv::Mat ortcv::utils::transform::normalize(const cv::Mat &mat, float *mean, float *scale) {
+cv::Mat ortcv::utils::transform::normalize(const cv::Mat &mat, const float *mean, const float *scale) {
   cv::Mat mat_copy;
   if (mat.type() != CV_32FC3) mat.convertTo(mat_copy, CV_32FC3);
   else mat_copy = mat.clone();
   for (unsigned int i = 0; i < mat_copy.rows; ++i) {
     cv::Vec3f *p = mat_copy.ptr<cv::Vec3f>(i);
-    for (unsigned int j = 0; j < mat_copy.cols; ++i) {
+    for (unsigned int j = 0; j < mat_copy.cols; ++j) {
       p[j][0] = (p[j][0] - mean[0]) * scale[0];
       p[j][1] = (p[j][1] - mean[1]) * scale[1];
       p[j][2] = (p[j][2] - mean[2]) * scale[2];
@@ -296,11 +334,11 @@ void ortcv::utils::transform::normalize_inplace(cv::Mat &mat_inplace, float mean
   ortcv::utils::transform::normalize(mat_inplace, mat_inplace, mean, scale);
 }
 
-void ortcv::utils::transform::normalize_inplace(cv::Mat &mat_inplace, float *mean, float *scale) {
+void ortcv::utils::transform::normalize_inplace(cv::Mat &mat_inplace, const float *mean, const float *scale) {
   if (mat_inplace.type() != CV_32FC3) mat_inplace.convertTo(mat_inplace, CV_32FC3);
   for (unsigned int i = 0; i < mat_inplace.rows; ++i) {
     cv::Vec3f *p = mat_inplace.ptr<cv::Vec3f>(i);
-    for (unsigned int j = 0; j < mat_inplace.cols; ++i) {
+    for (unsigned int j = 0; j < mat_inplace.cols; ++j) {
       p[j][0] = (p[j][0] - mean[0]) * scale[0];
       p[j][1] = (p[j][1] - mean[1]) * scale[1];
       p[j][2] = (p[j][2] - mean[2]) * scale[2];
