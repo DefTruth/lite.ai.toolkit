@@ -33,11 +33,9 @@ target_link_libraries(liteort onnxruntime ${OpenCV_LIBS})
 # 4. copy
 if (LITEHUB_COPY_BUILD)
     message("install ${ORT_HEAD} ...")
-    # INSTALL 复制整个list的所有文件到指定路径；COPY只能复制一个文件到指定路径
+    # "INSTALL" can copy all files from the list to the specified path.
+    # "COPY" only copies one file to a specified path
     file(INSTALL ${ORT_HEAD} DESTINATION ${CMAKE_SOURCE_DIR}/build/liteort/include)
-    # set 只在当前目录和子目录有效 不会广播到父目录和兄弟目录
-    # CMAKE_SOURCE_DIR是指顶层CMakeLists.txt所在目录
-    # CMAKE_CURRENT_SOURCE_DIR是指当前CMakeLists.txt所在目录
     set(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/build/liteort/lib)
     set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/build/liteort/bin)
     message("=================================================================================")

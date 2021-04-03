@@ -3,7 +3,7 @@ message(">>>> Current project is [ortcv_emotion_ferplus] in : ${CMAKE_CURRENT_SO
 include(${CMAKE_SOURCE_DIR}/setup_3rdparty.cmake)
 
 if (APPLE)
-    set(CMAKE_MACOSX_RPATH 1)  # 开启rpath update qiuyanjun 20210314
+    set(CMAKE_MACOSX_RPATH 1)
     set(CMAKE_BUILD_TYPE release)
 endif ()
 
