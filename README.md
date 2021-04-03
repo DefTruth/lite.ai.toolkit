@@ -28,8 +28,8 @@ install `opencv` and `onnxruntime` libraries use home-brew.
     * [x] `TNN`
 
 ## 3. Usage
-
-### 3.1 Age detection using [GoogleNet](reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender).
+Disclaimer: The following test pictures are from the Internet search, if it has any impact on you, please contact me immediately, I will remove it immediately.
+### 3.1 Age detection using [GoogleNet](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender).
 ```c++
 #include <iostream>
 #include <vector>
@@ -142,7 +142,7 @@ int main(__unused int argc, __unused char *argv[]) {
 The output is:  
 ![](logs/test_ortcv_ultraface.jpg)
 
-## 4. Reference Details  
+## 4. Reference & Implementation Details  
 The `*` symbol indicates that the C ++ inference interface for the model has been implemented, and more models may be added. 
 But I don't guarantee that there will be more models.
 ### 4.1 ONNXRuntime Inference Engine. 
