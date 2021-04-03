@@ -11,7 +11,7 @@ endif ()
 include_directories(${ONNXRUNTIMR_INCLUDE_DIR})
 link_directories(${ONNXRUNTIMR_LIBRARY_DIR})
 
-# 3. CMakeLists.txt 在上一级目录 examples/ort
+# 3. will be include into CMakeLists.txt at examples/ort
 set(ORTCV_FSANET_SRCS
         cv/test_ortcv_ultraface.cpp
         ${LITEHUB_ROOT_DIR}/ort/cv/ultraface.cpp
