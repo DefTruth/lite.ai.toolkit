@@ -23,7 +23,7 @@ void AgeGoogleNet::detect(const cv::Mat &mat, types::Age &age) {
   if (mat.empty()) return;
   // 1. make input tensor
   ort::Value input_tensor = this->transform(mat);
-  // 2. inference scores & boxes.
+  // 2. inference
   auto output_tensors = ort_session->Run(
       ort::RunOptions{nullptr}, input_node_names.data(),
       &input_tensor, 1, output_node_names.data(), num_outputs

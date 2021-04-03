@@ -28,9 +28,10 @@ target_link_libraries(ortcv_gender_googlenet
         opencv_imgproc)
 
 if (LITEHUB_COPY_BUILD)
-    # set 只在当前目录和子目录有效 不会广播到父目录和兄弟目录
-    # CMAKE_SOURCE_DIR是指顶层CMakeLists.txt所在目录
-    # CMAKE_CURRENT_SOURCE_DIR是指当前CMakeLists.txt所在目录
+    # "set" only valid in the current directory and subdirectory and does not broadcast
+    # to parent and sibling directories
+    # CMAKE_SOURCE_DIR means the root path of top CMakeLists.txt
+    # CMAKE_CURRENT_SOURCE_DIR the current path of current CMakeLists.txt
     set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/build/liteort/bin)
     message("=================================================================================")
     message("output binary [app: ortcv_gender_googlenet] to ${EXECUTABLE_OUTPUT_PATH}")

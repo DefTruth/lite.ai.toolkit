@@ -16,11 +16,13 @@ namespace ortcv {
     cv::Mat draw_landmarks(const cv::Mat &mat, types::Landmarks &landmarks);
     cv::Mat draw_age(const cv::Mat &mat, types::Age &age);
     cv::Mat draw_gender(const cv::Mat &mat, types::Gender &gender);
+    cv::Mat draw_emotion(const cv::Mat &mat, types::Emotions &emotions);
     void draw_boxes_inplace(cv::Mat &mat_inplace, const std::vector<types::Boxf> &boxes);
     void draw_axis_inplace(cv::Mat &mat_inplace, const types::EulerAngles &euler_angles,float size = 50.f, int thickness = 2);
     void draw_landmarks_inplace(cv::Mat &mat, types::Landmarks &landmarks);
     void draw_age_inplace(cv::Mat &mat_inplace, types::Age &age);
     void draw_gender_inplace(cv::Mat &mat_inplace, types::Gender &gender);
+    void draw_emotion_inplace(cv::Mat &mat_inplace, types::Emotions &emotions);
     void hard_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,float iou_threshold, unsigned int topk);
     void blending_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output, float iou_threshold, unsigned int topk);
     namespace transform {

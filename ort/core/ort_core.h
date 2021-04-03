@@ -17,7 +17,7 @@ namespace ortcv {
   class UltraFace;           // [2] * reference: https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB
   class AgeGoogleNet;        // [3] * reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
   class GenderGoogleNet;     // [4] * reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
-  class EmotionFerPlus;      // [5] reference: https://github.com/onnx/models/blob/master/vision/body_analysis/emotion_ferplus
+  class EmotionFerPlus;      // [5] * reference: https://github.com/onnx/models/blob/master/vision/body_analysis/emotion_ferplus
   class VGG16Age;            // [6] reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
   class SSRNet;              // [7] reference: https://github.com/oukohou/SSR_Net_Pytorch
   class ChineseOCR;          // [8] reference: https://github.com/DayBreak-u/chineseocr_lite

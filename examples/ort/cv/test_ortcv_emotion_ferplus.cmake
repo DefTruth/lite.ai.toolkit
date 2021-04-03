@@ -1,5 +1,5 @@
 # 1. setup 3rd-party dependences
-message(">>>> Current project is [ortcv_fsanet] in : ${CMAKE_CURRENT_SOURCE_DIR}")
+message(">>>> Current project is [ortcv_emotion_ferplus] in : ${CMAKE_CURRENT_SOURCE_DIR}")
 include(${CMAKE_SOURCE_DIR}/setup_3rdparty.cmake)
 
 if (APPLE)
@@ -13,14 +13,14 @@ link_directories(${ONNXRUNTIMR_LIBRARY_DIR})
 
 # 3. CMakeLists.txt 在上一级目录 examples/ort
 set(ORTCV_FSANET_SRCS
-        cv/test_ortcv_fsanet.cpp
-        ${LITEHUB_ROOT_DIR}/ort/cv/fsanet.cpp
+        cv/test_ortcv_emotion_ferplus.cpp
+        ${LITEHUB_ROOT_DIR}/ort/cv/emotion_ferplus.cpp
         ${LITEHUB_ROOT_DIR}/ort/core/ort_utils.cpp
         ${LITEHUB_ROOT_DIR}/ort/core/ort_handler.cpp
         )
 
-add_executable(ortcv_fsanet ${ORTCV_FSANET_SRCS})
-target_link_libraries(ortcv_fsanet
+add_executable(ortcv_emotion_ferplus ${ORTCV_FSANET_SRCS})
+target_link_libraries(ortcv_emotion_ferplus
         onnxruntime
         opencv_highgui
         opencv_core
@@ -34,6 +34,6 @@ if (LITEHUB_COPY_BUILD)
     # CMAKE_CURRENT_SOURCE_DIR the current path of current CMakeLists.txt
     set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/build/liteort/bin)
     message("=================================================================================")
-    message("output binary [app: ortcv_fsanet] to ${EXECUTABLE_OUTPUT_PATH}")
+    message("output binary [app: ortcv_emotion_ferplus] to ${EXECUTABLE_OUTPUT_PATH}")
     message("=================================================================================")
 endif ()
