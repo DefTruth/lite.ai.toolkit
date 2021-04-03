@@ -64,12 +64,43 @@ namespace ortasr {
 
 template<typename T>
 std::vector<T> ortcv::utils::math::softmax(const T *logits, unsigned int _size, unsigned int &max_id) {
-
+  ::__assert_type<T>();
+  if (_size == 0) return {};
+  T max_prob = static_cast<T>(0), total_exp = static_cast<T>(0);
+  std::vector<float> softmax_probs(_size);
+  for (unsigned int i = 0; i < _size; ++i) {
+    softmax_probs[i] = std::expf(logits[i]);
+    total_exp += softmax_probs[i];
+  }
+  for (unsigned int i = 0; i < _size; ++i) {
+    softmax_probs[i] = softmax_probs[i] / total_exp;
+    if (softmax_probs[i] > max_prob) {
+      max_id = i;
+      max_prob = softmax_probs[i];
+    }
+  }
+  return softmax_probs;
 }
 
 template<typename T>
 std::vector<T> ortcv::utils::math::softmax(const std::vector<T> &logits, unsigned int &max_id) {
-
+  ::__assert_type<T>();
+  if (logits.empty()) return {};
+  const unsigned int _size = logits.size();
+  T max_prob = static_cast<T>(0), total_exp = static_cast<T>(0);
+  std::vector<float> softmax_probs(_size);
+  for (unsigned int i = 0; i < _size; ++i) {
+    softmax_probs[i] = std::expf(logits[i]);
+    total_exp += softmax_probs[i];
+  }
+  for (unsigned int i = 0; i < _size; ++i) {
+    softmax_probs[i] = softmax_probs[i] / total_exp;
+    if (softmax_probs[i] > max_prob) {
+      max_id = i;
+      max_prob = softmax_probs[i];
+    }
+  }
+  return softmax_probs;
 }
 
 #endif //LITEHUB_ORT_CORE_ORT_UTILS_H

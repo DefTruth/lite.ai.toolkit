@@ -31,24 +31,12 @@ void GenderGoogleNet::detect(const cv::Mat &mat, types::Gender &gender) {
   ort::Value &gender_logits = output_tensors.at(0); // (1,2)
   auto gender_dims = output_node_dims.at(0);
   const unsigned int num_genders = gender_dims.at(1); // 2
-  float pred_prob = -1.f, total_exp = 0.f;
   unsigned int pred_gender = 0;
   const float *pred_logits = gender_logits.GetTensorMutableData<float>();
-  std::vector<float> softmax_probs(num_genders);
-  for (unsigned int i = 0; i < num_genders; ++i) {
-    softmax_probs[i] = std::expf(pred_logits[i]);
-    total_exp += softmax_probs[i];
-  }
-  for (unsigned int i = 0; i < num_genders; ++i) {
-    softmax_probs[i] = softmax_probs[i] / total_exp;
-    if (softmax_probs[i] > pred_prob) {
-      pred_gender = i;
-      pred_prob = softmax_probs[i];
-    }
-  }
+  auto softmax_probs = ortcv::utils::math::softmax<float>(pred_logits, num_genders, pred_gender);
   unsigned gender_label = pred_gender == 1 ? 0 : 1;
   gender.label = gender_label;
   gender.text = gender_texts[gender_label];
-  gender.score = pred_prob;
+  gender.score = softmax_probs[pred_gender];
   gender.flag = true;
 }
