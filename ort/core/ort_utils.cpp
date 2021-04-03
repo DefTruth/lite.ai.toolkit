@@ -145,6 +145,28 @@ void ortcv::utils::draw_age_inplace(cv::Mat &mat_inplace, types::Age &age) {
               cv::FONT_HERSHEY_SIMPLEX, 0.6f, cv::Scalar(0, 0, 255), 2);
 }
 
+cv::Mat ortcv::utils::draw_gender(const cv::Mat &mat, types::Gender &gender) {
+  if (!gender.flag) return mat;
+  cv::Mat canva = mat.clone();
+  const unsigned int offset = static_cast<unsigned int>(
+      0.1f * static_cast<float>(mat.rows));
+  std::string gender_text = std::to_string(gender.label) + ":"
+      + gender.text + ":" + std::to_string(gender.score).substr(0, 4);
+  cv::putText(canva, gender_text, cv::Point2i(10, offset),
+              cv::FONT_HERSHEY_SIMPLEX, 0.6f, cv::Scalar(0, 255, 0), 2);
+  return canva;
+}
+
+void ortcv::utils::draw_gender_inplace(cv::Mat &mat_inplace, types::Gender &gender) {
+  if (!gender.flag) return;
+  const unsigned int offset = static_cast<unsigned int>(
+      0.1f * static_cast<float>(mat_inplace.rows));
+  std::string gender_text = std::to_string(gender.label) + ":"
+      + gender.text + ":" + std::to_string(gender.score).substr(0, 4);
+  cv::putText(mat_inplace, gender_text, cv::Point2i(10, offset),
+              cv::FONT_HERSHEY_SIMPLEX, 0.6f, cv::Scalar(0, 255, 0), 2);
+}
+
 // reference: https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB/
 //            blob/master/ncnn/src/UltraFace.cpp
 void ortcv::utils::hard_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,

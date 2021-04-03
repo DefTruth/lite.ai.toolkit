@@ -12,11 +12,11 @@
 // namespace cv2 = cv;
 
 namespace ortcv {
-  class FSANet;              // [0] reference: https://github.com/omasaht/headpose-fsanet-pytorch
-  class PFLD;                // [1] reference: https://github.com/Hsintao/pfld_106_face_landmarks
-  class UltraFace;           // [2] reference: https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB
-  class AgeGoogleNet;        // [3] reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
-  class GenderGoogleNet;     // [4] reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
+  class FSANet;              // [0] * reference: https://github.com/omasaht/headpose-fsanet-pytorch
+  class PFLD;                // [1] * reference: https://github.com/Hsintao/pfld_106_face_landmarks
+  class UltraFace;           // [2] * reference: https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB
+  class AgeGoogleNet;        // [3] * reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
+  class GenderGoogleNet;     // [4] * reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
   class EmotionFerPlus;      // [5] reference: https://github.com/onnx/models/blob/master/vision/body_analysis/emotion_ferplus
   class VGG16Age;            // [6] reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
   class SSRNet;              // [7] reference: https://github.com/oukohou/SSR_Net_Pytorch

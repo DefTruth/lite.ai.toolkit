@@ -34,7 +34,7 @@ void GenderGoogleNet::detect(const cv::Mat &mat, types::Gender &gender) {
   unsigned int pred_gender = 0;
   const float *pred_logits = gender_logits.GetTensorMutableData<float>();
   auto softmax_probs = ortcv::utils::math::softmax<float>(pred_logits, num_genders, pred_gender);
-  unsigned gender_label = pred_gender == 1 ? 0 : 1;
+  unsigned int gender_label = pred_gender == 1 ? 0 : 1;
   gender.label = gender_label;
   gender.text = gender_texts[gender_label];
   gender.score = softmax_probs[pred_gender];
