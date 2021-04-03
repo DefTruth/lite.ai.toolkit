@@ -36,8 +36,8 @@ namespace ortcv {
                                  std::vector<float> &tensor_value_handler,
                                  unsigned int data_format = CHW) throw(std::runtime_error);
       cv::Mat normalize(const cv::Mat &mat, float mean, float scale);
-      void normalize(const cv::Mat &inmat, cv::Mat &outmat, float mean, float scale);
       cv::Mat normalize(const cv::Mat &mat, const float mean[3], const float scale[3]);
+      void normalize(const cv::Mat &inmat, cv::Mat &outmat, float mean, float scale);
       void normalize_inplace(cv::Mat &mat_inplace, float mean, float scale);
       void normalize_inplace(cv::Mat &mat_inplace, const float mean[3], const float scale[3]);
     }
