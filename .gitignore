@@ -1,7 +1,6 @@
 .DS_Store
 *.sh
 data
-logs
 hub
 cmake-build-debug
 cmake-build-release
