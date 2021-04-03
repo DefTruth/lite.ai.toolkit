@@ -117,7 +117,7 @@ int main(__unused int argc, __unused char *argv[]) {
 The output is:  
 ![](logs/test_ortcv_ultraface.jpg)  
 
-### 3.3 Emotion detection using [EmotionFerPlus](https://github.com/onnx/models/blob/master/vision/body_analysis/emotion_ferplus).
+### 3.4 Emotion detection using [EmotionFerPlus](https://github.com/onnx/models/blob/master/vision/body_analysis/emotion_ferplus).
 ```c++
 #include <iostream>
 #include <vector>
