@@ -195,7 +195,7 @@ namespace ortcv {
 
 ## 5. Become a Contributor  
 ### 5.1 ONNXRuntime Inference Engine. 
-For the single input multiple output model, you can inherit [BasicOrthHandler](https://github.com/DefTruth/litehub/blob/main/ort/core/ort_handler.h) and then implement the 
+For the single input and multiple output model, you can inherit [BasicOrthHandler](https://github.com/DefTruth/litehub/blob/main/ort/core/ort_handler.h) and then implement the 
 `transform` and `detect` interfaces, Or you can implement a `xxx_model.cpp` completely on your own. 
 After submitting MR, I will modify it in the same way that I inherited `BasicOrtHandler` and add it to the library.  
 For example:  
@@ -221,4 +221,10 @@ namespace ortcv {
   public:
     void detect(const cv::Mat &mat, types::Age &age);
   };
-```
+``` 
+### 5.2 NCNN Inference Engine.
+* TODO.
+### 5.3 MNN Inference Engine.
+* TODO.
+### 5.4 TNN Inference Engine.
+* TODO. 
