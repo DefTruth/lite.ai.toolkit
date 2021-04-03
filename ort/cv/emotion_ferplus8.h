@@ -1,8 +1,0 @@
-//
-// Created by DefTruth on 2021/4/3.
-//
-
-#ifndef LITEHUB_ORT_CV_EMOTION_FERPLUS8_H
-#define LITEHUB_ORT_CV_EMOTION_FERPLUS8_H
-
-#endif //LITEHUB_ORT_CV_EMOTION_FERPLUS8_H

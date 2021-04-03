@@ -8,9 +8,9 @@ using ortcv::AgeGoogleNet;
 
 ort::Value AgeGoogleNet::transform(const cv::Mat &mat) {
   cv::Mat canva = mat.clone();
-  cv::cvtColor(canva, canva, cv::COLOR_BGR2RGB);
   cv::resize(canva, canva, cv::Size(input_node_dims.at(3),
                                     input_node_dims.at(2)));
+  cv::cvtColor(canva, canva, cv::COLOR_BGR2RGB);
   // (1,3,224,224)
   ortcv::utils::transform::normalize_inplace(canva, mean_val, scale_val); // float32
 
