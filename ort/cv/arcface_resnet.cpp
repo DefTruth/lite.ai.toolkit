@@ -24,10 +24,12 @@ void ArcFaceResNet::detect(const cv::Mat &mat, types::FaceContent &face_content)
   // 1. make input tensor
   ort::Value input_tensor = this->transform(mat);
   // 2. inference
+  std::cout << "ort_session->Run start" << std::endl;
   auto output_tensors = ort_session->Run(
       ort::RunOptions{nullptr}, input_node_names.data(),
       &input_tensor, 1, output_node_names.data(), num_outputs
   );
+  std::cout << "ort_session->Run done" << std::endl;
   ort::Value &embedding_logits = output_tensors.at(0);
   auto embedding_dims = output_node_dims.at(0); // (1,512)
   const unsigned int hidden_dim = embedding_dims.at(1); // 512

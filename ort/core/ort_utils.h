@@ -121,7 +121,7 @@ T ortcv::utils::math::cosine_similarity(const std::vector<T> &a, const std::vect
     mul_ab += a[i] * b[i];
   }
   if (mul_a == zero_vale || mul_b == zero_vale) return zero_vale;
-  return mul_ab  / (std::sqrt<T>(mul_a) + std::sqrt<T>(mul_b));
+  return static_cast<T>(mul_ab  / (std::sqrt(mul_a) + std::sqrt(mul_b)));
 }
 
 #endif //LITEHUB_ORT_CORE_ORT_UTILS_H

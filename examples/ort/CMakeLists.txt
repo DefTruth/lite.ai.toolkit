@@ -6,6 +6,7 @@ option(BUILD_ORT_CV_GENDER_GOOGLENET "whether to build ortcv_gender_googlenet bi
 option(BUILD_ORT_CV_EMOTION_FERPLUS "whether to build ortcv_emotion_ferplus binary." ON)
 option(BUILD_ORT_CV_VGG16_AGE "whether to build ortcv_vgg16_age binary." ON)
 option(BUILD_ORT_CV_VGG16_GENDER "whether to build ortcv_vgg16_gender binary." ON)
+option(BUILD_ORT_CV_ARCFACE_RESNET "whether to build ortcv_arcface_resnet binary." ON)
 
 if (BUILD_ORT_CV_FSANET)
     include(cv/test_ortcv_fsanet.cmake)
@@ -37,4 +38,8 @@ endif()
 
 if (BUILD_ORT_CV_VGG16_GENDER)
     include(cv/test_ortcv_vgg16_gender.cmake)
+endif()
+
+if (BUILD_ORT_CV_ARCFACE_RESNET)
+    include(cv/test_ortcv_arcface_resnet.cmake)
 endif()
