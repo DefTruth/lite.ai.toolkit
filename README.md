@@ -206,8 +206,8 @@ See [ort-core](https://github.com/DefTruth/litehub/blob/main/ort/core/ort_core.h
 
 ## 5. Documents.  
 ### 5.1 ONNXRuntime Inference Engine. 
-* [Rapid implementation of your inference using BasicOrtHandler](https://github.com/DefTruth/litehub/blob/main/docs/ort_handler.md)
-* [Some very useful C ++ interfaces in onnxruntime]((https://github.com/DefTruth/litehub/blob/main/docs/ort_usage.md))
+* [Rapid implementation of your inference using BasicOrtHandler](https://github.com/DefTruth/litehub/blob/main/docs/ort_handler.md)  
+* [Some very useful interfaces in onnxruntime]((https://github.com/DefTruth/litehub/blob/main/docs/ort_usage.md))
 
 ### 5.2 NCNN Inference Engine.
 * TODO.
