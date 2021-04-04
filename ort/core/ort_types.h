@@ -34,7 +34,7 @@ namespace ortcv {
       value_type x2;
       value_type y2;
       score_type score;
-      char *label_text;
+      const char *label_text;
       unsigned int label; // for general object detection.
       bool flag; // future use.
       // convert type.
