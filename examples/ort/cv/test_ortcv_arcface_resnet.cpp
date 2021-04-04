@@ -32,4 +32,5 @@ static void test_ortcv_arcface_resnet() {
 int main(__unused int argc, __unused char *argv[]) {
   test_ortcv_arcface_resnet();
   return 0;
+  //  Ort::Exception: Non-zero status code returned while running BatchNormalization node. Name:'stage1_unit1_bn1' Status Message: Invalid input scale: NumDimensions() != 3
 }
