@@ -1,6 +1,5 @@
 # litehub
-`litehub` for onnxruntime/ncnn/mnn/tnn. What you see is what you get !.  
-This library integrates some interesting models. I use them as practice cases when learning `mobile inference frameworks`.
+`litehub` for onnxruntime/ncnn/mnn/tnn. What you see is what you get! This library integrates some interesting models. I use them as practice cases when I was learning some mobile inference engines.
 Most of the models come from `ONNX-Model-Zoo`, `PytorchHub` and `other open source projects`. All models used will be cited. 
 Many thanks to these contributors. To be clear, I do not plan to maintain the library diligently, they are just examples of my practice, 
 so I am not responsible for any bugs, nor do I plan to fix some of them. What you see is what you get, and hopefully you get something out of it.
