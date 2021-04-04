@@ -49,6 +49,7 @@ namespace ortcv {
     namespace math {
       template<typename T=float> std::vector<T> softmax(const std::vector<T> &logits, unsigned int &max_id);
       template<typename T=float> std::vector<T> softmax(const T *logits, unsigned int _size, unsigned int &max_id);
+      template<typename T=float> T cosine_similarity(const std::vector<T> &a, const std::vector<T> &b);
     }
 
   } // NAMESPACE UTILS
@@ -105,6 +106,22 @@ std::vector<T> ortcv::utils::math::softmax(const std::vector<T> &logits, unsigne
     }
   }
   return softmax_probs;
+}
+
+template<typename T>
+T ortcv::utils::math::cosine_similarity(const std::vector<T> &a, const std::vector<T> &b) {
+  ::__assert_type<T>();
+  T zero_vale = static_cast<T>(0);
+  if (a.empty() || b.empty() || (a.size() != b.size())) return zero_vale;
+  const unsigned int _size = a.size();
+  T mul_a = zero_vale, mul_b = zero_vale, mul_ab = zero_vale;
+  for (unsigned int i = 0; i < _size; ++i) {
+    mul_a += a[i] * a[i];
+    mul_b += b[i] * b[i];
+    mul_ab += a[i] * b[i];
+  }
+  if (mul_a == zero_vale || mul_b == zero_vale) return zero_vale;
+  return mul_ab  / (std::sqrt<T>(mul_a) + std::sqrt<T>(mul_b));
 }
 
 #endif //LITEHUB_ORT_CORE_ORT_UTILS_H

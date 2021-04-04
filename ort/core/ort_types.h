@@ -58,12 +58,13 @@ namespace ortcv {
     typedef BoundingBoxType<int, float> Boxi;
     typedef BoundingBoxType<float, float> Boxf;
     typedef BoundingBoxType<double, double> Boxd;
-    typedef struct LandmarksType {std::vector<cv::Point2f> points; bool flag; LandmarksType():flag(false) {};} Landmarks;
+    typedef struct LandmarksType {std::vector<cv::Point2f> points; bool flag; LandmarksType():flag(false){};} Landmarks;
     typedef struct EulerAnglesType { float yaw; float pitch; float roll; bool flag; EulerAnglesType():flag(false){};} EulerAngles;
     typedef struct EmotionsType{ float score; unsigned int label; const char *text; bool flag; EmotionsType():flag(false){};} Emotions;
     typedef struct AgeType { float age; unsigned int age_interval[2]; float interval_prob; bool flag; AgeType():flag(false){};} Age;
     typedef struct GenderType { float score; unsigned int label; const char *text; bool flag; GenderType():flag(false){};} Gender;
     typedef struct OCRContentType { const char *text; unsigned int *codecs; bool flag; OCRContentType():flag(false){};} OCRContent;
+    typedef struct FaceContentType { std::vector<float> embedding; unsigned int dim; bool flag; FaceContentType():flag(false){};} FaceContent;
   } // NAMESPACE TYPES
 } // NAMESPACE ORTCV
 
