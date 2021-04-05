@@ -58,7 +58,7 @@ int main(__unused int argc, __unused char *argv[]) {
 }
 ```  
 The output is:  
-<div align=center><img width="256" height="256" src='logs/test_ortcv_age_googlenet.jpg'/></div>  
+<div align=center><img src='logs/test_ortcv_age_googlenet.jpg'/></div>  
 
 #### 3.1.2 Facial Landmarks detection using [PFLD](https://github.com/Hsintao/pfld_106_face_landmarks).
 ```c++
@@ -88,7 +88,7 @@ int main(__unused int argc, __unused char *argv[]) {
 }
 ```   
 The output is:  
-<div align=center><img width="256" height="256" src='logs/test_ortcv_pfld.jpg'/></div>  
+<div align=center><img src='logs/test_ortcv_pfld.jpg'/></div>  
 
 #### 3.1.3 Face detection using [UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB).
 ```c++
@@ -118,7 +118,7 @@ int main(__unused int argc, __unused char *argv[]) {
 }
 ```
 The output is:  
-<div align=center><img width="256" height="256" src='logs/test_ortcv_ultraface.jpg'/></div>  
+<div align=center><img src='logs/test_ortcv_ultraface.jpg'/></div>  
 
 #### 3.1.4 Emotion detection using [EmotionFerPlus](https://github.com/onnx/models/blob/master/vision/body_analysis/emotion_ferplus).
 ```c++
@@ -148,7 +148,7 @@ int main(__unused int argc, __unused char *argv[]) {
 }
 ```
 The output is:  
-<div align=center><img width="256" height="256" src='logs/test_ortcv_emotion_ferplus.jpg'/></div>
+<div align=center><img src='logs/test_ortcv_emotion_ferplus.jpg'/></div>
 
 ### 3.1.5 Style transfer using [FastStyleTransfer](https://github.com/onnx/models/tree/master/vision/style_transfer/fast_neural_style).  
 ```c++
@@ -213,16 +213,15 @@ int main(__unused int argc, __unused char *argv[])
 }
 ```  
 The output is:  
-<div align='center'>
-  <img src='examples/ort/resources/test_ortcv_fast_style_transfer.jpg' height="174px">		
-</div>
 
 <div align='center'>
-  <img src='logs/test_ortcv_fast_style_transfer_candy.jpg' height="174px">
-  <img src='logs/test_ortcv_fast_style_transfer_mosaic.jpg' height="174px">
-  <img src='logs/test_ortcv_fast_style_transfer_pointilism.jpg' height="174px">
-  <img src='logs/test_ortcv_fast_style_transfer_rain_princes.jpg' height="174px">
-  <img src='logs/test_ortcv_fast_style_transfer_udnie.jpg' height="174px">
+  <img src='examples/ort/resources/test_ortcv_fast_style_transfer.jpg' height="224px">
+  <img src='logs/test_ortcv_fast_style_transfer_candy.jpg' height="224px">
+  <img src='logs/test_ortcv_fast_style_transfer_mosaic.jpg' height="224px">  
+  <br> 
+  <img src='logs/test_ortcv_fast_style_transfer_pointilism.jpg' height="224px">
+  <img src='logs/test_ortcv_fast_style_transfer_rain_princes.jpg' height="224px">
+  <img src='logs/test_ortcv_fast_style_transfer_udnie.jpg' height="224px">
 </div>
 
 ### 3.2 Usage for NCNN Interfaces.  
