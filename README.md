@@ -29,128 +29,8 @@ install `opencv` and `onnxruntime` libraries using Homebrew.
 ## 3. Usage
 Disclaimer: The following test pictures are from the Internet search, if it has any impact on you, please contact me immediately, I will remove it immediately. 
 ### 3.1 Usage for ONNXRuntime Interfaces.
-More examples can find at [ortcv-examples](https://github.com/DefTruth/litehub/tree/main/examples/ort/cv).
-#### 3.1.1 Age detection using [GoogleNet](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender).
-```c++
-#include <iostream>
-#include <vector>
-#include "ort/cv/age_googlenet.h"
-#include "ort/core/ort_utils.h"
-
-static void test_ortcv_age_googlenet() {
-  std::string onnx_path = "../../../hub/onnx/cv/age_googlenet.onnx";
-  std::string test_img_path = "../../../examples/ort/resources/test_ortcv_age_googlenet.jpg";
-  std::string save_img_path = "../../../logs/test_ortcv_age_googlenet.jpg";
-
-  ortcv::AgeGoogleNet *age_googlenet = new ortcv::AgeGoogleNet(onnx_path);
-  ortcv::types::Age age;
-  cv::Mat img_bgr = cv::imread(test_img_path);
-  age_googlenet->detect(img_bgr, age);
-  ortcv::utils::draw_age_inplace(img_bgr, age);
-  cv::imwrite(save_img_path, img_bgr);
-  std::cout << "Detected Age: " << age.age << std::endl;
-  delete age_googlenet;
-}
-
-int main(__unused int argc, __unused char *argv[]) {
-  test_ortcv_age_googlenet();
-  return 0;
-}
-```  
-The output is:  
-<div align=center><img src='logs/test_ortcv_age_googlenet.jpg'/></div>  
-
-#### 3.1.2 Facial Landmarks detection using [PFLD](https://github.com/Hsintao/pfld_106_face_landmarks).
-```c++
-#include <iostream>
-#include <vector>
-#include "ort/cv/pfld.h"
-#include "ort/core/ort_utils.h"
-
-static void test_ortcv_pfld() {
-  std::string onnx_path = "../../../hub/onnx/cv/pfld-106-v3.onnx";
-  std::string test_img_path = "../../../examples/ort/resources/test_ortcv_pfld.jpg";
-  std::string save_img_path = "../../../logs/test_ortcv_pfld.jpg";
-  
-  ortcv::PFLD *pfld = new ortcv::PFLD(onnx_path);
-  ortcv::types::Landmarks landmarks;
-  cv::Mat img_bgr = cv::imread(test_img_path);
-  pfld->detect(img_bgr, landmarks);
-  ortcv::utils::draw_landmarks_inplace(img_bgr, landmarks);
-  cv::imwrite(save_img_path, img_bgr);
-  std::cout << "Detected Landmarks Num: " << landmarks.points.size() << std::endl;
-  delete pfld;
-}
-
-int main(__unused int argc, __unused char *argv[]) {
-  test_ortcv_pfld();
-  return 0;
-}
-```   
-The output is:  
-<div align=center><img src='logs/test_ortcv_pfld.jpg'/></div>  
-
-#### 3.1.3 Face detection using [UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB).
-```c++
-#include <iostream>
-#include <vector>
-#include "ort/cv/ultraface.h"
-#include "ort/core/ort_utils.h"
-
-static void test_ortcv_ultraface() {
-  std::string onnx_path = "../../../hub/onnx/cv/ultraface-rfb-640.onnx";
-  std::string test_img_path = "../../../examples/ort/resources/test_ortcv_ultraface.jpg";
-  std::string save_img_path = "../../../logs/test_ortcv_ultraface.jpg";
-  
-  ortcv::UltraFace *ultraface = new ortcv::UltraFace(onnx_path);
-  std::vector<ortcv::types::Boxf> detected_boxes;
-  cv::Mat img_bgr = cv::imread(test_img_path);
-  ultraface->detect(img_bgr, detected_boxes);
-  ortcv::utils::draw_boxes_inplace(img_bgr, detected_boxes);
-  cv::imwrite(save_img_path, img_bgr);
-  std::cout << "Detected Face Num: " << detected_boxes.size() << std::endl;
-  delete ultraface;
-}
-
-int main(__unused int argc, __unused char *argv[]) {
-  test_ortcv_ultraface();
-  return 0;
-}
-```
-The output is:  
-<div align=center><img src='logs/test_ortcv_ultraface.jpg'/></div>  
-
-#### 3.1.4 Emotion detection using [EmotionFerPlus](https://github.com/onnx/models/blob/master/vision/body_analysis/emotion_ferplus).
-```c++
-#include <iostream>
-#include <vector>
-#include "ort/cv/emotion_ferplus.h"
-#include "ort/core/ort_utils.h"
-
-static void test_ortcv_emotion_ferplus() {
-  std::string onnx_path = "../../../hub/onnx/cv/emotion-ferplus-8.onnx";
-  std::string test_img_path = "../../../examples/ort/resources/test_ortcv_emotion_ferplus.jpg";
-  std::string save_img_path = "../../../logs/test_ortcv_emotion_ferplus.jpg";
-  
-  ortcv::EmotionFerPlus *emotion_ferplus = new ortcv::EmotionFerPlus(onnx_path);
-  ortcv::types::Emotions emotions;
-  cv::Mat img_bgr = cv::imread(test_img_path);
-  emotion_ferplus->detect(img_bgr, emotions);
-  ortcv::utils::draw_emotion_inplace(img_bgr, emotions);
-  cv::imwrite(save_img_path, img_bgr);
-  std::cout << "Detected Emotion: " << emotions.text << std::endl;
-  delete emotion_ferplus;
-}
-
-int main(__unused int argc, __unused char *argv[]) {
-  test_ortcv_emotion_ferplus();
-  return 0;
-}
-```
-The output is:  
-<div align=center><img src='logs/test_ortcv_emotion_ferplus.jpg'/></div>
-
-### 3.1.5 Style transfer using [FastStyleTransfer](https://github.com/onnx/models/tree/master/vision/style_transfer/fast_neural_style).  
+More examples can find at [ortcv-examples](https://github.com/DefTruth/litehub/tree/main/examples/ort/cv).  
+### 3.1.1 Style transfer using [FastStyleTransfer](https://github.com/onnx/models/tree/master/vision/style_transfer/fast_neural_style).
 ```c++
 #include <iostream>
 #include <vector>
@@ -212,7 +92,7 @@ int main(__unused int argc, __unused char *argv[])
   return 0;
 }
 ```  
-The output is:  
+The output is:
 
 <div align='center'>
   <img src='examples/ort/resources/test_ortcv_fast_style_transfer.jpg' height="224px">
@@ -223,6 +103,126 @@ The output is:
   <img src='logs/test_ortcv_fast_style_transfer_rain_princes.jpg' height="224px">
   <img src='logs/test_ortcv_fast_style_transfer_udnie.jpg' height="224px">
 </div>
+
+#### 3.1.2 Age detection using [GoogleNet](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender).
+```c++
+#include <iostream>
+#include <vector>
+#include "ort/cv/age_googlenet.h"
+#include "ort/core/ort_utils.h"
+
+static void test_ortcv_age_googlenet() {
+  std::string onnx_path = "../../../hub/onnx/cv/age_googlenet.onnx";
+  std::string test_img_path = "../../../examples/ort/resources/test_ortcv_age_googlenet.jpg";
+  std::string save_img_path = "../../../logs/test_ortcv_age_googlenet.jpg";
+
+  ortcv::AgeGoogleNet *age_googlenet = new ortcv::AgeGoogleNet(onnx_path);
+  ortcv::types::Age age;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  age_googlenet->detect(img_bgr, age);
+  ortcv::utils::draw_age_inplace(img_bgr, age);
+  cv::imwrite(save_img_path, img_bgr);
+  std::cout << "Detected Age: " << age.age << std::endl;
+  delete age_googlenet;
+}
+
+int main(__unused int argc, __unused char *argv[]) {
+  test_ortcv_age_googlenet();
+  return 0;
+}
+```  
+The output is:  
+<div align=center><img src='logs/test_ortcv_age_googlenet.jpg'/></div>  
+
+#### 3.1.3 Facial Landmarks detection using [PFLD](https://github.com/Hsintao/pfld_106_face_landmarks).
+```c++
+#include <iostream>
+#include <vector>
+#include "ort/cv/pfld.h"
+#include "ort/core/ort_utils.h"
+
+static void test_ortcv_pfld() {
+  std::string onnx_path = "../../../hub/onnx/cv/pfld-106-v3.onnx";
+  std::string test_img_path = "../../../examples/ort/resources/test_ortcv_pfld.jpg";
+  std::string save_img_path = "../../../logs/test_ortcv_pfld.jpg";
+  
+  ortcv::PFLD *pfld = new ortcv::PFLD(onnx_path);
+  ortcv::types::Landmarks landmarks;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  pfld->detect(img_bgr, landmarks);
+  ortcv::utils::draw_landmarks_inplace(img_bgr, landmarks);
+  cv::imwrite(save_img_path, img_bgr);
+  std::cout << "Detected Landmarks Num: " << landmarks.points.size() << std::endl;
+  delete pfld;
+}
+
+int main(__unused int argc, __unused char *argv[]) {
+  test_ortcv_pfld();
+  return 0;
+}
+```   
+The output is:  
+<div align=center><img src='logs/test_ortcv_pfld.jpg'/></div>  
+
+#### 3.1.4 Face detection using [UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB).
+```c++
+#include <iostream>
+#include <vector>
+#include "ort/cv/ultraface.h"
+#include "ort/core/ort_utils.h"
+
+static void test_ortcv_ultraface() {
+  std::string onnx_path = "../../../hub/onnx/cv/ultraface-rfb-640.onnx";
+  std::string test_img_path = "../../../examples/ort/resources/test_ortcv_ultraface.jpg";
+  std::string save_img_path = "../../../logs/test_ortcv_ultraface.jpg";
+  
+  ortcv::UltraFace *ultraface = new ortcv::UltraFace(onnx_path);
+  std::vector<ortcv::types::Boxf> detected_boxes;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  ultraface->detect(img_bgr, detected_boxes);
+  ortcv::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+  cv::imwrite(save_img_path, img_bgr);
+  std::cout << "Detected Face Num: " << detected_boxes.size() << std::endl;
+  delete ultraface;
+}
+
+int main(__unused int argc, __unused char *argv[]) {
+  test_ortcv_ultraface();
+  return 0;
+}
+```
+The output is:  
+<div align=center><img src='logs/test_ortcv_ultraface.jpg'/></div>  
+
+#### 3.1.5 Emotion detection using [EmotionFerPlus](https://github.com/onnx/models/blob/master/vision/body_analysis/emotion_ferplus).
+```c++
+#include <iostream>
+#include <vector>
+#include "ort/cv/emotion_ferplus.h"
+#include "ort/core/ort_utils.h"
+
+static void test_ortcv_emotion_ferplus() {
+  std::string onnx_path = "../../../hub/onnx/cv/emotion-ferplus-8.onnx";
+  std::string test_img_path = "../../../examples/ort/resources/test_ortcv_emotion_ferplus.jpg";
+  std::string save_img_path = "../../../logs/test_ortcv_emotion_ferplus.jpg";
+  
+  ortcv::EmotionFerPlus *emotion_ferplus = new ortcv::EmotionFerPlus(onnx_path);
+  ortcv::types::Emotions emotions;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  emotion_ferplus->detect(img_bgr, emotions);
+  ortcv::utils::draw_emotion_inplace(img_bgr, emotions);
+  cv::imwrite(save_img_path, img_bgr);
+  std::cout << "Detected Emotion: " << emotions.text << std::endl;
+  delete emotion_ferplus;
+}
+
+int main(__unused int argc, __unused char *argv[]) {
+  test_ortcv_emotion_ferplus();
+  return 0;
+}
+```
+The output is:  
+<div align=center><img src='logs/test_ortcv_emotion_ferplus.jpg'/></div>
 
 ### 3.2 Usage for NCNN Interfaces.  
 * TODO.  
@@ -284,7 +284,8 @@ See [ort-core](https://github.com/DefTruth/litehub/blob/main/ort/core/ort_core.h
 ## 5. Documents.  
 ### 5.1 ONNXRuntime Inference Engine. 
 * [Rapid implementation of your inference using BasicOrtHandler](https://github.com/DefTruth/litehub/blob/main/docs/ort_handler.md)  
-* [Some very useful interfaces in onnxruntime c++](https://github.com/DefTruth/litehub/blob/main/docs/ort_usage.md)
+* [Some very useful interfaces in onnxruntime c++](https://github.com/DefTruth/litehub/blob/main/docs/ort_usage.md)  
+* [How to compile a single model in this library you needed](https://github.com/DefTruth/litehub/blob/main/docs/ort_build.md)
 
 ### 5.2 NCNN Inference Engine.
 * TODO.
