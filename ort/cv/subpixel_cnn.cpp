@@ -31,8 +31,8 @@ void SubPixelCNN::detect(const cv::Mat &mat, types::SuperResolutionContent &supe
   std::vector<cv::Mat> split_mats;
   cv::split(mat_ycbcr, split_mats);
   mat_y = split_mats.at(0); // (224,224,1) uchar CV_8UC1
-  mat_cb = split_mats.at(1);
-  mat_cr = split_mats.at(2);
+  mat_cr = split_mats.at(1);
+  mat_cb = split_mats.at(2);
 
   // 1. make input tensor
   ort::Value input_tensor = this->transform(mat_y);
@@ -58,13 +58,13 @@ void SubPixelCNN::detect(const cv::Mat &mat, types::SuperResolutionContent &supe
     } // CHW->HWC
   }
 
-  cv::resize(mat_cb, mat_cb, cv::Size(cols, rows));
   cv::resize(mat_cr, mat_cr, cv::Size(cols, rows));
+  cv::resize(mat_cb, mat_cb, cv::Size(cols, rows));
 
   std::vector<cv::Mat> out_mats;
   out_mats.push_back(mat_y);
-  out_mats.push_back(mat_cb);
   out_mats.push_back(mat_cr);
+  out_mats.push_back(mat_cb);
 
   // 3. merge
   cv::merge(out_mats, super_resolution_content.mat);
