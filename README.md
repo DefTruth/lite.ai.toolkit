@@ -58,7 +58,7 @@ int main(__unused int argc, __unused char *argv[]) {
 }
 ```  
 The output is:  
-<div align=center><img width="256" height="256" src="https://github.com/DefTruth/litehub/blob/main/logs/test_ortcv_age_googlenet.jpg"/></div>  
+<div align=center><img width="256" height="256" src='logs/test_ortcv_age_googlenet.jpg'/></div>  
 
 #### 3.1.2 Facial Landmarks detection using [PFLD](https://github.com/Hsintao/pfld_106_face_landmarks).
 ```c++
@@ -88,7 +88,7 @@ int main(__unused int argc, __unused char *argv[]) {
 }
 ```   
 The output is:  
-<div align=center><img width="256" height="256" src="https://github.com/DefTruth/litehub/blob/main/logs/test_ortcv_pfld.jpg"/></div>  
+<div align=center><img width="256" height="256" src='logs/test_ortcv_pfld.jpg'/></div>  
 
 #### 3.1.3 Face detection using [UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB).
 ```c++
@@ -118,7 +118,7 @@ int main(__unused int argc, __unused char *argv[]) {
 }
 ```
 The output is:  
-<div align=center><img width="256" height="256" src="https://github.com/DefTruth/litehub/blob/main/logs/test_ortcv_ultraface.jpg"/></div>  
+<div align=center><img width="256" height="256" src='logs/test_ortcv_ultraface.jpg'/></div>  
 
 #### 3.1.4 Emotion detection using [EmotionFerPlus](https://github.com/onnx/models/blob/master/vision/body_analysis/emotion_ferplus).
 ```c++
@@ -148,7 +148,82 @@ int main(__unused int argc, __unused char *argv[]) {
 }
 ```
 The output is:  
-<div align=center><img width="256" height="256" src="https://github.com/DefTruth/litehub/blob/main/logs/test_ortcv_emotion_ferplus.jpg"/></div>
+<div align=center><img width="256" height="256" src='logs/test_ortcv_emotion_ferplus.jpg'/></div>
+
+### 3.1.5 Style transfer using [FastStyleTransfer](https://github.com/onnx/models/tree/master/vision/style_transfer/fast_neural_style).  
+```c++
+#include <iostream>
+#include <vector>
+#include "ort/cv/fast_style_transfer.h"
+#include "ort/core/ort_utils.h"
+
+static void test_ortcv_fast_style_transfer()
+{
+  std::string candy_onnx_path = "../../../hub/onnx/cv/style-candy-8.onnx";
+  std::string mosaic_onnx_path = "../../../hub/onnx/cv/style-mosaic-8.onnx";
+  std::string pointilism_onnx_path = "../../../hub/onnx/cv/style-pointilism-8.onnx";
+  std::string rain_princess_onnx_path = "../../../hub/onnx/cv/style-rain-princess-8.onnx";
+  std::string udnie_onnx_path = "../../../hub/onnx/cv/style-udnie-8.onnx";
+  std::string test_img_path = "../../../examples/ort/resources/test_ortcv_fast_style_transfer.jpg";
+  std::string save_candy_path = "../../../logs/test_ortcv_fast_style_transfer_candy.jpg";
+  std::string save_mosaic_path = "../../../logs/test_ortcv_fast_style_transfer_mosaic.jpg";
+  std::string save_pointilism_path = "../../../logs/test_ortcv_fast_style_transfer_pointilism.jpg";
+  std::string save_rain_princess_path = "../../../logs/test_ortcv_fast_style_transfer_rain_princes.jpg";
+  std::string save_udnie_path = "../../../logs/test_ortcv_fast_style_transfer_udnie.jpg";
+
+  ortcv::FastStyleTransfer *candy_fast_style_transfer = new ortcv::FastStyleTransfer(candy_onnx_path);
+  ortcv::FastStyleTransfer *mosaic_fast_style_transfer = new ortcv::FastStyleTransfer(mosaic_onnx_path);
+  ortcv::FastStyleTransfer *pointilism_fast_style_transfer = new ortcv::FastStyleTransfer(pointilism_onnx_path);
+  ortcv::FastStyleTransfer *rain_princess_fast_style_transfer = new ortcv::FastStyleTransfer(rain_princess_onnx_path);
+  ortcv::FastStyleTransfer *udnie_fast_style_transfer = new ortcv::FastStyleTransfer(udnie_onnx_path);
+
+  ortcv::types::StyleContent candy_style_content;
+  ortcv::types::StyleContent mosaic_style_content;
+  ortcv::types::StyleContent pointilism_style_content;
+  ortcv::types::StyleContent rain_princess_style_content;
+  ortcv::types::StyleContent udnie_style_content;
+
+  cv::Mat img_bgr = cv::imread(test_img_path);
+
+  candy_fast_style_transfer->detect(img_bgr, candy_style_content);
+  mosaic_fast_style_transfer->detect(img_bgr, mosaic_style_content);
+  pointilism_fast_style_transfer->detect(img_bgr, pointilism_style_content);
+  rain_princess_fast_style_transfer->detect(img_bgr, rain_princess_style_content);
+  udnie_fast_style_transfer->detect(img_bgr, udnie_style_content);
+
+  if (candy_style_content.flag) cv::imwrite(save_candy_path, candy_style_content.mat);
+  if (mosaic_style_content.flag) cv::imwrite(save_mosaic_path, mosaic_style_content.mat);
+  if (pointilism_style_content.flag) cv::imwrite(save_pointilism_path, pointilism_style_content.mat);
+  if (rain_princess_style_content.flag) cv::imwrite(save_rain_princess_path, rain_princess_style_content.mat);
+  if (udnie_style_content.flag) cv::imwrite(save_udnie_path, udnie_style_content.mat);
+
+  std::cout << "Style Transfer Done." << std::endl;
+
+  delete candy_fast_style_transfer;
+  delete mosaic_fast_style_transfer;
+  delete pointilism_fast_style_transfer;
+  delete rain_princess_fast_style_transfer;
+  delete udnie_fast_style_transfer;
+}
+
+int main(__unused int argc, __unused char *argv[])
+{
+  test_ortcv_fast_style_transfer();
+  return 0;
+}
+```  
+The output is:  
+<div align='center'>
+  <img src='examples/ort/resources/test_ortcv_fast_style_transfer.jpg' height="174px">		
+</div>
+
+<div align='center'>
+  <img src='logs/test_ortcv_fast_style_transfer_candy.jpg' height="174px">
+  <img src='logs/test_ortcv_fast_style_transfer_mosaic.jpg' height="174px">
+  <img src='logs/test_ortcv_fast_style_transfer_pointilism.jpg' height="174px">
+  <img src='logs/test_ortcv_fast_style_transfer_rain_princes.jpg' height="174px">
+  <img src='logs/test_ortcv_fast_style_transfer_udnie.jpg' height="174px">
+</div>
 
 ### 3.2 Usage for NCNN Interfaces.  
 * TODO.  
@@ -162,7 +237,8 @@ The `*` symbol indicates that the C ++ inference interface for the model has bee
 But I don't guarantee that there will be more models.
 ### 4.1 ONNXRuntime Inference Engine. 
 ```c++
-namespace ortcv {
+namespace ortcv
+{
   class FSANet;              // [0] * reference: https://github.com/omasaht/headpose-fsanet-pytorch
   class PFLD;                // [1] * reference: https://github.com/Hsintao/pfld_106_face_landmarks
   class UltraFace;           // [2] * reference: https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB
@@ -191,10 +267,11 @@ namespace ortcv {
   class SSD;                 // [25] reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd
   class SSDMobileNetV1;      // [26] reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd-mobilenetv1
   class ArcFaceResNet;       // [27] * reference: https://github.com/onnx/models/blob/master/vision/body_analysis/arcface
-  class FastStyleTransfer;   // [28] reference: https://github.com/onnx/models/blob/master/vision/style_transfer/fast_neural_style
+  class FastStyleTransfer;   // [28] * reference: https://github.com/onnx/models/blob/master/vision/style_transfer/fast_neural_style
   class SubPixelCNN;         // [29] reference: https://github.com/onnx/models/blob/master/vision/super_resolution/sub_pixel_cnn_2016
   class SiggraphColor;       // [30] reference: https://github.com/richzhang/colorization-pytorch
 }
+
 
 ```  
 See [ort-core](https://github.com/DefTruth/litehub/blob/main/ort/core/ort_core.h) for more details.  
