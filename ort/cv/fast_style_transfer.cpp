@@ -19,7 +19,7 @@ ort::Value FastStyleTransfer::transform(const cv::Mat &mat)
       input_values_handler, ortcv::utils::transform::CHW); // (1,3,224,224)
 }
 
-void FastStyleTransfer::delect(const cv::Mat &mat, types::StyleContent &style_content)
+void FastStyleTransfer::detect(const cv::Mat &mat, types::StyleContent &style_content)
 {
   // 1. make input tensor
   ort::Value input_tensor = this->transform(mat);
@@ -30,29 +30,23 @@ void FastStyleTransfer::delect(const cv::Mat &mat, types::StyleContent &style_co
   );
   ort::Value &pred_tensor = output_tensors.at(0); // (1,3,224,224)
   auto pred_dims = output_node_dims.at(0);
-  const unsigned int channels = pred_dims.at(1); // C
   const unsigned int rows = pred_dims.at(2); // H
   const unsigned int cols = pred_dims.at(3); // W
 
-  style_content.style_mat.create(rows, cols, CV_8UC(channels)); // release & create
+  style_content.mat.create(rows, cols, CV_8UC3); // release & create
 
-  if (style_content.style_mat.isContinuous())
+  for (unsigned int i = 0; i < rows; ++i)
   {
-    for (unsigned int k = 0; k < channels; ++k)
-      for (unsigned int i = 0; i < rows; ++i)
-        for (unsigned int j = 0; j < cols; ++j)
-          style_content.style_mat.data[i * cols + j * channels + k] =
-              cv::saturate_cast<uchar>(pred_tensor.At<float>({0, k, i, j}));
-  } else
-  {
-    for (unsigned int k = 0; k < channels; ++k)
-      for (unsigned int i = 0; i < rows; ++i)
-        for (unsigned int j = 0; j < cols; ++j)
-          style_content.style_mat.at<uchar>(i, j, k) =
-              cv::saturate_cast<uchar>(pred_tensor.At<float>({0, k, i, j}));
+    cv::Vec3b *p = style_content.mat.ptr<cv::Vec3b>(i);
+    for (unsigned int j = 0; j < cols; ++j)
+    {
+      p[j][0] = cv::saturate_cast<uchar>(pred_tensor.At<float>({0, 0, i, j}));
+      p[j][1] = cv::saturate_cast<uchar>(pred_tensor.At<float>({0, 1, i, j}));
+      p[j][2] = cv::saturate_cast<uchar>(pred_tensor.At<float>({0, 2, i, j}));
+    } // CHW->HWC
   }
 
-  cv::cvtColor(style_content.style_mat, style_content.style_mat, cv::COLOR_RGB2BGR); // RGB->BGR
+  cv::cvtColor(style_content.mat, style_content.mat, cv::COLOR_RGB2BGR); // RGB->BGR
 
   style_content.flag = true;
 }

@@ -148,7 +148,7 @@ namespace ortcv
 
     typedef struct StyleContentType
     {
-      cv::Mat style_mat;
+      cv::Mat mat;
       bool flag;
 
       StyleContentType() : flag(false)

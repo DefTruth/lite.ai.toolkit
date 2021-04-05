@@ -23,7 +23,7 @@ namespace ortcv
     ort::Value transform(const cv::Mat &mat);
 
   public:
-    void delect(const cv::Mat &mat, types::StyleContent &style_content);
+    void detect(const cv::Mat &mat, types::StyleContent &style_content);
   };
 }
 #endif //LITEHUB_ORT_CV_FAST_STYLE_TRANSFER_H
