@@ -8,7 +8,8 @@
 // reference: https://github.com/DefTruth/headpose-fsanet-pytorch/blob/master/src/utils.py
 void ortcv::utils::draw_axis_inplace(cv::Mat &mat_inplace,
                                      const types::EulerAngles &euler_angles,
-                                     float size, int thickness) {
+                                     float size, int thickness)
+{
   if (!euler_angles.flag) return;
 
   const float pitch = euler_angles.pitch * _PI / 180.f;
@@ -44,7 +45,8 @@ void ortcv::utils::draw_axis_inplace(cv::Mat &mat_inplace,
 
 cv::Mat ortcv::utils::draw_axis(const cv::Mat &mat,
                                 const types::EulerAngles &euler_angles,
-                                float size, int thickness) {
+                                float size, int thickness)
+{
   if (!euler_angles.flag) return mat;
 
   cv::Mat mat_copy = mat.clone();
@@ -81,7 +83,8 @@ cv::Mat ortcv::utils::draw_axis(const cv::Mat &mat,
   return mat_copy;
 }
 
-cv::Mat ortcv::utils::draw_landmarks(const cv::Mat &mat, types::Landmarks &landmarks) {
+cv::Mat ortcv::utils::draw_landmarks(const cv::Mat &mat, types::Landmarks &landmarks)
+{
   if (landmarks.points.empty() || !landmarks.flag) return mat;
   cv::Mat mat_copy = mat.clone();
   for (const auto &point: landmarks.points)
@@ -89,29 +92,35 @@ cv::Mat ortcv::utils::draw_landmarks(const cv::Mat &mat, types::Landmarks &landm
   return mat_copy;
 }
 
-void ortcv::utils::draw_landmarks_inplace(cv::Mat &mat, types::Landmarks &landmarks) {
+void ortcv::utils::draw_landmarks_inplace(cv::Mat &mat, types::Landmarks &landmarks)
+{
   if (landmarks.points.empty() || !landmarks.flag) return;
   for (const auto &point: landmarks.points)
     cv::circle(mat, point, 2, cv::Scalar(0, 255, 0), -1);
 }
 
-void ortcv::utils::draw_boxes_inplace(cv::Mat &mat_inplace, const std::vector<types::Boxf> &boxes) {
+void ortcv::utils::draw_boxes_inplace(cv::Mat &mat_inplace, const std::vector<types::Boxf> &boxes)
+{
   if (boxes.empty()) return;
-  for (const auto &box: boxes) {
+  for (const auto &box: boxes)
+  {
     if (box.flag) cv::rectangle(mat_inplace, box.rect(), cv::Scalar(255, 255, 0), 2);
   }
 }
 
-cv::Mat ortcv::utils::draw_boxes(const cv::Mat &mat, const std::vector<types::Boxf> &boxes) {
+cv::Mat ortcv::utils::draw_boxes(const cv::Mat &mat, const std::vector<types::Boxf> &boxes)
+{
   if (boxes.empty()) return mat;
   cv::Mat canva = mat.clone();
-  for (const auto &box: boxes) {
+  for (const auto &box: boxes)
+  {
     if (box.flag) cv::rectangle(canva, box.rect(), cv::Scalar(255, 255, 0), 2);
   }
   return canva;
 }
 
-cv::Mat ortcv::utils::draw_age(const cv::Mat &mat, types::Age &age) {
+cv::Mat ortcv::utils::draw_age(const cv::Mat &mat, types::Age &age)
+{
   if (!age.flag) return mat;
   cv::Mat canva = mat.clone();
   const unsigned int offset = static_cast<unsigned int>(
@@ -129,7 +138,8 @@ cv::Mat ortcv::utils::draw_age(const cv::Mat &mat, types::Age &age) {
   return canva;
 }
 
-void ortcv::utils::draw_age_inplace(cv::Mat &mat_inplace, types::Age &age) {
+void ortcv::utils::draw_age_inplace(cv::Mat &mat_inplace, types::Age &age)
+{
   if (!age.flag) return;
   const unsigned int offset = static_cast<unsigned int>(
       0.1f * static_cast<float>(mat_inplace.rows));
@@ -145,46 +155,50 @@ void ortcv::utils::draw_age_inplace(cv::Mat &mat_inplace, types::Age &age) {
               cv::FONT_HERSHEY_SIMPLEX, 0.6f, cv::Scalar(0, 0, 255), 2);
 }
 
-cv::Mat ortcv::utils::draw_gender(const cv::Mat &mat, types::Gender &gender) {
+cv::Mat ortcv::utils::draw_gender(const cv::Mat &mat, types::Gender &gender)
+{
   if (!gender.flag) return mat;
   cv::Mat canva = mat.clone();
   const unsigned int offset = static_cast<unsigned int>(
       0.1f * static_cast<float>(mat.rows));
   std::string gender_text = std::to_string(gender.label) + ":"
-      + gender.text + ":" + std::to_string(gender.score).substr(0, 4);
+                            + gender.text + ":" + std::to_string(gender.score).substr(0, 4);
   cv::putText(canva, gender_text, cv::Point2i(10, offset),
               cv::FONT_HERSHEY_SIMPLEX, 0.6f, cv::Scalar(0, 255, 0), 2);
   return canva;
 }
 
-void ortcv::utils::draw_gender_inplace(cv::Mat &mat_inplace, types::Gender &gender) {
+void ortcv::utils::draw_gender_inplace(cv::Mat &mat_inplace, types::Gender &gender)
+{
   if (!gender.flag) return;
   const unsigned int offset = static_cast<unsigned int>(
       0.1f * static_cast<float>(mat_inplace.rows));
   std::string gender_text = std::to_string(gender.label) + ":"
-      + gender.text + ":" + std::to_string(gender.score).substr(0, 4);
+                            + gender.text + ":" + std::to_string(gender.score).substr(0, 4);
   cv::putText(mat_inplace, gender_text, cv::Point2i(10, offset),
               cv::FONT_HERSHEY_SIMPLEX, 0.6f, cv::Scalar(0, 255, 0), 2);
 }
 
-cv::Mat ortcv::utils::draw_emotion(const cv::Mat &mat, types::Emotions &emotions) {
+cv::Mat ortcv::utils::draw_emotion(const cv::Mat &mat, types::Emotions &emotions)
+{
   if (!emotions.flag) return mat;
   cv::Mat canva = mat.clone();
   const unsigned int offset = static_cast<unsigned int>(
       0.1f * static_cast<float>(mat.rows));
   std::string emotion_text = std::to_string(emotions.label) + ":"
-      + emotions.text + ":" + std::to_string(emotions.score).substr(0, 4);
+                             + emotions.text + ":" + std::to_string(emotions.score).substr(0, 4);
   cv::putText(canva, emotion_text, cv::Point2i(10, offset),
               cv::FONT_HERSHEY_SIMPLEX, 0.6f, cv::Scalar(0, 255, 0), 2);
   return canva;
 }
 
-void ortcv::utils::draw_emotion_inplace(cv::Mat &mat_inplace, types::Emotions &emotions) {
+void ortcv::utils::draw_emotion_inplace(cv::Mat &mat_inplace, types::Emotions &emotions)
+{
   if (!emotions.flag) return;
   const unsigned int offset = static_cast<unsigned int>(
       0.1f * static_cast<float>(mat_inplace.rows));
   std::string emotion_text = std::to_string(emotions.label) + ":"
-      + emotions.text + ":" + std::to_string(emotions.score).substr(0, 4);
+                             + emotions.text + ":" + std::to_string(emotions.score).substr(0, 4);
   cv::putText(mat_inplace, emotion_text, cv::Point2i(10, offset),
               cv::FONT_HERSHEY_SIMPLEX, 0.6f, cv::Scalar(0, 255, 0), 2);
 }
@@ -192,27 +206,32 @@ void ortcv::utils::draw_emotion_inplace(cv::Mat &mat_inplace, types::Emotions &e
 // reference: https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB/
 //            blob/master/ncnn/src/UltraFace.cpp
 void ortcv::utils::hard_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
-                            float iou_threshold, unsigned int topk) {
+                            float iou_threshold, unsigned int topk)
+{
   if (input.empty()) return;
   std::sort(input.begin(), input.end(),
-            [](const types::Boxf &a, const types::Boxf &b) { return a.score > b.score; });
+            [](const types::Boxf &a, const types::Boxf &b)
+            { return a.score > b.score; });
   const unsigned int box_num = input.size();
   std::vector<int> merged(box_num, 0);
 
   unsigned int count = 0;
-  for (unsigned int i = 0; i < box_num; ++i) {
+  for (unsigned int i = 0; i < box_num; ++i)
+  {
     if (merged[i]) continue;
     std::vector<types::Boxf> buf;
 
     buf.push_back(input[i]);
     merged[i] = 1;
 
-    for (unsigned int j = i + 1; j < box_num; ++j) {
+    for (unsigned int j = i + 1; j < box_num; ++j)
+    {
       if (merged[j]) continue;
 
       float iou = static_cast<float>(input[i].iou_of(input[j]));
 
-      if (iou > iou_threshold) {
+      if (iou > iou_threshold)
+      {
         merged[j] = 1;
         buf.push_back(input[j]);
       }
@@ -228,37 +247,44 @@ void ortcv::utils::hard_nms(std::vector<types::Boxf> &input, std::vector<types::
 }
 
 void ortcv::utils::blending_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
-                                float iou_threshold, unsigned int topk) {
+                                float iou_threshold, unsigned int topk)
+{
   if (input.empty()) return;
   std::sort(input.begin(), input.end(),
-            [](const types::Boxf &a, const types::Boxf &b) { return a.score > b.score; });
+            [](const types::Boxf &a, const types::Boxf &b)
+            { return a.score > b.score; });
   const unsigned int box_num = input.size();
   std::vector<int> merged(box_num, 0);
 
   unsigned int count = 0;
-  for (unsigned int i = 0; i < box_num; ++i) {
+  for (unsigned int i = 0; i < box_num; ++i)
+  {
     if (merged[i]) continue;
     std::vector<types::Boxf> buf;
 
     buf.push_back(input[i]);
     merged[i] = 1;
 
-    for (unsigned int j = i + 1; j < box_num; ++j) {
+    for (unsigned int j = i + 1; j < box_num; ++j)
+    {
       if (merged[j]) continue;
 
       float iou = static_cast<float>(input[i].iou_of(input[j]));
-      if (iou > iou_threshold) {
+      if (iou > iou_threshold)
+      {
         merged[j] = 1;
         buf.push_back(input[j]);
       }
     }
 
     float total = 0.f;
-    for (unsigned int k = 0; k < buf.size(); ++k) {
+    for (unsigned int k = 0; k < buf.size(); ++k)
+    {
       total += std::expf(buf[k].score);
     }
     types::Boxf rects;
-    for (unsigned int l = 0; l < buf.size(); ++l) {
+    for (unsigned int l = 0; l < buf.size(); ++l)
+    {
       float rate = std::expf(buf[l].score) / total;
       rects.x1 += buf[l].x1 * rate;
       rects.y1 += buf[l].y1 * rate;
@@ -281,7 +307,8 @@ ort::Value ortcv::utils::transform::mat3f_to_tensor(const cv::Mat &mat3f,
                                                     const ort::MemoryInfo &memory_info_handler,
                                                     std::vector<float> &tensor_value_handler,
                                                     unsigned int data_format)
-throw(std::runtime_error) {
+throw(std::runtime_error)
+{
   cv::Mat mat3f_ref;
   if (mat3f.type() != CV_32FC3) mat3f.convertTo(mat3f_ref, CV_32FC3);
   else mat3f_ref = mat3f; // reference only. zero-time cost.
@@ -294,7 +321,8 @@ throw(std::runtime_error) {
   if (tensor_dims.at(0) != 1) throw std::runtime_error("batch != 1");
 
   // CXHXW
-  if (data_format == transform::CHW) {
+  if (data_format == transform::CHW)
+  {
 
     const unsigned int target_channel = tensor_dims.at(1);
     const unsigned int target_height = tensor_dims.at(2);
@@ -313,7 +341,8 @@ throw(std::runtime_error) {
     cv::split(resize_mat_ref, mat_channels);
     std::vector<float> channel_values;
     channel_values.resize(target_height * target_width);
-    for (unsigned int i = 0; i < channels; ++i) {
+    for (unsigned int i = 0; i < channels; ++i)
+    {
       channel_values.clear();
       channel_values = mat_channels.at(i).reshape(1, 1); // flatten
       std::memcpy(tensor_value_handler.data() + i * (target_height * target_width),
@@ -346,20 +375,24 @@ throw(std::runtime_error) {
                                          tensor_dims.size());
 }
 
-cv::Mat ortcv::utils::transform::normalize(const cv::Mat &mat, float mean, float scale) {
+cv::Mat ortcv::utils::transform::normalize(const cv::Mat &mat, float mean, float scale)
+{
   cv::Mat matf;
   if (mat.type() != CV_32FC3) mat.convertTo(matf, CV_32FC3);
   else matf = mat; // reference
   return (matf - mean) * scale;
 }
 
-cv::Mat ortcv::utils::transform::normalize(const cv::Mat &mat, const float *mean, const float *scale) {
+cv::Mat ortcv::utils::transform::normalize(const cv::Mat &mat, const float *mean, const float *scale)
+{
   cv::Mat mat_copy;
   if (mat.type() != CV_32FC3) mat.convertTo(mat_copy, CV_32FC3);
   else mat_copy = mat.clone();
-  for (unsigned int i = 0; i < mat_copy.rows; ++i) {
+  for (unsigned int i = 0; i < mat_copy.rows; ++i)
+  {
     cv::Vec3f *p = mat_copy.ptr<cv::Vec3f>(i);
-    for (unsigned int j = 0; j < mat_copy.cols; ++j) {
+    for (unsigned int j = 0; j < mat_copy.cols; ++j)
+    {
       p[j][0] = (p[j][0] - mean[0]) * scale[0];
       p[j][1] = (p[j][1] - mean[1]) * scale[1];
       p[j][2] = (p[j][2] - mean[2]) * scale[2];
@@ -369,20 +402,25 @@ cv::Mat ortcv::utils::transform::normalize(const cv::Mat &mat, const float *mean
 }
 
 void ortcv::utils::transform::normalize(const cv::Mat &inmat, cv::Mat &outmat,
-                                        float mean, float scale) {
+                                        float mean, float scale)
+{
   outmat = ortcv::utils::transform::normalize(inmat, mean, scale);
 }
 
-void ortcv::utils::transform::normalize_inplace(cv::Mat &mat_inplace, float mean, float scale) {
+void ortcv::utils::transform::normalize_inplace(cv::Mat &mat_inplace, float mean, float scale)
+{
   if (mat_inplace.type() != CV_32FC3) mat_inplace.convertTo(mat_inplace, CV_32FC3);
   ortcv::utils::transform::normalize(mat_inplace, mat_inplace, mean, scale);
 }
 
-void ortcv::utils::transform::normalize_inplace(cv::Mat &mat_inplace, const float *mean, const float *scale) {
+void ortcv::utils::transform::normalize_inplace(cv::Mat &mat_inplace, const float *mean, const float *scale)
+{
   if (mat_inplace.type() != CV_32FC3) mat_inplace.convertTo(mat_inplace, CV_32FC3);
-  for (unsigned int i = 0; i < mat_inplace.rows; ++i) {
+  for (unsigned int i = 0; i < mat_inplace.rows; ++i)
+  {
     cv::Vec3f *p = mat_inplace.ptr<cv::Vec3f>(i);
-    for (unsigned int j = 0; j < mat_inplace.cols; ++j) {
+    for (unsigned int j = 0; j < mat_inplace.cols; ++j)
+    {
       p[j][0] = (p[j][0] - mean[0]) * scale[0];
       p[j][1] = (p[j][1] - mean[1]) * scale[1];
       p[j][2] = (p[j][2] - mean[2]) * scale[2];

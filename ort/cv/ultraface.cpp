@@ -7,7 +7,8 @@
 
 using ortcv::UltraFace;
 
-ort::Value UltraFace::transform(const cv::Mat &mat) {
+ort::Value UltraFace::transform(const cv::Mat &mat)
+{
 
   cv::Mat canva = mat.clone();
   cv::cvtColor(canva, canva, cv::COLOR_BGR2RGB);
@@ -23,7 +24,8 @@ ort::Value UltraFace::transform(const cv::Mat &mat) {
 
 void UltraFace::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
                        float score_threshold, float iou_threshold, unsigned int topk,
-                       unsigned int nms_type) {
+                       unsigned int nms_type)
+{
   if (mat.empty()) return;
   // this->transform(mat);
   float img_height = static_cast<float>(mat.rows);
@@ -46,7 +48,8 @@ void UltraFace::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_bo
 void UltraFace::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
                                 std::vector<ort::Value> &output_tensors,
                                 float score_threshold, float img_height,
-                                float img_width) {
+                                float img_width)
+{
 
   ort::Value &scores = output_tensors.at(0);
   ort::Value &boxes = output_tensors.at(1);
@@ -55,7 +58,8 @@ void UltraFace::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
   const unsigned int num_anchors = scores_dims.at(1); // n = 17640 (640x480)
 
   bbox_collection.clear();
-  for (unsigned int i = 0; i < num_anchors; ++i) {
+  for (unsigned int i = 0; i < num_anchors; ++i)
+  {
     float confidence = scores.At<float>({0, i, 1});
     if (confidence < score_threshold) continue;
     types::Boxf box;
@@ -74,7 +78,8 @@ void UltraFace::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
 }
 
 void UltraFace::nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
-                    float iou_threshold, unsigned int topk, unsigned int nms_type) {
+                    float iou_threshold, unsigned int topk, unsigned int nms_type)
+{
   if (nms_type == NMS::BLEND) ortcv::utils::blending_nms(input, output, iou_threshold, topk);
   else ortcv::utils::hard_nms(input, output, iou_threshold, topk);
 }

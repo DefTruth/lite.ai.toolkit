@@ -7,31 +7,34 @@
 
 #include "ort/core/ort_core.h"
 
-namespace ortcv {
+namespace ortcv
+{
 
-  class UltraFace : public BasicOrtHandler {
+  class UltraFace : public BasicOrtHandler
+  {
 
   public:
+    explicit UltraFace(const std::string &_onnx_path, unsigned int _num_threads = 1) :
+        BasicOrtHandler(_onnx_path, _num_threads)
+    {};
 
-    UltraFace(const std::string &_onnx_path, unsigned int _num_threads = 1) :
-        BasicOrtHandler(_onnx_path, _num_threads) {};
-
-    ~UltraFace(){}; // override
+    ~UltraFace()
+    {}; // override
 
   private:
     static constexpr const float mean_val = 127.0f;
     static constexpr const float scale_val = 1.0 / 128.0f;
-    enum NMS { HARD = 0, BLEND = 1};
+    enum NMS
+    {
+      HARD = 0, BLEND = 1
+    };
 
-    // un-copyable
   private:
     ort::Value transform(const cv::Mat &mat);
-
     void generate_bboxes(std::vector<types::Boxf> &bbox_collection,
                          std::vector<ort::Value> &output_tensors,
                          float score_threshold, float img_height,
                          float img_width); // rescale & exclude
-
     void nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
              float iou_threshold, unsigned int topk, unsigned int nms_type);
 

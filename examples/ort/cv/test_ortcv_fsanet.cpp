@@ -8,7 +8,8 @@
 #include "ort/cv/fsanet.h"
 #include "ort/core/ort_utils.h"
 
-static void test_ortcv_fsanet() {
+static void test_ortcv_fsanet()
+{
 
   std::string var_onnx_path = "../../../hub/onnx/cv/fsanet-var.onnx";
   std::string conv_onnx_path = "../../../hub/onnx/cv/fsanet-1x1.onnx";
@@ -39,10 +40,12 @@ static void test_ortcv_fsanet() {
             << " pitch: " << euler_angles.pitch
             << " roll: " << euler_angles.roll << std::endl;
 
-  delete var_fsanet; delete conv_fsanet;
+  delete var_fsanet;
+  delete conv_fsanet;
 }
 
-int main(__unused int argc, __unused char *argv[]) {
+int main(__unused int argc, __unused char *argv[])
+{
   test_ortcv_fsanet();
   return 0;
 }

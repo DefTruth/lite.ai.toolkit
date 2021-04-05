@@ -7,18 +7,22 @@
 
 #include "ort/core/ort_core.h"
 
-namespace ortcv {
-  class EmotionFerPlus : public BasicOrtHandler {
+namespace ortcv
+{
+  class EmotionFerPlus : public BasicOrtHandler
+  {
   private:
-    const char * emotion_texts[8] = {
+    const char *emotion_texts[8] = {
         "netural", "happiness", "surprise", "sadness", "anger",
         "disgust", "fear", "contempt"
     };
   public:
-    EmotionFerPlus(const std::string &_onnx_path, unsigned int _num_threads = 1) :
-        BasicOrtHandler(_onnx_path, _num_threads) {};
+    explicit EmotionFerPlus(const std::string &_onnx_path, unsigned int _num_threads = 1) :
+        BasicOrtHandler(_onnx_path, _num_threads)
+    {};
 
-    ~EmotionFerPlus() {};
+    ~EmotionFerPlus()
+    {};
 
   private:
     ort::Value transform(const cv::Mat &mat);

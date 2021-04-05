@@ -7,12 +7,17 @@
 
 #include "ort/core/ort_core.h"
 
-namespace ortcv {
-  class VGG16Age: public BasicOrtHandler {
+namespace ortcv
+{
+  class VGG16Age : public BasicOrtHandler
+  {
   public:
-    VGG16Age(const std::string &_onnx_path, unsigned int _num_threads = 1):
-        BasicOrtHandler(_onnx_path, _num_threads) {};
-    ~VGG16Age() {};
+    explicit VGG16Age(const std::string &_onnx_path, unsigned int _num_threads = 1) :
+        BasicOrtHandler(_onnx_path, _num_threads)
+    {};
+
+    ~VGG16Age()
+    {};
 
   private:
     ort::Value transform(const cv::Mat &mat);

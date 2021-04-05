@@ -8,7 +8,8 @@
 #include "ort/cv/gender_googlenet.h"
 #include "ort/core/ort_utils.h"
 
-static void test_ortcv_gender_googlenet() {
+static void test_ortcv_gender_googlenet()
+{
   std::string onnx_path = "../../../hub/onnx/cv/gender_googlenet.onnx";
   std::string test_img_path = "../../../examples/ort/resources/test_ortcv_gender_googlenet.jpg";
   std::string save_img_path = "../../../logs/test_ortcv_gender_googlenet.jpg";
@@ -29,7 +30,8 @@ static void test_ortcv_gender_googlenet() {
 
 }
 
-int main(__unused int argc, __unused char *argv[]) {
+int main(__unused int argc, __unused char *argv[])
+{
   test_ortcv_gender_googlenet();
   return 0;
 }

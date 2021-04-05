@@ -11,7 +11,8 @@
 
 // namespace cv2 = cv;
 
-namespace ortcv {
+namespace ortcv
+{
   class FSANet;              // [0] * reference: https://github.com/omasaht/headpose-fsanet-pytorch
   class PFLD;                // [1] * reference: https://github.com/Hsintao/pfld_106_face_landmarks
   class UltraFace;           // [2] * reference: https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB
@@ -45,7 +46,8 @@ namespace ortcv {
   class SiggraphColor;       // [30] reference: https://github.com/richzhang/colorization-pytorch
 }
 
-namespace ortnlp {
+namespace ortnlp
+{
   class TextCNN;
   class ChineseBert;
 }

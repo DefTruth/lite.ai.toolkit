@@ -7,7 +7,8 @@
 
 using ortcv::FSANet;
 
-ort::Value FSANet::transform(const cv::Mat &mat) {
+ort::Value FSANet::transform(const cv::Mat &mat)
+{
   cv::Mat canva;
   // 0. padding
   const int h = mat.rows;
@@ -31,7 +32,8 @@ ort::Value FSANet::transform(const cv::Mat &mat) {
       input_values_handler, ortcv::utils::transform::CHW);
 }
 
-void FSANet::detect(const cv::Mat &mat, types::EulerAngles &euler_angles) {
+void FSANet::detect(const cv::Mat &mat, types::EulerAngles &euler_angles)
+{
 
   ort::Value input_tensor = this->transform(mat);
 
@@ -42,8 +44,10 @@ void FSANet::detect(const cv::Mat &mat, types::EulerAngles &euler_angles) {
 
   const float *angles = output_tensors.front().GetTensorMutableData<float>();
 
-  euler_angles.yaw = angles[0]; euler_angles.pitch = angles[1];
-  euler_angles.roll = angles[2]; euler_angles.flag = true;
+  euler_angles.yaw = angles[0];
+  euler_angles.pitch = angles[1];
+  euler_angles.roll = angles[2];
+  euler_angles.flag = true;
 }
 
 

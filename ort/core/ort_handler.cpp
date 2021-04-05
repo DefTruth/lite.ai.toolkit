@@ -10,9 +10,10 @@ using core::BasicMultiOrtHandler;
 BasicOrtHandler::BasicOrtHandler(
     const std::string &_onnx_path, unsigned int _num_threads) :
     onnx_path(_onnx_path.data()), num_threads(_num_threads)
-    { initialize_handler(); }
+{ initialize_handler(); }
 
-void BasicOrtHandler::initialize_handler() {
+void BasicOrtHandler::initialize_handler()
+{
   ort_env = ort::Env(ORT_LOGGING_LEVEL_ERROR, onnx_path);
   // 0. session options
   ort::SessionOptions session_options;
@@ -38,7 +39,8 @@ void BasicOrtHandler::initialize_handler() {
   // 4. output names & output dimms
   num_outputs = ort_session->GetOutputCount();
   output_node_names.resize(num_outputs);
-  for (unsigned int i = 0; i < num_outputs; ++i) {
+  for (unsigned int i = 0; i < num_outputs; ++i)
+  {
     output_node_names[i] = ort_session->GetOutputName(i, allocator);
     ort::TypeInfo output_type_info = ort_session->GetOutputTypeInfo(i);
     auto output_tensor_info = output_type_info.GetTensorTypeAndShapeInfo();
@@ -50,13 +52,15 @@ void BasicOrtHandler::initialize_handler() {
 #endif
 }
 
-BasicOrtHandler::~BasicOrtHandler() {
+BasicOrtHandler::~BasicOrtHandler()
+{
   if (ort_session)
     delete ort_session;
   ort_session = nullptr;
 }
 
-void BasicOrtHandler::print_debug_string() {
+void BasicOrtHandler::print_debug_string()
+{
   std::cout << "LITEORT_DEBUG LogId: " << onnx_path << "\n";
   std::cout << "=============== Input-Dims ==============\n";
   for (unsigned int i = 0; i < input_node_dims.size(); ++i)
@@ -73,9 +77,10 @@ void BasicOrtHandler::print_debug_string() {
 BasicMultiOrtHandler::BasicMultiOrtHandler(
     const std::string &_onnx_path, unsigned int _num_threads) :
     onnx_path(_onnx_path.data()), num_threads(_num_threads)
-    { initialize_handler(); }
+{ initialize_handler(); }
 
-void BasicMultiOrtHandler::initialize_handler() {
+void BasicMultiOrtHandler::initialize_handler()
+{
   ort_env = ort::Env(ORT_LOGGING_LEVEL_ERROR, onnx_path);
   // 0. session options
   ort::SessionOptions session_options;
@@ -89,7 +94,8 @@ void BasicMultiOrtHandler::initialize_handler() {
   // 2. input name & input dims
   num_inputs = ort_session->GetInputCount();
   input_node_names.resize(num_inputs);
-  for (unsigned int i = 0; i < num_inputs; ++i) {
+  for (unsigned int i = 0; i < num_inputs; ++i)
+  {
     ort::TypeInfo type_info = ort_session->GetInputTypeInfo(i);
     auto tensor_info = type_info.GetTensorTypeAndShapeInfo();
     auto input_dims = tensor_info.GetShape();
@@ -103,7 +109,8 @@ void BasicMultiOrtHandler::initialize_handler() {
   // 4. output names & output dimms
   num_outputs = ort_session->GetOutputCount();
   output_node_names.resize(num_outputs);
-  for (unsigned int i = 0; i < num_outputs; ++i) {
+  for (unsigned int i = 0; i < num_outputs; ++i)
+  {
     output_node_names[i] = ort_session->GetOutputName(i, allocator);
     ort::TypeInfo output_type_info = ort_session->GetOutputTypeInfo(i);
     auto output_tensor_info = output_type_info.GetTensorTypeAndShapeInfo();
@@ -115,13 +122,15 @@ void BasicMultiOrtHandler::initialize_handler() {
 #endif
 }
 
-BasicMultiOrtHandler::~BasicMultiOrtHandler() {
+BasicMultiOrtHandler::~BasicMultiOrtHandler()
+{
   if (ort_session)
     delete ort_session;
   ort_session = nullptr;
 }
 
-void BasicMultiOrtHandler::print_debug_string() {
+void BasicMultiOrtHandler::print_debug_string()
+{
   std::cout << "LITEORT_DEBUG LogId: " << onnx_path << "\n";
   std::cout << "=============== Input-Dims ==============\n";
   for (unsigned int i = 0; i < num_inputs; ++i)

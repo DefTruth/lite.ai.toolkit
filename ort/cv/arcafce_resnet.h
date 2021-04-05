@@ -7,13 +7,17 @@
 
 #include "ort/core/ort_core.h"
 
-namespace ortcv {
-  class ArcFaceResNet: public BasicOrtHandler {
+namespace ortcv
+{
+  class ArcFaceResNet : public BasicOrtHandler
+  {
   public:
-    ArcFaceResNet(const std::string &_onnx_path, unsigned int _num_threads = 1) :
-        BasicOrtHandler(_onnx_path, _num_threads) {};
+    explicit ArcFaceResNet(const std::string &_onnx_path, unsigned int _num_threads = 1) :
+        BasicOrtHandler(_onnx_path, _num_threads)
+    {};
 
-    ~ArcFaceResNet() {};
+    ~ArcFaceResNet()
+    {};
 
   private:
     ort::Value transform(const cv::Mat &mat);

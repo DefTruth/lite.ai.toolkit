@@ -7,7 +7,8 @@
 
 using ortcv::EmotionFerPlus;
 
-ort::Value EmotionFerPlus::transform(const cv::Mat &mat) {
+ort::Value EmotionFerPlus::transform(const cv::Mat &mat)
+{
   cv::Mat canva = mat.clone();
   cv::resize(canva, canva, cv::Size(input_node_dims.at(3),
                                     input_node_dims.at(2)));
@@ -19,7 +20,8 @@ ort::Value EmotionFerPlus::transform(const cv::Mat &mat) {
       input_values_handler, ortcv::utils::transform::CHW);
 }
 
-void EmotionFerPlus::detect(const cv::Mat &mat, types::Emotions &emotions) {
+void EmotionFerPlus::detect(const cv::Mat &mat, types::Emotions &emotions)
+{
   if (mat.empty()) return;
   // 1. make input tensor
   ort::Value input_tensor = this->transform(mat);

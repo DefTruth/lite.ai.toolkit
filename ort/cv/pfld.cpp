@@ -7,7 +7,8 @@
 
 using ortcv::PFLD;
 
-ort::Value PFLD::transform(const cv::Mat &mat) {
+ort::Value PFLD::transform(const cv::Mat &mat)
+{
   cv::Mat canva = mat.clone();
   cv::resize(canva, canva, cv::Size(input_node_dims.at(3),
                                     input_node_dims.at(2)));
@@ -19,7 +20,8 @@ ort::Value PFLD::transform(const cv::Mat &mat) {
       input_values_handler, ortcv::utils::transform::CHW);
 }
 
-void PFLD::detect(const cv::Mat &mat, types::Landmarks &landmarks) {
+void PFLD::detect(const cv::Mat &mat, types::Landmarks &landmarks)
+{
   if (mat.empty()) return;
   // this->transform(mat);
   float img_height = static_cast<float>(mat.rows);
@@ -37,7 +39,8 @@ void PFLD::detect(const cv::Mat &mat, types::Landmarks &landmarks) {
   auto landmrk_dims = output_node_dims.at(1);
   const unsigned int num_landmarks = landmrk_dims.at(1);
 
-  for (unsigned int i = 0; i < num_landmarks; i += 2) {
+  for (unsigned int i = 0; i < num_landmarks; i += 2)
+  {
     landmarks.points.push_back(
         cv::Point2f(_landmarks.At<float>({0, i}) * img_width,
                     _landmarks.At<float>({0, i + 1}) * img_height

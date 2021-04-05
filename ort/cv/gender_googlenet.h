@@ -7,17 +7,21 @@
 
 #include "ort/core/ort_core.h"
 
-namespace ortcv {
-  class GenderGoogleNet: public BasicOrtHandler {
+namespace ortcv
+{
+  class GenderGoogleNet : public BasicOrtHandler
+  {
   private:
     const float mean_val[3] = {104.0f, 117.0f, 123.0f};
     const float scale_val[3] = {1.0f, 1.0f, 1.0f};
-    const char * gender_texts[2] = {"female", "male"};
+    const char *gender_texts[2] = {"female", "male"};
   public:
-    GenderGoogleNet(const std::string &_onnx_path, unsigned int _num_threads = 1) :
-        BasicOrtHandler(_onnx_path, _num_threads) {};
+    explicit GenderGoogleNet(const std::string &_onnx_path, unsigned int _num_threads = 1) :
+        BasicOrtHandler(_onnx_path, _num_threads)
+    {};
 
-    ~GenderGoogleNet() {};
+    ~GenderGoogleNet()
+    {};
 
   private:
     ort::Value transform(const cv::Mat &mat);

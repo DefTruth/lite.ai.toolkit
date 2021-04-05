@@ -9,7 +9,8 @@
 #include "ort/core/ort_utils.h"
 
 
-static void test_ortcv_pfld() {
+static void test_ortcv_pfld()
+{
 
   std::string onnx_path = "../../../hub/onnx/cv/pfld-106-v3.onnx";
   std::string test_img_path = "../../../examples/ort/resources/test_ortcv_pfld.jpg";
@@ -31,7 +32,8 @@ static void test_ortcv_pfld() {
 
 }
 
-int main(__unused int argc, __unused char *argv[]) {
+int main(__unused int argc, __unused char *argv[])
+{
   test_ortcv_pfld();
   return 0;
 }

@@ -9,7 +9,8 @@
 #include "ort/core/ort_utils.h"
 
 
-static void test_ortcv_ultraface() {
+static void test_ortcv_ultraface()
+{
 
   std::string onnx_path = "../../../hub/onnx/cv/ultraface-rfb-640.onnx";
   std::string test_img_path = "../../../examples/ort/resources/test_ortcv_ultraface.jpg";
@@ -31,7 +32,8 @@ static void test_ortcv_ultraface() {
 
 }
 
-int main(__unused int argc, __unused char *argv[]) {
+int main(__unused int argc, __unused char *argv[])
+{
   test_ortcv_ultraface();
   return 0;
 }

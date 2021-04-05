@@ -6,7 +6,8 @@
 
 using ortcv::AgeGoogleNet;
 
-ort::Value AgeGoogleNet::transform(const cv::Mat &mat) {
+ort::Value AgeGoogleNet::transform(const cv::Mat &mat)
+{
   cv::Mat canva = mat.clone();
   cv::resize(canva, canva, cv::Size(input_node_dims.at(3),
                                     input_node_dims.at(2)));
@@ -19,7 +20,8 @@ ort::Value AgeGoogleNet::transform(const cv::Mat &mat) {
       input_values_handler, ortcv::utils::transform::CHW);
 }
 
-void AgeGoogleNet::detect(const cv::Mat &mat, types::Age &age) {
+void AgeGoogleNet::detect(const cv::Mat &mat, types::Age &age)
+{
   if (mat.empty()) return;
   // 1. make input tensor
   ort::Value input_tensor = this->transform(mat);
@@ -35,7 +37,7 @@ void AgeGoogleNet::detect(const cv::Mat &mat, types::Age &age) {
   const float *pred_logits = age_logits.GetTensorMutableData<float>();
   auto softmax_probs = ortcv::utils::math::softmax<float>(pred_logits, num_intervals, interval);
   const float pred_age = static_cast<float>(
-      age_intervals[interval][0] + age_intervals[interval][1]) / 2.0f;
+                             age_intervals[interval][0] + age_intervals[interval][1]) / 2.0f;
   age.age = pred_age;
   age.age_interval[0] = age_intervals[interval][0];
   age.age_interval[1] = age_intervals[interval][1];

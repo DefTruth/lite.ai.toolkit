@@ -7,15 +7,20 @@
 
 #include "ort/core/ort_core.h"
 
-namespace ortcv {
-  class VGG16Gender: public BasicOrtHandler {
+namespace ortcv
+{
+  class VGG16Gender : public BasicOrtHandler
+  {
   private:
-    const char * gender_texts[2] = {"female", "male"};
+    const char *gender_texts[2] = {"female", "male"};
 
   public:
-    VGG16Gender(const std::string &_onnx_path, unsigned int _num_threads = 1):
-        BasicOrtHandler(_onnx_path, _num_threads) {};
-    ~VGG16Gender() {};
+    explicit VGG16Gender(const std::string &_onnx_path, unsigned int _num_threads = 1) :
+        BasicOrtHandler(_onnx_path, _num_threads)
+    {};
+
+    ~VGG16Gender()
+    {};
 
   private:
     ort::Value transform(const cv::Mat &mat);

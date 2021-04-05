@@ -9,9 +9,11 @@
 #include "ort_types.h"
 
 // global
-namespace core {
+namespace core
+{
   // single input & multi outputs.
-  class BasicOrtHandler {
+  class BasicOrtHandler
+  {
   protected:
     ort::Env ort_env;
     ort::Session *ort_session = nullptr;
@@ -31,7 +33,7 @@ namespace core {
     const unsigned int num_threads; // initialize at runtime.
 
   protected:
-    BasicOrtHandler(const std::string &_onnx_path, unsigned int _num_threads = 1);
+    explicit BasicOrtHandler(const std::string &_onnx_path, unsigned int _num_threads = 1);
 
     virtual ~BasicOrtHandler();
 
@@ -57,7 +59,8 @@ namespace core {
   };
 
   // multi inputs & multi outputs.
-  class BasicMultiOrtHandler {
+  class BasicMultiOrtHandler
+  {
   protected:
     ort::Env ort_env;
     ort::Session *ort_session = nullptr;
@@ -77,7 +80,7 @@ namespace core {
     const unsigned int num_threads; // initialize at runtime.
 
   protected:
-    BasicMultiOrtHandler(const std::string &_onnx_path, unsigned int _num_threads = 1);
+    explicit BasicMultiOrtHandler(const std::string &_onnx_path, unsigned int _num_threads = 1);
 
     virtual ~BasicMultiOrtHandler();
 
