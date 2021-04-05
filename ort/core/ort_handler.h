@@ -11,7 +11,8 @@
 // global
 namespace core
 {
-  // single input & multi outputs.
+  // single input & multi outputs. not support for dynamic shape currently.
+  // TODO: Support for dynamic shape, such as dynamic 'batch_size'
   class BasicOrtHandler
   {
   protected:
@@ -58,7 +59,8 @@ namespace core
     void print_debug_string();
   };
 
-  // multi inputs & multi outputs.
+  // multi inputs & multi outputs. not support for dynamic shape currently.
+  // TODO: Support for dynamic shape, such as dynamic 'batch_size'
   class BasicMultiOrtHandler
   {
   protected:

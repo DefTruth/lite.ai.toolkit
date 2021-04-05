@@ -27,7 +27,7 @@ ort::Value FSANet::transform(const cv::Mat &mat)
   cv::resize(canva, canva, cv::Size(input_width, input_height));
   ortcv::utils::transform::normalize_inplace(canva, 127.5, 1.f / 127.5f);
 
-  return ortcv::utils::transform::mat3f_to_tensor(
+  return ortcv::utils::transform::create_tensor(
       canva, input_node_dims, memory_info_handler,
       input_values_handler, ortcv::utils::transform::CHW);
 }

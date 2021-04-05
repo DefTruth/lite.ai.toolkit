@@ -15,7 +15,7 @@ ort::Value EmotionFerPlus::transform(const cv::Mat &mat)
   cv::cvtColor(canva, canva, cv::COLOR_BGR2RGB); // (1,3,64,64)
   cv::cvtColor(canva, canva, cv::COLOR_RGB2GRAY); // (1,1,64,64)
 
-  return ortcv::utils::transform::mat3f_to_tensor(
+  return ortcv::utils::transform::create_tensor(
       canva, input_node_dims, memory_info_handler,
       input_values_handler, ortcv::utils::transform::CHW);
 }

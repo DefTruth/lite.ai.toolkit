@@ -17,7 +17,7 @@ ort::Value UltraFace::transform(const cv::Mat &mat)
   // (640,480) | (320,240) | (w,h) 1xCXHXW
 
   ortcv::utils::transform::normalize_inplace(canva, mean_val, scale_val); // flaot32
-  return ortcv::utils::transform::mat3f_to_tensor(
+  return ortcv::utils::transform::create_tensor(
       canva, input_node_dims, memory_info_handler,
       input_values_handler, ortcv::utils::transform::CHW);
 }

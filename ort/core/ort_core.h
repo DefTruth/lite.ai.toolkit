@@ -42,7 +42,7 @@ namespace ortcv
   class SSDMobileNetV1;      // [26] reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd-mobilenetv1
   class ArcFaceResNet;       // [27] * reference: https://github.com/onnx/models/blob/master/vision/body_analysis/arcface
   class FastStyleTransfer;   // [28] * reference: https://github.com/onnx/models/blob/master/vision/style_transfer/fast_neural_style
-  class SubPixelCNN;         // [29] reference: https://github.com/onnx/models/blob/master/vision/super_resolution/sub_pixel_cnn_2016
+  class SubPixelCNN;         // [29] * reference: https://github.com/niazwazir/SUB_PIXEL_CNN
   class SiggraphColor;       // [30] reference: https://github.com/richzhang/colorization-pytorch
 }
 

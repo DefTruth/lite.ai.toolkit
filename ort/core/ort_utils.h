@@ -39,11 +39,10 @@ namespace ortcv
        * @param data_format CHW | HWC
        * @return
        */
-      ort::Value mat3f_to_tensor(const cv::Mat &mat3f, const std::vector<int64_t> &tensor_dims,
-                                 const ort::MemoryInfo &memory_info_handler,
-                                 std::vector<float> &tensor_value_handler,
-                                 unsigned int data_format = CHW) throw(std::runtime_error);
-
+      ort::Value create_tensor(const cv::Mat &mat3f, const std::vector<int64_t> &tensor_dims,
+                               const ort::MemoryInfo &memory_info_handler,
+                               std::vector<float> &tensor_value_handler,
+                               unsigned int data_format = CHW) throw(std::runtime_error);
       cv::Mat normalize(const cv::Mat &mat, float mean, float scale);
       cv::Mat normalize(const cv::Mat &mat, const float mean[3], const float scale[3]);
       void normalize(const cv::Mat &inmat, cv::Mat &outmat, float mean, float scale);
