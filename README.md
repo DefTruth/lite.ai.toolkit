@@ -1,12 +1,12 @@
 # litehub 🚀🚀🌟  
 <div align='center'>
-  <img src='logs/test_ortcv_pfld.jpg' height="224px">
-  <img src='logs/test_ortcv_ultraface.jpg' height="224px">
-  <img src='logs/test_ortcv_fsanet.jpg' height="224px">
+  <img src='logs/test_ortcv_pfld.jpg' height="224px" width="224px">
+  <img src='logs/test_ortcv_ultraface.jpg' height="224px" width="224px">
+  <img src='logs/test_ortcv_fsanet.jpg' height="224px" width="224px">
   <br> 
-  <img src='examples/ort/resources/test_ortcv_fast_style_transfer.jpg' height="224px">
-  <img src='logs/test_ortcv_fast_style_transfer_candy.jpg' height="224px">
-  <img src='logs/test_ortcv_fast_style_transfer_mosaic.jpg' height="224px"> 
+  <img src='examples/ort/resources/test_ortcv_fast_style_transfer.jpg' height="224px" width="224px">
+  <img src='logs/test_ortcv_fast_style_transfer_candy.jpg' height="224px" width="224px">
+  <img src='logs/test_ortcv_fast_style_transfer_mosaic.jpg' height="224px" width="224px"> 
 </div>
 
 *litehub* for onnxruntime/ncnn/mnn/tnn. What you see is what you get! This library integrates some interesting models. I use them as practice cases when I was learning some mobile inference engines.
