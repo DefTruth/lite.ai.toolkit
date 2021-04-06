@@ -32,14 +32,14 @@ namespace ortcv
       enum {CHW = 0, HWC = 1};
 
       /**
-       * @param mat3f CV:Mat with type 'CV_32FC3'
+       * @param mat CV:Mat with type 'CV_32FC3|2|1'
        * @param tensor_dims e.g {1,C,H,W} | {1,H,W,C}
        * @param memory_info It needs to be a global variable in a class
        * @param tensor_value_handler It needs to be a global variable in a class
        * @param data_format CHW | HWC
        * @return
        */
-      ort::Value create_tensor(const cv::Mat &mat3f, const std::vector<int64_t> &tensor_dims,
+      ort::Value create_tensor(const cv::Mat &mat, const std::vector<int64_t> &tensor_dims,
                                const ort::MemoryInfo &memory_info_handler,
                                std::vector<float> &tensor_value_handler,
                                unsigned int data_format = CHW) throw(std::runtime_error);
