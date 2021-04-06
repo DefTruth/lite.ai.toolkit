@@ -117,7 +117,7 @@ int main(__unused int argc, __unused char *argv[]) {
 }
 ```  
 The output is:  
-<div align=center><img src='logs/test_ortcv_age_googlenet.jpg'/></div>  
+<div align=center><img src='logs/test_ortcv_age_googlenet.jpg' height="256px" width="256px"/></div>  
 
 #### 3.1.3 Facial Landmarks detection using [PFLD](https://github.com/Hsintao/pfld_106_face_landmarks).
 ```c++
@@ -147,7 +147,7 @@ int main(__unused int argc, __unused char *argv[]) {
 }
 ```   
 The output is:  
-<div align=center><img src='logs/test_ortcv_pfld.jpg'/></div>  
+<div align=center><img src='logs/test_ortcv_pfld.jpg' height="256px" width="256px"/></div>  
 
 #### 3.1.4 Face detection using [UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB).
 ```c++
@@ -177,7 +177,7 @@ int main(__unused int argc, __unused char *argv[]) {
 }
 ```
 The output is:  
-<div align=center><img src='logs/test_ortcv_ultraface.jpg'/></div>  
+<div align=center><img src='logs/test_ortcv_ultraface.jpg' height="256px" width="256px"/></div>  
 
 #### 3.1.5 Emotion detection using [EmotionFerPlus](https://github.com/onnx/models/blob/master/vision/body_analysis/emotion_ferplus).
 ```c++
@@ -207,7 +207,7 @@ int main(__unused int argc, __unused char *argv[]) {
 }
 ```
 The output is:  
-<div align=center><img src='logs/test_ortcv_emotion_ferplus.jpg'/></div>
+<div align=center><img src='logs/test_ortcv_emotion_ferplus.jpg' height="256px" width="256px"/></div>
 
 ### 3.2 Usage for NCNN Interfaces.  
 * TODO.  
