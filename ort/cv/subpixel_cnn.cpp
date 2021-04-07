@@ -24,12 +24,12 @@ void SubPixelCNN::detect(const cv::Mat &mat, types::SuperResolutionContent &supe
   if (mat.empty()) return;
   cv::Mat mat_copy = mat.clone();
   cv::resize(mat_copy, mat_copy, cv::Size(input_node_dims.at(3), input_node_dims.at(2))); // (224,224,3)
-  cv::Mat mat_ycbcr, mat_y, mat_cr, mat_cb;
-  cv::cvtColor(mat_copy, mat_ycbcr, cv::COLOR_BGR2YCrCb);
+  cv::Mat mat_ycrcb, mat_y, mat_cr, mat_cb;
+  cv::cvtColor(mat_copy, mat_ycrcb, cv::COLOR_BGR2YCrCb);
 
   // 0. split
   std::vector<cv::Mat> split_mats;
-  cv::split(mat_ycbcr, split_mats);
+  cv::split(mat_ycrcb, split_mats);
   mat_y = split_mats.at(0); // (224,224,1) uchar CV_8UC1
   mat_cr = split_mats.at(1);
   mat_cb = split_mats.at(2);

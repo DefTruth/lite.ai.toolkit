@@ -21,7 +21,7 @@ namespace ortcv
   class EmotionFerPlus;      // [5] * reference: https://github.com/onnx/models/blob/master/vision/body_analysis/emotion_ferplus
   class VGG16Age;            // [6] * reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
   class VGG16Gender;         // [7] * reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
-  class SSRNet;              // [8] reference: https://github.com/oukohou/SSR_Net_Pytorch
+  class SSRNet;              // [8] * reference: https://github.com/oukohou/SSR_Net_Pytorch
   class ChineseOCR;          // [9] reference: https://github.com/DayBreak-u/chineseocr_lite
   class ChineseOCRAngleNet;  // [10] reference: https://github.com/DayBreak-u/chineseocr_lite
   class ChineseOCRLiteLSTM;  // [11] reference: https://github.com/DayBreak-u/chineseocr_lite
