@@ -10,6 +10,7 @@ option(BUILD_ORT_CV_ARCFACE_RESNET "whether to build ortcv_arcface_resnet binary
 option(BUILD_ORT_CV_FAST_STYLE_TRANSFER "whether to build ortcv_fast_style_transfer binary." ON)
 option(BUILD_ORT_CV_SUBPIXEL_CNN "whether to build ortcv_subpixel_cnn binary." ON)
 option(BUILD_ORT_CV_SSRNET "whether to build ortcv_ssrnet binary." ON)
+option(BUILD_ORT_CV_COLORIZER "whether to build ortcv_colorizer binary." ON)
 
 if (BUILD_ORT_CV_FSANET)
     include(cv/test_ortcv_fsanet.cmake)
@@ -57,4 +58,8 @@ endif()
 
 if (BUILD_ORT_CV_SSRNET)
     include(cv/test_ortcv_ssrnet.cmake)
+endif()
+
+if (BUILD_ORT_CV_COLORIZER)
+    include(cv/test_ortcv_colorizer.cmake)
 endif()

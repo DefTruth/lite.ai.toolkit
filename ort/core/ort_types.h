@@ -164,6 +164,14 @@ namespace ortcv
       {};
     } SuperResolutionContent;
 
+    typedef struct ColorizeContentType {
+      cv::Mat mat;
+      bool flag;
+
+      ColorizeContentType() : flag(false)
+      {};
+    } ColorizeContent;
+
 
   } // NAMESPACE TYPES
 } // NAMESPACE ORTCV

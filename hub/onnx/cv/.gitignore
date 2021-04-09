@@ -2,3 +2,5 @@ vgg_ilsvrc_16_age_chalearn_iccv2015.onnx
 vgg_ilsvrc_16_age_imdb_wiki.onnx
 vgg_ilsvrc_16_gender_imdb_wiki.onnx
 arcfaceresnet100-8.onnx
+eccv16-colorizer.onnx
+siggraph17-colorizer.onnx
