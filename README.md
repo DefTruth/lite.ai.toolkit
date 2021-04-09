@@ -151,13 +151,13 @@ int main(__unused int argc, __unused char *argv[])
 The output is:
 
 <div align='center'>
-  <img src='examples/ort/resources/test_ortcv_colorizer_1.jpg' height="224px">
-  <img src='examples/ort/resources/test_ortcv_colorizer_2.jpg' height="224px">
-  <img src='examples/ort/resources/test_ortcv_colorizer_3.jpg' height="224px">  
+  <img src='examples/ort/resources/test_ortcv_colorizer_1.jpg' height="224px" width="224px">
+  <img src='examples/ort/resources/test_ortcv_colorizer_2.jpg' height="224px" width="224px">
+  <img src='examples/ort/resources/test_ortcv_colorizer_3.jpg' height="224px" width="224px">  
   <br> 
-  <img src='logs/test_ortcv_siggraph17_colorizer_1.jpg' height="224px">
-  <img src='logs/test_ortcv_siggraph17_colorizer_2.jpg' height="224px">
-  <img src='logs/test_ortcv_siggraph17_colorizer_3.jpg' height="224px">
+  <img src='logs/test_ortcv_siggraph17_colorizer_1.jpg' height="224px" width="224px">
+  <img src='logs/test_ortcv_siggraph17_colorizer_2.jpg' height="224px" width="224px">
+  <img src='logs/test_ortcv_siggraph17_colorizer_3.jpg' height="224px" width="224px">
 </div>
 
 #### 3.1.3 Age detection using [GoogleNet](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender).
