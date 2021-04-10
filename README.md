@@ -303,36 +303,32 @@ namespace ortcv
   class VGG16Age;            // [6] * reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
   class VGG16Gender;         // [7] * reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
   class SSRNet;              // [8] * reference: https://github.com/oukohou/SSR_Net_Pytorch
-  class ChineseOCR;          // [9] reference: https://github.com/DayBreak-u/chineseocr_lite
-  class ChineseOCRAngleNet;  // [10] reference: https://github.com/DayBreak-u/chineseocr_lite
-  class ChineseOCRLiteLSTM;  // [11] reference: https://github.com/DayBreak-u/chineseocr_lite
-  class ChineseOCRDBNet;     // [12] reference: https://github.com/DayBreak-u/chineseocr_lite
-  class MobileNet;           // [13] reference: https://github.com/onnx/models/blob/master/vision/classification/mobilenet
-  class ResNet;              // [14] reference: https://github.com/onnx/models/blob/master/vision/classification/resnet
-  class SqueezeNet;          // [15] reference: https://github.com/onnx/models/blob/master/vision/classification/squeezenet
-  class ShuffleNetV1;         // [16] reference: https://github.com/onnx/models/blob/master/vision/classification/shufflenet
-  class ShuffleNetV2;         // [17] reference: https://github.com/onnx/models/blob/master/vision/classification/shufflenet
-  class EfficientNetLite4;    // [18] reference: https://github.com/onnx/models/blob/master/vision/classification/efficientnet-lite4
-  class YoloV2;              // [19] reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/yolov2-coco
-  class YoloV3;              // [20] reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/yolov3
-  class YoloV4;              // [21] reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/yolov4
-  class YoloV5;              // [22] reference: https://github.com/ultralytics/yolov5
-  class TinyYoloV2;          // [23] reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/tiny-yolov2
-  class TinyYoloV3;          // [24] reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/tiny-yolov3
-  class SSD;                 // [25] reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd
-  class SSDMobileNetV1;      // [26] reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd-mobilenetv1
-  class ArcFaceResNet;       // [27] * reference: https://github.com/onnx/models/blob/master/vision/body_analysis/arcface
-  class FastStyleTransfer;   // [28] * reference: https://github.com/onnx/models/blob/master/vision/style_transfer/fast_neural_style
-  class SubPixelCNN;         // [29] * reference: https://github.com/niazwazir/SUB_PIXEL_CNN
-  class Colorizer;           // [30] * reference: https://github.com/richzhang/colorization
-  class DeepLabV3ResNet101;  // [31] reference: https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/
-  class DenseNet;            // [32] reference: https://pytorch.org/hub/pytorch_vision_densenet/
-  class FCNResNet101;        // [33] reference: https://pytorch.org/hub/pytorch_vision_fcn_resnet101/
-  class GhostNet;            // [34] reference：https://pytorch.org/hub/pytorch_vision_ghostnet/
-  class HdrDNet;             // [35] reference: https://pytorch.org/hub/pytorch_vision_hardnet/
-  class IBNNet;              // [36] reference: https://pytorch.org/hub/pytorch_vision_ibnnet/
-  class MobileNetV2;         // [37] reference: https://pytorch.org/hub/pytorch_vision_mobilenet_v2/
-  class ResNeXt;             // [38] reference: https://pytorch.org/hub/pytorch_vision_resnext/
+  class FastStyleTransfer;   // [9] * reference: https://github.com/onnx/models/blob/master/vision/style_transfer/fast_neural_style
+  class ArcFaceResNet;       // [10] * reference: https://github.com/onnx/models/blob/master/vision/body_analysis/arcface
+  class Colorizer;           // [11] * reference: https://github.com/richzhang/colorization
+  class SubPixelCNN;         // [12] * reference: https://github.com/niazwazir/SUB_PIXEL_CNN
+  class ChineseOCR;          // [13] reference: https://github.com/DayBreak-u/chineseocr_lite
+  class ChineseOCRAngleNet;  // [14] reference: https://github.com/DayBreak-u/chineseocr_lite
+  class ChineseOCRLiteLSTM;  // [15] reference: https://github.com/DayBreak-u/chineseocr_lite
+  class ChineseOCRDBNet;     // [16] reference: https://github.com/DayBreak-u/chineseocr_lite
+  class YoloV4;              // [17] reference: https://github.com/AllanYiin/YoloV4
+  class YoloV5;              // [18] reference: https://github.com/ultralytics/yolov5
+  class YoloV3;              // [19] reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/yolov3
+  class EfficientNetLite4;    // [20] reference: https://github.com/onnx/models/blob/master/vision/classification/efficientnet-lite4
+  class ShuffleNetV2;         // [21] reference: https://github.com/onnx/models/blob/master/vision/classification/shufflenet
+  class TinyYoloV3;          // [22] reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/tiny-yolov3
+  class SSD;                 // [23] reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd
+  class SSDMobileNetV1;      // [24] reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd-mobilenetv1
+  class DeepLabV3ResNet101;  // [25] reference: https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/
+  class DenseNet;            // [26] reference: https://pytorch.org/hub/pytorch_vision_densenet/
+  class FCNResNet101;        // [27] reference: https://pytorch.org/hub/pytorch_vision_fcn_resnet101/
+  class GhostNet;            // [28] reference：https://pytorch.org/hub/pytorch_vision_ghostnet/
+  class HdrDNet;             // [29] reference: https://pytorch.org/hub/pytorch_vision_hardnet/
+  class IBNNet;              // [30] reference: https://pytorch.org/hub/pytorch_vision_ibnnet/
+  class MobileNetV2;         // [31] reference: https://pytorch.org/hub/pytorch_vision_mobilenet_v2/
+  class ResNet;              // [32] reference: https://pytorch.org/hub/pytorch_vision_resnet/
+  class ResNeXt;             // [33] reference: https://pytorch.org/hub/pytorch_vision_resnext/
+  class UNet;                // [34] reference: https://github.com/milesial/Pytorch-UNet
 }
 
 
