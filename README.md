@@ -325,6 +325,14 @@ namespace ortcv
   class FastStyleTransfer;   // [28] * reference: https://github.com/onnx/models/blob/master/vision/style_transfer/fast_neural_style
   class SubPixelCNN;         // [29] * reference: https://github.com/niazwazir/SUB_PIXEL_CNN
   class Colorizer;           // [30] * reference: https://github.com/richzhang/colorization
+  class DeepLabV3ResNet101;  // [31] reference: https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/
+  class DenseNet;            // [32] reference: https://pytorch.org/hub/pytorch_vision_densenet/
+  class FCNResNet101;        // [33] reference: https://pytorch.org/hub/pytorch_vision_fcn_resnet101/
+  class GhostNet;            // [34] reference：https://pytorch.org/hub/pytorch_vision_ghostnet/
+  class HdrDNet;             // [35] reference: https://pytorch.org/hub/pytorch_vision_hardnet/
+  class IBNNet;              // [36] reference: https://pytorch.org/hub/pytorch_vision_ibnnet/
+  class MobileNetV2;         // [37] reference: https://pytorch.org/hub/pytorch_vision_mobilenet_v2/
+  class ResNeXt;             // [38] reference: https://pytorch.org/hub/pytorch_vision_resnext/
 }
 
 
