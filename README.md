@@ -342,6 +342,8 @@ See [ort-core](https://github.com/DefTruth/litehub/blob/main/ort/core/ort_core.h
 * [Rapid implementation of your inference using BasicOrtHandler](https://github.com/DefTruth/litehub/blob/main/docs/ort_handler.md)  
 * [Some very useful interfaces in onnxruntime c++](https://github.com/DefTruth/litehub/blob/main/docs/ort_usage.md)  
 * [How to compile a single model in this library you needed](https://github.com/DefTruth/litehub/blob/main/docs/ort_build.md)
+* [How to convert SubPixelCNN to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/litehub/blob/main/docs/ort_subpixel_cnn.md)
+* [How to convert Colorizer to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/litehub/blob/main/docs/ort_colorizer.md)
 
 ### 5.2 NCNN Inference Engine.
 * TODO.
