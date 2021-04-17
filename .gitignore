@@ -3,6 +3,5 @@
 data
 cmake-build-debug
 cmake-build-release
-3rdparty
 build
 .idea

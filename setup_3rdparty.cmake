@@ -2,22 +2,20 @@
 message("########## Setting up 3rd-party dependences for: ${CMAKE_CURRENT_SOURCE_DIR} ###########")
 if (EXISTS ${THIRDPARTY_DIR} AND LITEHUB_THIRDPARTY)
 
-#    set(OpenCV_DIR ${THIRDPARTY_DIR}/opencv/4.1.2/lib/cmake/opencv4)
-#
-#    set(ONNXRUNTIME_DIR ${THIRDPARTY_DIR}/onnxruntime/1.7.1)
-#    set(ONNXRUNTIMR_INCLUDE_DIR ${ONNXRUNTIME_DIR}/include)
-#    set(ONNXRUNTIMR_LIBRARY_DIR ${ONNXRUNTIME_DIR}/lib)
+    message("Setting Up Custom Dependencies ...")
 
-    set(OpenCV_DIR /usr/local/Cellar/opencv/4.5.1_3/lib/cmake/opencv4)
-    set(ONNXRUNTIME_DIR /usr/local/Cellar/onnxruntime/1.7.1)
+    set(OpenCV_DIR ${THIRDPARTY_DIR}/opencv/x86_64/lib/cmake/opencv4)
+    set(ONNXRUNTIME_DIR ${THIRDPARTY_DIR}/onnxruntime/x86_64)
     set(ONNXRUNTIMR_INCLUDE_DIR ${ONNXRUNTIME_DIR}/include)
     set(ONNXRUNTIMR_LIBRARY_DIR ${ONNXRUNTIME_DIR}/lib)
 
 else ()
+
     set(OpenCV_DIR /usr/local/Cellar/opencv/4.5.1_3/lib/cmake/opencv4)
     set(ONNXRUNTIME_DIR /usr/local/Cellar/onnxruntime/1.7.1)
     set(ONNXRUNTIMR_INCLUDE_DIR ${ONNXRUNTIME_DIR}/include)
     set(ONNXRUNTIMR_LIBRARY_DIR ${ONNXRUNTIME_DIR}/lib)
+
 endif ()
 
 # 2. check if OpenCV is available.
