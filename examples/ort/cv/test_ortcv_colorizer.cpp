@@ -15,7 +15,7 @@ static void test_ortcv_colorizer()
   std::string test_img_path1 = "../../../examples/ort/resources/test_ortcv_colorizer_1.jpg";
   std::string test_img_path2 = "../../../examples/ort/resources/test_ortcv_colorizer_2.jpg";
   std::string test_img_path3 = "../../../examples/ort/resources/test_ortcv_colorizer_3.jpg";
-  std::string test_img_path4 = "../../../examples/ort/resources/test_ortcv_colorizer_one_piece_0.jpg";
+  std::string test_img_path4 = "../../../examples/ort/resources/test_ortcv_colorizer_one_piece_0.png";
   std::string save_eccv_img_path1 = "../../../logs/test_ortcv_eccv16_colorizer_1.jpg";
   std::string save_eccv_img_path2 = "../../../logs/test_ortcv_eccv16_colorizer_2.jpg";
   std::string save_eccv_img_path3 = "../../../logs/test_ortcv_eccv16_colorizer_3.jpg";
