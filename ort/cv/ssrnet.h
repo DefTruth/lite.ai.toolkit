@@ -20,11 +20,10 @@ namespace ortcv
         BasicOrtHandler(_onnx_path, _num_threads)
     {};
 
-    ~SSRNet()
-    {};
+    ~SSRNet() override = default;
 
   private:
-    ort::Value transform(const cv::Mat &mat);
+    ort::Value transform(const cv::Mat &mat) override;
 
   public:
     void detect(const cv::Mat &mat, types::Age &age);
