@@ -18,8 +18,7 @@ namespace ortcv
         BasicOrtHandler(_onnx_path, _num_threads)
     {};
 
-    ~UltraFace()
-    {}; // override
+    ~UltraFace() override = default; // override
 
   private:
     static constexpr const float mean_val = 127.0f;
@@ -30,7 +29,7 @@ namespace ortcv
     };
 
   private:
-    ort::Value transform(const cv::Mat &mat);
+    ort::Value transform(const cv::Mat &mat) override;
     void generate_bboxes(std::vector<types::Boxf> &bbox_collection,
                          std::vector<ort::Value> &output_tensors,
                          float score_threshold, float img_height,

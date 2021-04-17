@@ -23,11 +23,10 @@ namespace ortcv
         BasicOrtHandler(_onnx_path, _num_threads)
     {};
 
-    ~FSANet()
-    {}; // override
+    ~FSANet() override = default; // override
 
   private:
-    ort::Value transform(const cv::Mat &mat); //  padding & resize & normalize.
+    ort::Value transform(const cv::Mat &mat) override; //  padding & resize & normalize.
 
   public:
     void detect(const cv::Mat &mat, types::EulerAngles &euler_angles);

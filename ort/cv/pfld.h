@@ -21,11 +21,10 @@ namespace ortcv
         BasicOrtHandler(_onnx_path, _num_threads)
     {};
 
-    ~PFLD()
-    {}; // override
+    ~PFLD() override = default; // override
 
   private:
-    ort::Value transform(const cv::Mat &mat);
+    ort::Value transform(const cv::Mat &mat) override;
 
   public:
     void detect(const cv::Mat &mat, types::Landmarks &landmarks);
