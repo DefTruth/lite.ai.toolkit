@@ -21,7 +21,8 @@ install `opencv` and `onnxruntime` libraries using Homebrew.
   brew update
   brew install opencv
   brew install onnxruntime
-```
+```  
+or you can download the built dependencies from this repo. See [third_party](https://github.com/DefTruth/litehub/tree/main/third_party)
 * Linux & Windows. 
   * TODO
   
