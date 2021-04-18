@@ -63,7 +63,7 @@ Darwin
 ```
 参数解释：
 * `--build_dir`：指定编译后的库文件存放路径，不能为空
-* `--config`：指定编译的库类型，有4种选择，`["Debug", "MinSizeRel", "Release", "RelWithDebInfo"]`，MinSizeRel可以用于优化目标文件的大小，具体可以参考[CMake选项减少目标文件大小](https://blog.csdn.net/Huoon/article/details/108520571)。都可以正常使用，我最后使用的是MinSizeRel版本的动态库。
+* `--config`：指定编译的库类型，有4种选择，`["Debug", "MinSizeRel", "Release", "RelWithDebInfo"]`，MinSizeRel可以用于优化目标文件的大小，具体可以参考[CMake选项减少目标文件大小](https://blog.csdn.net/Huoon/article/details/108520571) ,都可以正常使用，我最后使用的是MinSizeRel版本的动态库。
 
 * `--update`：是否更新makefile文件，这里解释一下`action='store_true'`，意思是，一旦在命令行指定了`--update`，则`args.update`会被设置成`True`，否则为`False`；所以，所有指定了`action='store_true'`的参数，默认值都为`False`
 * `--parallel`：是否利用多核并行构建，用就是了。
