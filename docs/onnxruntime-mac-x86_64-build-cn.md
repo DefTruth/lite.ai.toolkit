@@ -4,7 +4,7 @@
 ```shell
 git clone --depth=1 --branch v1.7.0 https://github.com.cnpmjs.org/microsoft/onnxruntime.git
 ```  
-注意，`--depth=1 --branch v1.7.0`表示只拉取分支*v1.7.0*的最新提交，如果不指定这个参数，则会拉取所有的历史版本。而`.cnpmjs.org`后缀则是参考[利用github.com.cnpmjs.org快速下载GitHub仓库](https://note.qidong.name/2020/12/github-proxy/)来加速国内github仓库的下载。你也可以选择直接修改`~/.gitconfig`文件来达到同样的目的。
+注意，`--depth=1 --branch v1.7.0`表示只拉取分支*v1.7.0*的最新提交，如果不指定这个参数，则会拉取所有的历史版本。而`.cnpmjs.org`后缀则是参考[利用github.com.cnpmjs.org快速下载GitHub仓库](https://note.qidong.name/2020/12/github-proxy/) 来加速国内github仓库的下载。你也可以选择直接修改`~/.gitconfig`文件来达到同样的目的。
 ## 2. build.sh编译选项解读
 ### 2.1 build.sh源码分析
 我们首先看一下这个脚本长啥样：
