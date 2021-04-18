@@ -63,17 +63,19 @@ Darwin
 ```
 参数解释：
 * `--build_dir`：指定编译后的库文件存放路径，不能为空
-* `--config`：指定编译的库类型，有4种选择，`["Debug", "MinSizeRel", "Release", "RelWithDebInfo"]`，MinSizeRel可以用于优化目标文件的大小，具体可以参考[CMake选项减少目标文件大小](https://blog.csdn.net/Huoon/article/details/108520571)。这个几种方式编译出来的目标文件大小如下(Debug版本没有编译)：
-
-|RelWithDebInfo|Release|MinSizeRel|
-|---|---|---|
-|19Mb|15Mb|12Mb|
-都可以正常使用，我最后使用的是MinSizeRel版本的动态库。
+* `--config`：指定编译的库类型，有4种选择，`["Debug", "MinSizeRel", "Release", "RelWithDebInfo"]`，MinSizeRel可以用于优化目标文件的大小，具体可以参考[CMake选项减少目标文件大小](https://blog.csdn.net/Huoon/article/details/108520571)。都可以正常使用，我最后使用的是MinSizeRel版本的动态库。
 
 * `--update`：是否更新makefile文件，这里解释一下`action='store_true'`，意思是，一旦在命令行指定了`--update`，则`args.update`会被设置成`True`，否则为`False`；所以，所有指定了`action='store_true'`的参数，默认值都为`False`
 * `--parallel`：是否利用多核并行构建，用就是了。
 * `--skip_tests`：是否跳过单元测试，不跳过编译过程会慢很多，建议跳过。
-* `--build_shared_lib`：注意，如果你需要编译一个动态库，则需要指定此参数，否则编译的是静态库。
+* `--build_shared_lib`：注意，如果你需要编译一个动态库，则需要指定此参数，否则编译的是静态库。  
+
+这个几种方式编译出来的目标文件大小如下(Debug版本没有编译)：  
+  
+|RelWithDebInfo|Release|MinSizeRel|
+|---|---|---|
+|19Mb|15Mb|12Mb|  
+
 
 那么接下来的问题是，这些编译选项究竟是如何和cmake关联起来，以串联整个构建过程的呢？这主要是通过`generate_build_tree`这个函数，函数太长，我摘录了关键部分：
 ```python
