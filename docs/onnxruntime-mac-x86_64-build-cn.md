@@ -400,7 +400,7 @@ bash ./build.sh --skip_tests --config Release --build_shared_lib --parallel
 ![](resources/onnxruntime-mac-x86_64-build-release.png)
 我们使用otool来查看一下libonnxruntime的依赖库路径：
 ![](resources/onnxruntime-mac-x86_64-build-otool.png)
-看起来挺正常。你可以在这里找到我编译好的动态库[libonnxruntime.1.7.0.dylib](https://github.com/DefTruth/litehub/tree/main/third_party) ，以及一些c++接口的使用案例[onnxruntime-c++-examples](https://github.com/DefTruth/litehub/tree/main/examples/ort/cv)
+看起来挺正常。你可以在这里找到我编译好的动态库[libonnxruntime.1.7.0.dylib](https://github.com/DefTruth/litehub/tree/main/third_party) ，以及一些c++接口的使用案例[onnxruntime-c++-examples](https://github.com/DefTruth/litehub/tree/main/examples/ort/cv) , 文档内容可以在[onnxruntime-mac-x86_64-build](https://github.com/DefTruth/litehub/blob/main/docs/onnxruntime-mac-x86_64-build-cn.md) 中找到。
 
 ## 6. 参考资料
 * [1] [onnxruntime-MacOS CI Pipeline](https://dev.azure.com/onnxruntime/onnxruntime/_build/results?buildId=354028&view=logs&j=7636b40b-abcf-5c6b-cc48-bcd7d4ae0854&t=4f922874-195a-5571-f5f1-e2f658fa1687)
