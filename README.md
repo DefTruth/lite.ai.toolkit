@@ -22,7 +22,7 @@ install `opencv` and `onnxruntime` libraries using Homebrew.
   brew install opencv
   brew install onnxruntime
 ```  
-or you can download the built dependencies from this repo. See [third_party](https://github.com/DefTruth/litehub/tree/main/third_party)
+or you can download the built dependencies from this repo. See [third_party](https://github.com/DefTruth/litehub/tree/main/third_party) and build-docs[<sup>1</sup>](#refer-anchor-1).
 * Linux & Windows. 
   * TODO
   
@@ -41,7 +41,7 @@ or you can download the built dependencies from this repo. See [third_party](htt
 Disclaimer: The following test pictures are from the Internet search, if it has any impact on you, please contact me immediately, I will remove it immediately. 
 ### 3.1 Usage for ONNXRuntime Interfaces.
 More examples can find at [ortcv-examples](https://github.com/DefTruth/litehub/tree/main/examples/ort/cv).  
-### 3.1.1 Style transfer using [FastStyleTransfer](https://github.com/onnx/models/tree/master/vision/style_transfer/fast_neural_style).
+### 3.1.1 Style transfer using [FastStyleTransfer](https://github.com/onnx/models/tree/master/vision/style_transfer/fast_neural_style). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
 #include <iostream>
 #include <vector>
@@ -90,7 +90,7 @@ The output is:
   <img src='logs/test_ortcv_fast_style_transfer_udnie.jpg' height="224px">
 </div>
 
-#### 3.1.2 Colorization using [colorization](https://github.com/richzhang/colorization).  
+#### 3.1.2 Colorization using [colorization](https://github.com/richzhang/colorization). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
 #include <iostream>
 #include <vector>
@@ -161,7 +161,7 @@ The output is:
   <img src='logs/test_ortcv_siggraph17_colorizer_3.jpg' height="224px" width="224px">
 </div>
 
-#### 3.1.3 Age detection using [GoogleNet](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender).
+#### 3.1.3 Age detection using [GoogleNet](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
 #include <iostream>
 #include <vector>
@@ -191,7 +191,7 @@ int main(__unused int argc, __unused char *argv[]) {
 The output is:  
 <div align=center><img src='logs/test_ortcv_age_googlenet.jpg'/></div>  
 
-#### 3.1.4 Facial Landmarks detection using [PFLD](https://github.com/Hsintao/pfld_106_face_landmarks).
+#### 3.1.4 Facial Landmarks detection using [PFLD](https://github.com/Hsintao/pfld_106_face_landmarks). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
 #include <iostream>
 #include <vector>
@@ -221,7 +221,7 @@ int main(__unused int argc, __unused char *argv[]) {
 The output is:  
 <div align=center><img src='logs/test_ortcv_pfld.jpg'/></div>  
 
-#### 3.1.5 Face detection using [UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB).
+#### 3.1.5 Face detection using [UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
 #include <iostream>
 #include <vector>
@@ -251,7 +251,7 @@ int main(__unused int argc, __unused char *argv[]) {
 The output is:  
 <div align=center><img src='logs/test_ortcv_ultraface.jpg'/></div>  
 
-#### 3.1.6 Emotion detection using [EmotionFerPlus](https://github.com/onnx/models/blob/master/vision/body_analysis/emotion_ferplus).
+#### 3.1.6 Emotion detection using [EmotionFerPlus](https://github.com/onnx/models/blob/master/vision/body_analysis/emotion_ferplus). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
 #include <iostream>
 #include <vector>
@@ -360,6 +360,9 @@ See [ort-core](https://github.com/DefTruth/litehub/blob/main/ort/core/ort_core.h
 ### 5.5 How to build [third_party](https://github.com/DefTruth/litehub/tree/main/third_party).  
 Other build documents for different engines and different targets will be added later.
 
+<div id="refer-anchor-1"></div> 
+
+
 |Library|Target|Docs|  
 |:---:|:---:|:---:|  
 |OpenCV| MacOS-x86_64 | [opencv-mac-x86_64-build-cn.md](https://github.com/DefTruth/litehub/blob/main/docs/third_party/opencv-mac-x86_64-build-cn.md) |
@@ -370,8 +373,11 @@ Other build documents for different engines and different targets will be added 
 |TNN| MacOS-x86_64 | TODO |  
 
 ## 6. Model Zoo.  
+
 ### 6.1 model-zoo for ONNX version.  
 Some of the models were converted by this repo, and others were referenced from third-party libraries. 
+
+<div id="refer-anchor-2"></div>
 
 |Model|size|Download|From|  
 |:---:|:---:|:---:|:---:|  
