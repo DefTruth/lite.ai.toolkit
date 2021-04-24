@@ -356,7 +356,18 @@ See [ort-core](https://github.com/DefTruth/litehub/blob/main/ort/core/ort_core.h
 ### 5.3 MNN Inference Engine.
 * TODO.
 ### 5.4 TNN Inference Engine.
-* TODO. 
+* TODO.  
+### 5.5 How to build [third_party](https://github.com/DefTruth/litehub/tree/main/third_party).  
+Other build documents for different engines and different targets will be added later.
+
+|Library|Target|Docs|  
+|:---:|:---:|:---:|  
+|OpenCV| MacOS-x86_64 | [opencv-mac-x86_64-build-cn.md](https://github.com/DefTruth/litehub/blob/main/docs/third_party/opencv-mac-x86_64-build-cn.md) |
+|onnxruntime| MacOS-x86_64 | [onnxruntime-mac-x86_64-build-cn.md](https://github.com/DefTruth/litehub/blob/main/docs/third_party/onnxruntime-mac-x86_64-build-cn.md) |
+|onnxruntime| Android-arm | TODO |
+|NCNN| MacOS-x86_64 | TODO |  
+|MNN| MacOS-x86_64 | TODO |  
+|TNN| MacOS-x86_64 | TODO |  
 
 ## 6. Model Zoo.  
 ### 6.1 model-zoo for ONNX version.  
