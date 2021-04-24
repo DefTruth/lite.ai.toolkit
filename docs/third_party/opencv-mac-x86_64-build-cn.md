@@ -100,4 +100,4 @@ int main(int argc, const char * argv[]) {
     return 0;
 }
 ```  
-文档内容可以在[opencv-mac-x86_64-build-cn.md](https://github.com/DefTruth/litehub/blob/main/docs/opencv-mac-x86_64-build-cn.md) 中找到。
+文档内容可以在[opencv-mac-x86_64-build-cn.md](https://github.com/DefTruth/litehub/blob/main/docs/third_party/opencv-mac-x86_64-build-cn.md) 中找到。
