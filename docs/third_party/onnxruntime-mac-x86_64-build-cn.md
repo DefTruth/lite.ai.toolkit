@@ -1,10 +1,4 @@
-# MacOS源码编译onnxruntime
-<style>
-table
-{
-    margin: auto;
-}
-</style>
+# MacOS源码编译onnxruntime  
 ## 1. git拉取分支
 ```shell
 git clone --depth=1 --branch v1.7.0 https://github.com.cnpmjs.org/microsoft/onnxruntime.git
