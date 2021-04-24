@@ -1,5 +1,10 @@
 # MacOS源码编译onnxruntime
-
+<style>
+table
+{
+    margin: auto;
+}
+</style>
 ## 1. git拉取分支
 ```shell
 git clone --depth=1 --branch v1.7.0 https://github.com.cnpmjs.org/microsoft/onnxruntime.git
@@ -71,9 +76,10 @@ Darwin
 * `--build_shared_lib`：注意，如果你需要编译一个动态库，则需要指定此参数，否则编译的是静态库。  
 
 这个几种方式编译出来的目标文件大小如下(Debug版本没有编译)：  
-  
+
+
 |RelWithDebInfo|Release|MinSizeRel|
-|---|---|---|
+|:---:|:---:|:---:|
 |19Mb|15Mb|12Mb|  
 
 
