@@ -379,7 +379,7 @@ Some of the models were converted by this repo, and others were referenced from 
 
 <div id="refer-anchor-2"></div>
 
-|Model|size|Download|From|  
+|Model|Size|Download|From|  
 |:---:|:---:|:---:|:---:|  
 |FSANet|1.2Mb|[Baidu Drive](https://pan.baidu.com/s/1ajwMt3UVQ0kEM0L9NQebTA) code:1dsc; Google Drive: TODO| [FSANet](https://github.com/omasaht/headpose-fsanet-pytorch)|
 |PFLD|1.0Mb~5.5Mb|[Baidu Drive](https://pan.baidu.com/s/1ajwMt3UVQ0kEM0L9NQebTA) code:1dsc; Google Drive: TODO| [PFLD](https://github.com/Hsintao/pfld_106_face_landmarks) |
