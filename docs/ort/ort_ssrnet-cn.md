@@ -229,7 +229,7 @@ namespace ortcv
 
 ```
 
-关于`BasicOrtHandler`基类，你可以参考文档[ort_handler.md](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_handler.md)以及[ort_handler.cpp](https://github.com/DefTruth/litehub/blob/main/ort/core/ort_handler.cpp)的具体实现。 BasicOrtHandler是我实现的用于支持静态输出维度的一个类，是对onnxruntime c++相关推理接口使用过程中涉及的上下文的简单封装。`ssrnet.cpp`接口实现如下：
+关于`BasicOrtHandler`基类，你可以参考文档[ort_handler.md](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_handler.md)以及[ort_handler.cpp](https://github.com/DefTruth/litehub/blob/main/ort/core/ort_handler.cpp)的具体实现。 BasicOrtHandler是我实现的用于支持静态输入维度的一个类，是对onnxruntime c++相关推理接口使用过程中涉及的上下文的简单封装。`ssrnet.cpp`接口实现如下：
 
 ```c++
 //
