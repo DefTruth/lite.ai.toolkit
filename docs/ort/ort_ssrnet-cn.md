@@ -3,10 +3,6 @@
 
 这篇文档主要记录将项目[ssrnet-pytorch](https://github.com/oukohou/SSR_Net_Pytorch/blob/master/ReadMe.md) 的模型转换为onnx模型，并使用onnxruntime c++接口实现推理的过程。
 
-![](resources/ort_ssrnet-0.png)
-
-
-
 ## 2. 转换成ONNX模型
 
 * 依赖库：
@@ -88,7 +84,7 @@ if __name__ == "__main__":
 
 ## 3. python版本onnxruntime推理接口
 
-原始项目的推理采用了torch和PIL的接口做数据预处理，但考虑到在c++，我们想尽可能减少依赖库，于是需要将原始推理中得预处理，用opencv改写。`inference_single_image`函数中的逻辑，就是作者提供的推理代码。`inference_single_image_cv2`函数是我用opencv重写后的推理代码。中间有些坑，对于`T.ToPILImage()`，如果channel=3则假设输入的数据是RGB 但由于作者的代码中输入是opencv读入的，所以事实上是BGR；`T.Resize()`, 与opencv resize 的INTER_LINEAR方法结果不完全一致导致模型推理结果无法对其 参考训练过程 没有用到Resize 因此 直接在外部使用opencv的resize，结果就一样了；`T.ToTensor()`, 会默认将数值转换为[0.,1.]范围内的float32。
+原始项目的推理采用了torch和PIL的接口做数据预处理，但考虑到在c++，我们想尽可能减少依赖库，于是需要将原始推理中的预处理，用opencv改写。`inference_single_image`函数中的逻辑，就是作者提供的推理代码。`inference_single_image_cv2`函数是我用opencv重写后的推理代码。中间有些坑，对于`T.ToPILImage()`，如果channel=3则假设输入的数据是RGB 但由于作者的代码中输入是opencv读入的，所以事实上是BGR；`T.Resize()`, 与opencv resize 的INTER_LINEAR方法结果不完全一致导致模型推理结果无法对齐， 参考训练过程 没有用到Resize 因此 直接在外部使用opencv的resize，结果就一样了；`T.ToTensor()`, 会默认将数值转换为[0.,1.]范围内的float32。
 
 ```python
 
@@ -109,10 +105,8 @@ import cv2
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-
 def inference_single_image(model_, image_path_, input_size_=64):
     image_ = cv2.imread(image_path_)
-    # image_ = cv2.cvtColor(image_, cv2.COLOR_BGR2RGB)
     image_ = cv2.resize(image_, (input_size_, input_size_))
 
     start_time_ = time.time()
@@ -128,7 +122,6 @@ def inference_single_image(model_, image_path_, input_size_=64):
     results_ = model_(image_)
     return results_,  time.time() - start_time_
 
-
 def inference_single_image_cv2(model_, image_path_, input_size_=64):
     image_ = cv2.imread(image_path_)  # keep BGR
     image_ = cv2.resize(image_, (input_size_, input_size_), interpolation=cv2.INTER_LINEAR)
@@ -140,30 +133,15 @@ def inference_single_image_cv2(model_, image_path_, input_size_=64):
     image_ = torch.from_numpy(image_) # (1,3,64,64)
 
     start_time_ = time.time()
-
     image_ = image_[np.newaxis,]
     image_ = image_.to(device)
     results_ = model_(image_)
     return results_, time.time() - start_time_
 
-
 if __name__ == "__main__":
     image_file_path = "./test.jpg"
     model_file = "./pretrained_model/ssrnet.pth"
-    
-    # parser = argparse.ArgumentParser()
-    # parser.add_argument("--image", help="image to be processed, dir or a single image.")
-    # parser.add_argument("--graph", help="graph/model to be executed")
-    #
-    # args = parser.parse_args()
-    #
-    # if args.graph:
-    #     model_file = args.graph
-    # if args.image:
-    #     image_file_path = args.image
-    
     input_size = 64
-    
     inference_model = SSRNet()
     loaded_model = torch.load(model_file, map_location=device)
     inference_model.load_state_dict(loaded_model['state_dict'])
@@ -180,7 +158,7 @@ if __name__ == "__main__":
     """
 ```
 
-采用onnxruntime的python接口重写上述推理过程，如下。
+采用onnxruntime的python接口重写上述推理过程，如下。注意需要先将`[0,255]`转换到`[0.,1.0]`之后再做归一化处理。
 
 ```python
 import cv2
@@ -201,7 +179,6 @@ if __name__ == "__main__":
     image_[:, :, 1] = (image_[:, :, 1] - 0.456) / 0.224  # G
     image_[:, :, 2] = (image_[:, :, 2] - 0.406) / 0.225  # R
     image_ = image_.transpose((2, 0, 1))  # (3,64,64)
-
     image_ = np.expand_dims(image_, 0)
 
     age = ort_session.run(['age'], input_feed={"input": image_})
@@ -213,7 +190,7 @@ if __name__ == "__main__":
 
 ## 4. c++版本onnxruntime推理接口
 
-`ort_ssrnet.h`头文件如下：
+`ssrnet.h`头文件如下：
 
 ```c++
 //
@@ -252,7 +229,7 @@ namespace ortcv
 
 ```
 
-`ort_ssrnet.cpp`接口实现如下：
+关于`BasicOrtHandler`基类，你可以参考文档[ort_handler.md](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_handler.md)以及[ort_handler.cpp](https://github.com/DefTruth/litehub/blob/main/ort/core/ort_handler.cpp)的具体实现。 BasicOrtHandler是我实现的用于支持静态输出维度的一个类，是对onnxruntime c++相关推理接口使用过程中涉及的上下文的简单封装。`ssrnet.cpp`接口实现如下：
 
 ```c++
 //
@@ -300,6 +277,98 @@ void SSRNet::detect(const cv::Mat &mat, types::Age &age)
   age.flag = true;
 }
 ```
+
+你可以从[ssrnet.cpp](https://github.com/DefTruth/litehub/blob/main/ort/cv/ssrnet.cpp)阅读源码。`ortcv::utils::transform::create_tensor`是我实现的用于张量转换的工具函数，可以很方便地将Mat中的数据转换至onnxruntime c++推理接口所需要的Tensor输入，具体实现可以阅读[ort_utils.cpp](https://github.com/DefTruth/litehub/blob/main/ort/core/ort_utils.cpp) ，就不在这里一一展开了。关于onnxruntime c++更多的使用技巧，可以参考我整理的一篇文档[ort_useful_api-cn.md](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_useful_api-cn.md).
+
+## 5. 编译运行onnxruntime c++推理接口
+
+测试`test_ortcv_ssrnet.cpp`的实现如下。你可以从[Model Zoo](https://github.com/DefTruth/litehub/blob/main/README.md)下载我转换好的模型。
+
+```c++
+//
+// Created by DefTruth on 2021/4/7.
+//
+
+#include <iostream>
+#include <vector>
+
+#include "ort/cv/ssrnet.h"
+#include "ort/core/ort_utils.h"
+
+static void test_ortcv_ssrnet()
+{
+  std::string onnx_path = "../../../hub/onnx/cv/ssrnet.onnx";
+  std::string test_img_path = "../../../examples/ort/resources/test_ortcv_ssrnet.jpg";
+  std::string save_img_path = "../../../logs/test_ortcv_ssrnet.jpg";
+
+  ortcv::SSRNet *ssrnet = new ortcv::SSRNet(onnx_path);
+
+  ortcv::types::Age age;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  ssrnet->detect(img_bgr, age);
+
+  ortcv::utils::draw_age_inplace(img_bgr, age);
+
+  cv::imwrite(save_img_path, img_bgr);
+
+  std::cout << "Detected SSRNet Age: " << age.age << std::endl;
+
+  delete ssrnet;
+
+}
+
+int main(__unused int argc, __unused char *argv[])
+{
+  test_ortcv_ssrnet();
+  return 0;
+}
+```
+
+工程文件`test_ortcv_ssrnet.cmake`如下：
+
+```cmake
+# 1. setup 3rd-party dependences
+message(">>>> Current project is [ortcv_ssrnet] in : ${CMAKE_CURRENT_SOURCE_DIR}")
+include(${CMAKE_SOURCE_DIR}/setup_3rdparty.cmake)
+
+if (APPLE)
+    set(CMAKE_MACOSX_RPATH 1)
+    set(CMAKE_BUILD_TYPE release)
+endif ()
+
+# 2. setup onnxruntime include
+include_directories(${ONNXRUNTIMR_INCLUDE_DIR})
+link_directories(${ONNXRUNTIMR_LIBRARY_DIR})
+
+# 3. will be include into CMakeLists.txt at examples/ort
+set(ORTCV_FSANET_SRCS
+        cv/test_ortcv_ssrnet.cpp
+        ${LITEHUB_ROOT_DIR}/ort/cv/ssrnet.cpp
+        ${LITEHUB_ROOT_DIR}/ort/core/ort_utils.cpp
+        ${LITEHUB_ROOT_DIR}/ort/core/ort_handler.cpp
+        )
+
+add_executable(ortcv_ssrnet ${ORTCV_FSANET_SRCS})
+target_link_libraries(ortcv_ssrnet
+        onnxruntime
+        opencv_highgui
+        opencv_core
+        opencv_imgcodecs
+        opencv_imgproc)
+
+if (LITEHUB_COPY_BUILD)
+    # "set" only valid in the current directory and subdirectory and does not broadcast
+    # to parent and sibling directories
+    # CMAKE_SOURCE_DIR means the root path of top CMakeLists.txt
+    # CMAKE_CURRENT_SOURCE_DIR the current path of current CMakeLists.txt
+    set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/build/liteort/bin)
+    message("=================================================================================")
+    message("output binary [app: ortcv_ssrnet] to ${EXECUTABLE_OUTPUT_PATH}")
+    message("=================================================================================")
+endif ()
+```
+
+更具体的工程文件信息，请阅读[examples/ort/CMakeLists.txt](https://github.com/DefTruth/litehub/blob/main/examples/ort/CMakeLists.txt)以及[examples/ort/cv/test_ortcv_ssrnet.cmake](https://github.com/DefTruth/litehub/blob/main/examples/ort/cv/test_ortcv_ssrnet.cmake) .
 
 
 
