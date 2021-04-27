@@ -27,11 +27,9 @@ or you can download the built dependencies from this repo. See [third_party](htt
   * TODO
   
 ## 2. Implementation Plans.
-* Models Plan: 
-  * Maybe `200+` models from community, includes cv & nlp & asr. Most of them come from the ONNX-Model-Zoo & PytorchHub & other open source projects.
 * Inference Engine Plans:
   * Doing:
-    * [x] <font color=green size=2> onnxruntime c++ </font>
+    * [x] onnxruntime c++ 
   * TODO:
     * [x] `NCNN`
     * [x] `MNN`
