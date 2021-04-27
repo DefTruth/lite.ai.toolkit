@@ -9,10 +9,8 @@
   <img src='logs/test_ortcv_fast_style_transfer_mosaic.jpg' height="256px" width="256px"> 
 </div>
 
-*litehub* for onnxruntime/ncnn/mnn/tnn. What you see is what you get! This library integrates some interesting models. I use them as practice cases when I was learning some mobile inference engines.
-Most of the models come from `ONNX-Model-Zoo`, `PytorchHub` and `other open source projects`. All models used will be cited. 
-Many thanks to these contributors. To be clear, I do not plan to maintain the library diligently, they are just examples of my practices. 
-What you see is what you get, and hopefully you get something out of it.
+*litehub* for onnxruntime/ncnn/mnn/tnn. This library integrates some interesting models. I use them as practice cases when I was learning some mobile inference engines.
+Most of the models come from `ONNX-Model-Zoo`, `PytorchHub` and `other open source projects`. All models used will be cited. Many thanks to these contributors. What you see is what you get, and hopefully you get something out of it.
 
 ## 1. Dependencies.  
 * Mac OS.  
