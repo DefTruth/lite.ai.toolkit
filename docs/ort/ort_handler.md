@@ -1,8 +1,9 @@
 # Rapid implementation of your inference using BasicOrtHandler
 For the single input and multiple outputs model, you can inherit [BasicOrthHandler](https://github.com/DefTruth/litehub/blob/main/ort/core/ort_handler.h) and then implement the
 `transform` and `detect` interfaces, it's just a simple wrapper of the onnxruntime c++ inference context. Or you can implement a `xxx_model.cpp` completely on your own. 
-After submitting MR, I will modify it in the same way that I inherited `BasicOrtHandler` and add it to the library. For the multiple inputs and multiple outputs model, maybe you can try to inherit [BasicMultiOrthHandler](https://github.com/DefTruth/litehub/blob/main/ort/core/ort_handler.h).   
+After submitting MR, I will modify it in the same way that I inherited `BasicOrtHandler` and add it to the library. For the multiple inputs and multiple outputs model, maybe you can try to inherit [BasicMultiOrtHandler](https://github.com/DefTruth/litehub/blob/main/ort/core/ort_handler.h).   
 For example:
+
 * inherit [BasicOrthHandler](https://github.com/DefTruth/litehub/blob/main/ort/core/ort_handler.h).
 ```c++
 #include "ort/core/ort_core.h"
@@ -39,7 +40,7 @@ namespace ortcv
       void detect(const cv::Mat &mat, types::Age &age);
     };
 }
-``` 
+```
 * implementations for `transform` and `detect` interfaces.
 ```c++
 #include "age_googlenet.h"
