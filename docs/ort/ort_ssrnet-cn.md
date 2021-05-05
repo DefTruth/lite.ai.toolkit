@@ -10,7 +10,7 @@
   * onnx 1.7.0
   * onnxruntime 1.7.0
   * opencv 4.5.1
-  * onnxsim (latest)
+  * onnx-simplifier 0.3.5
 
 下载模型文件后，重命名为`ssrnet.pth`，采用`export_onnx.py`将其转换为onnx模型。
 
