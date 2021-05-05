@@ -2,7 +2,7 @@
 
 ## 1. 前言
 
-这篇文档主要记录将项目[colorization](https://github.com/richzhang/colorization)的模型转换成onnx模型，并使用onnxruntime c++接口实现推理的过程。
+这篇文档主要记录将项目[colorization](https://github.com/richzhang/colorization) 的模型转换成onnx模型，并使用onnxruntime c++接口实现推理的过程。
 
 ## 2. 转换成ONNX模型
 
@@ -467,7 +467,7 @@ void Colorizer::detect(const cv::Mat &mat, types::ColorizeContent &colorize_cont
 
 ## 5. 编译运行onnxruntime c++推理接口
 
-测试`test_ortcv_colorizer.cpp`的实现如下。你可以从[Model Zoo](https://github.com/DefTruth/litehub/blob/main/README.md)下载我转换好的模型。
+测试`test_ortcv_colorizer.cpp`的实现如下。你可以从[Model Zoo](https://github.com/DefTruth/litehub/blob/main/README.md) 下载我转换好的模型。
 
 ```c++
 //
@@ -592,4 +592,4 @@ if (LITEHUB_COPY_BUILD)
 endif ()
 ```
 
-更具体的工程文件信息，请阅读[examples/ort/CMakeLists.txt](https://github.com/DefTruth/litehub/blob/main/examples/ort/CMakeLists.txt)以及[examples/ort/cv/test_ortcv_colorizer.cmake](https://github.com/DefTruth/litehub/blob/main/examples/ort/cv/test_ortcv_colorizer.cmake) .
+更具体的工程文件信息，请阅读[examples/ort/CMakeLists.txt](https://github.com/DefTruth/litehub/blob/main/examples/ort/CMakeLists.txt) 以及[examples/ort/cv/test_ortcv_colorizer.cmake](https://github.com/DefTruth/litehub/blob/main/examples/ort/cv/test_ortcv_colorizer.cmake) .

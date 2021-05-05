@@ -278,11 +278,11 @@ void SSRNet::detect(const cv::Mat &mat, types::Age &age)
 }
 ```
 
-你可以从[ssrnet.cpp](https://github.com/DefTruth/litehub/blob/main/ort/cv/ssrnet.cpp)阅读源码。`ortcv::utils::transform::create_tensor`是我实现的用于张量转换的工具函数，可以很方便地将Mat中的数据转换至onnxruntime c++推理接口所需要的Tensor输入，具体实现可以阅读[ort_utils.cpp](https://github.com/DefTruth/litehub/blob/main/ort/core/ort_utils.cpp) ，就不在这里一一展开了。关于onnxruntime c++更多的使用技巧，可以参考我整理的一篇文档[ort_useful_api-cn.md](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_useful_api-cn.md).
+你可以从[ssrnet.cpp](https://github.com/DefTruth/litehub/blob/main/ort/cv/ssrnet.cpp) 阅读源码。`ortcv::utils::transform::create_tensor`是我实现的用于张量转换的工具函数，可以很方便地将Mat中的数据转换至onnxruntime c++推理接口所需要的Tensor输入，具体实现可以阅读[ort_utils.cpp](https://github.com/DefTruth/litehub/blob/main/ort/core/ort_utils.cpp) ，就不在这里一一展开了。关于onnxruntime c++更多的使用技巧，可以参考我整理的一篇文档[ort_useful_api-cn.md](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_useful_api-cn.md).
 
 ## 5. 编译运行onnxruntime c++推理接口
 
-测试`test_ortcv_ssrnet.cpp`的实现如下。你可以从[Model Zoo](https://github.com/DefTruth/litehub/blob/main/README.md)下载我转换好的模型。
+测试`test_ortcv_ssrnet.cpp`的实现如下。你可以从[Model Zoo](https://github.com/DefTruth/litehub/blob/main/README.md) 下载我转换好的模型。
 
 ```c++
 //
@@ -368,7 +368,7 @@ if (LITEHUB_COPY_BUILD)
 endif ()
 ```
 
-更具体的工程文件信息，请阅读[examples/ort/CMakeLists.txt](https://github.com/DefTruth/litehub/blob/main/examples/ort/CMakeLists.txt)以及[examples/ort/cv/test_ortcv_ssrnet.cmake](https://github.com/DefTruth/litehub/blob/main/examples/ort/cv/test_ortcv_ssrnet.cmake) .
+更具体的工程文件信息，请阅读[examples/ort/CMakeLists.txt](https://github.com/DefTruth/litehub/blob/main/examples/ort/CMakeLists.txt) 以及[examples/ort/cv/test_ortcv_ssrnet.cmake](https://github.com/DefTruth/litehub/blob/main/examples/ort/cv/test_ortcv_ssrnet.cmake) .
 
 
 
