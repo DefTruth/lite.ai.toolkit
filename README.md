@@ -29,9 +29,8 @@ or you can download the built dependencies from this repo. See [third_party](htt
   * Doing:
     * [x] onnxruntime c++ 
   * TODO:
-    * [x] `NCNN`
-    * [x] `MNN`
-    * [x] `TNN`
+    * `NCNN`
+    * `MNN`
 
 ## 3. Usage
 Disclaimer: The following test pictures are from the Internet search, if it has any impact on you, please contact me immediately, I will remove it immediately. 
@@ -277,69 +276,9 @@ int main(__unused int argc, __unused char *argv[]) {
 The output is:  
 <div align=center><img src='logs/test_ortcv_emotion_ferplus.jpg'/></div>
 
-### 3.2 Usage for NCNN Interfaces.  
-* TODO.  
-### 3.3 Usage for MNN Interfaces.
-* TODO. 
-### 3.4 Usage for TNN Interfaces.
-* TODO. 
 
-## 4. Reference & Implementation Details  
-The `*` symbol indicates that the C ++ inference interface for the model has been implemented, and more models may be added. 
-But I don't guarantee that there will be more models.
+## 4. Documents.  
 ### 4.1 ONNXRuntime Inference Engine. 
-```c++
-namespace ortcv
-{
-  class FSANet;              // [0] * reference: https://github.com/omasaht/headpose-fsanet-pytorch
-  class PFLD;                // [1] * reference: https://github.com/Hsintao/pfld_106_face_landmarks
-  class UltraFace;           // [2] * reference: https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB
-  class AgeGoogleNet;        // [3] * reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
-  class GenderGoogleNet;     // [4] * reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
-  class EmotionFerPlus;      // [5] * reference: https://github.com/onnx/models/blob/master/vision/body_analysis/emotion_ferplus
-  class VGG16Age;            // [6] * reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
-  class VGG16Gender;         // [7] * reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
-  class SSRNet;              // [8] * reference: https://github.com/oukohou/SSR_Net_Pytorch
-  class FastStyleTransfer;   // [9] * reference: https://github.com/onnx/models/blob/master/vision/style_transfer/fast_neural_style
-  class ArcFaceResNet;       // [10] * reference: https://github.com/onnx/models/blob/master/vision/body_analysis/arcface
-  class Colorizer;           // [11] * reference: https://github.com/richzhang/colorization
-  class SubPixelCNN;         // [12] * reference: https://github.com/niazwazir/SUB_PIXEL_CNN
-  class ChineseOCR;          // [13] reference: https://github.com/DayBreak-u/chineseocr_lite
-  class ChineseOCRAngleNet;  // [14] reference: https://github.com/DayBreak-u/chineseocr_lite
-  class ChineseOCRLiteLSTM;  // [15] reference: https://github.com/DayBreak-u/chineseocr_lite
-  class ChineseOCRDBNet;     // [16] reference: https://github.com/DayBreak-u/chineseocr_lite
-  class YoloV4;              // [17] reference: https://github.com/AllanYiin/YoloV4
-  class YoloV5;              // [18] reference: https://github.com/ultralytics/yolov5
-  class YoloV3;              // [19] reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/yolov3
-  class EfficientNetLite4;   // [20] reference: https://github.com/onnx/models/blob/master/vision/classification/efficientnet-lite4
-  class ShuffleNetV2;        // [21] reference: https://github.com/onnx/models/blob/master/vision/classification/shufflenet
-  class TinyYoloV3;          // [22] reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/tiny-yolov3
-  class SSD;                 // [23] reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd
-  class SSDMobileNetV1;      // [24] reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd-mobilenetv1
-  class DeepLabV3ResNet101;  // [25] reference: https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/
-  class DenseNet;            // [26] reference: https://pytorch.org/hub/pytorch_vision_densenet/
-  class FCNResNet101;        // [27] reference: https://pytorch.org/hub/pytorch_vision_fcn_resnet101/
-  class GhostNet;            // [28] reference：https://pytorch.org/hub/pytorch_vision_ghostnet/
-  class HdrDNet;             // [29] reference: https://pytorch.org/hub/pytorch_vision_hardnet/
-  class IBNNet;              // [30] reference: https://pytorch.org/hub/pytorch_vision_ibnnet/
-  class MobileNetV2;         // [31] reference: https://pytorch.org/hub/pytorch_vision_mobilenet_v2/
-  class ResNet;              // [32] reference: https://pytorch.org/hub/pytorch_vision_resnet/
-  class ResNeXt;             // [33] reference: https://pytorch.org/hub/pytorch_vision_resnext/
-  class UNet;                // [34] reference: https://github.com/milesial/Pytorch-UNet
-}
-
-
-```  
-See [ort-core](https://github.com/DefTruth/litehub/blob/main/ort/core/ort_core.h) for more details.  
-### 4.2 NCNN Inference Engine. 
-* TODO. 
-### 4.3 MNN Inference Engine.
-* TODO. 
-### 4.4 TNN Inference Engine.
-* TODO. 
-
-## 5. Documents.  
-### 5.1 ONNXRuntime Inference Engine. 
 * [Rapid implementation of your inference using BasicOrtHandler](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_handler.md)  
 * [Some very useful interfaces in onnxruntime c++](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_useful_api-cn.md)  
 * [How to compile a single model in this library you needed](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_build_single-cn.md)
@@ -347,13 +286,7 @@ See [ort-core](https://github.com/DefTruth/litehub/blob/main/ort/core/ort_core.h
 * [How to convert Colorizer to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_colorizer-cn.md)
 * [How to convert SSRNet to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_ssrnet-cn.md)
 
-### 5.2 NCNN Inference Engine.
-* TODO.
-### 5.3 MNN Inference Engine.
-* TODO.
-### 5.4 TNN Inference Engine.
-* TODO.  
-### 5.5 How to build [third_party](https://github.com/DefTruth/litehub/tree/main/third_party).  
+### 4.2 How to build [third_party](https://github.com/DefTruth/litehub/tree/main/third_party).  
 Other build documents for different engines and different targets will be added later.
 
 <div id="refer-anchor-1"></div> 
@@ -368,34 +301,27 @@ Other build documents for different engines and different targets will be added 
 |MNN| MacOS-x86_64 | TODO |  
 |TNN| MacOS-x86_64 | TODO |  
 
-## 6. Model Zoo.  
+## 5. Model Zoo.  
 
-### 6.1 model-zoo for ONNX version.  
+### 5.1 model-zoo for ONNX version.  
 Some of the models were converted by this repo, and others were referenced from third-party libraries. 
 
 <div id="refer-anchor-2"></div>
 
 |Model|Size|Download|From|Docs|  
 |:---:|:---:|:---:|:---:|:---:| 
-|FSANet|1.2Mb|[Baidu Drive](https://pan.baidu.com/s/1ajwMt3UVQ0kEM0L9NQebTA) code:1dsc; Google Drive: TODO| [FSANet](https://github.com/omasaht/headpose-fsanet-pytorch)| - |
-|PFLD|1.0Mb~5.5Mb|[Baidu Drive](https://pan.baidu.com/s/1ajwMt3UVQ0kEM0L9NQebTA) code:1dsc; Google Drive: TODO| [PFLD](https://github.com/Hsintao/pfld_106_face_landmarks) | - |
-|UltraFace|1.1Mb~1.5Mb|[Baidu Drive](https://pan.baidu.com/s/1ajwMt3UVQ0kEM0L9NQebTA) code:1dsc; Google Drive: TODO| [UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) | - |
-|AgeGoogleNet|23Mb|[Baidu Drive](https://pan.baidu.com/s/1ajwMt3UVQ0kEM0L9NQebTA) code:1dsc; Google Drive: TODO| [AgeGoogleNet](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender) | - |
-|GenderGoogleNet|23Mb|[Baidu Drive](https://pan.baidu.com/s/1ajwMt3UVQ0kEM0L9NQebTA) code:1dsc; Google Drive: TODO| [GenderGoogleNet](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender) | - |
-|EmotionFerPlus|33Mb|[Baidu Drive](https://pan.baidu.com/s/1ajwMt3UVQ0kEM0L9NQebTA) code:1dsc; Google Drive: TODO| [EmotionFerPlus](https://github.com/onnx/models/blob/master/vision/body_analysis/emotion_ferplus) | - |
-|VGG16Age|514Mb|[Baidu Drive](https://pan.baidu.com/s/1ajwMt3UVQ0kEM0L9NQebTA) code:1dsc; Google Drive: TODO| [VGG16Age](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender) | - |
-|VGG16Gender|512Mb|[Baidu Drive](https://pan.baidu.com/s/1ajwMt3UVQ0kEM0L9NQebTA) code:1dsc; Google Drive: TODO| [VGG16Gender](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender) | - |
-|SSRNet|190Kb|[Baidu Drive](https://pan.baidu.com/s/1ajwMt3UVQ0kEM0L9NQebTA) code:1dsc; Google Drive: TODO| [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_ssrnet-cn.md) | [link](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_ssrnet-cn.md) |
-|FastStyleTransfer|6.4Mb|[Baidu Drive](https://pan.baidu.com/s/1ajwMt3UVQ0kEM0L9NQebTA) code:1dsc; Google Drive: TODO| [FastStyleTransfer](https://github.com/onnx/models/blob/master/vision/style_transfer/fast_neural_style) | - |
-|ArcFaceResNet|249Mb|[Baidu Drive](https://pan.baidu.com/s/1ajwMt3UVQ0kEM0L9NQebTA) code:1dsc; Google Drive: TODO| [ArcFaceResNet](https://github.com/onnx/models/blob/master/vision/body_analysis/arcface) | - |
-|Colorizer|123Mb~130Mb|[Baidu Drive](https://pan.baidu.com/s/1ajwMt3UVQ0kEM0L9NQebTA) code:1dsc; Google Drive: TODO| [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_colorizer-cn.md) | [link](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_colorizer-cn.md) |
-|SubPixelCNN|234Kb|[Baidu Drive](https://pan.baidu.com/s/1ajwMt3UVQ0kEM0L9NQebTA) code:1dsc; Google Drive: TODO| [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_subpixel_cnn-cn.md) | [link](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_subpixel_cnn-cn.md) |
+|FSANet|1.2Mb|[Baidu Drive](https://pan.baidu.com/s/1ajwMt3UVQ0kEM0L9NQebTA) code:1dsc| [FSANet](https://github.com/omasaht/headpose-fsanet-pytorch)| - |
+|PFLD|1.0Mb~5.5Mb|[Baidu Drive](https://pan.baidu.com/s/1ajwMt3UVQ0kEM0L9NQebTA) code:1dsc| [PFLD](https://github.com/Hsintao/pfld_106_face_landmarks) | - |
+|UltraFace|1.1Mb~1.5Mb|[Baidu Drive](https://pan.baidu.com/s/1ajwMt3UVQ0kEM0L9NQebTA) code:1dsc| [UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) | - |
+|AgeGoogleNet|23Mb|[Baidu Drive](https://pan.baidu.com/s/1ajwMt3UVQ0kEM0L9NQebTA) code:1dsc| [AgeGoogleNet](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender) | - |
+|GenderGoogleNet|23Mb|[Baidu Drive](https://pan.baidu.com/s/1ajwMt3UVQ0kEM0L9NQebTA) code:1dsc| [GenderGoogleNet](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender) | - |
+|EmotionFerPlus|33Mb|[Baidu Drive](https://pan.baidu.com/s/1ajwMt3UVQ0kEM0L9NQebTA) code:1dsc| [EmotionFerPlus](https://github.com/onnx/models/blob/master/vision/body_analysis/emotion_ferplus) | - |
+|VGG16Age|514Mb|[Baidu Drive](https://pan.baidu.com/s/1ajwMt3UVQ0kEM0L9NQebTA) code:1dsc| [VGG16Age](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender) | - |
+|VGG16Gender|512Mb|[Baidu Drive](https://pan.baidu.com/s/1ajwMt3UVQ0kEM0L9NQebTA) code:1dsc| [VGG16Gender](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender) | - |
+|SSRNet|190Kb|[Baidu Drive](https://pan.baidu.com/s/1ajwMt3UVQ0kEM0L9NQebTA) code:1dsc| [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_ssrnet-cn.md) | [link](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_ssrnet-cn.md) |
+|FastStyleTransfer|6.4Mb|[Baidu Drive](https://pan.baidu.com/s/1ajwMt3UVQ0kEM0L9NQebTA) code:1dsc| [FastStyleTransfer](https://github.com/onnx/models/blob/master/vision/style_transfer/fast_neural_style) | - |
+|ArcFaceResNet|249Mb|[Baidu Drive](https://pan.baidu.com/s/1ajwMt3UVQ0kEM0L9NQebTA) code:1dsc| [ArcFaceResNet](https://github.com/onnx/models/blob/master/vision/body_analysis/arcface) | - |
+|Colorizer|123Mb~130Mb|[Baidu Drive](https://pan.baidu.com/s/1ajwMt3UVQ0kEM0L9NQebTA) code:1dsc| [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_colorizer-cn.md) | [link](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_colorizer-cn.md) |
+|SubPixelCNN|234Kb|[Baidu Drive](https://pan.baidu.com/s/1ajwMt3UVQ0kEM0L9NQebTA) code:1dsc| [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_subpixel_cnn-cn.md) | [link](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_subpixel_cnn-cn.md) |
 
-
-### 6.2 model-zoo for NCNN version.  
-* TODO  
-### 6.3 model-zoo for MNN version.  
-* TODO  
-### 6.4 model-zoo for TNN version.
-* TODO  
 
