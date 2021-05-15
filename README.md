@@ -27,7 +27,7 @@ or you can download the built dependencies from this repo. See [third_party](htt
 ## 2. Implementation Plans.
 * Inference Engine Plans:
   * Doing:
-    * [x] onnxruntime c++ 
+    * [x] `onnxruntime c++` 
   * TODO:
     * `NCNN`
     * `MNN`
