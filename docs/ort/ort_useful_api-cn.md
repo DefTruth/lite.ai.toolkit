@@ -1,4 +1,4 @@
-# Some very useful interfaces in onnxruntime c++
+# Some very useful onnxruntime c++ interfaces
 ## 前言  
 这份文档主要记录了onnxruntime的一些参考资料，以及本人在使用过程中的一些经验。开卷有益，欢迎关注，持续更新~😄
 

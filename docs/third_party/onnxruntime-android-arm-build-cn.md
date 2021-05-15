@@ -1,7 +1,7 @@
 # MacOS下交叉编译onnxruntime  
 ## 1. 编译脚本
 
-`build-onnxruntime-andriod.sh`如下：
+`build-onnxruntime-android.sh`如下：
 
 ```shell
 #!/bin/bash
@@ -36,5 +36,5 @@ else
 fi
 ```
 
-参考自[build-onnxruntime-andriod](https://github.com/DayBreak-u/chineseocr_lite/blob/onnx/android_projects/OcrLiteAndroidOnnx/scripts/build-onnxruntime-android.sh) .
+参考自[build-onnxruntime-android](https://github.com/DayBreak-u/chineseocr_lite/blob/onnx/android_projects/OcrLiteAndroidOnnx/scripts/build-onnxruntime-android.sh) .
 

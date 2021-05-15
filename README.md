@@ -280,7 +280,7 @@ The output is:
 ## 4. Documents.  
 ### 4.1 ONNXRuntime Inference Engine. 
 * [Rapid implementation of your inference using BasicOrtHandler](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_handler.md)  
-* [Some very useful interfaces in onnxruntime c++](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_useful_api-cn.md)  
+* [Some very useful onnxruntime c++ interfaces](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_useful_api-cn.md)  
 * [How to compile a single model in this library you needed](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_build_single-cn.md)
 * [How to convert SubPixelCNN to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_subpixel_cnn-cn.md)
 * [How to convert Colorizer to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_colorizer-cn.md)
@@ -294,12 +294,12 @@ Other build documents for different engines and different targets will be added 
 
 |Library|Target|Docs|  
 |:---:|:---:|:---:|  
-|OpenCV| MacOS-x86_64 | [opencv-mac-x86_64-build-cn.md](https://github.com/DefTruth/litehub/blob/main/docs/third_party/opencv-mac-x86_64-build-cn.md) |
-|onnxruntime| MacOS-x86_64 | [onnxruntime-mac-x86_64-build-cn.md](https://github.com/DefTruth/litehub/blob/main/docs/third_party/onnxruntime-mac-x86_64-build-cn.md) |
-|onnxruntime| Android-arm | [onnxruntime-andriod-arm-build-cn.md](https://github.com/DefTruth/litehub/blob/main/docs/third_party/onnxruntime-andriod-arm-build-cn.md) |
-|NCNN| MacOS-x86_64 | TODO |  
-|MNN| MacOS-x86_64 | TODO |  
-|TNN| MacOS-x86_64 | TODO |  
+|OpenCV| mac-x86_64 | [opencv-mac-x86_64-build-cn.md](https://github.com/DefTruth/litehub/blob/main/docs/third_party/opencv-mac-x86_64-build-cn.md) |
+|onnxruntime| mac-x86_64 | [onnxruntime-mac-x86_64-build-cn.md](https://github.com/DefTruth/litehub/blob/main/docs/third_party/onnxruntime-mac-x86_64-build-cn.md) |
+|onnxruntime| android-arm | [onnxruntime-android-arm-build-cn.md](https://github.com/DefTruth/litehub/blob/main/docs/third_party/onnxruntime-android-arm-build-cn.md) |
+|NCNN| mac-x86_64 | TODO |  
+|MNN| mac-x86_64 | TODO |  
+|TNN| mac-x86_64 | TODO |  
 
 ## 5. Model Zoo.  
 
