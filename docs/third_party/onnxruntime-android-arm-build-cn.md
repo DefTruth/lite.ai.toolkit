@@ -5,7 +5,6 @@
 
 ```shell
 #!/bin/bash
-# build onnxruntime 1.6 by benjaminwan
 # CMakeFiles/onnxruntime.dir/link.txt link lib*.a
 
 function cmakeParams(){
@@ -36,4 +35,6 @@ else
   echo -e "输入错误！Input Error!"
 fi
 ```
+
+参考自[build-onnxruntime-andriod](https://github.com/DayBreak-u/chineseocr_lite/blob/onnx/android_projects/OcrLiteAndroidOnnx/scripts/build-onnxruntime-android.sh) .
 

@@ -296,7 +296,7 @@ Other build documents for different engines and different targets will be added 
 |:---:|:---:|:---:|  
 |OpenCV| MacOS-x86_64 | [opencv-mac-x86_64-build-cn.md](https://github.com/DefTruth/litehub/blob/main/docs/third_party/opencv-mac-x86_64-build-cn.md) |
 |onnxruntime| MacOS-x86_64 | [onnxruntime-mac-x86_64-build-cn.md](https://github.com/DefTruth/litehub/blob/main/docs/third_party/onnxruntime-mac-x86_64-build-cn.md) |
-|onnxruntime| Android-arm | TODO |
+|onnxruntime| Android-arm | [onnxruntime-andriod-arm-build-cn.md](https://github.com/DefTruth/litehub/blob/main/docs/third_party/onnxruntime-andriod-arm-build-cn.md) |
 |NCNN| MacOS-x86_64 | TODO |  
 |MNN| MacOS-x86_64 | TODO |  
 |TNN| MacOS-x86_64 | TODO |  
