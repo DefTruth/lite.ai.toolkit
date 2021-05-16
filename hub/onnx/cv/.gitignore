@@ -4,3 +4,6 @@ vgg_ilsvrc_16_gender_imdb_wiki.onnx
 arcfaceresnet100-8.onnx
 eccv16-colorizer.onnx
 siggraph17-colorizer.onnx
+yolov5l.onnx
+yolov5m.onnx
+yolov5x.onnx
