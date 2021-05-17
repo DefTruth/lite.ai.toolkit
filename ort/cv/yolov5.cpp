@@ -61,6 +61,7 @@ void YoloV5::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
   const float scale_width = img_width / input_width;
 
   bbox_collection.clear();
+  unsigned int count = 0;
   for (unsigned int i = 0; i < num_anchors; ++i)
   {
     float obj_conf = pred.At<float>({0, i, 4});
@@ -95,6 +96,10 @@ void YoloV5::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
     box.label_text = class_names[label];
     box.flag = true;
     bbox_collection.push_back(box);
+
+    count += 1; // limit boxes for nms.
+    if (count > max_nms)
+      break;
   }
 #if LITEORT_DEBUG
   std::cout << "detected num_anchors: " << num_anchors << "\n";

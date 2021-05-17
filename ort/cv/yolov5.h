@@ -36,6 +36,7 @@ namespace ortcv
     {
       HARD = 0, BLEND = 1, OFFSET = 2
     };
+    static constexpr const unsigned int max_nms = 30000;
 
   private:
     ort::Value transform(const cv::Mat &mat) override;
@@ -49,8 +50,8 @@ namespace ortcv
 
   public:
     void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
-                float score_threshold = 0.7f, float iou_threshold = 0.3f,
-                unsigned int topk = 100, unsigned int nms_type = 0);
+                float score_threshold = 0.5f, float iou_threshold = 0.45f,
+                unsigned int topk = 100, unsigned int nms_type = NMS::OFFSET);
 
   };
 }
