@@ -23,8 +23,8 @@ ort::Value YoloV5::transform(const cv::Mat &mat)
 
 
 void YoloV5::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
-                       float score_threshold, float iou_threshold, unsigned int topk,
-                       unsigned int nms_type)
+                    float score_threshold, float iou_threshold, unsigned int topk,
+                    unsigned int nms_type)
 {
   if (mat.empty()) return;
   // this->transform(mat);
@@ -46,9 +46,9 @@ void YoloV5::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes
 }
 
 void YoloV5::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
-                                std::vector<ort::Value> &output_tensors,
-                                float score_threshold, float img_height,
-                                float img_width)
+                             std::vector<ort::Value> &output_tensors,
+                             float score_threshold, float img_height,
+                             float img_width)
 {
 
   ort::Value &pred = output_tensors.at(0); // (1,n,85=5+80=cxcy+cwch+obj_conf+cls_conf)
@@ -71,7 +71,8 @@ void YoloV5::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
     for (unsigned int j = 0; j < num_classes; ++j)
     {
       float tmp_conf = pred.At<float>({0, i, j + 5});
-      if (tmp_conf > cls_conf) {
+      if (tmp_conf > cls_conf)
+      {
         cls_conf = tmp_conf;
         label = j;
       }
@@ -102,7 +103,7 @@ void YoloV5::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
 }
 
 void YoloV5::nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
-                    float iou_threshold, unsigned int topk, unsigned int nms_type)
+                 float iou_threshold, unsigned int topk, unsigned int nms_type)
 {
   if (nms_type == NMS::BLEND) ortcv::utils::blending_nms(input, output, iou_threshold, topk);
   else if (nms_type == NMS::OFFSET) ortcv::utils::offset_nms(input, output, iou_threshold, topk);
