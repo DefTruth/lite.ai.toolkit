@@ -25,11 +25,12 @@ namespace ortcv
     static constexpr const float scale_val = 1.0 / 128.0f;
     enum NMS
     {
-      HARD = 0, BLEND = 1
+      HARD = 0, BLEND = 1, OFFSET = 2
     };
 
   private:
     ort::Value transform(const cv::Mat &mat) override;
+
     void generate_bboxes(std::vector<types::Boxf> &bbox_collection,
                          std::vector<ort::Value> &output_tensors,
                          float score_threshold, float img_height,

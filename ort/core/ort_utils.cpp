@@ -104,7 +104,18 @@ void ortcv::utils::draw_boxes_inplace(cv::Mat &mat_inplace, const std::vector<ty
   if (boxes.empty()) return;
   for (const auto &box: boxes)
   {
-    if (box.flag) cv::rectangle(mat_inplace, box.rect(), cv::Scalar(255, 255, 0), 2);
+    if (box.flag)
+    {
+      cv::rectangle(mat_inplace, box.rect(), cv::Scalar(255, 255, 0), 2);
+      if (box.label_text)
+      {
+        std::string label_text(box.label_text);
+        label_text = label_text + ":" + std::to_string(box.score).substr(0, 4);
+        cv::putText(mat_inplace, label_text, box.tl(), cv::FONT_HERSHEY_SIMPLEX,
+                    0.6f, cv::Scalar(0, 255, 0), 2);
+
+      }
+    }
   }
 }
 
@@ -114,7 +125,18 @@ cv::Mat ortcv::utils::draw_boxes(const cv::Mat &mat, const std::vector<types::Bo
   cv::Mat canva = mat.clone();
   for (const auto &box: boxes)
   {
-    if (box.flag) cv::rectangle(canva, box.rect(), cv::Scalar(255, 255, 0), 2);
+    if (box.flag)
+    {
+      cv::rectangle(canva, box.rect(), cv::Scalar(255, 255, 0), 2);
+      if (box.label_text)
+      {
+        std::string label_text(box.label_text);
+        label_text = label_text + ":" + std::to_string(box.score).substr(0, 4);
+        cv::putText(canva, label_text, box.tl(), cv::FONT_HERSHEY_SIMPLEX,
+                    0.6f, cv::Scalar(0, 255, 0), 2);
+
+      }
+    }
   }
   return canva;
 }
@@ -300,6 +322,78 @@ void ortcv::utils::blending_nms(std::vector<types::Boxf> &input, std::vector<typ
     if (count >= topk)
       break;
   }
+}
+
+// reference: https://github.com/ultralytics/yolov5/blob/master/utils/general.py
+void ortcv::utils::offset_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
+                              float iou_threshold, unsigned int topk)
+{
+  if (input.empty()) return;
+  std::sort(input.begin(), input.end(),
+            [](const types::Boxf &a, const types::Boxf &b)
+            { return a.score > b.score; });
+  const unsigned int box_num = input.size();
+  std::vector<int> merged(box_num, 0);
+
+  const float offset = 4096.f;
+  /** Add offset according to classes.
+   * That is, separate the boxes into categories, and each category performs its
+   * own NMS operation. The same offset will be used for those predicted to be of
+   * the same category. Therefore, the relative positions of boxes of the same
+   * category will remain unchanged. Box of different classes will be farther away
+   * after offset, because offsets are different. In this way, some overlapping but
+   * different categories of entities are not filtered out by the NMS. Very clever!
+   */
+  for (unsigned int i = 0; i < box_num; ++i)
+  {
+    input[i].x1 += static_cast<float>(input[i].label) * offset;
+    input[i].y1 += static_cast<float>(input[i].label) * offset;
+    input[i].x2 += static_cast<float>(input[i].label) * offset;
+    input[i].y2 += static_cast<float>(input[i].label) * offset;
+  }
+
+  unsigned int count = 0;
+  for (unsigned int i = 0; i < box_num; ++i)
+  {
+    if (merged[i]) continue;
+    std::vector<types::Boxf> buf;
+
+    buf.push_back(input[i]);
+    merged[i] = 1;
+
+    for (unsigned int j = i + 1; j < box_num; ++j)
+    {
+      if (merged[j]) continue;
+
+      float iou = static_cast<float>(input[i].iou_of(input[j]));
+
+      if (iou > iou_threshold)
+      {
+        merged[j] = 1;
+        buf.push_back(input[j]);
+      }
+
+    }
+    output.push_back(buf[0]);
+
+    // keep top k
+    count += 1;
+    if (count >= topk)
+      break;
+  }
+
+  /** Substract offset.*/
+  if (!output.empty())
+  {
+    for (unsigned int i = 0; i < output.size(); ++i)
+    {
+      output[i].x1 -= static_cast<float>(output[i].label) * offset;
+      output[i].y1 -= static_cast<float>(output[i].label) * offset;
+      output[i].x2 -= static_cast<float>(output[i].label) * offset;
+      output[i].y2 -= static_cast<float>(output[i].label) * offset;
+    }
+  }
+
 }
 
 ort::Value ortcv::utils::transform::create_tensor(const cv::Mat &mat,

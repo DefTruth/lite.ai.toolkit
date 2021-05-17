@@ -16,7 +16,7 @@ ort::Value UltraFace::transform(const cv::Mat &mat)
                                     input_node_dims.at(2)));
   // (640,480) | (320,240) | (w,h) 1xCXHXW
 
-  ortcv::utils::transform::normalize_inplace(canva, mean_val, scale_val); // flaot32
+  ortcv::utils::transform::normalize_inplace(canva, mean_val, scale_val); // float32
   return ortcv::utils::transform::create_tensor(
       canva, input_node_dims, memory_info_handler,
       input_values_handler, ortcv::utils::transform::CHW);
@@ -68,6 +68,8 @@ void UltraFace::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
     box.x2 = boxes.At<float>({0, i, 2}) * img_width;
     box.y2 = boxes.At<float>({0, i, 3}) * img_height;
     box.score = confidence;
+    box.label_text = "face";
+    box.label = 1;
     box.flag = true;
     bbox_collection.push_back(box);
   }
@@ -81,6 +83,7 @@ void UltraFace::nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &o
                     float iou_threshold, unsigned int topk, unsigned int nms_type)
 {
   if (nms_type == NMS::BLEND) ortcv::utils::blending_nms(input, output, iou_threshold, topk);
+  else if (nms_type == NMS::OFFSET) ortcv::utils::offset_nms(input, output, iou_threshold, topk);
   else ortcv::utils::hard_nms(input, output, iou_threshold, topk);
 }
 

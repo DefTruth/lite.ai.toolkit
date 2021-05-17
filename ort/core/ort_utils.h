@@ -27,6 +27,7 @@ namespace ortcv
     void draw_emotion_inplace(cv::Mat &mat_inplace, types::Emotions &emotions);
     void hard_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output, float iou_threshold, unsigned int topk);
     void blending_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output, float iou_threshold, unsigned int topk);
+    void offset_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output, float iou_threshold, unsigned int topk);
     namespace transform
     {
       enum {CHW = 0, HWC = 1};
