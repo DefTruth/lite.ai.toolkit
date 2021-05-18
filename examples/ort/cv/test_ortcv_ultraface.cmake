@@ -12,14 +12,14 @@ include_directories(${ONNXRUNTIMR_INCLUDE_DIR})
 link_directories(${ONNXRUNTIMR_LIBRARY_DIR})
 
 # 3. will be include into CMakeLists.txt at examples/ort
-set(ORTCV_FSANET_SRCS
+set(ORTCV_ULTRAFACE_SRCS
         cv/test_ortcv_ultraface.cpp
         ${LITEHUB_ROOT_DIR}/ort/cv/ultraface.cpp
         ${LITEHUB_ROOT_DIR}/ort/core/ort_utils.cpp
         ${LITEHUB_ROOT_DIR}/ort/core/ort_handler.cpp
         )
 
-add_executable(ortcv_ultraface ${ORTCV_FSANET_SRCS})
+add_executable(ortcv_ultraface ${ORTCV_ULTRAFACE_SRCS})
 target_link_libraries(ortcv_ultraface
         onnxruntime
         opencv_highgui

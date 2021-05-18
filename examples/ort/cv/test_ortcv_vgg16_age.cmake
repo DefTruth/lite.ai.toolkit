@@ -12,14 +12,14 @@ include_directories(${ONNXRUNTIMR_INCLUDE_DIR})
 link_directories(${ONNXRUNTIMR_LIBRARY_DIR})
 
 # 3. will be include into CMakeLists.txt at examples/ort
-set(ORTCV_FSANET_SRCS
+set(ORTCV_VGG16_AGE_SRCS
         cv/test_ortcv_vgg16_age.cpp
         ${LITEHUB_ROOT_DIR}/ort/cv/vgg16_age.cpp
         ${LITEHUB_ROOT_DIR}/ort/core/ort_utils.cpp
         ${LITEHUB_ROOT_DIR}/ort/core/ort_handler.cpp
         )
 
-add_executable(ortcv_vgg16_age ${ORTCV_FSANET_SRCS})
+add_executable(ortcv_vgg16_age ${ORTCV_VGG16_AGE_SRCS})
 target_link_libraries(ortcv_vgg16_age
         onnxruntime
         opencv_highgui

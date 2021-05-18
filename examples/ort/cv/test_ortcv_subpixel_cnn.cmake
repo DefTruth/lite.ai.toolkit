@@ -12,14 +12,14 @@ include_directories(${ONNXRUNTIMR_INCLUDE_DIR})
 link_directories(${ONNXRUNTIMR_LIBRARY_DIR})
 
 # 3. will be include into CMakeLists.txt at examples/ort
-set(ORTCV_FSANET_SRCS
+set(ORTCV_SUBPIXEL_CNN_SRCS
         cv/test_ortcv_subpixel_cnn.cpp
         ${LITEHUB_ROOT_DIR}/ort/cv/subpixel_cnn.cpp
         ${LITEHUB_ROOT_DIR}/ort/core/ort_utils.cpp
         ${LITEHUB_ROOT_DIR}/ort/core/ort_handler.cpp
         )
 
-add_executable(ortcv_subpixel_cnn ${ORTCV_FSANET_SRCS})
+add_executable(ortcv_subpixel_cnn ${ORTCV_SUBPIXEL_CNN_SRCS})
 target_link_libraries(ortcv_subpixel_cnn
         onnxruntime
         opencv_highgui

@@ -1,5 +1,5 @@
 # 1. setup 3rd-party dependences
-message(">>>> Current project is [ortcv_colorizer] in : ${CMAKE_CURRENT_SOURCE_DIR}")
+message(">>>> Current project is [ortcv_yolov5] in : ${CMAKE_CURRENT_SOURCE_DIR}")
 include(${CMAKE_SOURCE_DIR}/setup_3rdparty.cmake)
 
 if (APPLE)
@@ -12,15 +12,15 @@ include_directories(${ONNXRUNTIMR_INCLUDE_DIR})
 link_directories(${ONNXRUNTIMR_LIBRARY_DIR})
 
 # 3. will be include into CMakeLists.txt at examples/ort
-set(ORTCV_COLORIZER_SRCS
-        cv/test_ortcv_colorizer.cpp
-        ${LITEHUB_ROOT_DIR}/ort/cv/colorizer.cpp
+set(ORTCV_YOLOV5_SRCS
+        cv/test_ortcv_yolov5.cpp
+        ${LITEHUB_ROOT_DIR}/ort/cv/yolov5.cpp
         ${LITEHUB_ROOT_DIR}/ort/core/ort_utils.cpp
         ${LITEHUB_ROOT_DIR}/ort/core/ort_handler.cpp
         )
 
-add_executable(ortcv_colorizer ${ORTCV_COLORIZER_SRCS})
-target_link_libraries(ortcv_colorizer
+add_executable(ortcv_yolov5 ${ORTCV_YOLOV5_SRCS})
+target_link_libraries(ortcv_yolov5
         onnxruntime
         opencv_highgui
         opencv_core
@@ -34,6 +34,6 @@ if (LITEHUB_COPY_BUILD)
     # CMAKE_CURRENT_SOURCE_DIR the current path of current CMakeLists.txt
     set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/build/liteort/bin)
     message("=================================================================================")
-    message("output binary [app: ortcv_colorizer] to ${EXECUTABLE_OUTPUT_PATH}")
+    message("output binary [app: ortcv_yolov5] to ${EXECUTABLE_OUTPUT_PATH}")
     message("=================================================================================")
 endif ()

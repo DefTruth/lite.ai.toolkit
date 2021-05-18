@@ -12,14 +12,14 @@ include_directories(${ONNXRUNTIMR_INCLUDE_DIR})
 link_directories(${ONNXRUNTIMR_LIBRARY_DIR})
 
 # 3. will be include into CMakeLists.txt at examples/ort
-set(ORTCV_FSANET_SRCS
+set(ORTCV_EMOTION_FERPLUS_SRCS
         cv/test_ortcv_emotion_ferplus.cpp
         ${LITEHUB_ROOT_DIR}/ort/cv/emotion_ferplus.cpp
         ${LITEHUB_ROOT_DIR}/ort/core/ort_utils.cpp
         ${LITEHUB_ROOT_DIR}/ort/core/ort_handler.cpp
         )
 
-add_executable(ortcv_emotion_ferplus ${ORTCV_FSANET_SRCS})
+add_executable(ortcv_emotion_ferplus ${ORTCV_EMOTION_FERPLUS_SRCS})
 target_link_libraries(ortcv_emotion_ferplus
         onnxruntime
         opencv_highgui

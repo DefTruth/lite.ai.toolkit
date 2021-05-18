@@ -12,14 +12,14 @@ include_directories(${ONNXRUNTIMR_INCLUDE_DIR})
 link_directories(${ONNXRUNTIMR_LIBRARY_DIR})
 
 # 3. will be include into CMakeLists.txt at examples/ort
-set(ORTCV_FSANET_SRCS
+set(ORTCV_FAST_STYLE_TRANSFER_SRCS
         cv/test_ortcv_fast_style_transfer.cpp
         ${LITEHUB_ROOT_DIR}/ort/cv/fast_style_transfer.cpp
         ${LITEHUB_ROOT_DIR}/ort/core/ort_utils.cpp
         ${LITEHUB_ROOT_DIR}/ort/core/ort_handler.cpp
         )
 
-add_executable(ortcv_fast_style_transfer ${ORTCV_FSANET_SRCS})
+add_executable(ortcv_fast_style_transfer ${ORTCV_FAST_STYLE_TRANSFER_SRCS})
 target_link_libraries(ortcv_fast_style_transfer
         onnxruntime
         opencv_highgui

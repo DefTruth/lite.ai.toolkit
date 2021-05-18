@@ -11,6 +11,7 @@ option(BUILD_ORT_CV_FAST_STYLE_TRANSFER "whether to build ortcv_fast_style_trans
 option(BUILD_ORT_CV_SUBPIXEL_CNN "whether to build ortcv_subpixel_cnn binary." ON)
 option(BUILD_ORT_CV_SSRNET "whether to build ortcv_ssrnet binary." ON)
 option(BUILD_ORT_CV_COLORIZER "whether to build ortcv_colorizer binary." ON)
+option(BUILD_ORT_CV_YOLOV5 "whether to build ortcv_yolov5 binary." ON)
 
 if (BUILD_ORT_CV_FSANET)
     include(cv/test_ortcv_fsanet.cmake)
@@ -62,4 +63,8 @@ endif()
 
 if (BUILD_ORT_CV_COLORIZER)
     include(cv/test_ortcv_colorizer.cmake)
+endif()
+
+if (BUILD_ORT_CV_YOLOV5)
+    include(cv/test_ortcv_yolov5.cmake)
 endif()
