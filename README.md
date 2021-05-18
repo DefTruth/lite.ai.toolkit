@@ -193,7 +193,7 @@ int main(__unused int argc, __unused char *argv[])
 ```
 
 The output is:  
-<div align=center><img src='logs/test_ortcv_yolov5.jpg'/></div>  
+<div align=center><img src='logs/test_ortcv_yolov5.jpg' height="300px" /></div>  
 
 #### 3.1.4 Facial Landmarks detection using [PFLD](https://github.com/Hsintao/pfld_106_face_landmarks). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
