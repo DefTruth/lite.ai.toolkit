@@ -15,20 +15,32 @@ static void test_ortcv_yolov5()
 {
 
   std::string onnx_path = "../../../hub/onnx/cv/yolov5s.onnx";
-  std::string test_img_path = "../../../examples/ort/resources/test_ortcv_yolov5.jpg";
-  std::string save_img_path = "../../../logs/test_ortcv_yolov5.jpg";
+  std::string test_img_path_1 = "../../../examples/ort/resources/test_ortcv_yolov5_1.jpg";
+  std::string test_img_path_2 = "../../../examples/ort/resources/test_ortcv_yolov5_2.jpg";
+  std::string save_img_path_1 = "../../../logs/test_ortcv_yolov5_1.jpg";
+  std::string save_img_path_2 = "../../../logs/test_ortcv_yolov5_2.jpg";
 
   ortcv::YoloV5 *yolov5 = new ortcv::YoloV5(onnx_path);
 
-  std::vector<ortcv::types::Boxf> detected_boxes;
-  cv::Mat img_bgr = cv::imread(test_img_path);
-  yolov5->detect(img_bgr, detected_boxes);
+  std::vector<ortcv::types::Boxf> detected_boxes_1;
+  cv::Mat img_bgr_1 = cv::imread(test_img_path_1);
+  yolov5->detect(img_bgr_1, detected_boxes_1);
 
-  ortcv::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+  ortcv::utils::draw_boxes_inplace(img_bgr_1, detected_boxes_1);
 
-  cv::imwrite(save_img_path, img_bgr);
+  cv::imwrite(save_img_path_1, img_bgr_1);
 
-  std::cout << "Detected Boxes Num: " << detected_boxes.size() << std::endl;
+  std::cout << "Detected Boxes Num: " << detected_boxes_1.size() << std::endl;
+
+  std::vector<ortcv::types::Boxf> detected_boxes_2;
+  cv::Mat img_bgr_2 = cv::imread(test_img_path_2);
+  yolov5->detect(img_bgr_2, detected_boxes_2);
+
+  ortcv::utils::draw_boxes_inplace(img_bgr_2, detected_boxes_2);
+
+  cv::imwrite(save_img_path_2, img_bgr_2);
+
+  std::cout << "Detected Boxes Num: " << detected_boxes_2.size() << std::endl;
 
   delete yolov5;
 

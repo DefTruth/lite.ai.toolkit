@@ -1,6 +1,6 @@
 # litehub 🚀🚀🌟  
 <div align='center'>
-  <img src='logs/test_ortcv_yolov5.jpg' height="256px" width="256px">
+  <img src='logs/test_ortcv_yolov5_1.jpg' height="256px" width="256px">
   <img src='logs/test_ortcv_pfld.jpg' height="256px" width="256px">
   <img src='logs/test_ortcv_ultraface.jpg' height="256px" width="256px">
   <br> 
@@ -193,7 +193,10 @@ int main(__unused int argc, __unused char *argv[])
 ```
 
 The output is:  
-<div align=center><img src='logs/test_ortcv_yolov5.jpg' height="300px" width="600px" /></div>  
+<div align='center'>
+  <img src='logs/test_ortcv_yolov5_1.jpg' height="256px">
+  <img src='logs/test_ortcv_yolov5_2.jpg' height="256px">
+</div> 
 
 #### 3.1.4 Facial Landmarks detection using [PFLD](https://github.com/Hsintao/pfld_106_face_landmarks). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++

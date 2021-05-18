@@ -50,7 +50,7 @@ namespace ortcv
 
   public:
     void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
-                float score_threshold = 0.5f, float iou_threshold = 0.45f,
+                float score_threshold = 0.25f, float iou_threshold = 0.45f,
                 unsigned int topk = 100, unsigned int nms_type = NMS::OFFSET);
 
   };
