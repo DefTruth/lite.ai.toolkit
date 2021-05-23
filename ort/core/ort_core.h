@@ -28,7 +28,7 @@ namespace ortcv
   class SubPixelCNN;         // [12] * reference: https://github.com/niazwazir/SUB_PIXEL_CNN
   class YoloV4;              // [13] reference: https://github.com/AllanYiin/YoloV4
   class YoloV5;              // [14] * reference: https://github.com/ultralytics/yolov5
-  class YoloV3;              // [15] reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/yolov3
+  class YoloV3;              // [15] * reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/yolov3
   class EfficientNetLite4;   // [16] reference: https://github.com/onnx/models/blob/master/vision/classification/efficientnet-lite4
   class ShuffleNetV2;        // [17] reference: https://github.com/onnx/models/blob/master/vision/classification/shufflenet
   class TinyYoloV3;          // [18] reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/tiny-yolov3
