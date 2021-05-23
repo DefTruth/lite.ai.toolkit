@@ -4,6 +4,7 @@
 
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "UnusedLocalVariable"
+
 #include <iostream>
 #include <vector>
 
