@@ -54,5 +54,4 @@ std::vector<ort::Value> YoloV3::transform(const std::vector<cv::Mat> &mats)
   ); // image_shape
 
   return input_tensors;
-
 }
