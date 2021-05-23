@@ -31,6 +31,7 @@ or you can download the built dependencies from this repo. See [third_party](htt
   * TODO:
     * `NCNN`
     * `MNN`
+    * `OpenMP` support
 
 ## 3. Usage
 Disclaimer: The following test pictures are from the Internet search, if it has any impact on you, please contact me immediately, I will remove it immediately. 
