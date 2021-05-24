@@ -89,13 +89,13 @@ void BasicMultiOrtHandler::initialize_handler()
   session_options.SetLogSeverityLevel(4);
   // 1. session
   ort_session = new ort::Session(ort_env, onnx_path, session_options);
-
   ort::AllocatorWithDefaultOptions allocator;
   // 2. input name & input dims
   num_inputs = ort_session->GetInputCount();
   input_node_names.resize(num_inputs);
   for (unsigned int i = 0; i < num_inputs; ++i)
   {
+    input_node_names[i] = ort_session->GetInputName(i, allocator);
     ort::TypeInfo type_info = ort_session->GetInputTypeInfo(i);
     auto tensor_info = type_info.GetTensorTypeAndShapeInfo();
     auto input_dims = tensor_info.GetShape();
