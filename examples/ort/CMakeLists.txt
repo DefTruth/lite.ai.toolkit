@@ -13,6 +13,7 @@ option(BUILD_ORT_CV_SSRNET "whether to build ortcv_ssrnet binary." ON)
 option(BUILD_ORT_CV_COLORIZER "whether to build ortcv_colorizer binary." ON)
 option(BUILD_ORT_CV_YOLOV5 "whether to build ortcv_yolov5 binary." ON)
 option(BUILD_ORT_CV_YOLOV3 "whether to build ortcv_yolov3 binary." ON)
+option(BUILD_ORT_CV_TINY_YOLOV3 "whether to build ortcv_tiny_yolov3 binary." ON)
 
 if (BUILD_ORT_CV_FSANET)
     include(cv/test_ortcv_fsanet.cmake)
@@ -72,4 +73,8 @@ endif()
 
 if (BUILD_ORT_CV_YOLOV3)
     include(cv/test_ortcv_yolov3.cmake)
+endif()
+
+if (BUILD_ORT_CV_TINY_YOLOV3)
+    include(cv/test_ortcv_tiny_yolov3.cmake)
 endif()
