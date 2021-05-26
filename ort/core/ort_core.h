@@ -26,7 +26,7 @@ namespace ortcv
   class ArcFaceResNet;       // [10] * reference: https://github.com/onnx/models/blob/master/vision/body_analysis/arcface
   class Colorizer;           // [11] * reference: https://github.com/richzhang/colorization
   class SubPixelCNN;         // [12] * reference: https://github.com/niazwazir/SUB_PIXEL_CNN
-  class YoloV4;              // [13] reference: https://github.com/AllanYiin/YoloV4
+  class YoloV4;              // [13] reference: https://github.com/argusswift/YOLOv4-pytorch
   class YoloV5;              // [14] * reference: https://github.com/ultralytics/yolov5
   class YoloV3;              // [15] * reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/yolov3
   class EfficientNetLite4;   // [16] reference: https://github.com/onnx/models/blob/master/vision/classification/efficientnet-lite4
@@ -44,6 +44,7 @@ namespace ortcv
   class ResNet;              // [28] reference: https://pytorch.org/hub/pytorch_vision_resnet/
   class ResNeXt;             // [29] reference: https://pytorch.org/hub/pytorch_vision_resnext/
   class UNet;                // [30] reference: https://github.com/milesial/Pytorch-UNet
+  class TinyYoloV4;          // [31] reference:https://github.com/bubbliiiing/yolov4-tiny-pytorch
 }
 
 namespace ortnlp

@@ -9,3 +9,5 @@ yolov5m.onnx
 yolov5x.onnx
 yolov3-10.onnx
 tiny-yolov3-11.onnx
+voc-mobilenetv2-yolov4-416.onnx
+voc-mobilenetv2-yolov4-640.onnx
