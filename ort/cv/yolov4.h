@@ -21,7 +21,7 @@ namespace ortcv
   private:
     static constexpr const float mean_val = 0.f;
     static constexpr const float scale_val = 1.0 / 255.f;
-    const char *class_names[80] = {
+    const char *class_names[20] = {
         "aeroplane", "bicycle", "bird", "boat", "bottle", "bus", "car", "cat", "chair", "cow",
         "diningtable", "dog", "horse", "motorbike", "person", "pottedplant", "sheep", "sofa",
         "train", "tvmonitor"
