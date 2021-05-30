@@ -164,13 +164,26 @@ namespace ortcv
       {};
     } SuperResolutionContent;
 
-    typedef struct ColorizeContentType {
+    typedef struct ColorizeContentType
+    {
       cv::Mat mat;
       bool flag;
 
       ColorizeContentType() : flag(false)
       {};
     } ColorizeContent;
+
+    typedef struct ImageNetContentType
+    {
+      std::vector<float> scores; // sorted
+      std::vector<const char *> texts;
+      std::vector<unsigned int> labels;
+      bool flag;
+
+      ImageNetContentType() : flag(false)
+      {};
+
+    } ImageNetContent;
 
 
   } // NAMESPACE TYPES
