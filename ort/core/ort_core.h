@@ -29,8 +29,8 @@ namespace ortcv
   class YoloV4;              // [13] * reference: https://github.com/argusswift/YOLOv4-pytorch
   class YoloV5;              // [14] * reference: https://github.com/ultralytics/yolov5
   class YoloV3;              // [15] * reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/yolov3
-  class EfficientNetLite4;   // [16] reference: https://github.com/onnx/models/blob/master/vision/classification/efficientnet-lite4
-  class ShuffleNetV2;        // [17] reference: https://github.com/onnx/models/blob/master/vision/classification/shufflenet
+  class EfficientNetLite4;   // [16] * reference: https://github.com/onnx/models/blob/master/vision/classification/efficientnet-lite4
+  class ShuffleNetV2;        // [17] * reference: https://github.com/onnx/models/blob/master/vision/classification/shufflenet
   class TinyYoloV3;          // [18] * reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/tiny-yolov3
   class SSD;                 // [19] reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd
   class SSDMobileNetV1;      // [20] reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd-mobilenetv1
