@@ -31,9 +31,9 @@ void EfficientNetLite4::detect(const cv::Mat &mat, types::ImageNetContent &conte
       ort::RunOptions{nullptr}, input_node_names.data(),
       &input_tensor, 1, output_node_names.data(), num_outputs
   );
-  ort::Value &logits_tensor = output_tensors.at(0); // (1,1000)
+  ort::Value &scores_tensor = output_tensors.at(0); // (1,1000)
   const unsigned int num_classes = output_node_dims.at(0).at(1);
-  const float *scores = logits_tensor.GetTensorMutableData<float>(); // float
+  const float *scores = scores_tensor.GetTensorMutableData<float>(); // float
   std::vector<unsigned int> sorted_indices = ortcv::utils::math::argsort<float>(scores, num_classes);
   if (top_k > num_classes) top_k = num_classes;
 
