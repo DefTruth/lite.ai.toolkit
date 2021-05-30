@@ -455,14 +455,14 @@ throw(std::runtime_error)
   const unsigned int target_width = tensor_dims.at(2);
   const unsigned int target_tensor_size = target_channel * target_height * target_width;
   if (target_channel != channels) throw std::runtime_error("channel mismatch!");
-  tensor_value_handler.clear();
+  tensor_value_handler.resize(target_tensor_size);
 
   cv::Mat resize_mat_ref;
   if (target_height != rows || target_width != cols)
     cv::resize(mat_ref, resize_mat_ref, cv::Size(target_width, target_height));
   else resize_mat_ref = mat_ref; // reference only. zero-time cost.
 
-  tensor_value_handler.assign(resize_mat_ref.data, resize_mat_ref.data + target_tensor_size);
+  std::memcpy(tensor_value_handler.data(), resize_mat_ref.data, target_tensor_size * sizeof(float));
 
   return ort::Value::CreateTensor<float>(memory_info_handler, tensor_value_handler.data(),
                                          target_tensor_size, tensor_dims.data(),

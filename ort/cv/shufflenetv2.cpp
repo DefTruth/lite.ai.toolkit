@@ -12,11 +12,10 @@ ort::Value ShuffleNetV2::transform(const cv::Mat &mat)
   cv::resize(canva, canva, cv::Size(input_node_dims.at(3),
                                     input_node_dims.at(2)));
   cv::cvtColor(canva, canva, cv::COLOR_BGR2RGB);
-  // (1,3,224,224)
 
   canva.convertTo(canva, CV_32FC3, 1. / 255.f, 0.f);
   ortcv::utils::transform::normalize_inplace(canva, mean_vals, scale_vals); // float32
-
+  // (1,3,224,224)
   return ortcv::utils::transform::create_tensor(
       canva, input_node_dims, memory_info_handler,
       input_values_handler, ortcv::utils::transform::CHW);
