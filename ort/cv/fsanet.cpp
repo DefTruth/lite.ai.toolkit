@@ -18,8 +18,6 @@ ort::Value FSANet::transform(const cv::Mat &mat)
 
   const int nx1 = std::max(0, static_cast<int>((nw - w) / 2));
   const int ny1 = std::max(0, static_cast<int>((nh - h) / 2));
-  const int nx2 = std::min(nw, nx1 + w);
-  const int ny2 = std::min(nh, ny1 + h);
 
   canva = cv::Mat(nh, nw, CV_8UC3, cv::Scalar(0, 0, 0));
   mat.copyTo(canva(cv::Rect(nx1, ny1, w, h)));
