@@ -242,8 +242,8 @@ ortcv::types::BoundingBoxType<T1, T2>::iou_of(const BoundingBoxType<O1, O2> &oth
   if (inner_h <= static_cast<value_type>(0.f) || inner_w <= static_cast<value_type>(0.f))
     return std::numeric_limits<value_type>::min();
   value_type inner_area = inner_h * inner_w;
-  value_type w1 = tbox.x2 - x1 + static_cast<value_type>(1.0f);
-  value_type h1 = tbox.y2 - y1 + static_cast<value_type>(1.0f);
+  value_type w1 = tbox.x2 - tbox.x1 + static_cast<value_type>(1.0f);
+  value_type h1 = tbox.y2 - tbox.y1 + static_cast<value_type>(1.0f);
   value_type area1 = h1 * w1;
   return static_cast<value_type>(inner_area / (area() + area1 - inner_area));
 }
