@@ -13,3 +13,5 @@ voc-mobilenetv2-yolov4-416.onnx
 voc-mobilenetv2-yolov4-640.onnx
 shufflenet-v2-10.onnx
 efficientnet-lite4-11.onnx
+ssd-10.onnx
+ssd_mobilenet_v1_10.onnx
