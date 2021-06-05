@@ -17,6 +17,7 @@ option(BUILD_ORT_CV_YOLOV3 "whether to build ortcv_yolov3 binary." ON)
 option(BUILD_ORT_CV_TINY_YOLOV3 "whether to build ortcv_tiny_yolov3 binary." ON)
 option(BUILD_ORT_CV_SHUFFLENETV2 "whether to build ortcv_shufflenetv2 binary." ON)
 option(BUILD_ORT_CV_EFFICIENTNET_LITE4 "whether to build ortcv_efficientnet_lite4 binary." ON)
+option(BUILD_ORT_CV_SSD "whether to build ortcv_ssd binary." ON)
 
 if (BUILD_ORT_CV_FSANET)
     include(cv/test_ortcv_fsanet.cmake)
@@ -92,4 +93,8 @@ endif()
 
 if (BUILD_ORT_CV_EFFICIENTNET_LITE4)
     include(cv/test_ortcv_efficientnet_lite4.cmake)
+endif()
+
+if (BUILD_ORT_CV_SSD)
+    include(cv/test_ortcv_ssd.cmake)
 endif()

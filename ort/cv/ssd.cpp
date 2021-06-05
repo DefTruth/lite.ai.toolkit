@@ -51,8 +51,8 @@ void SSD::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
 {
   ort::Value &bboxes = output_tensors.at(0); // (1,n,4)
   ort::Value &labels = output_tensors.at(1); // (1,n) bg+cls=1+80
-  ort::Value &scores = output_tensors.at(2); // (1,n)
-  auto bboxes_dims = output_node_dims.at(0);
+  ort::Value &scores = output_tensors.at(2); // (1,n) n is dynamic
+  auto bboxes_dims = bboxes.GetTypeInfo().GetTensorTypeAndShapeInfo().GetShape();
   const unsigned int num_anchors = bboxes_dims.at(1);
 
   bbox_collection.clear();
