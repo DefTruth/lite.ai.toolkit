@@ -1,26 +1,26 @@
 //
-// Created by DefTruth on 2021/3/14.
+// Created by DefTruth on 2021/6/5.
 //
 
-#ifndef LITEHUB_ORT_CV_YOLOV5_H
-#define LITEHUB_ORT_CV_YOLOV5_H
+#ifndef LITEHUB_ORT_CV_SSD_H
+#define LITEHUB_ORT_CV_SSD_H
 
 #include "ort/core/ort_core.h"
 
 namespace ortcv
 {
-  class YoloV5 : public BasicOrtHandler
+  class SSD : public BasicOrtHandler
   {
   public:
-    explicit YoloV5(const std::string &_onnx_path, unsigned int _num_threads = 1) :
+    explicit SSD(const std::string &_onnx_path, unsigned int _num_threads = 1) :
         BasicOrtHandler(_onnx_path, _num_threads)
     {};
 
-    ~YoloV5() override = default;
+    ~SSD() override = default;
 
   private:
-    static constexpr const float mean_val = 0.f;
-    static constexpr const float scale_val = 1.0 / 255.f;
+    const float mean_vals[3] = {0.485f, 0.456f, 0.406f};
+    const float scale_vals[3] = {1.f / 0.229f, 1.f / 0.224f, 1.f / 0.225f};
     const char *class_names[80] = {
         "person", "bicycle", "car", "motorcycle", "airplane", "bus", "train", "truck", "boat", "traffic light",
         "fire hydrant", "stop sign", "parking meter", "bench", "bird", "cat", "dog", "horse", "sheep", "cow",
@@ -55,4 +55,4 @@ namespace ortcv
   };
 }
 
-#endif //LITEHUB_ORT_CV_YOLOV5_H
+#endif //LITEHUB_ORT_CV_SSD_H
