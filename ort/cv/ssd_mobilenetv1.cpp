@@ -87,13 +87,17 @@ void SSDMobileNetV1::detect(const cv::Mat &mat, std::vector<types::Boxf> &detect
   const unsigned int img_height = mat.rows;
   const unsigned int img_width = mat.cols;
   // 1. make input tensor
+  std::cout << "transform start!" << std::endl;
   ort::Value input_tensor = this->transform(mat);
+  std::cout << "transform done!" << std::endl;
   // 2. inference nums & boxes & scores & classes.
+  std::cout << "inference start!" << std::endl;
   auto output_tensors = ort_session->Run(
       ort::RunOptions{nullptr}, input_node_names.data(),
       &input_tensor, num_inputs, output_node_names.data(),
       num_outputs
   );
+  std::cout << "inference done!" << std::endl;
   // 3. rescale & exclude.
   std::vector<types::Boxf> bbox_collection;
   this->generate_bboxes(bbox_collection, output_tensors, score_threshold, img_height, img_width);
@@ -106,25 +110,26 @@ void SSDMobileNetV1::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
                                      float score_threshold, float img_height,
                                      float img_width)
 {
-  ort::Value &nums = output_tensors.at(0); // (1,) float32
-  ort::Value &bboxes = output_tensors.at(1); // (1,?,4)
+  ort::Value &bboxes = output_tensors.at(0); // (1,?,4)
+  ort::Value &labels = output_tensors.at(1); // (1,?)
   ort::Value &scores = output_tensors.at(2);  // (1,?)
-  ort::Value &labels = output_tensors.at(3); // (1,?)
+  ort::Value &nums = output_tensors.at(3); // (1,) float32
 
-  const unsigned int num_selected = nums.At<unsigned int>({0});
+  auto num_selected = static_cast<unsigned int>(nums.At<float>({0}));
 
   bbox_collection.clear();
   for (unsigned int i = 0; i < num_selected; ++i)
   {
     float conf = scores.At<float>({0, i});
     if (conf < score_threshold) continue;
-    unsigned int label = labels.At<unsigned int>({0, i}) - 1;
+    auto label = static_cast<unsigned int>(labels.At<float>({0, i}) - 1.);
 
     types::Boxf box;
     box.y1 = bboxes.At<float>({0, i, 0}) * (float) img_height;
     box.x1 = bboxes.At<float>({0, i, 1}) * (float) img_width;
     box.y2 = bboxes.At<float>({0, i, 2}) * (float) img_height;
     box.x2 = bboxes.At<float>({0, i, 3}) * (float) img_width;
+    box.score = conf;
     box.label = label;
     box.label_text = class_names[label];
     box.flag = true;
