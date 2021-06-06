@@ -33,7 +33,7 @@ namespace ortcv
   class ShuffleNetV2;        // [17] * reference: https://github.com/onnx/models/blob/master/vision/classification/shufflenet
   class TinyYoloV3;          // [18] * reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/tiny-yolov3
   class SSD;                 // [19] * reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd
-  class SSDMobileNetV1;      // [20] reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd-mobilenetv1
+  class SSDMobileNetV1;      // [20] * reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd-mobilenetv1
   class DeepLabV3ResNet101;  // [21] reference: https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/
   class DenseNet;            // [22] reference: https://pytorch.org/hub/pytorch_vision_densenet/
   class FCNResNet101;        // [23] reference: https://pytorch.org/hub/pytorch_vision_fcn_resnet101/
