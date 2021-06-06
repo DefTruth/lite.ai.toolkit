@@ -11,7 +11,7 @@ namespace ortcv
 {
   class YoloV3
   {
-  protected:
+  private:
     ort::Env ort_env;
     ort::Session *ort_session = nullptr;
     std::vector<const char *> input_node_names;
