@@ -185,6 +185,16 @@ namespace ortcv
 
     } ImageNetContent;
 
+    typedef struct SegmentContentType
+    {
+      cv::Mat class_mat; // 21 classes
+      cv::Mat color_mat; // 21 colors different classes.
+      bool flag;
+
+      SegmentContentType() : flag(false)
+      {};
+    } SegmentContent;
+
 
   } // NAMESPACE TYPES
 } // NAMESPACE ORTCV
