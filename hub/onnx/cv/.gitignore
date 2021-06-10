@@ -15,3 +15,5 @@ shufflenet-v2-10.onnx
 efficientnet-lite4-11.onnx
 ssd-10.onnx
 ssd_mobilenet_v1_10.onnx
+deeplabv3_resnet101_coco.onnx
+densenet121.onnx
