@@ -187,8 +187,9 @@ namespace ortcv
 
     typedef struct SegmentContentType
     {
-      cv::Mat class_mat; // 21 classes
-      cv::Mat color_mat; // 21 colors different classes.
+      cv::Mat class_mat; // 21 classes 1 channel
+      cv::Mat color_mat; // 21 colors different classes, 3 channels.
+      std::unordered_map<int, std::string> names_map;
       bool flag;
 
       SegmentContentType() : flag(false)
