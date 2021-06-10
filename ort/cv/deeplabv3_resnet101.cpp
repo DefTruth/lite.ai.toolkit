@@ -132,7 +132,7 @@ void DeepLabV3ResNet101::detect(const cv::Mat &mat, types::SegmentContent &conte
 
       // assign label for pixel(i,j)
       p_class[j] = cv::saturate_cast<uchar>(max_label);
-      // assign color for detected class.
+      // assign color for detected class at pixel(i,j).
       p_color[j][0] = cv::saturate_cast<uchar>((21 - max_label) * 10);
       p_color[j][1] = cv::saturate_cast<uchar>(max_label * 10);
       p_color[j][2] = cv::saturate_cast<uchar>((21 - max_label) * 10);
