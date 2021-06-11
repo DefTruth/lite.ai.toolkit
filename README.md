@@ -4,7 +4,7 @@
   <img src='logs/test_ortcv_pfld.jpg' height="256px" width="256px">
   <img src='logs/test_ortcv_ultraface.jpg' height="256px" width="256px">
   <br> 
-  <img src='examples/ort/resources/test_ortcv_fast_style_transfer.jpg' height="256px" width="256px">
+  <img src='logs/test_ortcv_deeplabv3_resnet101.jpg' height="256px" width="256px">
   <img src='logs/test_ortcv_fast_style_transfer_candy.jpg' height="256px" width="256px">
   <img src='logs/test_ortcv_fast_style_transfer_mosaic.jpg' height="256px" width="256px"> 
 </div>
@@ -71,7 +71,99 @@ Some of the models were converted by this repo, and others were referenced from 
 Disclaimer: The following test pictures are from the Internet search, if it has any impact on you, please contact me immediately, I will remove it immediately. 
 ### 4.1 Usage for ONNXRuntime Interfaces.
 More examples can find at [ortcv-examples](https://github.com/DefTruth/litehub/tree/main/examples/ort/cv).  
-### 4.1.1 Style transfer using [FastStyleTransfer](https://github.com/onnx/models/tree/master/vision/style_transfer/fast_neural_style). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
+#### 4.1.1 Object detection using [YoloV5](https://github.com/ultralytics/yolov5). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
+```c++
+#include <iostream>
+#include <vector>
+#include "ort/cv/yolov5.h"
+#include "ort/core/ort_utils.h"
+
+
+static void test_ortcv_yolov5()
+{
+  std::string onnx_path = "../../../hub/onnx/cv/yolov5s.onnx";
+  std::string test_img_path = "../../../examples/ort/resources/test_ortcv_yolov5.jpg";
+  std::string save_img_path = "../../../logs/test_ortcv_yolov5.jpg";
+
+  ortcv::YoloV5 *yolov5 = new ortcv::YoloV5(onnx_path);
+
+  std::vector<ortcv::types::Boxf> detected_boxes;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  yolov5->detect(img_bgr, detected_boxes);
+
+  ortcv::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+  cv::imwrite(save_img_path, img_bgr);
+
+  std::cout << "Detected Boxes Num: " << detected_boxes.size() << std::endl;
+
+  delete yolov5;
+}
+
+int main(__unused int argc, __unused char *argv[])
+{
+  test_ortcv_yolov5();
+  return 0;
+}
+
+```
+
+The output is:
+<div align='center'>
+  <img src='logs/test_ortcv_yolov5_1.jpg' height="256px">
+  <img src='logs/test_ortcv_yolov5_2.jpg' height="256px">
+</div>  
+
+#### 4.1.2 Segmentation using [DeepLabV3ResNet101](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
+```c++
+#include <iostream>
+#include <vector>
+
+#include "ort/cv/deeplabv3_resnet101.h"
+#include "ort/core/ort_utils.h"
+
+
+static void test_ortcv_deeplabv3_resnet101()
+{
+  std::string onnx_path = "../../../hub/onnx/cv/deeplabv3_resnet101_coco.onnx";
+  std::string test_img_path = "../../../examples/ort/resources/test_ortcv_deeplabv3_resnet101.png";
+  std::string save_img_path = "../../../logs/test_ortcv_deeplabv3_resnet101.jpg";
+  
+  ortcv::DeepLabV3ResNet101 *deeplabv3_resnet101 = new ortcv::DeepLabV3ResNet101(onnx_path, 16);
+  
+  ortcv::types::SegmentContent content;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  deeplabv3_resnet101->detect(img_bgr, content);
+
+  if (content.flag)
+  {
+    cv::imwrite(save_img_path, content.color_mat);
+    if (!content.names_map.empty())
+    {
+      for (auto it = content.names_map.begin(); it != content.names_map.end(); ++it)
+      {
+        std::cout << "Detected Label: " << it->first << " Name: " << it->second << std::endl;
+      }
+    }
+  }
+  
+  delete deeplabv3_resnet101;
+}
+
+int main(__unused int argc, __unused char *argv[])
+{
+  test_ortcv_deeplabv3_resnet101();
+  return 0;
+}
+
+```
+
+The output is:
+<div align='center'>
+  <img src='examples/ort/resources/test_ortcv_deeplabv3_resnet101.png' height="256px">
+  <img src='logs/test_ortcv_deeplabv3_resnet101.jpg' height="256px">
+</div> 
+
+#### 4.1.3 Style transfer using [FastStyleTransfer](https://github.com/onnx/models/tree/master/vision/style_transfer/fast_neural_style). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
 #include <iostream>
 #include <vector>
@@ -120,7 +212,7 @@ The output is:
   <img src='logs/test_ortcv_fast_style_transfer_udnie.jpg' height="224px">
 </div>
 
-#### 4.1.2 Colorization using [colorization](https://github.com/richzhang/colorization). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
+#### 4.1.4 Colorization using [colorization](https://github.com/richzhang/colorization). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
 #include <iostream>
 #include <vector>
@@ -191,49 +283,9 @@ The output is:
   <img src='logs/test_ortcv_siggraph17_colorizer_3.jpg' height="224px" width="224px">
 </div>  
 
-#### 4.1.3 Object detection using [YoloV5](https://github.com/ultralytics/yolov5). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).  
-```c++
-#include <iostream>
-#include <vector>
-#include "ort/cv/yolov5.h"
-#include "ort/core/ort_utils.h"
 
 
-static void test_ortcv_yolov5()
-{
-  std::string onnx_path = "../../../hub/onnx/cv/yolov5s.onnx";
-  std::string test_img_path = "../../../examples/ort/resources/test_ortcv_yolov5.jpg";
-  std::string save_img_path = "../../../logs/test_ortcv_yolov5.jpg";
-
-  ortcv::YoloV5 *yolov5 = new ortcv::YoloV5(onnx_path);
-
-  std::vector<ortcv::types::Boxf> detected_boxes;
-  cv::Mat img_bgr = cv::imread(test_img_path);
-  yolov5->detect(img_bgr, detected_boxes);
-
-  ortcv::utils::draw_boxes_inplace(img_bgr, detected_boxes);
-  cv::imwrite(save_img_path, img_bgr);
-
-  std::cout << "Detected Boxes Num: " << detected_boxes.size() << std::endl;
-
-  delete yolov5;
-}
-
-int main(__unused int argc, __unused char *argv[])
-{
-  test_ortcv_yolov5();
-  return 0;
-}
-
-```
-
-The output is:  
-<div align='center'>
-  <img src='logs/test_ortcv_yolov5_1.jpg' height="256px">
-  <img src='logs/test_ortcv_yolov5_2.jpg' height="256px">
-</div> 
-
-#### 4.1.4 Facial Landmarks detection using [PFLD](https://github.com/Hsintao/pfld_106_face_landmarks). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
+#### 4.1.5 Facial Landmarks detection using [PFLD](https://github.com/Hsintao/pfld_106_face_landmarks). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
 #include <iostream>
 #include <vector>
@@ -265,7 +317,7 @@ int main(__unused int argc, __unused char *argv[])
 The output is:  
 <div align=center><img src='logs/test_ortcv_pfld.jpg'/></div>  
 
-#### 4.1.5 Face detection using [UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
+#### 4.1.6 Face detection using [UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
 #include <iostream>
 #include <vector>
