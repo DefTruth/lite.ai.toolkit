@@ -1,12 +1,14 @@
 # litehub 🚀🚀🌟  
 <div align='center'>
-  <img src='logs/test_ortcv_yolov5_1.jpg' height="256px" width="256px">
-  <img src='logs/test_ortcv_pfld.jpg' height="256px" width="256px">
-  <img src='logs/test_ortcv_ultraface.jpg' height="256px" width="256px">
+  <img src='logs/test_ortcv_yolov5_1.jpg' height="200px" width="200px">
+  <img src='logs/test_ortcv_deeplabv3_resnet101.jpg' height="200px" width="200px">
+  <img src='logs/test_ortcv_ssd_mobilenetv1.jpg' height="200px" width="200px">
+  <img src='logs/test_ortcv_ultraface.jpg' height="200px" width="200px">
   <br> 
-  <img src='logs/test_ortcv_deeplabv3_resnet101.jpg' height="256px" width="256px">
-  <img src='logs/test_ortcv_fast_style_transfer_candy.jpg' height="256px" width="256px">
-  <img src='logs/test_ortcv_fast_style_transfer_mosaic.jpg' height="256px" width="256px"> 
+  <img src='logs/test_ortcv_pfld.jpg' height="200px" width="200px">
+  <img src='logs/test_ortcv_fsanet.jpg' height="200px" width="200px">
+  <img src='logs/test_ortcv_fast_style_transfer_candy.jpg' height="200px" width="200px">
+  <img src='logs/test_ortcv_fast_style_transfer_mosaic.jpg' height="200px" width="200px"> 
 </div>
 
 *litehub* for onnxruntime/ncnn/mnn. This library integrates some interesting models and implement with onnxruntime/ncnn/mnn. Such as `YoloV5`、`UltraFace`、`PFLD`、`Colorization`、`FastStyleTransfer` and so on.
