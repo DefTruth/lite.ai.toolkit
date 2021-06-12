@@ -284,7 +284,6 @@ The output is:
 </div>  
 
 
-
 #### 4.1.5 Facial Landmarks detection using [PFLD](https://github.com/Hsintao/pfld_106_face_landmarks). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
 #include <iostream>
@@ -295,7 +294,7 @@ The output is:
 static void test_ortcv_pfld() 
 {
   std::string onnx_path = "../../../hub/onnx/cv/pfld-106-v3.onnx";
-  std::string test_img_path = "../../../examples/ort/resources/test_ortcv_pfld.jpg";
+  std::string test_img_path = "../../../examples/ort/resources/test_ortcv_pfld.png";
   std::string save_img_path = "../../../logs/test_ortcv_pfld.jpg";
   
   ortcv::PFLD *pfld = new ortcv::PFLD(onnx_path);
@@ -315,7 +314,11 @@ int main(__unused int argc, __unused char *argv[])
 }
 ```
 The output is:  
-<div align=center><img src='logs/test_ortcv_pfld.jpg'/></div>  
+<div align='center'>
+  <img src='logs/test_ortcv_pfld.jpg' height="224px" width="224px">
+  <img src='logs/test_ortcv_pfld_2.jpg' height="224px" width="224px">
+  <img src='logs/test_ortcv_pfld_3.jpg' height="224px" width="224px">
+</div>    
 
 #### 4.1.6 Face detection using [UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
@@ -347,7 +350,60 @@ int main(__unused int argc, __unused char *argv[])
 }
 ```
 The output is:  
-<div align=center><img src='logs/test_ortcv_ultraface.jpg'/></div>  
+<div align='center'>
+  <img src='logs/test_ortcv_ultraface.jpg' height="224px" width="224px">
+  <img src='logs/test_ortcv_ultraface_2.jpg' height="224px" width="224px">
+  <img src='logs/test_ortcv_ultraface_3.jpg' height="224px" width="224px">
+</div>  
+
+#### 4.1.7 1000 classes Classification using [DenseNet](https://pytorch.org/hub/pytorch_vision_densenet/). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
+```c++
+#include <iostream>
+#include <vector>
+
+#include "ort/cv/densenet.h"
+#include "ort/core/ort_utils.h"
+
+static void test_ortcv_densenet()
+{
+  std::string onnx_path = "../../../hub/onnx/cv/densenet121.onnx";
+  std::string test_img_path = "../../../examples/ort/resources/test_ortcv_densenet.jpg";
+  
+  ortcv::DenseNet *densenet = new ortcv::DenseNet(onnx_path);
+  
+  ortcv::types::ImageNetContent content;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  densenet->detect(img_bgr, content);
+  
+  if (content.flag)
+  {
+    const unsigned int top_k = content.scores.size();
+    if (top_k > 0)
+    {
+      for (unsigned int i = 0; i < top_k; ++i)
+        std::cout << i + 1
+        << ": " << content.labels.at(i)
+        << ": " << content.texts.at(i)
+        << ": " << content.scores.at(i)
+        << std::endl;
+    }
+  }
+  
+  delete densenet;
+}
+
+int main(__unused int argc, __unused char *argv[])
+{
+test_ortcv_densenet();
+return 0;
+}
+```
+
+The output is:
+<div align='center'>
+  <img src='examples/ort/resources/test_ortcv_densenet.jpg' height="224px">
+  <img src='logs/test_ortcv_densenet.png' height="224px">
+</div>  
 
 
 ## 5. Documents.  

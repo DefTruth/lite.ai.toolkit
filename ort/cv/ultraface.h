@@ -41,7 +41,7 @@ namespace ortcv
   public:
     void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
                 float score_threshold = 0.7f, float iou_threshold = 0.3f,
-                unsigned int topk = 100, unsigned int nms_type = 0);
+                unsigned int topk = 300, unsigned int nms_type = 0);
   };
 
 }

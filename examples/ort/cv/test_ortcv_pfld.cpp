@@ -13,7 +13,7 @@ static void test_ortcv_pfld()
 {
 
   std::string onnx_path = "../../../hub/onnx/cv/pfld-106-v3.onnx";
-  std::string test_img_path = "../../../examples/ort/resources/test_ortcv_pfld.jpg";
+  std::string test_img_path = "../../../examples/ort/resources/test_ortcv_pfld.png";
   std::string save_img_path = "../../../logs/test_ortcv_pfld.jpg";
 
   ortcv::PFLD *pfld = new ortcv::PFLD(onnx_path);
