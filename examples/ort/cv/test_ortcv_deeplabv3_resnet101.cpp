@@ -23,7 +23,10 @@ static void test_ortcv_deeplabv3_resnet101()
 
   if (content.flag)
   {
-    cv::imwrite(save_img_path, content.color_mat);
+    cv::Mat out_img;
+    cv::addWeighted(img_bgr, 0.3, content.color_mat,
+                    0.7, 0., out_img);
+    cv::imwrite(save_img_path, out_img);
     if (!content.names_map.empty())
     {
       for (auto it = content.names_map.begin(); it != content.names_map.end(); ++it)
