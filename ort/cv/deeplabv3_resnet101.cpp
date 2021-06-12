@@ -104,7 +104,7 @@ void DeepLabV3ResNet101::detect(const cv::Mat &mat, types::SegmentContent &conte
   // time cost!
   content.names_map.clear();
   content.class_mat = cv::Mat(output_height, output_width, CV_8UC1, cv::Scalar(0));
-  content.color_mat = cv::Mat(output_height, output_width, CV_8UC3, cv::Scalar(0, 0, 0));
+  content.color_mat = mat.clone();
 
   for (unsigned int i = 0; i < output_height; ++i)
   {
