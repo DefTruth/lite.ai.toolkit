@@ -401,8 +401,8 @@ return 0;
 
 The output is:
 <div align='center'>
-  <img src='examples/ort/resources/test_ortcv_densenet.jpg' height="224px">
-  <img src='logs/test_ortcv_densenet.png' height="224px">
+  <img src='examples/ort/resources/test_ortcv_densenet.jpg' height="224px" width="224px">
+  <img src='logs/test_ortcv_densenet.png' height="224px" width="500px">
 </div>  
 
 
