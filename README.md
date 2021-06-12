@@ -21,7 +21,7 @@ install `opencv` and `onnxruntime` libraries using Homebrew.
   brew update
   brew install opencv
   brew install onnxruntime
-```  
+```
 or you can download the built dependencies from this repo. See [third_party](https://github.com/DefTruth/litehub/tree/main/third_party) and build-docs[<sup>1</sup>](#refer-anchor-1).
 * Linux & Windows. 
   * TODO
@@ -42,8 +42,8 @@ Some of the models were converted by this repo, and others were referenced from 
 
 <div id="refer-anchor-2"></div>
 
-|Model|Size|Download|From|Docs|Usage|  
-|:---:|:---:|:---:|:---:|:---:|:---:| 
+|Model|Size|Download|From|Docs|Usage|
+|:---:|:---:|:---:|:---:|:---:|:---:|
 |[FSANet](https://github.com/omasaht/headpose-fsanet-pytorch)|1.2Mb|[Baidu Drive](https://pan.baidu.com/s/1X5y7bOSPyeBzT9nSgQiMIQ) code:g83e| [FSANet](https://github.com/omasaht/headpose-fsanet-pytorch)| - | [demo](https://github.com/DefTruth/litehub/blob/main/examples/ort/cv/test_ortcv_fsanet.cpp) |
 |[PFLD](https://github.com/Hsintao/pfld_106_face_landmarks)|1.0Mb~5.5Mb|[Baidu Drive](https://pan.baidu.com/s/1X5y7bOSPyeBzT9nSgQiMIQ) code:g83e| [PFLD](https://github.com/Hsintao/pfld_106_face_landmarks) | - | [demo](https://github.com/DefTruth/litehub/blob/main/examples/ort/cv/test_ortcv_pfld.cpp) |
 |[UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB)|1.1Mb~1.5Mb|[Baidu Drive](https://pan.baidu.com/s/1X5y7bOSPyeBzT9nSgQiMIQ) code:g83e| [UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) | - | [demo](https://github.com/DefTruth/litehub/blob/main/examples/ort/cv/test_ortcv_ultraface.cpp) |
@@ -119,26 +119,25 @@ The output is:
 ```c++
 #include <iostream>
 #include <vector>
-
 #include "ort/cv/deeplabv3_resnet101.h"
 #include "ort/core/ort_utils.h"
-
 
 static void test_ortcv_deeplabv3_resnet101()
 {
   std::string onnx_path = "../../../hub/onnx/cv/deeplabv3_resnet101_coco.onnx";
   std::string test_img_path = "../../../examples/ort/resources/test_ortcv_deeplabv3_resnet101.png";
   std::string save_img_path = "../../../logs/test_ortcv_deeplabv3_resnet101.jpg";
-  
   ortcv::DeepLabV3ResNet101 *deeplabv3_resnet101 = new ortcv::DeepLabV3ResNet101(onnx_path, 16);
-  
+
   ortcv::types::SegmentContent content;
   cv::Mat img_bgr = cv::imread(test_img_path);
   deeplabv3_resnet101->detect(img_bgr, content);
 
   if (content.flag)
   {
-    cv::imwrite(save_img_path, content.color_mat);
+    cv::Mat out_img;
+    cv::addWeighted(img_bgr, 0.3, content.color_mat, 0.7, 0., out_img);
+    cv::imwrite(save_img_path, out_img);
     if (!content.names_map.empty())
     {
       for (auto it = content.names_map.begin(); it != content.names_map.end(); ++it)
@@ -147,7 +146,7 @@ static void test_ortcv_deeplabv3_resnet101()
       }
     }
   }
-  
+
   delete deeplabv3_resnet101;
 }
 
@@ -156,7 +155,6 @@ int main(__unused int argc, __unused char *argv[])
   test_ortcv_deeplabv3_resnet101();
   return 0;
 }
-
 ```
 
 The output is:
@@ -201,7 +199,7 @@ int main(__unused int argc, __unused char *argv[])
   test_ortcv_fast_style_transfer();
   return 0;
 }
-```  
+```
 The output is:
 
 <div align='center'>
@@ -315,7 +313,7 @@ int main(__unused int argc, __unused char *argv[])
   test_ortcv_pfld();
   return 0;
 }
-```   
+```
 The output is:  
 <div align=center><img src='logs/test_ortcv_pfld.jpg'/></div>  
 
@@ -369,14 +367,14 @@ Other build documents for different engines and different targets will be added 
 <div id="refer-anchor-1"></div> 
 
 
-|Library|Target|Docs|  
-|:---:|:---:|:---:|  
+|Library|Target|Docs|
+|:---:|:---:|:---:|
 |OpenCV| mac-x86_64 | [opencv-mac-x86_64-build.zh.md](https://github.com/DefTruth/litehub/blob/main/docs/third_party/opencv-mac-x86_64-build.zh.md) |
 |OpenCV| android-arm | [opencv-static-android-arm-build.zh.md](https://github.com/DefTruth/litehub/blob/main/docs/third_party/opencv-static-android-arm-build.zh.md) |
 |onnxruntime| mac-x86_64 | [onnxruntime-mac-x86_64-build.zh.md](https://github.com/DefTruth/litehub/blob/main/docs/third_party/onnxruntime-mac-x86_64-build.zh.md) |
 |onnxruntime| android-arm | [onnxruntime-android-arm-build.zh.md](https://github.com/DefTruth/litehub/blob/main/docs/third_party/onnxruntime-android-arm-build.zh.md) |
-|NCNN| mac-x86_64 | TODO |  
-|MNN| mac-x86_64 | TODO |  
-|TNN| mac-x86_64 | TODO |  
+|NCNN| mac-x86_64 | TODO |
+|MNN| mac-x86_64 | TODO |
+|TNN| mac-x86_64 | TODO |
 
 
