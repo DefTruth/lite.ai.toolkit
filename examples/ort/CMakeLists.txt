@@ -20,6 +20,7 @@ option(BUILD_ORT_CV_EFFICIENTNET_LITE4 "whether to build ortcv_efficientnet_lite
 option(BUILD_ORT_CV_SSD "whether to build ortcv_ssd binary." ON)
 option(BUILD_ORT_CV_SSD_MOBILENETV1 "whether to build ortcv_ssd_mobilenetv1 binary." ON)
 option(BUILD_ORT_CV_DEEPLABV3_RESNET101 "whether to build ortcv_deeplabv3_resnet101 binary." ON)
+option(BUILD_ORT_CV_DENSENET "whether to build ortcv_densenet binary." ON)
 
 if (BUILD_ORT_CV_FSANET)
     include(cv/test_ortcv_fsanet.cmake)
@@ -107,4 +108,8 @@ endif()
 
 if (BUILD_ORT_CV_DEEPLABV3_RESNET101)
     include(cv/test_ortcv_deeplabv3_resnet101.cmake)
+endif()
+
+if (BUILD_ORT_CV_DENSENET)
+    include(cv/test_ortcv_densenet.cmake)
 endif()
