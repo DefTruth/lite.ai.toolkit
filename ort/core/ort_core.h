@@ -36,8 +36,8 @@ namespace ortcv
   class SSDMobileNetV1;      // [20] * reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd-mobilenetv1
   class DeepLabV3ResNet101;  // [21] * reference: https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/
   class DenseNet;            // [22] * reference: https://pytorch.org/hub/pytorch_vision_densenet/
-  class FCNResNet101;        // [23] reference: https://pytorch.org/hub/pytorch_vision_fcn_resnet101/
-  class GhostNet;            // [24] reference：https://pytorch.org/hub/pytorch_vision_ghostnet/
+  class FCNResNet101;        // [23] * reference: https://pytorch.org/hub/pytorch_vision_fcn_resnet101/
+  class GhostNet;            // [24] * reference：https://pytorch.org/hub/pytorch_vision_ghostnet/
   class HdrDNet;             // [25] reference: https://pytorch.org/hub/pytorch_vision_hardnet/
   class IBNNet;              // [26] reference: https://pytorch.org/hub/pytorch_vision_ibnnet/
   class MobileNetV2;         // [27] reference: https://pytorch.org/hub/pytorch_vision_mobilenet_v2/

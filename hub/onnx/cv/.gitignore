@@ -17,3 +17,5 @@ ssd-10.onnx
 ssd_mobilenet_v1_10.onnx
 deeplabv3_resnet101_coco.onnx
 densenet121.onnx
+fcn_resnet101.onnx
+ghostnet.onnx
