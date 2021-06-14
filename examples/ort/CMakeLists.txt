@@ -23,6 +23,11 @@ option(BUILD_ORT_CV_DEEPLABV3_RESNET101 "whether to build ortcv_deeplabv3_resnet
 option(BUILD_ORT_CV_DENSENET "whether to build ortcv_densenet binary." ON)
 option(BUILD_ORT_CV_FCN_RESNET101 "whether to build ortcv_fcn_resnet101 binary." ON)
 option(BUILD_ORT_CV_GHOSTNET "whether to build ortcv_ghostnet binary." ON)
+option(BUILD_ORT_CV_HARDNET "whether to build ortcv_hardnet binary." ON)
+option(BUILD_ORT_CV_IBNNET "whether to build ortcv_ibnnet binary." ON)
+option(BUILD_ORT_CV_MOBILENETV2 "whether to build ortcv_mobilenetv2 binary." ON)
+option(BUILD_ORT_CV_RESNET "whether to build ortcv_resnet binary." ON)
+option(BUILD_ORT_CV_RESNEXT "whether to build ortcv_resnext binary." ON)
 
 if (BUILD_ORT_CV_FSANET)
     include(cv/test_ortcv_fsanet.cmake)
@@ -122,4 +127,24 @@ endif()
 
 if (BUILD_ORT_CV_GHOSTNET)
     include(cv/test_ortcv_ghostnet.cmake)
+endif()
+
+if (BUILD_ORT_CV_HARDNET)
+include(cv/test_ortcv_hardnet.cmake)
+endif()
+
+if (BUILD_ORT_CV_IBNNET)
+    include(cv/test_ortcv_ibnnet.cmake)
+endif()
+
+if (BUILD_ORT_CV_MOBILENETV2)
+    include(cv/test_ortcv_mobilenetv2.cmake)
+endif()
+
+if (BUILD_ORT_CV_RESNET)
+    include(cv/test_ortcv_resnet.cmake)
+endif()
+
+if (BUILD_ORT_CV_RESNEXT)
+    include(cv/test_ortcv_resnext.cmake)
 endif()
