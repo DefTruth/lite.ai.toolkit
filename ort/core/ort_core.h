@@ -38,8 +38,8 @@ namespace ortcv
   class DenseNet;            // [22] * reference: https://pytorch.org/hub/pytorch_vision_densenet/
   class FCNResNet101;        // [23] * reference: https://pytorch.org/hub/pytorch_vision_fcn_resnet101/
   class GhostNet;            // [24] * reference：https://pytorch.org/hub/pytorch_vision_ghostnet/
-  class HdrDNet;             // [25] reference: https://pytorch.org/hub/pytorch_vision_hardnet/
-  class IBNNet;              // [26] reference: https://pytorch.org/hub/pytorch_vision_ibnnet/
+  class HdrDNet;             // [25] * reference: https://pytorch.org/hub/pytorch_vision_hardnet/
+  class IBNNet;              // [26] * reference: https://pytorch.org/hub/pytorch_vision_ibnnet/
   class MobileNetV2;         // [27] reference: https://pytorch.org/hub/pytorch_vision_mobilenet_v2/
   class ResNet;              // [28] reference: https://pytorch.org/hub/pytorch_vision_resnet/
   class ResNeXt;             // [29] reference: https://pytorch.org/hub/pytorch_vision_resnext/

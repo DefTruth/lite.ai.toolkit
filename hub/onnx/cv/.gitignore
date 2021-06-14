@@ -19,3 +19,9 @@ deeplabv3_resnet101_coco.onnx
 densenet121.onnx
 fcn_resnet101.onnx
 ghostnet.onnx
+hardnet.onnx
+ibnnet.onnx
+ibnnet18.onnx
+mobilenetv2.onnx
+resnet18.onnx
+resnext50.onnx
