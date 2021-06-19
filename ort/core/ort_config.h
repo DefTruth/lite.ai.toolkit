@@ -2,8 +2,8 @@
 // Created by DefTruth on 2021/3/29.
 //
 
-#ifndef LITEHUB_ORT_CORE___ORT_CORE_H
-#define LITEHUB_ORT_CORE___ORT_CORE_H
+#ifndef LITEHUB_ORT_CORE_ORT_CONFIG_H
+#define LITEHUB_ORT_CORE_ORT_CONFIG_H
 
 #include "ort_defs.h"
 
@@ -18,8 +18,6 @@
 #include "opencv2/opencv.hpp"
 #include "onnxruntime/core/session/onnxruntime_cxx_api.h"
 
-// namespace ort = Ort;
-
 namespace core {}
 
-#endif //LITEHUB_ORT_CORE___ORT_CORE_H
+#endif //LITEHUB_ORT_CORE_ORT_CONFIG_H
