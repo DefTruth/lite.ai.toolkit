@@ -2,8 +2,8 @@
 // Created by DefTruth on 2021/6/19.
 //
 
-#ifndef LITEHUB_ORT_CORE___ORT_CONFIG_H
-#define LITEHUB_ORT_CORE___ORT_CONFIG_H
+#ifndef LITEHUB_ORT_CORE_ORT_DEFS_H
+#define LITEHUB_ORT_CORE_ORT_DEFS_H
 #include <iostream>
 
 #define LITEORT_DEBUG 1
@@ -40,4 +40,4 @@
 # define __unused
 #endif
 
-#endif //LITEHUB_ORT_CORE___ORT_CONFIG_H
+#endif //LITEHUB_ORT_CORE_ORT_DEFS_H
