@@ -7,7 +7,7 @@
 
 using ortcv::SubPixelCNN;
 
-ort::Value SubPixelCNN::transform(const cv::Mat &mat)
+Ort::Value SubPixelCNN::transform(const cv::Mat &mat)
 {
   cv::Mat mat_y; // assume that input mat is Y of YCrCb
   mat.convertTo(mat_y, CV_32FC1, 1.0f / 255.0f, 0.f); // (224,224,1) range (0.,1.0)
@@ -35,13 +35,13 @@ void SubPixelCNN::detect(const cv::Mat &mat, types::SuperResolutionContent &supe
   mat_cb = split_mats.at(2);
 
   // 1. make input tensor
-  ort::Value input_tensor = this->transform(mat_y);
+  Ort::Value input_tensor = this->transform(mat_y);
   // 2. inference
   auto output_tensors = ort_session->Run(
-      ort::RunOptions{nullptr}, input_node_names.data(),
+      Ort::RunOptions{nullptr}, input_node_names.data(),
       &input_tensor, 1, output_node_names.data(), num_outputs
   );
-  ort::Value &pred_tensor = output_tensors.at(0); // (1,1,672,672)
+  Ort::Value &pred_tensor = output_tensors.at(0); // (1,1,672,672)
   auto pred_dims = output_node_dims.at(0);
   const unsigned int rows = pred_dims.at(2); // H
   const unsigned int cols = pred_dims.at(3); // W

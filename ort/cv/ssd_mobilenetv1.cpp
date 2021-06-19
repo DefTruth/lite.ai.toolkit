@@ -8,19 +8,25 @@
 using ortcv::SSDMobileNetV1;
 
 SSDMobileNetV1::SSDMobileNetV1(const std::string &_onnx_path, unsigned int _num_threads) :
-    onnx_path(_onnx_path.data()), num_threads(_num_threads)
+    log_id(_onnx_path.data()), num_threads(_num_threads)
 {
-  ort_env = ort::Env(ORT_LOGGING_LEVEL_ERROR, onnx_path);
+#ifdef LITEHUB_WIN32
+  std::wstring _w_onnx_path(ortcv::utils::to_wstring(_onnx_path));
+  onnx_path = _w_onnx_path.data();
+#else
+  onnx_path = _onnx_path.data();
+#endif
+  ort_env = Ort::Env(ORT_LOGGING_LEVEL_ERROR, log_id);
   // 0. session options
-  ort::SessionOptions session_options;
+  Ort::SessionOptions session_options;
   session_options.SetIntraOpNumThreads(num_threads);
   session_options.SetGraphOptimizationLevel(
       GraphOptimizationLevel::ORT_ENABLE_EXTENDED);
   session_options.SetLogSeverityLevel(4);
   // 1. session
-  ort_session = new ort::Session(ort_env, onnx_path, session_options);
+  ort_session = new Ort::Session(ort_env, onnx_path, session_options);
 
-  ort::AllocatorWithDefaultOptions allocator;
+  Ort::AllocatorWithDefaultOptions allocator;
   // 2. input name & input dims
   num_inputs = ort_session->GetInputCount();
   input_node_names.resize(num_inputs);
@@ -61,7 +67,7 @@ void SSDMobileNetV1::print_debug_string()
     std::cout << "Dynamic Output " << i << ": " << output_node_names[i] << std::endl;
 }
 
-ort::Value SSDMobileNetV1::transform(const cv::Mat &mat)
+Ort::Value SSDMobileNetV1::transform(const cv::Mat &mat)
 {
   cv::Mat canvas = mat.clone();
   cv::resize(canvas, canvas, cv::Size(input_width, input_height));
@@ -71,7 +77,7 @@ ort::Value SSDMobileNetV1::transform(const cv::Mat &mat)
   std::memcpy(input_values_handler.data(), canvas.data,
               input_tensor_sizes.at(0) * sizeof(uchar));
 
-  return ort::Value::CreateTensor<uchar>(memory_info_handler, input_values_handler.data(),
+  return Ort::Value::CreateTensor<uchar>(memory_info_handler, input_values_handler.data(),
                                          input_tensor_sizes.at(0),
                                          input_node_dims.at(0).data(),
                                          input_node_dims.at(0).size());
@@ -87,17 +93,13 @@ void SSDMobileNetV1::detect(const cv::Mat &mat, std::vector<types::Boxf> &detect
   const unsigned int img_height = mat.rows;
   const unsigned int img_width = mat.cols;
   // 1. make input tensor
-  std::cout << "transform start!" << std::endl;
-  ort::Value input_tensor = this->transform(mat);
-  std::cout << "transform done!" << std::endl;
+  Ort::Value input_tensor = this->transform(mat);
   // 2. inference nums & boxes & scores & classes.
-  std::cout << "inference start!" << std::endl;
   auto output_tensors = ort_session->Run(
-      ort::RunOptions{nullptr}, input_node_names.data(),
+      Ort::RunOptions{nullptr}, input_node_names.data(),
       &input_tensor, num_inputs, output_node_names.data(),
       num_outputs
   );
-  std::cout << "inference done!" << std::endl;
   // 3. rescale & exclude.
   std::vector<types::Boxf> bbox_collection;
   this->generate_bboxes(bbox_collection, output_tensors, score_threshold, img_height, img_width);
@@ -106,14 +108,14 @@ void SSDMobileNetV1::detect(const cv::Mat &mat, std::vector<types::Boxf> &detect
 }
 
 void SSDMobileNetV1::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
-                                     std::vector<ort::Value> &output_tensors,
+                                     std::vector<Ort::Value> &output_tensors,
                                      float score_threshold, float img_height,
                                      float img_width)
 {
-  ort::Value &bboxes = output_tensors.at(0); // (1,?,4)
-  ort::Value &labels = output_tensors.at(1); // (1,?)
-  ort::Value &scores = output_tensors.at(2);  // (1,?)
-  ort::Value &nums = output_tensors.at(3); // (1,) float32
+  Ort::Value &bboxes = output_tensors.at(0); // (1,?,4)
+  Ort::Value &labels = output_tensors.at(1); // (1,?)
+  Ort::Value &scores = output_tensors.at(2);  // (1,?)
+  Ort::Value &nums = output_tensors.at(3); // (1,) float32
 
   auto num_selected = static_cast<unsigned int>(nums.At<float>({0}));
 

@@ -9,7 +9,7 @@
 
 namespace ortcv
 {
-  class SubPixelCNN : public BasicOrtHandler
+  class LITEHUB_EXPORTS SubPixelCNN : public BasicOrtHandler
   {
   public:
     explicit SubPixelCNN(const std::string &_onnx_path, unsigned int _num_threads = 1) :
@@ -19,7 +19,7 @@ namespace ortcv
     ~SubPixelCNN() override = default;
 
   private:
-    ort::Value transform(const cv::Mat &mat) override;
+    Ort::Value transform(const cv::Mat &mat) override;
 
   public:
     void detect(const cv::Mat &mat, types::SuperResolutionContent &super_resolution_content);

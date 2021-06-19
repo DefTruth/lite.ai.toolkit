@@ -7,7 +7,7 @@
 
 using ortcv::EmotionFerPlus;
 
-ort::Value EmotionFerPlus::transform(const cv::Mat &mat)
+Ort::Value EmotionFerPlus::transform(const cv::Mat &mat)
 {
   cv::Mat canva = mat.clone();
   cv::resize(canva, canva, cv::Size(input_node_dims.at(3),
@@ -24,13 +24,13 @@ void EmotionFerPlus::detect(const cv::Mat &mat, types::Emotions &emotions)
 {
   if (mat.empty()) return;
   // 1. make input tensor
-  ort::Value input_tensor = this->transform(mat);
+  Ort::Value input_tensor = this->transform(mat);
   // 2. inference
   auto output_tensors = ort_session->Run(
-      ort::RunOptions{nullptr}, input_node_names.data(),
+      Ort::RunOptions{nullptr}, input_node_names.data(),
       &input_tensor, 1, output_node_names.data(), num_outputs
   );
-  ort::Value &emotion_logits = output_tensors.at(0); // (1,8)
+  Ort::Value &emotion_logits = output_tensors.at(0); // (1,8)
   auto emotion_dims = output_node_dims.at(0);
   unsigned int pred_label = 0;
   const unsigned int num_emotions = emotion_dims.at(1); // 8

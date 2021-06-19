@@ -6,7 +6,7 @@
 
 using ortcv::GenderGoogleNet;
 
-ort::Value GenderGoogleNet::transform(const cv::Mat &mat)
+Ort::Value GenderGoogleNet::transform(const cv::Mat &mat)
 {
   cv::Mat canva = mat.clone();
   cv::cvtColor(canva, canva, cv::COLOR_BGR2RGB);
@@ -24,13 +24,13 @@ void GenderGoogleNet::detect(const cv::Mat &mat, types::Gender &gender)
 {
   if (mat.empty()) return;
   // 1. make input tensor
-  ort::Value input_tensor = this->transform(mat);
+  Ort::Value input_tensor = this->transform(mat);
   // 2. inference.
   auto output_tensors = ort_session->Run(
-      ort::RunOptions{nullptr}, input_node_names.data(),
+      Ort::RunOptions{nullptr}, input_node_names.data(),
       &input_tensor, 1, output_node_names.data(), num_outputs
   );
-  ort::Value &gender_logits = output_tensors.at(0); // (1,2)
+  Ort::Value &gender_logits = output_tensors.at(0); // (1,2)
   auto gender_dims = output_node_dims.at(0);
   const unsigned int num_genders = gender_dims.at(1); // 2
   unsigned int pred_gender = 0;

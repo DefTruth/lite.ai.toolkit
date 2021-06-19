@@ -32,9 +32,14 @@
 
 namespace lite
 {
-  // alias cvx, different with cv(opencv)
+  // alias cv, different with cv(opencv)
   namespace cvx
   {
+#ifdef BACKEND_ONNXRUNTIME
+    namespace utils = ortcv::utils;
+    namespace types = ortcv::types;
+#endif
+
 #ifdef BACKEND_ONNXRUNTIME
     typedef ortcv::AgeGoogleNet _AgeGoogleNet;
     typedef ortcv::ArcFaceResNet _ArcFaceResNet;
@@ -53,10 +58,17 @@ namespace lite
     typedef ortcv::YoloV4 _YoloV4;
     typedef ortcv::YoloV5 _YoloV5;
 #endif
-    // object detection & other detect-like models.
+
+    // 1. classification
+    namespace classification
+    {
+
+    }
+
+    // 2. object detection & other detect-like models.
     namespace detection
     {
-      // general object detection
+      // 2.1 general object detection
       namespace general
       {
 #ifdef BACKEND_ONNXRUNTIME
@@ -66,52 +78,68 @@ namespace lite
         typedef _TinyYoloV3 TinyYoloV3;
 #endif
       }
-      // face detection & facial attributes detection
+      // 2.2. face detection & 2.3 facial attributes detection
       namespace face
       {
 #ifdef BACKEND_ONNXRUNTIME
         typedef _UltraFace UltraFace;  // face detection.
         typedef _PFLD PFLD; // facial landmarks detection.
-        typedef _AgeGoogleNet AgeGoogleNet;
-        typedef _ArcFaceResNet ArcFaceResNet;
-        typedef _AgeGoogleNet AgeGoogleNet;
-        typedef _GenderGoogleNet GenderGoogleNet;
-        typedef _VGG16Age VGG16Age;
-        typedef _VGG16Gender VGG16Gender;
-        typedef _EmotionFerPlus EmotionFerPlus;
-        typedef _SSRNet SSRNet;
+        typedef _AgeGoogleNet AgeGoogleNet; // age estimation
+        typedef _ArcFaceResNet ArcFaceResNet; // test failed ! don't use!
+        typedef _GenderGoogleNet GenderGoogleNet; // gender estimation
+        typedef _VGG16Age VGG16Age; // age estimation
+        typedef _VGG16Gender VGG16Gender; // gender estimation
+        typedef _EmotionFerPlus EmotionFerPlus; // emotion detection
+        typedef _SSRNet SSRNet; // age estimation
 #endif
       }
     }
-    // classification
-    namespace classification
+    // 3. face recognition
+    namespace faceid
     {
 
     }
-    // segmentation
+    // 4. segmentation
     namespace segmentation
     {
 
     }
-    // colorization
+    // 5. reid
+    namespace reid
+    {
+
+    }
+
+    // 6. ocr
+    namespace ocr
+    {
+
+    }
+    // 7. neural rendering
+    namespace render
+    {
+
+    }
+    // 8. style transfer
+    namespace style
+    {
+#ifdef BACKEND_ONNXRUNTIME
+      typedef _FastStyleTransfer FastStyleTransfer;
+#endif
+    }
+
+    // 9. colorization
     namespace colorization
     {
 #ifdef BACKEND_ONNXRUNTIME
       typedef _Colorizer Colorizer;
 #endif
     }
-    // super resolution
+    // 10. super resolution
     namespace resolution
     {
 #ifdef BACKEND_ONNXRUNTIME
       typedef _SubPixelCNN SubPixelCNN;
-#endif
-    }
-    // style transfer
-    namespace style
-    {
-#ifdef BACKEND_ONNXRUNTIME
-      typedef _FastStyleTransfer FastStyleTransfer;
 #endif
     }
 

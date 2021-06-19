@@ -9,20 +9,21 @@
 
 namespace ortcv
 {
-  class FCNResNet101
+  class LITEHUB_EXPORTS FCNResNet101
   {
   private:
-    ort::Env ort_env;
-    ort::Session *ort_session = nullptr;
+    Ort::Env ort_env;
+    Ort::Session *ort_session = nullptr;
     std::vector<const char *> input_node_names;
     std::vector<std::vector<int64_t>> dynamic_input_node_dims; // >=1 inputs.
     unsigned int dynamic_input_height = 512; // init only, will change according to input mat.
     unsigned int dynamic_input_width = 512; // init only, will change according to input mat.
     unsigned int dynamic_input_tensor_size = 1; // init only, will change according to input mat.
-    ort::MemoryInfo memory_info_handler = ort::MemoryInfo::CreateCpu(
+    Ort::MemoryInfo memory_info_handler = Ort::MemoryInfo::CreateCpu(
         OrtArenaAllocator, OrtMemTypeDefault);
     std::vector<const char *> output_node_names;
-    const char *onnx_path = nullptr;
+    const LITEHUBCHAR *onnx_path = nullptr;
+    const char *log_id = nullptr;
     unsigned int num_outputs = 1;
     unsigned int num_inputs = 1;
     std::vector<float> dynamic_input_values_handler;
@@ -46,7 +47,7 @@ namespace ortcv
     }; // 20 classes
 
   private:
-    ort::Value transform(const cv::Mat &mat);
+    Ort::Value transform(const cv::Mat &mat);
 
     void print_debug_string();
 

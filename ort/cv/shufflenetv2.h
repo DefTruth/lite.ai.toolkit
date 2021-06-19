@@ -9,7 +9,7 @@
 
 namespace ortcv
 {
-  class ShuffleNetV2 : public BasicOrtHandler
+  class LITEHUB_EXPORTS ShuffleNetV2 : public BasicOrtHandler
   {
   public:
     explicit ShuffleNetV2(const std::string &_onnx_path, unsigned int _num_threads = 1) :
@@ -23,7 +23,7 @@ namespace ortcv
     const float scale_vals[3] = {1.0 / 0.229f, 1.0 / 0.224f, 1.0 / 0.225f};
 
   private:
-    ort::Value transform(const cv::Mat &mat) override;
+    Ort::Value transform(const cv::Mat &mat) override;
 
   public:
     void detect(const cv::Mat &mat, types::ImageNetContent &content, unsigned int top_k = 5);

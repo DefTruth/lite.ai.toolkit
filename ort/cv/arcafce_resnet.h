@@ -9,7 +9,7 @@
 
 namespace ortcv
 {
-  class ArcFaceResNet : public BasicOrtHandler
+  class LITEHUB_EXPORTS ArcFaceResNet : public BasicOrtHandler
   {
   public:
     explicit ArcFaceResNet(const std::string &_onnx_path, unsigned int _num_threads = 1) :
@@ -19,7 +19,7 @@ namespace ortcv
     ~ArcFaceResNet() override = default;
 
   private:
-    ort::Value transform(const cv::Mat &mat) override;
+    Ort::Value transform(const cv::Mat &mat) override;
 
   public:
     void detect(const cv::Mat &mat, types::FaceContent &face_content);

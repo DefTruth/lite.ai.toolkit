@@ -9,7 +9,7 @@
 
 namespace ortcv
 {
-  class GenderGoogleNet : public BasicOrtHandler
+  class LITEHUB_EXPORTS GenderGoogleNet : public BasicOrtHandler
   {
   private:
     const float mean_val[3] = {104.0f, 117.0f, 123.0f};
@@ -23,7 +23,7 @@ namespace ortcv
     ~GenderGoogleNet() override = default;
 
   private:
-    ort::Value transform(const cv::Mat &mat) override;
+    Ort::Value transform(const cv::Mat &mat) override;
 
   public:
     void detect(const cv::Mat &mat, types::Gender &gender);

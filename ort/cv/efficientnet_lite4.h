@@ -9,7 +9,7 @@
 
 namespace ortcv
 {
-  class EfficientNetLite4 : public BasicOrtHandler
+  class LITEHUB_EXPORTS EfficientNetLite4 : public BasicOrtHandler
   {
   public:
     explicit EfficientNetLite4(const std::string &_onnx_path, unsigned int _num_threads = 1) :
@@ -23,7 +23,7 @@ namespace ortcv
     static constexpr const float scale_val = 1.f / 128.f;
 
   private:
-    ort::Value transform(const cv::Mat &mat) override;
+    Ort::Value transform(const cv::Mat &mat) override;
 
   public:
     void detect(const cv::Mat &mat, types::ImageNetContent &content, unsigned int top_k = 5);

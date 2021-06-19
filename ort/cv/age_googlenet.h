@@ -9,7 +9,7 @@
 
 namespace ortcv
 {
-  class AgeGoogleNet : public BasicOrtHandler
+  class LITEHUB_EXPORTS AgeGoogleNet : public BasicOrtHandler
   {
   private:
     const float mean_val[3] = {104.0f, 117.0f, 123.0f};
@@ -33,7 +33,7 @@ namespace ortcv
     ~AgeGoogleNet() override = default;
 
   private:
-    ort::Value transform(const cv::Mat &mat) override;
+    Ort::Value transform(const cv::Mat &mat) override;
 
   public:
     void detect(const cv::Mat &mat, types::Age &age);

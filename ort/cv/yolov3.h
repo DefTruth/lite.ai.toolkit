@@ -9,18 +9,19 @@
 
 namespace ortcv
 {
-  class YoloV3
+  class LITEHUB_EXPORTS YoloV3
   {
   private:
-    ort::Env ort_env;
-    ort::Session *ort_session = nullptr;
+    Ort::Env ort_env;
+    Ort::Session *ort_session = nullptr;
     std::vector<const char *> input_node_names;
     std::vector<std::vector<int64_t>> input_node_dims; // >=1 inputs.
     std::vector<size_t> input_tensor_sizes;
-    ort::MemoryInfo memory_info_handler = ort::MemoryInfo::CreateCpu(
+    Ort::MemoryInfo memory_info_handler = Ort::MemoryInfo::CreateCpu(
         OrtArenaAllocator, OrtMemTypeDefault);
     std::vector<const char *> output_node_names;
-    const char *onnx_path = nullptr;
+    const LITEHUBCHAR *onnx_path = nullptr;
+    const char *log_id = nullptr;
     unsigned int num_outputs = 1;
     unsigned int num_inputs = 1;
     std::vector<float> input_1_values_handler;
@@ -57,10 +58,10 @@ namespace ortcv
     };
 
   private:
-    std::vector<ort::Value> transform(const std::vector<cv::Mat> &mats);
+    std::vector<Ort::Value> transform(const std::vector<cv::Mat> &mats);
 
     void generate_bboxes(std::vector<types::Boxf> &bbox_collection,
-                         std::vector<ort::Value> &output_tensors); // rescale & exclude
+                         std::vector<Ort::Value> &output_tensors); // rescale & exclude
 
     void print_debug_string();
 

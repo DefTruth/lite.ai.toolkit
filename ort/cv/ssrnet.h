@@ -9,7 +9,7 @@
 
 namespace ortcv
 {
-  class SSRNet : public BasicOrtHandler
+  class LITEHUB_EXPORTS SSRNet : public BasicOrtHandler
   {
   private:
     const float mean_val[3] = {0.485f, 0.456f, 0.406f};
@@ -23,7 +23,7 @@ namespace ortcv
     ~SSRNet() override = default;
 
   private:
-    ort::Value transform(const cv::Mat &mat) override;
+    Ort::Value transform(const cv::Mat &mat) override;
 
   public:
     void detect(const cv::Mat &mat, types::Age &age);

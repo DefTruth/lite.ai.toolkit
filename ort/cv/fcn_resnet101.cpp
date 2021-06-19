@@ -8,17 +8,24 @@
 using ortcv::FCNResNet101;
 
 FCNResNet101::FCNResNet101(const std::string &_onnx_path, unsigned int _num_threads) :
-    onnx_path(_onnx_path.data()), num_threads(_num_threads)
+    log_id(_onnx_path.data()), num_threads(_num_threads)
 {
-  ort_env = ort::Env(ORT_LOGGING_LEVEL_ERROR, onnx_path);
+#ifdef LITEHUB_WIN32
+  std::wstring _w_onnx_path(ortcv::utils::to_wstring(_onnx_path));
+  onnx_path = _w_onnx_path.data();
+#else
+  onnx_path = _onnx_path.data();
+#endif
+  ort_env = Ort::Env(ORT_LOGGING_LEVEL_ERROR, log_id);
   // 0. session options
-  ort::SessionOptions session_options;
+  Ort::SessionOptions session_options;
   session_options.SetIntraOpNumThreads(num_threads);
-  session_options.SetGraphOptimizationLevel(GraphOptimizationLevel::ORT_ENABLE_EXTENDED);
+  session_options.SetGraphOptimizationLevel(
+      GraphOptimizationLevel::ORT_ENABLE_EXTENDED);
   session_options.SetLogSeverityLevel(4);
   // 1. session
-  ort_session = new ort::Session(ort_env, onnx_path, session_options);
-  ort::AllocatorWithDefaultOptions allocator;
+  ort_session = new Ort::Session(ort_env, onnx_path, session_options);
+  Ort::AllocatorWithDefaultOptions allocator;
   // 2. input name & input dims
   input_node_names.resize(num_inputs); // num_inputs=1
   input_node_names[0] = ort_session->GetInputName(0, allocator);
@@ -57,7 +64,7 @@ void FCNResNet101::print_debug_string()
     std::cout << "Dynamic Output " << i << ": " << output_node_names[i] << std::endl;
 }
 
-ort::Value FCNResNet101::transform(const cv::Mat &mat)
+Ort::Value FCNResNet101::transform(const cv::Mat &mat)
 {
   cv::Mat canvas = mat.clone();
   const unsigned int img_height = mat.rows;
@@ -87,15 +94,15 @@ void FCNResNet101::detect(const cv::Mat &mat, types::SegmentContent &content)
 {
   if (mat.empty()) return;
   // 1. make input tensor
-  ort::Value input_tensor = this->transform(mat);
+  Ort::Value input_tensor = this->transform(mat);
   // 2. inference out(scores) (1,21=1+20,h,w) pixel to pixel
   auto output_tensors = ort_session->Run(
-      ort::RunOptions{nullptr}, input_node_names.data(),
+      Ort::RunOptions{nullptr}, input_node_names.data(),
       &input_tensor, num_inputs, output_node_names.data(),
       num_outputs
   );
   // 3. post process.
-  ort::Value &scores = output_tensors.at(0); // (1,21,h,w)
+  Ort::Value &scores = output_tensors.at(0); // (1,21,h,w)
   auto scores_dims = scores.GetTypeInfo().GetTensorTypeAndShapeInfo().GetShape();
   const unsigned int output_classes = scores_dims.at(1);
   const unsigned int output_height = scores_dims.at(2);

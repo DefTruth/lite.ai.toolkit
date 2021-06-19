@@ -7,7 +7,7 @@
 
 using ortcv::YoloV5;
 
-ort::Value YoloV5::transform(const cv::Mat &mat)
+Ort::Value YoloV5::transform(const cv::Mat &mat)
 {
   cv::Mat canva = mat.clone();
   cv::cvtColor(canva, canva, cv::COLOR_BGR2RGB);
@@ -32,10 +32,10 @@ void YoloV5::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes
   float img_width = static_cast<float>(mat.cols);
 
   // 1. make input tensor
-  ort::Value input_tensor = this->transform(mat);
+  Ort::Value input_tensor = this->transform(mat);
   // 2. inference scores & boxes.
   auto output_tensors = ort_session->Run(
-      ort::RunOptions{nullptr}, input_node_names.data(),
+      Ort::RunOptions{nullptr}, input_node_names.data(),
       &input_tensor, 1, output_node_names.data(), num_outputs
   );
   // 3. rescale & exclude.
@@ -46,12 +46,12 @@ void YoloV5::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes
 }
 
 void YoloV5::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
-                             std::vector<ort::Value> &output_tensors,
+                             std::vector<Ort::Value> &output_tensors,
                              float score_threshold, float img_height,
                              float img_width)
 {
 
-  ort::Value &pred = output_tensors.at(0); // (1,n,85=5+80=cxcy+cwch+obj_conf+cls_conf)
+  Ort::Value &pred = output_tensors.at(0); // (1,n,85=5+80=cxcy+cwch+obj_conf+cls_conf)
   auto pred_dims = output_node_dims.at(0); // (1,n,85)
   const unsigned int num_anchors = pred_dims.at(1); // n = ?
   const unsigned int num_classes = pred_dims.at(2) - 5;

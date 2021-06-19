@@ -7,7 +7,7 @@
 
 using ortcv::UltraFace;
 
-ort::Value UltraFace::transform(const cv::Mat &mat)
+Ort::Value UltraFace::transform(const cv::Mat &mat)
 {
 
   cv::Mat canva = mat.clone();
@@ -32,10 +32,10 @@ void UltraFace::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_bo
   float img_width = static_cast<float>(mat.cols);
 
   // 1. make input tensor
-  ort::Value input_tensor = this->transform(mat);
+  Ort::Value input_tensor = this->transform(mat);
   // 2. inference scores & boxes.
   auto output_tensors = ort_session->Run(
-      ort::RunOptions{nullptr}, input_node_names.data(),
+      Ort::RunOptions{nullptr}, input_node_names.data(),
       &input_tensor, 1, output_node_names.data(), num_outputs
   );
   // 3. rescale & exclude.
@@ -46,13 +46,13 @@ void UltraFace::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_bo
 }
 
 void UltraFace::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
-                                std::vector<ort::Value> &output_tensors,
+                                std::vector<Ort::Value> &output_tensors,
                                 float score_threshold, float img_height,
                                 float img_width)
 {
 
-  ort::Value &scores = output_tensors.at(0);
-  ort::Value &boxes = output_tensors.at(1);
+  Ort::Value &scores = output_tensors.at(0);
+  Ort::Value &boxes = output_tensors.at(1);
   auto scores_dims = output_node_dims.at(0); // (1,n,2)
   auto boxes_dims = output_node_names.at(1); // (1,n,4) x1,y1,x2,y2
   const unsigned int num_anchors = scores_dims.at(1); // n = 17640 (640x480)

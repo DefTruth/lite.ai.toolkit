@@ -5,6 +5,28 @@
 #include "ort_utils.h"
 
 //*************************************** ortcv::utils **********************************************//
+std::string ortcv::utils::to_string(const std::wstring &wstr)
+{
+  unsigned len = wstr.size() * 4;
+  setlocale(LC_CTYPE, "");
+  char *p = new char[len];
+  wcstombs(p, wstr.c_str(), len);
+  std::string str(p);
+  delete[] p;
+  return str;
+}
+
+std::wstring ortcv::utils::to_wstring(const std::string &str)
+{
+  unsigned len = str.size() * 2;
+  setlocale(LC_CTYPE, "");
+  wchar_t *p = new wchar_t[len];
+  mbstowcs(p, str.c_str(), len);
+  std::wstring wstr(p);
+  delete[] p;
+  return wstr;
+}
+
 // reference: https://github.com/DefTruth/headpose-fsanet-pytorch/blob/master/src/utils.py
 void ortcv::utils::draw_axis_inplace(cv::Mat &mat_inplace,
                                      const types::EulerAngles &euler_angles,
@@ -396,9 +418,9 @@ void ortcv::utils::offset_nms(std::vector<types::Boxf> &input, std::vector<types
 
 }
 
-ort::Value ortcv::utils::transform::create_tensor(const cv::Mat &mat,
+Ort::Value ortcv::utils::transform::create_tensor(const cv::Mat &mat,
                                                   const std::vector<int64_t> &tensor_dims,
-                                                  const ort::MemoryInfo &memory_info_handler,
+                                                  const Ort::MemoryInfo &memory_info_handler,
                                                   std::vector<float> &tensor_value_handler,
                                                   unsigned int data_format)
 throw(std::runtime_error)
@@ -433,18 +455,12 @@ throw(std::runtime_error)
 
     std::vector<cv::Mat> mat_channels;
     cv::split(resize_mat_ref, mat_channels);
-    std::vector<float> channel_values;
-    channel_values.resize(target_height * target_width);
+    // CXHXW
     for (unsigned int i = 0; i < channels; ++i)
-    {
-      channel_values.clear();
-      channel_values = mat_channels.at(i).reshape(1, 1); // flatten
       std::memcpy(tensor_value_handler.data() + i * (target_height * target_width),
-                  channel_values.data(),
-                  target_height * target_width * sizeof(float)); // CXHXW
-    }
+                  mat_channels.at(i).data,target_height * target_width * sizeof(float));
 
-    return ort::Value::CreateTensor<float>(memory_info_handler, tensor_value_handler.data(),
+    return Ort::Value::CreateTensor<float>(memory_info_handler, tensor_value_handler.data(),
                                            target_tensor_size, tensor_dims.data(),
                                            tensor_dims.size());
   }
@@ -464,7 +480,7 @@ throw(std::runtime_error)
 
   std::memcpy(tensor_value_handler.data(), resize_mat_ref.data, target_tensor_size * sizeof(float));
 
-  return ort::Value::CreateTensor<float>(memory_info_handler, tensor_value_handler.data(),
+  return Ort::Value::CreateTensor<float>(memory_info_handler, tensor_value_handler.data(),
                                          target_tensor_size, tensor_dims.data(),
                                          tensor_dims.size());
 }

@@ -9,7 +9,7 @@
 
 namespace ortcv
 {
-  class VGG16Gender : public BasicOrtHandler
+  class LITEHUB_EXPORTS VGG16Gender : public BasicOrtHandler
   {
   private:
     const char *gender_texts[2] = {"female", "male"};
@@ -22,7 +22,7 @@ namespace ortcv
     ~VGG16Gender() override = default;
 
   private:
-    ort::Value transform(const cv::Mat &mat) override;
+    Ort::Value transform(const cv::Mat &mat) override;
 
   public:
     void detect(const cv::Mat &mat, types::Gender &gender);

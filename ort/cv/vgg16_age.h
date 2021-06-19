@@ -9,7 +9,7 @@
 
 namespace ortcv
 {
-  class VGG16Age : public BasicOrtHandler
+  class LITEHUB_EXPORTS VGG16Age : public BasicOrtHandler
   {
   public:
     explicit VGG16Age(const std::string &_onnx_path, unsigned int _num_threads = 1) :
@@ -19,7 +19,7 @@ namespace ortcv
     ~VGG16Age() override = default;
 
   private:
-    ort::Value transform(const cv::Mat &mat) override;
+    Ort::Value transform(const cv::Mat &mat) override;
 
   public:
     void detect(const cv::Mat &mat, types::Age &age);

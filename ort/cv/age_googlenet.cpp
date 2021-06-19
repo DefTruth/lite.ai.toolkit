@@ -6,7 +6,7 @@
 
 using ortcv::AgeGoogleNet;
 
-ort::Value AgeGoogleNet::transform(const cv::Mat &mat)
+Ort::Value AgeGoogleNet::transform(const cv::Mat &mat)
 {
   cv::Mat canva = mat.clone();
   cv::resize(canva, canva, cv::Size(input_node_dims.at(3),
@@ -24,13 +24,13 @@ void AgeGoogleNet::detect(const cv::Mat &mat, types::Age &age)
 {
   if (mat.empty()) return;
   // 1. make input tensor
-  ort::Value input_tensor = this->transform(mat);
+  Ort::Value input_tensor = this->transform(mat);
   // 2. inference
   auto output_tensors = ort_session->Run(
-      ort::RunOptions{nullptr}, input_node_names.data(),
+      Ort::RunOptions{nullptr}, input_node_names.data(),
       &input_tensor, 1, output_node_names.data(), num_outputs
   );
-  ort::Value &age_logits = output_tensors.at(0); // (1,8)
+  Ort::Value &age_logits = output_tensors.at(0); // (1,8)
   auto age_dims = output_node_dims.at(0);
   unsigned int interval = 0;
   const unsigned int num_intervals = age_dims.at(1); // 8

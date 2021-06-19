@@ -10,7 +10,7 @@
 namespace ortcv
 {
 
-  class FSANet : public BasicOrtHandler
+  class LITEHUB_EXPORTS FSANet : public BasicOrtHandler
   {
 
   private:
@@ -26,7 +26,7 @@ namespace ortcv
     ~FSANet() override = default; // override
 
   private:
-    ort::Value transform(const cv::Mat &mat) override; //  padding & resize & normalize.
+    Ort::Value transform(const cv::Mat &mat) override; //  padding & resize & normalize.
 
   public:
     void detect(const cv::Mat &mat, types::EulerAngles &euler_angles);

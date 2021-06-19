@@ -9,7 +9,7 @@
 
 namespace ortcv
 {
-  class YoloV4 : public BasicOrtHandler
+  class LITEHUB_EXPORTS YoloV4 : public BasicOrtHandler
   {
   public:
     explicit YoloV4(const std::string &_onnx_path, unsigned int _num_threads = 1) :
@@ -33,10 +33,10 @@ namespace ortcv
     static constexpr const unsigned int max_nms = 30000;
 
   private:
-    ort::Value transform(const cv::Mat &mat) override;
+    Ort::Value transform(const cv::Mat &mat) override;
 
     void generate_bboxes(std::vector<types::Boxf> &bbox_collection,
-                         std::vector<ort::Value> &output_tensors,
+                         std::vector<Ort::Value> &output_tensors,
                          float score_threshold, float img_height,
                          float img_width); // rescale & exclude
     void nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,

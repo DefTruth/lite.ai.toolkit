@@ -7,7 +7,7 @@
 
 using ortcv::PFLD;
 
-ort::Value PFLD::transform(const cv::Mat &mat)
+Ort::Value PFLD::transform(const cv::Mat &mat)
 {
   cv::Mat canva = mat.clone();
   cv::resize(canva, canva, cv::Size(input_node_dims.at(3),
@@ -28,14 +28,14 @@ void PFLD::detect(const cv::Mat &mat, types::Landmarks &landmarks)
   float img_width = static_cast<float>(mat.cols);
 
   // 1. make input tensor
-  ort::Value input_tensor = this->transform(mat);
+  Ort::Value input_tensor = this->transform(mat);
   // 2. inference
   auto output_tensors = ort_session->Run(
-      ort::RunOptions{nullptr}, input_node_names.data(),
+      Ort::RunOptions{nullptr}, input_node_names.data(),
       &input_tensor, 1, output_node_names.data(), num_outputs
   );
   // 3. fetch landmarks.
-  ort::Value &_landmarks = output_tensors.at(1); // (1,106*2)
+  Ort::Value &_landmarks = output_tensors.at(1); // (1,106*2)
   auto landmrk_dims = output_node_dims.at(1);
   const unsigned int num_landmarks = landmrk_dims.at(1);
 

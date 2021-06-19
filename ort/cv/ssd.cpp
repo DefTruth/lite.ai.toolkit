@@ -7,7 +7,7 @@
 
 using ortcv::SSD;
 
-ort::Value SSD::transform(const cv::Mat &mat)
+Ort::Value SSD::transform(const cv::Mat &mat)
 {
   cv::Mat canva = mat.clone();
   cv::cvtColor(canva, canva, cv::COLOR_BGR2RGB);
@@ -31,10 +31,10 @@ void SSD::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
   float img_width = static_cast<float>(mat.cols);
 
   // 1. make input tensor
-  ort::Value input_tensor = this->transform(mat);
+  Ort::Value input_tensor = this->transform(mat);
   // 2. inference scores & boxes.
   auto output_tensors = ort_session->Run(
-      ort::RunOptions{nullptr}, input_node_names.data(),
+      Ort::RunOptions{nullptr}, input_node_names.data(),
       &input_tensor, 1, output_node_names.data(), num_outputs
   );
   // 3. rescale & exclude.
@@ -45,13 +45,13 @@ void SSD::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 }
 
 void SSD::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
-                          std::vector<ort::Value> &output_tensors,
+                          std::vector<Ort::Value> &output_tensors,
                           float score_threshold, float img_height,
                           float img_width)
 {
-  ort::Value &bboxes = output_tensors.at(0); // (1,n,4)
-  ort::Value &labels = output_tensors.at(1); // (1,n) bg+cls=1+80
-  ort::Value &scores = output_tensors.at(2); // (1,n) n is dynamic
+  Ort::Value &bboxes = output_tensors.at(0); // (1,n,4)
+  Ort::Value &labels = output_tensors.at(1); // (1,n) bg+cls=1+80
+  Ort::Value &scores = output_tensors.at(2); // (1,n) n is dynamic
   auto bboxes_dims = bboxes.GetTypeInfo().GetTensorTypeAndShapeInfo().GetShape();
   const unsigned int num_anchors = bboxes_dims.at(1);
 

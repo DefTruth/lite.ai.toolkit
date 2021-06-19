@@ -10,18 +10,25 @@ using ortcv::TinyYoloV3;
 // tiny-yolov3 is an multi-inputs & multi-outputs & dynamic shape
 // (dynamic: batch,input_height,input_width)
 TinyYoloV3::TinyYoloV3(const std::string &_onnx_path, unsigned int _num_threads) :
-    onnx_path(_onnx_path.data()), num_threads(_num_threads)
+    log_id(_onnx_path.data()), num_threads(_num_threads)
 {
-  ort_env = ort::Env(ORT_LOGGING_LEVEL_ERROR, onnx_path);
+#ifdef LITEHUB_WIN32
+  std::wstring _w_onnx_path(ortcv::utils::to_wstring(_onnx_path));
+  onnx_path = _w_onnx_path.data();
+#else
+  onnx_path = _onnx_path.data();
+#endif
+  ort_env = Ort::Env(ORT_LOGGING_LEVEL_ERROR, log_id);
   // 0. session options
-  ort::SessionOptions session_options;
+  Ort::SessionOptions session_options;
   session_options.SetIntraOpNumThreads(num_threads);
-  session_options.SetGraphOptimizationLevel(GraphOptimizationLevel::ORT_ENABLE_EXTENDED);
+  session_options.SetGraphOptimizationLevel(
+      GraphOptimizationLevel::ORT_ENABLE_EXTENDED);
   session_options.SetLogSeverityLevel(4);
   // 1. session
-  ort_session = new ort::Session(ort_env, onnx_path, session_options);
+  ort_session = new Ort::Session(ort_env, onnx_path, session_options);
 
-  ort::AllocatorWithDefaultOptions allocator;
+  Ort::AllocatorWithDefaultOptions allocator;
   // 2. input name & input dims
   num_inputs = ort_session->GetInputCount();
   input_node_names.resize(num_inputs);
@@ -65,7 +72,7 @@ void TinyYoloV3::print_debug_string()
     std::cout << "Dynamic Output " << i << ": " << output_node_names[i] << std::endl;
 }
 
-std::vector<ort::Value> TinyYoloV3::transform(const std::vector<cv::Mat> &mats)
+std::vector<Ort::Value> TinyYoloV3::transform(const std::vector<cv::Mat> &mats)
 {
   cv::Mat canvas = mats.at(0).clone();  // (h,w,3) uint8 mats contains one mat only.
   // multi inputs: input_1 image_shape
@@ -94,7 +101,7 @@ std::vector<ort::Value> TinyYoloV3::transform(const std::vector<cv::Mat> &mats)
   cv::Rect roi(x1, y1, nw, nh);
   canvas.convertTo(canvas_pad(roi), CV_8UC3); // padding
 
-  std::vector<ort::Value> input_tensors;
+  std::vector<Ort::Value> input_tensors;
   // make tensor of input_1 & image_shape
   ortcv::utils::transform::normalize_inplace(canvas_pad, mean_val, scale_val); // float32 (0.,1.)
   input_tensors.emplace_back(ortcv::utils::transform::create_tensor(
@@ -103,7 +110,7 @@ std::vector<ort::Value> TinyYoloV3::transform(const std::vector<cv::Mat> &mats)
   )); // input_1
   image_shape_values_handler[0] = static_cast<float>(image_height);
   image_shape_values_handler[1] = static_cast<float>(image_width);
-  input_tensors.emplace_back(ort::Value::CreateTensor<float>(
+  input_tensors.emplace_back(Ort::Value::CreateTensor<float>(
       memory_info_handler, image_shape_values_handler.data(),
       input_tensor_sizes.at(1), image_shape_dims.data(),
       image_shape_dims.size())
@@ -118,11 +125,11 @@ void TinyYoloV3::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_b
   std::vector<cv::Mat> mats;
   mats.push_back(mat);
   // 1. make input tensor
-  std::vector<ort::Value> input_tensors = this->transform(mats);
+  std::vector<Ort::Value> input_tensors = this->transform(mats);
   // 2. inference boxes & scores & indices.
 
   auto output_tensors = ort_session->Run(
-      ort::RunOptions{nullptr}, input_node_names.data(),
+      Ort::RunOptions{nullptr}, input_node_names.data(),
       input_tensors.data(), num_inputs, output_node_names.data(),
       num_outputs
   );
@@ -140,11 +147,11 @@ void TinyYoloV3::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_b
 
 
 void TinyYoloV3::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
-                                 std::vector<ort::Value> &output_tensors)
+                                 std::vector<Ort::Value> &output_tensors)
 {
-  ort::Value &boxes = output_tensors.at(0); // (1,'num_anchors',4) (1, 10647, 4)
-  ort::Value &scores = output_tensors.at(1); // (1,80,'num_anchors') (1, 80, 10647)
-  ort::Value &indices = output_tensors.at(2); // (1,num_selected,3)
+  Ort::Value &boxes = output_tensors.at(0); // (1,'num_anchors',4) (1, 10647, 4)
+  Ort::Value &scores = output_tensors.at(1); // (1,80,'num_anchors') (1, 80, 10647)
+  Ort::Value &indices = output_tensors.at(2); // (1,num_selected,3)
   auto indices_dims = indices.GetTypeInfo().GetTensorTypeAndShapeInfo().GetShape();
 
   const unsigned int num_selected = indices_dims.at(1);

@@ -8,7 +8,7 @@
 using ortcv::Colorizer;
 
 
-ort::Value Colorizer::transform(const cv::Mat &mat)
+Ort::Value Colorizer::transform(const cv::Mat &mat)
 {
   cv::Mat mat_l; // assume that input mat is L of Lab
   mat.convertTo(mat_l, CV_32FC1, 1.0f, 0.f); // (256,256,1) range (0.,100.)
@@ -45,12 +45,12 @@ void Colorizer::detect(const cv::Mat &mat, types::ColorizeContent &colorize_cont
   mat_orig_l = mats_orig_lab.at(0);
 
   // 1. make input tensor
-  ort::Value input_tensor = this->transform(mat_rs_l); // (1,1,256,256)
+  Ort::Value input_tensor = this->transform(mat_rs_l); // (1,1,256,256)
   auto output_tensors = ort_session->Run(
-      ort::RunOptions{nullptr}, input_node_names.data(),
+      Ort::RunOptions{nullptr}, input_node_names.data(),
       &input_tensor, 1, output_node_names.data(), num_outputs
   );
-  ort::Value &pred_ab_tensor = output_tensors.at(0); // (1,2,256,256)
+  Ort::Value &pred_ab_tensor = output_tensors.at(0); // (1,2,256,256)
   auto pred_dims = output_node_dims.at(0);
   const unsigned int rows = pred_dims.at(2); // H 256
   const unsigned int cols = pred_dims.at(3); // W 256

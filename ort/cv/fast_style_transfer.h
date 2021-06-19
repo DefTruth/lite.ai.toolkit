@@ -9,7 +9,7 @@
 
 namespace ortcv
 {
-  class FastStyleTransfer : public BasicOrtHandler
+  class LITEHUB_EXPORTS FastStyleTransfer : public BasicOrtHandler
   {
   public:
     explicit FastStyleTransfer(const std::string &_onnx_path, unsigned int _num_threads = 1) :
@@ -19,7 +19,7 @@ namespace ortcv
     ~FastStyleTransfer() override = default;
 
   private:
-    ort::Value transform(const cv::Mat &mat) override;
+    Ort::Value transform(const cv::Mat &mat) override;
 
   public:
     void detect(const cv::Mat &mat, types::StyleContent &style_content);

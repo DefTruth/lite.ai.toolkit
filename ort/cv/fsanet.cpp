@@ -7,7 +7,7 @@
 
 using ortcv::FSANet;
 
-ort::Value FSANet::transform(const cv::Mat &mat)
+Ort::Value FSANet::transform(const cv::Mat &mat)
 {
   cv::Mat canva;
   // 0. padding
@@ -33,10 +33,10 @@ ort::Value FSANet::transform(const cv::Mat &mat)
 void FSANet::detect(const cv::Mat &mat, types::EulerAngles &euler_angles)
 {
 
-  ort::Value input_tensor = this->transform(mat);
+  Ort::Value input_tensor = this->transform(mat);
 
   auto output_tensors = ort_session->Run(
-      ort::RunOptions{nullptr}, input_node_names.data(),
+      Ort::RunOptions{nullptr}, input_node_names.data(),
       &input_tensor, 1, output_node_names.data(), 1
   );
 

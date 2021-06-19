@@ -5,29 +5,29 @@
 #ifndef LITEHUB_ORT_CORE_ORT_HANDLER_H
 #define LITEHUB_ORT_CORE_ORT_HANDLER_H
 
-#include "__ort_core.h"
+#include "ort_config.h"
 #include "ort_types.h"
 
 // global
 namespace core
 {
   // single input & multi outputs. not support for dynamic shape currently.
-  // TODO: Support for dynamic shape, such as dynamic 'batch_size'
-  class BasicOrtHandler
+  class LITEHUB_EXPORTS BasicOrtHandler
   {
   protected:
-    ort::Env ort_env;
-    ort::Session *ort_session = nullptr;
+    Ort::Env ort_env;
+    Ort::Session *ort_session = nullptr;
     const char *input_name = nullptr;
     std::vector<const char *> input_node_names;
     std::vector<int64_t> input_node_dims; // 1 input only.
     std::size_t input_tensor_size = 1;
     std::vector<float> input_values_handler;
-    ort::MemoryInfo memory_info_handler = ort::MemoryInfo::CreateCpu(
+    Ort::MemoryInfo memory_info_handler = Ort::MemoryInfo::CreateCpu(
         OrtArenaAllocator, OrtMemTypeDefault);
     std::vector<const char *> output_node_names;
     std::vector<std::vector<int64_t>> output_node_dims; // >=1 outputs
-    const char *onnx_path = nullptr;
+    const LITEHUBCHAR *onnx_path = nullptr;
+    const char *log_id = nullptr;
     int num_outputs = 1;
 
   protected:
@@ -49,9 +49,7 @@ namespace core
     BasicOrtHandler &operator=(BasicOrtHandler &&) = delete;
 
   protected:
-    virtual ort::Value transform(const cv::Mat &mat) = 0;
-
-    // TODO: implemetation for BasicOrtHandler::detect_().
+    virtual Ort::Value transform(const cv::Mat &mat) = 0;
 
   private:
     void initialize_handler();
@@ -60,21 +58,21 @@ namespace core
   };
 
   // multi inputs & multi outputs. not support for dynamic shape currently.
-  // TODO: Support for dynamic shape, such as dynamic 'batch_size'
-  class BasicMultiOrtHandler
+  class LITEHUB_EXPORTS BasicMultiOrtHandler
   {
   protected:
-    ort::Env ort_env;
-    ort::Session *ort_session = nullptr;
+    Ort::Env ort_env;
+    Ort::Session *ort_session = nullptr;
     std::vector<const char *> input_node_names;
     std::vector<std::vector<int64_t>> input_node_dims; // >=1 inputs.
     std::vector<size_t> input_tensor_sizes;
     std::vector<std::vector<float>> input_values_handlers; // multi handlers.
-    ort::MemoryInfo memory_info_handler = ort::MemoryInfo::CreateCpu(
+    Ort::MemoryInfo memory_info_handler = Ort::MemoryInfo::CreateCpu(
         OrtArenaAllocator, OrtMemTypeDefault);
     std::vector<const char *> output_node_names;
     std::vector<std::vector<int64_t>> output_node_dims; // >=1 outputs
-    const char *onnx_path = nullptr;
+    const LITEHUBCHAR *onnx_path = nullptr;
+    const char *log_id = nullptr;
     int num_outputs = 1;
     int num_inputs = 1;
 
@@ -97,9 +95,7 @@ namespace core
     BasicMultiOrtHandler &operator=(BasicMultiOrtHandler &&) = delete;
 
   protected:
-    virtual std::vector<ort::Value> transform(const std::vector<cv::Mat> &mats) = 0;
-
-    // TODO: implemetation for BasicMultiOrtHandler::detect_().
+    virtual std::vector<Ort::Value> transform(const std::vector<cv::Mat> &mats) = 0;
 
   private:
     void initialize_handler();

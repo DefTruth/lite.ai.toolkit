@@ -9,18 +9,19 @@
 
 namespace ortcv
 {
-  class SSDMobileNetV1
+  class LITEHUB_EXPORTS SSDMobileNetV1
   {
   private:
-    ort::Env ort_env;
-    ort::Session *ort_session = nullptr;
+    Ort::Env ort_env;
+    Ort::Session *ort_session = nullptr;
     std::vector<const char *> input_node_names;
     std::vector<std::vector<int64_t>> input_node_dims; // >=1 inputs.
     std::vector<size_t> input_tensor_sizes;
-    ort::MemoryInfo memory_info_handler = ort::MemoryInfo::CreateCpu(
+    Ort::MemoryInfo memory_info_handler = Ort::MemoryInfo::CreateCpu(
         OrtArenaAllocator, OrtMemTypeDefault);
     std::vector<const char *> output_node_names;
-    const char *onnx_path = nullptr;
+    const LITEHUBCHAR *onnx_path = nullptr;
+    const char *log_id = nullptr;
     unsigned int num_outputs = 1;
     unsigned int num_inputs = 1;
     std::vector<uchar> input_values_handler; // uint8
@@ -56,9 +57,9 @@ namespace ortcv
     };
 
   private:
-    ort::Value transform(const cv::Mat &mat);//
+    Ort::Value transform(const cv::Mat &mat);//
     void generate_bboxes(std::vector<types::Boxf> &bbox_collection,
-                         std::vector<ort::Value> &output_tensors,
+                         std::vector<Ort::Value> &output_tensors,
                          float score_threshold, float img_height,
                          float img_width); // rescale & exclude
     void nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,

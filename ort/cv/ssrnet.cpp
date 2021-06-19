@@ -7,7 +7,7 @@
 
 using ortcv::SSRNet;
 
-ort::Value SSRNet::transform(const cv::Mat &mat)
+Ort::Value SSRNet::transform(const cv::Mat &mat)
 {
   cv::Mat canva = mat.clone();
   cv::resize(canva, canva, cv::Size(input_node_dims.at(3),
@@ -25,13 +25,13 @@ void SSRNet::detect(const cv::Mat &mat, types::Age &age)
 {
   if (mat.empty()) return;
   // 1. make input tensor
-  ort::Value input_tensor = this->transform(mat);
+  Ort::Value input_tensor = this->transform(mat);
   // 2. inference
   auto output_tensors = ort_session->Run(
-      ort::RunOptions{nullptr}, input_node_names.data(),
+      Ort::RunOptions{nullptr}, input_node_names.data(),
       &input_tensor, 1, output_node_names.data(), num_outputs
   );
-  ort::Value &age_tensor = output_tensors.at(0); // (1,)
+  Ort::Value &age_tensor = output_tensors.at(0); // (1,)
   const float pred_age = age_tensor.At<float>({0});
   const unsigned int interval_min = static_cast<int>(pred_age - 2.f > 0.f ? pred_age - 2.f : 0.f);
   const unsigned int interval_max = static_cast<int>(pred_age + 3.f < 100.f ? pred_age + 3.f : 100.f);

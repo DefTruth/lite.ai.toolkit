@@ -10,7 +10,7 @@
 namespace ortcv
 {
 
-  class PFLD : public BasicOrtHandler
+  class LITEHUB_EXPORTS PFLD : public BasicOrtHandler
   {
   private:
     static constexpr const float mean_val = 0.f;
@@ -24,7 +24,7 @@ namespace ortcv
     ~PFLD() override = default; // override
 
   private:
-    ort::Value transform(const cv::Mat &mat) override;
+    Ort::Value transform(const cv::Mat &mat) override;
 
   public:
     void detect(const cv::Mat &mat, types::Landmarks &landmarks);

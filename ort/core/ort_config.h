@@ -5,20 +5,20 @@
 #ifndef LITEHUB_ORT_CORE___ORT_CORE_H
 #define LITEHUB_ORT_CORE___ORT_CORE_H
 
+#include "ort_defs.h"
+
 #include <cmath>
 #include <vector>
 #include <cassert>
+#include <locale.h>
 #include <string>
-#include <iostream>
 #include <algorithm>
 #include <unordered_map>
 #include <unordered_set>
 #include "opencv2/opencv.hpp"
 #include "onnxruntime/core/session/onnxruntime_cxx_api.h"
 
-#define LITEORT_DEBUG 1
-
-namespace ort = Ort;
+// namespace ort = Ort;
 
 namespace core {}
 

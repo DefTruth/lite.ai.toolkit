@@ -10,7 +10,7 @@
 namespace ortcv
 {
 
-  class UltraFace : public BasicOrtHandler
+  class LITEHUB_EXPORTS UltraFace : public BasicOrtHandler
   {
 
   public:
@@ -29,10 +29,10 @@ namespace ortcv
     };
 
   private:
-    ort::Value transform(const cv::Mat &mat) override;
+    Ort::Value transform(const cv::Mat &mat) override;
 
     void generate_bboxes(std::vector<types::Boxf> &bbox_collection,
-                         std::vector<ort::Value> &output_tensors,
+                         std::vector<Ort::Value> &output_tensors,
                          float score_threshold, float img_height,
                          float img_width); // rescale & exclude
     void nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,

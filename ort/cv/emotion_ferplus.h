@@ -9,7 +9,7 @@
 
 namespace ortcv
 {
-  class EmotionFerPlus : public BasicOrtHandler
+  class LITEHUB_EXPORTS EmotionFerPlus : public BasicOrtHandler
   {
   private:
     const char *emotion_texts[8] = {
@@ -24,7 +24,7 @@ namespace ortcv
     ~EmotionFerPlus() override = default;
 
   private:
-    ort::Value transform(const cv::Mat &mat) override;
+    Ort::Value transform(const cv::Mat &mat) override;
 
   public:
     void detect(const cv::Mat &mat, types::Emotions &emotions);
