@@ -38,6 +38,15 @@ namespace ortcv
 
     ~YoloV3();
 
+  protected:
+    YoloV3(const YoloV3 &) = delete;
+
+    YoloV3(YoloV3 &&) = delete;
+
+    YoloV3 &operator=(const YoloV3 &) = delete;
+
+    YoloV3 &operator=(YoloV3 &&) = delete;
+
   private:
     static constexpr const float mean_val = 0.f;
     static constexpr const float scale_val = 1.0 / 255.f;

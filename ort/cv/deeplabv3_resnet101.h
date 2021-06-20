@@ -37,6 +37,15 @@ namespace ortcv
 
     ~DeepLabV3ResNet101();
 
+  protected:
+    DeepLabV3ResNet101(const DeepLabV3ResNet101 &) = delete;
+
+    DeepLabV3ResNet101(DeepLabV3ResNet101 &&) = delete;
+
+    DeepLabV3ResNet101 &operator=(const DeepLabV3ResNet101 &) = delete;
+
+    DeepLabV3ResNet101 &operator=(DeepLabV3ResNet101 &&) = delete;
+
   private:
     const float mean_vals[3] = {0.485f, 0.456f, 0.406f};
     const float scale_vals[3] = {1.f / 0.229f, 1.f / 0.224f, 1.f / 0.225f};

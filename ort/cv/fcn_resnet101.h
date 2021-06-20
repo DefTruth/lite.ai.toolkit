@@ -37,6 +37,15 @@ namespace ortcv
 
     ~FCNResNet101();
 
+  protected:
+    FCNResNet101(const FCNResNet101 &) = delete;
+
+    FCNResNet101(FCNResNet101 &&) = delete;
+
+    FCNResNet101 &operator=(const FCNResNet101 &) = delete;
+
+    FCNResNet101 &operator=(FCNResNet101 &&) = delete;
+
   private:
     const float mean_vals[3] = {0.485f, 0.456f, 0.406f};
     const float scale_vals[3] = {1.f / 0.229f, 1.f / 0.224f, 1.f / 0.225f};

@@ -38,6 +38,15 @@ namespace ortcv
 
     ~TinyYoloV3();
 
+  protected:
+    TinyYoloV3(const TinyYoloV3 &) = delete;
+
+    TinyYoloV3(TinyYoloV3 &&) = delete;
+
+    TinyYoloV3 &operator=(const TinyYoloV3 &) = delete;
+
+    TinyYoloV3 &operator=(TinyYoloV3 &&) = delete;
+
   private:
     static constexpr const float mean_val = 0.f;
     static constexpr const float scale_val = 1.0 / 255.f;

@@ -35,6 +35,15 @@ namespace ortcv
 
     ~SSDMobileNetV1();
 
+  protected:
+    SSDMobileNetV1(const SSDMobileNetV1 &) = delete;
+
+    SSDMobileNetV1(SSDMobileNetV1 &&) = delete;
+
+    SSDMobileNetV1 &operator=(const SSDMobileNetV1 &) = delete;
+
+    SSDMobileNetV1 &operator=(SSDMobileNetV1 &&) = delete;
+
   private:
     static constexpr const unsigned int input_height = 480;
     static constexpr const unsigned int input_width = 640;
