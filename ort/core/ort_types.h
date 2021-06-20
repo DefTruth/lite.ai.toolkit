@@ -69,8 +69,8 @@ namespace ortcv
           flag(false)
       { ::__assert_type<value_type, score_type>(); }
     }; // End BoundingBox.
-    // specific alias.
 
+    // specific alias.
     template class LITEHUB_EXPORTS BoundingBoxType<int, float>;
     template class LITEHUB_EXPORTS BoundingBoxType<float, float>;
     template class LITEHUB_EXPORTS BoundingBoxType<double, double>;
@@ -240,6 +240,9 @@ ortcv::types::BoundingBoxType<T1, T2>::convert_type() const
   other.x2 = static_cast<other_value_type>(x2);
   other.y2 = static_cast<other_value_type>(y2);
   other.score = static_cast<other_score_type>(score);
+  other.label_text = label_text;
+  other.label = label;
+  other.flag = flag;
   return other;
 }
 
