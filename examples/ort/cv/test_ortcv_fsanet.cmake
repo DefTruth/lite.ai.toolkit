@@ -8,8 +8,8 @@ if (APPLE)
 endif ()
 
 # 2. setup onnxruntime include
-include_directories(${ONNXRUNTIMR_INCLUDE_DIR})
-link_directories(${ONNXRUNTIMR_LIBRARY_DIR})
+include_directories(${ONNXRUNTIME_INCLUDE_DIR})
+link_directories(${ONNXRUNTIME_LIBRARY_DIR})
 
 # 3. will be include into CMakeLists.txt at examples/ort
 set(ORTCV_FSANET_SRCS
@@ -32,7 +32,7 @@ if (LITEHUB_COPY_BUILD)
     # to parent and sibling directories
     # CMAKE_SOURCE_DIR means the root path of top CMakeLists.txt
     # CMAKE_CURRENT_SOURCE_DIR the current path of current CMakeLists.txt
-    set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/build/liteort/bin)
+    set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/build/litehub/bin)
     message("=================================================================================")
     message("output binary [app: ortcv_fsanet] to ${EXECUTABLE_OUTPUT_PATH}")
     message("=================================================================================")

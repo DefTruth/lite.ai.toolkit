@@ -7,7 +7,8 @@
 
 #include "backend.h"
 
-#ifdef BACKEND_ONNXRUNTIME
+// ENABLE_ONNXRUNTIME
+#ifdef ENABLE_ONNXRUNTIME
 
 #include "ort/core/ort_core.h"
 #include "ort/core/ort_utils.h"
@@ -28,6 +29,10 @@
 #include "ort/cv/yolov4.h"
 #include "ort/cv/yolov5.h"
 
+#endif
+
+// ENABLE_MNN
+#ifdef ENABLE_MNN
 #endif
 
 namespace lite

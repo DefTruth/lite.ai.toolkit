@@ -14,15 +14,23 @@ set(LITEHUB_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 option(LITEHUB_THIRDPARTY "use third party libraies if exists" ON)
 option(LITEHUB_INSTALL_SDK "whether to install litehub sdk." OFF)  # don't make it ON !
 option(LITEHUB_COPY_BUILD "whether to copy the built libs to ./build directory." ON)
-
 option(LITEHUB_BUILD_LIB "whether to build shared|static libraries." ON)
 option(LITEHUB_BUILD_TEST "whether to build test examples" ON)
+option(LITEHUB_BUILD_TEST_SRCS "whether to build test examples from sources" ON)
+# engine backend -> config.h.in
+option(ENABLE_ONNXRUNTIME "whether to enable ONNXRuntime engine" ON)
+option(ENABLE_MNN "whether to enable MNN engine" OFF)
+option(ENABLE_NCNN "whether to enable NCNN engine" OFF)
+option(ENABLE_TNN "whether to enable TNN engine" OFF)
+option(BACKEND_ONNXRUNTIME "whether to set ONNXRuntime as the main backend of litehub" ON)
+option(BACKEND_MNN "whether to set MNN as the main backend of litehub" OFF)
+option(BACKEND_NCNN "whether to set NCNN as the main backend of litehub" OFF)
+option(BACKEND_TNN "whether to set TNN as the main backend of litehub" OFF)
 
 include_directories(${LITEHUB_ROOT_DIR})
 
 if (LITEHUB_BUILD_LIB)
-    add_subdirectory(ort)
-    add_subdirectory(ncnn)
+    include(litehub.cmake)
 endif()
 
 if (LITEHUB_BUILD_TEST)

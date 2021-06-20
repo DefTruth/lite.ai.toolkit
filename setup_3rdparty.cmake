@@ -1,20 +1,34 @@
-# 1. setup 3rd-party dependences
-message("########## Setting up 3rd-party dependences for: ${CMAKE_CURRENT_SOURCE_DIR} ###########")
+# 1. setup 3rd-party dependencies
+message("########## Setting up 3rd-party dependencies for: ${CMAKE_CURRENT_SOURCE_DIR} ###########")
 if (EXISTS ${THIRDPARTY_DIR} AND LITEHUB_THIRDPARTY)
 
     message("Setting Up Custom Dependencies ...")
 
-    set(OpenCV_DIR ${THIRDPARTY_DIR}/opencv/x86_64/lib/cmake/opencv4)
-    set(ONNXRUNTIME_DIR ${THIRDPARTY_DIR}/onnxruntime/x86_64)
-    set(ONNXRUNTIMR_INCLUDE_DIR ${ONNXRUNTIME_DIR}/include)
-    set(ONNXRUNTIMR_LIBRARY_DIR ${ONNXRUNTIME_DIR}/lib)
+    set(OpenCV_DIR ${THIRDPARTY_DIR}/opencv/4.5.2/x86_64/lib/cmake/opencv4)
+    if (ENABLE_ONNXRUNTIME)
+        set(ONNXRUNTIME_DIR ${THIRDPARTY_DIR}/onnxruntime/1.7.0/x86_64)
+        set(ONNXRUNTIME_INCLUDE_DIR ${ONNXRUNTIME_DIR}/include)
+        set(ONNXRUNTIME_LIBRARY_DIR ${ONNXRUNTIME_DIR}/lib)
+    endif()
+    if (ENABLE_MNN)
+        set(MNN_DIR ${THIRDPARTY_DIR}/mnn/x86_64)
+        set(MNN_INCLUDE_DIR ${MNN_DIR}/include)
+        set(MNN_LIBRARY_DIR ${MNN_DIR}/lib)
+    endif()
+    if (ENABLE_NCNN)
+        set(NCNN_DIR ${THIRDPARTY_DIR}/ncnn/x86_64)
+        set(NCNN_INCLUDE_DIR ${NCNN_DIR}/include)
+        set(NCNN_LIBRARY_DIR ${NCNN_DIR}/lib)
+    endif()
+    if (ENABLE_TNN)
+        set(TNN_DIR ${THIRDPARTY_DIR}/tnn/x86_64)
+        set(TNN_INCLUDE_DIR ${TNN_DIR}/include)
+        set(TNN_LIBRARY_DIR ${TNN_DIR}/lib)
+    endif()
 
 else ()
 
-    set(OpenCV_DIR /usr/local/Cellar/opencv/4.5.1_3/lib/cmake/opencv4)
-    set(ONNXRUNTIME_DIR /usr/local/Cellar/onnxruntime/1.7.1)
-    set(ONNXRUNTIMR_INCLUDE_DIR ${ONNXRUNTIME_DIR}/include)
-    set(ONNXRUNTIMR_LIBRARY_DIR ${ONNXRUNTIME_DIR}/lib)
+    message(FATAL_ERROR "Dependencies Setting Up Error!")
 
 endif ()
 

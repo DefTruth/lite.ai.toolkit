@@ -5,12 +5,9 @@
 #ifndef LITEHUB_BACKEND_H
 #define LITEHUB_BACKEND_H
 
-#define BACKEND_ONNXRUNTIME
-//#define BACKEND_NCNN
-//#define BACKEND_MNN
-//#define BACKEND_TNN
+#include "config.h"
 
-// ONNXRuntime
+// BACKEND ONNXRuntime
 #ifdef BACKEND_ONNXRUNTIME
 
 # ifdef BACKEND_NCNN
@@ -27,7 +24,7 @@
 
 #endif
 
-// NCNN
+// BACKEND NCNN
 #ifdef BACKEND_NCNN
 
 # ifdef BACKEND_ONNXRUNTIME
@@ -44,7 +41,7 @@
 
 #endif
 
-// MNN
+// BACKEND MNN
 #ifdef BACKEND_MNN
 
 # ifdef BACKEND_NCNN
@@ -61,7 +58,7 @@
 
 #endif
 
-// TNN
+// BACKEND TNN
 #ifdef BACKEND_TNN
 
 # ifdef BACKEND_NCNN
