@@ -74,7 +74,6 @@ namespace ortcv
 
     void print_debug_string();
 
-
   public:
     void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes);
 
