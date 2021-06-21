@@ -53,10 +53,10 @@
 #ifdef ENABLE_NCNN
 #endif
 
+// Default Engine ONNXRuntime
 namespace lite
 {
-  // alias cvx, different with cv(opencv)
-  namespace cvx
+  namespace cv
   {
 #ifdef BACKEND_ONNXRUNTIME
     namespace utils = ortcv::utils;
@@ -213,4 +213,163 @@ namespace lite
   }
 }
 
+// ONNXRuntime version
+namespace lite
+{
+  namespace onnxruntime
+  {
+    namespace cv
+    {
+      namespace utils = ortcv::utils;
+      namespace types = ortcv::types;
+
+      typedef ortcv::FSANet _ONNXFSANet;
+      typedef ortcv::PFLD _ONNXPFLD;
+      typedef ortcv::UltraFace _ONNXUltraFace;
+      typedef ortcv::AgeGoogleNet _ONNXAgeGoogleNet;
+      typedef ortcv::GenderGoogleNet _ONNXGenderGoogleNet;
+      typedef ortcv::EmotionFerPlus _ONNXEmotionFerPlus;
+      typedef ortcv::VGG16Age _ONNXVGG16Age;
+      typedef ortcv::VGG16Gender _ONNXVGG16Gender;
+      typedef ortcv::SSRNet _ONNXSSRNet;
+      typedef ortcv::FastStyleTransfer _ONNXFastStyleTransfer;
+      typedef ortcv::ArcFaceResNet _ONNXArcFaceResNet;
+      typedef ortcv::Colorizer _ONNXColorizer;
+      typedef ortcv::SubPixelCNN _ONNXSubPixelCNN;
+      typedef ortcv::YoloV4 _ONNXYoloV4;
+      typedef ortcv::YoloV3 _ONNXYoloV3;
+      typedef ortcv::YoloV5 _ONNXYoloV5;
+      typedef ortcv::EfficientNetLite4 _ONNXEfficientNetLite4;
+      typedef ortcv::ShuffleNetV2 _ONNXShuffleNetV2;
+      typedef ortcv::TinyYoloV3 _ONNXTinyYoloV3;
+      typedef ortcv::SSD _ONNXSSD;
+      typedef ortcv::SSDMobileNetV1 _ONNXSSDMobileNetV1;
+      typedef ortcv::DeepLabV3ResNet101 _ONNXDeepLabV3ResNet101;
+      typedef ortcv::DenseNet _ONNXDenseNet;
+      typedef ortcv::FCNResNet101 _ONNXFCNResNet101;
+      typedef ortcv::GhostNet _ONNXGhostNet;
+      typedef ortcv::HdrDNet _ONNXHdrDNet;
+      typedef ortcv::IBNNet _ONNXIBNNet;
+      typedef ortcv::MobileNetV2 _ONNXMobileNetV2;
+      typedef ortcv::ResNet _ONNXResNet;
+      typedef ortcv::ResNeXt _ONNXResNeXt;
+
+      // 1. classification
+      namespace classification
+      {
+        typedef _ONNXEfficientNetLite4 EfficientNetLite4;
+        typedef _ONNXShuffleNetV2 ShuffleNetV2;
+        typedef _ONNXDenseNet DenseNet;
+        typedef _ONNXGhostNet GhostNet;
+        typedef _ONNXHdrDNet HdrDNet;
+        typedef _ONNXIBNNet IBNNet;
+        typedef _ONNXMobileNetV2 MobileNetV2;
+        typedef _ONNXResNet ResNet;
+        typedef _ONNXResNeXt ResNeXt;
+      }
+
+      // 2. general object detection
+      namespace detection
+      {
+        typedef _ONNXYoloV3 YoloV3;
+        typedef _ONNXYoloV4 YoloV4;
+        typedef _ONNXYoloV5 YoloV5;
+        typedef _ONNXTinyYoloV3 TinyYoloV3;
+        typedef _ONNXSSD SSD;
+        typedef _ONNXSSDMobileNetV1 SSDMobileNetV1;
+      }
+      // 3. face detection & facial attributes detection
+      namespace face
+      {
+        typedef _ONNXFSANet FSANet; // head pose estimation.
+        typedef _ONNXUltraFace UltraFace;  // face detection.
+        typedef _ONNXPFLD PFLD; // facial landmarks detection.
+        typedef _ONNXAgeGoogleNet AgeGoogleNet; // age estimation
+        typedef _ONNXGenderGoogleNet GenderGoogleNet; // gender estimation
+        typedef _ONNXVGG16Age VGG16Age; // age estimation
+        typedef _ONNXVGG16Gender VGG16Gender; // gender estimation
+        typedef _ONNXEmotionFerPlus EmotionFerPlus; // emotion detection
+        typedef _ONNXSSRNet SSRNet; // age estimation
+      }
+      // 4. face recognition
+      namespace faceid
+      {
+        typedef _ONNXArcFaceResNet ArcFaceResNet; // test failed ! don't use!
+      }
+      // 5. segmentation
+      namespace segmentation
+      {
+        typedef _ONNXDeepLabV3ResNet101 DeepLabV3ResNet101;
+        typedef _ONNXFCNResNet101 FCNResNet101;
+
+      }
+      // 6. reid
+      namespace reid
+      {
+
+      }
+
+      // 7. ocr
+      namespace ocr
+      {
+
+      }
+      // 8. neural rendering
+      namespace render
+      {
+
+      }
+      // 9. style transfer
+      namespace style
+      {
+        typedef _ONNXFastStyleTransfer FastStyleTransfer;
+      }
+
+      // 10. colorization
+      namespace colorization
+      {
+        typedef _ONNXColorizer Colorizer;
+      }
+      // 11. super resolution
+      namespace resolution
+      {
+        typedef _ONNXSubPixelCNN SubPixelCNN;
+      }
+
+    }
+
+    namespace asr
+    {
+
+    }
+
+    namespace nlp
+    {
+    }
+  }
+}
+
+// MNN version
+namespace lite
+{
+  namespace mnn
+  {
+  }
+}
+
+// NCNN version
+namespace lite
+{
+  namespace ncnn
+  {
+  }
+}
+
+// TNN version
+namespace lite
+{
+  namespace tnn
+  {
+  }
+}
 #endif //LITEHUB_LITE_H

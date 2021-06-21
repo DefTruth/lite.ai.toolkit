@@ -35,6 +35,7 @@ endif()
 
 if (LITEHUB_BUILD_TEST)
     add_subdirectory(examples/ort)
+    add_subdirectory(examples/lite)
     # add_subdirectory(examples/ncnn)
     # add_subdirectory(examples/mnn)
     # add_subdirectory(examples/tnn)
