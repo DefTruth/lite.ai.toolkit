@@ -1,1 +1,0 @@
-# Java implementation for litehub.
