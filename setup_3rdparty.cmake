@@ -38,6 +38,7 @@ if (OpenCV_FOUND)
     include_directories(${OpenCV_INCLUDE_DIRS})
     message(${OpenCV_INCLUDE_DIRS})
     message(${OpenCV_LIBRARIES})
+    set(OpenCV_LIBS opencv_highgui opencv_core opencv_imgcodecs opencv_imgproc) # need only
     message("=================================================================================")
     message(STATUS "    OpenCV library status:")
     message(STATUS "    version: ${OpenCV_VERSION}")
@@ -51,6 +52,8 @@ else (OpenCV_FOUND)
         include_directories(${OpenCV_INCLUDE_DIRS})
         message(${OpenCV_INCLUDE_DIRS})
         message(${OpenCV_LIBRARIES})
+        set(OpenCV_LIBS opencv_highgui opencv_core opencv_imgcodecs opencv_imgproc) # need only
+
         message("=================================================================================")
         message(STATUS "    OpenCV library status:")
         message(STATUS "    version: ${OpenCV_VERSION}")

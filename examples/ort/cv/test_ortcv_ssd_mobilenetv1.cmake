@@ -20,12 +20,7 @@ set(ORTCV_SSD_MOBILENETV1_SRCS
         )
 
 add_executable(ortcv_ssd_mobilenetv1 ${ORTCV_SSD_MOBILENETV1_SRCS})
-target_link_libraries(ortcv_ssd_mobilenetv1
-        onnxruntime
-        opencv_highgui
-        opencv_core
-        opencv_imgcodecs
-        opencv_imgproc)
+target_link_libraries(ortcv_ssd_mobilenetv1 onnxruntime ${OpenCV_LIBS})
 
 if (LITEHUB_COPY_BUILD)
     # "set" only valid in the current directory and subdirectory and does not broadcast

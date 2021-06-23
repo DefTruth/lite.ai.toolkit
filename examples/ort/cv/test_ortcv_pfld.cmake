@@ -20,12 +20,7 @@ set(ORTCV_PFLD_SRCS
         )
 
 add_executable(ortcv_pfld ${ORTCV_PFLD_SRCS})
-target_link_libraries(ortcv_pfld
-        onnxruntime
-        opencv_highgui
-        opencv_core
-        opencv_imgcodecs
-        opencv_imgproc)
+target_link_libraries(ortcv_pfld onnxruntime ${OpenCV_LIBS})
 
 if (LITEHUB_COPY_BUILD)
     # "set" only valid in the current directory and subdirectory and does not broadcast

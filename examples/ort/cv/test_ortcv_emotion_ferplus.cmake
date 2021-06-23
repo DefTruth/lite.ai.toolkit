@@ -20,12 +20,7 @@ set(ORTCV_EMOTION_FERPLUS_SRCS
         )
 
 add_executable(ortcv_emotion_ferplus ${ORTCV_EMOTION_FERPLUS_SRCS})
-target_link_libraries(ortcv_emotion_ferplus
-        onnxruntime
-        opencv_highgui
-        opencv_core
-        opencv_imgcodecs
-        opencv_imgproc)
+target_link_libraries(ortcv_emotion_ferplus onnxruntime ${OpenCV_LIBS})
 
 if (LITEHUB_COPY_BUILD)
     # "set" only valid in the current directory and subdirectory and does not broadcast

@@ -20,12 +20,7 @@ set(ORTCV_FAST_STYLE_TRANSFER_SRCS
         )
 
 add_executable(ortcv_fast_style_transfer ${ORTCV_FAST_STYLE_TRANSFER_SRCS})
-target_link_libraries(ortcv_fast_style_transfer
-        onnxruntime
-        opencv_highgui
-        opencv_core
-        opencv_imgcodecs
-        opencv_imgproc)
+target_link_libraries(ortcv_fast_style_transfer onnxruntime ${OpenCV_LIBS})
 
 if (LITEHUB_COPY_BUILD)
     # "set" only valid in the current directory and subdirectory and does not broadcast

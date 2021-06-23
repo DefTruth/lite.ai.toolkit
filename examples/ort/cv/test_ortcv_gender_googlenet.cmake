@@ -20,12 +20,7 @@ set(ORTCV_GENDER_GOOGLENET_SRCS
         )
 
 add_executable(ortcv_gender_googlenet ${ORTCV_GENDER_GOOGLENET_SRCS})
-target_link_libraries(ortcv_gender_googlenet
-        onnxruntime
-        opencv_highgui
-        opencv_core
-        opencv_imgcodecs
-        opencv_imgproc)
+target_link_libraries(ortcv_gender_googlenet onnxruntime ${OpenCV_LIBS})
 
 if (LITEHUB_COPY_BUILD)
     # "set" only valid in the current directory and subdirectory and does not broadcast

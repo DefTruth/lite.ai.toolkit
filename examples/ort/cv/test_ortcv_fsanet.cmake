@@ -20,12 +20,7 @@ set(ORTCV_FSANET_SRCS
         )
 
 add_executable(ortcv_fsanet ${ORTCV_FSANET_SRCS})
-target_link_libraries(ortcv_fsanet
-        onnxruntime
-        opencv_highgui
-        opencv_core
-        opencv_imgcodecs
-        opencv_imgproc)
+target_link_libraries(ortcv_fsanet onnxruntime ${OpenCV_LIBS})
 
 if (LITEHUB_COPY_BUILD)
     # "set" only valid in the current directory and subdirectory and does not broadcast

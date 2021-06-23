@@ -20,12 +20,7 @@ set(ORTCV_GHOSTNET_SRCS
         )
 
 add_executable(ortcv_ghostnet ${ORTCV_GHOSTNET_SRCS})
-target_link_libraries(ortcv_ghostnet
-        onnxruntime
-        opencv_highgui
-        opencv_core
-        opencv_imgcodecs
-        opencv_imgproc)
+target_link_libraries(ortcv_ghostnet onnxruntime ${OpenCV_LIBS})
 
 if (LITEHUB_COPY_BUILD)
     # "set" only valid in the current directory and subdirectory and does not broadcast

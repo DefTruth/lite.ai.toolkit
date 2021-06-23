@@ -20,12 +20,7 @@ set(ORTCV_DEEPLABV3_RESNET101_SRCS
         )
 
 add_executable(ortcv_deeplabv3_resnet101 ${ORTCV_DEEPLABV3_RESNET101_SRCS})
-target_link_libraries(ortcv_deeplabv3_resnet101
-        onnxruntime
-        opencv_highgui
-        opencv_core
-        opencv_imgcodecs
-        opencv_imgproc)
+target_link_libraries(ortcv_deeplabv3_resnet101 onnxruntime ${OpenCV_LIBS})
 
 if (LITEHUB_COPY_BUILD)
     # "set" only valid in the current directory and subdirectory and does not broadcast

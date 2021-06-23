@@ -20,12 +20,7 @@ set(ORTCV_TINY_YOLOV3_SRCS
         )
 
 add_executable(ortcv_tiny_yolov3 ${ORTCV_TINY_YOLOV3_SRCS})
-target_link_libraries(ortcv_tiny_yolov3
-        onnxruntime
-        opencv_highgui
-        opencv_core
-        opencv_imgcodecs
-        opencv_imgproc)
+target_link_libraries(ortcv_tiny_yolov3 onnxruntime ${OpenCV_LIBS})
 
 if (LITEHUB_COPY_BUILD)
     # "set" only valid in the current directory and subdirectory and does not broadcast

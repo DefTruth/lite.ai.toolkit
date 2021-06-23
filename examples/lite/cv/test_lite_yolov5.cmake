@@ -12,20 +12,23 @@ include_directories(${ONNXRUNTIME_INCLUDE_DIR})
 link_directories(${ONNXRUNTIME_LIBRARY_DIR})
 
 # 3. will be include into CMakeLists.txt at examples/ort
-set(LITE_YOLOV5_SRCS
-        cv/test_lite_yolov5.cpp
-        ${LITEHUB_ROOT_DIR}/ort/cv/yolov5.cpp
-        ${LITEHUB_ROOT_DIR}/ort/core/ort_utils.cpp
-        ${LITEHUB_ROOT_DIR}/ort/core/ort_handler.cpp
-        )
+if(LITEHUB_BUILD_TEST_SRCS)
+    set(LITE_YOLOV5_SRCS cv/test_lite_yolov5.cpp
+            ${LITEHUB_ROOT_DIR}/ort/cv/yolov5.cpp
+            ${LITEHUB_ROOT_DIR}/ort/core/ort_utils.cpp
+            ${LITEHUB_ROOT_DIR}/ort/core/ort_handler.cpp
+            )
+else()
+    set(LITE_YOLOV5_SRCS cv/test_lite_yolov5.cpp)
+endif()
 
 add_executable(lite_yolov5 ${LITE_YOLOV5_SRCS})
-target_link_libraries(lite_yolov5
-        onnxruntime
-        opencv_highgui
-        opencv_core
-        opencv_imgcodecs
-        opencv_imgproc)
+
+if(LITEHUB_BUILD_TEST_SRCS)
+    target_link_libraries(lite_yolov5 onnxruntime ${OpenCV_LIBS})
+else()
+    target_link_libraries(lite_yolov5 litehub onnxruntime ${OpenCV_LIBS})  # link liblitehub
+endif()
 
 if (LITEHUB_COPY_BUILD)
     # "set" only valid in the current directory and subdirectory and does not broadcast
