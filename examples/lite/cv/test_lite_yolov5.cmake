@@ -27,7 +27,7 @@ add_executable(lite_yolov5 ${LITE_YOLOV5_SRCS})
 if(LITEHUB_BUILD_TEST_SRCS)
     target_link_libraries(lite_yolov5 onnxruntime ${OpenCV_LIBS})
 else()
-    target_link_libraries(lite_yolov5 litehub onnxruntime ${OpenCV_LIBS})  # link liblitehub
+    target_link_libraries(lite_yolov5 litehub)  # link liblitehub
 endif()
 
 if (LITEHUB_COPY_BUILD)

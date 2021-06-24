@@ -15,7 +15,8 @@ option(LITEHUB_THIRDPARTY "use third party libraies if exists" ON)
 option(LITEHUB_INSTALL_SDK "whether to install litehub sdk." OFF)  # don't make it ON !
 option(LITEHUB_COPY_BUILD "whether to copy the built libs to ./build directory." ON)
 option(LITEHUB_BUILD_LIB "whether to build shared|static libraries." ON)
-option(LITEHUB_BUILD_TEST "whether to build test examples" ON)
+option(LITEHUB_BUILD_ORT_TEST "whether to build ort test examples" ON)
+option(LITEHUB_BUILD_LITE_TEST "whether to build lite test examples" ON)
 option(LITEHUB_BUILD_TEST_SRCS "whether to build test examples from sources" OFF)  # link liblitehub or not
 # engine backend -> config.h.in
 option(ENABLE_ONNXRUNTIME "whether to enable ONNXRuntime engine" ON)
@@ -33,10 +34,10 @@ if (LITEHUB_BUILD_LIB)
     include(litehub.cmake)
 endif()
 
-if (LITEHUB_BUILD_TEST)
+if (LITEHUB_BUILD_ORT_TEST)
     add_subdirectory(examples/ort)
+endif()
+
+if (LITEHUB_BUILD_LITE_TEST)
     add_subdirectory(examples/lite)
-    # add_subdirectory(examples/ncnn)
-    # add_subdirectory(examples/mnn)
-    # add_subdirectory(examples/tnn)
 endif()

@@ -28,7 +28,8 @@ static void test_lite_yolov5()
   delete yolov5;
 
   // 2. Test Specific Engine ONNXRuntime
-  lite::onnxruntime::cv::detection::YoloV5 *onnx_yolov5 = new lite::onnxruntime::cv::detection::YoloV5(onnx_path);
+  lite::onnxruntime::cv::detection::YoloV5 *onnx_yolov5 =
+      new lite::onnxruntime::cv::detection::YoloV5(onnx_path);
 
   std::vector<lite::onnxruntime::cv::types::Boxf> detected_boxes_2;
   cv::Mat img_bgr_2 = cv::imread(test_img_path_2);
