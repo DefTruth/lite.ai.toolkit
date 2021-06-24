@@ -1,5 +1,7 @@
 # 1. setup 3rd-party dependencies
 message("########## Setting up 3rd-party dependencies for: ${CMAKE_CURRENT_SOURCE_DIR} ###########")
+set(THIRDPARTY_SET_STATE OFF)
+
 if (EXISTS ${THIRDPARTY_DIR} AND LITEHUB_THIRDPARTY)
 
     message("Setting Up Custom Dependencies ...")
@@ -71,3 +73,5 @@ else (OpenCV_FOUND)
     endif (OpenCV_FOUND)
 
 endif (OpenCV_FOUND)
+
+set(THIRDPARTY_SET_STATE ON)
