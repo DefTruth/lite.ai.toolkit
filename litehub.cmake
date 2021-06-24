@@ -3,26 +3,6 @@
 message(">>>> Current Project is [litehub] Library in : ${CMAKE_CURRENT_SOURCE_DIR}")
 include(${CMAKE_SOURCE_DIR}/setup_3rdparty.cmake)
 
-if (ENABLE_ONNXRUNTIME)
-    include_directories(${ONNXRUNTIME_INCLUDE_DIR})
-    link_directories(${ONNXRUNTIME_LIBRARY_DIR})
-endif()
-
-if (ENABLE_MNN)
-    include_directories(${MNN_INCLUDE_DIR})
-    link_directories(${MNN_LIBRARY_DIR})
-endif()
-
-if (ENABLE_NCNN)
-    include_directories(${NCNN_INCLUDE_DIR})
-    link_directories(${NCNN_LIBRARY_DIR})
-endif()
-
-if (ENABLE_TNN)
-    include_directories(${TNN_INCLUDE_DIR})
-    link_directories(${TNN_LIBRARY_DIR})
-endif()
-
 configure_file (
         "${CMAKE_SOURCE_DIR}/lite/config.h.in"
         "${CMAKE_SOURCE_DIR}/lite/config.h"
