@@ -17,7 +17,6 @@ option(LITEHUB_COPY_BUILD "whether to copy the built libs to ./build directory."
 option(LITEHUB_BUILD_LIB "whether to build shared|static libraries." ON)
 option(LITEHUB_BUILD_ORT_TEST "whether to build ort test examples" ON)
 option(LITEHUB_BUILD_LITE_TEST "whether to build lite test examples" ON)
-option(LITEHUB_BUILD_TEST_SRCS "whether to build test examples from sources" OFF)  # link liblitehub or not
 # engine backend -> config.h.in
 option(ENABLE_ONNXRUNTIME "whether to enable ONNXRuntime engine" ON)
 option(ENABLE_MNN "whether to enable MNN engine" OFF)
