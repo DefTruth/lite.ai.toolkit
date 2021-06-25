@@ -21,7 +21,8 @@ static void test_default()
 
   cv::imwrite(save_img_path, img_bgr);
 
-  std::cout << "Default Version Detected Age: " << age.age << std::endl;
+  if (age.flag)
+    std::cout << "Default Version Detected Age: " << age.age << std::endl;
 
   delete age_googlenet;
 
@@ -40,7 +41,8 @@ static void test_onnxruntime()
   cv::Mat img_bgr = cv::imread(test_img_path);
   onnx_age_googlenet->detect(img_bgr, age);
 
-  std::cout << "ONNXRuntime Version Detected Age: " << age.age << std::endl;
+  if (age.flag)
+    std::cout << "ONNXRuntime Version Detected Age: " << age.age << std::endl;
 
   delete onnx_age_googlenet;
 }
