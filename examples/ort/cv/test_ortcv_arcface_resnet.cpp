@@ -5,7 +5,7 @@
 #include <iostream>
 #include <vector>
 
-#include "ort/cv/arcafce_resnet.h"
+#include "ort/cv/arcface_resnet.h"
 #include "ort/core/ort_utils.h"
 
 static void test_ortcv_arcface_resnet()

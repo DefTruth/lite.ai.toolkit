@@ -13,7 +13,7 @@
 #include "ort/core/ort_core.h"
 #include "ort/core/ort_utils.h"
 #include "ort/cv/age_googlenet.h"
-#include "ort/cv/arcafce_resnet.h"
+#include "ort/cv/arcface_resnet.h"
 #include "ort/cv/colorizer.h"
 #include "ort/cv/deeplabv3_resnet101.h"
 #include "ort/cv/densenet.h"

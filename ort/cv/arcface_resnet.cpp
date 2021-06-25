@@ -2,7 +2,7 @@
 // Created by DefTruth on 2021/4/4.
 //
 
-#include "arcafce_resnet.h"
+#include "arcface_resnet.h"
 #include "ort/core/ort_utils.h"
 
 using ortcv::ArcFaceResNet;
