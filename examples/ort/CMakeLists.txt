@@ -1,5 +1,3 @@
-include(add_ort_executable.cmake)
-
 add_ort_executable(ortcv_fsanet cv)
 add_ort_executable(ortcv_ultraface cv)
 add_ort_executable(ortcv_pfld cv)

@@ -1,2 +1,4 @@
 #!/bin/bash
-cd build && cmake .. && make -j8
+cd build && rm -rf ./* \
+         && echo "clear built files done ! & rebuilding ..." \
+         && cmake .. && make -j8
