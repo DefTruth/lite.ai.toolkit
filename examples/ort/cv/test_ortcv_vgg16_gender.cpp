@@ -10,7 +10,6 @@
 
 static void test_ortcv_vgg16_gender()
 {
-  // download model from: https://drive.google.com/drive/folders/16Z1r7GEXCsJG_384VsjlNxOFXbxcXrqM?usp=sharing
   std::string onnx_path = "../../../hub/onnx/cv/vgg_ilsvrc_16_gender_imdb_wiki.onnx";
   std::string test_img_path = "../../../examples/ort/resources/test_ortcv_vgg16_gender.jpg";
   std::string save_img_path = "../../../logs/test_ortcv_vgg16_gender.jpg";

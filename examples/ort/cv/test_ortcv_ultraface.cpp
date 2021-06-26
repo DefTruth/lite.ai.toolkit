@@ -2,8 +2,6 @@
 // Created by DefTruth on 2021/3/27.
 //
 
-#pragma clang diagnostic push
-#pragma ide diagnostic ignored "UnusedLocalVariable"
 #include <iostream>
 #include <vector>
 

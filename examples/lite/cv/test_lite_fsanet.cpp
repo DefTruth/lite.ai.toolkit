@@ -13,12 +13,12 @@ static void test_default()
 
   lite::cv::face::FSANet *var_fsanet = new lite::cv::face::FSANet(var_onnx_path);
   lite::cv::face::FSANet *conv_fsanet = new lite::cv::face::FSANet(conv_onnx_path);
-  cv::Mat roi = cv::imread(test_img_path);
+  cv::Mat img_bgr = cv::imread(test_img_path);
   lite::cv::types::EulerAngles var_euler_angles, conv_euler_angles;
 
   // 1. detect euler angles.
-  var_fsanet->detect(roi, var_euler_angles);
-  conv_fsanet->detect(roi, conv_euler_angles);
+  var_fsanet->detect(img_bgr, var_euler_angles);
+  conv_fsanet->detect(img_bgr, conv_euler_angles);
 
   lite::cv::types::EulerAngles euler_angles;
 
@@ -29,9 +29,9 @@ static void test_default()
 
   if (euler_angles.flag)
   {
-    lite::cv::utils::draw_axis_inplace(roi, euler_angles);
+    lite::cv::utils::draw_axis_inplace(img_bgr, euler_angles);
 
-    cv::imwrite(save_img_path, roi);
+    cv::imwrite(save_img_path, img_bgr);
 
     std::cout << "Default Version"
               << " yaw: " << euler_angles.yaw
@@ -49,15 +49,16 @@ static void test_onnxruntime()
   std::string var_onnx_path = "../../../hub/onnx/cv/fsanet-var.onnx";
   std::string conv_onnx_path = "../../../hub/onnx/cv/fsanet-1x1.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_fsanet.jpg";
+  std::string save_img_path = "../../../logs/test_onnx_fsanet.jpg";
 
   lite::onnxruntime::cv::face::FSANet *var_fsanet = new lite::onnxruntime::cv::face::FSANet(var_onnx_path);
   lite::onnxruntime::cv::face::FSANet *conv_fsanet = new lite::onnxruntime::cv::face::FSANet(conv_onnx_path);
-  cv::Mat roi = cv::imread(test_img_path);
+  cv::Mat img_bgr = cv::imread(test_img_path);
   lite::onnxruntime::cv::types::EulerAngles var_euler_angles, conv_euler_angles;
 
   // 1. detect euler angles.
-  var_fsanet->detect(roi, var_euler_angles);
-  conv_fsanet->detect(roi, conv_euler_angles);
+  var_fsanet->detect(img_bgr, var_euler_angles);
+  conv_fsanet->detect(img_bgr, conv_euler_angles);
 
   lite::onnxruntime::cv::types::EulerAngles euler_angles;
 
@@ -68,7 +69,8 @@ static void test_onnxruntime()
 
   if (euler_angles.flag)
   {
-    lite::onnxruntime::cv::utils::draw_axis_inplace(roi, euler_angles);
+    lite::onnxruntime::cv::utils::draw_axis_inplace(img_bgr, euler_angles);
+    cv::imwrite(save_img_path, img_bgr);
 
     std::cout << "ONNXRuntime Version"
               << " yaw: " << euler_angles.yaw

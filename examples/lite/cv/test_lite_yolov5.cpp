@@ -11,11 +11,11 @@ static void test_default()
   std::string save_img_path = "../../../logs/test_lite_yolov5_1.jpg";
 
   // 1. Test Default Engine ONNXRuntime
-  lite::cv::detection::YoloV5 *default_yolov5 = new lite::cv::detection::YoloV5(onnx_path); // default
+  lite::cv::detection::YoloV5 *yolov5 = new lite::cv::detection::YoloV5(onnx_path); // default
 
   std::vector<lite::cv::types::Boxf> detected_boxes;
   cv::Mat img_bgr = cv::imread(test_img_path);
-  default_yolov5->detect(img_bgr, detected_boxes);
+  yolov5->detect(img_bgr, detected_boxes);
 
   lite::cv::utils::draw_boxes_inplace(img_bgr, detected_boxes);
 
@@ -23,7 +23,7 @@ static void test_default()
 
   std::cout << "Default Version Detected Boxes Num: " << detected_boxes.size() << std::endl;
 
-  delete default_yolov5;
+  delete yolov5;
 
 }
 
@@ -34,12 +34,12 @@ static void test_onnxruntime()
   std::string save_img_path = "../../../logs/test_lite_yolov5_2.jpg";
 
   // 2. Test Specific Engine ONNXRuntime
-  lite::onnxruntime::cv::detection::YoloV5 *onnx_yolov5 =
+  lite::onnxruntime::cv::detection::YoloV5 *yolov5 =
       new lite::onnxruntime::cv::detection::YoloV5(onnx_path);
 
   std::vector<lite::onnxruntime::cv::types::Boxf> detected_boxes;
   cv::Mat img_bgr = cv::imread(test_img_path);
-  onnx_yolov5->detect(img_bgr, detected_boxes);
+  yolov5->detect(img_bgr, detected_boxes);
 
   lite::onnxruntime::cv::utils::draw_boxes_inplace(img_bgr, detected_boxes);
 
@@ -47,7 +47,7 @@ static void test_onnxruntime()
 
   std::cout << "ONNXRuntime Version Detected Boxes Num: " << detected_boxes.size() << std::endl;
 
-  delete onnx_yolov5;
+  delete yolov5;
 }
 
 static void test_mnn()

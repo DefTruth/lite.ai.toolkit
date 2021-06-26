@@ -10,7 +10,6 @@
 
 static void test_ortcv_vgg16_age()
 {
-  // download model from: https://drive.google.com/drive/folders/14wckle-MbnN10xzdzgF464bMnlM-dd5-?usp=sharing
   std::string onnx_path = "../../../hub/onnx/cv/vgg_ilsvrc_16_age_imdb_wiki.onnx";
   std::string test_img_path = "../../../examples/ort/resources/test_ortcv_vgg16_age.jpg";
   std::string save_img_path = "../../../logs/test_ortcv_vgg16_age.jpg";
