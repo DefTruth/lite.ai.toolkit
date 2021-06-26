@@ -1,5 +1,6 @@
 liteort
-litehub
+litehub/bin
+litehub/include
 cmake_install.cmake
 CMakeCache.txt
 Makefile
