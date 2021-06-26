@@ -494,11 +494,8 @@ The output is:
 
 * TODO
 
-  
 
-<!--
-
-## 6. Documents.  
+## 6. Other Docs.  
 ### 6.1 ONNXRuntime Inference Engine. 
 * [Rapid implementation of your inference using BasicOrtHandler](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_handler.zh.md)  
 * [Some very useful onnxruntime c++ interfaces](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_useful_api.zh.md)  
@@ -525,4 +522,3 @@ Other build documents for different engines and different targets will be added 
 |MNN| mac-x86_64 | TODO |
 |TNN| mac-x86_64 | TODO |
 
--->
