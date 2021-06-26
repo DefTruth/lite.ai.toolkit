@@ -27,7 +27,7 @@ Most of the models come from `ONNX-Model-Zoo`, `PytorchHub` and `other open sour
   brew install opencv
   brew install onnxruntime
 ```
-​		or you can download the built dependencies from this repo. See [third_party](https://github.com/DefTruth/litehub/tree/main/third_party) and build-docs[<sup>1</sup>](#refer-anchor-1).
+or you can download the built dependencies from this repo. See [third_party](https://github.com/DefTruth/litehub/tree/main/third_party) and build-docs[<sup>1</sup>](#refer-anchor-1).
 * Linux & Windows. (`TODO`)
 * Inference Engine Plans:
   * Doing:
@@ -505,6 +505,7 @@ The output is:
 
 ### 6.2 How to build [third_party](https://github.com/DefTruth/litehub/tree/main/third_party).  
 Other build documents for different engines and different targets will be added later.
+
 
 <div id="refer-anchor-1"></div> 
 
