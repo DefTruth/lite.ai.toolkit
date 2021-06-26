@@ -1,5 +1,4 @@
 .DS_Store
-*.sh
 data
 cmake-build-debug
 cmake-build-release
