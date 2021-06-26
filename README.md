@@ -48,12 +48,7 @@ liblitehub.dylib:
         @rpath/liblitehub.dylib (compatibility version 0.0.0, current version 0.0.0)
         @rpath/libopencv_highgui.4.5.dylib (compatibility version 4.5.0, current version 4.5.2)
         @rpath/libonnxruntime.1.7.0.dylib (compatibility version 0.0.0, current version 1.7.0)
-        @rpath/libopencv_videoio.4.5.dylib (compatibility version 4.5.0, current version 4.5.2)
-        @rpath/libopencv_imgcodecs.4.5.dylib (compatibility version 4.5.0, current version 4.5.2)
-        @rpath/libopencv_imgproc.4.5.dylib (compatibility version 4.5.0, current version 4.5.2)
-        @rpath/libopencv_core.4.5.dylib (compatibility version 4.5.0, current version 4.5.2)
-        /usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 904.4.0)
-        /usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1292.60.1)
+        ...
 cd ../ && tree .
 ├── bin
 ├── include
@@ -70,10 +65,9 @@ cd ../ && tree .
 cd ./build/litehub/bin && ls | grep lite
 -rwxr-xr-x  1 root  staff   3.4M Jun 26 23:10 liblitehub.dylib
 ...
--rwxr-xr-x  1 root  staff   188K Jun 26 23:10 lite_vgg16_gender
--rwxr-xr-x  1 root  staff   195K Jun 26 23:10 lite_yolov3
 -rwxr-xr-x  1 root  staff   196K Jun 26 23:10 lite_yolov4
 -rwxr-xr-x  1 root  staff   196K Jun 26 23:10 lite_yolov5
+...
 
 ./lite_yolov5
 LITEORT_DEBUG LogId: ../../../hub/onnx/cv/yolov5s.onnx
