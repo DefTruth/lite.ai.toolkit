@@ -769,8 +769,24 @@ void detect(const cv::Mat &mat, types::ImageNetContent &content, unsigned int to
 > `lite::mnn::cv::detection::SSD`:  
 
 ...
-  
-  
+
+### 5.4 NCNN Version APIs.
+
+`(TODO: Not implementation now, coming soon.)`
+
+> `lite::ncnn::cv::detection::Yolo5`:
+
+> `lite::ncnn::cv::detection::Yolo4`:
+
+> `lite::ncnn::cv::detection::Yolo3`:
+
+> `lite::ncnn::cv::detection::TinyYoloV3`:
+
+> `lite::ncnn::cv::detection::SSD`:
+
+...
+
+
 ## 6. Other Docs.  
 ### 6.1 Docs for ONNXRuntime. 
 * [Rapid implementation of your inference using BasicOrtHandler](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_handler.zh.md)  
