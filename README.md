@@ -19,15 +19,14 @@ Most of the models come from `ONNX-Model-Zoo`, `PytorchHub` and `other open sour
 
 ## 1. Dependencies.  
 * Mac OS.  
-
-  install `opencv` and `onnxruntime` libraries using Homebrew.
+install `Opencv` and `onnxruntime` libraries using Homebrew or you can download the built dependencies from this repo. See [third_party](https://github.com/DefTruth/litehub/tree/main/third_party) and build-docs[<sup>1</sup>](#refer-anchor-1) for more details.
 
 ```shell
   brew update
   brew install opencv
   brew install onnxruntime
 ```
-or you can download the built dependencies from this repo. See [third_party](https://github.com/DefTruth/litehub/tree/main/third_party) and build-docs[<sup>1</sup>](#refer-anchor-1).
+
 * Linux & Windows. (`TODO`)
 * Inference Engine Plans:
   * Doing:
@@ -41,11 +40,9 @@ or you can download the built dependencies from this repo. See [third_party](htt
 ## 2. Model Zoo.
 
 ### 2.1 model-zoo for ONNX version.
-Some of the models were converted by this repo, and others were referenced from third-party libraries.
+Some of the models were converted by this repo, and others were referenced from third-party libraries. (code:g83e)
 
 <div id="refer-anchor-2"></div>
-
-code:g83e 
 
 |Model|Size|Download|From|Type|Usage|
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -81,17 +78,23 @@ code:g83e
 |[ResNeXt](https://pytorch.org/hub/pytorch_vision_resnext/)|95Mb|[Baidu Drive](https://pan.baidu.com/s/1X5y7bOSPyeBzT9nSgQiMIQ) | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_resnext.zh.md) | *lite::cv::classification* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_resnext.cpp) |
 
 ## 3. Build LiteHub.
-* Build shared library for MacOS from sources or you can download the built lib from [liblitehub](https://github.com/DefTruth/litehub/tree/main/build/litehub/lib) (`TODO: Linux & Windows`). Note that litehub is only support for `onnxruntime` now.
+* Build the shared lib of LiteHub for MacOS from sources or you can download the built lib from [liblitehub.dylib|so](https://github.com/DefTruth/litehub/tree/main/build/litehub/lib) (`TODO: Linux & Windows`). Note that LiteHub uses `onnxruntime` as default backend. For Linux and Windows, you need to build the shared libs of `OpenCV` and `onnxruntime` firstly and put then into the `third_party` directory. Please reference the build-docs[<sup>1</sup>](#refer-anchor-1) for `third_party`.
 ```shell
-git clone  --depth=1 https://github.com/DefTruth/litehub.git
+git clone --depth=1 https://github.com/DefTruth/litehub.git
+```
+```shell
 cd litehub
 sh ./build.sh
+```
+```shell
 cd ./build/litehub/lib && otool -L liblitehub.dylib 
 liblitehub.dylib:
         @rpath/liblitehub.dylib (compatibility version 0.0.0, current version 0.0.0)
         @rpath/libopencv_highgui.4.5.dylib (compatibility version 4.5.0, current version 4.5.2)
         @rpath/libonnxruntime.1.7.0.dylib (compatibility version 0.0.0, current version 1.7.0)
         ...
+```
+```shell
 cd ../ && tree .
 ├── bin
 ├── include
@@ -103,7 +106,7 @@ cd ../ && tree .
 └── lib
     └── liblitehub.dylib
 ```
-* Run built examples:
+* Run the built examples:
 ```shell
 cd ./build/litehub/bin && ls | grep lite
 -rwxr-xr-x  1 root  staff   3.4M Jun 26 23:10 liblitehub.dylib
@@ -111,7 +114,9 @@ cd ./build/litehub/bin && ls | grep lite
 -rwxr-xr-x  1 root  staff   196K Jun 26 23:10 lite_yolov4
 -rwxr-xr-x  1 root  staff   196K Jun 26 23:10 lite_yolov5
 ...
+```
 
+```shell
 ./lite_yolov5
 LITEORT_DEBUG LogId: ../../../hub/onnx/cv/yolov5s.onnx
 =============== Input-Dims ==============
@@ -127,12 +132,6 @@ Default Version Detected Boxes Num: 5
 # link opencv.
 set(OpenCV_DIR ${THIRDPARTY_DIR}/opencv/4.5.2/x86_64/lib/cmake/opencv4)
 find_package(OpenCV 4 REQUIRED)
-if (OpenCV_FOUND)
-   include_directories(${OpenCV_INCLUDE_DIRS})
-   set(OpenCV_LIBS opencv_highgui opencv_core opencv_imgcodecs opencv_imgproc) # need only
-else ()
-   message(FATAL_ERROR "OpenCV library not found")
-endif ()
 # link onnxruntime.
 set(ONNXRUNTIME_DIR ${THIRDPARTY_DIR}/onnxruntime/1.7.0/x86_64)
 set(ONNXRUNTIME_INCLUDE_DIR ${ONNXRUNTIME_DIR}/include)
@@ -152,8 +151,8 @@ target_link_libraries(executable_name litehub)  # link litehub
 
 ## 4. Examples for LiteHub.
 
-More examples can find at [lite-examples](https://github.com/DefTruth/litehub/tree/main/examples/lite/cv).  Note that the default backend for `litehub` is `onnxruntime`.
-#### 4.1 Object detection using [YoloV5](https://github.com/ultralytics/yolov5). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
+More examples can be found at [lite-examples](https://github.com/DefTruth/litehub/tree/main/examples/lite/cv).  Note that the default backend for LiteHub is `onnxruntime`.
+#### 4.1 Object Detection using [YoloV5](https://github.com/ultralytics/yolov5). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
 #include "lite/lite.h"
 
@@ -221,7 +220,7 @@ The output is:
   <img src='logs/test_lite_deeplabv3_resnet101.jpg' height="256px">
 </div> 
 
-#### 4.3 Style transfer using [FastStyleTransfer](https://github.com/onnx/models/tree/master/vision/style_transfer/fast_neural_style). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
+#### 4.3 Style Transfer using [FastStyleTransfer](https://github.com/onnx/models/tree/master/vision/style_transfer/fast_neural_style). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
 #include "lite/lite.h"
 
@@ -288,8 +287,7 @@ The output is:
 </div>  
 
 
-
-#### 4.5 Facial Landmarks detection using [PFLD](https://github.com/Hsintao/pfld_106_face_landmarks). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
+#### 4.5 Facial Landmarks Detection using [PFLD](https://github.com/Hsintao/pfld_106_face_landmarks). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
 #include "lite/lite.h"
 
@@ -317,7 +315,7 @@ The output is:
   <img src='logs/test_lite_pfld_3.jpg' height="224px" width="224px">
 </div>    
 
-#### 4.6 Face detection using [UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
+#### 4.6 Face Detection using [UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
 #include "lite/lite.h"
 
@@ -345,7 +343,7 @@ The output is:
   <img src='logs/test_lite_ultraface_3.jpg' height="224px" width="224px">
 </div>  
 
-#### 4.7 1000 classes Classification using [DenseNet](https://pytorch.org/hub/pytorch_vision_densenet/). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
+#### 4.7 1000 Classes Classification using [DenseNet](https://pytorch.org/hub/pytorch_vision_densenet/). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
 #include "lite/lite.h"
 
@@ -404,7 +402,7 @@ static void test_default()
   {
     lite::cv::utils::draw_axis_inplace(img_bgr, euler_angles);
     cv::imwrite(save_img_path, img_bgr);
-    std::cout << euler_angles.yaw << euler_angles.pitch << euler_angles.roll << std::endl;
+    std::cout << "yaw:" << euler_angles.yaw << " pitch:" << euler_angles.pitch << " row:" << euler_angles.roll << std::endl;
   }
   delete fsanet;
 }
@@ -420,80 +418,362 @@ The output is:
 
 ## 5. LiteHub API Docs.
 
-### 5.1 Default Version APIs. (TODO)
+### 5.1 Default Version APIs. 
 
-* `lite::cv::detection::Yolo5`: 
-* `lite::cv::detection::Yolo4`: 
-* `lite::cv::detection::Yolo3`: 
-* `lite::cv::detection::TinyYoloV3`: 
-* `lite::cv::detection::SSD`: 
-* `lite::cv::detection::SSDMobileNetV1`: 
-* `lite::cv::face::FSANet`:
-* `lite::cv::face::UltraFace`: 
-* `lite::cv::face::PFLD`: 
-* `lite::cv::face::AgeGoogleNet`: 
-* `lite::cv::face::GenderGoogleNet`: 
-* `lite::cv::face::VGG16Age`: 
-* `lite::cv::face::VGG16Gender`: 
-* `lite::cv::face::EmotionFerPlus`: 
-* `lite::cv::face::SSRNet`: 
-* `lite::cv::faceid::ArcFaceResNet`: 
-* `lite::cv::segmentation::DeepLabV3ResNet101`: 
-* `lite::cv::segmentation::FCNResNet101`: 
-* `lite::cv::style::FastStyleTransfer`: 
-* `lite::cv::colorization::Colorizer`: 
-* `lite::cv::resolution::SubPixelCNN`: 
-* `lite::cv::classification::EfficientNetLite4`: 
-* `lite::cv::classification::ShuffleNetV2`: 
-* `lite::cv::classification::DenseNet`: 
-* `lite::cv::classification::GhostNet`: 
-* `lite::cv::classification::HdrDNet`: 
-* `lite::cv::classification::MobileNetV2`: 
-* `lite::cv::classification::ResNet`: 
-* `lite::cv::classification::ResNeXt`: 
-* `lite::cv::utils::hard_nms:`
-* `lite::cv::utils::blending_nms:`
-* `lite::cv::utils::offset_nms:`
-
-### 5.2 ONNXRuntime Version APIs.  (TODO)
-
-* `lite::onnxruntime::cv::detection::Yolo5`: 
-* `lite::onnxruntime::cv::detection::Yolo4`: 
-* `lite::onnxruntime::cv::detection::Yolo3`: 
-* `lite::onnxruntime::cv::detection::TinyYoloV3`: 
-* `lite::onnxruntime::cv::detection::SSD`: 
-* `lite::onnxruntime::cv::detection::SSDMobileNetV1`: 
-* `lite::onnxruntime::cv::face::FSANet`:
-* `lite::onnxruntime::cv::face::UltraFace`: 
-* `lite::onnxruntime::cv::face::PFLD`: 
-* `lite::onnxruntime::cv::face::AgeGoogleNet`: 
-* `lite::onnxruntime::cv::face::GenderGoogleNet`: 
-* `lite::onnxruntime::cv::face::VGG16Age`: 
-* `lite::onnxruntime::cv::face::VGG16Gender`: 
-* `lite::onnxruntime::cv::face::EmotionFerPlus`: 
-* `lite::onnxruntime::cv::face::SSRNet`: 
-* `lite::onnxruntime::cv::faceid::ArcFaceResNet`: 
-* `lite::onnxruntime::cv::segmentation::DeepLabV3ResNet101`: 
-* `lite::onnxruntime::cv::segmentation::FCNResNet101`: 
-* `lite::onnxruntime::cv::style::FastStyleTransfer`: 
-* `lite::onnxruntime::cv::colorization::Colorizer`: 
-* `lite::onnxruntime::cv::resolution::SubPixelCNN`: 
-* `lite::onnxruntime::cv::classification::EfficientNetLite4`: 
-* `lite::onnxruntime::cv::classification::ShuffleNetV2`: 
-* `lite::onnxruntime::cv::classification::DenseNet`: 
-* `lite::onnxruntime::cv::classification::GhostNet`: 
-* `lite::onnxruntime::cv::classification::HdrDNet`: 
-* `lite::onnxruntime::cv::classification::MobileNetV2`: 
-* `lite::onnxruntime::cv::classification::ResNet`: 
-* `lite::onnxruntime::cv::classification::ResNeXt`: 
-
-### 5.3 MNN Version APIs.
-
-* TODO
+More details of basic types for default version APIs can be found at [types.h](https://github.com/DefTruth/litehub/blob/main/ort/core/ort_types.h) . `(TODO: Add detailed API documentation)`
 
 
+> `lite::cv::detection::Yolo5`:  
+```c++
+void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes, 
+            float score_threshold = 0.25f, float iou_threshold = 0.45f,
+            unsigned int topk = 100, unsigned int nms_type = NMS::OFFSET);
+```  
+
+> `lite::cv::detection::Yolo4`:  
+```c++
+void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes, 
+            float score_threshold = 0.25f, float iou_threshold = 0.45f,
+            unsigned int topk = 100, unsigned int nms_type = NMS::OFFSET);
+```
+
+> `lite::cv::detection::Yolo3`:  
+```c++
+void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes);
+```
+
+> `lite::cv::detection::TinyYoloV3`:  
+```c++
+void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes);
+```
+
+> `lite::cv::detection::SSD`:  
+```c++
+void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes, 
+            float score_threshold = 0.25f, float iou_threshold = 0.45f,
+            unsigned int topk = 100, unsigned int nms_type = NMS::OFFSET);
+```
+
+> `lite::cv::detection::SSDMobileNetV1`:  
+```c++
+void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes, 
+            float score_threshold = 0.25f, float iou_threshold = 0.45f,
+            unsigned int topk = 100, unsigned int nms_type = NMS::OFFSET);
+```
+
+> `lite::cv::face::FSANet`:  
+```c++
+void detect(const cv::Mat &mat, types::EulerAngles &euler_angles);
+```
+
+> `lite::cv::face::UltraFace`:   
+```c++
+void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
+            float score_threshold = 0.7f, float iou_threshold = 0.3f,
+            unsigned int topk = 300, unsigned int nms_type = 0);
+```
+
+> `lite::cv::face::PFLD`:   
+```c++
+void detect(const cv::Mat &mat, types::Landmarks &landmarks);
+```  
+
+> `lite::cv::face::AgeGoogleNet`:   
+```c++
+void detect(const cv::Mat &mat, types::Age &age);
+```  
+
+> `lite::cv::face::GenderGoogleNet`:   
+```c++
+void detect(const cv::Mat &mat, types::Gender &gender);
+```
+
+> `lite::cv::face::VGG16Age`:   
+```c++
+void detect(const cv::Mat &mat, types::Age &age);
+```
+
+> `lite::cv::face::VGG16Gender`:   
+```c++
+void detect(const cv::Mat &mat, types::Gender &gender);
+```  
+
+> `lite::cv::face::EmotionFerPlus`:   
+```c++
+void detect(const cv::Mat &mat, types::Emotions &emotions);
+```
+
+> `lite::cv::face::SSRNet`:   
+```c++
+void detect(const cv::Mat &mat, types::Age &age);
+```
+
+> `lite::cv::faceid::ArcFaceResNet`:   
+```c++
+void detect(const cv::Mat &mat, types::FaceContent &face_content);
+```  
+
+> `lite::cv::segmentation::DeepLabV3ResNet101`:   
+```c++
+void detect(const cv::Mat &mat, types::SegmentContent &content);
+```  
+
+> `lite::cv::segmentation::FCNResNet101`:   
+```c++
+void detect(const cv::Mat &mat, types::SegmentContent &content);
+```  
+
+> `lite::cv::style::FastStyleTransfer`:   
+```c++
+void detect(const cv::Mat &mat, types::StyleContent &style_content);
+```
+
+> `lite::cv::colorization::Colorizer`:   
+```c++
+void detect(const cv::Mat &mat, types::ColorizeContent &colorize_content);
+```
+
+> `lite::cv::resolution::SubPixelCNN`:   
+```c++
+void detect(const cv::Mat &mat, types::SuperResolutionContent &super_resolution_content);
+```
+
+> `lite::cv::classification::EfficientNetLite4`:   
+```c++
+void detect(const cv::Mat &mat, types::ImageNetContent &content, unsigned int top_k = 5);
+```
+
+> `lite::cv::classification::ShuffleNetV2`:   
+```c++
+void detect(const cv::Mat &mat, types::ImageNetContent &content, unsigned int top_k = 5);
+```  
+
+> `lite::cv::classification::DenseNet`:   
+```c++
+void detect(const cv::Mat &mat, types::ImageNetContent &content, unsigned int top_k = 5);
+```  
+
+> `lite::cv::classification::GhostNet`:   
+```c++
+void detect(const cv::Mat &mat, types::ImageNetContent &content, unsigned int top_k = 5);
+```  
+
+> `lite::cv::classification::HdrDNet`:   
+```c++
+void detect(const cv::Mat &mat, types::ImageNetContent &content, unsigned int top_k = 5);
+```  
+
+> `lite::cv::classification::MobileNetV2`:   
+```c++
+void detect(const cv::Mat &mat, types::ImageNetContent &content, unsigned int top_k = 5);
+```  
+
+> `lite::cv::classification::ResNet`:   
+```c++
+void detect(const cv::Mat &mat, types::ImageNetContent &content, unsigned int top_k = 5);
+```  
+
+> `lite::cv::classification::ResNeXt`:   
+```c++
+void detect(const cv::Mat &mat, types::ImageNetContent &content, unsigned int top_k = 5);
+```  
+
+> `lite::cv::utils::hard_nms:`  
+```c++
+LITEHUB_EXPORTS void
+hard_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output, float iou_threshold, unsigned int topk);
+```
+
+> `lite::cv::utils::blending_nms:`  
+```c++
+LITEHUB_EXPORTS void
+blending_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output, float iou_threshold, unsigned int topk);
+```
+
+> `lite::cv::utils::offset_nms:`  
+```c++
+LITEHUB_EXPORTS void
+offset_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output, float iou_threshold, unsigned int topk);
+```
+
+### 5.2 ONNXRuntime Version APIs.  
+ 
+More details of basic types for ONNXRuntime version APIs can be found at [ort_types.h](https://github.com/DefTruth/litehub/blob/main/ort/core/ort_types.h) . `(TODO: Add detailed API documentation).`
+
+> `lite::onnxruntime::cv::detection::Yolo5`:
+```c++
+void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes, 
+            float score_threshold = 0.25f, float iou_threshold = 0.45f,
+            unsigned int topk = 100, unsigned int nms_type = NMS::OFFSET);
+```
+
+> `lite::onnxruntime::cv::detection::Yolo4`:
+```c++
+void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes, 
+            float score_threshold = 0.25f, float iou_threshold = 0.45f,
+            unsigned int topk = 100, unsigned int nms_type = NMS::OFFSET);
+```
+
+> `lite::onnxruntime::cv::detection::Yolo3`:
+```c++
+void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes);
+```
+
+> `lite::onnxruntime::cv::detection::TinyYoloV3`:
+```c++
+void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes);
+```
+
+> `lite::onnxruntime::cv::detection::SSD`:
+```c++
+void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes, 
+            float score_threshold = 0.25f, float iou_threshold = 0.45f,
+            unsigned int topk = 100, unsigned int nms_type = NMS::OFFSET);
+```
+
+> `lite::onnxruntime::cv::detection::SSDMobileNetV1`:
+```c++
+void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes, 
+            float score_threshold = 0.25f, float iou_threshold = 0.45f,
+            unsigned int topk = 100, unsigned int nms_type = NMS::OFFSET);
+```
+
+> `lite::onnxruntime::cv::face::FSANet`:
+```c++
+void detect(const cv::Mat &mat, types::EulerAngles &euler_angles);
+```
+
+> `lite::onnxruntime::cv::face::UltraFace`:
+```c++
+void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
+            float score_threshold = 0.7f, float iou_threshold = 0.3f,
+            unsigned int topk = 300, unsigned int nms_type = 0);
+```
+
+> `lite::onnxruntime::cv::face::PFLD`:
+```c++
+void detect(const cv::Mat &mat, types::Landmarks &landmarks);
+```  
+
+> `lite::onnxruntime::cv::face::AgeGoogleNet`:
+```c++
+void detect(const cv::Mat &mat, types::Age &age);
+```
+
+> `lite::onnxruntime::cv::face::GenderGoogleNet`:
+```c++
+void detect(const cv::Mat &mat, types::Gender &gender);
+```
+
+> `lite::onnxruntime::cv::face::VGG16Age`:
+```c++
+void detect(const cv::Mat &mat, types::Age &age);
+```
+
+> `lite::onnxruntime::cv::face::VGG16Gender`:
+```c++
+void detect(const cv::Mat &mat, types::Gender &gender);
+```  
+
+> `lite::onnxruntime::cv::face::EmotionFerPlus`:
+```c++
+void detect(const cv::Mat &mat, types::Emotions &emotions);
+```
+
+> `lite::onnxruntime::cv::face::SSRNet`:
+```c++
+void detect(const cv::Mat &mat, types::Age &age);
+```
+
+> `lite::onnxruntime::cv::faceid::ArcFaceResNet`:
+```c++
+void detect(const cv::Mat &mat, types::FaceContent &face_content);
+```
+
+> `lite::onnxruntime::cv::segmentation::DeepLabV3ResNet101`:
+```c++
+void detect(const cv::Mat &mat, types::SegmentContent &content);
+```
+
+> `lite::onnxruntime::cv::segmentation::FCNResNet101`:
+```c++
+void detect(const cv::Mat &mat, types::SegmentContent &content);
+```  
+
+> `lite::onnxruntime::cv::style::FastStyleTransfer`:
+```c++
+void detect(const cv::Mat &mat, types::StyleContent &style_content);
+```
+
+> `lite::onnxruntime::cv::colorization::Colorizer`:
+```c++
+void detect(const cv::Mat &mat, types::ColorizeContent &colorize_content);
+```
+
+> `lite::onnxruntime::cv::resolution::SubPixelCNN`:
+```c++
+void detect(const cv::Mat &mat, types::SuperResolutionContent &super_resolution_content);
+```  
+
+> `lite::onnxruntime::cv::classification::EfficientNetLite4`:
+```c++
+void detect(const cv::Mat &mat, types::ImageNetContent &content, unsigned int top_k = 5);
+```
+
+> `lite::onnxruntime::cv::classification::ShuffleNetV2`:
+```c++
+void detect(const cv::Mat &mat, types::ImageNetContent &content, unsigned int top_k = 5);
+```  
+
+> `lite::onnxruntime::cv::classification::DenseNet`:
+```c++
+void detect(const cv::Mat &mat, types::ImageNetContent &content, unsigned int top_k = 5);
+```  
+
+> `lite::onnxruntime::cv::classification::GhostNet`:
+```c++
+void detect(const cv::Mat &mat, types::ImageNetContent &content, unsigned int top_k = 5);
+```  
+
+> `lite::onnxruntime::cv::classification::HdrDNet`:
+```c++
+void detect(const cv::Mat &mat, types::ImageNetContent &content, unsigned int top_k = 5);
+```  
+
+> `lite::onnxruntime::cv::classification::MobileNetV2`:
+```c++
+void detect(const cv::Mat &mat, types::ImageNetContent &content, unsigned int top_k = 5);
+```  
+
+> `lite::onnxruntime::cv::classification::ResNet`:
+```c++
+void detect(const cv::Mat &mat, types::ImageNetContent &content, unsigned int top_k = 5);
+```  
+
+> `lite::onnxruntime::cv::classification::ResNeXt`:
+```c++
+void detect(const cv::Mat &mat, types::ImageNetContent &content, unsigned int top_k = 5);
+```
+
+### 5.3 MNN Version APIs. 
+
+`(TODO: Not implementation now, coming soon.)`  
+
+> `lite::mnn::cv::detection::Yolo5`:
+
+> `lite::mnn::cv::detection::Yolo4`:
+
+> `lite::mnn::cv::detection::Yolo3`:
+
+> `lite::mnn::cv::detection::TinyYoloV3`:
+
+> `lite::mnn::cv::detection::SSD`:  
+
+...
+  
+  
 ## 6. Other Docs.  
-### 6.1 ONNXRuntime Inference Engine. 
+### 6.1 Docs for ONNXRuntime. 
 * [Rapid implementation of your inference using BasicOrtHandler](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_handler.zh.md)  
 * [Some very useful onnxruntime c++ interfaces](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_useful_api.zh.md)  
 * [How to compile a single model in this library you needed](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_build_single.zh.md)
@@ -503,12 +783,10 @@ The output is:
 * [How to convert YoloV3 to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_yolov3.zh.md)
 * [How to convert YoloV5 to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_yolov5.zh.md)
 
-### 6.2 How to build [third_party](https://github.com/DefTruth/litehub/tree/main/third_party).  
+### 6.2 Docs for [third_party](https://github.com/DefTruth/litehub/tree/main/third_party).  
 Other build documents for different engines and different targets will be added later.
 
-
 <div id="refer-anchor-1"></div> 
-
 
 |Library|Target|Docs|
 |:---:|:---:|:---:|
