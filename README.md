@@ -150,7 +150,7 @@ target_link_libraries(executable_name litehub)  # link litehub
 
 ## 4. Examples for LiteHub.
 
-More examples can be found at [lite-examples](https://github.com/DefTruth/litehub/tree/main/examples/lite/cv).  Note that the default backend for LiteHub is `onnxruntime`.
+More examples can be found at [lite-examples](https://github.com/DefTruth/litehub/tree/main/examples/lite/cv).  Note that the default backend for LiteHub is `onnxruntime`, for the reason that onnxruntime supports the most of onnx's operators.
 #### 4.1 Object Detection using [YoloV5](https://github.com/ultralytics/yolov5). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
 #include "lite/lite.h"
@@ -419,7 +419,7 @@ The output is:
 
 ### 5.1 Default Version APIs. 
 
-More details of basic types for default version APIs can be found at [types.h](https://github.com/DefTruth/litehub/blob/main/ort/core/ort_types.h) . `(TODO: Add detailed API documentation)`
+More details of basic types for Default Version APIs can be found at [types](https://github.com/DefTruth/litehub/blob/main/ort/core/ort_types.h) . Note that LiteHub uses `onnxruntime` as default backend, for the reason that onnxruntime supports the most of onnx's operators. `(TODO: Add detailed API documentation)`
 
 
 > `lite::cv::detection::Yolo5`:  
@@ -597,7 +597,7 @@ offset_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output, fl
 
 ### 5.2 ONNXRuntime Version APIs.  
  
-More details of basic types for ONNXRuntime version APIs can be found at [ort_types.h](https://github.com/DefTruth/litehub/blob/main/ort/core/ort_types.h) . `(TODO: Add detailed API documentation).`
+More details of basic types for ONNXRuntime Version APIs can be found at [ort_types](https://github.com/DefTruth/litehub/blob/main/ort/core/ort_types.h) . `(TODO: Add detailed API documentation).`
 
 > `lite::onnxruntime::cv::detection::Yolo5`:
 ```c++
