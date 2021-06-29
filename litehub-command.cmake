@@ -1,5 +1,5 @@
 # config litehub shared lib.
-function(add_litehub_shared_library)
+function(add_litehub_shared_library version soversion)
     configure_file (
             "${CMAKE_SOURCE_DIR}/lite/config.h.in"
             "${CMAKE_SOURCE_DIR}/lite/config.h"
@@ -39,6 +39,7 @@ function(add_litehub_shared_library)
     # 4. shared library
     add_library(litehub SHARED ${LITE_SRCS})
     target_link_libraries(litehub ${LITE_DEPENDENCIES})
+    set_target_properties(litehub PROPERTIES VERSION ${version} SOVERSION ${soversion})
 
     if (LITEHUB_COPY_BUILD)
         message("Installing LiteHub Headers ...")

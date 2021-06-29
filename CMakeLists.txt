@@ -7,6 +7,9 @@ set(CMAKE_CXX_STANDARD 11)
 
 set(CMAKE_BUILD_TYPE debug)
 
+set(VERSION_STRING 0.0.1)
+set(SOVERSION_STRING 0)
+
 # dir for third parties.
 set(LITEHUB_ROOT_DIR ${CMAKE_SOURCE_DIR})
 set(THIRDPARTY_DIR ${LITEHUB_ROOT_DIR}/third_party)
