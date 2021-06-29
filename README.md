@@ -418,7 +418,7 @@ The output is:
 ## 5. LiteHub API Docs.
 
 ### 5.1 Default Version APIs.  
-More details of Default Version APIs can be found at [default-api-docs](https://github.com/DefTruth/litehub/blob/main/docs/api/default.md) . For examples, the interface for YoloV5 is:
+More details of Default Version APIs can be found at [default-version-api-docs](https://github.com/DefTruth/litehub/blob/main/docs/api/default.md) . For examples, the interface for YoloV5 is:
 
 > `lite::cv::detection::Yolo5`
 ```c++
@@ -428,7 +428,7 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 ```  
 
 ### 5.2 ONNXRuntime Version APIs.  
-More details of ONNXRuntime Version APIs can be found at [onnxruntime-api-docs](https://github.com/DefTruth/litehub/blob/main/docs/api/onnxruntime.md) . For examples, the interface for YoloV5 is:
+More details of ONNXRuntime Version APIs can be found at [onnxruntime-version-api-docs](https://github.com/DefTruth/litehub/blob/main/docs/api/onnxruntime.md) . For examples, the interface for YoloV5 is:
 
 > `lite::onnxruntime::cv::detection::Yolo5`
 ```c++
