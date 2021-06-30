@@ -128,24 +128,29 @@ Default Version Detected Boxes Num: 5
 * Link `litehub` shared lib. You need to make sure that `OpenCV` and `onnxruntime` are linked correctly. Just like:
 
 ```cmake
+cmake_minimum_required(VERSION 3.17)
+project(testlitehub)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_BUILD_TYPE debug)
 # link opencv.
-set(OpenCV_DIR ${THIRDPARTY_DIR}/opencv/4.5.2/x86_64/lib/cmake/opencv4)
+set(OpenCV_DIR ${CMAKE_SOURCE_DIR}/opencv/lib/cmake/opencv4)
 find_package(OpenCV 4 REQUIRED)
+include_directories(${OpenCV_INCLUDE_DIRS})
 # link onnxruntime.
-set(ONNXRUNTIME_DIR ${THIRDPARTY_DIR}/onnxruntime/1.7.0/x86_64)
+set(ONNXRUNTIME_DIR ${CMAKE_SOURCE_DIR}/onnxruntime/)
 set(ONNXRUNTIME_INCLUDE_DIR ${ONNXRUNTIME_DIR}/include)
 set(ONNXRUNTIME_LIBRARY_DIR ${ONNXRUNTIME_DIR}/lib)
 include_directories(${ONNXRUNTIME_INCLUDE_DIR})
 link_directories(${ONNXRUNTIME_LIBRARY_DIR})
 # link litehub.
-set(LITEHUB_DIR ${THIRDPARTY_DIR}/litehub)
+set(LITEHUB_DIR ${CMAKE_SOURCE_DIR}/litehub)
 set(LITEHUB_INCLUDE_DIR ${LITEHUB_DIR}/include)
 set(LITEHUB_LIBRARY_DIR ${LITEHUB_DIR}/lib)
 include_directories(${LITEHUB_INCLUDE_DIR})
 link_directories(${LITEHUB_LIBRARY_DIR})
 # add your executable
-add_executable(executable_name test_executable_name.cpp)
-target_link_libraries(executable_name litehub)  # link litehub
+add_executable(lite_yolov5 test_lite_yolov5.cpp)
+target_link_libraries(lite_yolov5 litehub onnxruntime ${OpenCV_LIBS})
 ```
 
 ## 4. Examples for LiteHub.
