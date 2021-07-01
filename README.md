@@ -419,7 +419,7 @@ The output is:
   <img src='logs/test_lite_fsanet_3.jpg' height="224px" width="224px">
 </div>  
 
-#### 4.8 Face Recognition using [ArcFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
+#### 4.9 Face Recognition using [ArcFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 
 ```c++
 #include "lite/lite.h"
