@@ -42,6 +42,7 @@
 #include "ort/cv/yolov3.h"
 #include "ort/cv/yolov4.h"
 #include "ort/cv/yolov5.h"
+#include "ort/cv/glint_cosface.h"
 
 #endif
 
@@ -94,6 +95,7 @@ namespace lite
     typedef ortcv::MobileNetV2 _MobileNetV2;
     typedef ortcv::ResNet _ResNet;
     typedef ortcv::ResNeXt _ResNeXt;
+    typedef ortcv::GlintCosFace _GlintCosFace;
 #endif
 
     // 1. classification
@@ -143,7 +145,8 @@ namespace lite
     namespace faceid
     {
 #ifdef BACKEND_ONNXRUNTIME
-      typedef _ArcFaceResNet ArcFaceResNet; // test failed ! don't use!
+      typedef _ArcFaceResNet ArcFaceResNet; //
+      typedef _GlintCosFace GlintCosFace;
 #endif
 
     }
@@ -253,6 +256,7 @@ namespace lite
       typedef ortcv::MobileNetV2 _ONNXMobileNetV2;
       typedef ortcv::ResNet _ONNXResNet;
       typedef ortcv::ResNeXt _ONNXResNeXt;
+      typedef ortcv::GlintCosFace _ONNXGlintCosFace;
 
       // 1. classification
       namespace classification
@@ -294,7 +298,8 @@ namespace lite
       // 4. face recognition
       namespace faceid
       {
-        typedef _ONNXArcFaceResNet ArcFaceResNet; // test failed ! don't use!
+        typedef _ONNXArcFaceResNet ArcFaceResNet; //
+        typedef _ONNXGlintCosFace GlintCosFace; //
       }
       // 5. segmentation
       namespace segmentation

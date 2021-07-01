@@ -63,7 +63,8 @@ Some of the models were converted by this repo, and others were referenced from 
 |[VGG16Gender](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender)|512Mb|[Baidu Drive](https://pan.baidu.com/s/1X5y7bOSPyeBzT9nSgQiMIQ) | - | *lite::cv::face* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_vgg16_gender.cpp) |
 |[SSRNet](https://github.com/oukohou/SSR_Net_Pytorch)|190Kb|[Baidu Drive](https://pan.baidu.com/s/1X5y7bOSPyeBzT9nSgQiMIQ) | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_ssrnet.zh.md) | *lite::cv::face* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_ssrnet.cpp) |
 |[FastStyleTransfer](https://github.com/onnx/models/blob/master/vision/style_transfer/fast_neural_style)|6.4Mb|[Baidu Drive](https://pan.baidu.com/s/1X5y7bOSPyeBzT9nSgQiMIQ) | - | *lite::cv::style* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_fast_style_transfer.cpp) |
-|[ArcFaceResNet](https://github.com/onnx/models/blob/master/vision/body_analysis/arcface)|249Mb|[Baidu Drive](https://pan.baidu.com/s/1X5y7bOSPyeBzT9nSgQiMIQ) | - | *lite::cv::faceid* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_arcface_resnet.cpp) |
+|[ArcFaceResNet](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch)|92~249Mb|[Baidu Drive](https://pan.baidu.com/s/1X5y7bOSPyeBzT9nSgQiMIQ) | [litehub](https://github.com/DefTruth/litehub/) | *lite::cv::faceid* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_arcface_resnet.cpp) |
+|[GlintCosFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch)|92~249Mb|[Baidu Drive](https://pan.baidu.com/s/1X5y7bOSPyeBzT9nSgQiMIQ) | [litehub](https://github.com/DefTruth/litehub/) | *lite::cv::faceid* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_glint_cosface.cpp) |
 |[Colorizer](https://github.com/richzhang/colorization)|123Mb~130Mb|[Baidu Drive](https://pan.baidu.com/s/1X5y7bOSPyeBzT9nSgQiMIQ) | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_colorizer.zh.md) | *lite::cv::colorization* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_colorizer.cpp) |
 |[SubPixelCNN](https://github.com/niazwazir/SUB_PIXEL_CNN)|234Kb|[Baidu Drive](https://pan.baidu.com/s/1X5y7bOSPyeBzT9nSgQiMIQ) | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_subpixel_cnn.zh.md) | *lite::cv::resolution* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_subpixel_cnn.cpp) |
 |[DeepLabV3ResNet101](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/)|232Mb|[Baidu Drive](https://pan.baidu.com/s/1X5y7bOSPyeBzT9nSgQiMIQ) | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_deeplabv3_resnet101.zh.md) | *lite::cv::segmentation* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_deeplabv3_resnet101.cpp) |
@@ -418,6 +419,49 @@ The output is:
   <img src='logs/test_lite_fsanet_3.jpg' height="224px" width="224px">
 </div>  
 
+#### 4.8 Face Recognition using [ArcFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
+
+```c++
+#include "lite/lite.h"
+
+static void test_default()
+{
+  std::string onnx_path = "../../../hub/onnx/cv/ms1mv3_arcface_r100.onnx";
+  std::string test_img_path0 = "../../../examples/lite/resources/test_lite_arcface_resnet_0.png";
+  std::string test_img_path1 = "../../../examples/lite/resources/test_lite_arcface_resnet_1.png";
+  std::string test_img_path1 = "../../../examples/lite/resources/test_lite_arcface_resnet_2.png";
+
+  auto *arcface_resnet = new lite::cv::faceid::ArcFaceResNet(onnx_path);
+
+  lite::cv::types::FaceContent face_content0, face_content1, face_content2;
+  cv::Mat img_bgr0 = cv::imread(test_img_path0);
+  cv::Mat img_bgr1 = cv::imread(test_img_path1);
+  cv::Mat img_bgr2 = cv::imread(test_img_path2);
+  arcface_resnet->detect(img_bgr0, face_content0);
+  arcface_resnet->detect(img_bgr1, face_content1);
+  arcface_resnet->detect(img_bgr2, face_content2);
+
+  if (face_content0.flag && face_content1.flag && face_content2.flag)
+  {
+    float sim01 = lite::cv::utils::math::cosine_similarity<float>(
+        face_content0.embedding, face_content1.embedding);
+    float sim02 = lite::cv::utils::math::cosine_similarity<float>(
+        face_content0.embedding, face_content2.embedding);
+    std::cout << "Detected Sim01: " << sim  << " Sim02: " << sim02 << std::endl;
+  }
+
+  delete arcface_resnet;
+}
+```
+
+The output is:
+<div align='center'>
+  <img src='examples/lite/resources/test_lite_arcface_resnet_0.png' height="224px" width="224px">
+  <img src='examples/lite/resources/test_lite_arcface_resnet_1.png' height="224px" width="224px">
+  <img src='examples/lite/resources/test_lite_arcface_resnet_2.png' height="224px" width="224px">
+</div>  
+
+> Detected Sim01: 0.721159  Sim02: -0.0626267
 
 ## 5. LiteHub API Docs.
 

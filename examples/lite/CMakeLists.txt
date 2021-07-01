@@ -1,6 +1,6 @@
 add_lite_executable(lite_age_googlenet cv)
 add_lite_executable(lite_fsanet cv)
-add_lite_executable(lite_arcface_resnet cv) # test failed ! don't use.
+add_lite_executable(lite_arcface_resnet cv)
 add_lite_executable(lite_colorizer cv)
 add_lite_executable(lite_deeplabv3_resnet101 cv)
 add_lite_executable(lite_densenet cv)
@@ -28,3 +28,4 @@ add_lite_executable(lite_yolov5 cv)
 add_lite_executable(lite_tiny_yolov3 cv)
 add_lite_executable(lite_ssd cv)
 add_lite_executable(lite_ssd_mobilenetv1 cv)
+add_lite_executable(lite_glint_cosface cv)

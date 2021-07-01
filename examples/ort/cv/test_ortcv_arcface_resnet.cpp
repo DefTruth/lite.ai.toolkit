@@ -10,7 +10,7 @@
 
 static void test_ortcv_arcface_resnet()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/arcfaceresnet100-8.onnx";
+  std::string onnx_path = "../../../hub/onnx/cv/ms1mv3_arcface_r100.onnx";
   std::string test_img_path0 = "../../../examples/ort/resources/test_ortcv_arcface_resnet_0.png";
   std::string test_img_path1 = "../../../examples/ort/resources/test_ortcv_arcface_resnet_1.png";
 
@@ -35,5 +35,4 @@ int main(__unused int argc, __unused char *argv[])
 {
   test_ortcv_arcface_resnet();
   return 0;
-  //  Ort::Exception: Non-zero status code returned while running BatchNormalization node. Name:'stage1_unit1_bn1' Status Message: Invalid input scale: NumDimensions() != 3
 }

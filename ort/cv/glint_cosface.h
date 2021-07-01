@@ -1,22 +1,22 @@
 //
-// Created by DefTruth on 2021/4/4.
+// Created by DefTruth on 2021/7/1.
 //
 
-#ifndef LITEHUB_ORT_CV_ARCAFCE_RESNET_H
-#define LITEHUB_ORT_CV_ARCAFCE_RESNET_H
+#ifndef LITEHUB_ORT_CV_GLINT_COSFACE_H
+#define LITEHUB_ORT_CV_GLINT_COSFACE_H
 
 #include "ort/core/ort_core.h"
 
 namespace ortcv
 {
-  class LITEHUB_EXPORTS ArcFaceResNet : public BasicOrtHandler
+  class LITEHUB_EXPORTS GlintCosFace : public BasicOrtHandler
   {
   public:
-    explicit ArcFaceResNet(const std::string &_onnx_path, unsigned int _num_threads = 1) :
+    explicit GlintCosFace(const std::string &_onnx_path, unsigned int _num_threads = 1) :
         BasicOrtHandler(_onnx_path, _num_threads)
     {};
 
-    ~ArcFaceResNet() override = default;
+    ~GlintCosFace() override = default;
 
   private:
     static constexpr const float mean_val = 127.5f;
@@ -29,5 +29,4 @@ namespace ortcv
     void detect(const cv::Mat &mat, types::FaceContent &face_content);
   };
 }
-
-#endif //LITEHUB_ORT_CV_ARCAFCE_RESNET_H
+#endif //LITEHUB_ORT_CV_GLINT_COSFACE_H

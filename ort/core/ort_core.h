@@ -21,7 +21,7 @@ namespace ortcv
   class LITEHUB_EXPORTS VGG16Gender;         // [7] * reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
   class LITEHUB_EXPORTS SSRNet;              // [8] * reference: https://github.com/oukohou/SSR_Net_Pytorch
   class LITEHUB_EXPORTS FastStyleTransfer;   // [9] * reference: https://github.com/onnx/models/blob/master/vision/style_transfer/fast_neural_style
-  class LITEHUB_EXPORTS ArcFaceResNet;       // [10] * reference: https://github.com/onnx/models/blob/master/vision/body_analysis/arcface
+  class LITEHUB_EXPORTS ArcFaceResNet;       // [10] * reference: https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch
   class LITEHUB_EXPORTS Colorizer;           // [11] * reference: https://github.com/richzhang/colorization
   class LITEHUB_EXPORTS SubPixelCNN;         // [12] * reference: https://github.com/niazwazir/SUB_PIXEL_CNN
   class LITEHUB_EXPORTS YoloV4;              // [13] * reference: https://github.com/argusswift/YOLOv4-pytorch
@@ -41,6 +41,7 @@ namespace ortcv
   class LITEHUB_EXPORTS MobileNetV2;         // [27] * reference: https://pytorch.org/hub/pytorch_vision_mobilenet_v2/
   class LITEHUB_EXPORTS ResNet;              // [28] * reference: https://pytorch.org/hub/pytorch_vision_resnet/
   class LITEHUB_EXPORTS ResNeXt;             // [29] * reference: https://pytorch.org/hub/pytorch_vision_resnext/
+  class LITEHUB_EXPORTS GlintCosFace;        // [30] * reference: https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch
 }
 
 namespace ortnlp

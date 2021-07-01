@@ -22,7 +22,7 @@ option(LITEHUB_THIRDPARTY "use third party libraies if exists" ON)
 option(LITEHUB_COPY_BUILD "whether to copy the built libs to ./build directory." ON)
 option(LITEHUB_BUILD_LIB "whether to build shared|static libraries." ON)
 option(LITEHUB_BUILD_TEST "whether to build shared|static libraries." ON)
-option(LITEHUB_BUILD_ORT_TEST "whether to build ort test examples" ON)
+option(LITEHUB_BUILD_ORT_TEST "whether to build ort test examples" OFF)
 option(LITEHUB_BUILD_LITE_TEST "whether to build lite test examples" ON)
 # engine backend: config.h.in -> config.h
 option(ENABLE_ONNXRUNTIME "whether to enable ONNXRuntime engine" ON)

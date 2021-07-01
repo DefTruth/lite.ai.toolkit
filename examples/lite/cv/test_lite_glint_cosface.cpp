@@ -1,22 +1,22 @@
 //
-// Created by DefTruth on 2021/6/25.
+// Created by DefTruth on 2021/7/1.
 //
 
 #include "lite/lite.h"
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/ms1mv3_arcface_r100.onnx";
-  std::string test_img_path0 = "../../../examples/lite/resources/test_lite_arcface_resnet_0.png";
-  std::string test_img_path1 = "../../../examples/lite/resources/test_lite_arcface_resnet_1.png";
+  std::string onnx_path = "../../../hub/onnx/cv/glint360k_cosface_r100.onnx";
+  std::string test_img_path0 = "../../../examples/lite/resources/test_lite_glint_cosface_0.png";
+  std::string test_img_path1 = "../../../examples/lite/resources/test_lite_glint_cosface_1.png";
 
-  lite::cv::faceid::ArcFaceResNet *arcface_resnet = new lite::cv::faceid::ArcFaceResNet(onnx_path);
+  lite::cv::faceid::GlintCosFace *glint_cosface = new lite::cv::faceid::GlintCosFace(onnx_path);
 
   lite::cv::types::FaceContent face_content0, face_content1;
   cv::Mat img_bgr0 = cv::imread(test_img_path0);
   cv::Mat img_bgr1 = cv::imread(test_img_path1);
-  arcface_resnet->detect(img_bgr0, face_content0);
-  arcface_resnet->detect(img_bgr1, face_content1);
+  glint_cosface->detect(img_bgr0, face_content0);
+  glint_cosface->detect(img_bgr1, face_content1);
 
   if (face_content0.flag && face_content1.flag)
   {
@@ -25,23 +25,23 @@ static void test_default()
     std::cout << "Default Version Detected Sim: " << sim << std::endl;
   }
 
-  delete arcface_resnet;
+  delete glint_cosface;
 }
 
 static void test_onnxruntime()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/ms1mv3_arcface_r100.onnx";
-  std::string test_img_path0 = "../../../examples/lite/resources/test_lite_arcface_resnet_0.png";
-  std::string test_img_path1 = "../../../examples/lite/resources/test_lite_arcface_resnet_2.png";
+  std::string onnx_path = "../../../hub/onnx/cv/glint360k_cosface_r100.onnx";
+  std::string test_img_path0 = "../../../examples/lite/resources/test_lite_glint_cosface_0.png";
+  std::string test_img_path1 = "../../../examples/lite/resources/test_lite_glint_cosface_2.png";
 
-  lite::onnxruntime::cv::faceid::ArcFaceResNet *arcface_resnet =
-      new lite::onnxruntime::cv::faceid::ArcFaceResNet(onnx_path);
+  lite::onnxruntime::cv::faceid::GlintCosFace *glint_cosface =
+      new lite::onnxruntime::cv::faceid::GlintCosFace(onnx_path);
 
   lite::onnxruntime::cv::types::FaceContent face_content0, face_content1;
   cv::Mat img_bgr0 = cv::imread(test_img_path0);
   cv::Mat img_bgr1 = cv::imread(test_img_path1);
-  arcface_resnet->detect(img_bgr0, face_content0);
-  arcface_resnet->detect(img_bgr1, face_content1);
+  glint_cosface->detect(img_bgr0, face_content0);
+  glint_cosface->detect(img_bgr1, face_content1);
 
   if (face_content0.flag && face_content1.flag)
   {
@@ -50,7 +50,7 @@ static void test_onnxruntime()
     std::cout << "ONNXRuntime Version Detected Sim: " << sim << std::endl;
   }
 
-  delete arcface_resnet;
+  delete glint_cosface;
 }
 
 static void test_mnn()
