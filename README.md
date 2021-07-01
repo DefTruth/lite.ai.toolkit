@@ -166,8 +166,8 @@ static void test_default()
   std::string onnx_path = "../../../hub/onnx/cv/yolov5s.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_yolov5_1.jpg";
   std::string save_img_path = "../../../logs/test_lite_yolov5_1.jpg";
-  
-  lite::cv::detection::YoloV5 *yolov5 = new lite::cv::detection::YoloV5(onnx_path); 
+
+  auto *yolov5 = new lite::cv::detection::YoloV5(onnx_path); 
   std::vector<lite::cv::types::Boxf> detected_boxes;
   cv::Mat img_bgr = cv::imread(test_img_path);
   yolov5->detect(img_bgr, detected_boxes);
@@ -195,8 +195,7 @@ static void test_default()
   std::string test_img_path = "../../../examples/lite/resources/test_lite_deeplabv3_resnet101.png";
   std::string save_img_path = "../../../logs/test_lite_deeplabv3_resnet101.jpg";
 
-  lite::cv::segmentation::DeepLabV3ResNet101 *deeplabv3_resnet101 =
-      new lite::cv::segmentation::DeepLabV3ResNet101(onnx_path, 16); // 16 threads
+  auto *deeplabv3_resnet101 = new lite::cv::segmentation::DeepLabV3ResNet101(onnx_path, 16); // 16 threads
 
   lite::cv::types::SegmentContent content;
   cv::Mat img_bgr = cv::imread(test_img_path);
@@ -235,8 +234,7 @@ static void test_default()
   std::string test_img_path = "../../../examples/lite/resources/test_lite_fast_style_transfer.jpg";
   std::string save_img_path = "../../../logs/test_lite_fast_style_transfer_candy.jpg";
   
-  lite::cv::style::FastStyleTransfer *fast_style_transfer =
-     new lite::cv::style::FastStyleTransfer(onnx_path);
+  auto *fast_style_transfer = new lite::cv::style::FastStyleTransfer(onnx_path);
  
   lite::cv::types::StyleContent style_content;
   cv::Mat img_bgr = cv::imread(test_img_path);
@@ -269,7 +267,7 @@ static void test_default()
   std::string test_img_path = "../../../examples/lite/resources/test_lite_colorizer_1.jpg";
   std::string save_img_path = "../../../logs/test_lite_eccv16_colorizer_1.jpg";
   
-  lite::cv::colorization::Colorizer *colorizer = new lite::cv::colorization::Colorizer(onnx_path);
+  auto *colorizer = new lite::cv::colorization::Colorizer(onnx_path);
   
   cv::Mat img_bgr = cv::imread(test_img_path);
   lite::cv::types::ColorizeContent colorize_content;
@@ -302,7 +300,7 @@ static void test_default()
   std::string test_img_path = "../../../examples/lite/resources/test_lite_pfld.png";
   std::string save_img_path = "../../../logs/test_lite_pfld.jpg";
 
-  lite::cv::face::PFLD *pfld = new lite::cv::face::PFLD(onnx_path);
+  auto *pfld = new lite::cv::face::PFLD(onnx_path);
 
   lite::cv::types::Landmarks landmarks;
   cv::Mat img_bgr = cv::imread(test_img_path);
@@ -330,7 +328,7 @@ static void test_default()
   std::string test_img_path = "../../../examples/lite/resources/test_lite_ultraface.jpg";
   std::string save_img_path = "../../../logs/test_lite_ultraface.jpg";
 
-  lite::cv::face::UltraFace *ultraface = new lite::cv::face::UltraFace(onnx_path);
+  auto *ultraface = new lite::cv::face::UltraFace(onnx_path);
 
   std::vector<lite::cv::types::Boxf> detected_boxes;
   cv::Mat img_bgr = cv::imread(test_img_path);
@@ -357,7 +355,7 @@ static void test_default()
   std::string onnx_path = "../../../hub/onnx/cv/densenet121.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_densenet.jpg";
 
-  lite::cv::classification::DenseNet *densenet = new lite::cv::classification::DenseNet(onnx_path);
+  auto *densenet = new lite::cv::classification::DenseNet(onnx_path);
 
   lite::cv::types::ImageNetContent content;
   cv::Mat img_bgr = cv::imread(test_img_path);
@@ -398,7 +396,7 @@ static void test_default()
   std::string test_img_path = "../../../examples/lite/resources/test_lite_fsanet.jpg";
   std::string save_img_path = "../../../logs/test_lite_fsanet.jpg";
 
-  lite::cv::face::FSANet *fsanet = new lite::cv::face::FSANet(onnx_path);
+  auto *fsanet = new lite::cv::face::FSANet(onnx_path);
   cv::Mat img_bgr = cv::imread(test_img_path);
   lite::cv::types::EulerAngles euler_angles;
   fsanet->detect(img_bgr, euler_angles);
