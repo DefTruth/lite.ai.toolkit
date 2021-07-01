@@ -152,7 +152,7 @@ link_directories(${LITEHUB_LIBRARY_DIR})
 add_executable(lite_yolov5 test_lite_yolov5.cpp)
 target_link_libraries(lite_yolov5 litehub onnxruntime ${OpenCV_LIBS})
 ```  
-A minimum example to teach you how to link the shared lib of LiteHub correctly at your own project can be found at [litehub-release](https://github.com/DefTruth/litehub-release) .
+A minimum example to show you how to link the shared lib of LiteHub correctly for your own project can be found at [litehub-release](https://github.com/DefTruth/litehub-release) .
 
 ## 4. Examples for LiteHub.
 
