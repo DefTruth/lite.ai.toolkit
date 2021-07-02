@@ -429,7 +429,7 @@ static void test_default()
   std::string onnx_path = "../../../hub/onnx/cv/ms1mv3_arcface_r100.onnx";
   std::string test_img_path0 = "../../../examples/lite/resources/test_lite_arcface_resnet_0.png";
   std::string test_img_path1 = "../../../examples/lite/resources/test_lite_arcface_resnet_1.png";
-  std::string test_img_path1 = "../../../examples/lite/resources/test_lite_arcface_resnet_2.png";
+  std::string test_img_path2 = "../../../examples/lite/resources/test_lite_arcface_resnet_2.png";
 
   auto *arcface_resnet = new lite::cv::faceid::ArcFaceResNet(onnx_path);
 
