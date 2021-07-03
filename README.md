@@ -78,7 +78,7 @@ Some of the models were converted by this repo, and others were referenced from 
 |[ResNeXt](https://pytorch.org/hub/pytorch_vision_resnext/)|95Mb|[Baidu Drive](https://pan.baidu.com/s/1X5y7bOSPyeBzT9nSgQiMIQ) | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_resnext.zh.md) | *lite::cv::classification* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_resnext.cpp) |
 
 ## 3. Build LiteHub.
-* Build the shared lib of LiteHub for MacOS from sources or you can download the built lib from [liblitehub.dylib|so](https://github.com/DefTruth/litehub/tree/main/build/litehub/lib) (`TODO: Linux & Windows`). Note that LiteHub uses `onnxruntime` as default backend, for the reason that onnxruntime supports the most of onnx's operators. For Linux and Windows, you need to build the shared libs of `OpenCV` and `onnxruntime` firstly and put then into the `third_party` directory. Please reference the build-docs[<sup>1</sup>](#refer-anchor-1) for `third_party`.  
+Build the shared lib of LiteHub for MacOS from sources or you can download the built lib from [liblitehub.dylib|so](https://github.com/DefTruth/litehub/tree/main/build/litehub/lib) (`TODO: Linux & Windows`). Note that LiteHub uses `onnxruntime` as default backend, for the reason that onnxruntime supports the most of onnx's operators. For Linux and Windows, you need to build the shared libs of `OpenCV` and `onnxruntime` firstly and put then into the `third_party` directory. Please reference the build-docs[<sup>1</sup>](#refer-anchor-1) for `third_party`.  
 
 * Clone the LiteHub from sources:  
 ```shell
