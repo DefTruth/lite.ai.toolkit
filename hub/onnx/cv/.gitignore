@@ -25,5 +25,5 @@ ibnnet18.onnx
 mobilenetv2.onnx
 resnet18.onnx
 resnext50.onnx
-glint360k*
-ms1mv3*
+*glint360k*
+*ms1mv3*

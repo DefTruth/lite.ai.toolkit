@@ -42,6 +42,7 @@ namespace ortcv
   class LITEHUB_EXPORTS ResNet;              // [28] * reference: https://pytorch.org/hub/pytorch_vision_resnet/
   class LITEHUB_EXPORTS ResNeXt;             // [29] * reference: https://pytorch.org/hub/pytorch_vision_resnext/
   class LITEHUB_EXPORTS GlintCosFace;        // [30] * reference: https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch
+  class LITEHUB_EXPORTS GlintPartialFC;      // [31] * reference: https://github.com/deepinsight/insightface/tree/master/recognition/partial_fc
 }
 
 namespace ortnlp

@@ -43,6 +43,7 @@
 #include "ort/cv/yolov4.h"
 #include "ort/cv/yolov5.h"
 #include "ort/cv/glint_cosface.h"
+#include "ort/cv/glint_partial_fc.h"
 
 #endif
 
@@ -96,6 +97,7 @@ namespace lite
     typedef ortcv::ResNet _ResNet;
     typedef ortcv::ResNeXt _ResNeXt;
     typedef ortcv::GlintCosFace _GlintCosFace;
+    typedef ortcv::GlintPartialFC _GlintPartialFC;
 #endif
 
     // 1. classification
@@ -146,7 +148,8 @@ namespace lite
     {
 #ifdef BACKEND_ONNXRUNTIME
       typedef _ArcFaceResNet ArcFaceResNet; //
-      typedef _GlintCosFace GlintCosFace;
+      typedef _GlintCosFace GlintCosFace; //
+      typedef _GlintPartialFC GlintPartialFC;
 #endif
 
     }
@@ -257,6 +260,7 @@ namespace lite
       typedef ortcv::ResNet _ONNXResNet;
       typedef ortcv::ResNeXt _ONNXResNeXt;
       typedef ortcv::GlintCosFace _ONNXGlintCosFace;
+      typedef ortcv::GlintPartialFC _ONNXGlintPartialFC;
 
       // 1. classification
       namespace classification
@@ -300,6 +304,7 @@ namespace lite
       {
         typedef _ONNXArcFaceResNet ArcFaceResNet; //
         typedef _ONNXGlintCosFace GlintCosFace; //
+        typedef _ONNXGlintPartialFC GlintPartialFC;
       }
       // 5. segmentation
       namespace segmentation
