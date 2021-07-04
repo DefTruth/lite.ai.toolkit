@@ -1,14 +1,17 @@
 cmake_minimum_required(VERSION 3.17)
 project(litehub)
 
-message(">>>> Current project is: ${CMAKE_SOURCE_DIR}")
-
 set(CMAKE_CXX_STANDARD 11)
-
-set(CMAKE_BUILD_TYPE debug)
-
 set(VERSION_STRING 0.0.1)
 set(SOVERSION_STRING 0.0.1)
+
+message("==================================== LiteHub ${VERSION_STRING} =============================")
+message("Project: LiteHub")
+message("Version: ${VERSION_STRING}")
+message("SO Version: ${SOVERSION_STRING}")
+message("Build Type: ${CMAKE_BUILD_TYPE}")
+message("Root Path: ${CMAKE_SOURCE_DIR}")
+message("================================================================================")
 
 # dir for third parties.
 set(LITEHUB_ROOT_DIR ${CMAKE_SOURCE_DIR})

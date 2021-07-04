@@ -1,4 +1,9 @@
 #!/bin/bash
-cd build && rm -rf ./* \
-         && echo "clear built files done ! & rebuilding ..." \
-         && cmake .. && make -j8
+if [ ! -d ./build ]; then
+  mkdir build
+else
+  echo "build directory exist! clearing ..."
+  rm -rf ./build/* && echo "clear built files done ! & rebuilding ..."
+fi
+
+cd build && cmake -DCMAKE_BUILD_TYPE=MinSizeRel .. && make -j8
