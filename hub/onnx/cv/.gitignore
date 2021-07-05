@@ -27,3 +27,5 @@ resnet18.onnx
 resnext50.onnx
 *glint360k*
 *ms1mv3*
+facenet_casia-webface_resnet.onnx
+facenet_vggface2_resnet.onnx
