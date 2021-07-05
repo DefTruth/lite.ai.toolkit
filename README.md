@@ -118,7 +118,7 @@ cd ../ && tree .
 * Run the built examples:
 ```shell
 cd ./build/litehub/bin && ls -lh | grep lite
--rwxr-xr-x  1 root  staff   3.4M Jun 26 23:10 liblitehub.0.0.1.dylib
+-rwxr-xr-x  1 root  staff   301K Jun 26 23:10 liblitehub.0.0.1.dylib
 ...
 -rwxr-xr-x  1 root  staff   196K Jun 26 23:10 lite_yolov4
 -rwxr-xr-x  1 root  staff   196K Jun 26 23:10 lite_yolov5
