@@ -45,6 +45,8 @@
 #include "ort/cv/glint_cosface.h"
 #include "ort/cv/glint_partial_fc.h"
 #include "ort/cv/facenet.h"
+#include "ort/cv/focal_arcface.h"
+#include "ort/cv/focal_asia_arcface.h"
 
 #endif
 
@@ -100,6 +102,8 @@ namespace lite
     typedef ortcv::GlintCosFace _GlintCosFace;
     typedef ortcv::GlintPartialFC _GlintPartialFC;
     typedef ortcv::FaceNet _FaceNet;
+    typedef ortcv::FocalArcFace _FocalArcFace;
+    typedef ortcv::FocalAsiaArcFace _FocalAsiaArcFace;
 #endif
 
     // 1. classification
@@ -153,6 +157,8 @@ namespace lite
       typedef _GlintCosFace GlintCosFace; //
       typedef _GlintPartialFC GlintPartialFC;
       typedef _FaceNet FaceNet;
+      typedef _FocalArcFace FocalArcFace;
+      typedef _FocalAsiaArcFace FocalAsiaArcFace;
 #endif
 
     }
@@ -204,6 +210,12 @@ namespace lite
     {
 #ifdef BACKEND_ONNXRUNTIME
       typedef _SubPixelCNN SubPixelCNN;
+#endif
+    }
+    // 12. image & face & human matting
+    namespace matting
+    {
+#ifdef BACKEND_ONNXRUNTIME
 #endif
     }
 
@@ -265,6 +277,8 @@ namespace lite
       typedef ortcv::GlintCosFace _ONNXGlintCosFace;
       typedef ortcv::GlintPartialFC _ONNXGlintPartialFC;
       typedef ortcv::FaceNet _ONNXFaceNet;
+      typedef ortcv::FocalArcFace _ONNXFocalArcFace;
+      typedef ortcv::FocalAsiaArcFace _ONNXFocalAsiaArcFace;
 
       // 1. classification
       namespace classification
@@ -310,6 +324,8 @@ namespace lite
         typedef _ONNXGlintCosFace GlintCosFace; //
         typedef _ONNXGlintPartialFC GlintPartialFC;
         typedef _ONNXFaceNet FaceNet;
+        typedef _ONNXFocalArcFace FocalArcFace;
+        typedef _ONNXFocalAsiaArcFace FocalAsiaArcFace;
       }
       // 5. segmentation
       namespace segmentation
@@ -349,6 +365,11 @@ namespace lite
       namespace resolution
       {
         typedef _ONNXSubPixelCNN SubPixelCNN;
+      }
+      // 12. image & face & human matting
+      namespace matting
+      {
+
       }
 
     }
