@@ -33,3 +33,5 @@ focal-arcface-bh-ir50-asia.onnx
 focal-arcface-ms1m-ir50-epoch63.onnx
 focal-arcface-ms1m-ir50-epoch120.onnx
 focal-arcface-ms1m-ir152.onnx
+Tencent_Cifp_BUPT_Balancedface_IR_34.onnx
+Tencent_CurricularFace_Backbone.onnx
