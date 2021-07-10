@@ -14,7 +14,16 @@
   <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="200px" width="200px"> 
 </div>
 
-*LiteHub* for onnxruntime/ncnn/mnn. This library integrates some interesting models and implement with onnxruntime/ncnn/mnn. Such as `YoloV5`、`YoloV4`、`DeepLabV3`、`UltraFace`、`PFLD`、`Colorization`、`FastStyleTransfer` and so on. Most of the models come from `ONNX-Model-Zoo`, `PytorchHub` and `other open source projects`. All models used will be cited. Many thanks to these contributors. What you see is what you get, and hopefully you get something out of it.
+*LiteHub* for onnxruntime/ncnn/mnn. This library integrates some interesting models and implement with onnxruntime/ncnn/mnn. Such as `YoloV5`、`YoloV4`、`DeepLabV3`、`UltraFace`、`PFLD`、`Colorization`、`FastStyleTransfer` and so on. Most of the models come from `ONNX-Model-Zoo`, `PytorchHub` and `other open source projects`. All models used will be cited. Many thanks to these contributors. What you see is what you get, and hopefully you get something out of it.  
+
+* Related LiteHub Projects.
+  * [1] [litehub](https://github.com/DefTruth/litehub)
+  * [2] [litehub-onnxruntime](https://github.com/DefTruth/litehub-onnxruntime)
+  * [3] [litehub-mnn](https://github.com/DefTruth/litehub-mnn)
+  * [4] [litehub-ncnn](https://github.com/DefTruth/litehub-ncnn)
+  * [5] [litehub-release](https://github.com/DefTruth/litehub-release)
+  * [6] [litehub-python](https://github.com/DefTruth/litehub-python)
+  * [7] [litehub-android](https://github.com/DefTruth/litehub-android)
 
 ## 1. Dependencies.  
 * Mac OS.  
@@ -553,3 +562,25 @@ Other build documents for different engines and different targets will be added 
 |MNN| mac-x86_64 | TODO |
 |TNN| mac-x86_64 | TODO |
 
+## 7. Related Projects.  
+Many thanks to the following projects. All of LiteHub's models come from them.
+* [1] [headpose-fsanet-pytorch](https://github.com/omasaht/headpose-fsanet-pytorch)
+* [2] [pfld_106_face_landmarks](https://github.com/Hsintao/pfld_106_face_landmarks)
+* [3] [Ultra-Light-Fast-Generic-Face-Detector-1MB](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB)
+* [4] [onnx-models](https://github.com/onnx/models)
+* [5] [SSR_Net_Pytorch](https://github.com/oukohou/SSR_Net_Pytorch)
+* [6] [insightface](https://github.com/deepinsight/insightface)
+* [7] [colorization](https://github.com/richzhang/colorization)
+* [8] [SUB_PIXEL_CNN](https://github.com/niazwazir/SUB_PIXEL_CNN)
+* [9] [YOLOv4-pytorch](https://github.com/argusswift/YOLOv4-pytorch)
+* [10] [yolov5](https://github.com/ultralytics/yolov5)
+* [11] [pytorch-hub](https://pytorch.org/hub)
+* [12] [facenet-pytorch](https://github.com/timesler/facenet-pytorch)
+* [13] [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch)
+* [14] [TFace](https://github.com/Tencent/TFace)
+* [15] [center-loss.pytorch](https://github.com/louis-she/center-loss.pytorch)
+* [16] [sphereface](https://github.com/wy1iu/sphereface)
+* [17] [DREAM](https://github.com/penincillin/DREAM)
+* [18] [MobileFaceNet_Pytorch](https://github.com/Xiaoccer/MobileFaceNet_Pytorch)
+* [19] [cavaface.pytorch](https://github.com/cavalleria/cavaface.pytorch)
+* [20] [CurricularFace](https://github.com/HuangYG123/CurricularFace)  
