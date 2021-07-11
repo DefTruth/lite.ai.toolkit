@@ -574,7 +574,7 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 
 ### 5.3 MNN Version APIs. 
 
-`(todo⚠️: Not implementation now, coming soon.)`  
+(*todo*⚠️: Not implementation now, coming soon.)  
 
 > `lite::mnn::cv::detection::Yolo5`
 
@@ -590,7 +590,7 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 
 ### 5.4 NCNN Version APIs.
 
-`(todo⚠️: Not implementation now, coming soon.)`
+(*todo*⚠️: Not implementation now, coming soon.)
 
 > `lite::ncnn::cv::detection::Yolo5`
 
@@ -662,5 +662,5 @@ Many thanks to the following projects. All of LiteHub's models come from them.
 * [16] [sphereface](https://github.com/wy1iu/sphereface) (1.5k🌟↑)
 * [17] [DREAM](https://github.com/penincillin/DREAM) (367🌟↑)
 * [18] [MobileFaceNet_Pytorch](https://github.com/Xiaoccer/MobileFaceNet_Pytorch) (231🌟↑)
-* [19] [cavaface.pytorch](https://github.com/cavalleria/cavaface.pytorch) (312k🌟↑)
-* [20] [CurricularFace](https://github.com/HuangYG123/CurricularFace) (354k🌟↑)
+* [19] [cavaface.pytorch](https://github.com/cavalleria/cavaface.pytorch) (312🌟↑)
+* [20] [CurricularFace](https://github.com/HuangYG123/CurricularFace) (354🌟↑)
