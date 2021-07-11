@@ -14,7 +14,7 @@
   <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="200px" width="200px"> 
 </div> 
 
-*LiteHub* for onnxruntime/ncnn/mnn. This library integrates some interesting models and implement with onnxruntime/ncnn/mnn. Such as `YoloV5`、`YoloV4`、`DeepLabV3`、`ArcFace`、`PFLD`、`Colorization`、`FastStyleTransfer` and so on. Most of the models come from `ONNX-Model-Zoo`, `PytorchHub` and `other open source projects`. All models used will be cited. Many thanks to these contributors. What you see is what you get, Star 🌟 me ! to  support this repo if  you get something out of it.  😁 
+*LiteHub* for onnxruntime/ncnn/mnn. This library integrates some interesting models and implement with onnxruntime/ncnn/mnn. Such as `YoloV5`、`YoloV4`、`DeepLabV3`、`ArcFace`、`PFLD`、`Colorization`、`FastStyleTransfer` and so on. Most of the models come from `ONNX-Model-Zoo`, `PytorchHub` and `other open source projects`. All models used will be cited. Many thanks to these contributors. What you see is what you get, Star 🌟 it ! to  support this repo if  you get something out of it.  😁 
 
 * Related LiteHub Projects.
   * [1] [litehub](https://github.com/DefTruth/litehub) (*doing*✋🏻)
