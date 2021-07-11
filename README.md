@@ -27,11 +27,11 @@
 * Related LiteHub Projects.
   * [1] [litehub](https://github.com/DefTruth/litehub) (*doing*✋🏻)
   * [2] [litehub-onnxruntime](https://github.com/DefTruth/litehub-onnxruntime) (*doing*✋🏻)
-  * [3] [litehub-mnn](https://github.com/DefTruth/litehub-mnn) (todo)
-  * [4] [litehub-ncnn](https://github.com/DefTruth/litehub-ncnn) (todo)
+  * [3] [litehub-mnn](https://github.com/DefTruth/litehub-mnn) (*todo*⚠️)
+  * [4] [litehub-ncnn](https://github.com/DefTruth/litehub-ncnn) (*todo*⚠️)
   * [5] [litehub-release](https://github.com/DefTruth/litehub-release) (*doing*✋🏻)
-  * [6] [litehub-python](https://github.com/DefTruth/litehub-python) (todo)
-  * [7] [litehub-android](https://github.com/DefTruth/litehub-android) (*todo*)  
+  * [6] [litehub-python](https://github.com/DefTruth/litehub-python) (*todo*⚠️)
+  * [7] [litehub-android](https://github.com/DefTruth/litehub-android) (*todo*⚠️)  
   
 ****  
 
@@ -68,7 +68,7 @@ install `OpenCV` and `onnxruntime` libraries using Homebrew or you can download 
   brew install onnxruntime
 ```
 
-* Linux & Windows. (*todo*)
+* Linux & Windows. (*todo*⚠️)
 * Inference Engine Plans:
   * *doing*:  
     ✅ 🚀`onnxruntime` 
@@ -574,7 +574,7 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 
 ### 5.3 MNN Version APIs. 
 
-`(todo: Not implementation now, coming soon.)`  
+`(todo⚠️: Not implementation now, coming soon.)`  
 
 > `lite::mnn::cv::detection::Yolo5`
 
@@ -590,7 +590,7 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 
 ### 5.4 NCNN Version APIs.
 
-`(todo: Not implementation now, coming soon.)`
+`(todo⚠️: Not implementation now, coming soon.)`
 
 > `lite::ncnn::cv::detection::Yolo5`
 
@@ -632,9 +632,9 @@ Other build documents for different engines and different targets will be added 
 |OpenCV| android-arm | [opencv-static-android-arm-build.zh.md](https://github.com/DefTruth/litehub/blob/main/docs/third_party/opencv-static-android-arm-build.zh.md) |
 |onnxruntime| mac-x86_64 | [onnxruntime-mac-x86_64-build.zh.md](https://github.com/DefTruth/litehub/blob/main/docs/third_party/onnxruntime-mac-x86_64-build.zh.md) |
 |onnxruntime| android-arm | [onnxruntime-android-arm-build.zh.md](https://github.com/DefTruth/litehub/blob/main/docs/third_party/onnxruntime-android-arm-build.zh.md) |
-|NCNN| mac-x86_64 | todo |
-|MNN| mac-x86_64 | todo |
-|TNN| mac-x86_64 | todo |
+|NCNN| mac-x86_64 | todo⚠️ |
+|MNN| mac-x86_64 | todo⚠️ |
+|TNN| mac-x86_64 | todo⚠️ |
 
 ****  
 
@@ -644,23 +644,23 @@ Other build documents for different engines and different targets will be added 
 
 Many thanks to the following projects. All of LiteHub's models come from them.
 
-* [1] [headpose-fsanet-pytorch](https://github.com/omasaht/headpose-fsanet-pytorch)
-* [2] [pfld_106_face_landmarks](https://github.com/Hsintao/pfld_106_face_landmarks)
-* [3] [Ultra-Light-Fast-Generic-Face-Detector-1MB](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB)
-* [4] [onnx-models](https://github.com/onnx/models)
-* [5] [SSR_Net_Pytorch](https://github.com/oukohou/SSR_Net_Pytorch)
-* [6] [insightface](https://github.com/deepinsight/insightface)
-* [7] [colorization](https://github.com/richzhang/colorization)
-* [8] [SUB_PIXEL_CNN](https://github.com/niazwazir/SUB_PIXEL_CNN)
-* [9] [YOLOv4-pytorch](https://github.com/argusswift/YOLOv4-pytorch)
-* [10] [yolov5](https://github.com/ultralytics/yolov5)
-* [11] [torchvision](https://github.com/pytorch/vision)
-* [12] [facenet-pytorch](https://github.com/timesler/facenet-pytorch)
-* [13] [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch)
-* [14] [TFace](https://github.com/Tencent/TFace)
-* [15] [center-loss.pytorch](https://github.com/louis-she/center-loss.pytorch)
-* [16] [sphereface](https://github.com/wy1iu/sphereface)
-* [17] [DREAM](https://github.com/penincillin/DREAM)
-* [18] [MobileFaceNet_Pytorch](https://github.com/Xiaoccer/MobileFaceNet_Pytorch)
-* [19] [cavaface.pytorch](https://github.com/cavalleria/cavaface.pytorch)
-* [20] [CurricularFace](https://github.com/HuangYG123/CurricularFace)  
+* [1] [headpose-fsanet-pytorch](https://github.com/omasaht/headpose-fsanet-pytorch) (42🌟↑)
+* [2] [pfld_106_face_landmarks](https://github.com/Hsintao/pfld_106_face_landmarks) (183🌟↑)
+* [3] [Ultra-Light-Fast-Generic-Face-Detector-1MB](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) (5.9k🌟↑)
+* [4] [onnx-models](https://github.com/onnx/models) (3.7k🌟↑)
+* [5] [SSR_Net_Pytorch](https://github.com/oukohou/SSR_Net_Pytorch) (36🌟↑)
+* [6] [insightface](https://github.com/deepinsight/insightface) (9.6k🌟↑)
+* [7] [colorization](https://github.com/richzhang/colorization) (2.7k🌟↑)
+* [8] [SUB_PIXEL_CNN](https://github.com/niazwazir/SUB_PIXEL_CNN) (-🌟↑)
+* [9] [YOLOv4-pytorch](https://github.com/argusswift/YOLOv4-pytorch) (1.3k🌟↑)
+* [10] [yolov5](https://github.com/ultralytics/yolov5) (13.6k🌟↑)
+* [11] [torchvision](https://github.com/pytorch/vision) (9.4k🌟↑)
+* [12] [facenet-pytorch](https://github.com/timesler/facenet-pytorch) (42🌟↑)
+* [13] [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) (2.5k🌟↑)
+* [14] [TFace](https://github.com/Tencent/TFace) (471k🌟↑)
+* [15] [center-loss.pytorch](https://github.com/louis-she/center-loss.pytorch) (144🌟↑)
+* [16] [sphereface](https://github.com/wy1iu/sphereface) (1.5k🌟↑)
+* [17] [DREAM](https://github.com/penincillin/DREAM) (367🌟↑)
+* [18] [MobileFaceNet_Pytorch](https://github.com/Xiaoccer/MobileFaceNet_Pytorch) (231🌟↑)
+* [19] [cavaface.pytorch](https://github.com/cavalleria/cavaface.pytorch) (312k🌟↑)
+* [20] [CurricularFace](https://github.com/HuangYG123/CurricularFace) (354k🌟↑)
