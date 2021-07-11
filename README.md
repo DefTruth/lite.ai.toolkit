@@ -14,7 +14,7 @@
   <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="200px" width="200px"> 
 </div> 
 
-*LiteHub* for onnxruntime/ncnn/mnn. This library integrates some interesting models and implement with onnxruntime/ncnn/mnn. Such as `YoloV5`、`YoloV4`、`DeepLabV3`、`ArcFace`、`PFLD`、`Colorization`、`FastStyleTransfer` and so on. Most of the models come from `ONNX-Model-Zoo`, `PytorchHub` and `other open source projects`. All models used will be cited. Many thanks to these contributors. What you see is what you get, Star 🌟 it ! to  support this repo if  you get something out of it.  😁 
+*LiteHub* is a C++ user-friendly lib for awesome AI models based on onnxruntime/ncnn/mnn. Such as `YoloV5`、`YoloV4`、`DeepLabV3`、`ArcFace`、`PFLD`、`Colorization`、`FastStyleTransfer` and so on. Most of the models come from famous projects. All models used will be cited. Many thanks to these contributors. What you see is what you get, Star 🌟 it ! to  support this repo if  you get something out of it.  😁 
 
 * Related LiteHub Projects.
   * [1] [litehub](https://github.com/DefTruth/litehub) (*doing*✋🏻)
@@ -35,11 +35,11 @@ install `OpenCV` and `onnxruntime` libraries using Homebrew or you can download 
   brew install onnxruntime
 ```
 
-* Linux & Windows. (`TODO`)
+* Linux & Windows. (*todo*)
 * Inference Engine Plans:
-  * Doing:
+  * *doing*:
     * [x] `onnxruntime` 
-  * TODO:
+  * *todo*:
     * `NCNN`
     * `MNN`
     * `OpenMP` 
@@ -47,8 +47,8 @@ install `OpenCV` and `onnxruntime` libraries using Homebrew or you can download 
 
 ## 2. Model Zoo.
 
-### 2.1 model-zoo for ONNX version.
-Some of the models were converted by this repo, and others were referenced from third-party libraries. The name of the class here will be different from the original repository, because different repositories have different implementations of the same algorithm. For example, ArcFace in [insightface](https://github.com/deepinsight/insightface) is different from ArcFace in [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) . ArcFace in [insightface](https://github.com/deepinsight/insightface) uses Arc-Loss + Softmax, while ArcFace in [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) uses Arc-Loss + Focal-Loss. LiteHub uses naming to make the necessary distinctions between models from different sources.  Therefore, in LiteHub, different names of the same algorithm mean that the corresponding models come from different repositories, different implementations, or use different training data, etc. ([Baidu Drive](https://pan.baidu.com/s/1X5y7bOSPyeBzT9nSgQiMIQ) code:g83e) <div id="refer-anchor-2"></div>
+### 2.1 Models for ONNX version.
+Most of the models were converted by LiteHub, and others were referenced from third-party libraries. The name of the class here will be different from the original repository, because different repositories have different implementations of the same algorithm. For example, ArcFace in [insightface](https://github.com/deepinsight/insightface) is different from ArcFace in [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) . ArcFace in [insightface](https://github.com/deepinsight/insightface) uses Arc-Loss + Softmax, while ArcFace in [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) uses Arc-Loss + Focal-Loss. LiteHub uses naming to make the necessary distinctions between models from different sources.  Therefore, in LiteHub, different names of the same algorithm mean that the corresponding models come from different repositories, different implementations, or use different training data, etc. Just jump to [litehub-demos](https://github.com/DefTruth/litehub/tree/main/examples/lite/cv) to figure out the usage of each model in LiteHub. ([Baidu Drive](https://pan.baidu.com/s/1X5y7bOSPyeBzT9nSgQiMIQ) code:g83e) <div id="refer-anchor-2"></div>
 
 |Model|Size|From|Stars|File|Type|Usage|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -79,7 +79,7 @@ Some of the models were converted by this repo, and others were referenced from 
 |[TencentCurricularFace](https://github.com/Tencent/TFace/tree/master/tasks/distfc)|249M|          [TFace](https://github.com/Tencent/TFace)           |  471🌟↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_tencent_curricular_face.cpp) |
 |[TencentCifpFace](https://github.com/Tencent/TFace/tree/master/tasks/cifp)|130M|          [TFace](https://github.com/Tencent/TFace)           |  471🌟↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_tencent_cifp_face.cpp) |
 |[Colorizer](https://github.com/richzhang/colorization)|123~130M|  [colorization](https://github.com/richzhang/colorization)   | 2.7k🌟↑  | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_colorizer.zh.md) | *colorization* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_colorizer.cpp) |
-|[SubPixelCNN](https://github.com/niazwazir/SUB_PIXEL_CNN)|234K| [SUB_PIXEL...](https://github.com/niazwazir/SUB_PIXEL_CNN)  |    -    | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_subpixel_cnn.zh.md) | *resolution* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_subpixel_cnn.cpp) |
+|[SubPixelCNN](https://github.com/niazwazir/SUB_PIXEL_CNN)|234K| [...PIXEL...](https://github.com/niazwazir/SUB_PIXEL_CNN)  |    -    | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_subpixel_cnn.zh.md) | *resolution* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_subpixel_cnn.cpp) |
 |[DeepLabV3ResNet101](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/)|232M|       [torchvision](https://github.com/pytorch/vision)       | 9.4k🌟↑  | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_deeplabv3_resnet101.zh.md) | *segmentation* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_deeplabv3_resnet101.cpp) |
 |[DenseNet121](https://pytorch.org/hub/pytorch_vision_densenet/)|30.7M|       [torchvision](https://github.com/pytorch/vision)       | 9.4k🌟↑  | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_densenet121.zh.md) | *classification* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_densenet.cpp) |
 |[FCNResNet101](https://pytorch.org/hub/pytorch_vision_fcn_resnet101/)|207M|       [torchvision](https://github.com/pytorch/vision)       | 9.4k🌟↑  | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_fcn_resnet101.zh.md) | *segmentation* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_fcn_resnet101.cpp) |
@@ -177,7 +177,7 @@ A minimum example to show you how to link the shared lib of LiteHub correctly fo
 
 ## 4. Examples for LiteHub.
 
-More examples can be found at [lite-examples](https://github.com/DefTruth/litehub/tree/main/examples/lite/cv).  Note that the default backend for LiteHub is `onnxruntime`, for the reason that onnxruntime supports the most of onnx's operators.
+More examples can be found at [litehub-demos](https://github.com/DefTruth/litehub/tree/main/examples/lite/cv).  Note that the default backend for LiteHub is `onnxruntime`, for the reason that onnxruntime supports the most of onnx's operators.
 #### 4.1 Object Detection using [YoloV5](https://github.com/ultralytics/yolov5). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
 #include "lite/lite.h"
@@ -507,7 +507,7 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 
 ### 5.3 MNN Version APIs. 
 
-`(TODO: Not implementation now, coming soon.)`  
+`(todo: Not implementation now, coming soon.)`  
 
 > `lite::mnn::cv::detection::Yolo5`
 
@@ -521,7 +521,7 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 
 ### 5.4 NCNN Version APIs.
 
-`(TODO: Not implementation now, coming soon.)`
+`(todo: Not implementation now, coming soon.)`
 
 > `lite::ncnn::cv::detection::Yolo5`
 
@@ -556,9 +556,9 @@ Other build documents for different engines and different targets will be added 
 |OpenCV| android-arm | [opencv-static-android-arm-build.zh.md](https://github.com/DefTruth/litehub/blob/main/docs/third_party/opencv-static-android-arm-build.zh.md) |
 |onnxruntime| mac-x86_64 | [onnxruntime-mac-x86_64-build.zh.md](https://github.com/DefTruth/litehub/blob/main/docs/third_party/onnxruntime-mac-x86_64-build.zh.md) |
 |onnxruntime| android-arm | [onnxruntime-android-arm-build.zh.md](https://github.com/DefTruth/litehub/blob/main/docs/third_party/onnxruntime-android-arm-build.zh.md) |
-|NCNN| mac-x86_64 | TODO |
-|MNN| mac-x86_64 | TODO |
-|TNN| mac-x86_64 | TODO |
+|NCNN| mac-x86_64 | todo |
+|MNN| mac-x86_64 | todo |
+|TNN| mac-x86_64 | todo |
 
 ## 7. Acknowledgements  
 Many thanks to the following projects. All of LiteHub's models come from them.
