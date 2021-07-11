@@ -281,7 +281,11 @@ The output is:
   <img src='logs/test_lite_yolov5_2.jpg' height="256px">
 </div>  
 
-****
+****  
+
+<details>
+<summary> 4.2 Expand Examples for Segmentation.</summary>
+
 #### 4.2 Segmentation using [DeepLabV3ResNet101](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
 #include "lite/lite.h"
@@ -321,7 +325,12 @@ The output is:
   <img src='logs/test_lite_deeplabv3_resnet101.jpg' height="256px">
 </div> 
 
-****
+</details>
+
+****  
+
+<details>
+<summary> 4.3 Expand Examples for Style Transfer.</summary>
 
 #### 4.3 Style Transfer using [FastStyleTransfer](https://github.com/onnx/models/tree/master/vision/style_transfer/fast_neural_style). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
@@ -355,7 +364,12 @@ The output is:
   <img src='logs/test_lite_fast_style_transfer_udnie.jpg' height="224px">
 </div>
 
+</details>
+
 ****
+
+<details>
+<summary> 4.4 Expand Examples for Colorization.</summary>
 
 #### 4.4 Colorization using [colorization](https://github.com/richzhang/colorization). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
@@ -389,10 +403,12 @@ The output is:
   <img src='logs/test_lite_siggraph17_colorizer_3.jpg' height="224px" width="224px">
 </div>  
 
+</details>
+
 ****
 
 <details>
-<summary> 4.5 Expand Examples for Facial Landmarks Detection</summary>
+<summary> 4.5 Expand Examples for Facial Landmarks Detection.</summary>
 
 #### 4.5 Facial Landmarks Detection using [PFLD](https://github.com/Hsintao/pfld_106_face_landmarks). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
@@ -427,7 +443,7 @@ The output is:
 ****
 
 <details>
-<summary> 4.6 Expand Examples for Face Detection</summary>
+<summary> 4.6 Expand Examples for Face Detection.</summary>
 
 #### 4.6 Face Detection using [UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
@@ -462,7 +478,7 @@ The output is:
 ****
 
 <details>
-<summary> 4.7 Expand Examples for Image Classification</summary>
+<summary> 4.7 Expand Examples for Image Classification.</summary>
 
 #### 4.7 1000 Classes Classification using [DenseNet](https://pytorch.org/hub/pytorch_vision_densenet/). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
@@ -506,7 +522,7 @@ The output is:
 ****
 
 <details>
-<summary> 4.8 Expand Examples for HeadPose Estimation</summary>
+<summary> 4.8 Expand Examples for HeadPose Estimation.</summary>
 
 #### 4.8 HeadPose Estimation using [FSANet](https://github.com/omasaht/headpose-fsanet-pytorch). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 
@@ -546,7 +562,7 @@ The output is:
 **** 
 
 <details>
-<summary> 4.9 Expand Examples for Face Recognition</summary>
+<summary> 4.9 Expand Examples for Face Recognition.</summary>
 
 #### 4.9 Face Recognition using [ArcFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 
