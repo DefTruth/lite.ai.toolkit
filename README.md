@@ -88,7 +88,7 @@ Most of the models were converted by LiteHub, and others were referenced from th
 
 |Model|Size|From|Stars|File|Type|Usage|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|[YoloV5](https://github.com/ultralytics/yolov5)|28~335M|[yolov5](https://github.com/ultralytics/yolov5)|13.6k🌟↑| [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_yolov5.zh.md) | *detectiion* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_yolov5.cpp) |
+|[YoloV5](https://github.com/ultralytics/yolov5)|28~335M|[yolov5](https://github.com/ultralytics/yolov5)|13.6k🌟↑| [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_yolov5.zh.md) | *detectiion* | ✅ [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_yolov5.cpp) |
 |[YoloV3](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/yolov3)|236M|[onnx-models](https://github.com/onnx/models)|3.7k🌟↑| - | *detectiion* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_yolov3.cpp) |
 |[TinyYoloV3](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/tiny-yolov3)|33M|        [onnx-models](https://github.com/onnx/models)         | 3.7k🌟↑  | - | *detectiion* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_tiny_yolov3.cpp) |
 |[YoloV4](https://github.com/argusswift/YOLOv4-pytorch)|176M| [YOLOv4...](https://github.com/argusswift/YOLOv4-pytorch) | 1.3k🌟↑  | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_yolov4.zh.md) | *detectiion* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_tiny_yolov4.cpp) |
