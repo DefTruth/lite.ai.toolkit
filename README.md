@@ -283,9 +283,6 @@ The output is:
 
 ****  
 
-<details>
-<summary> 4.2 Expand Examples for Segmentation.</summary>
-
 #### 4.2 Segmentation using [DeepLabV3ResNet101](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
 #include "lite/lite.h"
@@ -324,8 +321,6 @@ The output is:
   <img src='examples/lite/resources/test_lite_deeplabv3_resnet101.png' height="256px">
   <img src='logs/test_lite_deeplabv3_resnet101.jpg' height="256px">
 </div> 
-
-</details>
 
 ****  
 
