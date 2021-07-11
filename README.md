@@ -95,11 +95,13 @@ Build the shared lib of LiteHub for MacOS from sources or you can download the b
 
 * Clone the LiteHub from sources:  
 ```shell
-git clone --depth=1 -b v0.0.1 https://github.com/DefTruth/litehub.git
+git clone --depth=1 -b v0.0.1 https://github.com/DefTruth/litehub.git  # stable
+git clone --depth=1 https://github.com/DefTruth/litehub.git  # newest
 ```
 * For users in China, you can try:
 ```shell
-git clone --depth=1 -b v0.0.1 https://github.com.cnpmjs.org/DefTruth/litehub.git
+git clone --depth=1 -b v0.0.1 https://github.com.cnpmjs.org/DefTruth/litehub.git   # stable
+git clone --depth=1 https://github.com.cnpmjs.org/DefTruth/litehub.git  # newest
 ```
 * Build shared lib.  
 ```shell
