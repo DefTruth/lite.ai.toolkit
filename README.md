@@ -135,6 +135,21 @@ Most of the models were converted by LiteHub, and others were referenced from th
 
 ****
 
+<details>
+<summary> Expand for the pretrianed of models MNN and NCNN version.</summary>
+
+### 2.2 Models for MNN version.  
+* *todo*⚠️  
+
+****  
+
+### 2.3 Models for NCNN version.  
+* *todo*⚠️
+
+</details>
+
+****  
+
 ## 3. Build LiteHub.  
 
 <div id="refer-anchor-Build-LiteHub"></div>
@@ -163,7 +178,10 @@ liblitehub.dylib:
         @rpath/libopencv_highgui.4.5.dylib (compatibility version 4.5.0, current version 4.5.2)
         @rpath/libonnxruntime.1.7.0.dylib (compatibility version 0.0.0, current version 1.7.0)
         ...
-```
+```  
+<details>
+<summary> Expand for more details of How to link the shared lib of LiteHub?</summary>
+
 ```shell
 cd ../ && tree .
 ├── bin
@@ -224,6 +242,8 @@ add_executable(lite_yolov5 test_lite_yolov5.cpp)
 target_link_libraries(lite_yolov5 litehub onnxruntime ${OpenCV_LIBS})
 ```
 A minimum example to show you how to link the shared lib of LiteHub correctly for your own project can be found at [litehub-release](https://github.com/DefTruth/litehub-release) .
+
+</details>
 
 ****
 
@@ -371,6 +391,9 @@ The output is:
 
 ****
 
+<details>
+<summary> 4.5 Expand Examples for Facial Landmarks Detection</summary>
+
 #### 4.5 Facial Landmarks Detection using [PFLD](https://github.com/Hsintao/pfld_106_face_landmarks). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
 #include "lite/lite.h"
@@ -399,7 +422,12 @@ The output is:
   <img src='logs/test_lite_pfld_3.jpg' height="224px" width="224px">
 </div>    
 
+</details>
+
 ****
+
+<details>
+<summary> 4.6 Expand Examples for Face Detection</summary>
 
 #### 4.6 Face Detection using [UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
@@ -429,7 +457,12 @@ The output is:
   <img src='logs/test_lite_ultraface_3.jpg' height="224px" width="224px">
 </div>  
 
+</details>
+
 ****
+
+<details>
+<summary> 4.7 Expand Examples for Image Classification</summary>
 
 #### 4.7 1000 Classes Classification using [DenseNet](https://pytorch.org/hub/pytorch_vision_densenet/). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
@@ -468,7 +501,12 @@ The output is:
   <img src='logs/test_lite_densenet.png' height="224px" width="500px">
 </div>  
 
+</details>
+
 ****
+
+<details>
+<summary> 4.8 Expand Examples for HeadPose Estimation</summary>
 
 #### 4.8 HeadPose Estimation using [FSANet](https://github.com/omasaht/headpose-fsanet-pytorch). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 
@@ -503,7 +541,12 @@ The output is:
   <img src='logs/test_lite_fsanet_3.jpg' height="224px" width="224px">
 </div>  
 
-****
+</details>
+
+**** 
+
+<details>
+<summary> 4.9 Expand Examples for Face Recognition</summary>
 
 #### 4.9 Face Recognition using [ArcFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 
@@ -549,6 +592,8 @@ The output is:
 
 > Detected Sim01: 0.721159  Sim02: -0.0626267
 
+</details>
+
 ****
 
 ## 5. LiteHub API Docs.
@@ -566,6 +611,9 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 ```
 
 ****
+
+<details>
+<summary> Expand for ONNXRuntime, MNN and NCNN version APIs.</summary>
 
 ### 5.2 ONNXRuntime Version APIs.  
 More details of ONNXRuntime Version APIs can be found at [onnxruntime-version-api-docs](https://github.com/DefTruth/litehub/blob/main/docs/api/onnxruntime.md) . For examples, the interface for YoloV5 is:
@@ -609,12 +657,18 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 
 ...
 
+</details>
+
 ****
 
 
 ## 6. Other Docs.  
 
-<div id="refer-anchor-Other-Docs"></div>
+<div id="refer-anchor-Other-Docs"></div>  
+<div id="refer-anchor-1"></div> 
+
+<details>
+<summary> Expand for more details of Other Docs.</summary>
 
 ### 6.1 Docs for ONNXRuntime. 
 * [Rapid implementation of your inference using BasicOrtHandler](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_handler.zh.md)  
@@ -631,7 +685,6 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 ### 6.2 Docs for [third_party](https://github.com/DefTruth/litehub/tree/main/third_party).  
 Other build documents for different engines and different targets will be added later.
 
-<div id="refer-anchor-1"></div> 
 
 |Library|Target|Docs|
 |:---:|:---:|:---:|
@@ -642,6 +695,8 @@ Other build documents for different engines and different targets will be added 
 |NCNN| mac-x86_64 | todo⚠️ |
 |MNN| mac-x86_64 | todo⚠️ |
 |TNN| mac-x86_64 | todo⚠️ |
+
+</details>
 
 ****
 
