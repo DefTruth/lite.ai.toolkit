@@ -115,12 +115,11 @@ Most of the models were converted by LiteHub, and others were referenced from th
 |[FocalAsiaArcFace](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch)|166M| [face.evoLVe...](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) | 2.5k🌟↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_focal_asia_arcface.cpp) |
 |[TencentCurricularFace](https://github.com/Tencent/TFace/tree/master/tasks/distfc)|249M|          [TFace](https://github.com/Tencent/TFace)           |  471🌟↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_tencent_curricular_face.cpp) |
 |[TencentCifpFace](https://github.com/Tencent/TFace/tree/master/tasks/cifp)|130M|          [TFace](https://github.com/Tencent/TFace)           |  471🌟↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_tencent_cifp_face.cpp) |
-|[CenterLossFace]( https://github.com/louis-she/center-loss.pytorch)| - |  [center-loss...](https://github.com/louis-she/center-loss.pytorch)           |  144🌟↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ⚠️ | - |
-|[SphereFace](https://github.com/wy1iu/sphereface)| - |  [sphereface](https://github.com/wy1iu/sphereface)   |  1.5k🌟↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ⚠️ | - |
+|[CenterLossFace](https://github.com/louis-she/center-loss.pytorch)| - |  [center-loss...](https://github.com/louis-she/center-loss.pytorch)           |  144🌟↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ⚠️ | - |
+|[SphereFace](https://github.com/clcarwin/sphereface_pytorch)| - |  [sphere...](https://github.com/clcarwin/sphereface_pytorch)   |  641🌟↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ⚠️ | - |
 |[PoseRobustFace](https://github.com/penincillin/DREAM)| - | [DREAM](https://github.com/penincillin/DREAM)  |  367🌟↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ⚠️ | - |
 |[MobileFaceNet](https://github.com/Xiaoccer/MobileFaceNet_Pytorch)| - |  [MobileFace...](https://github.com/Xiaoccer/MobileFaceNet_Pytorch)           |  231🌟↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ⚠️ | - |
 |[GhostArcFace](https://github.com/cavalleria/cavaface.pytorch)| - | [cavaface...](https://github.com/cavalleria/cavaface.pytorch) |  312🌟↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ⚠️ | - |
-|[CurricularFace](https://github.com/HuangYG123/CurricularFace)| - | [Curricular...](https://github.com/HuangYG123/CurricularFace) |  354🌟↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ⚠️ | - |
 |[Colorizer](https://github.com/richzhang/colorization)|123M|  [colorization](https://github.com/richzhang/colorization)   | 2.7k🌟↑  | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_colorizer.zh.md) | *colorization* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_colorizer.cpp) |
 |[SubPixelCNN](https://github.com/niazwazir/SUB_PIXEL_CNN)|234K| [...PIXEL...](https://github.com/niazwazir/SUB_PIXEL_CNN)  |    -🌟↑    | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_subpixel_cnn.zh.md) | *resolution* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_subpixel_cnn.cpp) |
 |[DeepLabV3ResNet101](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/)|232M|       [torchvision](https://github.com/pytorch/vision)       | 9.4k🌟↑  | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_deeplabv3_resnet101.zh.md) | *segmentation* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_deeplabv3_resnet101.cpp) |
@@ -732,7 +731,7 @@ Many thanks to the following projects. All of LiteHub's models come from them.
 * [13] [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) (2.5k🌟↑)
 * [14] [TFace](https://github.com/Tencent/TFace) (471🌟↑)
 * [15] [center-loss.pytorch](https://github.com/louis-she/center-loss.pytorch) (144🌟↑)
-* [16] [sphereface](https://github.com/wy1iu/sphereface) (1.5k🌟↑)
+* [16] [sphereface_pytorch](https://github.com/clcarwin/sphereface_pytorch) (641🌟↑)
 * [17] [DREAM](https://github.com/penincillin/DREAM) (367🌟↑)
 * [18] [MobileFaceNet_Pytorch](https://github.com/Xiaoccer/MobileFaceNet_Pytorch) (231🌟↑)
 * [19] [cavaface.pytorch](https://github.com/cavalleria/cavaface.pytorch) (312🌟↑)
