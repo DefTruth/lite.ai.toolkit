@@ -136,7 +136,7 @@ Most of the models were converted by LiteHub, and others were referenced from th
 ****
 
 <details>
-<summary> Expand for the pretrianed of models MNN and NCNN version.</summary>
+<summary> Expand for the pretrianed models of MNN and NCNN version.</summary>
 
 ### 2.2 Models for MNN version.  
 * *todo*⚠️  
