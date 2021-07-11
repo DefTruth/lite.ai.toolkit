@@ -12,8 +12,9 @@
   <img src='logs/test_lite_fsanet.jpg' height="200px" width="200px">
   <img src='logs/test_lite_fast_style_transfer_candy.jpg' height="200px" width="200px">
   <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="200px" width="200px"> 
-</div>
-*LiteHub* for onnxruntime/ncnn/mnn. This library integrates some interesting models and implement with onnxruntime/ncnn/mnn. Such as `YoloV5`、`YoloV4`、`DeepLabV3`、`ArcFace`、`PFLD`、`Colorization`、`FastStyleTransfer` and so on. Most of the models come from `ONNX-Model-Zoo`, `PytorchHub` and `other open source projects`. All models used will be cited. Many thanks to these contributors. What you see is what you get, Star 🌟 me ! to  support this repo if  you get something out of it.  😁
+</div> 
+
+*LiteHub* for onnxruntime/ncnn/mnn. This library integrates some interesting models and implement with onnxruntime/ncnn/mnn. Such as `YoloV5`、`YoloV4`、`DeepLabV3`、`ArcFace`、`PFLD`、`Colorization`、`FastStyleTransfer` and so on. Most of the models come from `ONNX-Model-Zoo`, `PytorchHub` and `other open source projects`. All models used will be cited. Many thanks to these contributors. What you see is what you get, Star 🌟 me ! to  support this repo if  you get something out of it.  😁 
 
 * Related LiteHub Projects.
   * [1] [litehub](https://github.com/DefTruth/litehub) (*doing*✋🏻)
@@ -61,7 +62,7 @@ Some of the models were converted by this repo, and others were referenced from 
 |[ShuffleNetV2](https://github.com/onnx/models/blob/master/vision/classification/shufflenet)|8.7Mb|        [onnx-models](https://github.com/onnx/models)         | 3.7k🌟↑  | - | *classification* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_shufflenetv2.cpp) |
 |[FSANet](https://github.com/omasaht/headpose-fsanet-pytorch)|1.2Mb| [headpose-fsanet-pytorch](https://github.com/omasaht/headpose-fsanet-pytorch) |  42🌟↑   | - | *face* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_fsanet.cpp) |
 |[PFLD](https://github.com/Hsintao/pfld_106_face_landmarks)|1.0Mb~5.5Mb| [pfld_106_face_landmarks](https://github.com/Hsintao/pfld_106_face_landmarks) |  183🌟↑  | - | *face* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_pfld.cpp) |
-|[UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB)|1.1Mb~1.5Mb| [Ultra-Light-Fast-Generic-Face-Detector-1MB](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) | 5.9k🌟↑  | - | *face* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_ultraface.cpp) |
+|[UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB)|1.1Mb~1.5Mb| [Ultra-Light-...-1MB](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) | 5.9k🌟↑  | - | *face* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_ultraface.cpp) |
 |[AgeGoogleNet](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender)|23Mb|        [onnx-models](https://github.com/onnx/models)         | 3.7k🌟↑  | - | *face* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_age_googlenet.cpp) |
 |[GenderGoogleNet](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender)|23Mb|        [onnx-models](https://github.com/onnx/models)         | 3.7k🌟↑  | - | *face* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_gender_googlenet.cpp) |
 |[EmotionFerPlus](https://github.com/onnx/models/blob/master/vision/body_analysis/emotion_ferplus)|33Mb|        [onnx-models](https://github.com/onnx/models)         | 3.7k🌟↑  | - | *face* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_emotion_ferplus.cpp) |
