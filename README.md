@@ -14,7 +14,7 @@
   <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="200px" width="200px"> 
 </div> 
 
-*LiteHub* is a C++ user-friendly lib for awesome AI models based on onnxruntime/ncnn/mnn. Such as `YoloV5`、`YoloV4`、`DeepLabV3`、`ArcFace`、`PFLD`、`Colorization`、`FastStyleTransfer` and so on. Most of the models come from famous projects. All models used will be cited. Many thanks to these contributors. What you see is what you get, Star 🌟 it ! to  support this repo if  you get something out of it.  😁 
+*LiteHub* is a C++ user-friendly lib for awesome AI models based on onnxruntime/ncnn/mnn. Such as `YoloV5`、`YoloV4`、`DeepLabV3`、`ArcFace`、`PFLD`、`Colorization`、`FastStyleTransfer` and so on. Most of the models come from famous projects. All models used will be cited. Many thanks to these contributors. What you see is what you get, Star 🌟 👆 this repo ! if  you get something out of it. 🙃🤪
 
 * Related LiteHub Projects.
   * [1] [litehub](https://github.com/DefTruth/litehub) (*doing*✋🏻)
@@ -37,12 +37,12 @@ install `OpenCV` and `onnxruntime` libraries using Homebrew or you can download 
 
 * Linux & Windows. (*todo*)
 * Inference Engine Plans:
-  * *doing*:
-    * [x] `onnxruntime` 
-  * *todo*:
-    * `NCNN`
-    * `MNN`
-    * `OpenMP` 
+  * *doing*:  
+    ✅🚀`onnxruntime` 
+  * *todo*:  
+    ⚠️ `NCNN`  
+    ⚠️ `MNN`  
+    ⚠️ `OpenMP` 
 
 
 ## 2. Model Zoo.
