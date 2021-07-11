@@ -3,21 +3,21 @@
 More details of basic types for Default Version APIs can be found at [types](https://github.com/DefTruth/litehub/blob/main/ort/core/ort_types.h) . Note that LiteHub uses `onnxruntime` as default backend, for the reason that onnxruntime supports the most of onnx's operators. `(TODO: Add detailed API documentation)`
 
 
-> `lite::cv::detection::Yolo5`
+> `lite::cv::detection::YoloV5`
 ```c++
 void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes, 
             float score_threshold = 0.25f, float iou_threshold = 0.45f,
             unsigned int topk = 100, unsigned int nms_type = NMS::OFFSET);
 ```  
 
-> `lite::cv::detection::Yolo4`
+> `lite::cv::detection::YoloV4`
 ```c++
 void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes, 
             float score_threshold = 0.25f, float iou_threshold = 0.45f,
             unsigned int topk = 100, unsigned int nms_type = NMS::OFFSET);
 ```
 
-> `lite::cv::detection::Yolo3`
+> `lite::cv::detection::YoloV3`
 ```c++
 void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes);
 ```

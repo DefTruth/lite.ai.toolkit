@@ -558,7 +558,7 @@ The output is:
 ### 5.1 Default Version APIs.  
 More details of Default Version APIs can be found at [default-version-api-docs](https://github.com/DefTruth/litehub/blob/main/docs/api/default.md) . For examples, the interface for YoloV5 is:
 
-> `lite::cv::detection::Yolo5`
+> `lite::cv::detection::YoloV5`
 ```c++
 void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes, 
             float score_threshold = 0.25f, float iou_threshold = 0.45f,
@@ -570,7 +570,7 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 ### 5.2 ONNXRuntime Version APIs.  
 More details of ONNXRuntime Version APIs can be found at [onnxruntime-version-api-docs](https://github.com/DefTruth/litehub/blob/main/docs/api/onnxruntime.md) . For examples, the interface for YoloV5 is:
 
-> `lite::onnxruntime::cv::detection::Yolo5`
+> `lite::onnxruntime::cv::detection::YoloV5`
 ```c++
 void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes, 
             float score_threshold = 0.25f, float iou_threshold = 0.45f,
@@ -583,11 +583,11 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 
 (*todo*⚠️: Not implementation now, coming soon.)  
 
-> `lite::mnn::cv::detection::Yolo5`
+> `lite::mnn::cv::detection::YoloV5`
 
-> `lite::mnn::cv::detection::Yolo4`
+> `lite::mnn::cv::detection::YoloV4`
 
-> `lite::mnn::cv::detection::Yolo3`
+> `lite::mnn::cv::detection::YoloV3`
 
 > `lite::mnn::cv::detection::SSD`  
 
@@ -599,11 +599,11 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 
 (*todo*⚠️: Not implementation now, coming soon.)
 
-> `lite::ncnn::cv::detection::Yolo5`
+> `lite::ncnn::cv::detection::YoloV5`
 
-> `lite::ncnn::cv::detection::Yolo4`
+> `lite::ncnn::cv::detection::YoloV4`
 
-> `lite::ncnn::cv::detection::Yolo3`
+> `lite::ncnn::cv::detection::YoloV3`
 
 > `lite::ncnn::cv::detection::SSD`
 

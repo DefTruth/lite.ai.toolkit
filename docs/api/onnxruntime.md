@@ -2,21 +2,21 @@
 
 More details of basic types for ONNXRuntime Version APIs can be found at [ort_types](https://github.com/DefTruth/litehub/blob/main/ort/core/ort_types.h) . `(TODO: Add detailed API documentation).`
 
-> `lite::onnxruntime::cv::detection::Yolo5`
+> `lite::onnxruntime::cv::detection::YoloV5`
 ```c++
 void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes, 
             float score_threshold = 0.25f, float iou_threshold = 0.45f,
             unsigned int topk = 100, unsigned int nms_type = NMS::OFFSET);
 ```
 
-> `lite::onnxruntime::cv::detection::Yolo4`
+> `lite::onnxruntime::cv::detection::YoloV4`
 ```c++
 void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes, 
             float score_threshold = 0.25f, float iou_threshold = 0.45f,
             unsigned int topk = 100, unsigned int nms_type = NMS::OFFSET);
 ```
 
-> `lite::onnxruntime::cv::detection::Yolo3`
+> `lite::onnxruntime::cv::detection::YoloV3`
 ```c++
 void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes);
 ```
