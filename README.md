@@ -38,7 +38,7 @@ install `OpenCV` and `onnxruntime` libraries using Homebrew or you can download 
 * Linux & Windows. (*todo*)
 * Inference Engine Plans:
   * *doing*:  
-    ✅🚀`onnxruntime` 
+    ✅ 🚀`onnxruntime` 
   * *todo*:  
     ⚠️ `NCNN`  
     ⚠️ `MNN`  
