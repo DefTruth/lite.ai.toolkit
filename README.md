@@ -664,7 +664,7 @@ Many thanks to the following projects. All of LiteHub's models come from them.
 * [11] [torchvision](https://github.com/pytorch/vision) (9.4k🌟↑)
 * [12] [facenet-pytorch](https://github.com/timesler/facenet-pytorch) (42🌟↑)
 * [13] [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) (2.5k🌟↑)
-* [14] [TFace](https://github.com/Tencent/TFace) (471k🌟↑)
+* [14] [TFace](https://github.com/Tencent/TFace) (471🌟↑)
 * [15] [center-loss.pytorch](https://github.com/louis-she/center-loss.pytorch) (144🌟↑)
 * [16] [sphereface](https://github.com/wy1iu/sphereface) (1.5k🌟↑)
 * [17] [DREAM](https://github.com/penincillin/DREAM) (367🌟↑)
