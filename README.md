@@ -14,8 +14,12 @@
   <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="200px" width="200px"> 
 </div> 
 
-*LiteHub* is a C++ user-friendly lib for awesome AI models based on onnxruntime/ncnn/mnn. Such as `YoloV5`、`YoloV4`、`DeepLabV3`、`ArcFace`、`CosFace`、`Colorization`、`SSD` and so on. Most of the models come from famous projects. All models used will be cited. Many thanks to these contributors. What you see is what you get ! Star 🌟 👆 this repo ! if  you get something out of it. 🙃🤪
+## Introduction  
+*LiteHub* is a C++ user-friendly lib for awesome AI models based on onnxruntime/ncnn/mnn. Such as `YoloV5`、`YoloV4`、`DeepLabV3`、`ArcFace`、`CosFace`、`Colorization`、`SSD` and so on. Most of the models come from famous projects. All models used will be cited. Many thanks to these contributors. What you see is what you get ! Star 🌟 👆 this repo ! if  you get something out of it. 🙃🤪  
 
+<div id="refer-anchor-Introduction"></div> 
+
+****  
 * Related LiteHub Projects.
   * [1] [litehub](https://github.com/DefTruth/litehub) (*doing*✋🏻)
   * [2] [litehub-onnxruntime](https://github.com/DefTruth/litehub-onnxruntime) (*doing*✋🏻)
@@ -23,7 +27,31 @@
   * [4] [litehub-ncnn](https://github.com/DefTruth/litehub-ncnn) (todo)
   * [5] [litehub-release](https://github.com/DefTruth/litehub-release) (*doing*✋🏻)
   * [6] [litehub-python](https://github.com/DefTruth/litehub-python) (todo)
-  * [7] [litehub-android](https://github.com/DefTruth/litehub-android) (*todo*)
+  * [7] [litehub-android](https://github.com/DefTruth/litehub-android) (*todo*)  
+  
+<div id="refer-anchor-Related-LiteHub-Projects"></div>
+
+****  
+
+## License
+
+The code of [LiteHub](#refer-anchor-Introduction) is released under the MIT License.
+
+<div id="refer-anchor-Related-License"></div>
+
+****  
+## Contents
+* [Introduction](#refer-anchor-Introduction)
+* [Related LiteHub Projects](#refer-anchor-Related-LiteHub-Projects)
+* [Dependencies](#refer-anchor-Dependencies)
+* [Model Zoo](#refer-anchor-Model-Zoo)
+* [Build LiteHub](#refer-anchor-Build-LiteHub)
+* [Examples for LiteHub](#refer-anchor-Examples-for-LiteHub)
+* [LiteHub API Docs](#refer-anchor-LiteHub-API-Docs)
+* [Other Docs](#refer-anchor-Other-Docs)
+* [Acknowledgements](#refer-anchor-Acknowledgements)
+* [License](#refer-anchor-License)
+****  
 
 ## 1. Dependencies.  
 * Mac OS.  
@@ -44,6 +72,9 @@ install `OpenCV` and `onnxruntime` libraries using Homebrew or you can download 
     ⚠️ `MNN`  
     ⚠️ `OpenMP` 
 
+<div id="refer-anchor-Dependencies"></div>
+
+****  
 
 ## 2. Model Zoo.
 
@@ -90,8 +121,14 @@ Most of the models were converted by LiteHub, and others were referenced from th
 |[ResNet](https://pytorch.org/hub/pytorch_vision_resnet/)|44M|       [torchvision](https://github.com/pytorch/vision)       | 9.4k🌟↑  | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_resnet.zh.md) | *classification* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_resnet.cpp) |
 |[ResNeXt](https://pytorch.org/hub/pytorch_vision_resnext/)|95M|       [torchvision](https://github.com/pytorch/vision)       | 9.4k🌟↑  | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_resnext.zh.md) | *classification* | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_resnext.cpp) |
 
+<div id="refer-anchor-Model-Zoo"></div>
+
+****  
+
 ## 3. Build LiteHub.
 Build the shared lib of LiteHub for MacOS from sources or you can download the built lib from [liblitehub.dylib|so](https://github.com/DefTruth/litehub/tree/main/build/litehub/lib) (`TODO: Linux & Windows`). Note that LiteHub uses `onnxruntime` as default backend, for the reason that onnxruntime supports the most of onnx's operators. For Linux and Windows, you need to build the shared libs of `OpenCV` and `onnxruntime` firstly and put then into the `third_party` directory. Please reference the build-docs[<sup>1</sup>](#refer-anchor-1) for `third_party`.  
+
+<div id="refer-anchor-Build-LiteHub"></div>
 
 * Clone the LiteHub from sources:  
 ```shell
@@ -177,9 +214,14 @@ target_link_libraries(lite_yolov5 litehub onnxruntime ${OpenCV_LIBS})
 ```
 A minimum example to show you how to link the shared lib of LiteHub correctly for your own project can be found at [litehub-release](https://github.com/DefTruth/litehub-release) .
 
+****  
+
 ## 4. Examples for LiteHub.
 
 More examples can be found at [litehub-demos](https://github.com/DefTruth/litehub/tree/main/examples/lite/cv).  Note that the default backend for LiteHub is `onnxruntime`, for the reason that onnxruntime supports the most of onnx's operators.
+
+<div id="refer-anchor-Examples-for-LiteHub"></div>
+
 #### 4.1 Object Detection using [YoloV5](https://github.com/ultralytics/yolov5). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
 #include "lite/lite.h"
@@ -208,6 +250,7 @@ The output is:
   <img src='logs/test_lite_yolov5_2.jpg' height="256px">
 </div>  
 
+****  
 #### 4.2 Segmentation using [DeepLabV3ResNet101](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
 #include "lite/lite.h"
@@ -247,6 +290,8 @@ The output is:
   <img src='logs/test_lite_deeplabv3_resnet101.jpg' height="256px">
 </div> 
 
+****  
+
 #### 4.3 Style Transfer using [FastStyleTransfer](https://github.com/onnx/models/tree/master/vision/style_transfer/fast_neural_style). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
 #include "lite/lite.h"
@@ -279,6 +324,7 @@ The output is:
   <img src='logs/test_lite_fast_style_transfer_udnie.jpg' height="224px">
 </div>
 
+****  
 
 #### 4.4 Colorization using [colorization](https://github.com/richzhang/colorization). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
@@ -312,6 +358,7 @@ The output is:
   <img src='logs/test_lite_siggraph17_colorizer_3.jpg' height="224px" width="224px">
 </div>  
 
+****  
 
 #### 4.5 Facial Landmarks Detection using [PFLD](https://github.com/Hsintao/pfld_106_face_landmarks). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
@@ -341,6 +388,8 @@ The output is:
   <img src='logs/test_lite_pfld_3.jpg' height="224px" width="224px">
 </div>    
 
+****  
+
 #### 4.6 Face Detection using [UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
 #include "lite/lite.h"
@@ -368,6 +417,8 @@ The output is:
   <img src='logs/test_lite_ultraface_2.jpg' height="224px" width="224px">
   <img src='logs/test_lite_ultraface_3.jpg' height="224px" width="224px">
 </div>  
+
+****  
 
 #### 4.7 1000 Classes Classification using [DenseNet](https://pytorch.org/hub/pytorch_vision_densenet/). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
@@ -406,7 +457,7 @@ The output is:
   <img src='logs/test_lite_densenet.png' height="224px" width="500px">
 </div>  
 
-
+****  
 
 #### 4.8 HeadPose Estimation using [FSANet](https://github.com/omasaht/headpose-fsanet-pytorch). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 
@@ -440,6 +491,8 @@ The output is:
   <img src='logs/test_lite_fsanet_2.jpg' height="224px" width="224px">
   <img src='logs/test_lite_fsanet_3.jpg' height="224px" width="224px">
 </div>  
+
+****  
 
 #### 4.9 Face Recognition using [ArcFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 
@@ -485,10 +538,14 @@ The output is:
 
 > Detected Sim01: 0.721159  Sim02: -0.0626267
 
+****  
+
 ## 5. LiteHub API Docs.
 
 ### 5.1 Default Version APIs.  
 More details of Default Version APIs can be found at [default-version-api-docs](https://github.com/DefTruth/litehub/blob/main/docs/api/default.md) . For examples, the interface for YoloV5 is:
+
+<div id="refer-anchor-LiteHub-API-Docs"></div>
 
 > `lite::cv::detection::Yolo5`
 ```c++
@@ -496,6 +553,8 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
             float score_threshold = 0.25f, float iou_threshold = 0.45f,
             unsigned int topk = 100, unsigned int nms_type = NMS::OFFSET);
 ```
+
+****  
 
 ### 5.2 ONNXRuntime Version APIs.  
 More details of ONNXRuntime Version APIs can be found at [onnxruntime-version-api-docs](https://github.com/DefTruth/litehub/blob/main/docs/api/onnxruntime.md) . For examples, the interface for YoloV5 is:
@@ -506,6 +565,8 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
             float score_threshold = 0.25f, float iou_threshold = 0.45f,
             unsigned int topk = 100, unsigned int nms_type = NMS::OFFSET);
 ```
+
+****  
 
 ### 5.3 MNN Version APIs. 
 
@@ -521,6 +582,8 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 
 ...
 
+****  
+
 ### 5.4 NCNN Version APIs.
 
 `(todo: Not implementation now, coming soon.)`
@@ -535,6 +598,8 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 
 ...
 
+****  
+
 
 ## 6. Other Docs.  
 ### 6.1 Docs for ONNXRuntime. 
@@ -546,6 +611,10 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 * [How to convert SSRNet to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_ssrnet.zh.md)
 * [How to convert YoloV3 to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_yolov3.zh.md)
 * [How to convert YoloV5 to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_yolov5.zh.md)
+
+<div id="refer-anchor-Other-Docs"></div>
+
+****  
 
 ### 6.2 Docs for [third_party](https://github.com/DefTruth/litehub/tree/main/third_party).  
 Other build documents for different engines and different targets will be added later.
@@ -562,8 +631,13 @@ Other build documents for different engines and different targets will be added 
 |MNN| mac-x86_64 | todo |
 |TNN| mac-x86_64 | todo |
 
-## 7. Acknowledgements  
-Many thanks to the following projects. All of LiteHub's models come from them.
+****  
+
+## 7. Acknowledgements.  
+Many thanks to the following projects. All of LiteHub's models come from them.  
+
+<div id="refer-anchor-Acknowledgements"></div>
+
 * [1] [headpose-fsanet-pytorch](https://github.com/omasaht/headpose-fsanet-pytorch)
 * [2] [pfld_106_face_landmarks](https://github.com/Hsintao/pfld_106_face_landmarks)
 * [3] [Ultra-Light-Fast-Generic-Face-Detector-1MB](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB)
