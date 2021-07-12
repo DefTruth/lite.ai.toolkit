@@ -767,3 +767,4 @@ Many thanks to the following projects. All of LiteHub's model files are sourced 
 * [18] [MobileFaceNet_Pytorch](https://github.com/Xiaoccer/MobileFaceNet_Pytorch) (🔥🔥↑)
 * [19] [cavaface.pytorch](https://github.com/cavalleria/cavaface.pytorch) (🔥🔥↑)
 * [20] [CurricularFace](https://github.com/HuangYG123/CurricularFace) (🔥🔥↑)
+* [??] [litehub](https://github.com/DefTruth/litehub) ( 👈🏻 so, you might be also interested in this repo ~ 🙃🤪🍀)
