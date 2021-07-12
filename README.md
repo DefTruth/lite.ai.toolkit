@@ -14,11 +14,11 @@
   <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="200px" width="200px"> 
 </div> 
 
-## Introduction    
+## Introduction.    
 
 <div id="refer-anchor-Introduction"></div> 
 
-*LiteHub* is a C++ user-friendly lib for awesome AI models based on onnxruntime/ncnn/mnn. Such as `YoloV5`、`YoloV4`、`DeepLabV3`、`ArcFace`、`CosFace`、`Colorization`、`SSD` and so on. Most of the models come from famous projects. All models used will be cited. Many thanks to these contributors. What you see is what you get ! Star 🌟 👆 this repo ! if  you get something out of it. 🙃🤪  
+*LiteHub* 🚀🚀🌟 is a simple, low-coupling, and ready-to-use C++ library for awesome🔥🔥🔥 AI models, such as YoloV5, YoloV4, DeepLabV3, ArcFace, CosFace,Colorization,SSD, etc. And, it only relies on *OpenCV* and commonly used inference engines, namely, *onnxruntime*, *ncnn*, and *mnn*. S. It currently mainly includes some *CV(Computer Vision 💻)* modules, such as object detection, face detection, style transfer, face alignment, face recognition, segmentation, colorization, face attributes analysis, image classification, matting, etc.  You can use these awesome models through *lite::cv::Type::Model* syntax, such as *lite::cv::detection::YoloV5* or *lite::cv::faceid::FaceNet*.  I do have plans to add *NLP* or *ASR* modules, but not coming soon. Currently, I am focusing🔍 on Computer Vision 💻. It is important to note that the models here are all from third-party projects. All models used will be cited. Many thanks to these contributors. Have a good travel ~ 🙃🤪  
 
 
 ****
@@ -35,14 +35,14 @@
   
 ****
 
-## License  
+## License.  
 
 <div id="refer-anchor-Related-License"></div>
 
 The code of [LiteHub](#refer-anchor-Introduction) is released under the MIT License.
 
 ****
-## Contents
+## Contents.
 * [Introduction](#refer-anchor-Introduction)
 * [Related LiteHub Projects](#refer-anchor-Related-LiteHub-Projects)
 * [Dependencies](#refer-anchor-Dependencies)
@@ -87,51 +87,51 @@ install `OpenCV` and `onnxruntime` libraries using Homebrew or you can download 
 Most of the models were converted by LiteHub, and others were referenced from third-party libraries. The name of the class here will be different from the original repository, because different repositories have different implementations of the same algorithm. For example, ArcFace in [insightface](https://github.com/deepinsight/insightface) is different from ArcFace in [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) . ArcFace in [insightface](https://github.com/deepinsight/insightface) uses Arc-Loss + Softmax, while ArcFace in [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) uses Arc-Loss + Focal-Loss. LiteHub uses naming to make the necessary distinctions between models from different sources.  Therefore, in LiteHub, different names of the same algorithm mean that the corresponding models come from different repositories, different implementations, or use different training data, etc. Just jump to [litehub-demos](https://github.com/DefTruth/litehub/tree/main/examples/lite/cv) to figure out the usage of each model in LiteHub. ✅ means passed the test and ⚠️ means not implements yet but coming soon. For models which denoted ✅, you can use it through *lite::cv::Type::Model* syntax, such as *lite::cv::detection::YoloV5* or *lite::cv::faceid::FaceNet*. More details can be found at [Examples for LiteHub](#refer-anchor-Examples-for-LiteHub) .  
 ([Baidu Drive](https://pan.baidu.com/s/1VcQRIXQlNawB8MAJCEsKlw) code: uttl) <div id="refer-anchor-2"></div>
 
-|Model|Size|From|Stars|File|Type|State|Usage|
+|Model|Size|From|Awesome|File|Type|State|Usage|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|[YoloV5](https://github.com/ultralytics/yolov5)|28M|[yolov5](https://github.com/ultralytics/yolov5)|13.6k🌟↑| [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_yolov5.zh.md) | *detection* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_yolov5.cpp) |
-|[YoloV3](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/yolov3)|236M|[onnx-models](https://github.com/onnx/models)|3.7k🌟↑| - | *detection* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_yolov3.cpp) |
-|[TinyYoloV3](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/tiny-yolov3)|33M|        [onnx-models](https://github.com/onnx/models)         | 3.7k🌟↑  | - | *detection* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_tiny_yolov3.cpp) |
-|[YoloV4](https://github.com/argusswift/YOLOv4-pytorch)|176M| [YOLOv4...](https://github.com/argusswift/YOLOv4-pytorch) | 1.3k🌟↑  | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_yolov4.zh.md) | *detection* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_tiny_yolov4.cpp) |
-|[SSD](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd)|76M|        [onnx-models](https://github.com/onnx/models)         | 3.7k🌟↑  | - | *detection* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_ssd.cpp) |
-|[SSDMobileNetV1](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd-mobilenetv1)|27M|        [onnx-models](https://github.com/onnx/models)         | 3.7k🌟↑  | - | *detection* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_ssd_mobilenetv1.cpp) |
-|[EfficientNet-Lite4](https://github.com/onnx/models/blob/master/vision/classification/efficientnet-lite4)|49M|        [onnx-models](https://github.com/onnx/models)         | 3.7k🌟↑  | - | *classification* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_efficientnet_lite4.cpp) |
-|[ShuffleNetV2](https://github.com/onnx/models/blob/master/vision/classification/shufflenet)|8.7M|        [onnx-models](https://github.com/onnx/models)         | 3.7k🌟↑  | - | *classification* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_shufflenetv2.cpp) |
-|[FSANet](https://github.com/omasaht/headpose-fsanet-pytorch)|1.2M| [...fsanet...](https://github.com/omasaht/headpose-fsanet-pytorch) |  42🌟↑   | - | *face* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_fsanet.cpp) |
-|[PFLD](https://github.com/Hsintao/pfld_106_face_landmarks)|1.0M| [pfld_106_...](https://github.com/Hsintao/pfld_106_face_landmarks) |  183🌟↑  | - | *face* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_pfld.cpp) |
-|[UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB)|1.1M| [Ultra-Light...](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) | 5.9k🌟↑  | - | *face* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_ultraface.cpp) |
-|[AgeGoogleNet](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender)|23M|        [onnx-models](https://github.com/onnx/models)         | 3.7k🌟↑  | - | *face* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_age_googlenet.cpp) |
-|[GenderGoogleNet](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender)|23M|        [onnx-models](https://github.com/onnx/models)         | 3.7k🌟↑  | - | *face* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_gender_googlenet.cpp) |
-|[EmotionFerPlus](https://github.com/onnx/models/blob/master/vision/body_analysis/emotion_ferplus)|33M|        [onnx-models](https://github.com/onnx/models)         | 3.7k🌟↑  | - | *face* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_emotion_ferplus.cpp) |
-|[VGG16Age](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender)|514M|        [onnx-models](https://github.com/onnx/models)         | 3.7k🌟↑  | - | *face* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_vgg16_age.cpp) |
-|[VGG16Gender](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender)|512M|        [onnx-models](https://github.com/onnx/models)         | 3.7k🌟↑  | - | *face* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_vgg16_gender.cpp) |
-|[SSRNet](https://github.com/oukohou/SSR_Net_Pytorch)|190K| [SSR_Net...](https://github.com/oukohou/SSR_Net_Pytorch) |  36🌟↑   | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_ssrnet.zh.md) | *face* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_ssrnet.cpp) |
-|[FastStyleTransfer](https://github.com/onnx/models/blob/master/vision/style_transfer/fast_neural_style)|6.4M|        [onnx-models](https://github.com/onnx/models)         | 3.7k🌟↑  | - | *style* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_fast_style_transfer.cpp) |
-|[ArcFaceResNet](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch)|92M|  [insightface](https://github.com/deepinsight/insightface)   | 9.6k🌟↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_arcface_resnet.cpp) |
-|[GlintCosFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch)|92M|  [insightface](https://github.com/deepinsight/insightface)   | 9.6k🌟↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_glint_cosface.cpp) |
-|[GlintPartialFC](https://github.com/deepinsight/insightface/tree/master/recognition/partial_fc)|170M|  [insightface](https://github.com/deepinsight/insightface)   | 9.6k🌟↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_glint_partial_fc.cpp) |
-|[FaceNet](https://github.com/timesler/facenet-pytorch)|93M| [facenet...](https://github.com/timesler/facenet-pytorch) | 2.2k🌟↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_facenet.cpp) |
-|[FocalArcFace](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch)|166M| [face.evoLVe...](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) | 2.5k🌟↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_focal_arcface.cpp) |
-|[FocalAsiaArcFace](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch)|166M| [face.evoLVe...](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) | 2.5k🌟↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_focal_asia_arcface.cpp) |
-|[TencentCurricularFace](https://github.com/Tencent/TFace/tree/master/tasks/distfc)|249M|          [TFace](https://github.com/Tencent/TFace)           |  471🌟↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_tencent_curricular_face.cpp) |
-|[TencentCifpFace](https://github.com/Tencent/TFace/tree/master/tasks/cifp)|130M|          [TFace](https://github.com/Tencent/TFace)           |  471🌟↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_tencent_cifp_face.cpp) |
-|[CenterLossFace](https://github.com/louis-she/center-loss.pytorch)| - |  [center-loss...](https://github.com/louis-she/center-loss.pytorch)           |  144🌟↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ⚠️ | - |
-|[SphereFace](https://github.com/clcarwin/sphereface_pytorch)| - |  [sphere...](https://github.com/clcarwin/sphereface_pytorch)   |  641🌟↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ⚠️ | - |
-|[PoseRobustFace](https://github.com/penincillin/DREAM)| - | [DREAM](https://github.com/penincillin/DREAM)  |  367🌟↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ⚠️ | - |
-|[MobileFaceNet](https://github.com/Xiaoccer/MobileFaceNet_Pytorch)| - |  [MobileFace...](https://github.com/Xiaoccer/MobileFaceNet_Pytorch)           |  231🌟↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ⚠️ | - |
-|[CavaGhostArcFace](https://github.com/cavalleria/cavaface.pytorch)| - | [cavaface...](https://github.com/cavalleria/cavaface.pytorch) |  312🌟↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ⚠️ | - |
-|[CavaCombinedFace](https://github.com/cavalleria/cavaface.pytorch)| - | [cavaface...](https://github.com/cavalleria/cavaface.pytorch) |  312🌟↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ⚠️ | - |
-|[Colorizer](https://github.com/richzhang/colorization)|123M|  [colorization](https://github.com/richzhang/colorization)   | 2.7k🌟↑  | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_colorizer.zh.md) | *colorization* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_colorizer.cpp) |
-|[SubPixelCNN](https://github.com/niazwazir/SUB_PIXEL_CNN)|234K| [...PIXEL...](https://github.com/niazwazir/SUB_PIXEL_CNN)  |    -🌟↑    | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_subpixel_cnn.zh.md) | *resolution* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_subpixel_cnn.cpp) |
-|[DeepLabV3ResNet101](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/)|232M|       [torchvision](https://github.com/pytorch/vision)       | 9.4k🌟↑  | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_deeplabv3_resnet101.zh.md) | *segmentation* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_deeplabv3_resnet101.cpp) |
-|[DenseNet121](https://pytorch.org/hub/pytorch_vision_densenet/)|30.7M|       [torchvision](https://github.com/pytorch/vision)       | 9.4k🌟↑  | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_densenet121.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_densenet.cpp) |
-|[FCNResNet101](https://pytorch.org/hub/pytorch_vision_fcn_resnet101/)|207M|       [torchvision](https://github.com/pytorch/vision)       | 9.4k🌟↑  | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_fcn_resnet101.zh.md) | *segmentation* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_fcn_resnet101.cpp) |
-|[GhostNet](https://pytorch.org/hub/pytorch_vision_ghostnet/)|20M|       [torchvision](https://github.com/pytorch/vision)       | 9.4k🌟↑  | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_ghostnet.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_ghostnet.cpp) |
-|[HdrDNet](https://pytorch.org/hub/pytorch_vision_hardnet//)|13M|       [torchvision](https://github.com/pytorch/vision)       | 9.4k🌟↑  | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_hardnet.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_hardnet.cpp) |
-|[IBNNet](https://pytorch.org/hub/pytorch_vision_ibnnet/)|97M|       [torchvision](https://github.com/pytorch/vision)       | 9.4k🌟↑  | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_ibnnet.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_ibnnet.cpp) |
-|[MobileNetV2](https://pytorch.org/hub/pytorch_vision_mobilenet_v2/)|13M|       [torchvision](https://github.com/pytorch/vision)       | 9.4k🌟↑  | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_mobilenetv2.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_mobilenetv2.cpp) |
-|[ResNet](https://pytorch.org/hub/pytorch_vision_resnet/)|44M|       [torchvision](https://github.com/pytorch/vision)       | 9.4k🌟↑  | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_resnet.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_resnet.cpp) |
-|[ResNeXt](https://pytorch.org/hub/pytorch_vision_resnext/)|95M|       [torchvision](https://github.com/pytorch/vision)       | 9.4k🌟↑  | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_resnext.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_resnext.cpp) |
+|[YoloV5](https://github.com/ultralytics/yolov5)|28M|[yolov5](https://github.com/ultralytics/yolov5)|🔥🔥💥↑| [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_yolov5.zh.md) | *detection* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_yolov5.cpp) |
+|[YoloV3](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/yolov3)|236M|[onnx-models](https://github.com/onnx/models)|🔥🔥🔥↑| - | *detection* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_yolov3.cpp) |
+|[TinyYoloV3](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/tiny-yolov3)|33M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *detection* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_tiny_yolov3.cpp) |
+|[YoloV4](https://github.com/argusswift/YOLOv4-pytorch)|176M| [YOLOv4...](https://github.com/argusswift/YOLOv4-pytorch) | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_yolov4.zh.md) | *detection* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_tiny_yolov4.cpp) |
+|[SSD](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd)|76M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *detection* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_ssd.cpp) |
+|[SSDMobileNetV1](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd-mobilenetv1)|27M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *detection* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_ssd_mobilenetv1.cpp) |
+|[EfficientNet-Lite4](https://github.com/onnx/models/blob/master/vision/classification/efficientnet-lite4)|49M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *classification* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_efficientnet_lite4.cpp) |
+|[ShuffleNetV2](https://github.com/onnx/models/blob/master/vision/classification/shufflenet)|8.7M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *classification* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_shufflenetv2.cpp) |
+|[FSANet](https://github.com/omasaht/headpose-fsanet-pytorch)|1.2M| [...fsanet...](https://github.com/omasaht/headpose-fsanet-pytorch) | 🔥↑ | - | *face* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_fsanet.cpp) |
+|[PFLD](https://github.com/Hsintao/pfld_106_face_landmarks)|1.0M| [pfld_106_...](https://github.com/Hsintao/pfld_106_face_landmarks) |  🔥🔥↑  | - | *face* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_pfld.cpp) |
+|[UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB)|1.1M| [Ultra-Light...](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) | 🔥🔥🔥↑ | - | *face* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_ultraface.cpp) |
+|[AgeGoogleNet](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender)|23M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *face* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_age_googlenet.cpp) |
+|[GenderGoogleNet](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender)|23M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *face* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_gender_googlenet.cpp) |
+|[EmotionFerPlus](https://github.com/onnx/models/blob/master/vision/body_analysis/emotion_ferplus)|33M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *face* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_emotion_ferplus.cpp) |
+|[VGG16Age](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender)|514M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *face* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_vgg16_age.cpp) |
+|[VGG16Gender](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender)|512M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *face* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_vgg16_gender.cpp) |
+|[SSRNet](https://github.com/oukohou/SSR_Net_Pytorch)|190K| [SSR_Net...](https://github.com/oukohou/SSR_Net_Pytorch) | 🔥↑ | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_ssrnet.zh.md) | *face* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_ssrnet.cpp) |
+|[FastStyleTransfer](https://github.com/onnx/models/blob/master/vision/style_transfer/fast_neural_style)|6.4M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *style* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_fast_style_transfer.cpp) |
+|[ArcFaceResNet](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch)|92M|  [insightface](https://github.com/deepinsight/insightface)   | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_arcface_resnet.cpp) |
+|[GlintCosFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch)|92M|  [insightface](https://github.com/deepinsight/insightface)   | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_glint_cosface.cpp) |
+|[GlintPartialFC](https://github.com/deepinsight/insightface/tree/master/recognition/partial_fc)|170M|  [insightface](https://github.com/deepinsight/insightface)   | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_glint_partial_fc.cpp) |
+|[FaceNet](https://github.com/timesler/facenet-pytorch)|93M| [facenet...](https://github.com/timesler/facenet-pytorch) | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_facenet.cpp) |
+|[FocalArcFace](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch)|166M| [face.evoLVe...](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_focal_arcface.cpp) |
+|[FocalAsiaArcFace](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch)|166M| [face.evoLVe...](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_focal_asia_arcface.cpp) |
+|[TencentCurricularFace](https://github.com/Tencent/TFace/tree/master/tasks/distfc)|249M|          [TFace](https://github.com/Tencent/TFace)           |  🔥🔥↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_tencent_curricular_face.cpp) |
+|[TencentCifpFace](https://github.com/Tencent/TFace/tree/master/tasks/cifp)|130M|          [TFace](https://github.com/Tencent/TFace)           |  🔥🔥↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_tencent_cifp_face.cpp) |
+|[CenterLossFace](https://github.com/louis-she/center-loss.pytorch)| - |  [center-loss...](https://github.com/louis-she/center-loss.pytorch)           |  🔥🔥↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ⚠️ | - |
+|[SphereFace](https://github.com/clcarwin/sphereface_pytorch)| - |  [sphere...](https://github.com/clcarwin/sphereface_pytorch)   |  🔥🔥↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ⚠️ | - |
+|[PoseRobustFace](https://github.com/penincillin/DREAM)| - | [DREAM](https://github.com/penincillin/DREAM)  |  🔥🔥↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ⚠️ | - |
+|[MobileFaceNet](https://github.com/Xiaoccer/MobileFaceNet_Pytorch)| - |  [MobileFace...](https://github.com/Xiaoccer/MobileFaceNet_Pytorch)           |  🔥🔥↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ⚠️ | - |
+|[CavaGhostArcFace](https://github.com/cavalleria/cavaface.pytorch)| - | [cavaface...](https://github.com/cavalleria/cavaface.pytorch) |  🔥🔥↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ⚠️ | - |
+|[CavaCombinedFace](https://github.com/cavalleria/cavaface.pytorch)| - | [cavaface...](https://github.com/cavalleria/cavaface.pytorch) |  🔥🔥↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ⚠️ | - |
+|[Colorizer](https://github.com/richzhang/colorization)|123M|  [colorization](https://github.com/richzhang/colorization)   | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_colorizer.zh.md) | *colorization* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_colorizer.cpp) |
+|[SubPixelCNN](https://github.com/niazwazir/SUB_PIXEL_CNN)|234K| [...PIXEL...](https://github.com/niazwazir/SUB_PIXEL_CNN)  |    🔥↑    | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_subpixel_cnn.zh.md) | *resolution* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_subpixel_cnn.cpp) |
+|[DeepLabV3ResNet101](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/)|232M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_deeplabv3_resnet101.zh.md) | *segmentation* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_deeplabv3_resnet101.cpp) |
+|[DenseNet121](https://pytorch.org/hub/pytorch_vision_densenet/)|30.7M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_densenet121.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_densenet.cpp) |
+|[FCNResNet101](https://pytorch.org/hub/pytorch_vision_fcn_resnet101/)|207M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_fcn_resnet101.zh.md) | *segmentation* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_fcn_resnet101.cpp) |
+|[GhostNet](https://pytorch.org/hub/pytorch_vision_ghostnet/)|20M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_ghostnet.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_ghostnet.cpp) |
+|[HdrDNet](https://pytorch.org/hub/pytorch_vision_hardnet//)|13M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_hardnet.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_hardnet.cpp) |
+|[IBNNet](https://pytorch.org/hub/pytorch_vision_ibnnet/)|97M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_ibnnet.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_ibnnet.cpp) |
+|[MobileNetV2](https://pytorch.org/hub/pytorch_vision_mobilenet_v2/)|13M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_mobilenetv2.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_mobilenetv2.cpp) |
+|[ResNet](https://pytorch.org/hub/pytorch_vision_resnet/)|44M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_resnet.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_resnet.cpp) |
+|[ResNeXt](https://pytorch.org/hub/pytorch_vision_resnext/)|95M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_resnext.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_resnext.cpp) |
 
 ****
 
@@ -141,14 +141,14 @@ Most of the models were converted by LiteHub, and others were referenced from th
 ### 2.2 Models for MNN version.  
 * *todo*⚠️  
 
-****  
+****
 
 ### 2.3 Models for NCNN version.  
 * *todo*⚠️
 
 </details>
 
-****  
+****
 
 ## 3. Build LiteHub.  
 
@@ -178,7 +178,7 @@ liblitehub.dylib:
         @rpath/libopencv_highgui.4.5.dylib (compatibility version 4.5.0, current version 4.5.2)
         @rpath/libonnxruntime.1.7.0.dylib (compatibility version 0.0.0, current version 1.7.0)
         ...
-```  
+```
 <details>
 <summary> Expand for more details of How to link the shared lib of LiteHub?</summary>
 
@@ -281,7 +281,7 @@ The output is:
   <img src='logs/test_lite_yolov5_2.jpg' height="256px">
 </div>  
 
-****  
+****
 
 #### 4.2 Segmentation using [DeepLabV3ResNet101](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
@@ -322,7 +322,7 @@ The output is:
   <img src='logs/test_lite_deeplabv3_resnet101.jpg' height="256px">
 </div> 
 
-****  
+****
 
 <details>
 <summary> 4.3 Expand Examples for Style Transfer.</summary>
@@ -554,7 +554,7 @@ The output is:
 
 </details>
 
-**** 
+****
 
 <details>
 <summary> 4.9 Expand Examples for Face Recognition.</summary>
@@ -715,25 +715,25 @@ Other build documents for different engines and different targets will be added 
 
 <div id="refer-anchor-Acknowledgements"></div>
 
-Many thanks to the following projects. All of LiteHub's models come from them.
+Many thanks to the following projects. All of LiteHub's model files are sourced from these repos. Don‘t star 🌟 👆 me ! seriously 🌟 👆!  seriously 🌟 👆once more ! Just jump to the  any awesome one you are interested in ! Have a good travel ~ 🙃🤪  
 
-* [1] [headpose-fsanet-pytorch](https://github.com/omasaht/headpose-fsanet-pytorch) (42🌟↑)
-* [2] [pfld_106_face_landmarks](https://github.com/Hsintao/pfld_106_face_landmarks) (183🌟↑)
-* [3] [Ultra-Light-Fast-Generic-Face-Detector-1MB](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) (5.9k🌟↑)
-* [4] [onnx-models](https://github.com/onnx/models) (3.7k🌟↑)
-* [5] [SSR_Net_Pytorch](https://github.com/oukohou/SSR_Net_Pytorch) (36🌟↑)
-* [6] [insightface](https://github.com/deepinsight/insightface) (9.6k🌟↑)
-* [7] [colorization](https://github.com/richzhang/colorization) (2.7k🌟↑)
-* [8] [SUB_PIXEL_CNN](https://github.com/niazwazir/SUB_PIXEL_CNN) (-🌟↑)
-* [9] [YOLOv4-pytorch](https://github.com/argusswift/YOLOv4-pytorch) (1.3k🌟↑)
-* [10] [yolov5](https://github.com/ultralytics/yolov5) (13.6k🌟↑)
-* [11] [torchvision](https://github.com/pytorch/vision) (9.4k🌟↑)
-* [12] [facenet-pytorch](https://github.com/timesler/facenet-pytorch) (42🌟↑)
-* [13] [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) (2.5k🌟↑)
-* [14] [TFace](https://github.com/Tencent/TFace) (471🌟↑)
-* [15] [center-loss.pytorch](https://github.com/louis-she/center-loss.pytorch) (144🌟↑)
-* [16] [sphereface_pytorch](https://github.com/clcarwin/sphereface_pytorch) (641🌟↑)
-* [17] [DREAM](https://github.com/penincillin/DREAM) (367🌟↑)
-* [18] [MobileFaceNet_Pytorch](https://github.com/Xiaoccer/MobileFaceNet_Pytorch) (231🌟↑)
-* [19] [cavaface.pytorch](https://github.com/cavalleria/cavaface.pytorch) (312🌟↑)
-* [20] [CurricularFace](https://github.com/HuangYG123/CurricularFace) (354🌟↑)
+* [1] [headpose-fsanet-pytorch](https://github.com/omasaht/headpose-fsanet-pytorch) (🔥↑)
+* [2] [pfld_106_face_landmarks](https://github.com/Hsintao/pfld_106_face_landmarks) (🔥🔥↑)
+* [3] [Ultra-Light-Fast-Generic-Face-Detector-1MB](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) (🔥🔥🔥↑)
+* [4] [onnx-models](https://github.com/onnx/models) (🔥🔥🔥↑)
+* [5] [SSR_Net_Pytorch](https://github.com/oukohou/SSR_Net_Pytorch) (🔥↑)
+* [6] [insightface](https://github.com/deepinsight/insightface) (🔥🔥🔥↑)
+* [7] [colorization](https://github.com/richzhang/colorization) (🔥🔥🔥↑)
+* [8] [SUB_PIXEL_CNN](https://github.com/niazwazir/SUB_PIXEL_CNN) (🔥↑)
+* [9] [YOLOv4-pytorch](https://github.com/argusswift/YOLOv4-pytorch) (🔥🔥🔥↑)
+* [10] [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑)
+* [11] [torchvision](https://github.com/pytorch/vision) (🔥🔥🔥↑)
+* [12] [facenet-pytorch](https://github.com/timesler/facenet-pytorch) (🔥↑)
+* [13] [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) (🔥🔥🔥↑)
+* [14] [TFace](https://github.com/Tencent/TFace) (🔥🔥↑)
+* [15] [center-loss.pytorch](https://github.com/louis-she/center-loss.pytorch) (🔥🔥↑)
+* [16] [sphereface_pytorch](https://github.com/clcarwin/sphereface_pytorch) (🔥🔥↑)
+* [17] [DREAM](https://github.com/penincillin/DREAM) (🔥🔥↑)
+* [18] [MobileFaceNet_Pytorch](https://github.com/Xiaoccer/MobileFaceNet_Pytorch) (🔥🔥↑)
+* [19] [cavaface.pytorch](https://github.com/cavalleria/cavaface.pytorch) (🔥🔥↑)
+* [20] [CurricularFace](https://github.com/HuangYG123/CurricularFace) (🔥🔥↑)
