@@ -745,7 +745,7 @@ Other build documents for different engines and different targets will be added 
 
 <div id="refer-anchor-Acknowledgements"></div>
 
-Many thanks to the following projects. All of LiteHub's model files are sourced from these repos. Don‘t star 🌟👆 me ! seriously 🌟👆! Just jump to and star 🌟👉🏻 the any awesome one you are interested in ! Have a good travel ~ 🙃🤪🍀  
+Many thanks to the following projects. All of LiteHub's model files are sourced from these repos. Don‘t star 🌟👆 me please ! seriously 🌟👆! Just jump to and star 🌟👉🏻 the any awesome one you are interested in ! Have a good travel ~ 🙃🤪🍀  
 
 * [1] [headpose-fsanet-pytorch](https://github.com/omasaht/headpose-fsanet-pytorch) (🔥↑)
 * [2] [pfld_106_face_landmarks](https://github.com/Hsintao/pfld_106_face_landmarks) (🔥🔥↑)
