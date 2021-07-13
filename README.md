@@ -141,6 +141,8 @@ Most of the models were converted by LiteHub, and others were referenced from th
 |[MobileNetV2](https://pytorch.org/hub/pytorch_vision_mobilenet_v2/)|13M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_mobilenetv2.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_mobilenetv2.cpp) |
 |[ResNet](https://pytorch.org/hub/pytorch_vision_resnet/)|44M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_resnet.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_resnet.cpp) |
 |[ResNeXt](https://pytorch.org/hub/pytorch_vision_resnext/)|95M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_resnext.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_resnext.cpp) |
+|[CategoryFaceChannel](https://github.com/pablovin/FaceChannel)|-|       [FaceChannel](https://github.com/pablovin/FaceChannel)       | 🔥↑ | [litehub](https://github.com/DefTruth/litehub/) | *face* |  ⚠️ | - |
+|[DemensionFaceChannel](https://github.com/pablovin/FaceChannel)|-|       [FaceChannel](https://github.com/pablovin/FaceChannel)       | 🔥↑ | [litehub](https://github.com/DefTruth/litehub/) | *face* | ⚠️ | - |
 
 ****
 
@@ -776,4 +778,5 @@ Many thanks to the following projects. All the LiteHub's models are sourced from
 * [18] [MobileFaceNet_Pytorch](https://github.com/Xiaoccer/MobileFaceNet_Pytorch) (🔥🔥↑)
 * [19] [cavaface.pytorch](https://github.com/cavalleria/cavaface.pytorch) (🔥🔥↑)
 * [20] [CurricularFace](https://github.com/HuangYG123/CurricularFace) (🔥🔥↑)
+* [21] [FaceChannel](https://github.com/pablovin/FaceChannel) (🔥↑)
 * [??] [litehub](https://github.com/DefTruth/litehub) ( 👈🏻 yet, I guess you might be also interested in this repo ~ 🙃🤪🍀)

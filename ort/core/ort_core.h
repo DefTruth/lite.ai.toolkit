@@ -54,6 +54,8 @@ namespace ortcv
   class LITEHUB_EXPORTS MobileFaceNet;              // [40] reference: https://github.com/Xiaoccer/MobileFaceNet_Pytorch
   class LITEHUB_EXPORTS CavaGhostArcFace;           // [41] reference: https://github.com/cavalleria/cavaface.pytorch
   class LITEHUB_EXPORTS CavaCombinedFace;           // [42] reference: https://github.com/cavalleria/cavaface.pytorch
+  class LITEHUB_EXPORTS CategoryFaceChannel;        // [43] reference: https://github.com/pablovin/FaceChannel
+  class LITEHUB_EXPORTS DemensionFaceChannel;       // [44] reference: https://github.com/pablovin/FaceChannel
 }
 
 namespace ortnlp
