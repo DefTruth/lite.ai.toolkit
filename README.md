@@ -22,25 +22,30 @@
 
 ****  
 
-* Working on.
+* Working on. 👇🏻
   * ✅ [object detection](#refer-anchor-object-detection) 
-  * ✅ [face detection](#refer-anchor-face-detection) 
-  * ✅ [face alignment](#refer-anchor-face-alignment) 
-  * ✅ [face recognition](#refer-anchor-face-recognition) 
-  * ✅ [segmentation](#refer-anchor-segmentation) 
-
+  * ✅ [image classification](#refer-anchor-object-detection) 
+  * ❇️ [face detection](#refer-anchor-face-detection) 
+  * ❇️ [face alignment](#refer-anchor-face-alignment) 
+  * ❇️ [face recognition](#refer-anchor-face-recognition) 
+  * ❇️ [face attributes analysis](#refer-anchor-face-attributes-analysis)
+  * ⚠️ [segmentation](#refer-anchor-segmentation)
+  * ⚠️ [style transfer](#refer-anchor-style-transfer)
+  * ⚠️ [colorization](#refer-anchor-colorization)
+  * ⚠️ [matting](#refer-anchor-matting)
+  
 
 ****
 <div id="refer-anchor-Related-LiteHub-Projects"></div>
 
-* Related LiteHub Projects.
-  * [1] [litehub](https://github.com/DefTruth/litehub) (*doing*✋🏻)
-  * [2] [litehub-onnxruntime](https://github.com/DefTruth/litehub-onnxruntime) (*doing*✋🏻)
-  * [3] [litehub-mnn](https://github.com/DefTruth/litehub-mnn) (*todo*⚠️)
-  * [4] [litehub-ncnn](https://github.com/DefTruth/litehub-ncnn) (*todo*⚠️)
-  * [5] [litehub-release](https://github.com/DefTruth/litehub-release) (*doing*✋🏻)
-  * [6] [litehub-python](https://github.com/DefTruth/litehub-python) (*todo*⚠️)
-  * [7] [litehub-android](https://github.com/DefTruth/litehub-android) (*todo*⚠️)  
+* Related LiteHub Projects. 👇🏻
+  * ❇️ [litehub](https://github.com/DefTruth/litehub) (*doing*✋🏻)
+  * ❇️ [litehub-onnxruntime](https://github.com/DefTruth/litehub-onnxruntime) (*doing*✋🏻)
+  * ⚠️ [litehub-mnn](https://github.com/DefTruth/litehub-mnn) (*todo*️)
+  * ⚠️ [litehub-ncnn](https://github.com/DefTruth/litehub-ncnn) (*todo*️)
+  * ❇️ [litehub-release](https://github.com/DefTruth/litehub-release) (*doing*✋🏻)
+  * ⚠️ [litehub-python](https://github.com/DefTruth/litehub-python) (*todo*️)
+  * ⚠️ [litehub-android](https://github.com/DefTruth/litehub-android) (*todo*️)  
   
 ****
 
@@ -80,7 +85,7 @@ install `OpenCV` and `onnxruntime` libraries using Homebrew or you can download 
 * Linux & Windows. (*todo*⚠️)
 * Inference Engine Plans:
   * *doing*:  
-    ✅ 🚀`onnxruntime` 
+    ❇️ `onnxruntime` 
   * *todo*:  
     ⚠️ `NCNN`  
     ⚠️ `MNN`  
@@ -189,7 +194,10 @@ liblitehub.dylib:
         @rpath/libopencv_highgui.4.5.dylib (compatibility version 4.5.0, current version 4.5.2)
         @rpath/libonnxruntime.1.7.0.dylib (compatibility version 0.0.0, current version 1.7.0)
         ...
-```
+```  
+
+****
+
 <details>
 <summary> Expand for more details of How to link the shared lib of LiteHub?</summary>
 
@@ -718,6 +726,8 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 
 <div id="refer-anchor-Other-Docs"></div>  
 <div id="refer-anchor-1"></div> 
+
+****  
 
 <details>
 <summary> Expand for more details of Other Docs.</summary>
