@@ -189,7 +189,7 @@ sh ./build.sh
 ```
 ```shell
 cd ./build/litehub/lib && otool -L liblitehub.0.0.1.dylib 
-liblitehub.dylib:
+liblitehub.0.0.1.dylib:
         @rpath/liblitehub.0.0.1.dylib (compatibility version 0.0.1, current version 0.0.1)
         @rpath/libopencv_highgui.4.5.dylib (compatibility version 4.5.0, current version 4.5.2)
         @rpath/libonnxruntime.1.7.0.dylib (compatibility version 0.0.0, current version 1.7.0)
