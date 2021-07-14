@@ -49,6 +49,7 @@
 #include "ort/cv/focal_asia_arcface.h"
 #include "ort/cv/tencent_cifp_face.h"
 #include "ort/cv/tencent_curricular_face.h"
+#include "ort/cv/center_loss_face.h"
 
 #endif
 
@@ -108,6 +109,7 @@ namespace lite
     typedef ortcv::FocalAsiaArcFace _FocalAsiaArcFace;
     typedef ortcv::TencentCifpFace _TencentCifpFace;
     typedef ortcv::TencentCurricularFace _TencentCurricularFace;
+    typedef ortcv::CenterLossFace _CenterLossFace;
 #endif
 
     // 1. classification
@@ -165,6 +167,7 @@ namespace lite
       typedef _FocalAsiaArcFace FocalAsiaArcFace;
       typedef _TencentCurricularFace TencentCurricularFace;
       typedef _TencentCifpFace TencentCifpFace;
+      typedef _CenterLossFace CenterLossFace;
 #endif
 
     }
@@ -287,6 +290,7 @@ namespace lite
       typedef ortcv::FocalAsiaArcFace _ONNXFocalAsiaArcFace;
       typedef ortcv::TencentCifpFace _ONNXTencentCifpFace;
       typedef ortcv::TencentCurricularFace _ONNXTencentCurricularFace;
+      typedef ortcv::CenterLossFace _ONNXCenterLossFace;
 
       // 1. classification
       namespace classification
@@ -336,6 +340,7 @@ namespace lite
         typedef _ONNXFocalAsiaArcFace FocalAsiaArcFace;
         typedef _ONNXTencentCifpFace TencentCifpFace;
         typedef _ONNXTencentCurricularFace TencentCurricularFace;
+        typedef _ONNXCenterLossFace CenterLossFace;
       }
       // 5. segmentation
       namespace segmentation

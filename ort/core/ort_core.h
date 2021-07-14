@@ -48,7 +48,7 @@ namespace ortcv
   class LITEHUB_EXPORTS FocalAsiaArcFace;           // [34] * reference: https://github.com/ZhaoJ9014/face.evoLVe.PyTorch
   class LITEHUB_EXPORTS TencentCurricularFace;      // [35] * reference: https://github.com/Tencent/TFace/tree/master/tasks/distfc
   class LITEHUB_EXPORTS TencentCifpFace;            // [36] * reference: https://github.com/Tencent/TFace/tree/master/tasks/cifp
-  class LITEHUB_EXPORTS CenterLossFace;             // [37] reference: https://github.com/louis-she/center-loss.pytorch
+  class LITEHUB_EXPORTS CenterLossFace;             // [37] * reference: https://github.com/louis-she/center-loss.pytorch
   class LITEHUB_EXPORTS SphereFace;                 // [38] reference: https://github.com/clcarwin/sphereface_pytorch
   class LITEHUB_EXPORTS PoseRobustFace;             // [39] reference: https://github.com/penincillin/DREAM
   class LITEHUB_EXPORTS MobileFaceNet;              // [40] reference: https://github.com/Xiaoccer/MobileFaceNet_Pytorch
