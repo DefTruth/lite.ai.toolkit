@@ -10,7 +10,8 @@ static void test_default()
   std::string test_img_path = "../../../examples/lite/resources/test_lite_gender_googlenet.jpg";
   std::string save_img_path = "../../../logs/test_lite_gender_googlenet.jpg";
 
-  lite::cv::face::GenderGoogleNet *gender_googlenet = new lite::cv::face::GenderGoogleNet(onnx_path);
+  lite::cv::face::attr::GenderGoogleNet *gender_googlenet =
+      new lite::cv::face::attr::GenderGoogleNet(onnx_path);
 
   lite::cv::types::Gender gender;
   cv::Mat img_bgr = cv::imread(test_img_path);
@@ -31,8 +32,8 @@ static void test_onnxruntime()
   std::string test_img_path = "../../../examples/lite/resources/test_lite_gender_googlenet.jpg";
   std::string save_img_path = "../../../logs/test_onnx_gender_googlenet.jpg";
 
-  lite::onnxruntime::cv::face::GenderGoogleNet *gender_googlenet =
-      new lite::onnxruntime::cv::face::GenderGoogleNet(onnx_path);
+  lite::onnxruntime::cv::face::attr::GenderGoogleNet *gender_googlenet =
+      new lite::onnxruntime::cv::face::attr::GenderGoogleNet(onnx_path);
 
   lite::onnxruntime::cv::types::Gender gender;
   cv::Mat img_bgr = cv::imread(test_img_path);

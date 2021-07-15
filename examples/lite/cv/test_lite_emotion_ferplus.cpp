@@ -10,7 +10,8 @@ static void test_default()
   std::string test_img_path = "../../../examples/lite/resources/test_lite_emotion_ferplus.jpg";
   std::string save_img_path = "../../../logs/test_lite_emotion_ferplus.jpg";
 
-  lite::cv::face::EmotionFerPlus *emotion_ferplus = new lite::cv::face::EmotionFerPlus(onnx_path);
+  lite::cv::face::attr::EmotionFerPlus *emotion_ferplus =
+      new lite::cv::face::attr::EmotionFerPlus(onnx_path);
 
   lite::cv::types::Emotions emotions;
   cv::Mat img_bgr = cv::imread(test_img_path);
@@ -32,7 +33,8 @@ static void test_onnxruntime()
   std::string test_img_path = "../../../examples/lite/resources/test_lite_emotion_ferplus.jpg";
   std::string save_img_path = "../../../logs/test_onnx_emotion_ferplus.jpg";
 
-  lite::onnxruntime::cv::face::EmotionFerPlus *emotion_ferplus = new lite::onnxruntime::cv::face::EmotionFerPlus(onnx_path);
+  lite::onnxruntime::cv::face::attr::EmotionFerPlus *emotion_ferplus =
+      new lite::onnxruntime::cv::face::attr::EmotionFerPlus(onnx_path);
 
   lite::onnxruntime::cv::types::Emotions emotions;
   cv::Mat img_bgr = cv::imread(test_img_path);

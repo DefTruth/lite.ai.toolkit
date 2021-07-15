@@ -10,7 +10,7 @@ static void test_default()
   std::string test_img_path = "../../../examples/lite/resources/test_lite_ssrnet.jpg";
   std::string save_img_path = "../../../logs/test_lite_ssrnet.jpg";
 
-  lite::cv::face::SSRNet *ssrnet = new lite::cv::face::SSRNet(onnx_path);
+  lite::cv::face::attr::SSRNet *ssrnet = new lite::cv::face::attr::SSRNet(onnx_path);
 
   lite::cv::types::Age age;
   cv::Mat img_bgr = cv::imread(test_img_path);
@@ -31,7 +31,8 @@ static void test_onnxruntime()
   std::string test_img_path = "../../../examples/lite/resources/test_lite_ssrnet.jpg";
   std::string save_img_path = "../../../logs/test_onnx_ssrnet.jpg";
 
-  lite::onnxruntime::cv::face::SSRNet *ssrnet = new lite::onnxruntime::cv::face::SSRNet(onnx_path);
+  lite::onnxruntime::cv::face::attr::SSRNet *ssrnet =
+      new lite::onnxruntime::cv::face::attr::SSRNet(onnx_path);
 
   lite::onnxruntime::cv::types::Age age;
   cv::Mat img_bgr = cv::imread(test_img_path);

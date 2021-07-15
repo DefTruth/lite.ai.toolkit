@@ -10,7 +10,7 @@ static void test_default()
   std::string test_img_path = "../../../examples/lite/resources/test_lite_vgg16_gender.jpg";
   std::string save_img_path = "../../../logs/test_lite_vgg16_gender.jpg";
 
-  lite::cv::face::VGG16Gender *vgg16_gender = new lite::cv::face::VGG16Gender(onnx_path);
+  lite::cv::face::attr::VGG16Gender *vgg16_gender = new lite::cv::face::attr::VGG16Gender(onnx_path);
 
   lite::cv::types::Gender gender;
   cv::Mat img_bgr = cv::imread(test_img_path);
@@ -32,8 +32,8 @@ static void test_onnxruntime()
   std::string test_img_path = "../../../examples/lite/resources/test_lite_vgg16_gender.jpg";
   std::string save_img_path = "../../../logs/test_onnx_vgg16_gender.jpg";
 
-  lite::onnxruntime::cv::face::VGG16Gender *vgg16_gender =
-      new lite::onnxruntime::cv::face::VGG16Gender(onnx_path);
+  lite::onnxruntime::cv::face::attr::VGG16Gender *vgg16_gender =
+      new lite::onnxruntime::cv::face::attr::VGG16Gender(onnx_path);
 
   lite::onnxruntime::cv::types::Gender gender;
   cv::Mat img_bgr = cv::imread(test_img_path);

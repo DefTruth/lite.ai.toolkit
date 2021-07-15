@@ -10,7 +10,7 @@ static void test_default()
   std::string test_img_path = "../../../examples/lite/resources/test_lite_ultraface.jpg";
   std::string save_img_path = "../../../logs/test_lite_ultraface.jpg";
 
-  lite::cv::face::UltraFace *ultraface = new lite::cv::face::UltraFace(onnx_path);
+  lite::cv::face::detect::UltraFace *ultraface = new lite::cv::face::detect::UltraFace(onnx_path);
 
   std::vector<lite::cv::types::Boxf> detected_boxes;
   cv::Mat img_bgr = cv::imread(test_img_path);
@@ -31,8 +31,8 @@ static void test_onnxruntime()
   std::string test_img_path = "../../../examples/lite/resources/test_lite_ultraface.jpg";
   std::string save_img_path = "../../../logs/test_onnx_ultraface.jpg";
 
-  lite::onnxruntime::cv::face::UltraFace *ultraface =
-      new lite::onnxruntime::cv::face::UltraFace(onnx_path);
+  lite::onnxruntime::cv::face::detect::UltraFace *ultraface =
+      new lite::onnxruntime::cv::face::detect::UltraFace(onnx_path);
 
   std::vector<lite::onnxruntime::cv::types::Boxf> detected_boxes;
   cv::Mat img_bgr = cv::imread(test_img_path);

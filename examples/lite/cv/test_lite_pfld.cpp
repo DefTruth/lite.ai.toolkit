@@ -10,7 +10,7 @@ static void test_default()
   std::string test_img_path = "../../../examples/lite/resources/test_lite_pfld.png";
   std::string save_img_path = "../../../logs/test_lite_pfld.jpg";
 
-  lite::cv::face::PFLD *pfld = new lite::cv::face::PFLD(onnx_path);
+  lite::cv::face::align::PFLD *pfld = new lite::cv::face::align::PFLD(onnx_path);
 
   lite::cv::types::Landmarks landmarks;
   cv::Mat img_bgr = cv::imread(test_img_path);
@@ -32,7 +32,8 @@ static void test_onnxruntime()
   std::string test_img_path = "../../../examples/lite/resources/test_lite_pfld.png";
   std::string save_img_path = "../../../logs/test_onnx_pfld.jpg";
 
-  lite::onnxruntime::cv::face::PFLD *pfld = new lite::onnxruntime::cv::face::PFLD(onnx_path);
+  lite::onnxruntime::cv::face::align::PFLD *pfld =
+      new lite::onnxruntime::cv::face::align::PFLD(onnx_path);
 
   lite::onnxruntime::cv::types::Landmarks landmarks;
   cv::Mat img_bgr = cv::imread(test_img_path);

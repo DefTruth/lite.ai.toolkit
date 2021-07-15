@@ -156,6 +156,39 @@ namespace lite
       typedef _EmotionFerPlus EmotionFerPlus; // emotion detection
       typedef _SSRNet SSRNet; // age estimation
 #endif
+      namespace detect
+      {
+#ifdef BACKEND_ONNXRUNTIME
+        typedef _UltraFace UltraFace;  // face detection.
+#endif
+      }
+
+      namespace align
+      {
+#ifdef BACKEND_ONNXRUNTIME
+        typedef _PFLD PFLD; // facial landmarks detection.
+#endif
+      }
+
+      namespace pose
+      {
+#ifdef BACKEND_ONNXRUNTIME
+        typedef _FSANet FSANet; // head pose estimation.
+#endif
+      }
+
+      namespace attr
+      {
+#ifdef BACKEND_ONNXRUNTIME
+        typedef _AgeGoogleNet AgeGoogleNet; // age estimation
+        typedef _GenderGoogleNet GenderGoogleNet; // gender estimation
+        typedef _VGG16Age VGG16Age; // age estimation
+        typedef _VGG16Gender VGG16Gender; // gender estimation
+        typedef _EmotionFerPlus EmotionFerPlus; // emotion detection
+        typedef _SSRNet SSRNet; // age estimation
+#endif
+      }
+
     }
     // 4. face recognition
     namespace faceid
@@ -332,6 +365,31 @@ namespace lite
         typedef _ONNXVGG16Gender VGG16Gender; // gender estimation
         typedef _ONNXEmotionFerPlus EmotionFerPlus; // emotion detection
         typedef _ONNXSSRNet SSRNet; // age estimation
+
+        namespace detect
+        {
+          typedef _ONNXUltraFace UltraFace;  // face detection.
+        }
+
+        namespace align
+        {
+          typedef _ONNXPFLD PFLD; // facial landmarks detection.
+        }
+
+        namespace pose
+        {
+          typedef _ONNXFSANet FSANet; // head pose estimation.
+        }
+
+        namespace attr
+        {
+          typedef _ONNXAgeGoogleNet AgeGoogleNet; // age estimation
+          typedef _ONNXGenderGoogleNet GenderGoogleNet; // gender estimation
+          typedef _ONNXVGG16Age VGG16Age; // age estimation
+          typedef _ONNXVGG16Gender VGG16Gender; // gender estimation
+          typedef _ONNXEmotionFerPlus EmotionFerPlus; // emotion detection
+          typedef _ONNXSSRNet SSRNet; // age estimation
+        }
       }
       // 4. face recognition
       namespace faceid

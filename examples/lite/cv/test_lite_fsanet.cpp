@@ -11,8 +11,8 @@ static void test_default()
   std::string test_img_path = "../../../examples/lite/resources/test_lite_fsanet.jpg";
   std::string save_img_path = "../../../logs/test_lite_fsanet.jpg";
 
-  lite::cv::face::FSANet *var_fsanet = new lite::cv::face::FSANet(var_onnx_path);
-  lite::cv::face::FSANet *conv_fsanet = new lite::cv::face::FSANet(conv_onnx_path);
+  lite::cv::face::pose::FSANet *var_fsanet = new lite::cv::face::pose::FSANet(var_onnx_path);
+  lite::cv::face::pose::FSANet *conv_fsanet = new lite::cv::face::pose::FSANet(conv_onnx_path);
   cv::Mat img_bgr = cv::imread(test_img_path);
   lite::cv::types::EulerAngles var_euler_angles, conv_euler_angles;
 
@@ -51,8 +51,10 @@ static void test_onnxruntime()
   std::string test_img_path = "../../../examples/lite/resources/test_lite_fsanet.jpg";
   std::string save_img_path = "../../../logs/test_onnx_fsanet.jpg";
 
-  lite::onnxruntime::cv::face::FSANet *var_fsanet = new lite::onnxruntime::cv::face::FSANet(var_onnx_path);
-  lite::onnxruntime::cv::face::FSANet *conv_fsanet = new lite::onnxruntime::cv::face::FSANet(conv_onnx_path);
+  lite::onnxruntime::cv::face::pose::FSANet *var_fsanet =
+      new lite::onnxruntime::cv::face::pose::FSANet(var_onnx_path);
+  lite::onnxruntime::cv::face::pose::FSANet *conv_fsanet =
+      new lite::onnxruntime::cv::face::pose::FSANet(conv_onnx_path);
   cv::Mat img_bgr = cv::imread(test_img_path);
   lite::onnxruntime::cv::types::EulerAngles var_euler_angles, conv_euler_angles;
 
