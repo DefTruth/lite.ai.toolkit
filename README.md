@@ -108,7 +108,7 @@ install `OpenCV` and `onnxruntime` libraries using Homebrew or you can download 
 | *lite::cv::face::detect*   | Face Detection. UltraFace, RetinaFace, FaceBoxes, Pyramidbox, etc. ❇️ |
 | *lite::cv::face::align*    | Face Alignment. PFLD(106), FaceLandmark1000(1000 landmarks), PRNet, etc. ❇️ |
 | *lite::cv::face::pose*     | Head Pose Estimation.  FSANet, etc. ❇️                        |
-| *lite::cv::face::attr*     | Face Attributes Analysis. emotion, age, gender estimation,EmotionFerPlus,VGG16Age, etc. ❇️ |
+| *lite::cv::face::attr*     | Face Attributes. emotion, age, gender. EmotionFerPlus, VGG16Age, etc. ❇️ |
 | *lite::cv::segmentation*   | Object Segmentation. Such as FCN, DeepLabV3, etc. ⚠️          |
 | *lite::cv::style*          | Style Transfer. only contains neural style transfer now, such FastStyleTransfer.  ⚠️ |
 | *lite::cv::matting*        | Image Matting. Object and human matting.  ⚠️                  |
