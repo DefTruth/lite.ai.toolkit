@@ -368,9 +368,6 @@ The output is:
 
 <div id="refer-anchor-style-transfer"></div>
 
-<details>
-<summary> 4.3 Expand Examples for Style Transfer.</summary>
-
 #### 4.3 Style Transfer using [FastStyleTransfer](https://github.com/onnx/models/tree/master/vision/style_transfer/fast_neural_style). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
 #include "lite/lite.h"
@@ -403,14 +400,9 @@ The output is:
   <img src='logs/test_lite_fast_style_transfer_udnie.jpg' height="224px">
 </div>
 
-</details>
-
 ****
 
 <div id="refer-anchor-colorization"></div>
-
-<details>
-<summary> 4.4 Expand Examples for Colorization.</summary>
 
 #### 4.4 Colorization using [colorization](https://github.com/richzhang/colorization). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
@@ -444,14 +436,9 @@ The output is:
   <img src='logs/test_lite_siggraph17_colorizer_3.jpg' height="224px" width="224px">
 </div>  
 
-</details>
-
 ****
 
 <div id="refer-anchor-face-alignment"></div>
-
-<details>
-<summary> 4.5 Expand Examples for Facial Landmarks Detection.</summary>
 
 #### 4.5 Facial Landmarks Detection using [PFLD](https://github.com/Hsintao/pfld_106_face_landmarks). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
@@ -480,8 +467,6 @@ The output is:
   <img src='logs/test_lite_pfld_2.jpg' height="224px" width="224px">
   <img src='logs/test_lite_pfld_3.jpg' height="224px" width="224px">
 </div>    
-
-</details>
 
 ****
 
