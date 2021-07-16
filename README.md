@@ -413,13 +413,13 @@ The output is:
 
 More models for face attributes analysis.
 ```c++
-auto *attribute = new lite::cv::classification::AgeGoogleNet(onnx_path);  
-auto *attribute = new lite::cv::classification::GenderGoogleNet(onnx_path); 
-auto *attribute = new lite::cv::classification::EmotionFerPlus(onnx_path);
-auto *attribute = new lite::cv::classification::VGG16Age(onnx_path);
-auto *attribute = new lite::cv::classification::VGG16Gender(onnx_path);
-auto *attribute = new lite::cv::classification::CategoryFaceChannel(onnx_path); // emotion 
-auto *attribute = new lite::cv::classification::DemensionFaceChannel(onnx_path); // emotion 
+auto *attribute = new lite::cv::face::attr::AgeGoogleNet(onnx_path);  
+auto *attribute = new lite::cv::face::attr::GenderGoogleNet(onnx_path); 
+auto *attribute = new lite::cv::face::attr::EmotionFerPlus(onnx_path);
+auto *attribute = new lite::cv::face::attr::VGG16Age(onnx_path);
+auto *attribute = new lite::cv::face::attr::VGG16Gender(onnx_path);
+auto *attribute = new lite::cv::face::attr::CategoryFaceChannel(onnx_path); // emotion 
+auto *attribute = new lite::cv::face::attr::DemensionFaceChannel(onnx_path); // emotion 
 ```
 
 ****
