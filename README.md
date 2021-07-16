@@ -321,7 +321,16 @@ The output is:
   <img src='logs/test_lite_yolov5_2.jpg' height="256px">
 </div>  
 
-****
+More models for general object detection.  
+```c++
+auto *detector = new lite::cv::detection::YoloV4(onnx_path); 
+auto *detector = new lite::cv::detection::YoloV3(onnx_path); 
+auto *detector = new lite::cv::detection::TinyYoloV3(onnx_path); 
+auto *detector = new lite::cv::detection::SSD(onnx_path); 
+auto *detector = new lite::cv::detection::SSDMobileNetV1(onnx_path); 
+```
+
+****   
 
 <div id="refer-anchor-segmentation"></div>
 
@@ -364,155 +373,60 @@ The output is:
   <img src='logs/test_lite_deeplabv3_resnet101.jpg' height="256px">
 </div> 
 
-****
-
-<div id="refer-anchor-style-transfer"></div>
-
-#### 4.3 Style Transfer using [FastStyleTransfer](https://github.com/onnx/models/tree/master/vision/style_transfer/fast_neural_style). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
+More models for segmentation.
 ```c++
-#include "lite/lite.h"
-
-static void test_default()
-{
-  std::string onnx_path = "../../../hub/onnx/cv/style-candy-8.onnx";
-  std::string test_img_path = "../../../examples/lite/resources/test_lite_fast_style_transfer.jpg";
-  std::string save_img_path = "../../../logs/test_lite_fast_style_transfer_candy.jpg";
-  
-  auto *fast_style_transfer = new lite::cv::style::FastStyleTransfer(onnx_path);
- 
-  lite::cv::types::StyleContent style_content;
-  cv::Mat img_bgr = cv::imread(test_img_path);
-  fast_style_transfer->detect(img_bgr, style_content);
-
-  if (style_content.flag) cv::imwrite(save_img_path, style_content.mat);
-  delete fast_style_transfer;
-}
+auto *segment = new lite::cv::segmentation::FCNResNet101(onnx_path);
 ```
-The output is:
-
-<div align='center'>
-  <img src='examples/lite/resources/test_lite_fast_style_transfer.jpg' height="224px">
-  <img src='logs/test_lite_fast_style_transfer_candy.jpg' height="224px">
-  <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="224px">  
-  <br> 
-  <img src='logs/test_lite_fast_style_transfer_pointilism.jpg' height="224px">
-  <img src='logs/test_lite_fast_style_transfer_rain_princes.jpg' height="224px">
-  <img src='logs/test_lite_fast_style_transfer_udnie.jpg' height="224px">
-</div>
 
 ****
 
-<div id="refer-anchor-colorization"></div>
+<div id="refer-anchor-face-attributes-analysis"></div>
 
-#### 4.4 Colorization using [colorization](https://github.com/richzhang/colorization). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
+#### 4.3 Age Estimation using [SSRNet](https://github.com/oukohou/SSR_Net_Pytorch) . Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
 #include "lite/lite.h"
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/eccv16-colorizer.onnx";
-  std::string test_img_path = "../../../examples/lite/resources/test_lite_colorizer_1.jpg";
-  std::string save_img_path = "../../../logs/test_lite_eccv16_colorizer_1.jpg";
-  
-  auto *colorizer = new lite::cv::colorization::Colorizer(onnx_path);
-  
+  std::string onnx_path = "../../../hub/onnx/cv/ssrnet.onnx";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_ssrnet.jpg";
+  std::string save_img_path = "../../../logs/test_lite_ssrnet.jpg";
+
+  lite::cv::face::attr::SSRNet *ssrnet = new lite::cv::face::attr::SSRNet(onnx_path);
+
+  lite::cv::types::Age age;
   cv::Mat img_bgr = cv::imread(test_img_path);
-  lite::cv::types::ColorizeContent colorize_content;
-  colorizer->detect(img_bgr, colorize_content);
-  
-  if (colorize_content.flag) cv::imwrite(save_img_path, colorize_content.mat);
-  delete colorizer;
-}
-```
-The output is:
-
-<div align='center'>
-  <img src='examples/lite/resources/test_lite_colorizer_1.jpg' height="224px" width="224px">
-  <img src='examples/lite/resources/test_lite_colorizer_2.jpg' height="224px" width="224px">
-  <img src='examples/lite/resources/test_lite_colorizer_3.jpg' height="224px" width="224px">  
-  <br> 
-  <img src='logs/test_lite_siggraph17_colorizer_1.jpg' height="224px" width="224px">
-  <img src='logs/test_lite_siggraph17_colorizer_2.jpg' height="224px" width="224px">
-  <img src='logs/test_lite_siggraph17_colorizer_3.jpg' height="224px" width="224px">
-</div>  
-
-****
-
-<div id="refer-anchor-face-alignment"></div>
-
-#### 4.5 Facial Landmarks Detection using [PFLD](https://github.com/Hsintao/pfld_106_face_landmarks). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
-```c++
-#include "lite/lite.h"
-
-static void test_default()
-{
-  std::string onnx_path = "../../../hub/onnx/cv/pfld-106-v3.onnx";
-  std::string test_img_path = "../../../examples/lite/resources/test_lite_pfld.png";
-  std::string save_img_path = "../../../logs/test_lite_pfld.jpg";
-
-  auto *pfld = new lite::cv::face::align::PFLD(onnx_path);
-
-  lite::cv::types::Landmarks landmarks;
-  cv::Mat img_bgr = cv::imread(test_img_path);
-  pfld->detect(img_bgr, landmarks);
-  lite::cv::utils::draw_landmarks_inplace(img_bgr, landmarks);
+  ssrnet->detect(img_bgr, age);
+  lite::cv::utils::draw_age_inplace(img_bgr, age);
   cv::imwrite(save_img_path, img_bgr);
-  
-  delete pfld;
+  std::cout << "Default Version Done! Detected SSRNet Age: " << age.age << std::endl;
+
+  delete ssrnet;
 }
-```
-The output is:  
+```  
+The output is:
 <div align='center'>
-  <img src='logs/test_lite_pfld.jpg' height="224px" width="224px">
-  <img src='logs/test_lite_pfld_2.jpg' height="224px" width="224px">
-  <img src='logs/test_lite_pfld_3.jpg' height="224px" width="224px">
+  <img src='logs/test_lite_ssrnet.jpg' height="224px" width="224px">
+  <img src='logs/test_lite_gender_googlenet.jpg' height="224px" width="224px">
+  <img src='logs/test_lite_emotion_ferplus.jpg' height="224px" width="224px">
 </div>    
 
-****
-
-<div id="refer-anchor-face-detection"></div>
-
-<details>
-<summary> 4.6 Expand Examples for Face Detection.</summary>
-
-#### 4.6 Face Detection using [UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
+More models for face attributes analysis.
 ```c++
-#include "lite/lite.h"
-
-static void test_default()
-{
-  std::string onnx_path = "../../../hub/onnx/cv/ultraface-rfb-640.onnx";
-  std::string test_img_path = "../../../examples/lite/resources/test_lite_ultraface.jpg";
-  std::string save_img_path = "../../../logs/test_lite_ultraface.jpg";
-
-  auto *ultraface = new lite::cv::face::detect::UltraFace(onnx_path);
-
-  std::vector<lite::cv::types::Boxf> detected_boxes;
-  cv::Mat img_bgr = cv::imread(test_img_path);
-  ultraface->detect(img_bgr, detected_boxes);
-  lite::cv::utils::draw_boxes_inplace(img_bgr, detected_boxes);
-  cv::imwrite(save_img_path, img_bgr);
-
-  delete ultraface;
-}
+auto *attribute = new lite::cv::classification::AgeGoogleNet(onnx_path);  
+auto *attribute = new lite::cv::classification::GenderGoogleNet(onnx_path); 
+auto *attribute = new lite::cv::classification::EmotionFerPlus(onnx_path);
+auto *attribute = new lite::cv::classification::VGG16Age(onnx_path);
+auto *attribute = new lite::cv::classification::VGG16Gender(onnx_path);
+auto *attribute = new lite::cv::classification::CategoryFaceChannel(onnx_path); // emotion 
+auto *attribute = new lite::cv::classification::DemensionFaceChannel(onnx_path); // emotion 
 ```
-The output is:  
-<div align='center'>
-  <img src='logs/test_lite_ultraface.jpg' height="224px" width="224px">
-  <img src='logs/test_lite_ultraface_2.jpg' height="224px" width="224px">
-  <img src='logs/test_lite_ultraface_3.jpg' height="224px" width="224px">
-</div>  
-
-</details>
 
 ****
 
 <div id="refer-anchor-image-classification"></div>
 
-<details>
-<summary> 4.7 Expand Examples for Image Classification.</summary>
-
-#### 4.7 1000 Classes Classification using [DenseNet](https://pytorch.org/hub/pytorch_vision_densenet/). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
+#### 4.4 1000 Classes Classification using [DenseNet](https://pytorch.org/hub/pytorch_vision_densenet/). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 ```c++
 #include "lite/lite.h"
 
@@ -549,58 +463,23 @@ The output is:
   <img src='logs/test_lite_densenet.png' height="224px" width="500px">
 </div>  
 
-</details>
-
-****
-
-<div id="refer-anchor-face-attributes-analysis"></div>
-
-<details>
-<summary> 4.8 Expand Examples for Head Pose Estimation.</summary>
-
-#### 4.8 HeadPose Estimation using [FSANet](https://github.com/omasaht/headpose-fsanet-pytorch). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
-
+More models for image classification.
 ```c++
-#include "lite/lite.h"
-
-static void test_default()
-{
-  std::string onnx_path = "../../../hub/onnx/cv/fsanet-var.onnx";
-  std::string test_img_path = "../../../examples/lite/resources/test_lite_fsanet.jpg";
-  std::string save_img_path = "../../../logs/test_lite_fsanet.jpg";
-
-  auto *fsanet = new lite::cv::face::pose::FSANet(onnx_path);
-  cv::Mat img_bgr = cv::imread(test_img_path);
-  lite::cv::types::EulerAngles euler_angles;
-  fsanet->detect(img_bgr, euler_angles);
-  
-  if (euler_angles.flag)
-  {
-    lite::cv::utils::draw_axis_inplace(img_bgr, euler_angles);
-    cv::imwrite(save_img_path, img_bgr);
-    std::cout << "yaw:" << euler_angles.yaw << " pitch:" << euler_angles.pitch << " row:" << euler_angles.roll << std::endl;
-  }
-  delete fsanet;
-}
+auto *classifier = new lite::cv::classification::EfficientNetLite4(onnx_path);  
+auto *classifier = new lite::cv::classification::ShuffleNetV2(onnx_path); 
+auto *classifier = new lite::cv::classification::GhostNet(onnx_path);
+auto *classifier = new lite::cv::classification::HdrDNet(onnx_path);
+auto *classifier = new lite::cv::classification::IBNNet(onnx_path);
+auto *classifier = new lite::cv::classification::MobileNetV2(onnx_path); 
+auto *classifier = new lite::cv::classification::ResNet(onnx_path); 
+auto *classifier = new lite::cv::classification::ResNeXt(onnx_path);
 ```
-
-The output is:
-<div align='center'>
-  <img src='logs/test_lite_fsanet.jpg' height="224px" width="224px">
-  <img src='logs/test_lite_fsanet_2.jpg' height="224px" width="224px">
-  <img src='logs/test_lite_fsanet_3.jpg' height="224px" width="224px">
-</div>  
-
-</details>
 
 ****
 
 <div id="refer-anchor-face-recognition"></div>
 
-<details>
-<summary> 4.9 Expand Examples for Face Recognition.</summary>
-
-#### 4.9 Face Recognition using [ArcFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
+#### 4.5 Face Recognition using [ArcFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 
 ```c++
 #include "lite/lite.h"
@@ -644,6 +523,219 @@ The output is:
 
 > Detected Sim01: 0.721159  Sim02: -0.0626267
 
+More models for face recognition.
+```c++
+auto *recognition = new lite::cv::faceid::GlintCosFace(onnx_path);  // DeepGlint(insightface)
+auto *recognition = new lite::cv::faceid::GlintPartialFC(onnx_path); // DeepGlint(insightface)
+auto *recognition = new lite::cv::faceid::FaceNet(onnx_path);
+auto *recognition = new lite::cv::faceid::FocalArcFace(onnx_path);
+auto *recognition = new lite::cv::faceid::FocalAsiaArcFace(onnx_path);
+auto *recognition = new lite::cv::faceid::TencentCurricularFace(onnx_path); // Tencent(TFace)
+auto *recognition = new lite::cv::faceid::TencentCifpFace(onnx_path); // Tencent(TFace)
+auto *recognition = new lite::cv::faceid::CenterLossFace(onnx_path);
+auto *recognition = new lite::cv::faceid::SphereFace(onnx_path);
+auto *recognition = new lite::cv::faceid::PoseRobustFace(onnx_path);
+auto *recognition = new lite::cv::faceid::MobileFaceNet(onnx_path);
+auto *recognition = new lite::cv::faceid::CavaGhostArcFace(onnx_path);
+auto *recognition = new lite::cv::faceid::CavaCombinedFace(onnx_path);
+```
+
+****
+
+<div id="refer-anchor-face-detection"></div>
+
+<details>
+<summary> 4.6 Expand Examples for Face Detection.</summary>
+
+#### 4.6 Face Detection using [UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
+```c++
+#include "lite/lite.h"
+
+static void test_default()
+{
+  std::string onnx_path = "../../../hub/onnx/cv/ultraface-rfb-640.onnx";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_ultraface.jpg";
+  std::string save_img_path = "../../../logs/test_lite_ultraface.jpg";
+
+  auto *ultraface = new lite::cv::face::detect::UltraFace(onnx_path);
+
+  std::vector<lite::cv::types::Boxf> detected_boxes;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  ultraface->detect(img_bgr, detected_boxes);
+  lite::cv::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+  cv::imwrite(save_img_path, img_bgr);
+
+  delete ultraface;
+}
+```
+The output is:  
+<div align='center'>
+  <img src='logs/test_lite_ultraface.jpg' height="224px" width="224px">
+  <img src='logs/test_lite_ultraface_2.jpg' height="224px" width="224px">
+  <img src='logs/test_lite_ultraface_3.jpg' height="224px" width="224px">
+</div>  
+
+</details>
+
+****
+
+<div id="refer-anchor-colorization"></div>
+
+<details>
+<summary> 4.7 Expand Examples for Colorization.</summary>
+
+#### 4.7 Colorization using [colorization](https://github.com/richzhang/colorization). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
+```c++
+#include "lite/lite.h"
+
+static void test_default()
+{
+  std::string onnx_path = "../../../hub/onnx/cv/eccv16-colorizer.onnx";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_colorizer_1.jpg";
+  std::string save_img_path = "../../../logs/test_lite_eccv16_colorizer_1.jpg";
+  
+  auto *colorizer = new lite::cv::colorization::Colorizer(onnx_path);
+  
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  lite::cv::types::ColorizeContent colorize_content;
+  colorizer->detect(img_bgr, colorize_content);
+  
+  if (colorize_content.flag) cv::imwrite(save_img_path, colorize_content.mat);
+  delete colorizer;
+}
+```
+The output is:
+
+<div align='center'>
+  <img src='examples/lite/resources/test_lite_colorizer_1.jpg' height="224px" width="224px">
+  <img src='examples/lite/resources/test_lite_colorizer_2.jpg' height="224px" width="224px">
+  <img src='examples/lite/resources/test_lite_colorizer_3.jpg' height="224px" width="224px">  
+  <br> 
+  <img src='logs/test_lite_siggraph17_colorizer_1.jpg' height="224px" width="224px">
+  <img src='logs/test_lite_siggraph17_colorizer_2.jpg' height="224px" width="224px">
+  <img src='logs/test_lite_siggraph17_colorizer_3.jpg' height="224px" width="224px">
+</div>  
+
+</details>
+
+****
+
+<div id="refer-anchor-head-pose-estimation"></div>
+
+<details>
+<summary> 4.8 Expand Examples for Head Pose Estimation.</summary>
+
+#### 4.8 Head Pose Estimation using [FSANet](https://github.com/omasaht/headpose-fsanet-pytorch). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
+
+```c++
+#include "lite/lite.h"
+
+static void test_default()
+{
+  std::string onnx_path = "../../../hub/onnx/cv/fsanet-var.onnx";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_fsanet.jpg";
+  std::string save_img_path = "../../../logs/test_lite_fsanet.jpg";
+
+  auto *fsanet = new lite::cv::face::pose::FSANet(onnx_path);
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  lite::cv::types::EulerAngles euler_angles;
+  fsanet->detect(img_bgr, euler_angles);
+  
+  if (euler_angles.flag)
+  {
+    lite::cv::utils::draw_axis_inplace(img_bgr, euler_angles);
+    cv::imwrite(save_img_path, img_bgr);
+    std::cout << "yaw:" << euler_angles.yaw << " pitch:" << euler_angles.pitch << " row:" << euler_angles.roll << std::endl;
+  }
+  delete fsanet;
+}
+```
+
+The output is:
+<div align='center'>
+  <img src='logs/test_lite_fsanet.jpg' height="224px" width="224px">
+  <img src='logs/test_lite_fsanet_2.jpg' height="224px" width="224px">
+  <img src='logs/test_lite_fsanet_3.jpg' height="224px" width="224px">
+</div>  
+
+</details>
+
+****
+
+<div id="refer-anchor-face-alignment"></div>
+
+<details>
+<summary> 4.9 Expand Examples for Face Alignment.</summary>
+
+#### 4.9 Facial Landmarks Detection using [PFLD](https://github.com/Hsintao/pfld_106_face_landmarks). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
+```c++
+#include "lite/lite.h"
+
+static void test_default()
+{
+  std::string onnx_path = "../../../hub/onnx/cv/pfld-106-v3.onnx";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_pfld.png";
+  std::string save_img_path = "../../../logs/test_lite_pfld.jpg";
+
+  auto *pfld = new lite::cv::face::align::PFLD(onnx_path);
+
+  lite::cv::types::Landmarks landmarks;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  pfld->detect(img_bgr, landmarks);
+  lite::cv::utils::draw_landmarks_inplace(img_bgr, landmarks);
+  cv::imwrite(save_img_path, img_bgr);
+  
+  delete pfld;
+}
+```
+The output is:
+<div align='center'>
+  <img src='logs/test_lite_pfld.jpg' height="224px" width="224px">
+  <img src='logs/test_lite_pfld_2.jpg' height="224px" width="224px">
+  <img src='logs/test_lite_pfld_3.jpg' height="224px" width="224px">
+</div>    
+
+</details>
+
+****  
+
+<div id="refer-anchor-style-transfer"></div>
+
+<details>
+<summary> 4.10 Expand Examples for Style Transfer.</summary>
+
+#### 4.10 Style Transfer using [FastStyleTransfer](https://github.com/onnx/models/tree/master/vision/style_transfer/fast_neural_style). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
+```c++
+#include "lite/lite.h"
+
+static void test_default()
+{
+  std::string onnx_path = "../../../hub/onnx/cv/style-candy-8.onnx";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_fast_style_transfer.jpg";
+  std::string save_img_path = "../../../logs/test_lite_fast_style_transfer_candy.jpg";
+  
+  auto *fast_style_transfer = new lite::cv::style::FastStyleTransfer(onnx_path);
+ 
+  lite::cv::types::StyleContent style_content;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  fast_style_transfer->detect(img_bgr, style_content);
+
+  if (style_content.flag) cv::imwrite(save_img_path, style_content.mat);
+  delete fast_style_transfer;
+}
+```
+The output is:
+
+<div align='center'>
+  <img src='examples/lite/resources/test_lite_fast_style_transfer.jpg' height="224px">
+  <img src='logs/test_lite_fast_style_transfer_candy.jpg' height="224px">
+  <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="224px">  
+  <br> 
+  <img src='logs/test_lite_fast_style_transfer_pointilism.jpg' height="224px">
+  <img src='logs/test_lite_fast_style_transfer_rain_princes.jpg' height="224px">
+  <img src='logs/test_lite_fast_style_transfer_udnie.jpg' height="224px">
+</div>
+
 </details>
 
 ****
@@ -651,7 +743,7 @@ The output is:
 <div id="refer-anchor-matting"></div>
 
 <details>
-<summary> 4.10 Expand Examples for Image Matting.</summary>
+<summary> 4.11 Expand Examples for Image Matting.</summary>
 
 * *todo*⚠️
 
