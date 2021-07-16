@@ -556,7 +556,7 @@ The output is:
 <div id="refer-anchor-face-attributes-analysis"></div>
 
 <details>
-<summary> 4.8 Expand Examples for HeadPose Estimation.</summary>
+<summary> 4.8 Expand Examples for Head Pose Estimation.</summary>
 
 #### 4.8 HeadPose Estimation using [FSANet](https://github.com/omasaht/headpose-fsanet-pytorch). Download model from Model-Zoo[<sup>2</sup>](#refer-anchor-2).
 
