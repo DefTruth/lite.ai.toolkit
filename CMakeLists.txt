@@ -17,7 +17,7 @@ message("=======================================================================
 set(LITE_AI_ROOT_DIR ${CMAKE_SOURCE_DIR})
 set(THIRDPARTY_DIR ${LITE_AI_ROOT_DIR}/third_party)
 # dir for built files.
-set(BUILD_LITE_AI_DIR ${LITEHUB_ROOT_DIR}/build/lite.ai)
+set(BUILD_LITE_AI_DIR ${LITE_AI_ROOT_DIR}/build/lite.ai)
 set(LIBRARY_OUTPUT_PATH ${BUILD_LITE_AI_DIR}/lib)
 set(EXECUTABLE_OUTPUT_PATH ${BUILD_LITE_AI_DIR}/bin)
 

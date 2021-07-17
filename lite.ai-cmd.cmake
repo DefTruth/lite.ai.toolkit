@@ -52,7 +52,7 @@ endfunction()
 
 # add custom command for lite.ai shared lib.
 function(add_lite_ai_custom_command)
-    if (LITE_BUILD_TEST)
+    if (LITE_AI_BUILD_TEST)
         add_custom_command(TARGET lite.ai
                 PRE_BUILD
                 COMMAND ${CMAKE_COMMAND} -E make_directory ${EXECUTABLE_OUTPUT_PATH}
@@ -60,7 +60,7 @@ function(add_lite_ai_custom_command)
                 COMMAND ${CMAKE_COMMAND} -E echo "create ${LIBRARY_OUTPUT_PATH} done!"
                 COMMAND ${CMAKE_COMMAND} -E echo "create ${EXECUTABLE_OUTPUT_PATH} done!"
                 )
-        # copy opencv & litehub libs.
+        # copy opencv & lite.ai libs.
         add_custom_command(TARGET lite.ai
                 POST_BUILD
                 COMMAND ${CMAKE_COMMAND} -E copy_directory ${LIBRARY_OUTPUT_PATH} ${EXECUTABLE_OUTPUT_PATH}
