@@ -17,12 +17,12 @@ set(TNN_SRCS
         ${TNN_CORE_SRCS})
 
 # 3. copy
-if (LITEHUB_COPY_BUILD)
-    message("Installing LiteHub Headers for TNN Backend ...")
+if (LITE_AI_COPY_BUILD)
+    message("Installing Lite.AI Headers for TNN Backend ...")
     # "INSTALL" can copy all files from the list to the specified path.
     # "COPY" only copies one file to a specified path
-    file(INSTALL ${TNN_CORE_HEAD} DESTINATION ${CMAKE_SOURCE_DIR}/build/litehub/include/tnn/core)
-    file(INSTALL ${TNN_CV_HEAD} DESTINATION ${CMAKE_SOURCE_DIR}/build/litehub/include/tnn/cv)
-    file(INSTALL ${TNN_ASR_HEAD} DESTINATION ${CMAKE_SOURCE_DIR}/build/litehub/include/tnn/asr)
-    file(INSTALL ${TNN_NLP_HEAD} DESTINATION ${CMAKE_SOURCE_DIR}/build/litehub/include/tnn/nlp)
+    file(INSTALL ${TNN_CORE_HEAD} DESTINATION ${CMAKE_SOURCE_DIR}/build/lite.ai/include/tnn/core)
+    file(INSTALL ${TNN_CV_HEAD} DESTINATION ${CMAKE_SOURCE_DIR}/build/lite.ai/include/tnn/cv)
+    file(INSTALL ${TNN_ASR_HEAD} DESTINATION ${CMAKE_SOURCE_DIR}/build/lite.ai/include/tnn/asr)
+    file(INSTALL ${TNN_NLP_HEAD} DESTINATION ${CMAKE_SOURCE_DIR}/build/lite.ai/include/tnn/nlp)
 endif ()

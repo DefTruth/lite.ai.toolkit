@@ -1,6 +1,6 @@
 
 
-# LiteHub 🚀🚀🌟  
+# Lite.AI 🚀🚀🌟  
 
 <div align='center'>
   <img src='logs/test_lite_yolov5_1.jpg' height="200px" width="200px">
@@ -18,9 +18,13 @@
 
 <div id="refer-anchor-Introduction"></div> 
 
-*LiteHub* 🚀🚀🌟 is a simple, low-coupling, and ready-to-use C++ library for awesome🔥🔥🔥 AI models, such as YoloV5, YoloV4, DeepLabV3, ArcFace, CosFace, Colorization, SSD, etc. And, it only relies on *[OpenCV](https://github.com/opencv/opencv)* and commonly used inference engines, namely, *[onnxruntime](https://github.com/microsoft/onnxruntime)*, *[ncnn](https://github.com/Tencent/ncnn)*, and *[mnn](https://github.com/alibaba/MNN)*. It currently mainly includes some *CV(Computer Vision 💻)* modules, such as [object detection](#refer-anchor-object-detection), [face detection](#refer-anchor-face-detection), [style transfer](#refer-anchor-style-transfer), [face alignment](#refer-anchor-face-alignment), [face recognition](#refer-anchor-face-recognition), [segmentation](#refer-anchor-segmentation), [colorization](#refer-anchor-colorization), [face attributes analysis](#refer-anchor-face-attributes-analysis), [image classification](#refer-anchor-image-classification), [matting](#refer-anchor-matting), etc.  You can use these awesome models through *lite::cv::Type::Model* syntax, such as *[lite::cv::detection::YoloV5](#refer-anchor-object-detection)* or *[lite::cv::faceid::UltraFace](#refer-anchor-face-detection)*.  I do have plans to add *NLP* or *ASR* modules, but not coming soon. Currently, I am focusing🔍 on *Computer Vision* 💻 . It is important to note that the models here are all from third-party projects. All models used will be cited. Many thanks to these contributors. Have a good travel ~ 🙃🤪🍀  
+*Lite.AI* 🚀🚀🌟 is a simple, low-coupling, and user-friendly C++ library for awesome🔥🔥🔥 AI models, such as YoloV5, YoloV4, DeepLabV3, ArcFace, CosFace, Colorization, SSD, etc. And, it only relies on *[OpenCV](https://github.com/opencv/opencv)* and commonly used inference engines, namely, *[onnxruntime](https://github.com/microsoft/onnxruntime)*, *[ncnn](https://github.com/Tencent/ncnn)*, and *[mnn](https://github.com/alibaba/MNN)*. It currently mainly includes some *CV(Computer Vision 💻)* modules, such as [object detection](#refer-anchor-object-detection), [face detection](#refer-anchor-face-detection), [style transfer](#refer-anchor-style-transfer), [face alignment](#refer-anchor-face-alignment), [face recognition](#refer-anchor-face-recognition), [segmentation](#refer-anchor-segmentation), [colorization](#refer-anchor-colorization), [face attributes analysis](#refer-anchor-face-attributes-analysis), [image classification](#refer-anchor-image-classification), [matting](#refer-anchor-matting), etc.  You can use these awesome models through *lite::cv::Type::Model* syntax, such as *[lite::cv::detection::YoloV5](#refer-anchor-object-detection)* or *[lite::cv::faceid::UltraFace](#refer-anchor-face-detection)*.  I do have plans to add *NLP* or *ASR* modules, but not coming soon. Currently, I am focusing🔍 on *Computer Vision* 💻 . It is important to note that the models here are all from third-party projects. All models used will be cited. Many thanks to these contributors. Have a good travel ~ 🙃🤪🍀  
 
 ****
+
+* Important Note !!!   
+  ⚠️ *Lite.AI* was rename from the *LiteHub* repo ! *LiteHub* will no longer be maintained. Use the *Lite.AI* repo please.  
+  
 
 * Working on. 👇🏻
   * ✅ [object detection](#refer-anchor-object-detection) 
@@ -36,16 +40,16 @@
   
 
 ****
-<div id="refer-anchor-Related-LiteHub-Projects"></div>
+<div id="refer-anchor-Related-Lite.AI-Projects"></div>
 
-* Related LiteHub Projects. 👇🏻
-  * ❇️ [litehub](https://github.com/DefTruth/litehub) (*doing*✋🏻)
-  * ❇️ [litehub-onnxruntime](https://github.com/DefTruth/litehub-onnxruntime) (*doing*✋🏻)
-  * ⚠️ [litehub-mnn](https://github.com/DefTruth/litehub-mnn) (*todo*️)
-  * ⚠️ [litehub-ncnn](https://github.com/DefTruth/litehub-ncnn) (*todo*️)
-  * ❇️ [litehub-release](https://github.com/DefTruth/litehub-release) (*doing*✋🏻)
-  * ⚠️ [litehub-python](https://github.com/DefTruth/litehub-python) (*todo*️)
-  * ⚠️ [litehub-android](https://github.com/DefTruth/litehub-android) (*todo*️)  
+* Related Lite.AI Projects. 👇🏻
+  * ❇️ [lite.ai](https://github.com/DefTruth/lite.ai) (*doing*✋🏻)
+  * ❇️ [lite.ai-onnxruntime](https://github.com/DefTruth/lite.ai-onnxruntime) (*doing*✋🏻)
+  * ⚠️ [lite.ai-mnn](https://github.com/DefTruth/lite.ai-mnn) (*todo*️)
+  * ⚠️ [lite.ai-ncnn](https://github.com/DefTruth/lite.ai-ncnn) (*todo*️)
+  * ❇️ [lite.ai-release](https://github.com/DefTruth/lite.ai-release) (*doing*✋🏻)
+  * ⚠️ [lite.ai-python](https://github.com/DefTruth/lite.ai-python) (*todo*️)
+  * ⚠️ [lite.ai-android](https://github.com/DefTruth/lite.ai-android) (*todo*️)  
   
 ****
 
@@ -53,17 +57,17 @@
 
 <div id="refer-anchor-Related-License"></div>
 
-The code of [LiteHub](#refer-anchor-Introduction) is released under the MIT License.
+The code of [Lite.AI](#refer-anchor-Introduction) is released under the MIT License.
 
 ****
 ## Contents.
 * [Introduction](#refer-anchor-Introduction)
-* [Related LiteHub Projects](#refer-anchor-Related-LiteHub-Projects)
+* [Related Lite.AI Projects](#refer-anchor-Related-Lite.AI-Projects)
 * [Dependencies](#refer-anchor-Dependencies)
 * [Model Zoo](#refer-anchor-Model-Zoo)
-* [Build LiteHub](#refer-anchor-Build-LiteHub)
-* [Examples for LiteHub](#refer-anchor-Examples-for-LiteHub)
-* [LiteHub API Docs](#refer-anchor-LiteHub-API-Docs)
+* [Build Lite.AI](#refer-anchor-Build-Lite.AI)
+* [Examples for LiteHub](#refer-anchor-Examples-for-Lite.AI)
+* [LiteHub API Docs](#refer-anchor-Lite.AI-API-Docs)
 * [Other Docs](#refer-anchor-Other-Docs)
 * [Acknowledgements](#refer-anchor-Acknowledgements)
 * [License](#refer-anchor-License)
@@ -97,7 +101,7 @@ install `OpenCV` and `onnxruntime` libraries using Homebrew or you can download 
 
 <div id="refer-anchor-Model-Zoo"></div>
 
-### 2.1 Namespace and LiteHub modules.
+### 2.1 Namespace and Lite.AI modules.
 
 | Namepace                   | Details                                                      |
 | :------------------------- | :----------------------------------------------------------- |
@@ -105,68 +109,68 @@ install `OpenCV` and `onnxruntime` libraries using Homebrew or you can download 
 | *lite::cv::classification* | Image Classification. DensNet, ShuffleNet, ResNet, IBNNet, GhostNet, etc. ✅ |
 | *lite::cv::faceid*         | Face Recognition. ArcFace, CosFace, CurricularFace, etc. ❇️   |
 | *lite::cv::face*           | Face Analysis. *detect*, *align*, *pose*, *attr*, etc. ❇️    |
-| *lite::cv::face::detect*   | Face Detection. UltraFace, RetinaFace, FaceBoxes, Pyramidbox, etc. ❇️ |
+| *lite::cv::face::detect*   | Face Detection. UltraFace, RetinaFace, FaceBoxes, PyramidBox, etc. ❇️ |
 | *lite::cv::face::align*    | Face Alignment. PFLD(106), FaceLandmark1000(1000 landmarks), PRNet, etc. ❇️ |
 | *lite::cv::face::pose*     | Head Pose Estimation.  FSANet, etc. ❇️                        |
-| *lite::cv::face::attr*     | Face Attributes. emotion, age, gender. EmotionFerPlus, VGG16Age, etc. ❇️ |
+| *lite::cv::face::attr*     | Face Attributes. Emotion, Age, Gender. EmotionFerPlus, VGG16Age, etc. ❇️ |
 | *lite::cv::segmentation*   | Object Segmentation. Such as FCN, DeepLabV3, etc. ⚠️          |
-| *lite::cv::style*          | Style Transfer. only contains neural style transfer now, such FastStyleTransfer.  ⚠️ |
-| *lite::cv::matting*        | Image Matting. Object and human matting.  ⚠️                  |
+| *lite::cv::style*          | Style Transfer. Contains neural style transfer now, such as FastStyleTransfer.  ⚠️ |
+| *lite::cv::matting*        | Image Matting. Object and Human matting.  ⚠️                  |
 | *lite::cv::colorization*   | Colorization. Make Gray image become RGB. ⚠️                  |
 | *lite::cv::resolution*     | Super Resolution.  ⚠️                                         |
 
 ### 2.2 Models for ONNX version.
 
-Most of the models were converted by LiteHub, and others were referenced from third-party libraries. The name of the class here will be different from the original repository, because different repositories have different implementations of the same algorithm. For example, ArcFace in [insightface](https://github.com/deepinsight/insightface) is different from ArcFace in [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) . ArcFace in [insightface](https://github.com/deepinsight/insightface) uses Arc-Loss + Softmax, while ArcFace in [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) uses Arc-Loss + Focal-Loss. LiteHub uses naming to make the necessary distinctions between models from different sources.  Therefore, in LiteHub, different names of the same algorithm mean that the corresponding models come from different repositories, different implementations, or use different training data, etc. Just jump to [litehub-demos](https://github.com/DefTruth/litehub/tree/main/examples/lite/cv) to figure out the usage of each model in LiteHub. ✅ means passed the test and ⚠️ means not implements yet but coming soon. For models which denoted ✅, you can use it through *lite::cv::Type::Model* syntax, such as *[lite::cv::detection::YoloV5](#refer-anchor-object-detection)* or *[lite::cv::faceid::UltraFace](#refer-anchor-face-detection)*. More details can be found at [Examples for LiteHub](#refer-anchor-Examples-for-LiteHub) .  
+Most of the models were converted by Lite.AI, and others were referenced from third-party libraries. The name of the class here will be different from the original repository, because different repositories have different implementations of the same algorithm. For example, ArcFace in [insightface](https://github.com/deepinsight/insightface) is different from ArcFace in [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) . ArcFace in [insightface](https://github.com/deepinsight/insightface) uses Arc-Loss + Softmax, while ArcFace in [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) uses Arc-Loss + Focal-Loss. Lite.AI uses naming to make the necessary distinctions between models from different sources.  Therefore, in Lite.AI, different names of the same algorithm mean that the corresponding models come from different repositories, different implementations, or use different training data, etc. Just jump to [lite.ai-demos](https://github.com/DefTruth/lite.ai/tree/main/examples/lite/cv) to figure out the usage of each model in Lite.AI. ✅ means passed the test and ⚠️ means not implements yet but coming soon. For models which denoted ✅, you can use it through *lite::cv::Type::Model* syntax, such as *[lite::cv::detection::YoloV5](#refer-anchor-object-detection)* or *[lite::cv::faceid::UltraFace](#refer-anchor-face-detection)*. More details can be found at [Examples for Lite.AI](#refer-anchor-Examples-for-Lite.AI) .  
 ([Baidu Drive](https://pan.baidu.com/s/1VcQRIXQlNawB8MAJCEsKlw) code: uttl) <div id="refer-anchor-2"></div>
 
 |Model|Size|From|Awesome|File|Type|State|Usage|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|[YoloV5](https://github.com/ultralytics/yolov5)|28M|[yolov5](https://github.com/ultralytics/yolov5)|🔥🔥💥↑| [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_yolov5.zh.md) | *detection* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_yolov5.cpp) |
-|[YoloV3](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/yolov3)|236M|[onnx-models](https://github.com/onnx/models)|🔥🔥🔥↑| - | *detection* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_yolov3.cpp) |
-|[TinyYoloV3](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/tiny-yolov3)|33M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *detection* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_tiny_yolov3.cpp) |
-|[YoloV4](https://github.com/argusswift/YOLOv4-pytorch)|176M| [YOLOv4...](https://github.com/argusswift/YOLOv4-pytorch) | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_yolov4.zh.md) | *detection* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_tiny_yolov4.cpp) |
-|[SSD](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd)|76M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *detection* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_ssd.cpp) |
-|[SSDMobileNetV1](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd-mobilenetv1)|27M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *detection* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_ssd_mobilenetv1.cpp) |
-|[EfficientNet-Lite4](https://github.com/onnx/models/blob/master/vision/classification/efficientnet-lite4)|49M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *classification* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_efficientnet_lite4.cpp) |
-|[ShuffleNetV2](https://github.com/onnx/models/blob/master/vision/classification/shufflenet)|8.7M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *classification* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_shufflenetv2.cpp) |
-|[FSANet](https://github.com/omasaht/headpose-fsanet-pytorch)|1.2M| [...fsanet...](https://github.com/omasaht/headpose-fsanet-pytorch) | 🔥↑ | - | *face::pose* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_fsanet.cpp) |
-|[PFLD](https://github.com/Hsintao/pfld_106_face_landmarks)|1.0M| [pfld_106_...](https://github.com/Hsintao/pfld_106_face_landmarks) |  🔥🔥↑  | - | *face::align* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_pfld.cpp) |
-|[UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB)|1.1M| [Ultra-Light...](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) | 🔥🔥🔥↑ | - | *face::detect* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_ultraface.cpp) |
-|[AgeGoogleNet](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender)|23M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *face::attr* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_age_googlenet.cpp) |
-|[GenderGoogleNet](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender)|23M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *face::attr* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_gender_googlenet.cpp) |
-|[EmotionFerPlus](https://github.com/onnx/models/blob/master/vision/body_analysis/emotion_ferplus)|33M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *face::attr* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_emotion_ferplus.cpp) |
-|[VGG16Age](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender)|514M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *face::attr* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_vgg16_age.cpp) |
-|[VGG16Gender](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender)|512M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *face::attr* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_vgg16_gender.cpp) |
-|[SSRNet](https://github.com/oukohou/SSR_Net_Pytorch)|190K| [SSR_Net...](https://github.com/oukohou/SSR_Net_Pytorch) | 🔥↑ | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_ssrnet.zh.md) | *face::attr* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_ssrnet.cpp) |
-|[FastStyleTransfer](https://github.com/onnx/models/blob/master/vision/style_transfer/fast_neural_style)|6.4M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *style* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_fast_style_transfer.cpp) |
-|[ArcFaceResNet](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch)|92M|  [insightface](https://github.com/deepinsight/insightface)   | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_arcface_resnet.cpp) |
-|[GlintCosFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch)|92M|  [insightface](https://github.com/deepinsight/insightface)   | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_glint_cosface.cpp) |
-|[GlintPartialFC](https://github.com/deepinsight/insightface/tree/master/recognition/partial_fc)|170M|  [insightface](https://github.com/deepinsight/insightface)   | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_glint_partial_fc.cpp) |
-|[FaceNet](https://github.com/timesler/facenet-pytorch)|93M| [facenet...](https://github.com/timesler/facenet-pytorch) | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_facenet.cpp) |
-|[FocalArcFace](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch)|166M| [face.evoLVe...](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_focal_arcface.cpp) |
-|[FocalAsiaArcFace](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch)|166M| [face.evoLVe...](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_focal_asia_arcface.cpp) |
-|[TencentCurricularFace](https://github.com/Tencent/TFace/tree/master/tasks/distfc)|249M|          [TFace](https://github.com/Tencent/TFace)           |  🔥🔥↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_tencent_curricular_face.cpp) |
-|[TencentCifpFace](https://github.com/Tencent/TFace/tree/master/tasks/cifp)|130M|          [TFace](https://github.com/Tencent/TFace)           |  🔥🔥↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_tencent_cifp_face.cpp) |
-|[CenterLossFace](https://github.com/louis-she/center-loss.pytorch)| 280M |  [center-loss...](https://github.com/louis-she/center-loss.pytorch)           |  🔥🔥↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_center_loss_face.cpp) |
-|[SphereFace](https://github.com/clcarwin/sphereface_pytorch)| 80M |  [sphere...](https://github.com/clcarwin/sphereface_pytorch)   |  🔥🔥↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ✅️ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_sphere_face.cpp) |
-|[DREAMFace](https://github.com/penincillin/DREAM)| - | [DREAM](https://github.com/penincillin/DREAM)  |  🔥🔥↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ⚠️ | - |
-|[MobileFaceNet](https://github.com/Xiaoccer/MobileFaceNet_Pytorch)| - |  [MobileFace...](https://github.com/Xiaoccer/MobileFaceNet_Pytorch)           |  🔥🔥↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ⚠️ | - |
-|[CavaGhostArcFace](https://github.com/cavalleria/cavaface.pytorch)| - | [cavaface...](https://github.com/cavalleria/cavaface.pytorch) |  🔥🔥↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ⚠️ | - |
-|[CavaCombinedFace](https://github.com/cavalleria/cavaface.pytorch)| - | [cavaface...](https://github.com/cavalleria/cavaface.pytorch) |  🔥🔥↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ⚠️ | - |
-|[Colorizer](https://github.com/richzhang/colorization)|123M|  [colorization](https://github.com/richzhang/colorization)   | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_colorizer.zh.md) | *colorization* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_colorizer.cpp) |
-|[SubPixelCNN](https://github.com/niazwazir/SUB_PIXEL_CNN)|234K| [...PIXEL...](https://github.com/niazwazir/SUB_PIXEL_CNN)  |    🔥↑    | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_subpixel_cnn.zh.md) | *resolution* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_subpixel_cnn.cpp) |
-|[DeepLabV3ResNet101](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/)|232M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_deeplabv3_resnet101.zh.md) | *segmentation* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_deeplabv3_resnet101.cpp) |
-|[DenseNet121](https://pytorch.org/hub/pytorch_vision_densenet/)|30.7M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_densenet121.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_densenet.cpp) |
-|[FCNResNet101](https://pytorch.org/hub/pytorch_vision_fcn_resnet101/)|207M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_fcn_resnet101.zh.md) | *segmentation* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_fcn_resnet101.cpp) |
-|[GhostNet](https://pytorch.org/hub/pytorch_vision_ghostnet/)|20M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_ghostnet.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_ghostnet.cpp) |
-|[HdrDNet](https://pytorch.org/hub/pytorch_vision_hardnet//)|13M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_hardnet.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_hardnet.cpp) |
-|[IBNNet](https://pytorch.org/hub/pytorch_vision_ibnnet/)|97M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_ibnnet.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_ibnnet.cpp) |
-|[MobileNetV2](https://pytorch.org/hub/pytorch_vision_mobilenet_v2/)|13M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_mobilenetv2.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_mobilenetv2.cpp) |
-|[ResNet](https://pytorch.org/hub/pytorch_vision_resnet/)|44M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_resnet.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_resnet.cpp) |
-|[ResNeXt](https://pytorch.org/hub/pytorch_vision_resnext/)|95M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [litehub](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_resnext.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_resnext.cpp) |
-|[CategoryFaceChannel](https://github.com/pablovin/FaceChannel)|-|       [FaceChannel](https://github.com/pablovin/FaceChannel)       | 🔥↑ | [litehub](https://github.com/DefTruth/litehub/) | *face::attr* |  ⚠️ | - |
-|[DemensionFaceChannel](https://github.com/pablovin/FaceChannel)|-|       [FaceChannel](https://github.com/pablovin/FaceChannel)       | 🔥↑ | [litehub](https://github.com/DefTruth/litehub/) | *face::attr* | ⚠️ | - |
+|[YoloV5](https://github.com/ultralytics/yolov5)|28M|[yolov5](https://github.com/ultralytics/yolov5)|🔥🔥💥↑| [lite.ai](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_yolov5.zh.md) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolov5.cpp) |
+|[YoloV3](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/yolov3)|236M|[onnx-models](https://github.com/onnx/models)|🔥🔥🔥↑| - | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolov3.cpp) |
+|[TinyYoloV3](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/tiny-yolov3)|33M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_tiny_yolov3.cpp) |
+|[YoloV4](https://github.com/argusswift/YOLOv4-pytorch)|176M| [YOLOv4...](https://github.com/argusswift/YOLOv4-pytorch) | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_yolov4.zh.md) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_tiny_yolov4.cpp) |
+|[SSD](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd)|76M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_ssd.cpp) |
+|[SSDMobileNetV1](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd-mobilenetv1)|27M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_ssd_mobilenetv1.cpp) |
+|[EfficientNet-Lite4](https://github.com/onnx/models/blob/master/vision/classification/efficientnet-lite4)|49M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_efficientnet_lite4.cpp) |
+|[ShuffleNetV2](https://github.com/onnx/models/blob/master/vision/classification/shufflenet)|8.7M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_shufflenetv2.cpp) |
+|[FSANet](https://github.com/omasaht/headpose-fsanet-pytorch)|1.2M| [...fsanet...](https://github.com/omasaht/headpose-fsanet-pytorch) | 🔥↑ | - | *face::pose* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_fsanet.cpp) |
+|[PFLD](https://github.com/Hsintao/pfld_106_face_landmarks)|1.0M| [pfld_106_...](https://github.com/Hsintao/pfld_106_face_landmarks) |  🔥🔥↑  | - | *face::align* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_pfld.cpp) |
+|[UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB)|1.1M| [Ultra-Light...](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) | 🔥🔥🔥↑ | - | *face::detect* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_ultraface.cpp) |
+|[AgeGoogleNet](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender)|23M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *face::attr* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_age_googlenet.cpp) |
+|[GenderGoogleNet](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender)|23M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *face::attr* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_gender_googlenet.cpp) |
+|[EmotionFerPlus](https://github.com/onnx/models/blob/master/vision/body_analysis/emotion_ferplus)|33M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *face::attr* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_emotion_ferplus.cpp) |
+|[VGG16Age](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender)|514M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *face::attr* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_vgg16_age.cpp) |
+|[VGG16Gender](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender)|512M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *face::attr* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_vgg16_gender.cpp) |
+|[SSRNet](https://github.com/oukohou/SSR_Net_Pytorch)|190K| [SSR_Net...](https://github.com/oukohou/SSR_Net_Pytorch) | 🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_ssrnet.zh.md) | *face::attr* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_ssrnet.cpp) |
+|[FastStyleTransfer](https://github.com/onnx/models/blob/master/vision/style_transfer/fast_neural_style)|6.4M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *style* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_fast_style_transfer.cpp) |
+|[ArcFaceResNet](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch)|92M|  [insightface](https://github.com/deepinsight/insightface)   | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_arcface_resnet.cpp) |
+|[GlintCosFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch)|92M|  [insightface](https://github.com/deepinsight/insightface)   | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_glint_cosface.cpp) |
+|[GlintPartialFC](https://github.com/deepinsight/insightface/tree/master/recognition/partial_fc)|170M|  [insightface](https://github.com/deepinsight/insightface)   | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_glint_partial_fc.cpp) |
+|[FaceNet](https://github.com/timesler/facenet-pytorch)|93M| [facenet...](https://github.com/timesler/facenet-pytorch) | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_facenet.cpp) |
+|[FocalArcFace](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch)|166M| [face.evoLVe...](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_focal_arcface.cpp) |
+|[FocalAsiaArcFace](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch)|166M| [face.evoLVe...](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_focal_asia_arcface.cpp) |
+|[TencentCurricularFace](https://github.com/Tencent/TFace/tree/master/tasks/distfc)|249M|          [TFace](https://github.com/Tencent/TFace)           |  🔥🔥↑  | [lite.ai](https://github.com/DefTruth/lite.ai/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_tencent_curricular_face.cpp) |
+|[TencentCifpFace](https://github.com/Tencent/TFace/tree/master/tasks/cifp)|130M|          [TFace](https://github.com/Tencent/TFace)           |  🔥🔥↑  | [lite.ai](https://github.com/DefTruth/lite.ai/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_tencent_cifp_face.cpp) |
+|[CenterLossFace](https://github.com/louis-she/center-loss.pytorch)| 280M |  [center-loss...](https://github.com/louis-she/center-loss.pytorch)           |  🔥🔥↑  | [lite.ai](https://github.com/DefTruth/lite.ai/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_center_loss_face.cpp) |
+|[SphereFace](https://github.com/clcarwin/sphereface_pytorch)| 80M |  [sphere...](https://github.com/clcarwin/sphereface_pytorch)   |  🔥🔥↑  | [lite.ai](https://github.com/DefTruth/lite.ai/) | *faceid* | ✅️ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_sphere_face.cpp) |
+|[DREAMFace](https://github.com/penincillin/DREAM)| - | [DREAM](https://github.com/penincillin/DREAM)  |  🔥🔥↑  | [lite.ai](https://github.com/DefTruth/lite.ai/) | *faceid* | ⚠️ | - |
+|[MobileFaceNet](https://github.com/Xiaoccer/MobileFaceNet_Pytorch)| - |  [MobileFace...](https://github.com/Xiaoccer/MobileFaceNet_Pytorch)           |  🔥🔥↑  | [lite.ai](https://github.com/DefTruth/lite.ai/) | *faceid* | ⚠️ | - |
+|[CavaGhostArcFace](https://github.com/cavalleria/cavaface.pytorch)| - | [cavaface...](https://github.com/cavalleria/cavaface.pytorch) |  🔥🔥↑  | [lite.ai](https://github.com/DefTruth/lite.ai/) | *faceid* | ⚠️ | - |
+|[CavaCombinedFace](https://github.com/cavalleria/cavaface.pytorch)| - | [cavaface...](https://github.com/cavalleria/cavaface.pytorch) |  🔥🔥↑  | [lite.ai](https://github.com/DefTruth/lite.ai/) | *faceid* | ⚠️ | - |
+|[Colorizer](https://github.com/richzhang/colorization)|123M|  [colorization](https://github.com/richzhang/colorization)   | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_colorizer.zh.md) | *colorization* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_colorizer.cpp) |
+|[SubPixelCNN](https://github.com/niazwazir/SUB_PIXEL_CNN)|234K| [...PIXEL...](https://github.com/niazwazir/SUB_PIXEL_CNN)  |    🔥↑    | [lite.ai](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_subpixel_cnn.zh.md) | *resolution* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_subpixel_cnn.cpp) |
+|[DeepLabV3ResNet101](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/)|232M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_deeplabv3_resnet101.zh.md) | *segmentation* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_deeplabv3_resnet101.cpp) |
+|[DenseNet121](https://pytorch.org/hub/pytorch_vision_densenet/)|30.7M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_densenet121.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_densenet.cpp) |
+|[FCNResNet101](https://pytorch.org/hub/pytorch_vision_fcn_resnet101/)|207M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_fcn_resnet101.zh.md) | *segmentation* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_fcn_resnet101.cpp) |
+|[GhostNet](https://pytorch.org/hub/pytorch_vision_ghostnet/)|20M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_ghostnet.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_ghostnet.cpp) |
+|[HdrDNet](https://pytorch.org/hub/pytorch_vision_hardnet//)|13M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_hardnet.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_hardnet.cpp) |
+|[IBNNet](https://pytorch.org/hub/pytorch_vision_ibnnet/)|97M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_ibnnet.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_ibnnet.cpp) |
+|[MobileNetV2](https://pytorch.org/hub/pytorch_vision_mobilenet_v2/)|13M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_mobilenetv2.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_mobilenetv2.cpp) |
+|[ResNet](https://pytorch.org/hub/pytorch_vision_resnet/)|44M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_resnet.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_resnet.cpp) |
+|[ResNeXt](https://pytorch.org/hub/pytorch_vision_resnext/)|95M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_resnext.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_resnext.cpp) |
+|[CategoryFaceChannel](https://github.com/pablovin/FaceChannel)|-|       [FaceChannel](https://github.com/pablovin/FaceChannel)       | 🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai/) | *face::attr* |  ⚠️ | - |
+|[DemensionFaceChannel](https://github.com/pablovin/FaceChannel)|-|       [FaceChannel](https://github.com/pablovin/FaceChannel)       | 🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai/) | *face::attr* | ⚠️ | - |
 
 ****
 
@@ -185,31 +189,31 @@ Most of the models were converted by LiteHub, and others were referenced from th
 
 ****
 
-## 3. Build LiteHub.  
+## 3. Build Lite.AI.  
 
-<div id="refer-anchor-Build-LiteHub"></div>
+<div id="refer-anchor-Build-Lite.AI"></div>
 
-Build the shared lib of LiteHub for MacOS from sources or you can download the built lib from [liblitehub.dylib|so](https://github.com/DefTruth/litehub/tree/main/build/litehub/lib) (`TODO: Linux & Windows`). Note that LiteHub uses `onnxruntime` as default backend, for the reason that onnxruntime supports the most of onnx's operators. For Linux and Windows, you need to build the shared libs of `OpenCV` and `onnxruntime` firstly and put then into the `third_party` directory. Please reference the build-docs[<sup>1</sup>](#refer-anchor-1) for `third_party`.  
+Build the shared lib of Lite.AI for MacOS from sources or you can download the built lib from [liblite.ai.dylib|so](https://github.com/DefTruth/lite.ai/tree/main/build/lite.ai/lib) (`TODO: Linux & Windows`). Note that Lite.AI uses `onnxruntime` as default backend, for the reason that onnxruntime supports the most of onnx's operators. For Linux and Windows, you need to build the shared libs of `OpenCV` and `onnxruntime` firstly and put then into the `third_party` directory. Please reference the build-docs[<sup>1</sup>](#refer-anchor-1) for `third_party`.  
 
-* Clone the LiteHub from sources:  
+* Clone the Lite.AI from sources:  
 ```shell
-git clone --depth=1 -b v0.0.1 https://github.com/DefTruth/litehub.git  # stable
-git clone --depth=1 https://github.com/DefTruth/litehub.git  # latest
+git clone --depth=1 -b v0.0.1 https://github.com/DefTruth/lite.ai.git  # stable
+git clone --depth=1 https://github.com/DefTruth/lite.ai.git  # latest
 ```
 * For users in China, you can try:
 ```shell
-git clone --depth=1 -b v0.0.1 https://github.com.cnpmjs.org/DefTruth/litehub.git  # stable
-git clone --depth=1 https://github.com.cnpmjs.org/DefTruth/litehub.git  # latest
+git clone --depth=1 -b v0.0.1 https://github.com.cnpmjs.org/DefTruth/lite.ai.git  # stable
+git clone --depth=1 https://github.com.cnpmjs.org/DefTruth/lite.ai.git  # latest
 ```
 * Build shared lib.  
 ```shell
-cd litehub
+cd lite.ai
 sh ./build.sh
 ```
 ```shell
-cd ./build/litehub/lib && otool -L liblitehub.0.0.1.dylib 
-liblitehub.0.0.1.dylib:
-        @rpath/liblitehub.0.0.1.dylib (compatibility version 0.0.1, current version 0.0.1)
+cd ./build/lite.ai/lib && otool -L liblite.ai.0.0.1.dylib 
+liblite.ai.0.0.1.dylib:
+        @rpath/liblite.ai.0.0.1.dylib (compatibility version 0.0.1, current version 0.0.1)
         @rpath/libopencv_highgui.4.5.dylib (compatibility version 4.5.0, current version 4.5.2)
         @rpath/libonnxruntime.1.7.0.dylib (compatibility version 0.0.0, current version 1.7.0)
         ...
@@ -218,7 +222,7 @@ liblitehub.0.0.1.dylib:
 ****
 
 <details>
-<summary> Expand for more details of How to link the shared lib of LiteHub?</summary>
+<summary> Expand for more details of How to link the shared lib of Lite.AI?</summary>
 
 ```shell
 cd ../ && tree .
@@ -230,12 +234,12 @@ cd ../ && tree .
 │   │   └── lite.h
 │   └── ort
 └── lib
-    └── liblitehub.0.0.1.dylib
+    └── liblite.ai.0.0.1.dylib
 ```
 * Run the built examples:
 ```shell
-cd ./build/litehub/bin && ls -lh | grep lite
--rwxr-xr-x  1 root  staff   301K Jun 26 23:10 liblitehub.0.0.1.dylib
+cd ./build/lite.ai/bin && ls -lh | grep lite
+-rwxr-xr-x  1 root  staff   301K Jun 26 23:10 liblite.ai.0.0.1.dylib
 ...
 -rwxr-xr-x  1 root  staff   196K Jun 26 23:10 lite_yolov4
 -rwxr-xr-x  1 root  staff   196K Jun 26 23:10 lite_yolov5
@@ -252,11 +256,11 @@ generate_bboxes num: 66
 Default Version Detected Boxes Num: 5
 ```
 
-* Link `litehub` shared lib. You need to make sure that `OpenCV` and `onnxruntime` are linked correctly. Just like:
+* Link `lite.ai` shared lib. You need to make sure that `OpenCV` and `onnxruntime` are linked correctly. Just like:
 
 ```cmake
 cmake_minimum_required(VERSION 3.17)
-project(testlitehub)
+project(testlite.ai)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_BUILD_TYPE debug)
 # link opencv.
@@ -269,27 +273,27 @@ set(ONNXRUNTIME_INCLUDE_DIR ${ONNXRUNTIME_DIR}/include)
 set(ONNXRUNTIME_LIBRARY_DIR ${ONNXRUNTIME_DIR}/lib)
 include_directories(${ONNXRUNTIME_INCLUDE_DIR})
 link_directories(${ONNXRUNTIME_LIBRARY_DIR})
-# link litehub.
-set(LITEHUB_DIR ${CMAKE_SOURCE_DIR}/litehub)
+# link lite.ai.
+set(LITEHUB_DIR ${CMAKE_SOURCE_DIR}/lite.ai)
 set(LITEHUB_INCLUDE_DIR ${LITEHUB_DIR}/include)
 set(LITEHUB_LIBRARY_DIR ${LITEHUB_DIR}/lib)
 include_directories(${LITEHUB_INCLUDE_DIR})
 link_directories(${LITEHUB_LIBRARY_DIR})
 # add your executable
 add_executable(lite_yolov5 test_lite_yolov5.cpp)
-target_link_libraries(lite_yolov5 litehub onnxruntime ${OpenCV_LIBS})
+target_link_libraries(lite_yolov5 lite.ai onnxruntime ${OpenCV_LIBS})
 ```
-A minimum example to show you how to link the shared lib of LiteHub correctly for your own project can be found at [litehub-release](https://github.com/DefTruth/litehub-release) .
+A minimum example to show you how to link the shared lib of Lite.AI correctly for your own project can be found at [lite.ai-release](https://github.com/DefTruth/lite.ai-release) .
 
 </details>
 
 ****
 
-## 4. Examples for LiteHub.  
+## 4. Examples for Lite.AI.  
 
-<div id="refer-anchor-Examples-for-LiteHub"></div>
+<div id="refer-anchor-Examples-for-Lite.AI"></div>
 
-More examples can be found at [litehub-demos](https://github.com/DefTruth/litehub/tree/main/examples/lite/cv).  Note that the default backend for LiteHub is `onnxruntime`, for the reason that onnxruntime supports the most of onnx's operators.
+More examples can be found at [lite.ai-demos](https://github.com/DefTruth/lite.ai/tree/main/examples/lite/cv).  Note that the default backend for Lite.AI is `onnxruntime`, for the reason that onnxruntime supports the most of onnx's operators.
 
 <div id="refer-anchor-object-detection"></div>
 
@@ -752,12 +756,12 @@ The output is:
 ****
 
 
-## 5. LiteHub API Docs.
+## 5. Lite.AI API Docs.
 
-<div id="refer-anchor-LiteHub-API-Docs"></div>
+<div id="refer-anchor-Lite.AI-API-Docs"></div>
 
 ### 5.1 Default Version APIs.  
-More details of Default Version APIs can be found at [default-version-api-docs](https://github.com/DefTruth/litehub/blob/main/docs/api/default.md) . For examples, the interface for YoloV5 is:
+More details of Default Version APIs can be found at [default-version-api-docs](https://github.com/DefTruth/lite.ai/blob/main/docs/api/default.md) . For examples, the interface for YoloV5 is:
 
 > `lite::cv::detection::YoloV5`
 ```c++
@@ -772,7 +776,7 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 <summary> Expand for ONNXRuntime, MNN and NCNN version APIs.</summary>
 
 ### 5.2 ONNXRuntime Version APIs.  
-More details of ONNXRuntime Version APIs can be found at [onnxruntime-version-api-docs](https://github.com/DefTruth/litehub/blob/main/docs/api/onnxruntime.md) . For examples, the interface for YoloV5 is:
+More details of ONNXRuntime Version APIs can be found at [onnxruntime-version-api-docs](https://github.com/DefTruth/lite.ai/blob/main/docs/api/onnxruntime.md) . For examples, the interface for YoloV5 is:
 
 > `lite::onnxruntime::cv::detection::YoloV5`
 ```c++
@@ -829,27 +833,27 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 <summary> Expand for more details of Other Docs.</summary>
 
 ### 6.1 Docs for ONNXRuntime. 
-* [Rapid implementation of your inference using BasicOrtHandler](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_handler.zh.md)  
-* [Some very useful onnxruntime c++ interfaces](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_useful_api.zh.md)  
-* [How to compile a single model in this library you needed](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_build_single.zh.md)
-* [How to convert SubPixelCNN to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_subpixel_cnn.zh.md)
-* [How to convert Colorizer to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_colorizer.zh.md)
-* [How to convert SSRNet to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_ssrnet.zh.md)
-* [How to convert YoloV3 to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_yolov3.zh.md)
-* [How to convert YoloV5 to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/litehub/blob/main/docs/ort/ort_yolov5.zh.md)
+* [Rapid implementation of your inference using BasicOrtHandler](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_handler.zh.md)  
+* [Some very useful onnxruntime c++ interfaces](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_useful_api.zh.md)  
+* [How to compile a single model in this library you needed](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_build_single.zh.md)
+* [How to convert SubPixelCNN to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_subpixel_cnn.zh.md)
+* [How to convert Colorizer to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_colorizer.zh.md)
+* [How to convert SSRNet to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_ssrnet.zh.md)
+* [How to convert YoloV3 to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_yolov3.zh.md)
+* [How to convert YoloV5 to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_yolov5.zh.md)
 
 ****
 
-### 6.2 Docs for [third_party](https://github.com/DefTruth/litehub/tree/main/third_party).  
+### 6.2 Docs for [third_party](https://github.com/DefTruth/lite.ai/tree/main/third_party).  
 Other build documents for different engines and different targets will be added later.
 
 
 |Library|Target|Docs|
 |:---:|:---:|:---:|
-|OpenCV| mac-x86_64 | [opencv-mac-x86_64-build.zh.md](https://github.com/DefTruth/litehub/blob/main/docs/third_party/opencv-mac-x86_64-build.zh.md) |
-|OpenCV| android-arm | [opencv-static-android-arm-build.zh.md](https://github.com/DefTruth/litehub/blob/main/docs/third_party/opencv-static-android-arm-build.zh.md) |
-|onnxruntime| mac-x86_64 | [onnxruntime-mac-x86_64-build.zh.md](https://github.com/DefTruth/litehub/blob/main/docs/third_party/onnxruntime-mac-x86_64-build.zh.md) |
-|onnxruntime| android-arm | [onnxruntime-android-arm-build.zh.md](https://github.com/DefTruth/litehub/blob/main/docs/third_party/onnxruntime-android-arm-build.zh.md) |
+|OpenCV| mac-x86_64 | [opencv-mac-x86_64-build.zh.md](https://github.com/DefTruth/lite.ai/blob/main/docs/third_party/opencv-mac-x86_64-build.zh.md) |
+|OpenCV| android-arm | [opencv-static-android-arm-build.zh.md](https://github.com/DefTruth/lite.ai/blob/main/docs/third_party/opencv-static-android-arm-build.zh.md) |
+|onnxruntime| mac-x86_64 | [onnxruntime-mac-x86_64-build.zh.md](https://github.com/DefTruth/lite.ai/blob/main/docs/third_party/onnxruntime-mac-x86_64-build.zh.md) |
+|onnxruntime| android-arm | [onnxruntime-android-arm-build.zh.md](https://github.com/DefTruth/lite.ai/blob/main/docs/third_party/onnxruntime-android-arm-build.zh.md) |
 |NCNN| mac-x86_64 | todo⚠️ |
 |MNN| mac-x86_64 | todo⚠️ |
 |TNN| mac-x86_64 | todo⚠️ |
@@ -862,7 +866,7 @@ Other build documents for different engines and different targets will be added 
 
 <div id="refer-anchor-Acknowledgements"></div>
 
-Many thanks to the following projects. All the LiteHub's models are sourced from these repos. Just jump to and star 🌟👉🏻 the any awesome one you are interested in ! Have a good travel ~ 🙃🤪🍀  
+Many thanks to the following projects. All the Lite.AI's models are sourced from these repos. Just jump to and star 🌟👉🏻 the any awesome one you are interested in ! Have a good travel ~ 🙃🤪🍀  
 
 * [1] [headpose-fsanet-pytorch](https://github.com/omasaht/headpose-fsanet-pytorch) (🔥↑)
 * [2] [pfld_106_face_landmarks](https://github.com/Hsintao/pfld_106_face_landmarks) (🔥🔥↑)
@@ -885,4 +889,4 @@ Many thanks to the following projects. All the LiteHub's models are sourced from
 * [19] [cavaface.pytorch](https://github.com/cavalleria/cavaface.pytorch) (🔥🔥↑)
 * [20] [CurricularFace](https://github.com/HuangYG123/CurricularFace) (🔥🔥↑)
 * [21] [FaceChannel](https://github.com/pablovin/FaceChannel) (🔥↑)
-* [??] [litehub](https://github.com/DefTruth/litehub) ( 👈🏻 yet, I guess you might be also interested in this repo ~ 🙃🤪🍀)
+* [??] [lite.ai](https://github.com/DefTruth/lite.ai) ( 👈🏻 yet, I guess you might be also interested in this repo ~ 🙃🤪🍀)

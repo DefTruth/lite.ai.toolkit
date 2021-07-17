@@ -2,15 +2,15 @@
 // Created by DefTruth on 2021/3/14.
 //
 
-#ifndef LITEHUB_ORT_CV_ULTRAFACE_H
-#define LITEHUB_ORT_CV_ULTRAFACE_H
+#ifndef LITE_AI_ORT_CV_ULTRAFACE_H
+#define LITE_AI_ORT_CV_ULTRAFACE_H
 
 #include "ort/core/ort_core.h"
 
 namespace ortcv
 {
 
-  class LITEHUB_EXPORTS UltraFace : public BasicOrtHandler
+  class LITE_EXPORTS UltraFace : public BasicOrtHandler
   {
 
   public:
@@ -46,4 +46,4 @@ namespace ortcv
 
 }
 
-#endif //LITEHUB_ORT_CV_ULTRAFACE_H
+#endif //LITE_AI_ORT_CV_ULTRAFACE_H

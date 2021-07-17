@@ -2,14 +2,14 @@
 // Created by DefTruth on 2021/7/7.
 //
 
-#ifndef LITEHUB_ORT_CV_FOCAL_ARCFACE_H
-#define LITEHUB_ORT_CV_FOCAL_ARCFACE_H
+#ifndef LITE_AI_ORT_CV_FOCAL_ARCFACE_H
+#define LITE_AI_ORT_CV_FOCAL_ARCFACE_H
 
 #include "ort/core/ort_core.h"
 
 namespace ortcv
 {
-  class LITEHUB_EXPORTS FocalArcFace : public BasicOrtHandler
+  class LITE_EXPORTS FocalArcFace : public BasicOrtHandler
   {
   public:
     explicit FocalArcFace(const std::string &_onnx_path, unsigned int _num_threads = 1) :
@@ -29,4 +29,4 @@ namespace ortcv
     void detect(const cv::Mat &mat, types::FaceContent &face_content);
   };
 }
-#endif //LITEHUB_ORT_CV_FOCAL_ARCFACE_H
+#endif //LITE_AI_ORT_CV_FOCAL_ARCFACE_H

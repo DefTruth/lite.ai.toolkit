@@ -2,14 +2,14 @@
 // Created by DefTruth on 2021/6/14.
 //
 
-#ifndef LITEHUB_ORT_CV_RESNEXT_H
-#define LITEHUB_ORT_CV_RESNEXT_H
+#ifndef LITE_AI_ORT_CV_RESNEXT_H
+#define LITE_AI_ORT_CV_RESNEXT_H
 
 #include "ort/core/ort_core.h"
 
 namespace ortcv
 {
-  class LITEHUB_EXPORTS ResNeXt : public BasicOrtHandler
+  class LITE_EXPORTS ResNeXt : public BasicOrtHandler
   {
   public:
     explicit ResNeXt(const std::string &_onnx_path, unsigned int _num_threads = 1) :
@@ -405,4 +405,4 @@ namespace ortcv
   };
 }
 
-#endif //LITEHUB_ORT_CV_RESNEXT_H
+#endif //LITE_AI_ORT_CV_RESNEXT_H

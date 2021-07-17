@@ -2,14 +2,14 @@
 // Created by DefTruth on 2021/4/4.
 //
 
-#ifndef LITEHUB_ORT_CV_VGG16_GENDER_H
-#define LITEHUB_ORT_CV_VGG16_GENDER_H
+#ifndef LITE_AI_ORT_CV_VGG16_GENDER_H
+#define LITE_AI_ORT_CV_VGG16_GENDER_H
 
 #include "ort/core/ort_core.h"
 
 namespace ortcv
 {
-  class LITEHUB_EXPORTS VGG16Gender : public BasicOrtHandler
+  class LITE_EXPORTS VGG16Gender : public BasicOrtHandler
   {
   private:
     const char *gender_texts[2] = {"female", "male"};
@@ -28,4 +28,4 @@ namespace ortcv
     void detect(const cv::Mat &mat, types::Gender &gender);
   };
 }
-#endif //LITEHUB_ORT_CV_VGG16_GENDER_H
+#endif //LITE_AI_ORT_CV_VGG16_GENDER_H

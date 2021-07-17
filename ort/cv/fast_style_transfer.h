@@ -2,14 +2,14 @@
 // Created by DefTruth on 2021/4/3.
 //
 
-#ifndef LITEHUB_ORT_CV_FAST_STYLE_TRANSFER_H
-#define LITEHUB_ORT_CV_FAST_STYLE_TRANSFER_H
+#ifndef LITE_AI_ORT_CV_FAST_STYLE_TRANSFER_H
+#define LITE_AI_ORT_CV_FAST_STYLE_TRANSFER_H
 
 #include "ort/core/ort_core.h"
 
 namespace ortcv
 {
-  class LITEHUB_EXPORTS FastStyleTransfer : public BasicOrtHandler
+  class LITE_EXPORTS FastStyleTransfer : public BasicOrtHandler
   {
   public:
     explicit FastStyleTransfer(const std::string &_onnx_path, unsigned int _num_threads = 1) :
@@ -25,4 +25,4 @@ namespace ortcv
     void detect(const cv::Mat &mat, types::StyleContent &style_content);
   };
 }
-#endif //LITEHUB_ORT_CV_FAST_STYLE_TRANSFER_H
+#endif //LITE_AI_ORT_CV_FAST_STYLE_TRANSFER_H

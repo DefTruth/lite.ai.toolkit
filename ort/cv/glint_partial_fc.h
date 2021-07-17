@@ -2,14 +2,14 @@
 // Created by DefTruth on 2021/7/4.
 //
 
-#ifndef LITEHUB_ORT_CV_GLINT_PARTIAL_FC_H
-#define LITEHUB_ORT_CV_GLINT_PARTIAL_FC_H
+#ifndef LITE_AI_ORT_CV_GLINT_PARTIAL_FC_H
+#define LITE_AI_ORT_CV_GLINT_PARTIAL_FC_H
 
 #include "ort/core/ort_core.h"
 
 namespace ortcv
 {
-  class LITEHUB_EXPORTS GlintPartialFC : public BasicOrtHandler
+  class LITE_EXPORTS GlintPartialFC : public BasicOrtHandler
   {
   public:
     explicit GlintPartialFC(const std::string &_onnx_path, unsigned int _num_threads = 1) :
@@ -29,4 +29,4 @@ namespace ortcv
     void detect(const cv::Mat &mat, types::FaceContent &face_content);
   };
 }
-#endif //LITEHUB_ORT_CV_GLINT_PARTIAL_FC_H
+#endif //LITE_AI_ORT_CV_GLINT_PARTIAL_FC_H

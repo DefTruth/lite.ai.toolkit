@@ -10,7 +10,7 @@ using ortcv::FCNResNet101;
 FCNResNet101::FCNResNet101(const std::string &_onnx_path, unsigned int _num_threads) :
     log_id(_onnx_path.data()), num_threads(_num_threads)
 {
-#ifdef LITEHUB_WIN32
+#ifdef LITE_WIN32
   std::wstring _w_onnx_path(ortcv::utils::to_wstring(_onnx_path));
   onnx_path = _w_onnx_path.data();
 #else

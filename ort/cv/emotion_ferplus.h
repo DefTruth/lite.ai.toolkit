@@ -2,14 +2,14 @@
 // Created by DefTruth on 2021/4/3.
 //
 
-#ifndef LITEHUB_ORT_CV_EMOTION_FERPLUS_H
-#define LITEHUB_ORT_CV_EMOTION_FERPLUS_H
+#ifndef LITE_AI_ORT_CV_EMOTION_FERPLUS_H
+#define LITE_AI_ORT_CV_EMOTION_FERPLUS_H
 
 #include "ort/core/ort_core.h"
 
 namespace ortcv
 {
-  class LITEHUB_EXPORTS EmotionFerPlus : public BasicOrtHandler
+  class LITE_EXPORTS EmotionFerPlus : public BasicOrtHandler
   {
   private:
     const char *emotion_texts[8] = {
@@ -30,4 +30,4 @@ namespace ortcv
     void detect(const cv::Mat &mat, types::Emotions &emotions);
   };
 }
-#endif //LITEHUB_ORT_CV_EMOTION_FERPLUS_H
+#endif //LITE_AI_ORT_CV_EMOTION_FERPLUS_H

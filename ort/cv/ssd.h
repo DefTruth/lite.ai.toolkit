@@ -2,14 +2,14 @@
 // Created by DefTruth on 2021/6/5.
 //
 
-#ifndef LITEHUB_ORT_CV_SSD_H
-#define LITEHUB_ORT_CV_SSD_H
+#ifndef LITE_AI_ORT_CV_SSD_H
+#define LITE_AI_ORT_CV_SSD_H
 
 #include "ort/core/ort_core.h"
 
 namespace ortcv
 {
-  class LITEHUB_EXPORTS SSD : public BasicOrtHandler
+  class LITE_EXPORTS SSD : public BasicOrtHandler
   {
   public:
     explicit SSD(const std::string &_onnx_path, unsigned int _num_threads = 1) :
@@ -55,4 +55,4 @@ namespace ortcv
   };
 }
 
-#endif //LITEHUB_ORT_CV_SSD_H
+#endif //LITE_AI_ORT_CV_SSD_H

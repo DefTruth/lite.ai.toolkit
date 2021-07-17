@@ -2,8 +2,8 @@
 // Created by DefTruth on 2021/3/29.
 //
 
-#ifndef LITEHUB_ORT_CORE_ORT_CONFIG_H
-#define LITEHUB_ORT_CORE_ORT_CONFIG_H
+#ifndef LITE_AI_ORT_CORE_ORT_CONFIG_H
+#define LITE_AI_ORT_CORE_ORT_CONFIG_H
 
 #include "ort_defs.h"
 
@@ -20,4 +20,4 @@
 
 namespace core {}
 
-#endif //LITEHUB_ORT_CORE_ORT_CONFIG_H
+#endif //LITE_AI_ORT_CORE_ORT_CONFIG_H

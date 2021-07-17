@@ -6,3 +6,5 @@ CMakeCache.txt
 Makefile
 CMakeFiles
 examples
+lite.ai/bin
+lite.ai/include

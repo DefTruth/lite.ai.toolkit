@@ -2,14 +2,14 @@
 // Created by DefTruth on 2021/6/14.
 //
 
-#ifndef LITEHUB_ORT_CV_GHOSTNET_H
-#define LITEHUB_ORT_CV_GHOSTNET_H
+#ifndef LITE_AI_ORT_CV_GHOSTNET_H
+#define LITE_AI_ORT_CV_GHOSTNET_H
 
 #include "ort/core/ort_core.h"
 
 namespace ortcv
 {
-  class LITEHUB_EXPORTS GhostNet : public BasicOrtHandler
+  class LITE_EXPORTS GhostNet : public BasicOrtHandler
   {
   public:
     explicit GhostNet(const std::string &_onnx_path, unsigned int _num_threads = 1) :
@@ -405,4 +405,4 @@ namespace ortcv
   };
 }
 
-#endif //LITEHUB_ORT_CV_GHOSTNET_H
+#endif //LITE_AI_ORT_CV_GHOSTNET_H

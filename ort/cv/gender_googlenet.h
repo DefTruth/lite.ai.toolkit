@@ -2,14 +2,14 @@
 // Created by DefTruth on 2021/4/3.
 //
 
-#ifndef LITEHUB_ORT_CV_GENDER_GOOGLENET_H
-#define LITEHUB_ORT_CV_GENDER_GOOGLENET_H
+#ifndef LITE_AI_ORT_CV_GENDER_GOOGLENET_H
+#define LITE_AI_ORT_CV_GENDER_GOOGLENET_H
 
 #include "ort/core/ort_core.h"
 
 namespace ortcv
 {
-  class LITEHUB_EXPORTS GenderGoogleNet : public BasicOrtHandler
+  class LITE_EXPORTS GenderGoogleNet : public BasicOrtHandler
   {
   private:
     const float mean_val[3] = {104.0f, 117.0f, 123.0f};
@@ -29,4 +29,4 @@ namespace ortcv
     void detect(const cv::Mat &mat, types::Gender &gender);
   };
 }
-#endif //LITEHUB_ORT_CV_GENDER_GOOGLENET_H
+#endif //LITE_AI_ORT_CV_GENDER_GOOGLENET_H

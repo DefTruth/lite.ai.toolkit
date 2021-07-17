@@ -2,8 +2,8 @@
 // Created by DefTruth on 2021/3/30.
 //
 
-#ifndef LITEHUB_ORT_CORE_ORT_HANDLER_H
-#define LITEHUB_ORT_CORE_ORT_HANDLER_H
+#ifndef LITE_AI_ORT_CORE_ORT_HANDLER_H
+#define LITE_AI_ORT_CORE_ORT_HANDLER_H
 
 #include "ort_config.h"
 #include "ort_types.h"
@@ -12,7 +12,7 @@
 namespace core
 {
   // single input & multi outputs. not support for dynamic shape currently.
-  class LITEHUB_EXPORTS BasicOrtHandler
+  class LITE_EXPORTS BasicOrtHandler
   {
   protected:
     Ort::Env ort_env;
@@ -26,7 +26,7 @@ namespace core
         OrtArenaAllocator, OrtMemTypeDefault);
     std::vector<const char *> output_node_names;
     std::vector<std::vector<int64_t>> output_node_dims; // >=1 outputs
-    const LITEHUBCHAR *onnx_path = nullptr;
+    const LITEORT_CHAR *onnx_path = nullptr;
     const char *log_id = nullptr;
     int num_outputs = 1;
 
@@ -58,7 +58,7 @@ namespace core
   };
 
   // multi inputs & multi outputs. not support for dynamic shape currently.
-  class LITEHUB_EXPORTS BasicMultiOrtHandler
+  class LITE_EXPORTS BasicMultiOrtHandler
   {
   protected:
     Ort::Env ort_env;
@@ -71,7 +71,7 @@ namespace core
         OrtArenaAllocator, OrtMemTypeDefault);
     std::vector<const char *> output_node_names;
     std::vector<std::vector<int64_t>> output_node_dims; // >=1 outputs
-    const LITEHUBCHAR *onnx_path = nullptr;
+    const LITEORT_CHAR *onnx_path = nullptr;
     const char *log_id = nullptr;
     int num_outputs = 1;
     int num_inputs = 1;
@@ -104,4 +104,4 @@ namespace core
   };
 }
 
-#endif //LITEHUB_ORT_CORE_ORT_HANDLER_H
+#endif //LITE_AI_ORT_CORE_ORT_HANDLER_H

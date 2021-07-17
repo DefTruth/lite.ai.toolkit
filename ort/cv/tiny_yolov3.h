@@ -9,7 +9,7 @@
 
 namespace ortcv
 {
-  class LITEHUB_EXPORTS TinyYoloV3
+  class LITE_EXPORTS TinyYoloV3
   {
   protected:
     Ort::Env ort_env;
@@ -20,7 +20,7 @@ namespace ortcv
     Ort::MemoryInfo memory_info_handler = Ort::MemoryInfo::CreateCpu(
         OrtArenaAllocator, OrtMemTypeDefault);
     std::vector<const char *> output_node_names;
-    const LITEHUBCHAR *onnx_path = nullptr;
+    const LITEORT_CHAR *onnx_path = nullptr;
     const char *log_id = nullptr;
     unsigned int num_outputs = 1;
     unsigned int num_inputs = 1;

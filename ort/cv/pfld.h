@@ -2,15 +2,15 @@
 // Created by DefTruth on 2021/3/14.
 //
 
-#ifndef LITEHUB_ORT_CV_PFLD_H
-#define LITEHUB_ORT_CV_PFLD_H
+#ifndef LITE_AI_ORT_CV_PFLD_H
+#define LITE_AI_ORT_CV_PFLD_H
 
 #include "ort/core/ort_core.h"
 
 namespace ortcv
 {
 
-  class LITEHUB_EXPORTS PFLD : public BasicOrtHandler
+  class LITE_EXPORTS PFLD : public BasicOrtHandler
   {
   private:
     static constexpr const float mean_val = 0.f;
@@ -32,4 +32,4 @@ namespace ortcv
   };
 }
 
-#endif //LITEHUB_ORT_CV_PFLD_H
+#endif //LITE_AI_ORT_CV_PFLD_H

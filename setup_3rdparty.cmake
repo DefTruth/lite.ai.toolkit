@@ -2,7 +2,7 @@
 message("########## Setting up 3rd-party dependencies for: ${CMAKE_CURRENT_SOURCE_DIR} ###########")
 set(THIRDPARTY_SET_STATE OFF)
 
-if (EXISTS ${THIRDPARTY_DIR} AND LITEHUB_THIRDPARTY)
+if (EXISTS ${THIRDPARTY_DIR} AND LITE_AI_THIRDPARTY)
 
     message("Setting Up Custom Dependencies ...")
 

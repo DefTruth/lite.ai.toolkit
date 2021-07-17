@@ -2,14 +2,14 @@
 // Created by DefTruth on 2021/4/9.
 //
 
-#ifndef LITEHUB_ORT_CV_COLORIZER_H
-#define LITEHUB_ORT_CV_COLORIZER_H
+#ifndef LITE_AI_ORT_CV_COLORIZER_H
+#define LITE_AI_ORT_CV_COLORIZER_H
 
 #include "ort/core/ort_core.h"
 
 namespace ortcv
 {
-  class LITEHUB_EXPORTS Colorizer : public BasicOrtHandler
+  class LITE_EXPORTS Colorizer : public BasicOrtHandler
   {
   public:
     explicit Colorizer(const std::string &_onnx_path, unsigned int _num_threads = 1) :
@@ -26,4 +26,4 @@ namespace ortcv
   };
 }
 
-#endif //LITEHUB_ORT_CV_COLORIZER_H
+#endif //LITE_AI_ORT_CV_COLORIZER_H

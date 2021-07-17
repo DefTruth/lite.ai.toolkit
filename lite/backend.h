@@ -2,8 +2,8 @@
 // Created by DefTruth on 2021/5/30.
 //
 
-#ifndef LITEHUB_BACKEND_H
-#define LITEHUB_BACKEND_H
+#ifndef LITE_AI_BACKEND_H
+#define LITE_AI_BACKEND_H
 
 #include "config.h"
 
@@ -75,4 +75,4 @@
 
 #endif
 
-#endif //LITEHUB_BACKEND_H
+#endif //LITE_AI_BACKEND_H

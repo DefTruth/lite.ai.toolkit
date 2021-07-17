@@ -2,15 +2,15 @@
 // Created by DefTruth on 2021/3/14.
 //
 
-#ifndef LITEHUB_ORT_CV_FSANET_H
-#define LITEHUB_ORT_CV_FSANET_H
+#ifndef LITE_AI_ORT_CV_FSANET_H
+#define LITE_AI_ORT_CV_FSANET_H
 
 #include "ort/core/ort_core.h"
 
 namespace ortcv
 {
 
-  class LITEHUB_EXPORTS FSANet : public BasicOrtHandler
+  class LITE_EXPORTS FSANet : public BasicOrtHandler
   {
 
   private:
@@ -34,4 +34,4 @@ namespace ortcv
 
 }
 
-#endif //LITEHUB_ORT_CV_FSANET_H
+#endif //LITE_AI_ORT_CV_FSANET_H

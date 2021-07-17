@@ -2,14 +2,14 @@
 // Created by DefTruth on 2021/6/14.
 //
 
-#ifndef LITEHUB_ORT_CV_FCN_RESNET101_H
-#define LITEHUB_ORT_CV_FCN_RESNET101_H
+#ifndef LITE_AI_ORT_CV_FCN_RESNET101_H
+#define LITE_AI_ORT_CV_FCN_RESNET101_H
 
 #include "ort/core/ort_core.h"
 
 namespace ortcv
 {
-  class LITEHUB_EXPORTS FCNResNet101
+  class LITE_EXPORTS FCNResNet101
   {
   private:
     Ort::Env ort_env;
@@ -22,7 +22,7 @@ namespace ortcv
     Ort::MemoryInfo memory_info_handler = Ort::MemoryInfo::CreateCpu(
         OrtArenaAllocator, OrtMemTypeDefault);
     std::vector<const char *> output_node_names;
-    const LITEHUBCHAR *onnx_path = nullptr;
+    const LITEORT_CHAR *onnx_path = nullptr;
     const char *log_id = nullptr;
     unsigned int num_outputs = 1;
     unsigned int num_inputs = 1;
@@ -66,4 +66,4 @@ namespace ortcv
   };
 }
 
-#endif //LITEHUB_ORT_CV_FCN_RESNET101_H
+#endif //LITE_AI_ORT_CV_FCN_RESNET101_H

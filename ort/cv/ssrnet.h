@@ -2,14 +2,14 @@
 // Created by DefTruth on 2021/3/14.
 //
 
-#ifndef LITEHUB_ORT_CV_SSRNET_H
-#define LITEHUB_ORT_CV_SSRNET_H
+#ifndef LITE_AI_ORT_CV_SSRNET_H
+#define LITE_AI_ORT_CV_SSRNET_H
 
 #include "ort/core/ort_core.h"
 
 namespace ortcv
 {
-  class LITEHUB_EXPORTS SSRNet : public BasicOrtHandler
+  class LITE_EXPORTS SSRNet : public BasicOrtHandler
   {
   private:
     const float mean_val[3] = {0.485f, 0.456f, 0.406f};
@@ -30,4 +30,4 @@ namespace ortcv
   };
 }
 
-#endif //LITEHUB_ORT_CV_SSRNET_H
+#endif //LITE_AI_ORT_CV_SSRNET_H

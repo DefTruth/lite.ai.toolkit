@@ -2,14 +2,14 @@
 // Created by DefTruth on 2021/4/4.
 //
 
-#ifndef LITEHUB_ORT_CV_VGG16_AGE_H
-#define LITEHUB_ORT_CV_VGG16_AGE_H
+#ifndef LITE_AI_ORT_CV_VGG16_AGE_H
+#define LITE_AI_ORT_CV_VGG16_AGE_H
 
 #include "ort/core/ort_core.h"
 
 namespace ortcv
 {
-  class LITEHUB_EXPORTS VGG16Age : public BasicOrtHandler
+  class LITE_EXPORTS VGG16Age : public BasicOrtHandler
   {
   public:
     explicit VGG16Age(const std::string &_onnx_path, unsigned int _num_threads = 1) :
@@ -26,4 +26,4 @@ namespace ortcv
   };
 }
 
-#endif //LITEHUB_ORT_CV_VGG16_AGE_H
+#endif //LITE_AI_ORT_CV_VGG16_AGE_H

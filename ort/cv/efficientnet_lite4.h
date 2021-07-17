@@ -2,14 +2,14 @@
 // Created by DefTruth on 2021/5/30.
 //
 
-#ifndef LITEHUB_ORT_CV_EFFICIENTNET_LITE4_H
-#define LITEHUB_ORT_CV_EFFICIENTNET_LITE4_H
+#ifndef LITE_AI_ORT_CV_EFFICIENTNET_LITE4_H
+#define LITE_AI_ORT_CV_EFFICIENTNET_LITE4_H
 
 #include "ort/core/ort_core.h"
 
 namespace ortcv
 {
-  class LITEHUB_EXPORTS EfficientNetLite4 : public BasicOrtHandler
+  class LITE_EXPORTS EfficientNetLite4 : public BasicOrtHandler
   {
   public:
     explicit EfficientNetLite4(const std::string &_onnx_path, unsigned int _num_threads = 1) :
@@ -404,4 +404,4 @@ namespace ortcv
     };
   };
 }
-#endif //LITEHUB_ORT_CV_EFFICIENTNET_LITE4_H
+#endif //LITE_AI_ORT_CV_EFFICIENTNET_LITE4_H

@@ -2,8 +2,8 @@
 // Created by DefTruth on 2021/3/14.
 //
 
-#ifndef LITEHUB_LITE_H
-#define LITEHUB_LITE_H
+#ifndef LITE_AI_LITE_H
+#define LITE_AI_LITE_H
 
 #include "backend.h"
 
@@ -486,4 +486,4 @@ namespace lite
   {
   }
 }
-#endif //LITEHUB_LITE_H
+#endif //LITE_AI_LITE_H

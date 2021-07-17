@@ -2,8 +2,8 @@
 // Created by DefTruth on 2021/3/28.
 //
 
-#ifndef LITEHUB_ORT_CORE_ORT_TYPES_H
-#define LITEHUB_ORT_CORE_ORT_TYPES_H
+#ifndef LITE_AI_ORT_CORE_ORT_TYPES_H
+#define LITE_AI_ORT_CORE_ORT_TYPES_H
 
 #include "ort_defs.h"
 
@@ -71,15 +71,15 @@ namespace ortcv
     }; // End BoundingBox.
 
     // specific alias.
-    template class LITEHUB_EXPORTS BoundingBoxType<int, float>;
-    template class LITEHUB_EXPORTS BoundingBoxType<float, float>;
-    template class LITEHUB_EXPORTS BoundingBoxType<double, double>;
+    template class LITE_EXPORTS BoundingBoxType<int, float>;
+    template class LITE_EXPORTS BoundingBoxType<float, float>;
+    template class LITE_EXPORTS BoundingBoxType<double, double>;
 
     typedef BoundingBoxType<int, float> Boxi;
     typedef BoundingBoxType<float, float> Boxf;
     typedef BoundingBoxType<double, double> Boxd;
 
-    typedef struct LITEHUB_EXPORTS LandmarksType
+    typedef struct LITE_EXPORTS LandmarksType
     {
       std::vector<cv::Point2f> points;
       bool flag;
@@ -88,7 +88,7 @@ namespace ortcv
       {};
     } Landmarks;
 
-    typedef struct LITEHUB_EXPORTS EulerAnglesType
+    typedef struct LITE_EXPORTS EulerAnglesType
     {
       float yaw;
       float pitch;
@@ -99,7 +99,7 @@ namespace ortcv
       {};
     } EulerAngles;
 
-    typedef struct LITEHUB_EXPORTS EmotionsType
+    typedef struct LITE_EXPORTS EmotionsType
     {
       float score;
       unsigned int label;
@@ -110,7 +110,7 @@ namespace ortcv
       {};
     } Emotions;
 
-    typedef struct LITEHUB_EXPORTS AgeType
+    typedef struct LITE_EXPORTS AgeType
     {
       float age;
       unsigned int age_interval[2];
@@ -121,7 +121,7 @@ namespace ortcv
       {};
     } Age;
 
-    typedef struct LITEHUB_EXPORTS GenderType
+    typedef struct LITE_EXPORTS GenderType
     {
       float score;
       unsigned int label;
@@ -132,7 +132,7 @@ namespace ortcv
       {};
     } Gender;
 
-    typedef struct LITEHUB_EXPORTS OCRContentType
+    typedef struct LITE_EXPORTS OCRContentType
     {
       const char *text;
       unsigned int *codecs;
@@ -142,7 +142,7 @@ namespace ortcv
       {};
     } OCRContent;
 
-    typedef struct LITEHUB_EXPORTS FaceContentType
+    typedef struct LITE_EXPORTS FaceContentType
     {
       std::vector<float> embedding;
       unsigned int dim;
@@ -152,7 +152,7 @@ namespace ortcv
       {};
     } FaceContent;
 
-    typedef struct LITEHUB_EXPORTS StyleContentType
+    typedef struct LITE_EXPORTS StyleContentType
     {
       cv::Mat mat;
       bool flag;
@@ -161,7 +161,7 @@ namespace ortcv
       {};
     } StyleContent;
 
-    typedef struct LITEHUB_EXPORTS SuperResolutionContentType
+    typedef struct LITE_EXPORTS SuperResolutionContentType
     {
       cv::Mat mat;
       bool flag;
@@ -170,7 +170,7 @@ namespace ortcv
       {};
     } SuperResolutionContent;
 
-    typedef struct LITEHUB_EXPORTS ColorizeContentType
+    typedef struct LITE_EXPORTS ColorizeContentType
     {
       cv::Mat mat;
       bool flag;
@@ -179,7 +179,7 @@ namespace ortcv
       {};
     } ColorizeContent;
 
-    typedef struct LITEHUB_EXPORTS ImageNetContentType
+    typedef struct LITE_EXPORTS ImageNetContentType
     {
       std::vector<float> scores; // sorted
       std::vector<const char *> texts;
@@ -191,7 +191,7 @@ namespace ortcv
 
     } ImageNetContent;
 
-    typedef struct LITEHUB_EXPORTS SegmentContentType
+    typedef struct LITE_EXPORTS SegmentContentType
     {
       cv::Mat class_mat; // 21 classes 1 channel
       cv::Mat color_mat; // 21 colors different classes, 3 channels.
@@ -313,4 +313,4 @@ ortcv::types::BoundingBoxType<T1, T2>::area() const
   return std::abs<value_type>(width() * height());
 }
 
-#endif //LITEHUB_ORT_CORE_ORT_TYPES_H
+#endif //LITE_AI_ORT_CORE_ORT_TYPES_H

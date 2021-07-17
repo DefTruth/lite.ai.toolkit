@@ -1,5 +1,5 @@
-#ifndef LITEHUB_CONFIG_H
-#define LITEHUB_CONFIG_H
+#ifndef LITE_AI_CONFIG_H
+#define LITE_AI_CONFIG_H
 
 #define ENABLE_ONNXRUNTIME
 /* #undef ENABLE_MNN */
@@ -10,5 +10,5 @@
 /* #undef BACKEND_NCNN */
 /* #undef BACKEND_TNN */
 
-#endif //LITEHUB_CONFIG_H
+#endif //LITE_AI_CONFIG_H
 
