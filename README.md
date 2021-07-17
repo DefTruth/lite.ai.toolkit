@@ -899,7 +899,7 @@ Many thanks to the following projects. All the Lite.AI's models are sourced from
 ## 8. Contributions.  
 <div id="refer-anchor-Contributions"></div>  
 
-Do you want to contribute a model? To get started, just open an new issue with the title like *contribute-lite.ai-cv-detection-xxx(your model | repo name | alias)*, such as *contribute-lite.ai-cv-detection-YoloV5*. And, put the link to you project and point out how to find your model files and inference code. I will try to convert you model file and add it into *Lite.AI* as soon as I can. Then, I will list you repo in Lite.AI's Model Zoo and Acknowledgements.  For examples:   
+Do you want to contribute a model? To get started, just open an new issue with the title like *contribute-lite.ai-cv-detection-xxx(your model | repo name | alias)*, such as *contribute-lite.ai-cv-detection-YoloV5*. And, put the link to you project and point out how to find your model files and inference code. I will try to convert you model file and add it into *Lite.AI* as soon as I can. Then, I will list you repo in Lite.AI's Model Zoo and Acknowledgements. You could found a template at [contribute-issue-template](https://github.com/DefTruth/lite.ai/issues/1) . For examples:   
 
 * issue name: contribute-lite.ai-cv-detection-YoloV5  
 * model information: The information for the model is listed below.
