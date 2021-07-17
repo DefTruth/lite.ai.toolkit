@@ -18,14 +18,14 @@
 
 <div id="refer-anchor-Introduction"></div> 
 
-*Lite.AI* 🚀🚀🌟 is a simple, low-coupling, and user-friendly C++ library for awesome🔥🔥🔥 AI models, such as YoloV5, YoloV4, DeepLabV3, ArcFace, CosFace, Colorization, SSD, etc. And, it only relies on *[OpenCV](https://github.com/opencv/opencv)* and commonly used inference engines, namely, *[onnxruntime](https://github.com/microsoft/onnxruntime)*, *[ncnn](https://github.com/Tencent/ncnn)*, and *[mnn](https://github.com/alibaba/MNN)*. It currently mainly includes some *CV(Computer Vision 💻)* modules, such as [object detection](#refer-anchor-object-detection), [face detection](#refer-anchor-face-detection), [style transfer](#refer-anchor-style-transfer), [face alignment](#refer-anchor-face-alignment), [face recognition](#refer-anchor-face-recognition), [segmentation](#refer-anchor-segmentation), [colorization](#refer-anchor-colorization), [face attributes analysis](#refer-anchor-face-attributes-analysis), [image classification](#refer-anchor-image-classification), [matting](#refer-anchor-matting), etc.  You can use these awesome models through *lite::cv::Type::Model* syntax, such as *[lite::cv::detection::YoloV5](#refer-anchor-object-detection)* or *[lite::cv::faceid::UltraFace](#refer-anchor-face-detection)*.  I do have plans to add *NLP* or *ASR* modules, but not coming soon. Currently, I am focusing🔍 on *Computer Vision* 💻 . It is important to note that the models here are all from third-party projects. All models used will be cited. Many thanks to these contributors. Have a good travel ~ 🙃🤪🍀  
+*Lite.AI* 🚀🚀🌟 is a simple, low-coupling, and user-friendly C++ library for awesome🔥🔥🔥 AI models, such as YoloV5, YoloV4, DeepLabV3, ArcFace, CosFace, Colorization, SSD, etc. And, it only relies on *[OpenCV](https://github.com/opencv/opencv)* and commonly used inference engines, namely, *[onnxruntime](https://github.com/microsoft/onnxruntime)*, *[ncnn](https://github.com/Tencent/ncnn)*, and *[mnn](https://github.com/alibaba/MNN)*. It currently mainly includes some *CV(Computer Vision 💻)* modules, such as [object detection](#refer-anchor-object-detection), [face detection](#refer-anchor-face-detection), [style transfer](#refer-anchor-style-transfer), [face alignment](#refer-anchor-face-alignment), [face recognition](#refer-anchor-face-recognition), [segmentation](#refer-anchor-segmentation), [colorization](#refer-anchor-colorization), [face attributes analysis](#refer-anchor-face-attributes-analysis), [image classification](#refer-anchor-image-classification), [matting](#refer-anchor-matting), etc.  You can use these awesome models through *lite::cv::Type::Model* syntax, such as *[lite::cv::detection::YoloV5](#refer-anchor-object-detection)* or *[lite::cv::face::detect::UltraFace](#refer-anchor-face-detection)*.  I do have plans to add *NLP* or *ASR* modules, but not coming soon. Currently, I am focusing🔍 on *Computer Vision* 💻 . It is important to note that the models here are all from third-party projects. All models used will be cited. Many thanks to these contributors. Have a good travel ~ 🙃🤪🍀  
 
 ****
 
 * Important Note !!!   
   ⚠️ *Lite.AI* was rename from the *LiteHub* repo ! *LiteHub* will no longer be maintained. 
   
-
+  
 * Working on. 👇🏻
   * ✅ [object detection](#refer-anchor-object-detection) 
   * ✅ [image classification](#refer-anchor-object-detection) 
@@ -49,7 +49,7 @@
   * ⚠️ [lite.ai-ncnn](https://github.com/DefTruth/lite.ai-ncnn) (*todo*️)
   * ❇️ [lite.ai-release](https://github.com/DefTruth/lite.ai-release) (*doing*✋🏻)
   * ⚠️ [lite.ai-python](https://github.com/DefTruth/lite.ai-python) (*todo*️)
-  * ⚠️ [lite.ai-android](https://github.com/DefTruth/lite.ai-android) (*todo*️)  
+  * ⚠️ [lite.ai-jni](https://github.com/DefTruth/lite.ai-jni) (*todo*️)  
   
 ****
 
@@ -59,7 +59,8 @@
 
 The code of [Lite.AI](#refer-anchor-Introduction) is released under the MIT License.
 
-****
+****  
+
 ## Contents.
 * [Introduction](#refer-anchor-Introduction)
 * [Related Lite.AI Projects](#refer-anchor-Related-Lite.AI-Projects)
@@ -71,6 +72,8 @@ The code of [Lite.AI](#refer-anchor-Introduction) is released under the MIT Lice
 * [Other Docs](#refer-anchor-Other-Docs)
 * [Acknowledgements](#refer-anchor-Acknowledgements)
 * [License](#refer-anchor-License)
+* [Contributions](#refer-anchor-Contributions)
+
 ****
 
 ## 1. Dependencies.  
@@ -121,7 +124,7 @@ install `OpenCV` and `onnxruntime` libraries using Homebrew or you can download 
 
 ### 2.2 Models for ONNX version.
 
-Most of the models were converted by Lite.AI, and others were referenced from third-party libraries. The name of the class here will be different from the original repository, because different repositories have different implementations of the same algorithm. For example, ArcFace in [insightface](https://github.com/deepinsight/insightface) is different from ArcFace in [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) . ArcFace in [insightface](https://github.com/deepinsight/insightface) uses Arc-Loss + Softmax, while ArcFace in [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) uses Arc-Loss + Focal-Loss. Lite.AI uses naming to make the necessary distinctions between models from different sources.  Therefore, in Lite.AI, different names of the same algorithm mean that the corresponding models come from different repositories, different implementations, or use different training data, etc. Just jump to [lite.ai-demos](https://github.com/DefTruth/lite.ai/tree/main/examples/lite/cv) to figure out the usage of each model in Lite.AI. ✅ means passed the test and ⚠️ means not implements yet but coming soon. For models which denoted ✅, you can use it through *lite::cv::Type::Model* syntax, such as *[lite::cv::detection::YoloV5](#refer-anchor-object-detection)* or *[lite::cv::faceid::UltraFace](#refer-anchor-face-detection)*. More details can be found at [Examples for Lite.AI](#refer-anchor-Examples-for-Lite.AI) .  
+Most of the models were converted by Lite.AI, and others were referenced from third-party libraries. The name of the class here will be different from the original repository, because different repositories have different implementations of the same algorithm. For example, ArcFace in [insightface](https://github.com/deepinsight/insightface) is different from ArcFace in [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) . ArcFace in [insightface](https://github.com/deepinsight/insightface) uses Arc-Loss + Softmax, while ArcFace in [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) uses Arc-Loss + Focal-Loss. Lite.AI uses naming to make the necessary distinctions between models from different sources.  Therefore, in Lite.AI, different names of the same algorithm mean that the corresponding models come from different repositories, different implementations, or use different training data, etc. Just jump to [lite.ai-demos](https://github.com/DefTruth/lite.ai/tree/main/examples/lite/cv) to figure out the usage of each model in Lite.AI. ✅ means passed the test and ⚠️ means not implements yet but coming soon. For models which denoted ✅, you can use it through *lite::cv::Type::Model* syntax, such as *[lite::cv::detection::YoloV5](#refer-anchor-object-detection)* or *[lite::cv::face::detect::UltraFace](#refer-anchor-face-detection)*. More details can be found at [Examples for Lite.AI](#refer-anchor-Examples-for-Lite.AI) .  
 ([Baidu Drive](https://pan.baidu.com/s/1VcQRIXQlNawB8MAJCEsKlw) code: uttl) <div id="refer-anchor-2"></div>
 
 |Model|Size|From|Awesome|File|Type|State|Usage|
@@ -334,7 +337,7 @@ auto *detector = new lite::cv::detection::SSD(onnx_path);
 auto *detector = new lite::cv::detection::SSDMobileNetV1(onnx_path); 
 ```
 
-****   
+****
 
 <div id="refer-anchor-segmentation"></div>
 
@@ -407,7 +410,7 @@ static void test_default()
 
   delete ssrnet;
 }
-```  
+```
 The output is:
 <div align='center'>
   <img src='logs/test_lite_ssrnet.jpg' height="224px" width="224px">
@@ -701,7 +704,7 @@ The output is:
 
 </details>
 
-****  
+****
 
 <div id="refer-anchor-style-transfer"></div>
 
@@ -890,3 +893,20 @@ Many thanks to the following projects. All the Lite.AI's models are sourced from
 * [20] [CurricularFace](https://github.com/HuangYG123/CurricularFace) (🔥🔥↑)
 * [21] [FaceChannel](https://github.com/pablovin/FaceChannel) (🔥↑)
 * [??] [lite.ai](https://github.com/DefTruth/lite.ai) ( 👈🏻 yet, I guess you might be also interested in this repo ~ 🙃🤪🍀)
+
+****  
+
+## 8. Contributions.  
+<div id="refer-anchor-Contributions"></div>  
+
+Do you want to contribute a model? To get started, just open an new issue with the title like *contribute-lite.ai-cv-detection-xxx(your model | repo name | alias)*, such as *contribute-lite.ai-cv-detection-YoloV5*. And, put the link to you project and point out how to find your model files and inference code. I will try to convert you model file and add it into *Lite.AI* as soon as I can. Then, I will list you repo in Lite.AI's Model Zoo and Acknowledgements.  For examples:   
+
+* issue name: contribute-lite.ai-cv-detection-YoloV5  
+* model information: The information for the model is listed below.
+
+| Project Address                                        | Author      | Model File                                                   | Inference                                                    |
+| ------------------------------------------------------ | ----------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑) | ultralytics | [yolov5-model-pytorch-hub](https://github.com/ultralytics/yolov5/issues/36) | [detect.py](https://github.com/ultralytics/yolov5/blob/master/detect.py) |
+
+Do you want a C++ user friendly version of you own pretrained models ? Come and join us ~  🙃🤪🍀
+
