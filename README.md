@@ -23,7 +23,7 @@
 ****
 
 * Important Note !!!   
-  ⚠️ *Lite.AI* was rename from the *LiteHub* repo ! *LiteHub* will no longer be maintained. Use the *Lite.AI* repo please.  
+  ⚠️ *Lite.AI* was rename from the *LiteHub* repo ! *LiteHub* will no longer be maintained. 
   
 
 * Working on. 👇🏻
