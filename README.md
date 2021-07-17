@@ -150,7 +150,7 @@ Most of the models were converted by LiteHub, and others were referenced from th
 |[TencentCifpFace](https://github.com/Tencent/TFace/tree/master/tasks/cifp)|130M|          [TFace](https://github.com/Tencent/TFace)           |  🔥🔥↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_tencent_cifp_face.cpp) |
 |[CenterLossFace](https://github.com/louis-she/center-loss.pytorch)| 280M |  [center-loss...](https://github.com/louis-she/center-loss.pytorch)           |  🔥🔥↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_center_loss_face.cpp) |
 |[SphereFace](https://github.com/clcarwin/sphereface_pytorch)| 80M |  [sphere...](https://github.com/clcarwin/sphereface_pytorch)   |  🔥🔥↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ✅️ | [demo](https://github.com/DefTruth/litehub/blob/main/examples/lite/cv/test_lite_sphere_face.cpp) |
-|[PoseRobustFace](https://github.com/penincillin/DREAM)| - | [DREAM](https://github.com/penincillin/DREAM)  |  🔥🔥↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ⚠️ | - |
+|[DREAMFace](https://github.com/penincillin/DREAM)| - | [DREAM](https://github.com/penincillin/DREAM)  |  🔥🔥↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ⚠️ | - |
 |[MobileFaceNet](https://github.com/Xiaoccer/MobileFaceNet_Pytorch)| - |  [MobileFace...](https://github.com/Xiaoccer/MobileFaceNet_Pytorch)           |  🔥🔥↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ⚠️ | - |
 |[CavaGhostArcFace](https://github.com/cavalleria/cavaface.pytorch)| - | [cavaface...](https://github.com/cavalleria/cavaface.pytorch) |  🔥🔥↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ⚠️ | - |
 |[CavaCombinedFace](https://github.com/cavalleria/cavaface.pytorch)| - | [cavaface...](https://github.com/cavalleria/cavaface.pytorch) |  🔥🔥↑  | [litehub](https://github.com/DefTruth/litehub/) | *faceid* | ⚠️ | - |
@@ -534,7 +534,7 @@ auto *recognition = new lite::cv::faceid::TencentCurricularFace(onnx_path); // T
 auto *recognition = new lite::cv::faceid::TencentCifpFace(onnx_path); // Tencent(TFace)
 auto *recognition = new lite::cv::faceid::CenterLossFace(onnx_path);
 auto *recognition = new lite::cv::faceid::SphereFace(onnx_path);
-auto *recognition = new lite::cv::faceid::PoseRobustFace(onnx_path);
+auto *recognition = new lite::cv::faceid::DREAMFace(onnx_path);
 auto *recognition = new lite::cv::faceid::MobileFaceNet(onnx_path);
 auto *recognition = new lite::cv::faceid::CavaGhostArcFace(onnx_path);
 auto *recognition = new lite::cv::faceid::CavaCombinedFace(onnx_path);
