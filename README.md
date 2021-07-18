@@ -511,9 +511,9 @@ auto *classifier = new lite::cv::classification::ResNeXt(onnx_path);
 static void test_default()
 {
   std::string onnx_path = "../../../hub/onnx/cv/ms1mv3_arcface_r100.onnx";
-  std::string test_img_path0 = "../../../examples/lite/resources/test_lite_arcface_resnet_0.png";
-  std::string test_img_path1 = "../../../examples/lite/resources/test_lite_arcface_resnet_1.png";
-  std::string test_img_path2 = "../../../examples/lite/resources/test_lite_arcface_resnet_2.png";
+  std::string test_img_path0 = "../../../examples/lite/resources/test_lite_faceid_0.png";
+  std::string test_img_path1 = "../../../examples/lite/resources/test_lite_faceid_1.png";
+  std::string test_img_path2 = "../../../examples/lite/resources/test_lite_faceid_2.png";
 
   auto *glint_arcface = new lite::cv::faceid::GlintArcFace(onnx_path);
 
