@@ -23,8 +23,8 @@ static void test_default()
 
   if (euler_angles0.flag && euler_angles1.flag)
   {
-    // need a yaw value of input image. but can not get good performance
-    // in my test. so, seed it 0 to get default and robust performance
+    // need a yaw value of input image, but can not get good performance
+    // in my test. so, I set it 0 in order to get default and robust performance
     // pose_robust_face->detect(img_bgr0, face_content0, euler_angles0.yaw);
     // pose_robust_face->detect(img_bgr1, face_content1, euler_angles1.yaw);
     pose_robust_face->detect(img_bgr0, face_content0, 0.f);
