@@ -50,12 +50,13 @@ namespace ortcv
   class LITE_EXPORTS TencentCifpFace;            // [36] * reference: https://github.com/Tencent/TFace/tree/master/tasks/cifp
   class LITE_EXPORTS CenterLossFace;             // [37] * reference: https://github.com/louis-she/center-loss.pytorch
   class LITE_EXPORTS SphereFace;                 // [38] * reference: https://github.com/clcarwin/sphereface_pytorch
-  class LITE_EXPORTS PoseRobustFace;             // [39] reference: https://github.com/penincillin/DREAM
-  class LITE_EXPORTS MobileFaceNet;              // [40] reference: https://github.com/Xiaoccer/MobileFaceNet_Pytorch
-  class LITE_EXPORTS CavaGhostArcFace;           // [41] reference: https://github.com/cavalleria/cavaface.pytorch
-  class LITE_EXPORTS CavaCombinedFace;           // [42] reference: https://github.com/cavalleria/cavaface.pytorch
-  class LITE_EXPORTS CategoryFaceChannel;        // [43] reference: https://github.com/pablovin/FaceChannel
-  class LITE_EXPORTS DemensionFaceChannel;       // [44] reference: https://github.com/pablovin/FaceChannel
+  class LITE_EXPORTS PoseRobustFace;             // [39] * reference: https://github.com/penincillin/DREAM
+  class LITE_EXPORTS NaivePoseRobustFace;        // [40] * reference: https://github.com/penincillin/DREAM
+  class LITE_EXPORTS MobileFaceNet;              // [41] reference: https://github.com/Xiaoccer/MobileFaceNet_Pytorch
+  class LITE_EXPORTS CavaGhostArcFace;           // [42] reference: https://github.com/cavalleria/cavaface.pytorch
+  class LITE_EXPORTS CavaCombinedFace;           // [43] reference: https://github.com/cavalleria/cavaface.pytorch
+  class LITE_EXPORTS CategoryFaceChannel;        // [44] reference: https://github.com/pablovin/FaceChannel
+  class LITE_EXPORTS DemensionFaceChannel;       // [45] reference: https://github.com/pablovin/FaceChannel
 }
 
 namespace ortnlp
