@@ -563,7 +563,7 @@ auto *recognition = new lite::cv::faceid::CenterLossFace(onnx_path);
 auto *recognition = new lite::cv::faceid::SphereFace(onnx_path);
 auto *recognition = new lite::cv::faceid::PoseRobustFace(onnx_path);
 auto *recognition = new lite::cv::faceid::NaivePoseRobustFace(onnx_path);
-auto *recognition = new lite::cv::faceid::MobileFaceNet(onnx_path);
+auto *recognition = new lite::cv::faceid::MobileFaceNet(onnx_path); // 3.8Mb only !
 auto *recognition = new lite::cv::faceid::CavaGhostArcFace(onnx_path);
 auto *recognition = new lite::cv::faceid::CavaCombinedFace(onnx_path);
 ```
