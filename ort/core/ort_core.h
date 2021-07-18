@@ -53,8 +53,8 @@ namespace ortcv
   class LITE_EXPORTS PoseRobustFace;             // [39] * reference: https://github.com/penincillin/DREAM
   class LITE_EXPORTS NaivePoseRobustFace;        // [40] * reference: https://github.com/penincillin/DREAM
   class LITE_EXPORTS MobileFaceNet;              // [41] * reference: https://github.com/Xiaoccer/MobileFaceNet_Pytorch
-  class LITE_EXPORTS CavaGhostArcFace;           // [42] reference: https://github.com/cavalleria/cavaface.pytorch
-  class LITE_EXPORTS CavaCombinedFace;           // [43] reference: https://github.com/cavalleria/cavaface.pytorch
+  class LITE_EXPORTS CavaGhostArcFace;           // [42] * reference: https://github.com/cavalleria/cavaface.pytorch
+  class LITE_EXPORTS CavaCombinedFace;           // [43] * reference: https://github.com/cavalleria/cavaface.pytorch
   class LITE_EXPORTS CategoryFaceChannel;        // [44] reference: https://github.com/pablovin/FaceChannel
   class LITE_EXPORTS DemensionFaceChannel;       // [45] reference: https://github.com/pablovin/FaceChannel
 }

@@ -42,3 +42,5 @@ dream_cfp_res50_naive.onnx
 dream_ijba_res18_end2end.onnx
 dream_ijba_res18_naive.onnx
 MobileFaceNet_Pytorch_068.onnx
+cavaface_GhostNet_x1.3_Arcface_Epoch_24.onnx
+cavaface_IR_SE_100_Combined_Epoch_24.onnx

@@ -54,6 +54,8 @@
 #include "ort/cv/pose_robust_face.h"
 #include "ort/cv/naive_pose_robust_face.h"
 #include "ort/cv/mobile_facenet.h"
+#include "ort/cv/cava_ghost_arcface.h"
+#include "ort/cv/cava_combined_face.h"
 
 #endif
 
@@ -118,6 +120,8 @@ namespace lite
     typedef ortcv::PoseRobustFace _PoseRobustFace;
     typedef ortcv::NaivePoseRobustFace _NaivePoseRobustFace;
     typedef ortcv::MobileFaceNet _MobileFaceNet;
+    typedef ortcv::CavaGhostArcFace _CavaGhostArcFace;
+    typedef ortcv::CavaCombinedFace _CavaCombinedFace;
 #endif
 
     // 1. classification
@@ -213,6 +217,8 @@ namespace lite
       typedef _PoseRobustFace PoseRobustFace;
       typedef _NaivePoseRobustFace NaivePoseRobustFace;
       typedef _MobileFaceNet MobileFaceNet;
+      typedef _CavaGhostArcFace CavaGhostArcFace;
+      typedef _CavaCombinedFace CavaCombinedFace;
 #endif
 
     }
@@ -340,6 +346,9 @@ namespace lite
       typedef ortcv::PoseRobustFace _ONNXPoseRobustFace;
       typedef ortcv::NaivePoseRobustFace _ONNXNaivePoseRobustFace;
       typedef ortcv::MobileFaceNet _ONNXMobileFaceNet;
+      typedef ortcv::CavaGhostArcFace _ONNXCavaGhostArcFace;
+      typedef ortcv::CavaCombinedFace _ONNXCavaCombinedFace;
+
 
       // 1. classification
       namespace classification
@@ -419,6 +428,8 @@ namespace lite
         typedef _ONNXPoseRobustFace PoseRobustFace;
         typedef _ONNXNaivePoseRobustFace NaivePoseRobustFace;
         typedef _ONNXMobileFaceNet MobileFaceNet;
+        typedef _ONNXCavaGhostArcFace CavaGhostArcFace;
+        typedef _ONNXCavaCombinedFace CavaCombinedFace;
 
       }
       // 5. segmentation
