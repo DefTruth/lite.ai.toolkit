@@ -41,3 +41,4 @@ dream_cfp_res50_end2end.onnx
 dream_cfp_res50_naive.onnx
 dream_ijba_res18_end2end.onnx
 dream_ijba_res18_naive.onnx
+MobileFaceNet_Pytorch_068.onnx

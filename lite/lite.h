@@ -53,6 +53,7 @@
 #include "ort/cv/sphere_face.h"
 #include "ort/cv/pose_robust_face.h"
 #include "ort/cv/naive_pose_robust_face.h"
+#include "ort/cv/mobile_facenet.h"
 
 #endif
 
@@ -116,6 +117,7 @@ namespace lite
     typedef ortcv::SphereFace _SphereFace;
     typedef ortcv::PoseRobustFace _PoseRobustFace;
     typedef ortcv::NaivePoseRobustFace _NaivePoseRobustFace;
+    typedef ortcv::MobileFaceNet _MobileFaceNet;
 #endif
 
     // 1. classification
@@ -210,6 +212,7 @@ namespace lite
       typedef _SphereFace SphereFace;
       typedef _PoseRobustFace PoseRobustFace;
       typedef _NaivePoseRobustFace NaivePoseRobustFace;
+      typedef _MobileFaceNet MobileFaceNet;
 #endif
 
     }
@@ -336,6 +339,7 @@ namespace lite
       typedef ortcv::SphereFace _ONNXSphereFace;
       typedef ortcv::PoseRobustFace _ONNXPoseRobustFace;
       typedef ortcv::NaivePoseRobustFace _ONNXNaivePoseRobustFace;
+      typedef ortcv::MobileFaceNet _ONNXMobileFaceNet;
 
       // 1. classification
       namespace classification
@@ -414,6 +418,7 @@ namespace lite
         typedef _ONNXSphereFace SphereFace;
         typedef _ONNXPoseRobustFace PoseRobustFace;
         typedef _ONNXNaivePoseRobustFace NaivePoseRobustFace;
+        typedef _ONNXMobileFaceNet MobileFaceNet;
 
       }
       // 5. segmentation
