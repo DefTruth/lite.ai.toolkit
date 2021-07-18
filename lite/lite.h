@@ -13,7 +13,7 @@
 #include "ort/core/ort_core.h"
 #include "ort/core/ort_utils.h"
 #include "ort/cv/age_googlenet.h"
-#include "ort/cv/arcface_resnet.h"
+#include "ort/cv/glint_arcface.h"
 #include "ort/cv/colorizer.h"
 #include "ort/cv/deeplabv3_resnet101.h"
 #include "ort/cv/densenet.h"
@@ -83,7 +83,7 @@ namespace lite
     typedef ortcv::VGG16Gender _VGG16Gender;
     typedef ortcv::SSRNet _SSRNet;
     typedef ortcv::FastStyleTransfer _FastStyleTransfer;
-    typedef ortcv::ArcFaceResNet _ArcFaceResNet;
+    typedef ortcv::GlintArcFace _GlintArcFace;
     typedef ortcv::Colorizer _Colorizer;
     typedef ortcv::SubPixelCNN _SubPixelCNN;
     typedef ortcv::YoloV4 _YoloV4;
@@ -194,7 +194,7 @@ namespace lite
     namespace faceid
     {
 #ifdef BACKEND_ONNXRUNTIME
-      typedef _ArcFaceResNet ArcFaceResNet; //
+      typedef _GlintArcFace GlintArcFace; //
       typedef _GlintCosFace GlintCosFace; //
       typedef _GlintPartialFC GlintPartialFC;
       typedef _FaceNet FaceNet;
@@ -299,7 +299,7 @@ namespace lite
       typedef ortcv::VGG16Gender _ONNXVGG16Gender;
       typedef ortcv::SSRNet _ONNXSSRNet;
       typedef ortcv::FastStyleTransfer _ONNXFastStyleTransfer;
-      typedef ortcv::ArcFaceResNet _ONNXArcFaceResNet;
+      typedef ortcv::GlintArcFace _ONNXGlintArcFace;
       typedef ortcv::Colorizer _ONNXColorizer;
       typedef ortcv::SubPixelCNN _ONNXSubPixelCNN;
       typedef ortcv::YoloV4 _ONNXYoloV4;
@@ -394,7 +394,7 @@ namespace lite
       // 4. face recognition
       namespace faceid
       {
-        typedef _ONNXArcFaceResNet ArcFaceResNet; //
+        typedef _ONNXGlintArcFace GlintArcFace; //
         typedef _ONNXGlintCosFace GlintCosFace; //
         typedef _ONNXGlintPartialFC GlintPartialFC;
         typedef _ONNXFaceNet FaceNet;

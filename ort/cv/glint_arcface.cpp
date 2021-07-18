@@ -2,12 +2,12 @@
 // Created by DefTruth on 2021/4/4.
 //
 
-#include "arcface_resnet.h"
+#include "glint_arcface.h"
 #include "ort/core/ort_utils.h"
 
-using ortcv::ArcFaceResNet;
+using ortcv::GlintArcFace;
 
-Ort::Value ArcFaceResNet::transform(const cv::Mat &mat)
+Ort::Value GlintArcFace::transform(const cv::Mat &mat)
 {
   cv::Mat canva = mat.clone();
   cv::resize(canva, canva, cv::Size(input_node_dims.at(3),
@@ -20,7 +20,7 @@ Ort::Value ArcFaceResNet::transform(const cv::Mat &mat)
       input_values_handler, ortcv::utils::transform::CHW);
 }
 
-void ArcFaceResNet::detect(const cv::Mat &mat, types::FaceContent &face_content)
+void GlintArcFace::detect(const cv::Mat &mat, types::FaceContent &face_content)
 {
   if (mat.empty()) return;
   // 1. make input tensor

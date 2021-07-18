@@ -25,7 +25,6 @@
 * Important Note !!!   
   ⚠️ *Lite.AI* was rename from the *LiteHub* repo ! *LiteHub* will no longer be maintained. 
   
-  
 * Working on. 👇🏻
   * ✅ [object detection](#refer-anchor-object-detection) 
   * ✅ [image classification](#refer-anchor-object-detection) 
@@ -59,7 +58,7 @@
 
 The code of [Lite.AI](#refer-anchor-Introduction) is released under the MIT License.
 
-****  
+****
 
 ## Contents.
 * [Introduction](#refer-anchor-Introduction)
@@ -157,7 +156,7 @@ Most of the models were converted by Lite.AI, and others were referenced from th
 |[TencentCifpFace](https://github.com/Tencent/TFace/tree/master/tasks/cifp)|130M|          [TFace](https://github.com/Tencent/TFace)           |  🔥🔥↑  | [lite.ai](https://github.com/DefTruth/lite.ai/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_tencent_cifp_face.cpp) |
 |[CenterLossFace](https://github.com/louis-she/center-loss.pytorch)| 280M |  [center-loss...](https://github.com/louis-she/center-loss.pytorch)           |  🔥🔥↑  | [lite.ai](https://github.com/DefTruth/lite.ai/) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_center_loss_face.cpp) |
 |[SphereFace](https://github.com/clcarwin/sphereface_pytorch)| 80M |  [sphere...](https://github.com/clcarwin/sphereface_pytorch)   |  🔥🔥↑  | [lite.ai](https://github.com/DefTruth/lite.ai/) | *faceid* | ✅️ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_sphere_face.cpp) |
-|[DREAMFace](https://github.com/penincillin/DREAM)| - | [DREAM](https://github.com/penincillin/DREAM)  |  🔥🔥↑  | [lite.ai](https://github.com/DefTruth/lite.ai/) | *faceid* | ⚠️ | - |
+|[PoseRobustFace](https://github.com/penincillin/DREAM)| 44M | [DREAM](https://github.com/penincillin/DREAM)  |  🔥🔥↑  | [lite.ai](https://github.com/DefTruth/lite.ai/) | *faceid* | ✅️ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_pose_robust_face.cpp) |
 |[MobileFaceNet](https://github.com/Xiaoccer/MobileFaceNet_Pytorch)| - |  [MobileFace...](https://github.com/Xiaoccer/MobileFaceNet_Pytorch)           |  🔥🔥↑  | [lite.ai](https://github.com/DefTruth/lite.ai/) | *faceid* | ⚠️ | - |
 |[CavaGhostArcFace](https://github.com/cavalleria/cavaface.pytorch)| - | [cavaface...](https://github.com/cavalleria/cavaface.pytorch) |  🔥🔥↑  | [lite.ai](https://github.com/DefTruth/lite.ai/) | *faceid* | ⚠️ | - |
 |[CavaCombinedFace](https://github.com/cavalleria/cavaface.pytorch)| - | [cavaface...](https://github.com/cavalleria/cavaface.pytorch) |  🔥🔥↑  | [lite.ai](https://github.com/DefTruth/lite.ai/) | *faceid* | ⚠️ | - |
@@ -174,6 +173,24 @@ Most of the models were converted by Lite.AI, and others were referenced from th
 |[ResNeXt](https://pytorch.org/hub/pytorch_vision_resnext/)|95M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_resnext.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_resnext.cpp) |
 |[CategoryFaceChannel](https://github.com/pablovin/FaceChannel)|-|       [FaceChannel](https://github.com/pablovin/FaceChannel)       | 🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai/) | *face::attr* |  ⚠️ | - |
 |[DemensionFaceChannel](https://github.com/pablovin/FaceChannel)|-|       [FaceChannel](https://github.com/pablovin/FaceChannel)       | 🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai/) | *face::attr* | ⚠️ | - |
+
+Correspondence between classes in *Lite.AI* and pretrained model files can be found at [lite.ai.hub.md](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.md). For examples, the pretrained model files for *lite::cv::detection::YoloV5* are listed as bellows.  
+
+|             Model             | Pretrained ONNX files |                   Rename From (Repo)                   | Size  |
+| :---------------------------: | :-------------------: | :----------------------------------------------------: | :---: |
+| *lite::cv::detection::YoloV5* |     Yolov5l.onnx      | [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑) | 188Mb |
+| *lite::cv::detection::YoloV5* |     Yolov5m.onnx      | [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑) | 85Mb  |
+| *lite::cv::detection::YoloV5* |     Yolov5s.onnx      | [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑) | 29Mb  |
+| *lite::cv::detection::YoloV5* |     Yolov5x.onnx      | [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑) | 351Mb |
+
+It means that you can load the any one `yolov5*.onnx` according to your application through the same Lite.AI class *YoloV5*, such as:  
+
+```c++
+auto *yolov5 = new lite::cv::detection::YoloV5("yolov5x.onnx");  // for server
+auto *yolov5 = new lite::cv::detection::YoloV5("yolov5l.onnx"); 
+auto *yolov5 = new lite::cv::detection::YoloV5("yolov5m.onnx");  // for mobile device
+auto *yolov5 = new lite::cv::detection::YoloV5("yolov5s.onnx"); 
+```
 
 ****
 
@@ -498,15 +515,15 @@ static void test_default()
   std::string test_img_path1 = "../../../examples/lite/resources/test_lite_arcface_resnet_1.png";
   std::string test_img_path2 = "../../../examples/lite/resources/test_lite_arcface_resnet_2.png";
 
-  auto *arcface_resnet = new lite::cv::faceid::ArcFaceResNet(onnx_path);
+  auto *glint_arcface = new lite::cv::faceid::GlintArcFace(onnx_path);
 
   lite::cv::types::FaceContent face_content0, face_content1, face_content2;
   cv::Mat img_bgr0 = cv::imread(test_img_path0);
   cv::Mat img_bgr1 = cv::imread(test_img_path1);
   cv::Mat img_bgr2 = cv::imread(test_img_path2);
-  arcface_resnet->detect(img_bgr0, face_content0);
-  arcface_resnet->detect(img_bgr1, face_content1);
-  arcface_resnet->detect(img_bgr2, face_content2);
+  glint_arcface->detect(img_bgr0, face_content0);
+  glint_arcface->detect(img_bgr1, face_content1);
+  glint_arcface->detect(img_bgr2, face_content2);
 
   if (face_content0.flag && face_content1.flag && face_content2.flag)
   {
@@ -517,7 +534,7 @@ static void test_default()
     std::cout << "Detected Sim01: " << sim  << " Sim02: " << sim02 << std::endl;
   }
 
-  delete arcface_resnet;
+  delete glint_arcface;
 }
 ```
 
@@ -533,6 +550,7 @@ The output is:
 More models for face recognition.
 ```c++
 auto *recognition = new lite::cv::faceid::GlintCosFace(onnx_path);  // DeepGlint(insightface)
+auto *recognition = new lite::cv::faceid::GlintArcFace(onnx_path);  // DeepGlint(insightface)
 auto *recognition = new lite::cv::faceid::GlintPartialFC(onnx_path); // DeepGlint(insightface)
 auto *recognition = new lite::cv::faceid::FaceNet(onnx_path);
 auto *recognition = new lite::cv::faceid::FocalArcFace(onnx_path);
@@ -541,7 +559,7 @@ auto *recognition = new lite::cv::faceid::TencentCurricularFace(onnx_path); // T
 auto *recognition = new lite::cv::faceid::TencentCifpFace(onnx_path); // Tencent(TFace)
 auto *recognition = new lite::cv::faceid::CenterLossFace(onnx_path);
 auto *recognition = new lite::cv::faceid::SphereFace(onnx_path);
-auto *recognition = new lite::cv::faceid::DREAMFace(onnx_path);
+auto *recognition = new lite::cv::faceid::PoseRobustFace(onnx_path);
 auto *recognition = new lite::cv::faceid::MobileFaceNet(onnx_path);
 auto *recognition = new lite::cv::faceid::CavaGhostArcFace(onnx_path);
 auto *recognition = new lite::cv::faceid::CavaCombinedFace(onnx_path);
@@ -894,7 +912,7 @@ Many thanks to the following projects. All the Lite.AI's models are sourced from
 * [21] [FaceChannel](https://github.com/pablovin/FaceChannel) (🔥↑)
 * [??] [lite.ai](https://github.com/DefTruth/lite.ai) ( 👈🏻 yet, I guess you might be also interested in this repo ~ 🙃🤪🍀)
 
-****  
+****
 
 ## 8. Contributions.  
 <div id="refer-anchor-Contributions"></div>  

@@ -21,7 +21,7 @@ namespace ortcv
   class LITE_EXPORTS VGG16Gender;                // [7] * reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
   class LITE_EXPORTS SSRNet;                     // [8] * reference: https://github.com/oukohou/SSR_Net_Pytorch
   class LITE_EXPORTS FastStyleTransfer;          // [9] * reference: https://github.com/onnx/models/blob/master/vision/style_transfer/fast_neural_style
-  class LITE_EXPORTS ArcFaceResNet;              // [10] * reference: https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch
+  class LITE_EXPORTS GlintArcFace;               // [10] * reference: https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch
   class LITE_EXPORTS Colorizer;                  // [11] * reference: https://github.com/richzhang/colorization
   class LITE_EXPORTS SubPixelCNN;                // [12] * reference: https://github.com/niazwazir/SUB_PIXEL_CNN
   class LITE_EXPORTS YoloV4;                     // [13] * reference: https://github.com/argusswift/YOLOv4-pytorch
@@ -50,7 +50,7 @@ namespace ortcv
   class LITE_EXPORTS TencentCifpFace;            // [36] * reference: https://github.com/Tencent/TFace/tree/master/tasks/cifp
   class LITE_EXPORTS CenterLossFace;             // [37] * reference: https://github.com/louis-she/center-loss.pytorch
   class LITE_EXPORTS SphereFace;                 // [38] * reference: https://github.com/clcarwin/sphereface_pytorch
-  class LITE_EXPORTS DREAMFace;                  // [39] reference: https://github.com/penincillin/DREAM
+  class LITE_EXPORTS PoseRobustFace;             // [39] reference: https://github.com/penincillin/DREAM
   class LITE_EXPORTS MobileFaceNet;              // [40] reference: https://github.com/Xiaoccer/MobileFaceNet_Pytorch
   class LITE_EXPORTS CavaGhostArcFace;           // [41] reference: https://github.com/cavalleria/cavaface.pytorch
   class LITE_EXPORTS CavaCombinedFace;           // [42] reference: https://github.com/cavalleria/cavaface.pytorch

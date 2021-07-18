@@ -9,14 +9,14 @@
 
 namespace ortcv
 {
-  class LITE_EXPORTS ArcFaceResNet : public BasicOrtHandler
+  class LITE_EXPORTS GlintArcFace : public BasicOrtHandler
   {
   public:
-    explicit ArcFaceResNet(const std::string &_onnx_path, unsigned int _num_threads = 1) :
+    explicit GlintArcFace(const std::string &_onnx_path, unsigned int _num_threads = 1) :
         BasicOrtHandler(_onnx_path, _num_threads)
     {};
 
-    ~ArcFaceResNet() override = default;
+    ~GlintArcFace() override = default;
 
   private:
     static constexpr const float mean_val = 127.5f;

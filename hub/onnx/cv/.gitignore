@@ -37,3 +37,7 @@ Tencent_Cifp_BUPT_Balancedface_IR_34.onnx
 Tencent_CurricularFace_Backbone.onnx
 CenterLossFace_epoch_100.onnx
 sphere20a_20171020.onnx
+dream_cfp_res50_end2end.onnx
+dream_cfp_res50_naive.onnx
+dream_ijba_res18_end2end.onnx
+dream_ijba_res18_naive.onnx

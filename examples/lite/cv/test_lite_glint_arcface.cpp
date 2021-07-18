@@ -10,7 +10,7 @@ static void test_default()
   std::string test_img_path0 = "../../../examples/lite/resources/test_lite_arcface_resnet_0.png";
   std::string test_img_path1 = "../../../examples/lite/resources/test_lite_arcface_resnet_1.png";
 
-  lite::cv::faceid::ArcFaceResNet *arcface_resnet = new lite::cv::faceid::ArcFaceResNet(onnx_path);
+  lite::cv::faceid::GlintArcFace *arcface_resnet = new lite::cv::faceid::GlintArcFace(onnx_path);
 
   lite::cv::types::FaceContent face_content0, face_content1;
   cv::Mat img_bgr0 = cv::imread(test_img_path0);
@@ -34,8 +34,8 @@ static void test_onnxruntime()
   std::string test_img_path0 = "../../../examples/lite/resources/test_lite_arcface_resnet_0.png";
   std::string test_img_path1 = "../../../examples/lite/resources/test_lite_arcface_resnet_2.png";
 
-  lite::onnxruntime::cv::faceid::ArcFaceResNet *arcface_resnet =
-      new lite::onnxruntime::cv::faceid::ArcFaceResNet(onnx_path);
+  lite::onnxruntime::cv::faceid::GlintArcFace *arcface_resnet =
+      new lite::onnxruntime::cv::faceid::GlintArcFace(onnx_path);
 
   lite::onnxruntime::cv::types::FaceContent face_content0, face_content1;
   cv::Mat img_bgr0 = cv::imread(test_img_path0);

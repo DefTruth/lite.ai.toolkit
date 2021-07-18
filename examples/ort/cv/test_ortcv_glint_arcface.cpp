@@ -5,16 +5,16 @@
 #include <iostream>
 #include <vector>
 
-#include "ort/cv/arcface_resnet.h"
+#include "ort/cv/glint_arcface.h"
 #include "ort/core/ort_utils.h"
 
-static void test_ortcv_arcface_resnet()
+static void test_ortcv_glint_arcface()
 {
   std::string onnx_path = "../../../hub/onnx/cv/ms1mv3_arcface_r100.onnx";
   std::string test_img_path0 = "../../../examples/ort/resources/test_ortcv_arcface_resnet_0.png";
   std::string test_img_path1 = "../../../examples/ort/resources/test_ortcv_arcface_resnet_1.png";
 
-  ortcv::ArcFaceResNet *arcface_resnet = new ortcv::ArcFaceResNet(onnx_path);
+  ortcv::ArcFaceResNet *GlintArcFace = new ortcv::GlintArcFace(onnx_path);
 
   ortcv::types::FaceContent face_content0, face_content1;
   cv::Mat img_bgr0 = cv::imread(test_img_path0);
@@ -33,6 +33,6 @@ static void test_ortcv_arcface_resnet()
 
 int main(__unused int argc, __unused char *argv[])
 {
-  test_ortcv_arcface_resnet();
+  test_ortcv_glint_arcface();
   return 0;
 }
