@@ -25,7 +25,6 @@
 * Important Note !!!   
   ⚠️ *Lite.AI* was rename from the *LiteHub* repo ! *LiteHub* will no longer be maintained.   
   
-  
 * Working on. 👇🏻
   * ✅ [object detection](#refer-anchor-object-detection) 
   * ✅ [image classification](#refer-anchor-object-detection) 
@@ -173,8 +172,18 @@ Most of the models were converted by Lite.AI, and others were referenced from th
 |[MobileNetV2](https://pytorch.org/hub/pytorch_vision_mobilenet_v2/)|13M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_mobilenetv2.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_mobilenetv2.cpp) |
 |[ResNet](https://pytorch.org/hub/pytorch_vision_resnet/)|44M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_resnet.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_resnet.cpp) |
 |[ResNeXt](https://pytorch.org/hub/pytorch_vision_resnext/)|95M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_resnext.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_resnext.cpp) |
-|[CategoryFaceChannel](https://github.com/pablovin/FaceChannel)|-|       [FaceChannel](https://github.com/pablovin/FaceChannel)       | 🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai/) | *face::attr* |  ⚠️ | - |
-|[DemensionFaceChannel](https://github.com/pablovin/FaceChannel)|-|       [FaceChannel](https://github.com/pablovin/FaceChannel)       | 🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai/) | *face::attr* | ⚠️ | - |
+|[MobileSEFocalFace](https://github.com/grib0ed0v/face_recognition.pytorch)|-| [face_recog...](https://github.com/grib0ed0v/face_recognition.pytorch) | 🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *faceid* | ⚠️ | - |
+|[EfficientEmotion](https://github.com/HSE-asavchenko/face-emotion-recognition)|-| [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::attr* | ⚠️ | - |
+|[MobileEmotion](https://github.com/HSE-asavchenko/face-emotion-recognition)|-| [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::attr* | ⚠️ | - |
+|[ReXNetEmotion](https://github.com/HSE-asavchenko/face-emotion-recognition)|-| [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::attr* | ⚠️ | - |
+|[PFLD98](https://github.com/polarisZhao/PFLD-pytorch)|-| [PFLD...](https://github.com/polarisZhao/PFLD-pytorch) | 🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::align* | ⚠️ | - |
+|[MobileNetV268](https://github.com/cunjian/pytorch_face_landmark)|-| [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::align* | ⚠️ | - |
+|[MobileV2SE68](https://github.com/cunjian/pytorch_face_landmark)|-| [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::align* | ⚠️ | - |
+|[PFLD68](https://github.com/cunjian/pytorch_face_landmark)|-| [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::align* | ⚠️ | - |
+|[FaceLandmark1000](https://github.com/Single430/FaceLandmark1000)|-| [FaceLandm...](https://github.com/Single430/FaceLandmark1000) | 🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::align* | ⚠️ | - |
+|[MobileV1RetinaFace](https://github.com/biubug6/Pytorch_Retinaface)|-| [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface) | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::detect* | ⚠️ | - |
+|[ResNetRetinaFace](https://github.com/biubug6/Pytorch_Retinaface)|-| [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface) | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::detect* | ⚠️ | - |
+|[FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)|-| [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch) | 🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::detect* | ⚠️ | - |
 
 Correspondence between the classes in *Lite.AI* and pretrained model files can be found at [lite.ai.hub.md](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.md). For examples, the pretrained model files for *lite::cv::detection::YoloV5* are listed as following.  
 
@@ -190,8 +199,8 @@ It means that you can load the any one `yolov5*.onnx` according to your applicat
 ```c++
 auto *yolov5 = new lite::cv::detection::YoloV5("yolov5x.onnx");  // for server
 auto *yolov5 = new lite::cv::detection::YoloV5("yolov5l.onnx"); 
-auto *yolov5 = new lite::cv::detection::YoloV5("yolov5m.onnx");  // for mobile device
-auto *yolov5 = new lite::cv::detection::YoloV5("yolov5s.onnx"); 
+auto *yolov5 = new lite::cv::detection::YoloV5("yolov5m.onnx");  
+auto *yolov5 = new lite::cv::detection::YoloV5("yolov5s.onnx");  // for mobile device
 ```
 
 ****
@@ -444,8 +453,6 @@ auto *attribute = new lite::cv::face::attr::GenderGoogleNet(onnx_path);
 auto *attribute = new lite::cv::face::attr::EmotionFerPlus(onnx_path);
 auto *attribute = new lite::cv::face::attr::VGG16Age(onnx_path);
 auto *attribute = new lite::cv::face::attr::VGG16Gender(onnx_path);
-auto *attribute = new lite::cv::face::attr::CategoryFaceChannel(onnx_path); // emotion 
-auto *attribute = new lite::cv::face::attr::DemensionFaceChannel(onnx_path); // emotion 
 ```
 
 ****
@@ -912,7 +919,13 @@ Many thanks to the following projects. All the Lite.AI's models are sourced from
 * [18] [MobileFaceNet_Pytorch](https://github.com/Xiaoccer/MobileFaceNet_Pytorch) (🔥🔥↑)
 * [19] [cavaface.pytorch](https://github.com/cavalleria/cavaface.pytorch) (🔥🔥↑)
 * [20] [CurricularFace](https://github.com/HuangYG123/CurricularFace) (🔥🔥↑)
-* [21] [FaceChannel](https://github.com/pablovin/FaceChannel) (🔥↑)
+* [21] [face-emotion-recognition](https://github.com/HSE-asavchenko/face-emotion-recognition) (🔥↑)
+* [22] [face_recognition.pytorch](https://github.com/grib0ed0v/face_recognition.pytorch) (🔥🔥↑)
+* [23] [PFLD-pytorch](https://github.com/polarisZhao/PFLD-pytorch) (🔥🔥↑)
+* [24] [pytorch_face_landmark](https://github.com/cunjian/pytorch_face_landmark) (🔥🔥↑)
+* [25] [FaceLandmark1000](https://github.com/Single430/FaceLandmark1000) (🔥🔥↑)
+* [26] [Pytorch_Retinaface](https://github.com/biubug6/Pytorch_Retinaface) (🔥🔥🔥↑)
+* [27] [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch) (🔥🔥↑)
 * [??] [lite.ai](https://github.com/DefTruth/lite.ai) ( 👈🏻 yet, I guess you might be also interested in this repo ~ 🙃🤪🍀)
 
 ****
