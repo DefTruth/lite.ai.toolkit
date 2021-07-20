@@ -68,6 +68,7 @@ namespace ortcv
   class LITE_EXPORTS MobileV1RetinaFace;         // [54] reference: https://github.com/biubug6/Pytorch_Retinaface
   class LITE_EXPORTS ResNetRetinaFace;           // [55] reference: https://github.com/biubug6/Pytorch_Retinaface
   class LITE_EXPORTS FaceBoxes;                  // [56] reference: https://github.com/zisianw/FaceBoxes.PyTorch
+  class LITE_EXPORTS YoloX;                      // [57] reference: https://github.com/Megvii-BaseDetection/YOLOX
 }
 
 namespace ortnlp

@@ -16,6 +16,9 @@
 
 ## Introduction.    
 
+[![](https://img.shields.io/badge/MacOS-success-green.svg)](https://github.com/DefTruth/lite.ai/releases/tag/v0.0.1) ![](https://img.shields.io/badge/Linux-doing-yellowgreen.svg) [![](https://img.shields.io/badge/Version-0.0.1-brightgreen.svg)](https://github.com/DefTruth/lite.ai/releases/tag/v0.0.1)
+
+
 <div id="refer-anchor-Introduction"></div> 
 
 *Lite.AI* 🚀🚀🌟 is a simple, low-coupling, and user-friendly C++ library for awesome🔥🔥🔥 AI models, such as YoloV5, YoloV4, DeepLabV3, ArcFace, CosFace, Colorization, SSD, etc. And, it only relies on *[OpenCV](https://github.com/opencv/opencv)* and commonly used inference engines, namely, *[onnxruntime](https://github.com/microsoft/onnxruntime)*, *[ncnn](https://github.com/Tencent/ncnn)*, and *[mnn](https://github.com/alibaba/MNN)*. It currently mainly includes some *CV(Computer Vision 💻)* modules, such as [object detection](#refer-anchor-object-detection), [face detection](#refer-anchor-face-detection), [style transfer](#refer-anchor-style-transfer), [face alignment](#refer-anchor-face-alignment), [face recognition](#refer-anchor-face-recognition), [segmentation](#refer-anchor-segmentation), [colorization](#refer-anchor-colorization), [face attributes analysis](#refer-anchor-face-attributes-analysis), [image classification](#refer-anchor-image-classification), [matting](#refer-anchor-matting), etc.  You can use these awesome models through *lite::cv::Type::Model* syntax, such as *[lite::cv::detection::YoloV5](#refer-anchor-object-detection)* or *[lite::cv::face::detect::UltraFace](#refer-anchor-face-detection)*.  I do have plans to add *NLP* or *ASR* modules, but not coming soon. Currently, I am focusing🔍 on *Computer Vision* 💻 . It is important to note that the models here are all from third-party projects. All models used will be cited. Many thanks to these contributors. Have a good travel ~ 🙃🤪🍀  
@@ -184,6 +187,7 @@ Most of the models were converted by Lite.AI, and others were referenced from th
 |[MobileV1RetinaFace](https://github.com/biubug6/Pytorch_Retinaface)|-| [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface) | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::detect* | ⚠️ | - |
 |[ResNetRetinaFace](https://github.com/biubug6/Pytorch_Retinaface)|-| [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface) | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::detect* | ⚠️ | - |
 |[FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)|-| [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch) | 🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::detect* | ⚠️ | - |
+|[YoloX]( https://github.com/Megvii-BaseDetection/YOLOX)|-| [YOLOX]( https://github.com/Megvii-BaseDetection/YOLOX) | 🔥🔥!!↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolox.cpp) |
 
 Correspondence between the classes in *Lite.AI* and pretrained model files can be found at [lite.ai.hub.md](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.md). For examples, the pretrained model files for *lite::cv::detection::YoloV5* are listed as following.  
 
@@ -354,10 +358,38 @@ The output is:
 <div align='center'>
   <img src='logs/test_lite_yolov5_1.jpg' height="256px">
   <img src='logs/test_lite_yolov5_2.jpg' height="256px">
-</div>  
+</div>    
+
+Or you can use newest yolo series's detector [YoloX](https://github.com/Megvii-BaseDetection/YOLOX) . They got the similar results.
+```c++
+#include "lite/lite.h"
+
+static void test_default()
+{
+  std::string onnx_path = "../../../hub/onnx/cv/yolox_s.onnx";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_yolox_1.jpg";
+  std::string save_img_path = "../../../logs/test_lite_yolox_1.jpg";
+
+  auto *yolox = new lite::cv::detection::YoloX(onnx_path); 
+  std::vector<lite::cv::types::Boxf> detected_boxes;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  yolox->detect(img_bgr, detected_boxes);
+  
+  lite::cv::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+  cv::imwrite(save_img_path, img_bgr);  
+  
+  delete yolox;
+}
+```  
+The output is:
+<div align='center'>
+  <img src='logs/test_lite_yolox_1.jpg' height="256px">
+  <img src='logs/test_lite_yolox_2.jpg' height="256px">
+</div>    
 
 More models for general object detection.  
 ```c++
+auto *detector = new lite::cv::detection::YoloX(onnx_path); // new !!!
 auto *detector = new lite::cv::detection::YoloV4(onnx_path); 
 auto *detector = new lite::cv::detection::YoloV3(onnx_path); 
 auto *detector = new lite::cv::detection::TinyYoloV3(onnx_path); 
@@ -925,7 +957,8 @@ Many thanks to the following projects. All the Lite.AI's models are sourced from
 * [24] [pytorch_face_landmark](https://github.com/cunjian/pytorch_face_landmark) (🔥🔥↑)
 * [25] [FaceLandmark1000](https://github.com/Single430/FaceLandmark1000) (🔥🔥↑)
 * [26] [Pytorch_Retinaface](https://github.com/biubug6/Pytorch_Retinaface) (🔥🔥🔥↑)
-* [27] [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch) (🔥🔥↑)
+* [27] [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch) (🔥🔥↑)  
+* [28] [YOLOX]( https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥new!!↑)
 * [??] [lite.ai](https://github.com/DefTruth/lite.ai) ( 👈🏻 yet, I guess you might be also interested in this repo ~ 🙃🤪🍀)
 
 ****

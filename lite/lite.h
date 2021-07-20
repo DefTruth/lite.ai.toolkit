@@ -56,6 +56,7 @@
 #include "ort/cv/mobile_facenet.h"
 #include "ort/cv/cava_ghost_arcface.h"
 #include "ort/cv/cava_combined_face.h"
+#include "ort/cv/yolox.h"
 
 #endif
 
@@ -122,6 +123,7 @@ namespace lite
     typedef ortcv::MobileFaceNet _MobileFaceNet;
     typedef ortcv::CavaGhostArcFace _CavaGhostArcFace;
     typedef ortcv::CavaCombinedFace _CavaCombinedFace;
+    typedef ortcv::YoloX _YoloX;
 #endif
 
     // 1. classification
@@ -150,6 +152,7 @@ namespace lite
       typedef _TinyYoloV3 TinyYoloV3;
       typedef _SSD SSD;
       typedef _SSDMobileNetV1 SSDMobileNetV1;
+      typedef _YoloX YoloX;
 #endif
     }
     // 3. face detection & facial attributes detection
@@ -348,6 +351,8 @@ namespace lite
       typedef ortcv::MobileFaceNet _ONNXMobileFaceNet;
       typedef ortcv::CavaGhostArcFace _ONNXCavaGhostArcFace;
       typedef ortcv::CavaCombinedFace _ONNXCavaCombinedFace;
+      typedef ortcv::YoloX _ONNXYoloX;
+
 
 
       // 1. classification
@@ -373,6 +378,7 @@ namespace lite
         typedef _ONNXTinyYoloV3 TinyYoloV3;
         typedef _ONNXSSD SSD;
         typedef _ONNXSSDMobileNetV1 SSDMobileNetV1;
+        typedef _ONNXYoloX YoloX;
       }
       // 3. face detection & facial attributes detection
       namespace face
