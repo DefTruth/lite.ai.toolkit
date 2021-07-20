@@ -360,7 +360,7 @@ The output is:
   <img src='logs/test_lite_yolov5_2.jpg' height="256px">
 </div>    
 
-Or you can use newest yolo series's detector [YoloX](https://github.com/Megvii-BaseDetection/YOLOX) . They got the similar results.
+Or you can use Newest 🔥🔥 ! YOLO series's detector [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) . They got the similar results.
 ```c++
 #include "lite/lite.h"
 
