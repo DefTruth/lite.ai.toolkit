@@ -637,8 +637,6 @@ auto *recognition = new lite::cv::faceid::CavaGhostArcFace(onnx_path);
 auto *recognition = new lite::cv::faceid::CavaCombinedFace(onnx_path);
 ```
 
-****
-
 <div id="refer-anchor-face-detection"></div>
 
 <details>
@@ -673,8 +671,6 @@ The output is:
 </div>  
 
 </details>
-
-****
 
 <div id="refer-anchor-colorization"></div>
 
@@ -714,8 +710,6 @@ The output is:
 </div>  
 
 </details>
-
-****
 
 <div id="refer-anchor-head-pose-estimation"></div>
 
@@ -757,8 +751,6 @@ The output is:
 
 </details>
 
-****
-
 <div id="refer-anchor-face-alignment"></div>
 
 <details>
@@ -793,8 +785,6 @@ The output is:
 </div>    
 
 </details>
-
-****
 
 <div id="refer-anchor-style-transfer"></div>
 
@@ -835,8 +825,6 @@ The output is:
 
 </details>
 
-****
-
 <div id="refer-anchor-matting"></div>
 
 <details>
@@ -846,7 +834,6 @@ The output is:
 
 </details>
 
-****
 
 
 ## 5. Lite.AI API Docs.
