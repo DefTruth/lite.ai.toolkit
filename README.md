@@ -192,7 +192,7 @@ Most of the models were converted by Lite.AI, and others were referenced from th
 
 Correspondence between the classes in *Lite.AI* and pretrained model files can be found at [lite.ai.hub.md](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.md). For examples, the pretrained model files for *lite::cv::detection::YoloV5* and *lite::cv::detection::YoloX* are listed as following.  
 
-|             Model             | Pretrained ONNX files |                   Rename or Converted From (Repo)                   | Size  |
+|             Model             | Pretrained ONNX Files |                   Rename or Converted From (Repo)                   | Size  |
 | :---------------------------: | :-------------------: | :----------------------------------------------------: | :---: |
 | *lite::cv::detection::YoloV5* |     yolov5l.onnx      | [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑) | 188Mb |
 | *lite::cv::detection::YoloV5* |     yolov5m.onnx      | [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑) | 85Mb  |
