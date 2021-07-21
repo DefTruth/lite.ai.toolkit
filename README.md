@@ -16,7 +16,7 @@
 
 ## Introduction.    
 
-[![](https://img.shields.io/badge/MacOS-success-green.svg)](https://github.com/DefTruth/lite.ai/releases/tag/v0.0.1) ![](https://img.shields.io/badge/Linux-doing-yellowgreen.svg) [![](https://img.shields.io/badge/Version-0.0.1-brightgreen.svg)](https://github.com/DefTruth/lite.ai/releases/tag/v0.0.1)
+[![](https://img.shields.io/badge/MacOS-success-green.svg)](https://github.com/DefTruth/lite.ai/releases/tag/v0.0.1) ![](https://img.shields.io/badge/Linux-doing-yellowgreen.svg) [![](https://img.shields.io/badge/Version-0.0.1-brightgreen.svg)](https://github.com/DefTruth/lite.ai/releases/tag/v0.0.1) ![](https://img.shields.io/badge/Language-C%2B%2B-orange.svg) ![](https://img.shields.io/badge/License-MIT-blue.svg)
 
 
 <div id="refer-anchor-Introduction"></div> 
