@@ -28,6 +28,7 @@
 * Important Note !!!   
   ⚠️ *Lite.AI* was rename from the *LiteHub* repo ! *LiteHub* will no longer be maintained.   
   
+
 * Working on. 👇🏻
   * ✅ [object detection](#refer-anchor-object-detection) 
   * ✅ [image classification](#refer-anchor-object-detection) 
