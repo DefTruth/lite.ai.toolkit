@@ -188,7 +188,7 @@ Most of the models were converted by Lite.AI, and others were referenced from th
 |[MobileV1RetinaFace](https://github.com/biubug6/Pytorch_Retinaface)|-| [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface) | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::detect* | ⚠️ | - |
 |[ResNetRetinaFace](https://github.com/biubug6/Pytorch_Retinaface)|-| [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface) | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::detect* | ⚠️ | - |
 |[FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)|-| [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch) | 🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::detect* | ⚠️ | - |
-|[YoloX](https://github.com/Megvii-BaseDetection/YOLOX)|3.5M| [YOLOX]( https://github.com/Megvii-BaseDetection/YOLOX) | 🔥🔥!!↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolox.cpp) |
+|[YoloX](https://github.com/Megvii-BaseDetection/YOLOX)|3.5M| [YOLOX]( https://github.com/Megvii-BaseDetection/YOLOX) | 🔥🔥!!↑ | - | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolox.cpp) |
 
 Correspondence between the classes in *Lite.AI* and pretrained model files can be found at [lite.ai.hub.md](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.md). For examples, the pretrained model files for *lite::cv::detection::YoloV5* and *lite::cv::detection::YoloX* are listed as following.  
 
