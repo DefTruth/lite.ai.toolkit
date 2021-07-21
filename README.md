@@ -86,9 +86,10 @@ The code of [Lite.AI](#refer-anchor-Introduction) is released under the MIT Lice
 * [LiteHub API Docs](#refer-anchor-Lite.AI-API-Docs)
 * [Other Docs](#refer-anchor-Other-Docs)
 * [Acknowledgements](#refer-anchor-Acknowledgements)
-* [License](#refer-anchor-License)
+* [License](#refer-anchor-License)  
+<!----  
 * [Contributions](#refer-anchor-Contributions)
-
+---->
 
 ## 1. Dependencies.  
 
@@ -984,7 +985,7 @@ Many thanks to the following projects. All the Lite.AI's models are sourced from
 * [28] [YOLOX]( https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥new!!↑)
 * [??] [lite.ai](https://github.com/DefTruth/lite.ai) ( 👈🏻 yet, I guess you might be also interested in this repo ~ 🙃🤪🍀)
 
-
+<!----
 
 ## 8. Contributions.  
 <div id="refer-anchor-Contributions"></div>  
@@ -1000,3 +1001,4 @@ Do you want to contribute a model? To get started, just open an new issue with t
 
 Do you want a C++ user friendly version of you own pretrained models ? Come and join us ~  🙃🤪🍀
 
+-----> 
