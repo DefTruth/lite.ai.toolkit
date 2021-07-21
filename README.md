@@ -25,11 +25,16 @@
 
 ****
 
-* Important Note !!!   
-  ⚠️ *Lite.AI* was rename from the *LiteHub* repo ! *LiteHub* will no longer be maintained.   
-  
+* Important Notes !!!   
+  🔥 (20210721) Added [YOLOX]() into *Lite.AI* ! Use it through [*lite::cv::detection::YoloX*](#refer-anchor-object-detection) syntax ! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolox.cpp) .  
+  ⚠️ (20210716) *Lite.AI* was rename from the *LiteHub* repo ! *LiteHub* will no longer be maintained.   
 
-* Working on. 👇🏻
+****  
+
+<details>
+<summary> Expand for More Notes.</summary>  
+
+* Working Notes. 👇🏻
   * ✅ [object detection](#refer-anchor-object-detection) 
   * ✅ [image classification](#refer-anchor-object-detection) 
   * ❇️ [face detection](#refer-anchor-face-detection) 
@@ -40,12 +45,17 @@
   * ⚠️ [style transfer](#refer-anchor-style-transfer)
   * ⚠️ [colorization](#refer-anchor-colorization)
   * ⚠️ [matting](#refer-anchor-matting)
-  
+
+</details>
 
 ****
 <div id="refer-anchor-Related-Lite.AI-Projects"></div>
 
-* Related Lite.AI Projects. 👇🏻
+<details>
+<summary> Expand Examples for Related Lite.AI Projects.</summary>  
+
+* Related Lite.AI Projects. 👇🏻   
+
   * ❇️ [lite.ai](https://github.com/DefTruth/lite.ai) (*doing*✋🏻)
   * ❇️ [lite.ai-onnxruntime](https://github.com/DefTruth/lite.ai-onnxruntime) (*doing*✋🏻)
   * ⚠️ [lite.ai-mnn](https://github.com/DefTruth/lite.ai-mnn) (*todo*️)
@@ -53,7 +63,9 @@
   * ❇️ [lite.ai-release](https://github.com/DefTruth/lite.ai-release) (*doing*✋🏻)
   * ⚠️ [lite.ai-python](https://github.com/DefTruth/lite.ai-python) (*todo*️)
   * ⚠️ [lite.ai-jni](https://github.com/DefTruth/lite.ai-jni) (*todo*️)  
-  
+
+</details>  
+
 ****
 
 ## License.  
