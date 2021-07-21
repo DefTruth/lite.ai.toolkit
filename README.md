@@ -33,7 +33,7 @@
   * ✅ [image classification](#refer-anchor-object-detection) 
   * ❇️ [face detection](#refer-anchor-face-detection) 
   * ❇️ [face alignment](#refer-anchor-face-alignment) 
-  * ❇️ [face recognition](#refer-anchor-face-recognition) 
+  * ✅ [face recognition](#refer-anchor-face-recognition) 
   * ❇️ [face attributes analysis](#refer-anchor-face-attributes-analysis)
   * ⚠️ [segmentation](#refer-anchor-segmentation)
   * ⚠️ [style transfer](#refer-anchor-style-transfer)
@@ -187,24 +187,36 @@ Most of the models were converted by Lite.AI, and others were referenced from th
 |[MobileV1RetinaFace](https://github.com/biubug6/Pytorch_Retinaface)|-| [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface) | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::detect* | ⚠️ | - |
 |[ResNetRetinaFace](https://github.com/biubug6/Pytorch_Retinaface)|-| [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface) | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::detect* | ⚠️ | - |
 |[FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)|-| [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch) | 🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::detect* | ⚠️ | - |
-|[YoloX]( https://github.com/Megvii-BaseDetection/YOLOX)|-| [YOLOX]( https://github.com/Megvii-BaseDetection/YOLOX) | 🔥🔥!!↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolox.cpp) |
+|[YoloX](https://github.com/Megvii-BaseDetection/YOLOX)|3.5M| [YOLOX]( https://github.com/Megvii-BaseDetection/YOLOX) | 🔥🔥!!↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolox.cpp) |
 
-Correspondence between the classes in *Lite.AI* and pretrained model files can be found at [lite.ai.hub.md](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.md). For examples, the pretrained model files for *lite::cv::detection::YoloV5* are listed as following.  
+Correspondence between the classes in *Lite.AI* and pretrained model files can be found at [lite.ai.hub.md](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.md). For examples, the pretrained model files for *lite::cv::detection::YoloV5* and *lite::cv::detection::YoloX* are listed as following.  
 
 |             Model             | Pretrained ONNX files |                   Rename or Converted From (Repo)                   | Size  |
 | :---------------------------: | :-------------------: | :----------------------------------------------------: | :---: |
-| *lite::cv::detection::YoloV5* |     Yolov5l.onnx      | [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑) | 188Mb |
-| *lite::cv::detection::YoloV5* |     Yolov5m.onnx      | [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑) | 85Mb  |
-| *lite::cv::detection::YoloV5* |     Yolov5s.onnx      | [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑) | 29Mb  |
-| *lite::cv::detection::YoloV5* |     Yolov5x.onnx      | [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑) | 351Mb |
+| *lite::cv::detection::YoloV5* |     yolov5l.onnx      | [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑) | 188Mb |
+| *lite::cv::detection::YoloV5* |     yolov5m.onnx      | [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑) | 85Mb  |
+| *lite::cv::detection::YoloV5* |     yolov5s.onnx      | [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑) | 29Mb  |
+| *lite::cv::detection::YoloV5* |     yolov5x.onnx      | [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑) | 351Mb |
+| *lite::cv::detection::YoloX* |     yolox_x.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 378Mb |
+| *lite::cv::detection::YoloX* |     yolox_l.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 207Mb  |
+| *lite::cv::detection::YoloX* |     yolox_m.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 97Mb  |
+| *lite::cv::detection::YoloX* |     yolox_s.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 34Mb |
+| *lite::cv::detection::YoloX* |     yolox_tiny.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 19Mb |
+| *lite::cv::detection::YoloX* |     yolox_nano.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 3.5Mb |
 
-It means that you can load the any one `yolov5*.onnx` according to your application through the same Lite.AI class *YoloV5*, such as:  
+It means that you can load the any one `yolov5*.onnx` and  `yolox_*.onnx` according to your application through the same Lite.AI class *YoloV5* and *YoloX*, such as:  
 
 ```c++
 auto *yolov5 = new lite::cv::detection::YoloV5("yolov5x.onnx");  // for server
 auto *yolov5 = new lite::cv::detection::YoloV5("yolov5l.onnx"); 
 auto *yolov5 = new lite::cv::detection::YoloV5("yolov5m.onnx");  
-auto *yolov5 = new lite::cv::detection::YoloV5("yolov5s.onnx");  // for mobile device
+auto *yolov5 = new lite::cv::detection::YoloV5("yolov5s.onnx");  // for mobile device 
+auto *yolox = new lite::cv::detection::YoloX("yolox_x.onnx");  
+auto *yolox = new lite::cv::detection::YoloX("yolox_l.onnx");  
+auto *yolox = new lite::cv::detection::YoloX("yolox_m.onnx");  
+auto *yolox = new lite::cv::detection::YoloX("yolox_s.onnx");  
+auto *yolox = new lite::cv::detection::YoloX("yolox_tiny.onnx");  
+auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only !
 ```
 
 ****
