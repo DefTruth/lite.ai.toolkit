@@ -205,7 +205,7 @@ Correspondence between the classes in *Lite.AI* and pretrained model files can b
 | *lite::cv::detection::YoloX* |     yolox_tiny.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 19Mb |
 | *lite::cv::detection::YoloX* |     yolox_nano.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 3.5Mb |
 
-It means that you can load the any one `yolov5*.onnx` and  `yolox_*.onnx` according to your application through the same Lite.AI class *YoloV5* and *YoloX*, such as:  
+It means that you can load the any one `yolov5*.onnx` and  `yolox_*.onnx` according to your application through the same Lite.AI classes, such as *YoloV5*, *YoloX*, etc.
 
 ```c++
 auto *yolov5 = new lite::cv::detection::YoloV5("yolov5x.onnx");  // for server
