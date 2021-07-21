@@ -21,7 +21,7 @@
 
 <div id="refer-anchor-Introduction"></div> 
 
-*Lite.AI* 🚀🚀🌟 is a simple, low-coupling, and user-friendly C++ library for awesome🔥🔥🔥 AI models, such as YOLOX, YoloV5, YoloV4, DeepLabV3, ArcFace, CosFace, Colorization, SSD, etc. And, it only relies on *[OpenCV](https://github.com/opencv/opencv)* and commonly used inference engines, namely, *[onnxruntime](https://github.com/microsoft/onnxruntime)*, *[ncnn](https://github.com/Tencent/ncnn)*, and *[mnn](https://github.com/alibaba/MNN)*. It currently mainly includes some *CV(Computer Vision 💻)* modules, such as [object detection](#refer-anchor-object-detection), [face detection](#refer-anchor-face-detection), [style transfer](#refer-anchor-style-transfer), [face alignment](#refer-anchor-face-alignment), [face recognition](#refer-anchor-face-recognition), [segmentation](#refer-anchor-segmentation), [colorization](#refer-anchor-colorization), [face attributes analysis](#refer-anchor-face-attributes-analysis), [image classification](#refer-anchor-image-classification), [matting](#refer-anchor-matting), etc.  You can use these awesome models through *lite::cv::Type::Model* syntax, such as *[lite::cv::detection::YoloV5](#refer-anchor-object-detection)* or *[lite::cv::face::detect::UltraFace](#refer-anchor-face-detection)*.  I do have plans to add *NLP* or *ASR* modules, but not coming soon. Currently, I am focusing🔍 on *Computer Vision* 💻 . It is important to note that the models here are all from third-party projects. All models used will be cited. Many thanks to these contributors. Have a good travel ~ 🙃🤪🍀  
+*Lite.AI* 🚀🚀🌟 is a simple, low-coupling, and user-friendly C++ library for awesome🔥🔥🔥 AI models, such as YOLOX, YoloV5, YoloV4, DeepLabV3, ArcFace, CosFace, Colorization, SSD, etc. And, it only relies on *[OpenCV](https://github.com/opencv/opencv)* and commonly used inference engines, namely, *[onnxruntime](https://github.com/microsoft/onnxruntime)*, *[ncnn](https://github.com/Tencent/ncnn)*, and *[mnn](https://github.com/alibaba/MNN)*. It currently mainly includes some *CV(Computer Vision 💻)* modules, such as [object detection](#refer-anchor-object-detection), [face detection](#refer-anchor-face-detection), [style transfer](#refer-anchor-style-transfer), [face alignment](#refer-anchor-face-alignment), [face recognition](#refer-anchor-face-recognition), [segmentation](#refer-anchor-segmentation), [colorization](#refer-anchor-colorization), [face attributes analysis](#refer-anchor-face-attributes-analysis), [image classification](#refer-anchor-image-classification), [matting](#refer-anchor-matting), etc.  You can use these awesome models through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#refer-anchor-object-detection)* or *[lite::cv::face::detect::UltraFace](#refer-anchor-face-detection)*.  I do have plans to add *NLP* or *ASR* modules, but not coming soon. Currently, I am focusing🔍 on *Computer Vision* 💻 . It is important to note that the models here are all from third-party projects. All models used will be cited. Many thanks to these contributors. Have a good travel ~ 🙃🤪🍀  
 
 
 ## Important Notes !!!   
@@ -136,12 +136,45 @@ install `OpenCV` and `onnxruntime` libraries using Homebrew or you can download 
 | *lite::cv::colorization*   | Colorization. Make Gray image become RGB. ⚠️                  |
 | *lite::cv::resolution*     | Super Resolution.  ⚠️                                         |
 
-### 2.2 Models for ONNX version.
 
-Most of the models were converted by Lite.AI, and others were referenced from third-party libraries. The name of the class here will be different from the original repository, because different repositories have different implementations of the same algorithm. For example, ArcFace in [insightface](https://github.com/deepinsight/insightface) is different from ArcFace in [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) . ArcFace in [insightface](https://github.com/deepinsight/insightface) uses Arc-Loss + Softmax, while ArcFace in [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) uses Arc-Loss + Focal-Loss. Lite.AI uses naming to make the necessary distinctions between models from different sources.  Therefore, in Lite.AI, different names of the same algorithm mean that the corresponding models come from different repositories, different implementations, or use different training data, etc. Just jump to [lite.ai-demos](https://github.com/DefTruth/lite.ai/tree/main/examples/lite/cv) to figure out the usage of each model in Lite.AI. ✅ means passed the test and ⚠️ means not implements yet but coming soon. For models which denoted ✅, you can use it through *lite::cv::Type::Model* syntax, such as *[lite::cv::detection::YoloV5](#refer-anchor-object-detection)* or *[lite::cv::face::detect::UltraFace](#refer-anchor-face-detection)*. More details can be found at [Examples for Lite.AI](#refer-anchor-Examples-for-Lite.AI) .  
+### 2.2 Lite.AI's Classes and Pretrained Files.  
+
+Correspondence between the classes in *Lite.AI* and pretrained model files can be found at [lite.ai.hub.md](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.md). For examples, the pretrained model files for *lite::cv::detection::YoloV5* and *lite::cv::detection::YoloX* are listed as following.
+
+|             Model             | Pretrained ONNX Files |                   Rename or Converted From (Repo)                   | Size  |
+| :---------------------------: | :-------------------: | :----------------------------------------------------: | :---: |
+| *lite::cv::detection::YoloV5* |     yolov5l.onnx      | [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑) | 188Mb |
+| *lite::cv::detection::YoloV5* |     yolov5m.onnx      | [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑) | 85Mb  |
+| *lite::cv::detection::YoloV5* |     yolov5s.onnx      | [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑) | 29Mb  |
+| *lite::cv::detection::YoloV5* |     yolov5x.onnx      | [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑) | 351Mb |
+| *lite::cv::detection::YoloX* |     yolox_x.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 378Mb |
+| *lite::cv::detection::YoloX* |     yolox_l.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 207Mb  |
+| *lite::cv::detection::YoloX* |     yolox_m.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 97Mb  |
+| *lite::cv::detection::YoloX* |     yolox_s.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 34Mb |
+| *lite::cv::detection::YoloX* |     yolox_tiny.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 19Mb |
+| *lite::cv::detection::YoloX* |     yolox_nano.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 3.5Mb |
+
+It means that you can load the any one `yolov5*.onnx` and  `yolox_*.onnx` according to your application through the same Lite.AI classes, such as *YoloV5*, *YoloX*, etc.
+
+```c++
+auto *yolov5 = new lite::cv::detection::YoloV5("yolov5x.onnx");  // for server
+auto *yolov5 = new lite::cv::detection::YoloV5("yolov5l.onnx"); 
+auto *yolov5 = new lite::cv::detection::YoloV5("yolov5m.onnx");  
+auto *yolov5 = new lite::cv::detection::YoloV5("yolov5s.onnx");  // for mobile device 
+auto *yolox = new lite::cv::detection::YoloX("yolox_x.onnx");  
+auto *yolox = new lite::cv::detection::YoloX("yolox_l.onnx");  
+auto *yolox = new lite::cv::detection::YoloX("yolox_m.onnx");  
+auto *yolox = new lite::cv::detection::YoloX("yolox_s.onnx");  
+auto *yolox = new lite::cv::detection::YoloX("yolox_tiny.onnx");  
+auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only !
+```
+
+### 2.3 Model Zoo for ONNX Version.
+
+Most of the models were converted by Lite.AI, and others were referenced from third-party libraries. The name of the class here will be different from the original repository, because different repositories have different implementations of the same algorithm. For example, ArcFace in [insightface](https://github.com/deepinsight/insightface) is different from ArcFace in [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) . ArcFace in [insightface](https://github.com/deepinsight/insightface) uses Arc-Loss + Softmax, while ArcFace in [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) uses Arc-Loss + Focal-Loss. Lite.AI uses naming to make the necessary distinctions between models from different sources.  Therefore, in Lite.AI, different names of the same algorithm mean that the corresponding models come from different repositories, different implementations, or use different training data, etc. Just jump to [lite.ai-demos](https://github.com/DefTruth/lite.ai/tree/main/examples/lite/cv) to figure out the usage of each model in Lite.AI. ✅ means passed the test and ⚠️ means not implements yet but coming soon. For models which denoted ✅, you can use it through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#refer-anchor-object-detection)* or *[lite::cv::face::detect::UltraFace](#refer-anchor-face-detection)*. More details can be found at [Examples for Lite.AI](#refer-anchor-Examples-for-Lite.AI) .  
 ([Baidu Drive](https://pan.baidu.com/s/1elUGcx7CZkkjEoYhTMwTRQ) code: 8gin) <div id="refer-anchor-2"></div>
 
-|Model|Size|From|Awesome|File|Type|State|Usage|
+|Class|Size|From|Awesome|File|Type|State|Usage|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |[YoloV5](https://github.com/ultralytics/yolov5)|28M|[yolov5](https://github.com/ultralytics/yolov5)|🔥🔥💥↑| [lite.ai](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_yolov5.zh.md) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolov5.cpp) |
 |[YoloV3](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/yolov3)|236M|[onnx-models](https://github.com/onnx/models)|🔥🔥🔥↑| - | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolov3.cpp) |
@@ -149,7 +182,7 @@ Most of the models were converted by Lite.AI, and others were referenced from th
 |[YoloV4](https://github.com/argusswift/YOLOv4-pytorch)|176M| [YOLOv4...](https://github.com/argusswift/YOLOv4-pytorch) | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_yolov4.zh.md) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_tiny_yolov4.cpp) |
 |[SSD](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd)|76M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_ssd.cpp) |
 |[SSDMobileNetV1](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd-mobilenetv1)|27M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_ssd_mobilenetv1.cpp) |
-|[EfficientNet-Lite4](https://github.com/onnx/models/blob/master/vision/classification/efficientnet-lite4)|49M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_efficientnet_lite4.cpp) |
+|[EfficientNetLite4](https://github.com/onnx/models/blob/master/vision/classification/efficientnet-lite4)|49M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_efficientnet_lite4.cpp) |
 |[ShuffleNetV2](https://github.com/onnx/models/blob/master/vision/classification/shufflenet)|8.7M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | - | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_shufflenetv2.cpp) |
 |[FSANet](https://github.com/omasaht/headpose-fsanet-pytorch)|1.2M| [...fsanet...](https://github.com/omasaht/headpose-fsanet-pytorch) | 🔥↑ | - | *face::pose* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_fsanet.cpp) |
 |[PFLD](https://github.com/Hsintao/pfld_106_face_landmarks)|1.0M| [pfld_106_...](https://github.com/Hsintao/pfld_106_face_landmarks) |  🔥🔥↑  | - | *face::align* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_pfld.cpp) |
@@ -200,36 +233,6 @@ Most of the models were converted by Lite.AI, and others were referenced from th
 |[ResNetRetinaFace](https://github.com/biubug6/Pytorch_Retinaface)|-| [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface) | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::detect* | ⚠️ | - |
 |[FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)|-| [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch) | 🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::detect* | ⚠️ | - |
 |[YoloX](https://github.com/Megvii-BaseDetection/YOLOX)|3.5M| [YOLOX]( https://github.com/Megvii-BaseDetection/YOLOX) | 🔥🔥!!↑ | - | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolox.cpp) |
-
-Correspondence between the classes in *Lite.AI* and pretrained model files can be found at [lite.ai.hub.md](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.md). For examples, the pretrained model files for *lite::cv::detection::YoloV5* and *lite::cv::detection::YoloX* are listed as following.  
-
-|             Model             | Pretrained ONNX Files |                   Rename or Converted From (Repo)                   | Size  |
-| :---------------------------: | :-------------------: | :----------------------------------------------------: | :---: |
-| *lite::cv::detection::YoloV5* |     yolov5l.onnx      | [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑) | 188Mb |
-| *lite::cv::detection::YoloV5* |     yolov5m.onnx      | [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑) | 85Mb  |
-| *lite::cv::detection::YoloV5* |     yolov5s.onnx      | [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑) | 29Mb  |
-| *lite::cv::detection::YoloV5* |     yolov5x.onnx      | [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑) | 351Mb |
-| *lite::cv::detection::YoloX* |     yolox_x.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 378Mb |
-| *lite::cv::detection::YoloX* |     yolox_l.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 207Mb  |
-| *lite::cv::detection::YoloX* |     yolox_m.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 97Mb  |
-| *lite::cv::detection::YoloX* |     yolox_s.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 34Mb |
-| *lite::cv::detection::YoloX* |     yolox_tiny.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 19Mb |
-| *lite::cv::detection::YoloX* |     yolox_nano.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 3.5Mb |
-
-It means that you can load the any one `yolov5*.onnx` and  `yolox_*.onnx` according to your application through the same Lite.AI classes, such as *YoloV5*, *YoloX*, etc.
-
-```c++
-auto *yolov5 = new lite::cv::detection::YoloV5("yolov5x.onnx");  // for server
-auto *yolov5 = new lite::cv::detection::YoloV5("yolov5l.onnx"); 
-auto *yolov5 = new lite::cv::detection::YoloV5("yolov5m.onnx");  
-auto *yolov5 = new lite::cv::detection::YoloV5("yolov5s.onnx");  // for mobile device 
-auto *yolox = new lite::cv::detection::YoloX("yolox_x.onnx");  
-auto *yolox = new lite::cv::detection::YoloX("yolox_l.onnx");  
-auto *yolox = new lite::cv::detection::YoloX("yolox_m.onnx");  
-auto *yolox = new lite::cv::detection::YoloX("yolox_s.onnx");  
-auto *yolox = new lite::cv::detection::YoloX("yolox_tiny.onnx");  
-auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only !
-```
 
 ****
 
