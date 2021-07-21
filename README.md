@@ -75,7 +75,6 @@
 
 The code of [Lite.AI](#refer-anchor-Introduction) is released under the MIT License.
 
-****
 
 ## Contents.
 * [Introduction](#refer-anchor-Introduction)
@@ -90,7 +89,6 @@ The code of [Lite.AI](#refer-anchor-Introduction) is released under the MIT Lice
 * [License](#refer-anchor-License)
 * [Contributions](#refer-anchor-Contributions)
 
-****
 
 ## 1. Dependencies.  
 
