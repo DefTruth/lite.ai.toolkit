@@ -29,11 +29,9 @@
 * 🔥 (20210721) Added [YOLOX]() into *Lite.AI* ! Use it through [*lite::cv::detection::YoloX*](#refer-anchor-object-detection) syntax ! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolox.cpp) .  
 * ⚠️ (20210716) *Lite.AI* was rename from the *LiteHub* repo ! *LiteHub* will no longer be maintained.   
 
-****  
 
 <details>
 <summary> Expand for More Notes.</summary>  
-
 
 * Working Notes. 👇🏻
   * ✅ [object detection](#refer-anchor-object-detection) 
@@ -49,7 +47,6 @@
 
 </details>
 
-****
 <div id="refer-anchor-Related-Lite.AI-Projects"></div>
 
 <details>
@@ -67,7 +64,7 @@
 
 </details>  
 
-****
+
 
 ## License.  
 
@@ -102,9 +99,17 @@ install `OpenCV` and `onnxruntime` libraries using Homebrew or you can download 
   brew update
   brew install opencv
   brew install onnxruntime
-```
+```  
+<details>
+<summary> Expand for More Details of Dependencies.</summary>  
 
-* Linux & Windows. (*todo*⚠️)
+
+* Linux.  
+  * *todo*⚠️  
+  
+* Windows.   
+  * *todo*⚠️  
+  
 * Inference Engine Plans:
   * *doing*:  
     ❇️ `onnxruntime` 
@@ -112,7 +117,8 @@ install `OpenCV` and `onnxruntime` libraries using Homebrew or you can download 
     ⚠️ `NCNN`  
     ⚠️ `MNN`  
     ⚠️ `OpenMP`
-    
+
+</details>
 
 ## 2. Model Zoo.
 
@@ -234,7 +240,7 @@ Most of the models were converted by Lite.AI, and others were referenced from th
 |[FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)|-| [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch) | 🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::detect* | ⚠️ | - |
 |[YoloX](https://github.com/Megvii-BaseDetection/YOLOX)|3.5M| [YOLOX]( https://github.com/Megvii-BaseDetection/YOLOX) | 🔥🔥!!↑ | - | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolox.cpp) |
 
-****
+
 
 <details>
 <summary> Expand for the pretrianed models of MNN and NCNN version.</summary>
@@ -242,14 +248,13 @@ Most of the models were converted by Lite.AI, and others were referenced from th
 ### 2.3 Models for MNN version.  
 * *todo*⚠️  
 
-****
+
 
 ### 2.4 Models for NCNN version.  
 * *todo*⚠️
 
 </details>
 
-****
 
 ## 3. Build Lite.AI.  
 
@@ -281,7 +286,6 @@ liblite.ai.0.0.1.dylib:
         ...
 ```
 
-****
 
 <details>
 <summary> Expand for more details of How to link the shared lib of Lite.AI?</summary>
@@ -349,7 +353,6 @@ A minimum example to show you how to link the shared lib of Lite.AI correctly fo
 
 </details>
 
-****
 
 ## 4. Examples for Lite.AI.  
 
@@ -860,7 +863,6 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
             unsigned int topk = 100, unsigned int nms_type = NMS::OFFSET);
 ```
 
-****
 
 <details>
 <summary> Expand for ONNXRuntime, MNN and NCNN version APIs.</summary>
@@ -875,7 +877,6 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
             unsigned int topk = 100, unsigned int nms_type = NMS::OFFSET);
 ```
 
-****
 
 ### 5.3 MNN Version APIs. 
 
@@ -891,7 +892,6 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 
 ...
 
-****
 
 ### 5.4 NCNN Version APIs.
 
@@ -909,15 +909,12 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 
 </details>
 
-****
 
 
 ## 6. Other Docs.  
 
 <div id="refer-anchor-Other-Docs"></div>  
-<div id="refer-anchor-1"></div> 
-
-****
+<div id="refer-anchor-1"></div>
 
 <details>
 <summary> Expand for more details of Other Docs.</summary>
@@ -932,7 +929,6 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 * [How to convert YoloV3 to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_yolov3.zh.md)
 * [How to convert YoloV5 to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_yolov5.zh.md)
 
-****
 
 ### 6.2 Docs for [third_party](https://github.com/DefTruth/lite.ai/tree/main/third_party).  
 Other build documents for different engines and different targets will be added later.
@@ -950,7 +946,6 @@ Other build documents for different engines and different targets will be added 
 
 </details>
 
-****
 
 ## 7. Acknowledgements.  
 
