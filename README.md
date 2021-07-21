@@ -111,8 +111,7 @@ install `OpenCV` and `onnxruntime` libraries using Homebrew or you can download 
     ⚠️ `NCNN`  
     ⚠️ `MNN`  
     ⚠️ `OpenMP`
-
-****
+    
 
 ## 2. Model Zoo.
 
@@ -985,7 +984,7 @@ Many thanks to the following projects. All the Lite.AI's models are sourced from
 * [28] [YOLOX]( https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥new!!↑)
 * [??] [lite.ai](https://github.com/DefTruth/lite.ai) ( 👈🏻 yet, I guess you might be also interested in this repo ~ 🙃🤪🍀)
 
-****
+
 
 ## 8. Contributions.  
 <div id="refer-anchor-Contributions"></div>  
