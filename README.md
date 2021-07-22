@@ -50,7 +50,7 @@
 <div id="refer-anchor-Related-Lite.AI-Projects"></div>
 
 <details>
-<summary> Expand Examples for Related Lite.AI Projects.</summary>  
+<summary> Expand for Related Lite.AI Projects.</summary>  
 
 * Related Lite.AI Projects. 👇🏻   
 
