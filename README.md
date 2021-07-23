@@ -148,7 +148,7 @@ install `OpenCV` and `onnxruntime` libraries using Homebrew or you can download 
 
 Correspondence between the classes in *Lite.AI* and pretrained model files can be found at [lite.ai.hub.onnx.md](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md). For examples, the pretrained model files for *lite::cv::detection::YoloV5* and *lite::cv::detection::YoloX* are listed as follows.
 
-|             Model             | Pretrained ONNX Files |                   Rename or Converted From (Repo)                   | Size  |
+|             Class             | Pretrained ONNX Files |                   Rename or Converted From (Repo)                   | Size  |
 | :---------------------------: | :-------------------: | :----------------------------------------------------: | :---: |
 | *lite::cv::detection::YoloV5* |     yolov5l.onnx      | [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑) | 188Mb |
 | *lite::cv::detection::YoloV5* |     yolov5m.onnx      | [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑) | 85Mb  |
