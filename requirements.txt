@@ -6,7 +6,7 @@ torchvision
 YOLOX
 insightface
 yolov5
-TFace
+Tencent/TFace
 Ultra-Light-Fast-Generic-Face-Detector-1MB
 headpose-fsanet-pytorch
 pfld_106_face_landmarks
@@ -30,4 +30,3 @@ pytorch_face_landmark
 FaceLandmark1000
 Pytorch_Retinaface
 FaceBoxes
-lite.ai
