@@ -6,14 +6,14 @@ torchvision
 YOLOX
 insightface
 yolov5
-Tencent/TFace
+TFace
 Ultra-Light-Fast-Generic-Face-Detector-1MB
 headpose-fsanet-pytorch
 pfld_106_face_landmarks
 SSR_Net_Pytorch
 colorization
 SUB_PIXEL_CNN
-onnx/models
+onnx-models
 YOLOv4-pytorch
 facenet-pytorch
 face.evoLVe.PyTorch
