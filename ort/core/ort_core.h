@@ -56,19 +56,20 @@ namespace ortcv
   class LITE_EXPORTS CavaGhostArcFace;           // [42] * reference: https://github.com/cavalleria/cavaface.pytorch
   class LITE_EXPORTS CavaCombinedFace;           // [43] * reference: https://github.com/cavalleria/cavaface.pytorch
   class LITE_EXPORTS MobileSEFocalFace;          // [44] * reference: https://github.com/grib0ed0v/face_recognition.pytorch
-  class LITE_EXPORTS EfficientEmotion;           // [45] reference: https://github.com/HSE-asavchenko/face-emotion-recognition
-  class LITE_EXPORTS MobileEmotion;              // [46] reference: https://github.com/HSE-asavchenko/face-emotion-recognition
-  class LITE_EXPORTS ReXNetEmotion;              // [47] reference: https://github.com/HSE-asavchenko/face-emotion-recognition
-  class LITE_EXPORTS PFLD98;                     // [48] reference: https://github.com/polarisZhao/PFLD-pytorch
-  class LITE_EXPORTS MobileNetV268;              // [49] reference: https://github.com/cunjian/pytorch_face_landmark
-  class LITE_EXPORTS MobileV2SE68;               // [50] reference: https://github.com/cunjian/pytorch_face_landmark
-  class LITE_EXPORTS MobileV2SERE68;             // [51] reference: https://github.com/cunjian/pytorch_face_landmark
-  class LITE_EXPORTS PFLD68;                     // [52] reference: https://github.com/cunjian/pytorch_face_landmark
-  class LITE_EXPORTS FaceLandmark1000;           // [53] reference: https://github.com/Single430/FaceLandmark1000
-  class LITE_EXPORTS MobileV1RetinaFace;         // [54] reference: https://github.com/biubug6/Pytorch_Retinaface
-  class LITE_EXPORTS ResNetRetinaFace;           // [55] reference: https://github.com/biubug6/Pytorch_Retinaface
-  class LITE_EXPORTS FaceBoxes;                  // [56] reference: https://github.com/zisianw/FaceBoxes.PyTorch
-  class LITE_EXPORTS YoloX;                      // [57] reference: https://github.com/Megvii-BaseDetection/YOLOX
+  class LITE_EXPORTS EfficientEmotion7;          // [45] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
+  class LITE_EXPORTS EfficientEmotion8;          // [46] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
+  class LITE_EXPORTS MobileEmotion7;             // [47] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
+  class LITE_EXPORTS ReXNetEmotion7;             // [48] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
+  class LITE_EXPORTS PFLD98;                     // [49] reference: https://github.com/polarisZhao/PFLD-pytorch
+  class LITE_EXPORTS MobileNetV268;              // [50] reference: https://github.com/cunjian/pytorch_face_landmark
+  class LITE_EXPORTS MobileV2SE68;               // [51] reference: https://github.com/cunjian/pytorch_face_landmark
+  class LITE_EXPORTS MobileV2SERE68;             // [52] reference: https://github.com/cunjian/pytorch_face_landmark
+  class LITE_EXPORTS PFLD68;                     // [53] reference: https://github.com/cunjian/pytorch_face_landmark
+  class LITE_EXPORTS FaceLandmark1000;           // [54] reference: https://github.com/Single430/FaceLandmark1000
+  class LITE_EXPORTS MobileV1RetinaFace;         // [55] reference: https://github.com/biubug6/Pytorch_Retinaface
+  class LITE_EXPORTS ResNetRetinaFace;           // [56] reference: https://github.com/biubug6/Pytorch_Retinaface
+  class LITE_EXPORTS FaceBoxes;                  // [57] reference: https://github.com/zisianw/FaceBoxes.PyTorch
+  class LITE_EXPORTS YoloX;                      // [58] reference: https://github.com/Megvii-BaseDetection/YOLOX
 }
 
 namespace ortnlp

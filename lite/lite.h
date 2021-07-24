@@ -58,6 +58,10 @@
 #include "ort/cv/cava_combined_face.h"
 #include "ort/cv/yolox.h"
 #include "ort/cv/mobilese_focal_face.h"
+#include "ort/cv/efficient_emotion7.h"
+#include "ort/cv/efficient_emotion8.h"
+#include "ort/cv/mobile_emotion7.h"
+#include "ort/cv/rexnet_emotion7.h"
 
 #endif
 
@@ -126,6 +130,10 @@ namespace lite
     typedef ortcv::CavaCombinedFace _CavaCombinedFace;
     typedef ortcv::YoloX _YoloX;
     typedef ortcv::MobileSEFocalFace _MobileSEFocalFace;
+    typedef ortcv::EfficientEmotion7 _EfficientEmotion7;
+    typedef ortcv::EfficientEmotion8 _EfficientEmotion8;
+    typedef ortcv::MobileEmotion7 _MobileEmotion7;
+    typedef ortcv::ReXNetEmotion7 _ReXNetEmotion7;
 #endif
 
     // 1. classification
@@ -170,6 +178,10 @@ namespace lite
       typedef _VGG16Gender VGG16Gender; // gender estimation
       typedef _EmotionFerPlus EmotionFerPlus; // emotion detection
       typedef _SSRNet SSRNet; // age estimation
+      typedef _EfficientEmotion7 EfficientEmotion7;
+      typedef _EfficientEmotion8 EfficientEmotion8;
+      typedef _MobileEmotion7 MobileEmotion7;
+      typedef _ReXNetEmotion7 ReXNetEmotion7;
 #endif
       namespace detect
       {
@@ -201,6 +213,10 @@ namespace lite
         typedef _VGG16Gender VGG16Gender; // gender estimation
         typedef _EmotionFerPlus EmotionFerPlus; // emotion detection
         typedef _SSRNet SSRNet; // age estimation
+        typedef _EfficientEmotion7 EfficientEmotion7;
+        typedef _EfficientEmotion8 EfficientEmotion8;
+        typedef _MobileEmotion7 MobileEmotion7;
+        typedef _ReXNetEmotion7 ReXNetEmotion7;
 #endif
       }
 
@@ -356,6 +372,10 @@ namespace lite
       typedef ortcv::CavaCombinedFace _ONNXCavaCombinedFace;
       typedef ortcv::YoloX _ONNXYoloX;
       typedef ortcv::MobileSEFocalFace _ONNXMobileSEFocalFace;
+      typedef ortcv::EfficientEmotion7 _ONNXEfficientEmotion7;
+      typedef ortcv::EfficientEmotion8 _ONNXEfficientEmotion8;
+      typedef ortcv::MobileEmotion7 _ONNXMobileEmotion7;
+      typedef ortcv::ReXNetEmotion7 _ONNXReXNetEmotion7;
 
       // 1. classification
       namespace classification
@@ -394,6 +414,10 @@ namespace lite
         typedef _ONNXVGG16Gender VGG16Gender; // gender estimation
         typedef _ONNXEmotionFerPlus EmotionFerPlus; // emotion detection
         typedef _ONNXSSRNet SSRNet; // age estimation
+        typedef _ONNXEfficientEmotion7 EfficientEmotion7;
+        typedef _ONNXEfficientEmotion8 EfficientEmotion8;
+        typedef _ONNXMobileEmotion7 MobileEmotion7;
+        typedef _ONNXReXNetEmotion7 ReXNetEmotion7;
 
         namespace detect
         {
@@ -418,6 +442,10 @@ namespace lite
           typedef _ONNXVGG16Gender VGG16Gender; // gender estimation
           typedef _ONNXEmotionFerPlus EmotionFerPlus; // emotion detection
           typedef _ONNXSSRNet SSRNet; // age estimation
+          typedef _ONNXEfficientEmotion7 EfficientEmotion7;
+          typedef _ONNXEfficientEmotion8 EfficientEmotion8;
+          typedef _ONNXMobileEmotion7 MobileEmotion7;
+          typedef _ONNXReXNetEmotion7 ReXNetEmotion7;
         }
       }
       // 4. face recognition

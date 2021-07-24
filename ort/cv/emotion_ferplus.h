@@ -30,4 +30,5 @@ namespace ortcv
     void detect(const cv::Mat &mat, types::Emotions &emotions);
   };
 }
+
 #endif //LITE_AI_ORT_CV_EMOTION_FERPLUS_H

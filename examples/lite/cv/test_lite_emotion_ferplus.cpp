@@ -31,7 +31,7 @@ static void test_onnxruntime()
 {
   std::string onnx_path = "../../../hub/onnx/cv/emotion-ferplus-8.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_emotion_ferplus.jpg";
-  std::string save_img_path = "../../../logs/test_onnx_emotion_ferplus.jpg";
+  std::string save_img_path = "../../../logs/test_lite_emotion_ferplus.jpg";
 
   lite::onnxruntime::cv::face::attr::EmotionFerPlus *emotion_ferplus =
       new lite::onnxruntime::cv::face::attr::EmotionFerPlus(onnx_path);

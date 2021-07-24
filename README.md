@@ -230,9 +230,10 @@ Most of the models were converted by Lite.AI, and others were referenced from th
 |[ResNet](https://pytorch.org/hub/pytorch_vision_resnet/)|44M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_resnet.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_resnet.cpp) |
 |[ResNeXt](https://pytorch.org/hub/pytorch_vision_resnext/)|95M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_resnext.zh.md) | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_resnext.cpp) |
 |[MobileSEFocalFace](https://github.com/grib0ed0v/face_recognition.pytorch)|4.5M| [face_recog...](https://github.com/grib0ed0v/face_recognition.pytorch) | 🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *faceid* | ✅ |  [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_mobilese_focal_face.cpp) |
-|[EfficientEmotion](https://github.com/HSE-asavchenko/face-emotion-recognition)|-| [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::attr* | ⚠️ | - |
-|[MobileEmotion](https://github.com/HSE-asavchenko/face-emotion-recognition)|-| [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::attr* | ⚠️ | - |
-|[ReXNetEmotion](https://github.com/HSE-asavchenko/face-emotion-recognition)|-| [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::attr* | ⚠️ | - |
+|[EfficientEmotion7](https://github.com/HSE-asavchenko/face-emotion-recognition)|15M| [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::attr* | ✅️ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_efficient_emotion7.cpp) |
+|[EfficientEmotion8](https://github.com/HSE-asavchenko/face-emotion-recognition)|15M| [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::attr* | ✅  | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_efficient_emotion8.cpp) |
+|[MobileEmotion7](https://github.com/HSE-asavchenko/face-emotion-recognition)|13M| [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::attr* |  ✅  | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_mobile_emotion7.cpp) |
+|[ReXNetEmotion7](https://github.com/HSE-asavchenko/face-emotion-recognition)|30M| [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::attr* |  ✅  | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_rexnet_emotion7.cpp) |
 |[PFLD98](https://github.com/polarisZhao/PFLD-pytorch)|-| [PFLD...](https://github.com/polarisZhao/PFLD-pytorch) | 🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::align* | ⚠️ | - |
 |[MobileNetV268](https://github.com/cunjian/pytorch_face_landmark)|-| [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::align* | ⚠️ | - |
 |[MobileV2SE68](https://github.com/cunjian/pytorch_face_landmark)|-| [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 🔥🔥↑ | [lite.ai](https://github.com/DefTruth/lite.ai) | *face::align* | ⚠️ | - |
@@ -518,6 +519,10 @@ auto *attribute = new lite::cv::face::attr::GenderGoogleNet(onnx_path);
 auto *attribute = new lite::cv::face::attr::EmotionFerPlus(onnx_path);
 auto *attribute = new lite::cv::face::attr::VGG16Age(onnx_path);
 auto *attribute = new lite::cv::face::attr::VGG16Gender(onnx_path);
+auto *attribute = new lite::cv::face::attr::EfficientEmotion7(onnx_path); // 7 emotions, 15Mb only!
+auto *attribute = new lite::cv::face::attr::EfficientEmotion8(onnx_path); // 8 emotions, 15Mb only!
+auto *attribute = new lite::cv::face::attr::MobileEmotion7(onnx_path); // 7 emotions
+auto *attribute = new lite::cv::face::attr::ReXNetEmotion7(onnx_path); // 7 emotions
 ```
 
 ****

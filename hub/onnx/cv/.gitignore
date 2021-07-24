@@ -49,3 +49,4 @@ yolox_l.onnx
 yolox_m.onnx
 yolox_s.onnx
 face_recognition.pytorch_Mobilenet_se_focal_121000.onnx
+*face-emotion-recognition*
