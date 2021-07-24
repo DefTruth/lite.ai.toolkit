@@ -30,7 +30,7 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_tiny.onnx");
 auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only !
 ```
 
-Download all the models from ([Baidu Drive](https://pan.baidu.com/s/1elUGcx7CZkkjEoYhTMwTRQ) code: 8gin) 
+You can download all the pretrained models files of ONNX format from ([Baidu Drive](https://pan.baidu.com/s/1elUGcx7CZkkjEoYhTMwTRQ) code: 8gin) 
 
 ## Object Detection.
 
