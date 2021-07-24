@@ -1,6 +1,6 @@
 # Lite.AI.Hub.ONNX 
 
-Correspondence between the classes in *Lite.AI* and pretrained model files are listed as follows. For examples, the pretrained model files for *lite::cv::detection::YoloV5* and *lite::cv::detection::YoloX* are listed as follows.
+Correspondence between the classes in *Lite.AI* and pretrained model files can be found at this document. For examples, the pretrained model files for *lite::cv::detection::YoloV5* and *lite::cv::detection::YoloX* are listed as follows.
 
 |             Class             | Pretrained ONNX Files |               Rename or Converted From (Repo)                | Size  |
 | :---------------------------: | :-------------------: | :----------------------------------------------------------: | :---: |
