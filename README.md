@@ -28,8 +28,9 @@ Star 🌟👆🏻 this repo ! If it does any help to you ~ Have a good travel ~ 
 
 ## Important Notes !!!   
 
+* ✅ (20210723) *Lite.AI* has been added to the Third-party resources of [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) official repo.
 * ✅ (20210722) Update [lite.ai.hub.onnx.md](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md) ! [Check](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md) the relations of *Lite.AI's* classes and pretrained files
-* 🔥 (20210721) Added [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) into *Lite.AI* ! Use it through [*lite::cv::detection::YoloX*](#refer-anchor-object-detection) syntax ! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolox.cpp) .  
+* 🔥 (20210721) Added [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) to *Lite.AI* ! Use it through [*lite::cv::detection::YoloX*](#refer-anchor-object-detection) syntax ! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolox.cpp) .  
 * ⚠️ (20210716) *Lite.AI* was rename from the *LiteHub* repo ! *LiteHub* will no longer be maintained.   
 
 
@@ -163,7 +164,7 @@ Correspondence between the classes in *Lite.AI* and pretrained model files can b
 | *lite::cv::detection::YoloX* |     yolox_tiny.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 19Mb |
 | *lite::cv::detection::YoloX* |     yolox_nano.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 3.5Mb |
 
-It means that you can load the any one `yolov5*.onnx` and  `yolox_*.onnx` according to your application through the same Lite.AI classes, such as *YoloV5*, *YoloX*, etc.
+It means that you can load the the any one `yolov5*.onnx` and  `yolox_*.onnx` according to your application through the same Lite.AI classes, such as *YoloV5*, *YoloX*, etc.
 
 ```c++
 auto *yolov5 = new lite::cv::detection::YoloV5("yolov5x.onnx");  // for server
@@ -180,7 +181,7 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
 
 ### 2.3 Model Zoo for ONNX Version.
 
-Most of the models were converted by Lite.AI, and others were referenced from third-party libraries. The name of the class here will be different from the original repository, because different repositories have different implementations of the same algorithm. For example, ArcFace in [insightface](https://github.com/deepinsight/insightface) is different from ArcFace in [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) . ArcFace in [insightface](https://github.com/deepinsight/insightface) uses Arc-Loss + Softmax, while ArcFace in [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) uses Arc-Loss + Focal-Loss. Lite.AI uses naming to make the necessary distinctions between models from different sources.  Therefore, in Lite.AI, different names of the same algorithm mean that the corresponding models come from different repositories, different implementations, or use different training data, etc. Just jump to [lite.ai-demos](https://github.com/DefTruth/lite.ai/tree/main/examples/lite/cv) to figure out the usage of each model in Lite.AI. ✅ means passed the test and ⚠️ means not implements yet but coming soon. For models which denoted ✅, you can use it through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#refer-anchor-object-detection)* or *[lite::cv::face::detect::UltraFace](#refer-anchor-face-detection)*. More details can be found at [Examples for Lite.AI](#refer-anchor-Examples-for-Lite.AI) .  
+Most of the models were converted by Lite.AI, and others were referenced from third-party libraries. The name of the class here will be different from the original repository, because different repositories have different implementations of the same algorithm. For example, ArcFace in [insightface](https://github.com/deepinsight/insightface) is different from ArcFace in [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) . ArcFace in [insightface](https://github.com/deepinsight/insightface) uses Arc-Loss + Softmax, while ArcFace in [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) uses Arc-Loss + Focal-Loss. Lite.AI uses naming to make the necessary distinctions between models from different sources.  Therefore, in Lite.AI, different names of the same algorithm mean that the corresponding models come from different repositories, different implementations, or use different training data, etc. Just jump to [lite.ai-demos](https://github.com/DefTruth/lite.ai/tree/main/examples/lite/cv) to figure out the usage of each class in Lite.AI. ✅ means passed the test and ⚠️ means not implements yet but coming soon. For classes which denoted ✅, you can use it through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#refer-anchor-object-detection)* or *[lite::cv::face::detect::UltraFace](#refer-anchor-face-detection)*. More details can be found at [Examples for Lite.AI](#refer-anchor-Examples-for-Lite.AI) .  
 ([Baidu Drive](https://pan.baidu.com/s/1elUGcx7CZkkjEoYhTMwTRQ) code: 8gin) <div id="refer-anchor-2"></div>
 
 |Class|Size|From|Awesome|File|Type|State|Usage|
