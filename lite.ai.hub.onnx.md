@@ -101,11 +101,11 @@ You can download all the pretrained models files of ONNX format from ([Baidu Dri
 |    *lite::cv::face::attr::VGG16Age*     | vgg_ilsvrc_16_age_chalearn_iccv2015.onnx |      [onnx-models](https://github.com/onnx/models)       | 514Mb |
 |   *lite::cv::face::attr::VGG16Gender*   |   vgg_ilsvrc_16_gender_imdb_wiki.onnx    |      [onnx-models](https://github.com/onnx/models)       | 512Mb |
 |     *lite::cv::face::attr::SSRNet*      |               ssrnet.onnx                | [SSR_Net...](https://github.com/oukohou/SSR_Net_Pytorch) | 190Kb |
-|     *lite::cv::face::attr::EfficientEmotion7*      |  face-emotion-recognition-enet_b0_7.onnx  | [SSR_Net...](https://github.com/oukohou/SSR_Net_Pytorch) | 190Kb |
-|     *lite::cv::face::attr::EfficientEmotion8*      |  face-emotion-recognition-enet_b0_8_best_afew.onnx | [SSR_Net...](https://github.com/oukohou/SSR_Net_Pytorch) | 190Kb |
-|     *lite::cv::face::attr::EfficientEmotion8*      |  face-emotion-recognition-enet_b0_8_best_vgaf.onnx | [SSR_Net...](https://github.com/oukohou/SSR_Net_Pytorch) | 190Kb |
-|     *lite::cv::face::attr::MobileEmotion7*      |   face-emotion-recognition-mobilenet_7.onnx  | [SSR_Net...](https://github.com/oukohou/SSR_Net_Pytorch) | 190Kb |
-|     *lite::cv::face::attr::ReXNetEmotion7*      | face-emotion-recognition-affectnet_7_vggface2_rexnet150.onnx | [SSR_Net...](https://github.com/oukohou/SSR_Net_Pytorch) | 190Kb |
+|     *lite::cv::face::attr::EfficientEmotion7*      |  face-emotion-recognition-enet_b0_7.onnx  | [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 15Mb |
+|     *lite::cv::face::attr::EfficientEmotion8*      |  face-emotion-recognition-enet_b0_8_best_afew.onnx | [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 15Mb |
+|     *lite::cv::face::attr::EfficientEmotion8*      |  face-emotion-recognition-enet_b0_8_best_vgaf.onnx | [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 15Mb |
+|     *lite::cv::face::attr::MobileEmotion7*      |   face-emotion-recognition-mobilenet_7.onnx  | [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition)| 13Mb |
+|     *lite::cv::face::attr::ReXNetEmotion7*      | face-emotion-recognition-affectnet_7_vggface2_rexnet150.onnx | [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 30Mb |
 
 ### 
 
