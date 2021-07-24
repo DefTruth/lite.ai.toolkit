@@ -55,7 +55,7 @@ namespace ortcv
   class LITE_EXPORTS MobileFaceNet;              // [41] * reference: https://github.com/Xiaoccer/MobileFaceNet_Pytorch
   class LITE_EXPORTS CavaGhostArcFace;           // [42] * reference: https://github.com/cavalleria/cavaface.pytorch
   class LITE_EXPORTS CavaCombinedFace;           // [43] * reference: https://github.com/cavalleria/cavaface.pytorch
-  class LITE_EXPORTS MobileSEFocalFace;          // [44] reference: https://github.com/grib0ed0v/face_recognition.pytorch
+  class LITE_EXPORTS MobileSEFocalFace;          // [44] * reference: https://github.com/grib0ed0v/face_recognition.pytorch
   class LITE_EXPORTS EfficientEmotion;           // [45] reference: https://github.com/HSE-asavchenko/face-emotion-recognition
   class LITE_EXPORTS MobileEmotion;              // [46] reference: https://github.com/HSE-asavchenko/face-emotion-recognition
   class LITE_EXPORTS ReXNetEmotion;              // [47] reference: https://github.com/HSE-asavchenko/face-emotion-recognition
