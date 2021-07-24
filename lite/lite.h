@@ -57,6 +57,7 @@
 #include "ort/cv/cava_ghost_arcface.h"
 #include "ort/cv/cava_combined_face.h"
 #include "ort/cv/yolox.h"
+#include "ort/cv/mobilese_focal_face.h"
 
 #endif
 
@@ -124,6 +125,7 @@ namespace lite
     typedef ortcv::CavaGhostArcFace _CavaGhostArcFace;
     typedef ortcv::CavaCombinedFace _CavaCombinedFace;
     typedef ortcv::YoloX _YoloX;
+    typedef ortcv::MobileSEFocalFace _MobileSEFocalFace;
 #endif
 
     // 1. classification
@@ -222,6 +224,7 @@ namespace lite
       typedef _MobileFaceNet MobileFaceNet;
       typedef _CavaGhostArcFace CavaGhostArcFace;
       typedef _CavaCombinedFace CavaCombinedFace;
+      typedef _MobileSEFocalFace MobileSEFocalFace;
 #endif
 
     }
@@ -352,8 +355,7 @@ namespace lite
       typedef ortcv::CavaGhostArcFace _ONNXCavaGhostArcFace;
       typedef ortcv::CavaCombinedFace _ONNXCavaCombinedFace;
       typedef ortcv::YoloX _ONNXYoloX;
-
-
+      typedef ortcv::MobileSEFocalFace _ONNXMobileSEFocalFace;
 
       // 1. classification
       namespace classification
@@ -436,6 +438,7 @@ namespace lite
         typedef _ONNXMobileFaceNet MobileFaceNet;
         typedef _ONNXCavaGhostArcFace CavaGhostArcFace;
         typedef _ONNXCavaCombinedFace CavaCombinedFace;
+        typedef _ONNXMobileSEFocalFace MobileSEFocalFace;
 
       }
       // 5. segmentation

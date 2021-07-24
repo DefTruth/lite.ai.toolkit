@@ -135,6 +135,7 @@ You can download all the pretrained models files of ONNX format from ([Baidu Dri
 |     *lite::cv::faceid:MobileFaceNet*      |        MobileFaceNet_Pytorch_068.onnx        | [MobileFace...](https://github.com/Xiaoccer/MobileFaceNet_Pytorch) | 3.8Mb |
 |    *lite::cv::faceid:CavaGhostArcFace*    | cavaface_GhostNet_x1.3_Arcface_Epoch_24.onnx | [cavaface...](https://github.com/cavalleria/cavaface.pytorch) | 15Mb  |
 |    *lite::cv::faceid:CavaCombinedFace*    |  cavaface_IR_SE_100_Combined_Epoch_24.onnx   | [cavaface...](https://github.com/cavalleria/cavaface.pytorch) | 250Mb |
+|    *lite::cv::faceid:MobileSEFocalFace*   | face_recognition.pytorch_Mobilenet_se_focal_121000.onnx | [face_recog...](https://github.com/grib0ed0v/face_recognition.pytorch) | 4.5Mb |
 
 ### 
 
