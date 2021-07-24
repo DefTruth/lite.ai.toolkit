@@ -420,7 +420,7 @@ The output is:
   <img src='logs/test_lite_yolox_2.jpg' height="256px">
 </div>    
 
-More models for general object detection.  
+More classes for general object detection.  
 ```c++
 auto *detector = new lite::cv::detection::YoloX(onnx_path); // new !!!
 auto *detector = new lite::cv::detection::YoloV4(onnx_path); 
@@ -473,7 +473,7 @@ The output is:
   <img src='logs/test_lite_deeplabv3_resnet101.jpg' height="256px">
 </div> 
 
-More models for segmentation.
+More classes for segmentation.
 ```c++
 auto *segment = new lite::cv::segmentation::FCNResNet101(onnx_path);
 ```
@@ -511,7 +511,7 @@ The output is:
   <img src='logs/test_lite_emotion_ferplus.jpg' height="224px" width="224px">
 </div>    
 
-More models for face attributes analysis.
+More classes for face attributes analysis.
 ```c++
 auto *attribute = new lite::cv::face::attr::AgeGoogleNet(onnx_path);  
 auto *attribute = new lite::cv::face::attr::GenderGoogleNet(onnx_path); 
@@ -561,7 +561,7 @@ The output is:
   <img src='logs/test_lite_densenet.png' height="224px" width="500px">
 </div>  
 
-More models for image classification.
+More classes for image classification.
 ```c++
 auto *classifier = new lite::cv::classification::EfficientNetLite4(onnx_path);  
 auto *classifier = new lite::cv::classification::ShuffleNetV2(onnx_path); 
@@ -621,7 +621,7 @@ The output is:
 
 > Detected Sim01: 0.721159  Sim02: -0.0626267
 
-More models for face recognition.
+More classes for face recognition.
 ```c++
 auto *recognition = new lite::cv::faceid::GlintCosFace(onnx_path);  // DeepGlint(insightface)
 auto *recognition = new lite::cv::faceid::GlintArcFace(onnx_path);  // DeepGlint(insightface)
@@ -638,6 +638,7 @@ auto *recognition = new lite::cv::faceid::NaivePoseRobustFace(onnx_path);
 auto *recognition = new lite::cv::faceid::MobileFaceNet(onnx_path); // 3.8Mb only !
 auto *recognition = new lite::cv::faceid::CavaGhostArcFace(onnx_path);
 auto *recognition = new lite::cv::faceid::CavaCombinedFace(onnx_path);
+auto *recognition = new lite::cv::faceid::MobileSEFocalFace(onnx_path); // 4.5Mb only !
 ```
 
 <div id="refer-anchor-face-detection"></div>
