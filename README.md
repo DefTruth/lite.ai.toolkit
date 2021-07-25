@@ -280,7 +280,7 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
 
 ### 3.3 Model Zoo for Lite.AI.
 
-Note that the models here are all from third-party projects. Most of the models were converted by *Lite.AI*, and others were referenced from third-party libraries. In Lite.AI, different names of the same algorithm mean that the corresponding models come from different repositories, different implementations, or use different training data, etc. ✅ means passed the test and ⚠️ means not implements yet but coming soon. For classes which denoted ✅, you can use it through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai-object-detection)* . More details can be found at [Examples for Lite.AI](#lite.ai-Examples-for-Lite.AI) .  
+Note that the models here are all from third-party projects. Most of the models were converted by *Lite.AI*. In Lite.AI, different names of the same algorithm mean that the corresponding models come from different repositories, different implementations, or use different training data, etc. ✅ means passed the test and ⚠️ means not implements yet but coming soon. For classes which denoted ✅, you can use it through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai-object-detection)* . More details can be found at [Examples for Lite.AI](#lite.ai-Examples-for-Lite.AI) .  
 ([Baidu Drive](https://pan.baidu.com/s/1elUGcx7CZkkjEoYhTMwTRQ) code: 8gin) <div id="lite.ai-2"></div>
 
 <!---
