@@ -71,7 +71,7 @@ You can download all the pretrained models files of ONNX format from ([Baidu Dri
 
 ### 
 
-## Face Detction.
+## Face Detection.
 
 |                Class                | Pretrained ONNX Files  |               Rename or Converted From (Repo)                | Size  |
 | :---------------------------------: | :--------------------: | :----------------------------------------------------------: | :---: |
