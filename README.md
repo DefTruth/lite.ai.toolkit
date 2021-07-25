@@ -68,14 +68,10 @@
 
 
 ## Contents.
-* [Introduction](#lite.ai-Introduction)
-* [Related Lite.AI Projects](#lite.ai-Related-Lite.AI-Projects)
 * [Dependencies](#lite.ai-Dependencies)
 * [Build Lite.AI](#lite.ai-Build-Lite.AI)
 * [Model Zoo](#lite.ai-Model-Zoo)
 * [Examples for LiteHub](#lite.ai-Examples-for-Lite.AI)
-* [LiteHub API Docs](#lite.ai-Lite.AI-API-Docs)
-* [Other Docs](#lite.ai-Other-Docs)
 * [References](#lite.ai-References)
 * [License](#lite.ai-License)
 
