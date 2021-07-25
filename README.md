@@ -23,8 +23,6 @@
 
 *Lite.AI* 🚀🚀🌟 is a simple and user-friendly C++ library of awesome🔥🔥🔥 AI models. It's a collection of personal interests. such as YOLOX, YoloV5, YoloV4, DeepLabV3, ArcFace, etc. And, it only relies on *[OpenCV](https://github.com/opencv/opencv)* and commonly used inference engines, namely, *[onnxruntime](https://github.com/microsoft/onnxruntime)*, *[ncnn](https://github.com/Tencent/ncnn)*, and *[MNN](https://github.com/alibaba/MNN)*. It based on *[onnxruntime c++](https://github.com/microsoft/onnxruntime)* by default. *Lite.AI* includes [object detection](#lite.ai-object-detection), [face detection](#lite.ai-face-detection), [style transfer](#lite.ai-style-transfer), [face alignment](#lite.ai-face-alignment), [face recognition](#lite.ai-face-recognition), [segmentation](#lite.ai-segmentation), [colorization](#lite.ai-colorization), [face attributes analysis](#lite.ai-face-attributes-analysis), [image classification](#lite.ai-image-classification), [matting](#lite.ai-matting), etc. You can use these awesome models simply through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai-object-detection)*. Have a good travel ~ 🙃🤪🍀
 
-⚠️ Tips: Click the Expand ▶️ button will show you more details. Star 🌟👆🏻 this repo if it does any helps to you ~
-
 ## Important Notes !!!   
 
 * ✅ (20210722) Update [lite.ai.hub.onnx.md](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md) ! [Check](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md) the relations of *Lite.AI's* classes and pretrained files
@@ -1075,7 +1073,9 @@ Many thanks to the following projects. All the Lite.AI's models are sourced from
 * [Pytorch_Retinaface](https://github.com/biubug6/Pytorch_Retinaface) (🔥🔥🔥↑)
 * [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch) (🔥🔥↑)  
 
-</details>
+</details>  
+
+Star 🌟👆🏻 this repo if it does any helps to you ~
 
 <!----
 
