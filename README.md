@@ -70,8 +70,8 @@
 * [Introduction](#lite.ai-Introduction)
 * [Related Lite.AI Projects](#lite.ai-Related-Lite.AI-Projects)
 * [Dependencies](#lite.ai-Dependencies)
-* [Model Zoo](#lite.ai-Model-Zoo)
 * [Build Lite.AI](#lite.ai-Build-Lite.AI)
+* [Model Zoo](#lite.ai-Model-Zoo)
 * [Examples for LiteHub](#lite.ai-Examples-for-Lite.AI)
 * [LiteHub API Docs](#lite.ai-Lite.AI-API-Docs)
 * [Other Docs](#lite.ai-Other-Docs)
@@ -85,25 +85,26 @@
 
 <div id="lite.ai-Dependencies"></div>
 
-* Mac OS.  
+### Mac OS.  
+
 install `OpenCV` and `onnxruntime` libraries using Homebrew or you can download the built dependencies from this repo. See [third_party](https://github.com/DefTruth/litehub/tree/main/third_party) and build-docs[<sup>1</sup>](#lite.ai-1) for more details.
 
 ```shell
   brew update
   brew install opencv
   brew install onnxruntime
-```
+```  
+
 <details>
 <summary> Expand for More Details of Dependencies.</summary>  
 
-
-* Linux.  
+### Linux.  
   * *todo*⚠️  
   
-* Windows.   
+### Windows.   
   * *todo*⚠️  
   
-* Inference Engine Plans:
+### Inference Engine Plans:
   * *doing*:  
     ❇️ `onnxruntime` 
   * *todo*:  
@@ -111,13 +112,114 @@ install `OpenCV` and `onnxruntime` libraries using Homebrew or you can download 
     ⚠️ `MNN`  
     ⚠️ `OpenMP`
 
+</details>  
+
+
+## 2. Build Lite.AI.
+
+<div id="lite.ai-Build-Lite.AI"></div>
+
+Build the shared lib of Lite.AI for MacOS from sources or you can download the built lib from [liblite.ai.dylib|so](https://github.com/DefTruth/lite.ai/tree/main/build/lite.ai/lib) (`TODO: Linux & Windows`). Note that Lite.AI uses `onnxruntime` as default backend, for the reason that onnxruntime supports the most of onnx's operators. For Linux and Windows, you need to build the shared libs of `OpenCV` and `onnxruntime` firstly and put then into the `third_party` directory. Please reference the build-docs[<sup>1</sup>](#lite.ai-1) for `third_party`.
+
+* Clone the Lite.AI from sources:
+```shell
+git clone --depth=1 https://github.com/DefTruth/lite.ai.git  # latest
+```
+* For users in China, you can try:
+```shell
+git clone --depth=1 https://github.com.cnpmjs.org/DefTruth/lite.ai.git  # latest
+```
+* Build shared lib.
+```shell
+cd lite.ai
+sh ./build.sh
+```
+```shell
+cd ./build/lite.ai/lib && otool -L liblite.ai.0.0.1.dylib 
+liblite.ai.0.0.1.dylib:
+        @rpath/liblite.ai.0.0.1.dylib (compatibility version 0.0.1, current version 0.0.1)
+        @rpath/libopencv_highgui.4.5.dylib (compatibility version 4.5.0, current version 4.5.2)
+        @rpath/libonnxruntime.1.7.0.dylib (compatibility version 0.0.0, current version 1.7.0)
+        ...
+```
+
+
+<details>
+<summary> Expand for more details of How to link the shared lib of Lite.AI?</summary>
+
+```shell
+cd ../ && tree .
+├── bin
+├── include
+│   ├── lite
+│   │   ├── backend.h
+│   │   ├── config.h
+│   │   └── lite.h
+│   └── ort
+└── lib
+    └── liblite.ai.0.0.1.dylib
+```
+* Run the built examples:
+```shell
+cd ./build/lite.ai/bin && ls -lh | grep lite
+-rwxr-xr-x  1 root  staff   301K Jun 26 23:10 liblite.ai.0.0.1.dylib
+...
+-rwxr-xr-x  1 root  staff   196K Jun 26 23:10 lite_yolov4
+-rwxr-xr-x  1 root  staff   196K Jun 26 23:10 lite_yolov5
+...
+```
+
+```shell
+./lite_yolov5
+LITEORT_DEBUG LogId: ../../../hub/onnx/cv/yolov5s.onnx
+=============== Input-Dims ==============
+...
+detected num_anchors: 25200
+generate_bboxes num: 66
+Default Version Detected Boxes Num: 5
+```
+
+* To link `lite.ai` shared lib. You need to make sure that `OpenCV` and `onnxruntime` are linked correctly. Just like:
+
+```cmake
+cmake_minimum_required(VERSION 3.17)
+project(testlite.ai)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_BUILD_TYPE debug)
+# link opencv.
+set(OpenCV_DIR ${CMAKE_SOURCE_DIR}/opencv/lib/cmake/opencv4)
+find_package(OpenCV 4 REQUIRED)
+include_directories(${OpenCV_INCLUDE_DIRS})
+# link onnxruntime.
+set(ONNXRUNTIME_DIR ${CMAKE_SOURCE_DIR}/onnxruntime/)
+set(ONNXRUNTIME_INCLUDE_DIR ${ONNXRUNTIME_DIR}/include)
+set(ONNXRUNTIME_LIBRARY_DIR ${ONNXRUNTIME_DIR}/lib)
+include_directories(${ONNXRUNTIME_INCLUDE_DIR})
+link_directories(${ONNXRUNTIME_LIBRARY_DIR})
+# link lite.ai.
+set(LITEHUB_DIR ${CMAKE_SOURCE_DIR}/lite.ai)
+set(LITEHUB_INCLUDE_DIR ${LITEHUB_DIR}/include)
+set(LITEHUB_LIBRARY_DIR ${LITEHUB_DIR}/lib)
+include_directories(${LITEHUB_INCLUDE_DIR})
+link_directories(${LITEHUB_LIBRARY_DIR})
+# add your executable
+add_executable(lite_yolov5 test_lite_yolov5.cpp)
+target_link_libraries(lite_yolov5 lite.ai onnxruntime ${OpenCV_LIBS})
+```
+A minimum example to show you how to link the shared lib of Lite.AI correctly for your own project can be found at [lite.ai-release](https://github.com/DefTruth/lite.ai-release) .
+
 </details>
 
-## 2. Model Zoo.
+
+## 3. Model Zoo.
 
 <div id="lite.ai-Model-Zoo"></div>
 
-### 2.1 Namespace and Lite.AI modules.
+### 3.1 Namespace and Lite.AI modules.   
+*Lite.AI* contains *50+* AI models with almost *100+* frozen pretrained *.onnx* files now. They come from different fields of computer vision, such as [object detection](#lite.ai-object-detection), [face detection](#lite.ai-face-detection), [style transfer](#lite.ai-style-transfer), [face alignment](#lite.ai-face-alignment), [face recognition](#lite.ai-face-recognition), [segmentation](#lite.ai-segmentation), [colorization](#lite.ai-colorization), [face attributes analysis](#lite.ai-face-attributes-analysis), [image classification](#lite.ai-image-classification), [matting](#lite.ai-matting), etc. Click the Expand ▶️ button for more details.
+
+<details>
+<summary> Expand Details for Namespace and Lite.AI modules.</summary>  
 
 | Namepace                   | Details                                                      |
 | :------------------------- | :----------------------------------------------------------- |
@@ -135,13 +237,14 @@ install `OpenCV` and `onnxruntime` libraries using Homebrew or you can download 
 | *lite::cv::colorization*   | Colorization. Make Gray image become RGB. ⚠️                  |
 | *lite::cv::resolution*     | Super Resolution.  ⚠️                                         |
 
+</details>
 
-### 2.2 Lite.AI's Classes and Pretrained Files.  
+### 3.2 Lite.AI's Classes and Pretrained Files.  
 
 Correspondence between the classes in *Lite.AI* and pretrained model files can be found at [lite.ai.hub.onnx.md](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md). For examples, the pretrained model files for *lite::cv::detection::YoloV5* and *lite::cv::detection::YoloX* are listed as follows.
 
 <details>
-<summary> Expand Examples for the Correspondence.</summary>  
+<summary> Expand Examples for Lite.AI's Classes and Pretrained Files.</summary>  
 
 
 |             Class             | Pretrained ONNX Files |                   Rename or Converted From (Repo)                   | Size  |
@@ -175,8 +278,7 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
 </details>
 
 
-
-### 2.3 Model Zoo for Lite.AI.
+### 3.3 Model Zoo for Lite.AI.
 
 Most of the models were converted by Lite.AI, and others were referenced from third-party libraries. The name of the class here will be different from the original repository, because different repositories have different implementations of the same algorithm. For example, ArcFace in [insightface](https://github.com/deepinsight/insightface) is different from ArcFace in [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) . ArcFace in [insightface](https://github.com/deepinsight/insightface) uses Arc-Loss + Softmax, while ArcFace in [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) uses Arc-Loss + Focal-Loss. Lite.AI uses naming to make the necessary distinctions between models from different sources.  Therefore, in Lite.AI, different names of the same algorithm mean that the corresponding models come from different repositories, different implementations, or use different training data, etc. Just jump to [lite.ai-demos](https://github.com/DefTruth/lite.ai/tree/main/examples/lite/cv) to figure out the usage of each class in Lite.AI. ✅ means passed the test and ⚠️ means not implements yet but coming soon. For classes which denoted ✅, you can use it through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai-object-detection)* or *[lite::cv::face::detect::UltraFace](#lite.ai-face-detection)*. More details can be found at [Examples for Lite.AI](#lite.ai-Examples-for-Lite.AI) .  
 ([Baidu Drive](https://pan.baidu.com/s/1elUGcx7CZkkjEoYhTMwTRQ) code: 8gin) <div id="lite.ai-2"></div>
@@ -307,109 +409,11 @@ Most of the models were converted by Lite.AI, and others were referenced from th
 |[SubPixelCNN](https://github.com/niazwazir/SUB_PIXEL_CNN)|234K| [...PIXEL...](https://github.com/niazwazir/SUB_PIXEL_CNN)  |    🔥↑    | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md#lite.ai.hub.onnx-super-resolution) | *resolution* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_subpixel_cnn.cpp) |
 
 
-## 3. Build Lite.AI.  
-
-<div id="lite.ai-Build-Lite.AI"></div>
-
-Build the shared lib of Lite.AI for MacOS from sources or you can download the built lib from [liblite.ai.dylib|so](https://github.com/DefTruth/lite.ai/tree/main/build/lite.ai/lib) (`TODO: Linux & Windows`). Note that Lite.AI uses `onnxruntime` as default backend, for the reason that onnxruntime supports the most of onnx's operators. For Linux and Windows, you need to build the shared libs of `OpenCV` and `onnxruntime` firstly and put then into the `third_party` directory. Please reference the build-docs[<sup>1</sup>](#lite.ai-1) for `third_party`.  
-
-* Clone the Lite.AI from sources:  
-```shell
-git clone --depth=1 -b v0.0.1 https://github.com/DefTruth/lite.ai.git  # stable
-git clone --depth=1 https://github.com/DefTruth/lite.ai.git  # latest
-```
-* For users in China, you can try:
-```shell
-git clone --depth=1 -b v0.0.1 https://github.com.cnpmjs.org/DefTruth/lite.ai.git  # stable
-git clone --depth=1 https://github.com.cnpmjs.org/DefTruth/lite.ai.git  # latest
-```
-* Build shared lib.  
-```shell
-cd lite.ai
-sh ./build.sh
-```
-```shell
-cd ./build/lite.ai/lib && otool -L liblite.ai.0.0.1.dylib 
-liblite.ai.0.0.1.dylib:
-        @rpath/liblite.ai.0.0.1.dylib (compatibility version 0.0.1, current version 0.0.1)
-        @rpath/libopencv_highgui.4.5.dylib (compatibility version 4.5.0, current version 4.5.2)
-        @rpath/libonnxruntime.1.7.0.dylib (compatibility version 0.0.0, current version 1.7.0)
-        ...
-```
-
-
-<details>
-<summary> Expand for more details of How to link the shared lib of Lite.AI?</summary>
-
-```shell
-cd ../ && tree .
-├── bin
-├── include
-│   ├── lite
-│   │   ├── backend.h
-│   │   ├── config.h
-│   │   └── lite.h
-│   └── ort
-└── lib
-    └── liblite.ai.0.0.1.dylib
-```
-* Run the built examples:
-```shell
-cd ./build/lite.ai/bin && ls -lh | grep lite
--rwxr-xr-x  1 root  staff   301K Jun 26 23:10 liblite.ai.0.0.1.dylib
-...
--rwxr-xr-x  1 root  staff   196K Jun 26 23:10 lite_yolov4
--rwxr-xr-x  1 root  staff   196K Jun 26 23:10 lite_yolov5
-...
-```
-
-```shell
-./lite_yolov5
-LITEORT_DEBUG LogId: ../../../hub/onnx/cv/yolov5s.onnx
-=============== Input-Dims ==============
-...
-detected num_anchors: 25200
-generate_bboxes num: 66
-Default Version Detected Boxes Num: 5
-```
-
-* Link `lite.ai` shared lib. You need to make sure that `OpenCV` and `onnxruntime` are linked correctly. Just like:
-
-```cmake
-cmake_minimum_required(VERSION 3.17)
-project(testlite.ai)
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_BUILD_TYPE debug)
-# link opencv.
-set(OpenCV_DIR ${CMAKE_SOURCE_DIR}/opencv/lib/cmake/opencv4)
-find_package(OpenCV 4 REQUIRED)
-include_directories(${OpenCV_INCLUDE_DIRS})
-# link onnxruntime.
-set(ONNXRUNTIME_DIR ${CMAKE_SOURCE_DIR}/onnxruntime/)
-set(ONNXRUNTIME_INCLUDE_DIR ${ONNXRUNTIME_DIR}/include)
-set(ONNXRUNTIME_LIBRARY_DIR ${ONNXRUNTIME_DIR}/lib)
-include_directories(${ONNXRUNTIME_INCLUDE_DIR})
-link_directories(${ONNXRUNTIME_LIBRARY_DIR})
-# link lite.ai.
-set(LITEHUB_DIR ${CMAKE_SOURCE_DIR}/lite.ai)
-set(LITEHUB_INCLUDE_DIR ${LITEHUB_DIR}/include)
-set(LITEHUB_LIBRARY_DIR ${LITEHUB_DIR}/lib)
-include_directories(${LITEHUB_INCLUDE_DIR})
-link_directories(${LITEHUB_LIBRARY_DIR})
-# add your executable
-add_executable(lite_yolov5 test_lite_yolov5.cpp)
-target_link_libraries(lite_yolov5 lite.ai onnxruntime ${OpenCV_LIBS})
-```
-A minimum example to show you how to link the shared lib of Lite.AI correctly for your own project can be found at [lite.ai-release](https://github.com/DefTruth/lite.ai-release) .
-
-</details>
-
-
 ## 4. Examples for Lite.AI.  
 
 <div id="lite.ai-Examples-for-Lite.AI"></div>
 
-More examples can be found at [lite.ai-demos](https://github.com/DefTruth/lite.ai/tree/main/examples/lite/cv).  Note that the default backend for Lite.AI is `onnxruntime`, for the reason that onnxruntime supports the most of onnx's operators. Click the Expand ▶️ button will show you more examples for each topic.
+More examples can be found at [lite.ai-demos](https://github.com/DefTruth/lite.ai/tree/main/examples/lite/cv).  Note that the default backend for Lite.AI is `onnxruntime`, for the reason that onnxruntime supports the most of onnx's operators. Click the Expand ▶️ button will show you more examples for the specific topic you are interested in.
 
 <div id="lite.ai-object-detection"></div>
 
@@ -454,7 +458,7 @@ auto *detector = new lite::cv::detection::SSDMobileNetV1(onnx_path);
 Or you can use Newest 🔥🔥 ! YOLO series's detector [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) . They got the similar results.  
 
 <details>
-<summary> Expand more Examples for Object Detection.</summary>
+<summary> 4.1 Expand Examples for Object Detection.</summary>
 
 ```c++
 #include "lite/lite.h"
@@ -537,6 +541,16 @@ More classes for face recognition.
 auto *recognition = new lite::cv::faceid::GlintCosFace(onnx_path);  // DeepGlint(insightface)
 auto *recognition = new lite::cv::faceid::GlintArcFace(onnx_path);  // DeepGlint(insightface)
 auto *recognition = new lite::cv::faceid::GlintPartialFC(onnx_path); // DeepGlint(insightface)
+//  Tips: Click Expand button to show more !
+```  
+<details>
+<summary> 4.2 Expand Examples for Face Recognition.</summary>
+
+More classes for face recognition.
+```c++
+auto *recognition = new lite::cv::faceid::GlintCosFace(onnx_path);  // DeepGlint(insightface)
+auto *recognition = new lite::cv::faceid::GlintArcFace(onnx_path);  // DeepGlint(insightface)
+auto *recognition = new lite::cv::faceid::GlintPartialFC(onnx_path); // DeepGlint(insightface)
 auto *recognition = new lite::cv::faceid::FaceNet(onnx_path);
 auto *recognition = new lite::cv::faceid::FocalArcFace(onnx_path);
 auto *recognition = new lite::cv::faceid::FocalAsiaArcFace(onnx_path);
@@ -550,7 +564,9 @@ auto *recognition = new lite::cv::faceid::MobileFaceNet(onnx_path); // 3.8Mb onl
 auto *recognition = new lite::cv::faceid::CavaGhostArcFace(onnx_path);
 auto *recognition = new lite::cv::faceid::CavaCombinedFace(onnx_path);
 auto *recognition = new lite::cv::faceid::MobileSEFocalFace(onnx_path); // 4.5Mb only !
-```
+```  
+
+</details>
 
 <div id="lite.ai-segmentation"></div>  
 
