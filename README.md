@@ -492,9 +492,11 @@ The output is:
 
 </details>
 
-****  
 
-<div id="lite.ai-face-recognition"></div>
+<div id="lite.ai-face-recognition"></div>  
+
+<details>
+<summary> 4.2 Expand Examples for Face Recognition.</summary>
 
 #### 4.2 Face Recognition using [ArcFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
 
@@ -539,16 +541,6 @@ The output is:
 </div>  
 
 > Detected Sim01: 0.721159  Sim02: -0.0626267  
-
-More classes for face recognition.
-```c++
-auto *recognition = new lite::cv::faceid::GlintCosFace(onnx_path);  // DeepGlint(insightface)
-auto *recognition = new lite::cv::faceid::GlintArcFace(onnx_path);  // DeepGlint(insightface)
-auto *recognition = new lite::cv::faceid::GlintPartialFC(onnx_path); // DeepGlint(insightface)
-//  Tips: Click Expand button to show more !
-```  
-<details>
-<summary> 4.2 Expand Examples for Face Recognition.</summary>
 
 More classes for face recognition.
 ```c++
