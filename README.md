@@ -115,7 +115,14 @@ install `OpenCV` and `onnxruntime` libraries using Homebrew or you can download 
 
 <div id="lite.ai-Build-Lite.AI"></div>
 
-Build the shared lib of Lite.AI for MacOS from sources or you can download the built lib from [liblite.ai.dylib|so](https://github.com/DefTruth/lite.ai/tree/main/build/lite.ai/lib) (`TODO: Linux & Windows`). Note that Lite.AI uses `onnxruntime` as default backend, for the reason that onnxruntime supports the most of onnx's operators. For Linux and Windows, you need to build the shared libs of `OpenCV` and `onnxruntime` firstly and put then into the `third_party` directory. Please reference the build-docs[<sup>1</sup>](#lite.ai-1) for `third_party`.
+Build the shared lib of Lite.AI for *MacOS* from sources. Note that Lite.AI uses `onnxruntime` as default backend, for the reason that onnxruntime supports the most of onnx's operators. 
+
+<details>
+<summary> Linux and Windows. </summary>  
+
+⚠️ Lite.AI is not directly support Linux and Windows now. For Linux and Windows, you need to build the shared libs of `OpenCV` and `onnxruntime` firstly and put then into the `third_party` directory. Please reference the build-docs[<sup>1</sup>](#lite.ai-1) for `third_party`. The documents and docker image for Linux will be coming soon ~
+
+</details>
 
 * Clone the Lite.AI from sources:
 ```shell
@@ -287,6 +294,21 @@ Note that the models here are all from third-party projects. Most of the models 
 For example, ArcFace in [insightface](https://github.com/deepinsight/insightface) is different from ArcFace in [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) . ArcFace in [insightface](https://github.com/deepinsight/insightface) uses Arc-Loss + Softmax, while ArcFace in [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) uses Arc-Loss + Focal-Loss. Lite.AI uses naming to make the necessary distinctions between models from different sources.
 ---->
 
+* Object Detection.  
+
+|Class|Size|From|Awesome|File|Type|State|Usage|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|[YoloV5](https://github.com/ultralytics/yolov5)|28M|[yolov5](https://github.com/ultralytics/yolov5)|🔥🔥💥↑| [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection)  | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolov5.cpp) |
+|[YoloV3](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/yolov3)|236M|[onnx-models](https://github.com/onnx/models)|🔥🔥🔥↑| [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolov3.cpp) |
+|[TinyYoloV3](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/tiny-yolov3)|33M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_tiny_yolov3.cpp) |
+|[YoloV4](https://github.com/argusswift/YOLOv4-pytorch)|176M| [YOLOv4...](https://github.com/argusswift/YOLOv4-pytorch) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolov4.cpp) |
+|[SSD](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd)|76M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_ssd.cpp) |
+|[SSDMobileNetV1](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd-mobilenetv1)|27M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_ssd_mobilenetv1.cpp) |
+|[YoloX](https://github.com/Megvii-BaseDetection/YOLOX)|3.5M| [YOLOX]( https://github.com/Megvii-BaseDetection/YOLOX) | 🔥🔥new↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolox.cpp) |
+
+<details>
+<summary> ⚠️ Expand More Details for Lite.AI's Model Zoo.</summary>  
+
 * Classification.
 
 |Class|Size|From|Awesome|File|Type|State|Usage|
@@ -301,21 +323,6 @@ For example, ArcFace in [insightface](https://github.com/deepinsight/insightface
 |[ResNet](https://pytorch.org/hub/pytorch_vision_resnet/)|44M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md#lite.ai.hub.onnx-classification)  | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_resnet.cpp) |
 |[ResNeXt](https://pytorch.org/hub/pytorch_vision_resnext/)|95M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md#lite.ai.hub.onnx-classification)  | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_resnext.cpp) |
 
-
-* Object Detection.  
-
-|Class|Size|From|Awesome|File|Type|State|Usage|
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|[YoloV5](https://github.com/ultralytics/yolov5)|28M|[yolov5](https://github.com/ultralytics/yolov5)|🔥🔥💥↑| [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection)  | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolov5.cpp) |
-|[YoloV3](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/yolov3)|236M|[onnx-models](https://github.com/onnx/models)|🔥🔥🔥↑| [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolov3.cpp) |
-|[TinyYoloV3](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/tiny-yolov3)|33M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_tiny_yolov3.cpp) |
-|[YoloV4](https://github.com/argusswift/YOLOv4-pytorch)|176M| [YOLOv4...](https://github.com/argusswift/YOLOv4-pytorch) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolov4.cpp) |
-|[SSD](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd)|76M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_ssd.cpp) |
-|[SSDMobileNetV1](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd-mobilenetv1)|27M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_ssd_mobilenetv1.cpp) |
-|[YoloX](https://github.com/Megvii-BaseDetection/YOLOX)|3.5M| [YOLOX]( https://github.com/Megvii-BaseDetection/YOLOX) | 🔥🔥new↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolox.cpp) |
-
-<details>
-<summary> ⚠️ Expand More Details for Lite.AI's Model Zoo.</summary>
 
 * Face Detection.  
 
@@ -449,19 +456,24 @@ The output is:
 <div align='center'>
   <img src='logs/test_lite_yolov5_1.jpg' height="256px">
   <img src='logs/test_lite_yolov5_2.jpg' height="256px">
-</div>  
-
-More classes for general object detection.  
-```c++
-auto *detector = new lite::cv::detection::YoloX(onnx_path); // new !!!
-auto *detector = new lite::cv::detection::YoloV4(onnx_path); 
-auto *detector = new lite::cv::detection::YoloV3(onnx_path); 
-auto *detector = new lite::cv::detection::TinyYoloV3(onnx_path); 
-auto *detector = new lite::cv::detection::SSD(onnx_path); 
-auto *detector = new lite::cv::detection::SSDMobileNetV1(onnx_path); 
-```  
+</div>
 
 Or you can use Newest 🔥🔥 ! YOLO series's detector [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) . They got the similar results.  
+
+<div id="lite.ai-face-recognition"></div>  
+<div id="lite.ai-segmentation"></div>  
+<div id="lite.ai-face-attributes-analysis"></div>  
+<div id="lite.ai-image-classification"></div>  
+<div id="lite.ai-face-detection"></div>
+<div id="lite.ai-colorization"></div>
+<div id="lite.ai-head-pose-estimation"></div>
+<div id="lite.ai-face-alignment"></div>
+<div id="lite.ai-style-transfer"></div>
+<div id="lite.ai-matting"></div>
+
+
+<details>
+<summary> ⚠️ Expand All Examples for Lite.AI.</summary>  
 
 <details>
 <summary> 4.1 Expand Examples for Object Detection.</summary>
@@ -492,10 +504,18 @@ The output is:
   <img src='logs/test_lite_yolox_2.jpg' height="256px">
 </div>    
 
+More classes for general object detection.
+```c++
+auto *detector = new lite::cv::detection::YoloX(onnx_path); // new !!!
+auto *detector = new lite::cv::detection::YoloV4(onnx_path); 
+auto *detector = new lite::cv::detection::YoloV3(onnx_path); 
+auto *detector = new lite::cv::detection::TinyYoloV3(onnx_path); 
+auto *detector = new lite::cv::detection::SSD(onnx_path); 
+auto *detector = new lite::cv::detection::SSDMobileNetV1(onnx_path); 
+```  
+
 </details>
 
-
-<div id="lite.ai-face-recognition"></div>  
 
 <details>
 <summary> 4.2 Expand Examples for Face Recognition.</summary>
@@ -566,7 +586,6 @@ auto *recognition = new lite::cv::faceid::MobileSEFocalFace(onnx_path); // 4.5Mb
 
 </details>
 
-<div id="lite.ai-segmentation"></div>  
 
 <details>
 <summary> 4.3 Expand Examples for Segmentation.</summary>
@@ -618,7 +637,6 @@ auto *segment = new lite::cv::segmentation::FCNResNet101(onnx_path);
 </details>
 
 
-<div id="lite.ai-face-attributes-analysis"></div>  
 
 <details>
 <summary> 4.4 Expand Examples for Face Attributes Analysis.</summary>
@@ -668,7 +686,6 @@ auto *attribute = new lite::cv::face::attr::ReXNetEmotion7(onnx_path); // 7 emot
 </details>
 
 
-<div id="lite.ai-image-classification"></div>  
 
 <details>
 <summary> 4.5 Expand Examples for Image Classification.</summary>
@@ -725,7 +742,6 @@ auto *classifier = new lite::cv::classification::ResNeXt(onnx_path);
 </details>
 
 
-<div id="lite.ai-face-detection"></div>
 
 <details>
 <summary> 4.6 Expand Examples for Face Detection.</summary>
@@ -760,7 +776,6 @@ The output is:
 
 </details>
 
-<div id="lite.ai-colorization"></div>
 
 <details>
 <summary> 4.7 Expand Examples for Colorization.</summary>
@@ -799,7 +814,6 @@ The output is:
 
 </details>
 
-<div id="lite.ai-head-pose-estimation"></div>
 
 <details>
 <summary> 4.8 Expand Examples for Head Pose Estimation.</summary>
@@ -839,7 +853,6 @@ The output is:
 
 </details>
 
-<div id="lite.ai-face-alignment"></div>
 
 <details>
 <summary> 4.9 Expand Examples for Face Alignment.</summary>
@@ -874,7 +887,6 @@ The output is:
 
 </details>
 
-<div id="lite.ai-style-transfer"></div>
 
 <details>
 <summary> 4.10 Expand Examples for Style Transfer.</summary>
@@ -913,7 +925,6 @@ The output is:
 
 </details>
 
-<div id="lite.ai-matting"></div>
 
 <details>
 <summary> 4.11 Expand Examples for Image Matting.</summary>
@@ -922,6 +933,7 @@ The output is:
 
 </details>
 
+</details>
 
 
 ## 5. Lite.AI API Docs.
