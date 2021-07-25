@@ -72,8 +72,6 @@
 * [Build Lite.AI](#lite.ai-Build-Lite.AI)
 * [Model Zoo](#lite.ai-Model-Zoo)
 * [Examples for LiteHub](#lite.ai-Examples-for-Lite.AI)
-* [References](#lite.ai-References)
-* [License](#lite.ai-License)
 
 <!----  
 * [Contributions](#lite.ai-Contributions)
@@ -122,11 +120,15 @@ Build the shared lib of Lite.AI for MacOS from sources or you can download the b
 * Clone the Lite.AI from sources:
 ```shell
 git clone --depth=1 https://github.com/DefTruth/lite.ai.git  # latest
-```
+```  
+
+<!---
 * For users in China, you can try:
 ```shell
 git clone --depth=1 https://github.com.cnpmjs.org/DefTruth/lite.ai.git  # latest
-```
+```  
+--->
+
 * Build shared lib.
 ```shell
 cd lite.ai
