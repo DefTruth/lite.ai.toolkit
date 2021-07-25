@@ -21,7 +21,7 @@
 
 <div id="lite.ai-Introduction"></div> 
 
-*Lite.AI* 🚀🚀🌟 is a simple, low-coupling, and user-friendly C++ library for awesome🔥🔥🔥 AI models, such as YOLOX, YoloV5, YoloV4, DeepLabV3, ArcFace, CosFace, Colorization, SSD, etc. And, it only relies on *[OpenCV](https://github.com/opencv/opencv)* and commonly used inference engines, namely, *[onnxruntime](https://github.com/microsoft/onnxruntime)*, *[ncnn](https://github.com/Tencent/ncnn)*, and *[MNN](https://github.com/alibaba/MNN)*. It currently mainly includes some *CV(Computer Vision 💻)* modules, such as [object detection](#lite.ai-object-detection), [face detection](#lite.ai-face-detection), [style transfer](#lite.ai-style-transfer), [face alignment](#lite.ai-face-alignment), [face recognition](#lite.ai-face-recognition), [segmentation](#lite.ai-segmentation), [colorization](#lite.ai-colorization), [face attributes analysis](#lite.ai-face-attributes-analysis), [image classification](#lite.ai-image-classification), [matting](#lite.ai-matting), etc.  You can use these awesome models through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai-object-detection)* or *[lite::cv::face::detect::UltraFace](#lite.ai-face-detection)*.  I do have plans to re-implement Lite.AI with *[ncnn](https://github.com/Tencent/ncnn)* and *[MNN](https://github.com/alibaba/MNN)*, but not coming soon. Currently, I am focusing🔍 on *[onnxruntime c++](https://github.com/microsoft/onnxruntime)* 💻 . It is important to note that the models here are all from third-party projects. Most of the models were converted by Lite.AI. All models used will be cited. Many thanks to these contributors. Have a good travel ~ 🙃🤪🍀  
+*Lite.AI* 🚀🚀🌟 is a simple, low-coupling, and user-friendly C++ library for awesome🔥🔥🔥 AI models, such as YOLOX, YoloV5, YoloV4, DeepLabV3, ArcFace, etc. And, it only relies on *[OpenCV](https://github.com/opencv/opencv)* and commonly used inference engines, namely, *[onnxruntime](https://github.com/microsoft/onnxruntime)*, *[ncnn](https://github.com/Tencent/ncnn)*, and *[MNN](https://github.com/alibaba/MNN)*. It currently includes some *CV* modules, such as [object detection](#lite.ai-object-detection), [face detection](#lite.ai-face-detection), [style transfer](#lite.ai-style-transfer), [face alignment](#lite.ai-face-alignment), [face recognition](#lite.ai-face-recognition), [segmentation](#lite.ai-segmentation), [colorization](#lite.ai-colorization), [face attributes analysis](#lite.ai-face-attributes-analysis), [image classification](#lite.ai-image-classification), [matting](#lite.ai-matting), etc. Use it through *lite::cv::Type::Class* syntax, like *[lite::cv::detection::YoloV5](#lite.ai-object-detection)*.  Lite.AI based on *[onnxruntime c++](https://github.com/microsoft/onnxruntime)* by default. Note that the models here are all from third-party projects. Most of the models were converted by Lite.AI. All models used will be cited. Many thanks to these contributors. Have a good travel ~ 🙃🤪🍀  
 
 ⚠️ Tips: Click the Expand ▶️ button will show you more details. Star 🌟👆🏻 this repo if it does any helps to you ~
 
@@ -66,6 +66,7 @@
 
 </details>
 
+
 ## Contents.
 * [Introduction](#lite.ai-Introduction)
 * [Related Lite.AI Projects](#lite.ai-Related-Lite.AI-Projects)
@@ -75,8 +76,9 @@
 * [Examples for LiteHub](#lite.ai-Examples-for-Lite.AI)
 * [LiteHub API Docs](#lite.ai-Lite.AI-API-Docs)
 * [Other Docs](#lite.ai-Other-Docs)
-* [Acknowledgements](#lite.ai-Acknowledgements)
-* [License](#lite.ai-License)  
+* [References](#lite.ai-References)
+* [License](#lite.ai-License)
+
 <!----  
 * [Contributions](#lite.ai-Contributions)
 ---->
@@ -311,6 +313,8 @@ Most of the models were converted by Lite.AI, and others were referenced from th
 |[SSDMobileNetV1](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd-mobilenetv1)|27M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_ssd_mobilenetv1.cpp) |
 |[YoloX](https://github.com/Megvii-BaseDetection/YOLOX)|3.5M| [YOLOX]( https://github.com/Megvii-BaseDetection/YOLOX) | 🔥🔥new↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolox.cpp) |
 
+<details>
+<summary> ⚠️ Expand More Details for Lite.AI's Model Zoo.</summary>
 
 * Face Detection.  
 
@@ -408,6 +412,7 @@ Most of the models were converted by Lite.AI, and others were referenced from th
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |[SubPixelCNN](https://github.com/niazwazir/SUB_PIXEL_CNN)|234K| [...PIXEL...](https://github.com/niazwazir/SUB_PIXEL_CNN)  |    🔥↑    | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md#lite.ai.hub.onnx-super-resolution) | *resolution* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_subpixel_cnn.cpp) |
 
+</details>
 
 ## 4. Examples for Lite.AI.  
 
@@ -994,7 +999,7 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 <div id="lite.ai-1"></div>
 
 <details>
-<summary> Expand for more details of Other Docs.</summary>
+<summary> Expand More Details for Other Docs.</summary>
 
 ### 6.1 Docs for ONNXRuntime. 
 * [Rapid implementation of your inference using BasicOrtHandler](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_handler.zh.md)  
@@ -1024,41 +1029,46 @@ Other build documents for different engines and different targets will be added 
 </details>
 
 
-## 7. Acknowledgements.  
+## 7. References.  
 
-<div id="lite.ai-Acknowledgements"></div>
+<div id="lite.ai-References"></div>
 
 Many thanks to the following projects. All the Lite.AI's models are sourced from these repos. Just jump to and star 🌟👉🏻 the any awesome one you are interested in ! Have a good travel ~ 🙃🤪🍀  
 
-* [1] [headpose-fsanet-pytorch](https://github.com/omasaht/headpose-fsanet-pytorch) (🔥↑)
-* [2] [pfld_106_face_landmarks](https://github.com/Hsintao/pfld_106_face_landmarks) (🔥🔥↑)
-* [3] [Ultra-Light-Fast-Generic-Face-Detector-1MB](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) (🔥🔥🔥↑)
-* [4] [onnx-models](https://github.com/onnx/models) (🔥🔥🔥↑)
-* [5] [SSR_Net_Pytorch](https://github.com/oukohou/SSR_Net_Pytorch) (🔥↑)
-* [6] [insightface](https://github.com/deepinsight/insightface) (🔥🔥🔥↑)
-* [7] [colorization](https://github.com/richzhang/colorization) (🔥🔥🔥↑)
-* [8] [SUB_PIXEL_CNN](https://github.com/niazwazir/SUB_PIXEL_CNN) (🔥↑)
-* [9] [YOLOv4-pytorch](https://github.com/argusswift/YOLOv4-pytorch) (🔥🔥🔥↑)
-* [10] [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑)
-* [11] [torchvision](https://github.com/pytorch/vision) (🔥🔥🔥↑)
-* [12] [facenet-pytorch](https://github.com/timesler/facenet-pytorch) (🔥↑)
-* [13] [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) (🔥🔥🔥↑)
-* [14] [TFace](https://github.com/Tencent/TFace) (🔥🔥↑)
-* [15] [center-loss.pytorch](https://github.com/louis-she/center-loss.pytorch) (🔥🔥↑)
-* [16] [sphereface_pytorch](https://github.com/clcarwin/sphereface_pytorch) (🔥🔥↑)
-* [17] [DREAM](https://github.com/penincillin/DREAM) (🔥🔥↑)
-* [18] [MobileFaceNet_Pytorch](https://github.com/Xiaoccer/MobileFaceNet_Pytorch) (🔥🔥↑)
-* [19] [cavaface.pytorch](https://github.com/cavalleria/cavaface.pytorch) (🔥🔥↑)
-* [20] [CurricularFace](https://github.com/HuangYG123/CurricularFace) (🔥🔥↑)
-* [21] [face-emotion-recognition](https://github.com/HSE-asavchenko/face-emotion-recognition) (🔥↑)
-* [22] [face_recognition.pytorch](https://github.com/grib0ed0v/face_recognition.pytorch) (🔥🔥↑)
-* [23] [PFLD-pytorch](https://github.com/polarisZhao/PFLD-pytorch) (🔥🔥↑)
-* [24] [pytorch_face_landmark](https://github.com/cunjian/pytorch_face_landmark) (🔥🔥↑)
-* [25] [FaceLandmark1000](https://github.com/Single430/FaceLandmark1000) (🔥🔥↑)
-* [26] [Pytorch_Retinaface](https://github.com/biubug6/Pytorch_Retinaface) (🔥🔥🔥↑)
-* [27] [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch) (🔥🔥↑)  
-* [28] [YOLOX]( https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥new!!↑)
-* [??] [lite.ai](https://github.com/DefTruth/lite.ai) ( 👈🏻 yet, I guess you might be also interested in this repo ~ 🙃🤪🍀)
+* [YOLOX]( https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥new!!↑)
+* [insightface](https://github.com/deepinsight/insightface) (🔥🔥🔥↑)
+* [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑)  
+
+<details>
+<summary> Expand More Details for References.</summary>
+
+* [headpose-fsanet-pytorch](https://github.com/omasaht/headpose-fsanet-pytorch) (🔥↑)
+* [pfld_106_face_landmarks](https://github.com/Hsintao/pfld_106_face_landmarks) (🔥🔥↑)
+* [Ultra-Light-Fast-Generic-Face-Detector-1MB](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) (🔥🔥🔥↑)
+* [onnx-models](https://github.com/onnx/models) (🔥🔥🔥↑)
+* [SSR_Net_Pytorch](https://github.com/oukohou/SSR_Net_Pytorch) (🔥↑)
+* [colorization](https://github.com/richzhang/colorization) (🔥🔥🔥↑)
+* [SUB_PIXEL_CNN](https://github.com/niazwazir/SUB_PIXEL_CNN) (🔥↑)
+* [YOLOv4-pytorch](https://github.com/argusswift/YOLOv4-pytorch) (🔥🔥🔥↑)
+* [torchvision](https://github.com/pytorch/vision) (🔥🔥🔥↑)
+* [facenet-pytorch](https://github.com/timesler/facenet-pytorch) (🔥↑)
+* [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) (🔥🔥🔥↑)
+* [TFace](https://github.com/Tencent/TFace) (🔥🔥↑)
+* [center-loss.pytorch](https://github.com/louis-she/center-loss.pytorch) (🔥🔥↑)
+* [sphereface_pytorch](https://github.com/clcarwin/sphereface_pytorch) (🔥🔥↑)
+* [DREAM](https://github.com/penincillin/DREAM) (🔥🔥↑)
+* [MobileFaceNet_Pytorch](https://github.com/Xiaoccer/MobileFaceNet_Pytorch) (🔥🔥↑)
+* [cavaface.pytorch](https://github.com/cavalleria/cavaface.pytorch) (🔥🔥↑)
+* [CurricularFace](https://github.com/HuangYG123/CurricularFace) (🔥🔥↑)
+* [face-emotion-recognition](https://github.com/HSE-asavchenko/face-emotion-recognition) (🔥↑)
+* [face_recognition.pytorch](https://github.com/grib0ed0v/face_recognition.pytorch) (🔥🔥↑)
+* [PFLD-pytorch](https://github.com/polarisZhao/PFLD-pytorch) (🔥🔥↑)
+* [pytorch_face_landmark](https://github.com/cunjian/pytorch_face_landmark) (🔥🔥↑)
+* [FaceLandmark1000](https://github.com/Single430/FaceLandmark1000) (🔥🔥↑)
+* [Pytorch_Retinaface](https://github.com/biubug6/Pytorch_Retinaface) (🔥🔥🔥↑)
+* [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch) (🔥🔥↑)  
+
+</details>
 
 <!----
 
