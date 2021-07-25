@@ -31,6 +31,7 @@
 * 🔥 (20210721) Added [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) to *Lite.AI* ! Use it through [*lite::cv::detection::YoloX*](#lite.ai-object-detection) syntax ! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolox.cpp) .  
 * ⚠️ (20210716) *Lite.AI* was rename from the *LiteHub* repo ! *LiteHub* will no longer be maintained.   
 
+<!---
 
 <details>
 <summary> Expand for More Notes.</summary>  
@@ -66,6 +67,7 @@
 
 </details>
 
+--->
 
 ## Contents.
 * [Dependencies](#lite.ai-Dependencies)
@@ -73,7 +75,7 @@
 * [Model Zoo](#lite.ai-Model-Zoo)
 * [Examples for LiteHub](#lite.ai-Examples-for-Lite.AI)
 
-<!----  
+ 
 * [Contributions](#lite.ai-Contributions)
 ---->
 
