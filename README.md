@@ -1038,7 +1038,7 @@ Other build documents for different engines and different targets will be added 
 
 <div id="lite.ai-References"></div>
 
-Many thanks to the following projects. All the Lite.AI's models are sourced from these repos. Just jump to and star 🌟👉🏻 the any awesome one you are interested in ! Have a good travel ~ 🙃🤪🍀  
+Many thanks to the following projects. All the Lite.AI's models are sourced from these repos. 
 
 * [YOLOX]( https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥new!!↑)
 * [insightface](https://github.com/deepinsight/insightface) (🔥🔥🔥↑)
