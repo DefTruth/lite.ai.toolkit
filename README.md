@@ -26,7 +26,7 @@
 ## Important Notes !!!   
 
 * ✅ (20210726) Added [PFLD98](https://github.com/polarisZhao/PFLD-pytorch) for 98 facial landmaeks detection ! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_pfld98.cpp) .
-* ✅ (20210722) Update [lite.ai.hub.onnx.md](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md) ! *Lite.AI* contains *50+* AI models with almost *100+* .onnx files now.
+* ✅ (20210722) Update [lite.ai.hub.onnx.md](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md) ! *Lite.AI* contains *50+* AI models with *100+* .onnx files now.
 * 🔥 (20210721) Added [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) to *Lite.AI* ! Use it through [*lite::cv::detection::YoloX*](#lite.ai-object-detection) syntax ! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolox.cpp) .  
 
 <!---
@@ -227,7 +227,7 @@ A minimum example to show you how to link the shared lib of Lite.AI correctly fo
 <div id="lite.ai-Model-Zoo"></div>
 
 ### 3.1 Namespace and Lite.AI modules.   
-*Lite.AI* contains *50+* AI models with almost *100+* frozen pretrained *.onnx* files now. They come from different fields of computer vision. Click the Expand ▶️ button for more details.
+*Lite.AI* contains *50+* AI models with *100+* frozen pretrained *.onnx* files now. They come from different fields of computer vision. Click the Expand ▶️ button for more details.
 
 <details>
 <summary> Expand Details for Namespace and Lite.AI modules.</summary>  
