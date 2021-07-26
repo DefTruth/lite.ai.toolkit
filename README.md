@@ -1107,7 +1107,7 @@ The code of [Lite.AI](#lite.ai-Introduction) is released under the MIT License.
 
 ## Citations.
 
-If you use library in your project, please, cite it as follows.
+If you use this library in your project, please, cite it as follows.
 ```
 @misc{Lite.AI,
   title={Lite.AI}: A simple and user friendly C++ library of awesome AI models.},
