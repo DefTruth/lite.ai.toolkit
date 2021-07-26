@@ -60,7 +60,7 @@ namespace ortcv
   class LITE_EXPORTS EfficientEmotion8;          // [46] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
   class LITE_EXPORTS MobileEmotion7;             // [47] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
   class LITE_EXPORTS ReXNetEmotion7;             // [48] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
-  class LITE_EXPORTS PFLD98;                     // [49] reference: https://github.com/polarisZhao/PFLD-pytorch
+  class LITE_EXPORTS PFLD98;                     // [49] * reference: https://github.com/polarisZhao/PFLD-pytorch
   class LITE_EXPORTS MobileNetV268;              // [50] reference: https://github.com/cunjian/pytorch_face_landmark
   class LITE_EXPORTS MobileV2SE68;               // [51] reference: https://github.com/cunjian/pytorch_face_landmark
   class LITE_EXPORTS MobileV2SERE68;             // [52] reference: https://github.com/cunjian/pytorch_face_landmark

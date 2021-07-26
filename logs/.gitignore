@@ -2,3 +2,5 @@ test_ortcv_eccv16_colorizer_one_piece_0.jpg
 test_ortcv_siggraph17_colorizer_one_piece_0.jpg
 *onnx*
 *ortcv*
+test_lite_emotion.jpg
+test_lite_pfld98.jpg

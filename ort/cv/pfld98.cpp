@@ -1,13 +1,13 @@
 //
-// Created by DefTruth on 2021/3/14.
+// Created by DefTruth on 2021/7/26.
 //
 
-#include "pfld.h"
+#include "pfld98.h"
 #include "ort/core/ort_utils.h"
 
-using ortcv::PFLD;
+using ortcv::PFLD98;
 
-Ort::Value PFLD::transform(const cv::Mat &mat)
+Ort::Value PFLD98::transform(const cv::Mat &mat)
 {
   cv::Mat canva = mat.clone();
   cv::resize(canva, canva, cv::Size(input_node_dims.at(3),
@@ -20,7 +20,7 @@ Ort::Value PFLD::transform(const cv::Mat &mat)
       input_values_handler, ortcv::utils::transform::CHW);
 }
 
-void PFLD::detect(const cv::Mat &mat, types::Landmarks &landmarks)
+void PFLD98::detect(const cv::Mat &mat, types::Landmarks &landmarks)
 {
   if (mat.empty()) return;
   // this->transform(mat);
@@ -35,15 +35,15 @@ void PFLD::detect(const cv::Mat &mat, types::Landmarks &landmarks)
       &input_tensor, 1, output_node_names.data(), num_outputs
   );
   // 3. fetch landmarks.
-  Ort::Value &_landmarks = output_tensors.at(1); // (1,106*2)
+  Ort::Value &landmarks_norm = output_tensors.at(1); // (1,98*2)
   auto landmrk_dims = output_node_dims.at(1);
   const unsigned int num_landmarks = landmrk_dims.at(1);
 
   for (unsigned int i = 0; i < num_landmarks; i += 2)
   {
     landmarks.points.push_back(
-        cv::Point2f(_landmarks.At<float>({0, i}) * img_width,
-                    _landmarks.At<float>({0, i + 1}) * img_height
+        cv::Point2f(landmarks_norm.At<float>({0, i}) * img_width,
+                    landmarks_norm.At<float>({0, i + 1}) * img_height
         ));
   }
   landmarks.flag = true;

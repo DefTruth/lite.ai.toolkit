@@ -25,7 +25,8 @@
 
 ## Important Notes !!!   
 
-* ✅ (20210722) Update [lite.ai.hub.onnx.md](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md) ! [Check](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md) the relations of *Lite.AI's* classes and pretrained files
+* ✅ (20210726) Added [PFLD98](https://github.com/polarisZhao/PFLD-pytorch) for 98 facial landmaeks detection ! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_pfld98.cpp) .
+* ✅ (20210722) Update [lite.ai.hub.onnx.md](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md) ! *Lite.AI* contains *50+* AI models with almost *100+* .onnx files now.
 * 🔥 (20210721) Added [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) to *Lite.AI* ! Use it through [*lite::cv::detection::YoloX*](#lite.ai-object-detection) syntax ! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolox.cpp) .  
 
 <!---
@@ -342,7 +343,7 @@ For example, ArcFace in [insightface](https://github.com/deepinsight/insightface
 |Class|Size|From|Awesome|File|Type|State|Usage|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |[PFLD](https://github.com/Hsintao/pfld_106_face_landmarks)|1.0M| [pfld_106_...](https://github.com/Hsintao/pfld_106_face_landmarks) |  🔥🔥↑  | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-alignment) | *face::align* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_pfld.cpp) |
-|[PFLD98](https://github.com/polarisZhao/PFLD-pytorch)|-| [PFLD...](https://github.com/polarisZhao/PFLD-pytorch) | 🔥🔥↑ | [![](https://img.shields.io/badge/onnx-todo-red.svg)](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-alignment) | *face::align* | ⚠️ | - |
+|[PFLD98](https://github.com/polarisZhao/PFLD-pytorch)|4.8M| [PFLD...](https://github.com/polarisZhao/PFLD-pytorch) | 🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-alignment) | *face::align* | ✅️ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_pfld98.cpp) |
 |[MobileNetV268](https://github.com/cunjian/pytorch_face_landmark)|-| [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 🔥🔥↑ |  [![](https://img.shields.io/badge/onnx-todo-red.svg)](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-alignment) | *face::align* | ⚠️ | - |
 |[MobileV2SE68](https://github.com/cunjian/pytorch_face_landmark)|-| [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 🔥🔥↑ |  [![](https://img.shields.io/badge/onnx-todo-red.svg)](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-alignment) | *face::align* | ⚠️ | - |
 |[MobileV2SERE68](https://github.com/cunjian/pytorch_face_landmark)|-| [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 🔥🔥↑ |  [![](https://img.shields.io/badge/onnx-todo-red.svg)](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-alignment) | *face::align* | ⚠️ | - |

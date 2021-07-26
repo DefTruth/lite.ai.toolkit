@@ -94,6 +94,8 @@ You can download all the pretrained models files of ONNX format from ([Baidu Dri
 | :---------------------------: | :-------------------: | :----------------------------------------------------------: | :---: |
 | *lite::cv::face::align::PFLD* |  pfld-106-lite.onnx   | [pfld_106_...](https://github.com/Hsintao/pfld_106_face_landmarks) | 1.0Mb |
 | *lite::cv::face::align::PFLD* |   pfld-106-v3.onnx    | [pfld_106_...](https://github.com/Hsintao/pfld_106_face_landmarks) | 5.5Mb |
+| *lite::cv::face::align::PFLD* |   pfld-106-v3.onnx    | [pfld_106_...](https://github.com/Hsintao/pfld_106_face_landmarks) | 5.0Mb |
+| *lite::cv::face::align::PFLD98* |   PFLD-pytorch-pfld.onnx  | [PFLD...](https://github.com/polarisZhao/PFLD-pytorch) | 4.8Mb |
 
 
 ## Face Attributes.  

@@ -62,6 +62,7 @@
 #include "ort/cv/efficient_emotion8.h"
 #include "ort/cv/mobile_emotion7.h"
 #include "ort/cv/rexnet_emotion7.h"
+#include "ort/cv/pfld98.h"
 
 #endif
 
@@ -134,6 +135,7 @@ namespace lite
     typedef ortcv::EfficientEmotion8 _EfficientEmotion8;
     typedef ortcv::MobileEmotion7 _MobileEmotion7;
     typedef ortcv::ReXNetEmotion7 _ReXNetEmotion7;
+    typedef ortcv::PFLD98 _PFLD98;
 #endif
 
     // 1. classification
@@ -182,6 +184,7 @@ namespace lite
       typedef _EfficientEmotion8 EfficientEmotion8;
       typedef _MobileEmotion7 MobileEmotion7;
       typedef _ReXNetEmotion7 ReXNetEmotion7;
+      typedef _PFLD98 PFLD98;
 #endif
       namespace detect
       {
@@ -193,7 +196,8 @@ namespace lite
       namespace align
       {
 #ifdef BACKEND_ONNXRUNTIME
-        typedef _PFLD PFLD; // facial landmarks detection.
+        typedef _PFLD PFLD; // facial landmarks detection. 106 points
+        typedef _PFLD98 PFLD98; // 98 points
 #endif
       }
 
@@ -376,6 +380,7 @@ namespace lite
       typedef ortcv::EfficientEmotion8 _ONNXEfficientEmotion8;
       typedef ortcv::MobileEmotion7 _ONNXMobileEmotion7;
       typedef ortcv::ReXNetEmotion7 _ONNXReXNetEmotion7;
+      typedef ortcv::PFLD98 _ONNXPFLD98;
 
       // 1. classification
       namespace classification
@@ -418,6 +423,7 @@ namespace lite
         typedef _ONNXEfficientEmotion8 EfficientEmotion8;
         typedef _ONNXMobileEmotion7 MobileEmotion7;
         typedef _ONNXReXNetEmotion7 ReXNetEmotion7;
+        typedef _ONNXPFLD98 PFLD98;
 
         namespace detect
         {
@@ -426,7 +432,8 @@ namespace lite
 
         namespace align
         {
-          typedef _ONNXPFLD PFLD; // facial landmarks detection.
+          typedef _ONNXPFLD PFLD; // facial landmarks detection. 106 points
+          typedef _ONNXPFLD98 PFLD98; // 98 points
         }
 
         namespace pose
