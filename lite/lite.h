@@ -63,6 +63,9 @@
 #include "ort/cv/mobile_emotion7.h"
 #include "ort/cv/rexnet_emotion7.h"
 #include "ort/cv/pfld98.h"
+#include "ort/cv/pfld68.h"
+#include "ort/cv/mobilenetv2_68.h"
+#include "ort/cv/mobilenetv2_se_68.h"
 
 #endif
 
@@ -136,6 +139,9 @@ namespace lite
     typedef ortcv::MobileEmotion7 _MobileEmotion7;
     typedef ortcv::ReXNetEmotion7 _ReXNetEmotion7;
     typedef ortcv::PFLD98 _PFLD98;
+    typedef ortcv::PFLD68 _PFLD68;
+    typedef ortcv::MobileNetV268 _MobileNetV268;
+    typedef ortcv::MobileNetV2SE68 _MobileNetV2SE68;
 #endif
 
     // 1. classification
@@ -185,6 +191,9 @@ namespace lite
       typedef _MobileEmotion7 MobileEmotion7;
       typedef _ReXNetEmotion7 ReXNetEmotion7;
       typedef _PFLD98 PFLD98;
+      typedef _PFLD68 PFLD68;
+      typedef _MobileNetV268 MobileNetV268;
+      typedef _MobileNetV2SE68 MobileNetV2SE68;
 #endif
       namespace detect
       {
@@ -198,6 +207,9 @@ namespace lite
 #ifdef BACKEND_ONNXRUNTIME
         typedef _PFLD PFLD; // facial landmarks detection. 106 points
         typedef _PFLD98 PFLD98; // 98 points
+        typedef _PFLD68 PFLD68; // 68 points
+        typedef _MobileNetV268 MobileNetV268; // 68 points
+        typedef _MobileNetV2SE68 MobileNetV2SE68; // 68 points
 #endif
       }
 
@@ -381,6 +393,9 @@ namespace lite
       typedef ortcv::MobileEmotion7 _ONNXMobileEmotion7;
       typedef ortcv::ReXNetEmotion7 _ONNXReXNetEmotion7;
       typedef ortcv::PFLD98 _ONNXPFLD98;
+      typedef ortcv::PFLD68 _ONNXPFLD68;
+      typedef ortcv::MobileNetV268 _ONNXMobileNetV268;
+      typedef ortcv::MobileNetV2SE68 _ONNXMobileNetV2SE68;
 
       // 1. classification
       namespace classification
@@ -424,6 +439,9 @@ namespace lite
         typedef _ONNXMobileEmotion7 MobileEmotion7;
         typedef _ONNXReXNetEmotion7 ReXNetEmotion7;
         typedef _ONNXPFLD98 PFLD98;
+        typedef _ONNXPFLD68 PFLD68;
+        typedef _ONNXMobileNetV268 MobileNetV268;
+        typedef _ONNXMobileNetV2SE68 MobileNetV2SE68;
 
         namespace detect
         {
@@ -434,6 +452,9 @@ namespace lite
         {
           typedef _ONNXPFLD PFLD; // facial landmarks detection. 106 points
           typedef _ONNXPFLD98 PFLD98; // 98 points
+          typedef _ONNXPFLD68 PFLD68; // 68 points
+          typedef _ONNXMobileNetV268 MobileNetV268; // 68 points
+          typedef _ONNXMobileNetV2SE68 MobileNetV2SE68; // 68 points
         }
 
         namespace pose

@@ -1,23 +1,23 @@
 //
-// Created by DefTruth on 2021/7/26.
+// Created by DefTruth on 2021/7/27.
 //
 
-#ifndef LITE_AI_ORT_CV_PFLD98_H
-#define LITE_AI_ORT_CV_PFLD98_H
+#ifndef LITE_AI_ORT_CV_PFLD68_H
+#define LITE_AI_ORT_CV_PFLD68_H
 
 #include "ort/core/ort_core.h"
 
 namespace ortcv
 {
-  class LITE_EXPORTS PFLD98 : public BasicOrtHandler
+  class LITE_EXPORTS PFLD68 : public BasicOrtHandler
   {
 
   public:
-    explicit PFLD98(const std::string &_onnx_path, unsigned int _num_threads = 1) :
+    explicit PFLD68(const std::string &_onnx_path, unsigned int _num_threads = 1) :
         BasicOrtHandler(_onnx_path, _num_threads)
     {};
 
-    ~PFLD98() override = default; // override
+    ~PFLD68() override = default; // override
 
   private:
     static constexpr const float mean_val = 0.f;
@@ -32,4 +32,4 @@ namespace ortcv
   };
 }
 
-#endif //LITE_AI_ORT_CV_PFLD98_H
+#endif //LITE_AI_ORT_CV_PFLD68_H

@@ -1,26 +1,27 @@
 //
-// Created by DefTruth on 2021/3/14.
+// Created by DefTruth on 2021/7/27.
 //
 
-#include "pfld.h"
+#include "mobilenetv2_68.h"
 #include "ort/core/ort_utils.h"
 
-using ortcv::PFLD;
+using ortcv::MobileNetV268;
 
-Ort::Value PFLD::transform(const cv::Mat &mat)
+Ort::Value MobileNetV268::transform(const cv::Mat &mat)
 {
   cv::Mat canva = mat.clone();
   cv::resize(canva, canva, cv::Size(input_node_dims.at(3),
                                     input_node_dims.at(2)));
-  // (1,3,112,112)
-  ortcv::utils::transform::normalize_inplace(canva, mean_val, scale_val); // float32
+  cv::cvtColor(canva, canva, cv::COLOR_BGR2RGB);
+  // (1,3,56,56)
+  ortcv::utils::transform::normalize_inplace(canva, mean_vals, scale_vals); // float32
 
   return ortcv::utils::transform::create_tensor(
       canva, input_node_dims, memory_info_handler,
       input_values_handler, ortcv::utils::transform::CHW);
 }
 
-void PFLD::detect(const cv::Mat &mat, types::Landmarks &landmarks)
+void MobileNetV268::detect(const cv::Mat &mat, types::Landmarks &landmarks)
 {
   if (mat.empty()) return;
   // this->transform(mat);
@@ -35,8 +36,8 @@ void PFLD::detect(const cv::Mat &mat, types::Landmarks &landmarks)
       &input_tensor, 1, output_node_names.data(), num_outputs
   );
   // 3. fetch landmarks.
-  Ort::Value &landmarks_norm = output_tensors.at(1); // (1,106*2)
-  auto landmark_dims = output_node_dims.at(1);
+  Ort::Value &landmarks_norm = output_tensors.at(0); // (1,68*2)
+  auto landmark_dims = output_node_dims.at(0);
   const unsigned int num_landmarks = landmark_dims.at(1);
 
   for (unsigned int i = 0; i < num_landmarks; i += 2)

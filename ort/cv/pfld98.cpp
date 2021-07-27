@@ -36,15 +36,18 @@ void PFLD98::detect(const cv::Mat &mat, types::Landmarks &landmarks)
   );
   // 3. fetch landmarks.
   Ort::Value &landmarks_norm = output_tensors.at(1); // (1,98*2)
-  auto landmrk_dims = output_node_dims.at(1);
-  const unsigned int num_landmarks = landmrk_dims.at(1);
+  auto landmark_dims = output_node_dims.at(1);
+  const unsigned int num_landmarks = landmark_dims.at(1);
 
   for (unsigned int i = 0; i < num_landmarks; i += 2)
   {
-    landmarks.points.push_back(
-        cv::Point2f(landmarks_norm.At<float>({0, i}) * img_width,
-                    landmarks_norm.At<float>({0, i + 1}) * img_height
-        ));
+    float x = landmarks_norm.At<float>({0, i});
+    float y = landmarks_norm.At<float>({0, i + 1});
+
+    x = std::fmin(std::fmax(0., x), 1.0f);
+    y = std::fmin(std::fmax(0., y), 1.0f);
+
+    landmarks.points.push_back(cv::Point2f(x * img_width, y * img_height));
   }
   landmarks.flag = true;
 }

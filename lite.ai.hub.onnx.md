@@ -96,6 +96,9 @@ You can download all the pretrained models files of ONNX format from ([Baidu Dri
 | *lite::cv::face::align::PFLD* |   pfld-106-v3.onnx    | [pfld_106_...](https://github.com/Hsintao/pfld_106_face_landmarks) | 5.5Mb |
 | *lite::cv::face::align::PFLD* |   pfld-106-v2.onnx    | [pfld_106_...](https://github.com/Hsintao/pfld_106_face_landmarks) | 5.0Mb |
 | *lite::cv::face::align::PFLD98* |   PFLD-pytorch-pfld.onnx  | [PFLD...](https://github.com/polarisZhao/PFLD-pytorch) | 4.8Mb |
+| *lite::cv::face::align::MobileNetV268* |   pytorch_face_landmarks_landmark_detection_56.onnx  | [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 9.4Mb |
+| *lite::cv::face::align::MobileNetV2SE68* |   pytorch_face_landmarks_landmark_detection_56_se_external.onnx  | [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 11Mb |
+| *lite::cv::face::align::PFLD68* |   pytorch_face_landmarks_pfld.onnx  | [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 2.8Mb |
 
 
 ## Face Attributes.  
