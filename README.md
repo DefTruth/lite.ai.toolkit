@@ -8,7 +8,7 @@
   <img src='logs/test_lite_ssd_mobilenetv1.jpg' height="200px" width="200px">
   <img src='logs/test_lite_ultraface.jpg' height="200px" width="200px">
   <br> 
-  <img src='logs/test_lite_pfld.jpg' height="200px" width="200px">
+  <img src='logs/test_lite_face_landmarks_1000.jpg' height="200px" width="200px">
   <img src='logs/test_lite_fsanet.jpg' height="200px" width="200px">
   <img src='logs/test_lite_fast_style_transfer_candy.jpg' height="200px" width="200px">
   <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="200px" width="200px"> 
@@ -23,8 +23,9 @@
 
 *Lite.AI* 🚀🚀🌟 is a simple and user-friendly C++ library of awesome🔥🔥🔥 AI models. It's a collection of personal interests. such as YOLOX, YoloV5, YoloV4, DeepLabV3, ArcFace, etc. And, it only relies on *[OpenCV](https://github.com/opencv/opencv)* and commonly used inference engines, namely, *[onnxruntime](https://github.com/microsoft/onnxruntime)*, *[ncnn](https://github.com/Tencent/ncnn)*, and *[MNN](https://github.com/alibaba/MNN)*. It based on *[onnxruntime c++](https://github.com/microsoft/onnxruntime)* by default. *Lite.AI* includes [object detection](#lite.ai-object-detection), [face detection](#lite.ai-face-detection), [style transfer](#lite.ai-style-transfer), [face alignment](#lite.ai-face-alignment), [face recognition](#lite.ai-face-recognition), [segmentation](#lite.ai-segmentation), [colorization](#lite.ai-colorization), [face attributes analysis](#lite.ai-face-attributes-analysis), [image classification](#lite.ai-image-classification), [matting](#lite.ai-matting), etc. You can use these awesome models simply through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai-object-detection)*. Have a good travel ~ 🙃🤪🍀
 
-## Important Notes !!!   
+## Important Notes !!!  
 
+* 🔥 (20210728) Added [FaceLandmarks1000](https://github.com/Single430/FaceLandmark1000) for 1000 facial landmarks detection, 2Mb only ! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_face_landmarks_1000.cpp) .  
 * ✅ (20210727) Added [MobileNetV2SE68、PFLD68](https://github.com/cunjian/pytorch_face_landmark) for 68 facial landmarks detection ! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_pfld68.cpp) .
 * ✅ (20210726) Added [PFLD98](https://github.com/polarisZhao/PFLD-pytorch) for 98 facial landmarks detection ! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_pfld98.cpp) .
 * ✅ (20210722) Update [lite.ai.hub.onnx.md](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md) ! *Lite.AI* contains *50+* AI models with *100+* .onnx files now.
@@ -348,7 +349,7 @@ For example, ArcFace in [insightface](https://github.com/deepinsight/insightface
 |[MobileNetV268](https://github.com/cunjian/pytorch_face_landmark)|9.4M| [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 🔥🔥↑ |  [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-alignment) | *face::align* | ✅️️ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_mobilenetv2_68.cpp) |
 |[MobileNetV2SE68](https://github.com/cunjian/pytorch_face_landmark)|11M| [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 🔥🔥↑ |  [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-alignment) | *face::align* | ✅️️ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_mobilenetv2_se_68.cpp) |
 |[PFLD68](https://github.com/cunjian/pytorch_face_landmark)|2.8M| [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 🔥🔥↑ |  [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-alignment) | *face::align* | ✅️ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_pfld68.cpp) |
-|[FaceLandmark1000](https://github.com/Single430/FaceLandmark1000)|-| [FaceLandm...](https://github.com/Single430/FaceLandmark1000) | 🔥↑ |  [![](https://img.shields.io/badge/onnx-todo-red.svg)](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-alignment) | *face::align* | ⚠️ | - |
+|[FaceLandmark1000](https://github.com/Single430/FaceLandmark1000)|2.0M| [FaceLandm...](https://github.com/Single430/FaceLandmark1000) | 🔥↑ |  [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-alignment) | *face::align* | ✅️ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_face_landmarks_1000.cpp) |
 
 
 * Face Attributes.  
@@ -861,33 +862,43 @@ The output is:
 <details>
 <summary> 4.9 Expand Examples for Face Alignment.</summary>
 
-#### 4.9 Facial Landmarks Detection using [PFLD](https://github.com/Hsintao/pfld_106_face_landmarks). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
+#### 4.9 1000 Facial Landmarks Detection using [FaceLandmarks1000](https://github.com/Single430/FaceLandmark1000). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
 ```c++
 #include "lite/lite.h"
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/pfld-106-v3.onnx";
-  std::string test_img_path = "../../../examples/lite/resources/test_lite_pfld.png";
-  std::string save_img_path = "../../../logs/test_lite_pfld.jpg";
-
-  auto *pfld = new lite::cv::face::align::PFLD(onnx_path);
+  std::string onnx_path = "../../../hub/onnx/cv/FaceLandmark1000.onnx";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_face_landmarks_0.png";
+  std::string save_img_path = "../../../logs/test_lite_face_landmarks_1000.jpg";
+    
+  auto *face_landmarks_1000 = new lite::cv::face::align::FaceLandmark1000(onnx_path);
 
   lite::cv::types::Landmarks landmarks;
   cv::Mat img_bgr = cv::imread(test_img_path);
-  pfld->detect(img_bgr, landmarks);
+  face_landmarks_1000->detect(img_bgr, landmarks);
   lite::cv::utils::draw_landmarks_inplace(img_bgr, landmarks);
   cv::imwrite(save_img_path, img_bgr);
   
-  delete pfld;
+  delete face_landmarks_1000;
 }
 ```
 The output is:
 <div align='center'>
-  <img src='logs/test_lite_pfld.jpg' height="224px" width="224px">
-  <img src='logs/test_lite_pfld_2.jpg' height="224px" width="224px">
-  <img src='logs/test_lite_pfld_3.jpg' height="224px" width="224px">
+  <img src='logs/test_lite_face_landmarks_1000.jpg' height="224px" width="224px">
+  <img src='logs/test_lite_face_landmarks_1000_2.jpg' height="224px" width="224px">
+  <img src='logs/test_lite_face_landmarks_1000_0.jpg' height="224px" width="224px">
 </div>    
+
+More classes for face alignment.
+```c++
+auto *align = new lite::cv::face::align::PFLD(onnx_path);  // 106 landmarks
+auto *align = new lite::cv::face::align::PFLD98(onnx_path);  // 98 landmarks
+auto *align = new lite::cv::face::align::PFLD68(onnx_path);  // 68 landmarks
+auto *align = new lite::cv::face::align::MobileNetV268(onnx_path);  // 68 landmarks
+auto *align = new lite::cv::face::align::MobileNetV2SE68(onnx_path);  // 68 landmarks
+auto *align = new lite::cv::face::align::FaceLandmark1000(onnx_path);  // 1000 landmarks !
+```
 
 </details>
 

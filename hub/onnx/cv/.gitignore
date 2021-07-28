@@ -54,3 +54,4 @@ PFLD-pytorch-pfld.onnx
 pytorch_face_landmarks_landmark_detection_56.onnx
 pytorch_face_landmarks_landmark_detection_56_se_external.onnx
 pytorch_face_landmarks_pfld.onnx
+FaceLandmark1000.onnx

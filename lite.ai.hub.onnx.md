@@ -99,6 +99,7 @@ You can download all the pretrained models files of ONNX format from ([Baidu Dri
 | *lite::cv::face::align::MobileNetV268* |   pytorch_face_landmarks_landmark_detection_56.onnx  | [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 9.4Mb |
 | *lite::cv::face::align::MobileNetV2SE68* |   pytorch_face_landmarks_landmark_detection_56_se_external.onnx  | [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 11Mb |
 | *lite::cv::face::align::PFLD68* |   pytorch_face_landmarks_pfld.onnx  | [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 2.8Mb |
+| *lite::cv::face::align::FaceLandmarks1000* |   FaceLandmark1000.onnx  | [FaceLandm...](https://github.com/Single430/FaceLandmark1000) | 2.0Mb |
 
 
 ## Face Attributes.  

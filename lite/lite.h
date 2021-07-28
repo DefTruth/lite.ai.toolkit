@@ -66,6 +66,7 @@
 #include "ort/cv/pfld68.h"
 #include "ort/cv/mobilenetv2_68.h"
 #include "ort/cv/mobilenetv2_se_68.h"
+#include "ort/cv/face_landmarks_1000.h"
 
 #endif
 
@@ -142,6 +143,7 @@ namespace lite
     typedef ortcv::PFLD68 _PFLD68;
     typedef ortcv::MobileNetV268 _MobileNetV268;
     typedef ortcv::MobileNetV2SE68 _MobileNetV2SE68;
+    typedef ortcv::FaceLandmark1000 _FaceLandmark1000;
 #endif
 
     // 1. classification
@@ -194,6 +196,7 @@ namespace lite
       typedef _PFLD68 PFLD68;
       typedef _MobileNetV268 MobileNetV268;
       typedef _MobileNetV2SE68 MobileNetV2SE68;
+      typedef _FaceLandmark1000 FaceLandmark1000;
 #endif
       namespace detect
       {
@@ -210,6 +213,7 @@ namespace lite
         typedef _PFLD68 PFLD68; // 68 points
         typedef _MobileNetV268 MobileNetV268; // 68 points
         typedef _MobileNetV2SE68 MobileNetV2SE68; // 68 points
+        typedef _FaceLandmark1000 FaceLandmark1000; // 1000 points
 #endif
       }
 
@@ -396,6 +400,8 @@ namespace lite
       typedef ortcv::PFLD68 _ONNXPFLD68;
       typedef ortcv::MobileNetV268 _ONNXMobileNetV268;
       typedef ortcv::MobileNetV2SE68 _ONNXMobileNetV2SE68;
+      typedef ortcv::FaceLandmark1000 _ONNXFaceLandmark1000;
+
 
       // 1. classification
       namespace classification
@@ -442,6 +448,7 @@ namespace lite
         typedef _ONNXPFLD68 PFLD68;
         typedef _ONNXMobileNetV268 MobileNetV268;
         typedef _ONNXMobileNetV2SE68 MobileNetV2SE68;
+        typedef _ONNXFaceLandmark1000 FaceLandmark1000;
 
         namespace detect
         {
@@ -455,6 +462,7 @@ namespace lite
           typedef _ONNXPFLD68 PFLD68; // 68 points
           typedef _ONNXMobileNetV268 MobileNetV268; // 68 points
           typedef _ONNXMobileNetV2SE68 MobileNetV2SE68; // 68 points
+          typedef _ONNXFaceLandmark1000 FaceLandmark1000; // 1000 points
         }
 
         namespace pose
