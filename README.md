@@ -435,7 +435,7 @@ More examples can be found at [lite.ai-demos](https://github.com/DefTruth/lite.a
 
 <div id="lite.ai-object-detection"></div>
 
-#### 4.1 Object Detection using [YoloV5](https://github.com/ultralytics/yolov5). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
+#### Example0: Object Detection using [YoloV5](https://github.com/ultralytics/yolov5). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
 ```c++
 #include "lite/lite.h"
 
@@ -465,23 +465,118 @@ The output is:
 
 Or you can use Newest 🔥🔥 ! YOLO series's detector [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) . They got the similar results.  
 
+****  
+
+<div id="lite.ai-face-alignment"></div>
+
+#### Example1: 1000 Facial Landmarks Detection using [FaceLandmarks1000](https://github.com/Single430/FaceLandmark1000). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
+```c++
+#include "lite/lite.h"
+
+static void test_default()
+{
+  std::string onnx_path = "../../../hub/onnx/cv/FaceLandmark1000.onnx";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_face_landmarks_0.png";
+  std::string save_img_path = "../../../logs/test_lite_face_landmarks_1000.jpg";
+    
+  auto *face_landmarks_1000 = new lite::cv::face::align::FaceLandmark1000(onnx_path);
+
+  lite::cv::types::Landmarks landmarks;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  face_landmarks_1000->detect(img_bgr, landmarks);
+  lite::cv::utils::draw_landmarks_inplace(img_bgr, landmarks);
+  cv::imwrite(save_img_path, img_bgr);
+  
+  delete face_landmarks_1000;
+}
+```
+The output is:
+<div align='center'>
+  <img src='logs/test_lite_face_landmarks_1000.jpg' height="224px" width="224px">
+  <img src='logs/test_lite_face_landmarks_1000_2.jpg' height="224px" width="224px">
+  <img src='logs/test_lite_face_landmarks_1000_0.jpg' height="224px" width="224px">
+</div>    
+
+****  
+
+<div id="lite.ai-colorization"></div>
+
+#### Example2: Colorization using [colorization](https://github.com/richzhang/colorization). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
+```c++
+#include "lite/lite.h"
+
+static void test_default()
+{
+  std::string onnx_path = "../../../hub/onnx/cv/eccv16-colorizer.onnx";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_colorizer_1.jpg";
+  std::string save_img_path = "../../../logs/test_lite_eccv16_colorizer_1.jpg";
+  
+  auto *colorizer = new lite::cv::colorization::Colorizer(onnx_path);
+  
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  lite::cv::types::ColorizeContent colorize_content;
+  colorizer->detect(img_bgr, colorize_content);
+  
+  if (colorize_content.flag) cv::imwrite(save_img_path, colorize_content.mat);
+  delete colorizer;
+}
+```
+The output is:
+
+<div align='center'>
+  <img src='examples/lite/resources/test_lite_colorizer_1.jpg' height="224px" width="224px">
+  <img src='examples/lite/resources/test_lite_colorizer_2.jpg' height="224px" width="224px">
+  <img src='examples/lite/resources/test_lite_colorizer_3.jpg' height="224px" width="224px">  
+  <br> 
+  <img src='logs/test_lite_siggraph17_colorizer_1.jpg' height="224px" width="224px">
+  <img src='logs/test_lite_siggraph17_colorizer_2.jpg' height="224px" width="224px">
+  <img src='logs/test_lite_siggraph17_colorizer_3.jpg' height="224px" width="224px">
+</div>  
+
 <div id="lite.ai-face-recognition"></div>  
 <div id="lite.ai-segmentation"></div>  
 <div id="lite.ai-face-attributes-analysis"></div>  
 <div id="lite.ai-image-classification"></div>  
 <div id="lite.ai-face-detection"></div>
-<div id="lite.ai-colorization"></div>
 <div id="lite.ai-head-pose-estimation"></div>
-<div id="lite.ai-face-alignment"></div>
 <div id="lite.ai-style-transfer"></div>
 <div id="lite.ai-matting"></div>
 
-
 <details>
-<summary> ⚠️ Expand All Examples for Lite.AI.</summary>  
+<summary> ⚠️ Expand All Examples for Each Topic in Lite.AI.</summary>  
 
 <details>
 <summary> 4.1 Expand Examples for Object Detection.</summary>
+
+#### 4.1 Object Detection using [YoloV5](https://github.com/ultralytics/yolov5). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
+```c++
+#include "lite/lite.h"
+
+static void test_default()
+{
+std::string onnx_path = "../../../hub/onnx/cv/yolov5s.onnx";
+std::string test_img_path = "../../../examples/lite/resources/test_lite_yolov5_1.jpg";
+std::string save_img_path = "../../../logs/test_lite_yolov5_1.jpg";
+
+auto *yolov5 = new lite::cv::detection::YoloV5(onnx_path);
+std::vector<lite::cv::types::Boxf> detected_boxes;
+cv::Mat img_bgr = cv::imread(test_img_path);
+yolov5->detect(img_bgr, detected_boxes);
+
+lite::cv::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+cv::imwrite(save_img_path, img_bgr);
+
+delete yolov5;
+}
+```
+
+The output is:
+<div align='center'>
+  <img src='logs/test_lite_yolov5_1.jpg' height="256px">
+  <img src='logs/test_lite_yolov5_2.jpg' height="256px">
+</div>
+
+Or you can use Newest 🔥🔥 ! YOLO series's detector [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) . They got the similar results.  
 
 ```c++
 #include "lite/lite.h"
