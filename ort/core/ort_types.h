@@ -269,7 +269,7 @@ template<typename T1, typename T2>
 inline cv::Rect ortcv::types::BoundingBoxType<T1, T2>::rect() const
 {
   ::__assert_type<value_type, score_type>();
-  BoundingBoxType<int> boxi = this->template convert_type<int>();
+  auto boxi = this->template convert_type<int>();
   return cv::Rect(boxi.x1, boxi.y1, boxi.width(), boxi.height());
 }
 
@@ -277,7 +277,7 @@ template<typename T1, typename T2>
 inline cv::Point2i ortcv::types::BoundingBoxType<T1, T2>::tl() const
 {
   ::__assert_type<value_type, score_type>();
-  BoundingBoxType<int> boxi = this->template convert_type<int>();
+  auto boxi = this->template convert_type<int>();
   return cv::Point2i(boxi.x1, boxi.y1);
 }
 
@@ -285,7 +285,7 @@ template<typename T1, typename T2>
 inline cv::Point2i ortcv::types::BoundingBoxType<T1, T2>::rb() const
 {
   ::__assert_type<value_type, score_type>();
-  BoundingBoxType<int> boxi = this->template convert_type<int>();
+  auto boxi = this->template convert_type<int>();
   return cv::Point2i(boxi.x2, boxi.y2);
 }
 
