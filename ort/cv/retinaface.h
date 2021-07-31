@@ -9,7 +9,6 @@
 
 namespace ortcv
 {
-
   // reference: Pytorch_Retinaface python implementation.
   // https://github.com/biubug6/Pytorch_Retinaface/blob/master/layers/functions/prior_box.py
   struct RetinaAnchor
@@ -60,7 +59,7 @@ namespace ortcv
   public:
     void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
                 float score_threshold = 0.25f, float iou_threshold = 0.45f,
-                unsigned int topk = 100, unsigned int nms_type = NMS::OFFSET);
+                unsigned int topk = 400, unsigned int nms_type = NMS::HARD);
 
   };
 }

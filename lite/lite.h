@@ -459,7 +459,7 @@ namespace lite
         namespace detect
         {
           typedef _ONNXUltraFace UltraFace;  // face detection.
-          typedef _ONNXRetinaFace _RetinaFace;
+          typedef _ONNXRetinaFace RetinaFace;
         }
 
         namespace align

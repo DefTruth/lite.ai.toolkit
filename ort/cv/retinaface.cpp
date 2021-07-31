@@ -53,8 +53,8 @@ void RetinaFace::generate_anchors(const int target_height,
   {
     feature_maps.push_back(
         {
-            std::ceilf((float) target_height / (float) step),
-            std::ceilf((float) target_width / (float) step)
+            (int) std::ceilf((float) target_height / (float) step),
+            (int) std::ceilf((float) target_width / (float) step)
         } // ceil
     );
   }
@@ -66,7 +66,9 @@ void RetinaFace::generate_anchors(const int target_height,
   {
     auto f_map = feature_maps.at(k); // e.g [640//8,640//8]
     auto tmp_min_sizes = min_sizes.at(k); // e.g [8,16]
-    int f_h = f_map.at(0), f_w = f_map.at(1);
+    int f_h = f_map.at(0);
+    int f_w = f_map.at(1);
+
     for (int i = 0; i < f_h; ++i)
     {
       for (int j = 0; j < f_w; ++j)
@@ -80,7 +82,7 @@ void RetinaFace::generate_anchors(const int target_height,
           float cx = ((float) j + 0.5f) * (float) steps.at(k) / (float) target_width;
           float cy = ((float) i + 0.5f) * (float) steps.at(k) / (float) target_height;
 
-          anchors.push_back((RetinaAnchor) {cx, cy, s_kx, s_ky}); // without clip,
+          anchors.push_back((RetinaAnchor) {cx, cy, s_kx, s_ky}); // without clip
         }
       }
     }
@@ -126,8 +128,8 @@ void RetinaFace::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
     float dh = bboxes.At<float>({0, i, 3});
 
     // ref: https://github.com/biubug6/Pytorch_Retinaface/blob/master/utils/box_utils.py
-    float cx = prior_cx + dx * variance[0] * prior_cx;
-    float cy = prior_cy + dy * variance[0] * prior_cy;
+    float cx = prior_cx + dx * variance[0] * prior_s_kx;
+    float cy = prior_cy + dy * variance[0] * prior_s_ky;
     float w = prior_s_kx * std::expf(dw * variance[1]);
     float h = prior_s_ky * std::expf(dh * variance[1]); // norm coor (0.,1.)
 
