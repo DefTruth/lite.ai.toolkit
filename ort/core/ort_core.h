@@ -68,6 +68,17 @@ namespace ortcv
   class LITE_EXPORTS RetinaFace;                 // [54] * reference: https://github.com/biubug6/Pytorch_Retinaface
   class LITE_EXPORTS FaceBoxes;                  // [55] reference: https://github.com/zisianw/FaceBoxes.PyTorch
   class LITE_EXPORTS YoloX;                      // [56] * reference: https://github.com/Megvii-BaseDetection/YOLOX
+  class LITE_EXPORTS Pyramidbox;                 // [57] reference: https://github.com/yxlijun/Pyramidbox.pytorch
+  class LITE_EXPORTS TinyFaceDet;                // [58] reference: https://github.com/varunagrawal/tiny-faces-pytorch
+  class LITE_EXPORTS S3FD;                       // [59] reference: https://github.com/yxlijun/S3FD.pytorch
+  class LITE_EXPORTS DSFD;                       // [60] reference: https://github.com/yxlijun/DSFD.pytorch
+  class LITE_EXPORTS TencentDSFD;                // [61] reference: https://github.com/Tencent/FaceDetection-DSFD
+  class LITE_EXPORTS BlazeFace;                  // [62] reference: https://github.com/hollance/BlazeFace-PyTorch
+  class LITE_EXPORTS GoinPyramidBox;             // [63] reference: https://github.com/Goingqs/PyramidBox
+  class LITE_EXPORTS CenterFace;                 // [64] reference: https://github.com/chenjun2hao/CenterFace.pytorch
+  class LITE_EXPORTS FaceMaskDetection;          // [65] reference: https://github.com/AIZOOTech/FaceMaskDetection
+  class LITE_EXPORTS DBFace;                     // [66] reference: https://github.com/dlunion/DBFace
+
 }
 
 namespace ortnlp

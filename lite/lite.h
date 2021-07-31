@@ -454,7 +454,7 @@ namespace lite
         typedef _ONNXMobileNetV268 MobileNetV268;
         typedef _ONNXMobileNetV2SE68 MobileNetV2SE68;
         typedef _ONNXFaceLandmark1000 FaceLandmark1000;
-        typedef _ONNXRetinaFace _RetinaFace;
+        typedef _ONNXRetinaFace RetinaFace;
 
         namespace detect
         {
