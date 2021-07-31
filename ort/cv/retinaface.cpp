@@ -66,7 +66,7 @@ void RetinaFace::generate_anchors(const int target_height,
   {
     auto f_map = feature_maps.at(k); // e.g [640//8,640//8]
     auto tmp_min_sizes = min_sizes.at(k); // e.g [8,16]
-    int f_h = f_map.at(0), f_map = f_.at(1);
+    int f_h = f_map.at(0), f_w = f_map.at(1);
     for (int i = 0; i < f_h; ++i)
     {
       for (int j = 0; j < f_w; ++j)
