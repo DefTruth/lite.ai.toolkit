@@ -40,12 +40,12 @@ option(BACKEND_TNN "whether to set TNN as the main backend of lite.ai" OFF)
 include_directories(${LITE_AI_ROOT_DIR})
 
 # include custom cmake files.
-include(setup_3rdparty.cmake)
-include(lite.ai-cmd.cmake)
+include(cmake/setup_3rdparty.cmake)
+include(cmake/lite.ai-cmd.cmake)
 
 # configuration for lite.ai shared lib.
 if (LITE_AI_BUILD_LIB)
-    include(lite.ai.cmake)
+    include(cmake/lite.ai.cmake)
 endif()
 
 # configuration for test examples.
