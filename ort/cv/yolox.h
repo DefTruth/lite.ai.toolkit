@@ -50,7 +50,8 @@ namespace ortcv
   private:
     Ort::Value transform(const cv::Mat &mat) override; //
 
-    void generate_anchors(const int target_size,
+    void generate_anchors(const int target_height,
+                          const int target_width,
                           std::vector<int> &strides,
                           std::vector<Anchor> &anchors);
 

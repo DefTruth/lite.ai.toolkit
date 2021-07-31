@@ -45,15 +45,18 @@ void YoloX::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
   this->nms(bbox_collection, detected_boxes, iou_threshold, topk, nms_type);
 }
 
-void YoloX::generate_anchors(const int target_size, std::vector<int> &strides,
+void YoloX::generate_anchors(const int target_height,
+                             const int target_width,
+                             std::vector<int> &strides,
                              std::vector<Anchor> &anchors)
 {
   for (auto stride : strides)
   {
-    int num_grid = target_size / stride;
-    for (int g1 = 0; g1 < num_grid; g1++)
+    int num_grid_w = target_width / stride;
+    int num_grid_h = target_height / stride;
+    for (int g1 = 0; g1 < num_grid_h; g1++)
     {
-      for (int g0 = 0; g0 < num_grid; g0++)
+      for (int g0 = 0; g0 < num_grid_w; g0++)
       {
         anchors.push_back((Anchor) {g0, g1, stride});
       }
@@ -78,7 +81,7 @@ void YoloX::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
 
   std::vector<Anchor> anchors;
   std::vector<int> strides = {8, 16, 32}; // might have stride=64
-  this->generate_anchors(input_height, strides, anchors);
+  this->generate_anchors(input_height, input_width, strides, anchors);
 
   bbox_collection.clear();
   unsigned int count = 0;
