@@ -110,8 +110,8 @@ void YoloX::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
     float dw = pred.At<float>({0, i, 2});
     float dh = pred.At<float>({0, i, 3});
 
-    float cx = (dx + (float)grid0) * (float)stride;
-    float cy = (dy + (float)grid1) * (float)stride;
+    float cx = (dx + (float) grid0) * (float) stride;
+    float cy = (dy + (float) grid1) * (float) stride;
     float w = std::expf(dw) * (float) stride;
     float h = std::expf(dh) * (float) stride;
 
@@ -138,7 +138,7 @@ void YoloX::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
 
 
 void YoloX::nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
-                 float iou_threshold, unsigned int topk, unsigned int nms_type)
+                float iou_threshold, unsigned int topk, unsigned int nms_type)
 {
   if (nms_type == NMS::BLEND) ortcv::utils::blending_nms(input, output, iou_threshold, topk);
   else if (nms_type == NMS::OFFSET) ortcv::utils::offset_nms(input, output, iou_threshold, topk);

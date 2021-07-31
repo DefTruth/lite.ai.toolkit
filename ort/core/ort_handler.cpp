@@ -31,7 +31,7 @@ void BasicOrtHandler::initialize_handler()
   Ort::SessionOptions session_options;
   session_options.SetIntraOpNumThreads(num_threads);
   session_options.SetGraphOptimizationLevel(
-      GraphOptimizationLevel::ORT_ENABLE_EXTENDED);
+      GraphOptimizationLevel::ORT_ENABLE_ALL);
   session_options.SetLogSeverityLevel(4);
   // 1. session
   ort_session = new Ort::Session(ort_env, onnx_path, session_options);
@@ -107,7 +107,7 @@ void BasicMultiOrtHandler::initialize_handler()
   Ort::SessionOptions session_options;
   session_options.SetIntraOpNumThreads(num_threads);
   session_options.SetGraphOptimizationLevel(
-      GraphOptimizationLevel::ORT_ENABLE_EXTENDED);
+      GraphOptimizationLevel::ORT_ENABLE_ALL);
   session_options.SetLogSeverityLevel(4);
   // 1. session
   ort_session = new Ort::Session(ort_env, onnx_path, session_options);
