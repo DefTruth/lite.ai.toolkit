@@ -55,3 +55,5 @@ pytorch_face_landmarks_landmark_detection_56.onnx
 pytorch_face_landmarks_landmark_detection_56_se_external.onnx
 pytorch_face_landmarks_pfld.onnx
 FaceLandmark1000.onnx
+Pytorch_RetinaFace_mobile0.25.onnx
+Pytorch_RetinaFace_resnet50.onnx

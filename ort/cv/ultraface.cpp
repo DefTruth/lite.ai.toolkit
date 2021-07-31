@@ -54,7 +54,6 @@ void UltraFace::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
   Ort::Value &scores = output_tensors.at(0);
   Ort::Value &boxes = output_tensors.at(1);
   auto scores_dims = output_node_dims.at(0); // (1,n,2)
-  auto boxes_dims = output_node_names.at(1); // (1,n,4) x1,y1,x2,y2
   const unsigned int num_anchors = scores_dims.at(1); // n = 17640 (640x480)
 
   bbox_collection.clear();
