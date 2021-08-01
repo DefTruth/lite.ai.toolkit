@@ -57,3 +57,4 @@ pytorch_face_landmarks_pfld.onnx
 FaceLandmark1000.onnx
 Pytorch_RetinaFace_mobile0.25.onnx
 Pytorch_RetinaFace_resnet50.onnx
+*.onnx
