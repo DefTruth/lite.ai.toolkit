@@ -33,6 +33,10 @@ void BasicOrtHandler::initialize_handler()
   session_options.SetGraphOptimizationLevel(
       GraphOptimizationLevel::ORT_ENABLE_ALL);
   session_options.SetLogSeverityLevel(4);
+
+  // GPU compatiable.
+  // OrtCUDAProviderOptions provider_options;
+  // session_options.AppendExecutionProvider_CUDA(provider_options);
   // 1. session
   ort_session = new Ort::Session(ort_env, onnx_path, session_options);
 

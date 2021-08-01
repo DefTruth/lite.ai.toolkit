@@ -59,11 +59,6 @@
   
 </details>
 
-## Happy News !!!
-🚀 After version 1.8.1 of ONNXRuntime, you can download the official built libs of Windows, Linux, MacOS and Arm !!! Both CPU and GPU versions are available. No more attentions needed pay to build it from source. Download the official built libs from [onnxruntime-1.8.1-official-built-release](https://github.com/microsoft/onnxruntime/releases). I have used version 1.7.0 for Lite.AI now, version 1.8.1 should also work, I guess ~  🙃🤪🍀
-
-
-
 ## Contents.
 * [Dependencies](#lite.ai-Dependencies)
 * [Build Lite.AI](#lite.ai-Build-Lite.AI)
@@ -120,20 +115,14 @@ Build the shared lib of Lite.AI for *MacOS* from sources. Note that Lite.AI uses
 
 ### Linux and Windows.  
 
-⚠️ Lite.AI is not directly support Linux and Windows now. For Linux and Windows, you need to build the shared libs of `OpenCV` and `onnxruntime` firstly and put then into the `third_party` directory. Please reference the build-docs[<sup>1</sup>](#lite.ai-1) for `third_party`.   
+⚠️ Lite.AI is not directly support Linux and Windows now. For Linux and Windows, you need to build or download(if have official builts) the shared libs of *OpenCV* and *ONNXRuntime* firstly and put then into the *third_party* directory. Please reference the build-docs[<sup>1</sup>](#lite.ai-1) for *third_party*.   
 
 
-#### Windows:  
+* Windows: You can reference to [issue#6](https://github.com/DefTruth/lite.ai/issues/6) .   
+   
+* Linux: The Docs and Docker image for Linux will be coming soon ~ [issue#2](https://github.com/DefTruth/lite.ai/issues/2)  
 
-You can reference to [issue#6](https://github.com/DefTruth/lite.ai/issues/6) .   
-  
-  
-#### Linux:  
-
-The Docs and Docker image for Linux will be coming soon ~ [issue#2](https://github.com/DefTruth/lite.ai/issues/2)  
-
-#### Happy News !!!
-After version 1.8.1 of ONNXRuntime, you can download the official built libs of Windows, Linux, MacOS and Arm !!! Both CPU and GPU versions are available. No more attentions needed pay to build it from source. Download the official built libs from [onnxruntime-1.8.1-official-built-release](https://github.com/microsoft/onnxruntime/releases). I have used version 1.7.0 for Lite.AI now, version 1.8.1 should also work, I guess ~  🙃🤪🍀  
+* Happy News !!! : 🚀 You can download the latest *ONNXRuntime* official built libs of Windows, Linux, MacOS and Arm !!! Both CPU and GPU versions are available. No more attentions needed pay to build it from source. Download the official built libs from [v1.8.1](https://github.com/microsoft/onnxruntime/releases). I have used version 1.7.0 for Lite.AI now, you can downlod it from [v1.7.0](https://github.com/microsoft/onnxruntime/releases/tag/v1.7.0), but version 1.8.1 should also work, I guess ~  🙃🤪🍀. For *OpenCV*, try to build from source(Linux) or down load the official built(Windows) from [OpenCV 4.5.3](https://github.com/opencv/opencv/releases). Then put the includes and libs into *third_party* directory of Lite.AI. 
 
 </details>  
 
