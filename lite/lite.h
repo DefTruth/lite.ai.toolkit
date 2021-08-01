@@ -68,6 +68,7 @@
 #include "ort/cv/mobilenetv2_se_68.h"
 #include "ort/cv/face_landmarks_1000.h"
 #include "ort/cv/retinaface.h"
+#include "ort/cv/faceboxes.h"
 
 #endif
 
@@ -146,6 +147,7 @@ namespace lite
     typedef ortcv::MobileNetV2SE68 _MobileNetV2SE68;
     typedef ortcv::FaceLandmark1000 _FaceLandmark1000;
     typedef ortcv::RetinaFace _RetinaFace;
+    typedef ortcv::FaceBoxes _FaceBoxes;
 #endif
 
     // 1. classification
@@ -200,13 +202,14 @@ namespace lite
       typedef _MobileNetV2SE68 MobileNetV2SE68;
       typedef _FaceLandmark1000 FaceLandmark1000;
       typedef _RetinaFace RetinaFace;
+      typedef _FaceBoxes FaceBoxes;
 #endif
       namespace detect
       {
 #ifdef BACKEND_ONNXRUNTIME
         typedef _UltraFace UltraFace;  // face detection.
         typedef _RetinaFace RetinaFace;
-
+        typedef _FaceBoxes FaceBoxes;
 #endif
       }
 
@@ -407,6 +410,7 @@ namespace lite
       typedef ortcv::MobileNetV2SE68 _ONNXMobileNetV2SE68;
       typedef ortcv::FaceLandmark1000 _ONNXFaceLandmark1000;
       typedef ortcv::RetinaFace _ONNXRetinaFace;
+      typedef ortcv::FaceBoxes _ONNXFaceBoxes;
 
       // 1. classification
       namespace classification
@@ -455,11 +459,13 @@ namespace lite
         typedef _ONNXMobileNetV2SE68 MobileNetV2SE68;
         typedef _ONNXFaceLandmark1000 FaceLandmark1000;
         typedef _ONNXRetinaFace RetinaFace;
+        typedef _ONNXFaceBoxes FaceBoxes;
 
         namespace detect
         {
           typedef _ONNXUltraFace UltraFace;  // face detection.
           typedef _ONNXRetinaFace RetinaFace;
+          typedef _ONNXFaceBoxes FaceBoxes;
         }
 
         namespace align

@@ -15,7 +15,6 @@ Ort::Value YoloX::transform(const cv::Mat &mat)
   cv::resize(canva, canva, cv::Size(input_node_dims.at(3),
                                     input_node_dims.at(2)));
   // (1,3,640,640) 1xCXHXW
-
   ortcv::utils::transform::normalize_inplace(canva, mean_vals, scale_vals); // float32
   return ortcv::utils::transform::create_tensor(
       canva, input_node_dims, memory_info_handler,
@@ -27,7 +26,6 @@ void YoloX::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
                    unsigned int topk, unsigned int nms_type)
 {
   if (mat.empty()) return;
-  // this->transform(mat);
   float img_height = static_cast<float>(mat.rows);
   float img_width = static_cast<float>(mat.cols);
 
@@ -41,7 +39,7 @@ void YoloX::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
   // 3. rescale & exclude.
   std::vector<types::Boxf> bbox_collection;
   this->generate_bboxes(bbox_collection, output_tensors, score_threshold, img_height, img_width);
-  // 4. hard|blend nms with topk.
+  // 4. hard|blend|offset nms with topk.
   this->nms(bbox_collection, detected_boxes, iou_threshold, topk, nms_type);
 }
 
@@ -74,17 +72,17 @@ void YoloX::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 void YoloX::generate_anchors(const int target_height,
                              const int target_width,
                              std::vector<int> &strides,
-                             std::vector<Anchor> &anchors)
+                             std::vector<YoloXAnchor> &anchors)
 {
   for (auto stride : strides)
   {
     int num_grid_w = target_width / stride;
     int num_grid_h = target_height / stride;
-    for (int g1 = 0; g1 < num_grid_h; g1++)
+    for (int g1 = 0; g1 < num_grid_h; ++g1)
     {
-      for (int g0 = 0; g0 < num_grid_w; g0++)
+      for (int g0 = 0; g0 < num_grid_w; ++g0)
       {
-        anchors.push_back((Anchor) {g0, g1, stride});
+        anchors.push_back((YoloXAnchor) {g0, g1, stride});
       }
     }
   }
@@ -105,7 +103,7 @@ void YoloX::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
   const float scale_height = img_height / input_height;
   const float scale_width = img_width / input_width;
 
-  std::vector<Anchor> anchors;
+  std::vector<YoloXAnchor> anchors;
   std::vector<int> strides = {8, 16, 32}; // might have stride=64
   this->generate_anchors(input_height, input_width, strides, anchors);
 
@@ -173,55 +171,5 @@ void YoloX::nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &outpu
   else if (nms_type == NMS::OFFSET) ortcv::utils::offset_nms(input, output, iou_threshold, topk);
   else ortcv::utils::hard_nms(input, output, iou_threshold, topk);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

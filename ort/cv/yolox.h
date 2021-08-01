@@ -15,7 +15,7 @@ namespace ortcv
     int grid0;
     int grid1;
     int stride;
-  } Anchor;
+  } YoloXAnchor;
 
   class LITE_EXPORTS YoloX : public BasicOrtHandler
   {
@@ -53,7 +53,7 @@ namespace ortcv
     void generate_anchors(const int target_height,
                           const int target_width,
                           std::vector<int> &strides,
-                          std::vector<Anchor> &anchors);
+                          std::vector<YoloXAnchor> &anchors);
 
     void generate_bboxes(std::vector<types::Boxf> &bbox_collection,
                          std::vector<Ort::Value> &output_tensors,

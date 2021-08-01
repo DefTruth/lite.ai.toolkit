@@ -66,7 +66,7 @@ namespace ortcv
   class LITE_EXPORTS PFLD68;                     // [52] * reference: https://github.com/cunjian/pytorch_face_landmark
   class LITE_EXPORTS FaceLandmark1000;           // [53] * reference: https://github.com/Single430/FaceLandmark1000
   class LITE_EXPORTS RetinaFace;                 // [54] * reference: https://github.com/biubug6/Pytorch_Retinaface
-  class LITE_EXPORTS FaceBoxes;                  // [55] reference: https://github.com/zisianw/FaceBoxes.PyTorch
+  class LITE_EXPORTS FaceBoxes;                  // [55] * reference: https://github.com/zisianw/FaceBoxes.PyTorch
   class LITE_EXPORTS YoloX;                      // [56] * reference: https://github.com/Megvii-BaseDetection/YOLOX
   class LITE_EXPORTS Pyramidbox;                 // [57] reference: https://github.com/yxlijun/Pyramidbox.pytorch
   class LITE_EXPORTS TinyFaceDet;                // [58] reference: https://github.com/varunagrawal/tiny-faces-pytorch
