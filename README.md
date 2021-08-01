@@ -128,7 +128,7 @@ Build the shared lib of Lite.AI for *MacOS* from sources. Note that Lite.AI uses
 
 
 
-#### Clone the Lite.AI from sources:
+* Clone the Lite.AI from sources:
 ```shell
 git clone --depth=1 https://github.com/DefTruth/lite.ai.git  # latest
 ```  
@@ -140,7 +140,7 @@ git clone --depth=1 https://github.com.cnpmjs.org/DefTruth/lite.ai.git  # latest
 ```  
 --->
 
-#### Build shared lib.
+* Build shared lib.
 ```shell
 cd lite.ai
 sh ./build.sh
