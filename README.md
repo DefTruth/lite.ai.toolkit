@@ -32,6 +32,7 @@
 * ✅ (20210722) Update [lite.ai.hub.onnx.md](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md) ! *Lite.AI* contains *60+* AI models with *100+* .onnx files now.
 * 🔥 (20210721) Added [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) to *Lite.AI* ! Use it through [*lite::cv::detection::YoloX*](#lite.ai-object-detection) syntax ! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolox.cpp).  
 
+
 <details>
 <summary> Expand for More Notes.</summary>  
 
