@@ -48,9 +48,9 @@ void YoloX::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 // with the official one in order to fix the inference error for non-square input shape.
 // Official: https://github.com/Megvii-BaseDetection/YOLOX/blob/main/demo/ncnn/cpp/yolox.cpp
 /** Official implementation. It assumes that the input shape must be a square.
- *  When you use the YOLOX you trained by yourself, but the input tensor of the model
- *  is not square, you will encounter an error. I decided to extend the official
- *  implementation for compatibility with square and non-square input.
+ *  When you use the YOLOX model that was trained by yourself, but the input tensor of
+ *  the model is not square, you will encounter an error. So, I decided to extend the
+ *  official implementation for compatibility with square and non-square input.
  *
  * static void generate_grids_and_stride(const int target_size, std::vector<int>& strides,
  *                                       std::vector<GridAndStride>& grid_strides)
