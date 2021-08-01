@@ -46,8 +46,8 @@ void YoloX::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 }
 
 // Issue: https://github.com/DefTruth/lite.ai/issues/9
-// Important Note: this implementation slightly different with the
-// official one in order to fix the inference error for non-square input shape.
+// Important Note: this implementation of Anchor generation is slightly different
+// with the official one in order to fix the inference error for non-square input shape.
 // Official: https://github.com/Megvii-BaseDetection/YOLOX/blob/main/demo/ncnn/cpp/yolox.cpp
 /** Official implementation. It assume that the input shape must be a square.
  *
