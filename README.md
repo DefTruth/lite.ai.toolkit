@@ -111,18 +111,28 @@ Build the shared lib of Lite.AI for *MacOS* from sources. Note that Lite.AI uses
 <details>
 <summary> Linux and Windows. </summary>  
 
+### Linux and Windows.  
+
 ⚠️ Lite.AI is not directly support Linux and Windows now. For Linux and Windows, you need to build the shared libs of `OpenCV` and `onnxruntime` firstly and put then into the `third_party` directory. Please reference the build-docs[<sup>1</sup>](#lite.ai-1) for `third_party`.   
 
-* Windows:  
-  you can reference to [issue#6](https://github.com/DefTruth/lite.ai/issues/6) .   
+
+
+#### Windows:  
+
+You can reference to [issue#6](https://github.com/DefTruth/lite.ai/issues/6) .   
   
   
-* Linux:  
-  The Docs and Docker image for Linux will be coming soon ~ [issue#2](https://github.com/DefTruth/lite.ai/issues/2)
+#### Linux:  
+
+The Docs and Docker image for Linux will be coming soon ~ [issue#2](https://github.com/DefTruth/lite.ai/issues/2)  
+
+#### Happy News !!!  
+After version 1.8.1 of ONNXRuntime, you can download the official built libs of Windows, Linux, MacOS and Arm !!! Both CPU and GPU versions are available. No more attentions needed pay to build it from source. Download the official built libs from [onnxruntime-1.8.1-official-built-release](https://github.com/microsoft/onnxruntime/releases). I have used version 1.7.0 for Lite.AI now, version 1.8.1 should also work, I guess ~  🙃🤪🍀  
+
 
 </details>
 
-* Clone the Lite.AI from sources:
+#### Clone the Lite.AI from sources:
 ```shell
 git clone --depth=1 https://github.com/DefTruth/lite.ai.git  # latest
 ```  
@@ -134,7 +144,7 @@ git clone --depth=1 https://github.com.cnpmjs.org/DefTruth/lite.ai.git  # latest
 ```  
 --->
 
-* Build shared lib.
+#### Build shared lib.
 ```shell
 cd lite.ai
 sh ./build.sh
