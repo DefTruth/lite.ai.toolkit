@@ -25,7 +25,7 @@
 
 ## Important Notes !!!  
 
-* ⚠️ (20210801) fixed [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) inference error for non-square input shape. [issue#9](https://github.com/DefTruth/lite.ai/issues/9). 
+* ⚠️ (20210801) fixed [issue#9](https://github.com/DefTruth/lite.ai/issues/9) YOLOX inference error for non-square shape. See [yolox.cpp](https://github.com/DefTruth/lite.ai/blob/main/ort/cv/yolox.cpp).
 * ✅ (20210731) Added [RetinaFace-CVPR2020](https://github.com/biubug6/Pytorch_Retinaface) for face detection, 1.6Mb only! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_retinaface.cpp).
 * 🔥 (20210728) Added [FaceLandmarks1000](https://github.com/Single430/FaceLandmark1000) for 1000 facial landmarks detection, 2Mb only! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_face_landmarks_1000.cpp).
 * ✅ (20210722) Update [lite.ai.hub.onnx.md](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md) ! *Lite.AI* contains *60+* AI models with *100+* .onnx files now.
