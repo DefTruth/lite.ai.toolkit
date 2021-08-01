@@ -83,7 +83,17 @@ You can download all the pretrained models files of ONNX format from ([Baidu Dri
 | *lite::cv::face::detect::UltraFace* | ultraface-rfb-640.onnx | [Ultra-Light...](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) | 1.5Mb |
 | *lite::cv::face::detect::UltraFace* | ultraface-rfb-320.onnx | [Ultra-Light...](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) | 1.2Mb |
 | *lite::cv::face::detect::RetinaFace* | Pytorch_RetinaFace_resnet50.onnx | [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface)| 104Mb |
+| *lite::cv::face::detect::RetinaFace* | Pytorch_RetinaFace_resnet50-640-640.onnx | [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface)| 104Mb |
+| *lite::cv::face::detect::RetinaFace* | Pytorch_RetinaFace_resnet50-320-320.onnx | [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface)| 104Mb |
+| *lite::cv::face::detect::RetinaFace* | Pytorch_RetinaFace_resnet50-720-1080.onnx | [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface)| 104Mb |
 | *lite::cv::face::detect::RetinaFace* | Pytorch_RetinaFace_mobile0.25.onnx | [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface) | 1.6Mb |
+| *lite::cv::face::detect::RetinaFace* | Pytorch_RetinaFace_mobile0.25-640-640.onnx | [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface) | 1.6Mb |
+| *lite::cv::face::detect::RetinaFace* | Pytorch_RetinaFace_mobile0.25-320-320.onnx | [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface) | 1.6Mb |
+| *lite::cv::face::detect::RetinaFace* | Pytorch_RetinaFace_mobile0.25-720-1080.onnx | [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface) | 1.6Mb |
+| *lite::cv::face::detect::FaceBoxes* | FaceBoxes.onnx | [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)  | 3.8Mb |
+| *lite::cv::face::detect::FaceBoxes* | FaceBoxes-640-640.onnx | [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)  | 3.8Mb |
+| *lite::cv::face::detect::FaceBoxes* | FaceBoxes-320-320.onnx | [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)  | 3.8Mb |
+| *lite::cv::face::detect::FaceBoxes* | FaceBoxes-720-1080.onnx | [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)  | 3.8Mb |
 
 
 
