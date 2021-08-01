@@ -12,7 +12,8 @@
   <img src='logs/test_lite_fsanet.jpg' height="200px" width="200px">
   <img src='logs/test_lite_fast_style_transfer_candy.jpg' height="200px" width="200px">
   <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="200px" width="200px"> 
-</div> 
+</div>   
+
 
 ## Introduction.    
 
@@ -56,6 +57,10 @@
   * ⚠️ [matting](#lite.ai-matting)
   
 </details>
+
+## Happy News !!!
+🚀 After version 1.8.1 of ONNXRuntime, you can download the official built libs of Windows, Linux, MacOS and Arm !!! Both CPU and GPU versions are available. No more attentions needed pay to build it from source. Download the official built libs from [onnxruntime-1.8.1-official-built-release](https://github.com/microsoft/onnxruntime/releases). I have used version 1.7.0 for Lite.AI now, version 1.8.1 should also work, I guess ~  🙃🤪🍀
+
 
 
 ## Contents.
@@ -108,13 +113,13 @@ install `OpenCV` and `onnxruntime` libraries using Homebrew or you can download 
 
 Build the shared lib of Lite.AI for *MacOS* from sources. Note that Lite.AI uses `onnxruntime` as default backend, for the reason that onnxruntime supports the most of onnx's operators. 
 
+
 <details>
 <summary> Linux and Windows. </summary>  
 
 ### Linux and Windows.  
 
 ⚠️ Lite.AI is not directly support Linux and Windows now. For Linux and Windows, you need to build the shared libs of `OpenCV` and `onnxruntime` firstly and put then into the `third_party` directory. Please reference the build-docs[<sup>1</sup>](#lite.ai-1) for `third_party`.   
-
 
 
 #### Windows:  
@@ -126,11 +131,12 @@ You can reference to [issue#6](https://github.com/DefTruth/lite.ai/issues/6) .
 
 The Docs and Docker image for Linux will be coming soon ~ [issue#2](https://github.com/DefTruth/lite.ai/issues/2)  
 
-#### Happy News !!!  
+#### Happy News !!!
 After version 1.8.1 of ONNXRuntime, you can download the official built libs of Windows, Linux, MacOS and Arm !!! Both CPU and GPU versions are available. No more attentions needed pay to build it from source. Download the official built libs from [onnxruntime-1.8.1-official-built-release](https://github.com/microsoft/onnxruntime/releases). I have used version 1.7.0 for Lite.AI now, version 1.8.1 should also work, I guess ~  🙃🤪🍀  
 
+</details>  
 
-</details>
+
 
 #### Clone the Lite.AI from sources:
 ```shell
