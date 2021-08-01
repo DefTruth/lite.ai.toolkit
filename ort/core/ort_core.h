@@ -78,6 +78,7 @@ namespace ortcv
   class LITE_EXPORTS CenterFace;                 // [64] reference: https://github.com/chenjun2hao/CenterFace.pytorch
   class LITE_EXPORTS FaceMaskDetection;          // [65] reference: https://github.com/AIZOOTech/FaceMaskDetection
   class LITE_EXPORTS DBFace;                     // [66] reference: https://github.com/dlunion/DBFace
+  class LITE_EXPORTS HRNet;                      // [67] reference:https://github.com/HRNet/HRNet-Facial-Landmark-Detection
 
 }
 

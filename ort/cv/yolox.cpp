@@ -45,6 +45,29 @@ void YoloX::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
   this->nms(bbox_collection, detected_boxes, iou_threshold, topk, nms_type);
 }
 
+// Issue: https://github.com/DefTruth/lite.ai/issues/9
+// Important Note: this implementation slightly different with the
+// official one in order to fix the inference error for non-square input shape.
+// Official: https://github.com/Megvii-BaseDetection/YOLOX/blob/main/demo/ncnn/cpp/yolox.cpp
+/** Official implementation. It assume that the input shape must be a square.
+ *
+ * static void generate_grids_and_stride(const int target_size, std::vector<int>& strides,
+ *                                       std::vector<GridAndStride>& grid_strides)
+ * {
+ *  for (auto stride : strides)
+ *  {
+ *       int num_grid = target_size / stride;
+ *       for (int g1 = 0; g1 < num_grid; g1++)
+ *       {
+ *           for (int g0 = 0; g0 < num_grid; g0++)
+ *           {
+ *               grid_strides.push_back((GridAndStride){g0, g1, stride});
+ *           }
+ *       }
+ *   }
+ * }
+ */
+
 void YoloX::generate_anchors(const int target_height,
                              const int target_width,
                              std::vector<int> &strides,
