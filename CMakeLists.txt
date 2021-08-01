@@ -25,7 +25,6 @@ option(LITE_AI_THIRDPARTY "use third party libraries if exists" ON)
 option(LITE_AI_COPY_BUILD "whether to copy the built libs to ./build directory." ON)
 option(LITE_AI_BUILD_LIB "whether to build shared|static libraries." ON)
 option(LITE_AI_BUILD_TEST "whether to build shared|static libraries." ON)
-option(LITE_AI_BUILD_ORT_TEST "whether to build ort test examples" OFF)
 option(LITE_AI_BUILD_LITE_TEST "whether to build lite test examples" ON)
 # engine backend: config.h.in -> config.h
 option(ENABLE_ONNXRUNTIME "whether to enable ONNXRuntime engine" ON)
@@ -50,10 +49,6 @@ endif()
 
 # configuration for test examples.
 if (LITE_AI_BUILD_LIB AND LITE_AI_BUILD_TEST)
-
-    if (LITE_AI_BUILD_ORT_TEST)
-        add_subdirectory(examples/ort)
-    endif()
 
     if (LITE_AI_BUILD_LITE_TEST)
         add_subdirectory(examples/lite)
