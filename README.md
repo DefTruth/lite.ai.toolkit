@@ -152,6 +152,7 @@ liblite.ai.0.0.1.dylib:
         ...
 ```
 
+* GPU Compatibility: See [issue#10](https://github.com/DefTruth/lite.ai/issues/10).
 
 <details>
 <summary> Expand for more details of How to link the shared lib of Lite.AI?</summary>

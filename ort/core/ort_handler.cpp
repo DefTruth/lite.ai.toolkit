@@ -37,6 +37,7 @@ void BasicOrtHandler::initialize_handler()
   // GPU compatiable.
   // OrtCUDAProviderOptions provider_options;
   // session_options.AppendExecutionProvider_CUDA(provider_options);
+  // OrtSessionOptionsAppendExecutionProvider_CUDA(session_options, 0);
   // 1. session
   ort_session = new Ort::Session(ort_env, onnx_path, session_options);
 
