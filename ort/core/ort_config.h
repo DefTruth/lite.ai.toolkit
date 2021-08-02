@@ -18,6 +18,10 @@
 #include "opencv2/opencv.hpp"
 #include "onnxruntime/core/session/onnxruntime_cxx_api.h"
 
+#ifdef USE_CUDA
+#include "onnxruntime/core/providers/cuda/cuda_provider_factory.h"
+#endif
+
 namespace core {}
 
 #endif //LITE_AI_ORT_CORE_ORT_CONFIG_H
