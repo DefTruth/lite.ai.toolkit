@@ -579,6 +579,8 @@ The output is:
 
 > Detected Sim01: 0.721159  Sim02: -0.0626267  
 
+****
+
 <div id="lite.ai-face-detection"></div>
 
 #### Example4: Face Detection using [UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
