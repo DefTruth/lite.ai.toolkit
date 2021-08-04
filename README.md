@@ -531,6 +531,8 @@ The output is:
   <img src='logs/test_lite_siggraph17_colorizer_3.jpg' height="224px" width="224px">
 </div>    
 
+****
+
 <div id="lite.ai-face-recognition"></div>  
 
 #### Example3: Face Recognition using [ArcFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
