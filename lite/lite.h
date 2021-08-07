@@ -69,6 +69,9 @@
 #include "ort/cv/face_landmarks_1000.h"
 #include "ort/cv/retinaface.h"
 #include "ort/cv/faceboxes.h"
+#include "ort/cv/tiny_yolov4_voc.h"
+#include "ort/cv/tiny_yolov4_coco.h"
+#include "ort/cv/yolor.h"
 
 #endif
 
@@ -148,6 +151,9 @@ namespace lite
     typedef ortcv::FaceLandmark1000 _FaceLandmark1000;
     typedef ortcv::RetinaFace _RetinaFace;
     typedef ortcv::FaceBoxes _FaceBoxes;
+    typedef ortcv::TinyYoloV4VOC _TinyYoloV4VOC;
+    typedef ortcv::TinyYoloV4COCO _TinyYoloV4COCO;
+    typedef ortcv::YoloR _YoloR;
 #endif
 
     // 1. classification
@@ -177,6 +183,9 @@ namespace lite
       typedef _SSD SSD;
       typedef _SSDMobileNetV1 SSDMobileNetV1;
       typedef _YoloX YoloX;
+      typedef _TinyYoloV4VOC TinyYoloV4VOC;
+      typedef _TinyYoloV4COCO TinyYoloV4COCO;
+      typedef _YoloR YoloR;
 #endif
     }
     // 3. face detection & facial attributes detection
@@ -411,6 +420,9 @@ namespace lite
       typedef ortcv::FaceLandmark1000 _ONNXFaceLandmark1000;
       typedef ortcv::RetinaFace _ONNXRetinaFace;
       typedef ortcv::FaceBoxes _ONNXFaceBoxes;
+      typedef ortcv::TinyYoloV4VOC _ONNXTinyYoloV4VOC;
+      typedef ortcv::TinyYoloV4COCO _ONNXTinyYoloV4COCO;
+      typedef ortcv::YoloR _ONNXYoloR;
 
       // 1. classification
       namespace classification
@@ -436,6 +448,9 @@ namespace lite
         typedef _ONNXSSD SSD;
         typedef _ONNXSSDMobileNetV1 SSDMobileNetV1;
         typedef _ONNXYoloX YoloX;
+        typedef _ONNXTinyYoloV4VOC TinyYoloV4VOC;
+        typedef _ONNXTinyYoloV4COCO TinyYoloV4COCO;
+        typedef _ONNXYoloR YoloR;
       }
       // 3. face detection & facial attributes detection
       namespace face

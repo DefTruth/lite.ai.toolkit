@@ -16,7 +16,7 @@
 #endif
 
 #if (defined _WIN32 || defined WINCE || defined __CYGWIN__)
-#  define LITE_WIN32
+# define LITE_WIN32
 #elif defined __GNUC__ && __GNUC__ >= 4 && (defined(__APPLE__))
 # define LITE_UNIX
 #endif

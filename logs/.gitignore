@@ -9,3 +9,5 @@ test_lite_mobilenetv2_68.jpg
 test_lite_mobilenetv2_se_68.jpg
 test_lite_retinaface*
 test_lite_faceboxes*
+test_lite_yolor*
+test_lite_tiny_yolov4*

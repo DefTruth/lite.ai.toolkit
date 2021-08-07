@@ -53,7 +53,26 @@ You can download all the pretrained models files of ONNX format from ([Baidu Dri
 |     *lite::cv::detection::YoloV4*     | voc-mobilenetv2-yolov4-640.onnx | [YOLOv4...](https://github.com/argusswift/YOLOv4-pytorch) | 176Mb |
 |     *lite::cv::detection::YoloV4*     | voc-mobilenetv2-yolov4-416.onnx | [YOLOv4...](https://github.com/argusswift/YOLOv4-pytorch) | 176Mb |
 |      *lite::cv::detection::SSD*       |           ssd-10.onnx           |       [onnx-models](https://github.com/onnx/models)       | 76Mb  |
-| *lite::cv::detection::SSDMobileNetV1* |    ssd_mobilenet_v1_10.onnx     |       [onnx-models](https://github.com/onnx/models)       | 27Mb  |
+| *lite::cv::detection::YoloR* |    yolor-d6-1280-1280.onnx     |       [yolor](https://github.com/WongKinYiu/yolor)       | 667Mb  |
+| *lite::cv::detection::YoloR* |    yolor-d6-640-640.onnx     |       [yolor](https://github.com/WongKinYiu/yolor)       | 601Mb  |
+| *lite::cv::detection::YoloR* |    yolor-d6-320-320.onnx     |       [yolor](https://github.com/WongKinYiu/yolor)       | 584Mb  |
+| *lite::cv::detection::YoloR* |    yolor-e6-1280-1280.onnx     |       [yolor](https://github.com/WongKinYiu/yolor)       | 530Mb  |
+| *lite::cv::detection::YoloR* |    yolor-e6-640-640.onnx     |       [yolor](https://github.com/WongKinYiu/yolor)       | 464Mb  |
+| *lite::cv::detection::YoloR* |    yolor-e6-320-320.onnx     |       [yolor](https://github.com/WongKinYiu/yolor)       | 448Mb  |
+| *lite::cv::detection::YoloR* |    yolor-p6-1280-1280.onnx     |       [yolor](https://github.com/WongKinYiu/yolor)       | 214Mb  |
+| *lite::cv::detection::YoloR* |    yolor-p6-640-640.onnx     |       [yolor](https://github.com/WongKinYiu/yolor)       | 160Mb  |
+| *lite::cv::detection::YoloR* |    yolor-p6-320-320.onnx     |       [yolor](https://github.com/WongKinYiu/yolor)       | 147Mb  |
+| *lite::cv::detection::YoloR* |    yolor-w6-1280-1280.onnx     |       [yolor](https://github.com/WongKinYiu/yolor)       | 382Mb  |
+| *lite::cv::detection::YoloR* |    yolor-w6-640-640.onnx     |       [yolor](https://github.com/WongKinYiu/yolor)       | 324Mb  |
+| *lite::cv::detection::YoloR* |    yolor-w6-320-320.onnx     |       [yolor](https://github.com/WongKinYiu/yolor)       | 309Mb  |
+| *lite::cv::detection::YoloR* |    yolor-ssss-s2d-1280-1280.onnx     |       [yolor](https://github.com/WongKinYiu/yolor)       | 90Mb  |
+| *lite::cv::detection::YoloR* |    yolor-ssss-s2d-640-640.onnx     |       [yolor](https://github.com/WongKinYiu/yolor)       | 49Mb  |
+| *lite::cv::detection::YoloR* |    yolor-ssss-s2d-320-320.onnx     |       [yolor](https://github.com/WongKinYiu/yolor)       | 39Mb  |
+| *lite::cv::detection::TinyYoloV4VOC* |   yolov4_tiny_weights_voc.onnx     |       [yolov4-tiny...](https://github.com/bubbliiiing/yolov4-tiny-pytorch)      | 23Mb  |
+| *lite::cv::detection::TinyYoloV4VOC* |   yolov4_tiny_weights_voc_SE.onnx     |       [yolov4-tiny...](https://github.com/bubbliiiing/yolov4-tiny-pytorch)      | 23Mb  |
+| *lite::cv::detection::TinyYoloV4VOC* |   yolov4_tiny_weights_voc_CBAM.onnx     |       [yolov4-tiny...](https://github.com/bubbliiiing/yolov4-tiny-pytorch)      | 23Mb  |
+| *lite::cv::detection::TinyYoloV4VOC* |   yolov4_tiny_weights_voc_ECA.onnx     |       [yolov4-tiny...](https://github.com/bubbliiiing/yolov4-tiny-pytorch)      | 23Mb  |
+| *lite::cv::detection::TinyYoloV4COCO* |   yolov4_tiny_weights_coco.onnx     |       [yolov4-tiny...](https://github.com/bubbliiiing/yolov4-tiny-pytorch)      | 23Mb  |
 
 
 ## Classification.  
