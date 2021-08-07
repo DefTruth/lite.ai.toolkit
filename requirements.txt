@@ -9,4 +9,4 @@ insightface
 yolov5
 TFace
 yolov4
-
+yolor
