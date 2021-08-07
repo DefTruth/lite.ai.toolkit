@@ -689,13 +689,13 @@ The output is:
 
 More classes for general object detection.
 ```c++
-auto *detector = new lite::cv::detection::YoloX(onnx_path); // new !!!
+auto *detector = new lite::cv::detection::YoloX(onnx_path);  // Newest YOLO detector !!! 2021-07
 auto *detector = new lite::cv::detection::YoloV4(onnx_path); 
 auto *detector = new lite::cv::detection::YoloV3(onnx_path); 
 auto *detector = new lite::cv::detection::TinyYoloV3(onnx_path); 
 auto *detector = new lite::cv::detection::SSD(onnx_path); 
 auto *detector = new lite::cv::detection::YoloV5(onnx_path); 
-auto *detector = new lite::cv::detection::YoloR(onnx_path); 
+auto *detector = new lite::cv::detection::YoloR(onnx_path);  // Newest YOLO detector !!! 2021-05
 auto *detector = new lite::cv::detection::TinyYoloV4VOC(onnx_path); 
 auto *detector = new lite::cv::detection::TinyYoloV4COCO(onnx_path); 
 ```  
@@ -964,7 +964,7 @@ More classes for face detection.
 ```c++
 auto *detector = new lite::face::detect::UltraFace(onnx_path);  // 1.1Mb only !
 auto *detector = new lite::face::detect::FaceBoxes(onnx_path);  // 3.8Mb only ! 
-auto *detector = new lite::face::detect::RetinaFace(onnx_path);  // 1.6Mb only !
+auto *detector = new lite::face::detect::RetinaFace(onnx_path);  // 1.6Mb only ! CVPR2020
 ```
 
 </details>
