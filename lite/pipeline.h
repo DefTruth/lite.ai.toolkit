@@ -36,8 +36,8 @@ namespace lite
       // VideoStyleTransfer: Style transfer for video demo.
       class LITE_EXPORTS VideoStyleTransfer;
 
-      // VideoStyleColorizer: colorization for video demo.
-      class LITE_EXPORTS VideoStyleColorizer;
+      // VideoColorizer: colorization for video demo.
+      class LITE_EXPORTS VideoColorizer;
     }
   }
 }
