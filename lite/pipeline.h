@@ -32,6 +32,12 @@ namespace lite
       // FaceAttributesAnalyser: Face Attributes Analysis using face detection,
       // Face Attributes estimation.
       class LITE_EXPORTS FaceAttributesAnalyser;
+
+      // VideoStyleTransfer: Style transfer for video demo.
+      class LITE_EXPORTS VideoStyleTransfer;
+
+      // VideoStyleColorizer: colorization for video demo.
+      class LITE_EXPORTS VideoStyleColorizer;
     }
   }
 }
