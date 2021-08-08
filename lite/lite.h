@@ -72,6 +72,7 @@
 #include "ort/cv/tiny_yolov4_voc.h"
 #include "ort/cv/tiny_yolov4_coco.h"
 #include "ort/cv/yolor.h"
+#include "ort/cv/scaled_yolov4.h"
 
 #endif
 
@@ -154,6 +155,7 @@ namespace lite
     typedef ortcv::TinyYoloV4VOC _TinyYoloV4VOC;
     typedef ortcv::TinyYoloV4COCO _TinyYoloV4COCO;
     typedef ortcv::YoloR _YoloR;
+    typedef ortcv::ScaledYoloV4 _ScaledYoloV4;
 #endif
 
     // 1. classification
@@ -186,6 +188,7 @@ namespace lite
       typedef _TinyYoloV4VOC TinyYoloV4VOC;
       typedef _TinyYoloV4COCO TinyYoloV4COCO;
       typedef _YoloR YoloR;
+      typedef _ScaledYoloV4 ScaledYoloV4;
 #endif
     }
     // 3. face detection & facial attributes detection
@@ -423,6 +426,7 @@ namespace lite
       typedef ortcv::TinyYoloV4VOC _ONNXTinyYoloV4VOC;
       typedef ortcv::TinyYoloV4COCO _ONNXTinyYoloV4COCO;
       typedef ortcv::YoloR _ONNXYoloR;
+      typedef ortcv::ScaledYoloV4 _ONNXScaledYoloV4;
 
       // 1. classification
       namespace classification
@@ -451,6 +455,7 @@ namespace lite
         typedef _ONNXTinyYoloV4VOC TinyYoloV4VOC;
         typedef _ONNXTinyYoloV4COCO TinyYoloV4COCO;
         typedef _ONNXYoloR YoloR;
+        typedef _ONNXScaledYoloV4 ScaledYoloV4;
       }
       // 3. face detection & facial attributes detection
       namespace face

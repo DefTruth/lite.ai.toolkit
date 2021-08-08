@@ -73,6 +73,20 @@ You can download all the pretrained models files of ONNX format from ([Baidu Dri
 | *lite::cv::detection::TinyYoloV4VOC* |   yolov4_tiny_weights_voc_CBAM.onnx     |       [yolov4-tiny...](https://github.com/bubbliiiing/yolov4-tiny-pytorch)      | 23Mb  |
 | *lite::cv::detection::TinyYoloV4VOC* |   yolov4_tiny_weights_voc_ECA.onnx     |       [yolov4-tiny...](https://github.com/bubbliiiing/yolov4-tiny-pytorch)      | 23Mb  |
 | *lite::cv::detection::TinyYoloV4COCO* |   yolov4_tiny_weights_coco.onnx     |       [yolov4-tiny...](https://github.com/bubbliiiing/yolov4-tiny-pytorch)      | 23Mb  |
+| *lite::cv::detection::ScaledYoloV4* |   ScaledYoloV4_yolov4-p5-1280-1280.onnx     |       [ScaledYOLOv4](https://github.com/WongKinYiu/ScaledYOLOv4)      | 270Mb  |
+| *lite::cv::detection::ScaledYoloV4* |   ScaledYoloV4_yolov4-p5-640-640.onnx     |       [ScaledYOLOv4](https://github.com/WongKinYiu/ScaledYOLOv4)      | 270Mb  |
+| *lite::cv::detection::ScaledYoloV4* |   ScaledYoloV4_yolov4-p5-320-320.onnx     |       [ScaledYOLOv4](https://github.com/WongKinYiu/ScaledYOLOv4)      | 270Mb  |
+| *lite::cv::detection::ScaledYoloV4* |   ScaledYoloV4_yolov4-p6-1280-1280.onnx     |       [ScaledYOLOv4](https://github.com/WongKinYiu/ScaledYOLOv4)      | 487Mb  |
+| *lite::cv::detection::ScaledYoloV4* |   ScaledYoloV4_yolov4-p6-640-640.onnx     |       [ScaledYOLOv4](https://github.com/WongKinYiu/ScaledYOLOv4)      | 487Mb  |
+| *lite::cv::detection::ScaledYoloV4* |   ScaledYoloV4_yolov4-p6-320-320.onnx     |       [ScaledYOLOv4](https://github.com/WongKinYiu/ScaledYOLOv4)      | 487Mb  |
+| *lite::cv::detection::ScaledYoloV4* |   ScaledYoloV4_yolov4-p7-1280-1280.onnx     |       [ScaledYOLOv4](https://github.com/WongKinYiu/ScaledYOLOv4)      | 1.1Gb  |
+| *lite::cv::detection::ScaledYoloV4* |   ScaledYoloV4_yolov4-p7-640-640.onnx     |       [ScaledYOLOv4](https://github.com/WongKinYiu/ScaledYOLOv4)      | 1.1Gb  |
+| *lite::cv::detection::ScaledYoloV4* |   ScaledYoloV4_yolov4-p5_-1280-1280.onnx     |       [ScaledYOLOv4](https://github.com/WongKinYiu/ScaledYOLOv4)      | 270Mb  |
+| *lite::cv::detection::ScaledYoloV4* |   ScaledYoloV4_yolov4-p5_-640-640.onnx     |       [ScaledYOLOv4](https://github.com/WongKinYiu/ScaledYOLOv4)      | 270Mb  |
+| *lite::cv::detection::ScaledYoloV4* |   ScaledYoloV4_yolov4-p5_-320-320.onnx     |       [ScaledYOLOv4](https://github.com/WongKinYiu/ScaledYOLOv4)      | 270Mb  |
+| *lite::cv::detection::ScaledYoloV4* |   ScaledYoloV4_yolov4-p6_-1280-1280.onnx     |       [ScaledYOLOv4](https://github.com/WongKinYiu/ScaledYOLOv4)      | 487Mb  |
+| *lite::cv::detection::ScaledYoloV4* |   ScaledYoloV4_yolov4-p6_-640-640.onnx     |       [ScaledYOLOv4](https://github.com/WongKinYiu/ScaledYOLOv4)      | 487Mb  |
+| *lite::cv::detection::ScaledYoloV4* |   ScaledYoloV4_yolov4-p6_-320-320.onnx     |       [ScaledYOLOv4](https://github.com/WongKinYiu/ScaledYOLOv4)      | 487Mb  |
 
 
 ## Classification.  

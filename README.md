@@ -40,6 +40,7 @@
 
 ## More Notes !!!    
 
+* ✅ (20210808) Added [ScaledYoloV4](https://github.com/WongKinYiu/ScaledYOLOv4) for object detection! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_scaled_yolov4.cpp).  
 * ✅ (20210807) Added [TinyYoloV4VOC](https://github.com/bubbliiiing/yolov4-tiny-pytorch) for object detection! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_tiny_yolov4_voc.cpp).  
 * ✅ (20210807) Added [TinyYoloV4COCO](https://github.com/bubbliiiing/yolov4-tiny-pytorch) for object detection! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_tiny_yolov4_coco.cpp).  
 * ✅ (20210801) Added [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch) for face detection! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_faceboxes.cpp).  
@@ -315,6 +316,7 @@ For example, ArcFace in [insightface](https://github.com/deepinsight/insightface
 |[TinyYoloV4VOC](https://github.com/bubbliiiing/yolov4-tiny-pytorch)|22M| [yolov4-tiny...](https://github.com/bubbliiiing/yolov4-tiny-pytorch) | 🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_tiny_yolov4_voc.cpp) |
 |[TinyYoloV4COCO](https://github.com/bubbliiiing/yolov4-tiny-pytorch)|22M| [yolov4-tiny...](https://github.com/bubbliiiing/yolov4-tiny-pytorch) | 🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_tiny_yolov4_coco.cpp) |
 |[YoloR](https://github.com/WongKinYiu/yolor)|39M| [yolor](https://github.com/WongKinYiu/yolor) | 🔥🔥new↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolor.cpp) |
+|[ScaledYoloV4](https://github.com/WongKinYiu/ScaledYOLOv4)|270M| [ScaledYOLOv4](https://github.com/WongKinYiu/ScaledYOLOv4) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_scaled_yolov4.cpp) |
 
 
 * Face Recognition.  
@@ -698,6 +700,7 @@ auto *detector = new lite::cv::detection::YoloV5(onnx_path);
 auto *detector = new lite::cv::detection::YoloR(onnx_path);  // Newest YOLO detector !!! 2021-05
 auto *detector = new lite::cv::detection::TinyYoloV4VOC(onnx_path); 
 auto *detector = new lite::cv::detection::TinyYoloV4COCO(onnx_path); 
+auto *detector = new lite::cv::detection::ScaledYoloV4(onnx_path); 
 ```  
 
 </details>

@@ -82,6 +82,7 @@ namespace ortcv
   class LITE_EXPORTS TinyYoloV4VOC;              // [68] * reference: https://github.com/bubbliiiing/yolov4-tiny-pytorch
   class LITE_EXPORTS TinyYoloV4COCO;             // [69] * reference: https://github.com/bubbliiiing/yolov4-tiny-pytorch
   class LITE_EXPORTS YoloR;                      // [70] * reference: https://github.com/WongKinYiu/yolor
+  class LITE_EXPORTS ScaledYoloV4;               // [71] * reference: https://github.com/WongKinYiu/ScaledYOLOv4
 
 }
 
