@@ -3,7 +3,7 @@
 //
 #include "ort_handler.h"
 
-#ifdef LITEHUB_WIN32
+#ifdef LITE_WIN32
 #include "ort_utils.h"
 #endif
 
