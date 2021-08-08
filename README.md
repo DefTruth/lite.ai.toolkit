@@ -4,13 +4,13 @@
 
 <div align='center'>
   <img src='logs/test_lite_yolov5_1.jpg' height="200px" width="200px">
-  <img src='logs/test_lite_deeplabv3_resnet101.jpg' height="200px" width="200px">
-  <img src='logs/test_lite_ssd_mobilenetv1.jpg' height="200px" width="200px">
+  <img src='docs/resources/efficientdet_d0.jpg' height="200px" width="200px">
+  <img src='docs/resources/street.jpg' height="200px" width="200px">
   <img src='logs/test_lite_ultraface.jpg' height="200px" width="200px">
   <br> 
   <img src='logs/test_lite_face_landmarks_1000.jpg' height="200px" width="200px">
   <img src='logs/test_lite_fsanet.jpg' height="200px" width="200px">
-  <img src='logs/test_lite_fast_style_transfer_candy.jpg' height="200px" width="200px">
+  <img src='logs/test_lite_deeplabv3_resnet101.jpg' height="200px" width="200px">
   <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="200px" width="200px"> 
 </div>   
 
@@ -50,7 +50,7 @@
 
 
 ## Working Notes. 👇🏻  
-  
+
   * ✅ [object detection](#lite.ai-object-detection) 
   * ✅ [image classification](#lite.ai-object-detection) 
   * ❇️ [face detection](#lite.ai-face-detection) 
@@ -61,7 +61,7 @@
   * ⚠️ [style transfer](#lite.ai-style-transfer)
   * ⚠️ [colorization](#lite.ai-colorization)
   * ⚠️ [matting](#lite.ai-matting)
-  
+
 </details>
 
 ## Contents.
@@ -86,17 +86,17 @@ install `OpenCV` and `onnxruntime` libraries using Homebrew or you can download 
   brew update
   brew install opencv
   brew install onnxruntime
-```  
+```
 
 <details>
 <summary> Expand for More Details of Dependencies.</summary>  
 
 ### Linux.  
   * *todo*⚠️  
-  
+
 ### Windows.   
   * *todo*⚠️  
-  
+
 ### Inference Engine Plans:
   * *doing*:  
     ❇️ `onnxruntime` 
@@ -134,13 +134,13 @@ Build the shared lib of Lite.AI for *MacOS* from sources. Note that Lite.AI uses
 * Clone the Lite.AI from sources:
 ```shell
 git clone --depth=1 https://github.com/DefTruth/lite.ai.git  # latest
-```  
+```
 
 <!---
 * For users in China, you can try:
 ```shell
 git clone --depth=1 https://github.com.cnpmjs.org/DefTruth/lite.ai.git  # latest
-```  
+```
 --->
 
 * Build shared lib.
@@ -369,7 +369,7 @@ For example, ArcFace in [insightface](https://github.com/deepinsight/insightface
 
 |Class|Size|From|Awesome|File|Type|State|Usage|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|[FSANet](https://github.com/omasaht/headpose-fsanet-pytorch)|1.2M| [...fsanet...](https://github.com/omasaht/headpose-fsanet-pytorch) | 🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-head-pose-estimation) | *face::pose* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_fsanet.cpp) |  
+|[FSANet](https://github.com/omasaht/headpose-fsanet-pytorch)|1.2M| [...fsanet...](https://github.com/omasaht/headpose-fsanet-pytorch) | 🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-head-pose-estimation) | *face::pose* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_fsanet.cpp) |
 
 
 * Face Attributes.
@@ -422,7 +422,7 @@ For example, ArcFace in [insightface](https://github.com/deepinsight/insightface
 
 |Class|Size|From|Awesome|File|Type|State|Usage|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|[Colorizer](https://github.com/richzhang/colorization)|123M|  [colorization](https://github.com/richzhang/colorization)   | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-colorization) | *colorization* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_colorizer.cpp) |  
+|[Colorizer](https://github.com/richzhang/colorization)|123M|  [colorization](https://github.com/richzhang/colorization)   | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-colorization) | *colorization* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_colorizer.cpp) |
 
 
 * Super Resolution.  
@@ -471,7 +471,7 @@ The output is:
 
 Or you can use Newest 🔥🔥 ! YOLO series's detector [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) or [YoloR](https://github.com/WongKinYiu/yolor). They got the similar results.  
 
-****  
+****
 
 <div id="lite.ai-face-alignment"></div>
 
@@ -503,7 +503,7 @@ The output is:
   <img src='logs/test_lite_face_landmarks_1000_0.jpg' height="224px" width="224px">
 </div>    
 
-****  
+****
 
 <div id="lite.ai-colorization"></div>
 
@@ -701,7 +701,7 @@ auto *detector = new lite::cv::detection::YoloR(onnx_path);  // Newest YOLO dete
 auto *detector = new lite::cv::detection::TinyYoloV4VOC(onnx_path); 
 auto *detector = new lite::cv::detection::TinyYoloV4COCO(onnx_path); 
 auto *detector = new lite::cv::detection::ScaledYoloV4(onnx_path); 
-```  
+```
 
 </details>
 
@@ -771,7 +771,7 @@ auto *recognition = new lite::cv::faceid::MobileFaceNet(onnx_path); // 3.8Mb onl
 auto *recognition = new lite::cv::faceid::CavaGhostArcFace(onnx_path);
 auto *recognition = new lite::cv::faceid::CavaCombinedFace(onnx_path);
 auto *recognition = new lite::cv::faceid::MobileSEFocalFace(onnx_path); // 4.5Mb only !
-```  
+```
 
 </details>
 
@@ -870,7 +870,7 @@ auto *attribute = new lite::cv::face::attr::EfficientEmotion7(onnx_path); // 7 e
 auto *attribute = new lite::cv::face::attr::EfficientEmotion8(onnx_path); // 8 emotions, 15Mb only!
 auto *attribute = new lite::cv::face::attr::MobileEmotion7(onnx_path); // 7 emotions
 auto *attribute = new lite::cv::face::attr::ReXNetEmotion7(onnx_path); // 7 emotions
-```  
+```
 
 </details>
 
