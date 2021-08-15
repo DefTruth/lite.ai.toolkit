@@ -705,6 +705,9 @@ auto *detector = new lite::cv::detection::YoloR(onnx_path);  // Newest YOLO dete
 auto *detector = new lite::cv::detection::TinyYoloV4VOC(onnx_path); 
 auto *detector = new lite::cv::detection::TinyYoloV4COCO(onnx_path); 
 auto *detector = new lite::cv::detection::ScaledYoloV4(onnx_path); 
+auto *detector = new lite::cv::detection::EfficientDet(onnx_path); 
+auto *detector = new lite::cv::detection::EfficientDetD7(onnx_path); 
+auto *detector = new lite::cv::detection::EfficientDetD8(onnx_path); 
 ```
 
 </details>
