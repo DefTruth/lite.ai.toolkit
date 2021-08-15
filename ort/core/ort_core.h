@@ -83,6 +83,9 @@ namespace ortcv
   class LITE_EXPORTS TinyYoloV4COCO;             // [69] * reference: https://github.com/bubbliiiing/yolov4-tiny-pytorch
   class LITE_EXPORTS YoloR;                      // [70] * reference: https://github.com/WongKinYiu/yolor
   class LITE_EXPORTS ScaledYoloV4;               // [71] * reference: https://github.com/WongKinYiu/ScaledYOLOv4
+  class LITE_EXPORTS EfficientDet;               // [71] * reference: https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch
+  class LITE_EXPORTS EfficientDetD7;             // [72] * reference: https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch
+  class LITE_EXPORTS EfficientDetD8;             // [73] * reference: https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch
 
 }
 

@@ -12,3 +12,4 @@ test_lite_faceboxes*
 test_lite_yolor*
 test_lite_tiny_yolov4*
 test_lite_scaled_yolov4*
+test_lite_efficientdet*

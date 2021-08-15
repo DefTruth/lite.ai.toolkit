@@ -73,6 +73,9 @@
 #include "ort/cv/tiny_yolov4_coco.h"
 #include "ort/cv/yolor.h"
 #include "ort/cv/scaled_yolov4.h"
+#include "ort/cv/efficientdet.h"
+#include "ort/cv/efficientdet_d7.h"
+#include "ort/cv/efficientdet_d8.h"
 
 #endif
 
@@ -156,6 +159,9 @@ namespace lite
     typedef ortcv::TinyYoloV4COCO _TinyYoloV4COCO;
     typedef ortcv::YoloR _YoloR;
     typedef ortcv::ScaledYoloV4 _ScaledYoloV4;
+    typedef ortcv::EfficientDet _EfficientDet;
+    typedef ortcv::EfficientDetD7 _EfficientDetD7;
+    typedef ortcv::EfficientDetD8 _EfficientDetD8;
 #endif
 
     // 1. classification
@@ -189,6 +195,9 @@ namespace lite
       typedef _TinyYoloV4COCO TinyYoloV4COCO;
       typedef _YoloR YoloR;
       typedef _ScaledYoloV4 ScaledYoloV4;
+      typedef _EfficientDet EfficientDet;
+      typedef _EfficientDetD7 EfficientDetD7;
+      typedef _EfficientDetD8 EfficientDetD8;
 #endif
     }
     // 3. face detection & facial attributes detection
@@ -426,6 +435,9 @@ namespace lite
       typedef ortcv::TinyYoloV4COCO _ONNXTinyYoloV4COCO;
       typedef ortcv::YoloR _ONNXYoloR;
       typedef ortcv::ScaledYoloV4 _ONNXScaledYoloV4;
+      typedef ortcv::EfficientDet _ONNXEfficientDet;
+      typedef ortcv::EfficientDetD7 _ONNXEfficientDetD7;
+      typedef ortcv::EfficientDetD8 _ONNXEfficientDetD8;
 
       // 1. classification
       namespace classification
@@ -455,6 +467,9 @@ namespace lite
         typedef _ONNXTinyYoloV4COCO TinyYoloV4COCO;
         typedef _ONNXYoloR YoloR;
         typedef _ONNXScaledYoloV4 ScaledYoloV4;
+        typedef _ONNXEfficientDet EfficientDet;
+        typedef _ONNXEfficientDetD7 EfficientDetD7;
+        typedef _ONNXEfficientDetD8 EfficientDetD8;
       }
       // 3. face detection & facial attributes detection
       namespace face

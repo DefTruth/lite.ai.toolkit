@@ -87,6 +87,15 @@ You can download all the pretrained models files of ONNX format from ([Baidu Dri
 | *lite::cv::detection::ScaledYoloV4* |   ScaledYoloV4_yolov4-p6_-1280-1280.onnx     |       [ScaledYOLOv4](https://github.com/WongKinYiu/ScaledYOLOv4)      | 487Mb  |
 | *lite::cv::detection::ScaledYoloV4* |   ScaledYoloV4_yolov4-p6_-640-640.onnx     |       [ScaledYOLOv4](https://github.com/WongKinYiu/ScaledYOLOv4)      | 487Mb  |
 | *lite::cv::detection::ScaledYoloV4* |   ScaledYoloV4_yolov4-p6_-320-320.onnx     |       [ScaledYOLOv4](https://github.com/WongKinYiu/ScaledYOLOv4)      | 487Mb  |
+| *lite::cv::detection::EfficientDet* |   efficientdet-d0.onnx     |      [...EfficientDet...](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch)      | 15Mb  |
+| *lite::cv::detection::EfficientDet* |   efficientdet-d1.onnx     |      [...EfficientDet...](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch)      | 26Mb  |
+| *lite::cv::detection::EfficientDet* |   efficientdet-d2.onnx     |      [...EfficientDet...](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch)      | 32Mb  |
+| *lite::cv::detection::EfficientDet* |   efficientdet-d3.onnx     |      [...EfficientDet...](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch)      | 49Mb  |
+| *lite::cv::detection::EfficientDet* |   efficientdet-d4.onnx     |      [...EfficientDet...](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch)      | 85Mb  |
+| *lite::cv::detection::EfficientDet* |   efficientdet-d5.onnx     |      [...EfficientDet...](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch)      | 138Mb  |
+| *lite::cv::detection::EfficientDet* |   efficientdet-d6.onnx     |      [...EfficientDet...](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch)      | 220Mb  |
+| *lite::cv::detection::EfficientDetD7* |   efficientdet-d7.onnx     |      [...EfficientDet...](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch)      | 220Mb  |
+| *lite::cv::detection::EfficientDetD8* |   efficientdet-d8.onnx     |      [...EfficientDet...](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch)      | 322Mb  |
 
 
 ## Classification.  
