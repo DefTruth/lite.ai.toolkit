@@ -24,6 +24,10 @@ FCNResNet101::FCNResNet101(const std::string &_onnx_path, unsigned int _num_thre
       GraphOptimizationLevel::ORT_ENABLE_EXTENDED);
   session_options.SetLogSeverityLevel(4);
   // 1. session
+  // GPU Compatibility.
+#ifdef USE_CUDA
+  OrtSessionOptionsAppendExecutionProvider_CUDA(session_options, 0); // C API stable.
+#endif
   ort_session = new Ort::Session(ort_env, onnx_path, session_options);
   Ort::AllocatorWithDefaultOptions allocator;
   // 2. input name & input dims
