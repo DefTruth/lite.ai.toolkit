@@ -16,7 +16,7 @@ Ort::Value YoloX::transform(const cv::Mat &mat)
                                     input_node_dims.at(2)));
   // (1,3,640,640) 1xCXHXW
   ortcv::utils::transform::normalize_inplace(canva, mean_vals, scale_vals); // float32
-  // Note !!!: Comment out this line if you use the new YOLOX model.
+  // Note !!!: Comment out this line if you use the newest YOLOX model.
   // There is no normalization for the newest official C++ implementation
   // using ncnn. Reference:
   // [1] https://github.com/Megvii-BaseDetection/YOLOX/blob/main/demo/ncnn/cpp/yolox.cpp
