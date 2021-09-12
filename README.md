@@ -28,7 +28,7 @@
 
 Cite it as follows if you use Lite.AI. Star 🌟👆🏻 this repo if it does any helps to you ~ Have a good travel ~ 🙃🤪🍀
 ```BibTeX
-@code{lite.ai2021,
+@misc{lite.ai2021,
   title={Lite.AI: A simple and user friendly C++ library of awesome AI models.},
   url={https://github.com/DefTruth/lite.ai},
   note={Open-source software available at https://github.com/DefTruth/lite.ai},
