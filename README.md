@@ -22,7 +22,22 @@
 
 <div id="lite.ai-Introduction"></div> 
 
-*Lite.AI* 🚀🚀🌟 is a simple and user-friendly C++ library of awesome🔥🔥🔥 AI models. It's a collection of personal interests. such as YOLOX, YoloV5, YoloV4, DeepLabV3, ArcFace, etc. *Lite.AI* based on *[onnxruntime c++](https://github.com/microsoft/onnxruntime)* by default. I do have plans to reimplement it with *[ncnn](https://github.com/Tencent/ncnn)* and *[MNN](https://github.com/alibaba/MNN)*, but not coming soon. It includes [object detection](#lite.ai-object-detection), [face detection](#lite.ai-face-detection), [style transfer](#lite.ai-style-transfer), [face alignment](#lite.ai-face-alignment), [face recognition](#lite.ai-face-recognition), [segmentation](#lite.ai-segmentation), [colorization](#lite.ai-colorization), [face attributes analysis](#lite.ai-face-attributes-analysis), [image classification](#lite.ai-image-classification), [matting](#lite.ai-matting), etc. You can use these awesome models simply through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai-object-detection)*. Star 🌟👆🏻 this repo if it does any helps to you ~ Have a good travel ~ 🙃🤪🍀
+*Lite.AI* 🚀🚀🌟 is a simple and user-friendly C++ library of awesome🔥🔥🔥 AI models. It's a collection of personal interests. such as YOLOX, YoloV5, YoloV4, DeepLabV3, ArcFace, etc. *Lite.AI* based on *[onnxruntime c++](https://github.com/microsoft/onnxruntime)* by default. I do have plans to reimplement it with *[ncnn](https://github.com/Tencent/ncnn)* and *[MNN](https://github.com/alibaba/MNN)*, but not coming soon. It includes [object detection](#lite.ai-object-detection), [face detection](#lite.ai-face-detection), [style transfer](#lite.ai-style-transfer), [face alignment](#lite.ai-face-alignment), [face recognition](#lite.ai-face-recognition), [segmentation](#lite.ai-segmentation), [colorization](#lite.ai-colorization), [face attributes analysis](#lite.ai-face-attributes-analysis), [image classification](#lite.ai-image-classification), [matting](#lite.ai-matting), etc. You can use these awesome models simply through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai-object-detection)*.
+
+## Citations.
+
+Cite it as follows if you use Lite.AI. Star 🌟👆🏻 this repo if it does any helps to you ~ Have a good travel ~ 🙃🤪🍀
+```BibTeX
+@code{lite.ai2021,
+  title={Lite.AI: "A simple and user friendly C++ library of awesome AI models."},
+  url={"https://github.com/DefTruth/lite.ai"},
+  note={Open-source software available at "https://github.com/DefTruth/lite.ai"},
+  author={Yan Jun},
+  year={2021}
+}
+```
+
+
 
 ## Important Notes !!!  
 
@@ -65,15 +80,18 @@
 
 </details>
 
+<!----
+
 ## Contents.
 * [Dependencies](#lite.ai-Dependencies)
 * [Build Lite.AI](#lite.ai-Build-Lite.AI)
 * [Model Zoo](#lite.ai-Model-Zoo)
 * [Examples for LiteHub](#lite.ai-Examples-for-Lite.AI)
-
-<!---- 
+ 
 * [Contributions](#lite.ai-Contributions)
 ---->
+
+<!----
 
 ## 1. Dependencies.  
 
@@ -108,8 +126,9 @@ install `OpenCV` and `onnxruntime` libraries using Homebrew or you can download 
 
 </details>  
 
+---->
 
-## 2. Build Lite.AI.
+## 1. Build Lite.AI.
 
 <div id="lite.ai-Build-Lite.AI"></div>
 
@@ -149,6 +168,12 @@ git clone --depth=1 https://github.com.cnpmjs.org/DefTruth/lite.ai.git  # latest
 cd lite.ai
 sh ./build.sh
 ```
+
+* GPU Compatibility: See [issue#10](https://github.com/DefTruth/lite.ai/issues/10).
+
+<details>
+<summary> Expand for more details of How to link the shared lib of Lite.AI?</summary>  
+
 ```shell
 cd ./build/lite.ai/lib && otool -L liblite.ai.0.0.1.dylib 
 liblite.ai.0.0.1.dylib:
@@ -158,10 +183,6 @@ liblite.ai.0.0.1.dylib:
         ...
 ```
 
-* GPU Compatibility: See [issue#10](https://github.com/DefTruth/lite.ai/issues/10).
-
-<details>
-<summary> Expand for more details of How to link the shared lib of Lite.AI?</summary>
 
 ```shell
 cd ../ && tree .
@@ -227,15 +248,17 @@ A minimum example to show you how to link the shared lib of Lite.AI correctly fo
 </details>
 
 
-## 3. Model Zoo.
+## 2. Model Zoo.
 
 <div id="lite.ai-Model-Zoo"></div>
 
-### 3.1 Namespace and Lite.AI modules.   
-*Lite.AI* contains *[70+](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md)* AI models with *[150+](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md)* frozen pretrained *.onnx* files now. They come from different fields of computer vision. Click the Expand ▶️ button for more details.
-
+*Lite.AI* contains *[70+](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md)* AI models with *[150+](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md)* frozen pretrained *.onnx* files now. Note that the models here are all from third-party projects. Most of the models were converted by *Lite.AI*. In Lite.AI, different names of the same algorithm mean that the corresponding models come from different repositories, different implementations, or use different training data, etc. ✅ means passed the test and ⚠️ means not implements yet but coming soon. For classes which denoted ✅, you can use it through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai-object-detection)* . More details can be found at [Examples for Lite.AI](#lite.ai-Examples-for-Lite.AI) .  
 <details>
 <summary> Expand Details for Namespace and Lite.AI modules.</summary>  
+
+### Namespace and Lite.AI modules.
+*Lite.AI* contains *[70+](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md)* AI models with *[150+](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md)* frozen pretrained *.onnx* files now. They come from different fields of computer vision. Click the Expand ▶️ button for more details.
+
 
 | Namepace                   | Details                                                      |
 | :------------------------- | :----------------------------------------------------------- |
@@ -255,12 +278,13 @@ A minimum example to show you how to link the shared lib of Lite.AI correctly fo
 
 </details>
 
-### 3.2 Lite.AI's Classes and Pretrained Files.  
-
-Correspondence between the classes in *Lite.AI* and pretrained model files can be found at [lite.ai.hub.onnx.md](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md). For examples, the pretrained model files for *lite::cv::detection::YoloV5* and *lite::cv::detection::YoloX* are listed as follows.
-
 <details>
 <summary> Expand Examples for Lite.AI's Classes and Pretrained Files.</summary>  
+
+
+### Lite.AI's Classes and Pretrained Files.
+
+Correspondence between the classes in *Lite.AI* and pretrained model files can be found at [lite.ai.hub.onnx.md](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md). For examples, the pretrained model files for *lite::cv::detection::YoloV5* and *lite::cv::detection::YoloX* are listed as follows.
 
 
 |             Class             | Pretrained ONNX Files |                   Rename or Converted From (Repo)                   | Size  |
@@ -293,18 +317,14 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
 
 </details>
 
-
-### 3.3 Model Zoo for Lite.AI.
-
-Note that the models here are all from third-party projects. Most of the models were converted by *Lite.AI*. In Lite.AI, different names of the same algorithm mean that the corresponding models come from different repositories, different implementations, or use different training data, etc. ✅ means passed the test and ⚠️ means not implements yet but coming soon. For classes which denoted ✅, you can use it through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai-object-detection)* . More details can be found at [Examples for Lite.AI](#lite.ai-Examples-for-Lite.AI) .  
-
 * Downloads:  
 [Baidu Drive](https://pan.baidu.com/s/1elUGcx7CZkkjEoYhTMwTRQ) code: 8gin && [Google Drive](https://drive.google.com/drive/folders/1p6uBcxGeyS1exc-T61vL8YRhwjYL4iD2?usp=sharing) .   
 Note, I can not upload all the *.onnx files because of the storage limitation of Google Driver (15G). <div id="lite.ai-2"></div>
 
 <!---
 For example, ArcFace in [insightface](https://github.com/deepinsight/insightface) is different from ArcFace in [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) . ArcFace in [insightface](https://github.com/deepinsight/insightface) uses Arc-Loss + Softmax, while ArcFace in [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) uses Arc-Loss + Focal-Loss. Lite.AI uses naming to make the necessary distinctions between models from different sources.
----->
+---->  
+
 
 * Object Detection.  
 
@@ -440,7 +460,7 @@ For example, ArcFace in [insightface](https://github.com/deepinsight/insightface
 
 </details>
 
-## 4. Examples for Lite.AI.  
+## 3. Examples for Lite.AI.  
 
 <div id="lite.ai-Examples-for-Lite.AI"></div>
 
@@ -638,9 +658,9 @@ The output is:
 <summary> ⚠️ Expand All Examples for Each Topic in Lite.AI.</summary>  
 
 <details>
-<summary> 4.1 Expand Examples for Object Detection.</summary>
+<summary> 3.1 Expand Examples for Object Detection.</summary>
 
-#### 4.1 Object Detection using [YoloV5](https://github.com/ultralytics/yolov5). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
+#### 3.1 Object Detection using [YoloV5](https://github.com/ultralytics/yolov5). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
 ```c++
 #include "lite/lite.h"
 
@@ -717,9 +737,9 @@ auto *detector = new lite::cv::detection::EfficientDetD8(onnx_path);
 
 
 <details>
-<summary> 4.2 Expand Examples for Face Recognition.</summary>
+<summary> 3.2 Expand Examples for Face Recognition.</summary>
 
-#### 4.2 Face Recognition using [ArcFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
+#### 3.2 Face Recognition using [ArcFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
 
 ```c++
 #include "lite/lite.h"
@@ -787,9 +807,9 @@ auto *recognition = new lite::cv::faceid::MobileSEFocalFace(onnx_path); // 4.5Mb
 
 
 <details>
-<summary> 4.3 Expand Examples for Segmentation.</summary>
+<summary> 3.3 Expand Examples for Segmentation.</summary>
 
-#### 4.3 Segmentation using [DeepLabV3ResNet101](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
+#### 3.3 Segmentation using [DeepLabV3ResNet101](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
 ```c++
 #include "lite/lite.h"
 
@@ -838,9 +858,9 @@ auto *segment = new lite::cv::segmentation::FCNResNet101(onnx_path);
 
 
 <details>
-<summary> 4.4 Expand Examples for Face Attributes Analysis.</summary>
+<summary> 3.4 Expand Examples for Face Attributes Analysis.</summary>
 
-#### 4.4 Age Estimation using [SSRNet](https://github.com/oukohou/SSR_Net_Pytorch) . Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
+#### 3.4 Age Estimation using [SSRNet](https://github.com/oukohou/SSR_Net_Pytorch) . Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
 ```c++
 #include "lite/lite.h"
 
@@ -887,9 +907,9 @@ auto *attribute = new lite::cv::face::attr::ReXNetEmotion7(onnx_path); // 7 emot
 
 
 <details>
-<summary> 4.5 Expand Examples for Image Classification.</summary>
+<summary> 3.5 Expand Examples for Image Classification.</summary>
 
-#### 4.5 1000 Classes Classification using [DenseNet](https://pytorch.org/hub/pytorch_vision_densenet/). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
+#### 3.5 1000 Classes Classification using [DenseNet](https://pytorch.org/hub/pytorch_vision_densenet/). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
 ```c++
 #include "lite/lite.h"
 
@@ -943,9 +963,9 @@ auto *classifier = new lite::cv::classification::ResNeXt(onnx_path);
 
 
 <details>
-<summary> 4.6 Expand Examples for Face Detection.</summary>
+<summary> 3.6 Expand Examples for Face Detection.</summary>
 
-#### 4.6 Face Detection using [UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
+#### 3.6 Face Detection using [UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
 ```c++
 #include "lite/lite.h"
 
@@ -984,9 +1004,9 @@ auto *detector = new lite::face::detect::RetinaFace(onnx_path);  // 1.6Mb only !
 
 
 <details>
-<summary> 4.7 Expand Examples for Colorization.</summary>
+<summary> 3.7 Expand Examples for Colorization.</summary>
 
-#### 4.7 Colorization using [colorization](https://github.com/richzhang/colorization). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
+#### 3.7 Colorization using [colorization](https://github.com/richzhang/colorization). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
 ```c++
 #include "lite/lite.h"
 
@@ -1022,9 +1042,9 @@ The output is:
 
 
 <details>
-<summary> 4.8 Expand Examples for Head Pose Estimation.</summary>
+<summary> 3.8 Expand Examples for Head Pose Estimation.</summary>
 
-#### 4.8 Head Pose Estimation using [FSANet](https://github.com/omasaht/headpose-fsanet-pytorch). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
+#### 3.8 Head Pose Estimation using [FSANet](https://github.com/omasaht/headpose-fsanet-pytorch). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
 
 ```c++
 #include "lite/lite.h"
@@ -1061,9 +1081,9 @@ The output is:
 
 
 <details>
-<summary> 4.9 Expand Examples for Face Alignment.</summary>
+<summary> 3.9 Expand Examples for Face Alignment.</summary>
 
-#### 4.9 1000 Facial Landmarks Detection using [FaceLandmarks1000](https://github.com/Single430/FaceLandmark1000). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
+#### 3.9 1000 Facial Landmarks Detection using [FaceLandmarks1000](https://github.com/Single430/FaceLandmark1000). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
 ```c++
 #include "lite/lite.h"
 
@@ -1105,9 +1125,9 @@ auto *align = new lite::cv::face::align::FaceLandmark1000(onnx_path);  // 1000 l
 
 
 <details>
-<summary> 4.10 Expand Examples for Style Transfer.</summary>
+<summary> 3.10 Expand Examples for Style Transfer.</summary>
 
-#### 4.10 Style Transfer using [FastStyleTransfer](https://github.com/onnx/models/tree/master/vision/style_transfer/fast_neural_style). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
+#### 3.10 Style Transfer using [FastStyleTransfer](https://github.com/onnx/models/tree/master/vision/style_transfer/fast_neural_style). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
 ```c++
 #include "lite/lite.h"
 
@@ -1143,7 +1163,7 @@ The output is:
 
 
 <details>
-<summary> 4.11 Expand Examples for Image Matting.</summary>
+<summary> 3.11 Expand Examples for Image Matting.</summary>
 
 * *todo*⚠️
 
@@ -1152,11 +1172,11 @@ The output is:
 </details>
 
 
-## 5. Lite.AI API Docs.
+## 4. Lite.AI API Docs.
 
 <div id="lite.ai-Lite.AI-API-Docs"></div>
 
-### 5.1 Default Version APIs.  
+### 4.1 Default Version APIs.  
 More details of Default Version APIs can be found at [default-version-api-docs](https://github.com/DefTruth/lite.ai/blob/main/docs/api/default.md) . For examples, the interface for YoloV5 is:
 
 > `lite::cv::detection::YoloV5`
@@ -1170,7 +1190,7 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 <details>
 <summary> Expand for ONNXRuntime, MNN and NCNN version APIs.</summary>
 
-### 5.2 ONNXRuntime Version APIs.  
+### 4.2 ONNXRuntime Version APIs.  
 More details of ONNXRuntime Version APIs can be found at [onnxruntime-version-api-docs](https://github.com/DefTruth/lite.ai/blob/main/docs/api/onnxruntime.md) . For examples, the interface for YoloV5 is:
 
 > `lite::onnxruntime::cv::detection::YoloV5`
@@ -1181,7 +1201,7 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 ```
 
 
-### 5.3 MNN Version APIs. 
+### 4.3 MNN Version APIs. 
 
 (*todo*⚠️: Not implementation now, coming soon.)  
 
@@ -1196,7 +1216,7 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 ...
 
 
-### 5.4 NCNN Version APIs.
+### 4.4 NCNN Version APIs.
 
 (*todo*⚠️: Not implementation now, coming soon.)
 
@@ -1214,7 +1234,7 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 
 
 
-## 6. Other Docs.  
+## 5. Other Docs.  
 
 <div id="lite.ai-Other-Docs"></div>  
 <div id="lite.ai-1"></div>
@@ -1222,7 +1242,7 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 <details>
 <summary> Expand More Details for Other Docs.</summary>
 
-### 6.1 Docs for ONNXRuntime. 
+### 5.1 Docs for ONNXRuntime. 
 * [Rapid implementation of your inference using BasicOrtHandler](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_handler.zh.md)  
 * [Some very useful onnxruntime c++ interfaces](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_useful_api.zh.md)  
 * [How to compile a single model in this library you needed](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_build_single.zh.md)
@@ -1233,7 +1253,7 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 * [How to convert YoloV5 to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_yolov5.zh.md)
 
 
-### 6.2 Docs for [third_party](https://github.com/DefTruth/lite.ai/tree/main/third_party).  
+### 5.2 Docs for [third_party](https://github.com/DefTruth/lite.ai/tree/main/third_party).  
 Other build documents for different engines and different targets will be added later.
 
 
@@ -1250,7 +1270,7 @@ Other build documents for different engines and different targets will be added 
 </details>
 
 
-## 7. References.  
+## 6. References.  
 
 <div id="lite.ai-References"></div>
 
@@ -1315,17 +1335,5 @@ Do you want a C++ user friendly version of you own pretrained models ? Come and 
 
 <div id="lite.ai-License"></div>
 
-Only the code of [Lite.AI](#lite.ai-Introduction) is released under the MIT License.
+The code of [Lite.AI](#lite.ai-Introduction) is released under the MIT License.
 
-## Citations.
-
-If you use this library in your project, please, cite it as follows.
-```BibTeX
-@code{lite.ai2021,
-  title={Lite.AI: "A simple and user friendly C++ library of awesome AI models."},
-  url={"https://github.com/DefTruth/lite.ai"},
-  note={Open-source software available at "https://github.com/DefTruth/lite.ai"},
-  author={Yan Jun},
-  year={2021}
-}
-```
