@@ -1320,12 +1320,12 @@ Only the code of [Lite.AI](#lite.ai-Introduction) is released under the MIT Lice
 ## Citations.
 
 If you use this library in your project, please, cite it as follows.
-```json
+```BibTeX
 @code{lite.ai2021,
   title={Lite.AI: "A simple and user friendly C++ library of awesome AI models."},
   url={"https://github.com/DefTruth/lite.ai"},
   note={Open-source software available at "https://github.com/DefTruth/lite.ai"},
-  author={Qiu},
+  author={Yan Jun},
   year={2021}
 }
 ```
