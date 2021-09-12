@@ -29,9 +29,9 @@
 Cite it as follows if you use Lite.AI. Star 🌟👆🏻 this repo if it does any helps to you ~ Have a good travel ~ 🙃🤪🍀
 ```BibTeX
 @code{lite.ai2021,
-  title={Lite.AI: "A simple and user friendly C++ library of awesome AI models."},
-  url={"https://github.com/DefTruth/lite.ai"},
-  note={Open-source software available at "https://github.com/DefTruth/lite.ai"},
+  title={Lite.AI: A simple and user friendly C++ library of awesome AI models.},
+  url={https://github.com/DefTruth/lite.ai},
+  note={Open-source software available at https://github.com/DefTruth/lite.ai},
   author={Yan Jun},
   year={2021}
 }
@@ -42,8 +42,6 @@ Cite it as follows if you use Lite.AI. Star 🌟👆🏻 this repo if it does an
 ## Important Notes !!!  
 
 * 🔥 (20210807) Added [YoloR](https://github.com/WongKinYiu/yolor) to *Lite.AI* ! Use it through [*lite::cv::detection::YoloR*](#lite.ai-object-detection) syntax ! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolor.cpp).
-* ⚠️ (20210802) Added GPU Compatibility for CUDAExecutionProvider. See [issue#10](https://github.com/DefTruth/lite.ai/issues/10).
-* ⚠️ (20210801) fixed [issue#9](https://github.com/DefTruth/lite.ai/issues/9) YOLOX inference error for non-square shape. See [yolox.cpp](https://github.com/DefTruth/lite.ai/blob/main/ort/cv/yolox.cpp).
 * ✅ (20210731) Added [RetinaFace-CVPR2020](https://github.com/biubug6/Pytorch_Retinaface) for face detection, 1.6Mb only! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_retinaface.cpp).
 * 🔥 (20210728) Added [FaceLandmarks1000](https://github.com/Single430/FaceLandmark1000) for 1000 facial landmarks detection, 2Mb only! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_face_landmarks_1000.cpp).
 * ✅ (20210722) Update [lite.ai.hub.onnx.md](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md) ! *Lite.AI* contains *[70+](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md)* AI models with *[150+](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md)* .onnx files now.
@@ -59,6 +57,8 @@ Cite it as follows if you use Lite.AI. Star 🌟👆🏻 this repo if it does an
 * ✅ (20210808) Added [ScaledYoloV4](https://github.com/WongKinYiu/ScaledYOLOv4) for object detection! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_scaled_yolov4.cpp).  
 * ✅ (20210807) Added [TinyYoloV4VOC](https://github.com/bubbliiiing/yolov4-tiny-pytorch) for object detection! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_tiny_yolov4_voc.cpp).  
 * ✅ (20210807) Added [TinyYoloV4COCO](https://github.com/bubbliiiing/yolov4-tiny-pytorch) for object detection! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_tiny_yolov4_coco.cpp).  
+* ⚠️ (20210802) Added GPU Compatibility for CUDAExecutionProvider. See [issue#10](https://github.com/DefTruth/lite.ai/issues/10).
+* ⚠️ (20210801) fixed [issue#9](https://github.com/DefTruth/lite.ai/issues/9) YOLOX inference error for non-square shape. See [yolox.cpp](https://github.com/DefTruth/lite.ai/blob/main/ort/cv/yolox.cpp).  
 * ✅ (20210801) Added [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch) for face detection! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_faceboxes.cpp).  
 * ✅ (20210727) Added [MobileNetV2SE68、PFLD68](https://github.com/cunjian/pytorch_face_landmark) for 68 facial landmarks detection! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_pfld68.cpp).  
 * ✅ (20210726) Added [PFLD98](https://github.com/polarisZhao/PFLD-pytorch) for 98 facial landmarks detection! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_pfld98.cpp).  
@@ -275,11 +275,6 @@ A minimum example to show you how to link the shared lib of Lite.AI correctly fo
 | *lite::cv::matting*        | Image Matting. Object and Human matting.  ⚠️                  |
 | *lite::cv::colorization*   | Colorization. Make Gray image become RGB. ⚠️                  |
 | *lite::cv::resolution*     | Super Resolution.  ⚠️                                         |
-
-</details>
-
-<details>
-<summary> Expand Examples for Lite.AI's Classes and Pretrained Files.</summary>  
 
 
 ### Lite.AI's Classes and Pretrained Files.
@@ -1310,8 +1305,6 @@ Many thanks to the following projects. All the Lite.AI's models are sourced from
 * [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch) (🔥🔥↑)  
 
 </details>  
-
-Star 🌟👆🏻 this repo if it does any helps to you ~
 
 <!----
 
