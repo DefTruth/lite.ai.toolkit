@@ -26,7 +26,7 @@
 
 ## Citations.
 
-Cite it as follows if you use Lite.AI. Star 🌟👆🏻 this repo if it does any helps to you ~ Have a good travel ~ 🙃🤪🍀
+Cite it as follows if you use Lite.AI. Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀
 ```BibTeX
 @misc{lite.ai2021,
   title={Lite.AI: A simple and user friendly C++ library of awesome AI models.},
