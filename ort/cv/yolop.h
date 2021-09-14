@@ -44,8 +44,8 @@ namespace ortcv
 
     void resize_unscale(const cv::Mat &mat,
                         cv::Mat &mat_rs,
-                        int target_height = 640,
-                        int target_width = 640,
+                        int target_height,
+                        int target_width,
                         YOLOPScaleParams &scale_params);
 
     void generate_bboxes_da_ll(const YOLOPScaleParams &scale_params,

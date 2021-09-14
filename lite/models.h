@@ -76,6 +76,7 @@
 #include "ort/cv/efficientdet.h"
 #include "ort/cv/efficientdet_d7.h"
 #include "ort/cv/efficientdet_d8.h"
+#include "ort/cv/yolop.h"
 
 #endif
 
@@ -162,6 +163,7 @@ namespace lite
     typedef ortcv::EfficientDet _EfficientDet;
     typedef ortcv::EfficientDetD7 _EfficientDetD7;
     typedef ortcv::EfficientDetD8 _EfficientDetD8;
+    typedef ortcv::YOLOP _YOLOP;
 #endif
 
     // 1. classification
@@ -198,6 +200,7 @@ namespace lite
       typedef _EfficientDet EfficientDet;
       typedef _EfficientDetD7 EfficientDetD7;
       typedef _EfficientDetD8 EfficientDetD8;
+      typedef _YOLOP YOLOP;
 #endif
     }
     // 3. face detection & facial attributes detection
@@ -438,6 +441,7 @@ namespace lite
       typedef ortcv::EfficientDet _ONNXEfficientDet;
       typedef ortcv::EfficientDetD7 _ONNXEfficientDetD7;
       typedef ortcv::EfficientDetD8 _ONNXEfficientDetD8;
+      typedef ortcv::YOLOP _ONNXYOLOP;
 
       // 1. classification
       namespace classification
@@ -470,6 +474,7 @@ namespace lite
         typedef _ONNXEfficientDet EfficientDet;
         typedef _ONNXEfficientDetD7 EfficientDetD7;
         typedef _ONNXEfficientDetD8 EfficientDetD8;
+        typedef _ONNXYOLOP YOLOP;
       }
       // 3. face detection & facial attributes detection
       namespace face
