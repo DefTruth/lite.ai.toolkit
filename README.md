@@ -1273,8 +1273,14 @@ Other build documents for different engines and different targets will be added 
 
 </details>
 
+## 6. License.
 
-## 6. References.  
+<div id="lite.ai-License"></div>
+
+The code of [Lite.AI](#lite.ai-Introduction) is released under the MIT License.
+
+
+## 7. References.  
 
 <div id="lite.ai-References"></div>
 
@@ -1315,6 +1321,8 @@ Many thanks to the following projects. All the Lite.AI's models are sourced from
 
 </details>  
 
+Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀
+
 <!----
 
 ## 8. Contributions.  
@@ -1332,10 +1340,4 @@ Do you want to contribute a model? To get started, just open an new issue with t
 Do you want a C++ user friendly version of you own pretrained models ? Come and join us ~  🙃🤪🍀
 
 ----->  
-
-## License.  
-
-<div id="lite.ai-License"></div>
-
-The code of [Lite.AI](#lite.ai-Introduction) is released under the MIT License.
 
