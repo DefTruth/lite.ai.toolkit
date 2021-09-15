@@ -45,7 +45,7 @@ void YOLOP::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
 
 Ort::Value YOLOP::transform(const cv::Mat &mat_rs)
 {
-  cv::Mat canva = mat.clone();
+  cv::Mat canva = mat_rs.clone();
   cv::cvtColor(canva, canva, cv::COLOR_BGR2RGB);
 
   // (1,3,640,640) 1xCXHXW
@@ -163,7 +163,7 @@ void YOLOP::generate_bboxes_da_ll(const YOLOPScaleParams &scale_params,
 
   for (int i = dh; i < dh + new_unpad_h; ++i)
   {
-    // row vector.
+    // row ptr.
     uchar *da_p_class = da_seg_content.class_mat.ptr<uchar>(i - dh);
     uchar *ll_p_class = ll_seg_content.class_mat.ptr<uchar>(i - dh);
     cv::Vec3b *da_p_color = da_seg_content.color_mat.ptr<cv::Vec3b>(i - dh);

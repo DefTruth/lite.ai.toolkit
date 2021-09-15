@@ -37,14 +37,21 @@ Cite it as follows if you use Lite.AI. Star 🌟👆🏻 this repo if it does an
 }
 ```
 
-
-
 ## Important Notes !!!  
 
+* 🔥 (20210915) Added [YOLOP](https://github.com/hustvl/YOLOP) Panoptic 🚗 Perception! Use it through [*lite::cv::detection::YOLOP*](#lite.ai-object-detection) ! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolop.cpp).
 * 🔥 (20210807) Added [YoloR](https://github.com/WongKinYiu/yolor) to *Lite.AI* ! Use it through [*lite::cv::detection::YoloR*](#lite.ai-object-detection) syntax ! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolor.cpp).
 * ✅ (20210731) Added [RetinaFace-CVPR2020](https://github.com/biubug6/Pytorch_Retinaface) for face detection, 1.6Mb only! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_retinaface.cpp).
 * 🔥 (20210728) Added [FaceLandmarks1000](https://github.com/Single430/FaceLandmark1000) for 1000 facial landmarks detection, 2Mb only! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_face_landmarks_1000.cpp).
 * 🔥 (20210721) Added [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) to *Lite.AI* ! Use it through [*lite::cv::detection::YoloX*](#lite.ai-object-detection) syntax ! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolox.cpp).  
+
+<div align='center'>
+  <img src='docs/resources/yolop1.png' height="200px" width="200px">
+  <img src='docs/resources/yolop1.gif' height="200px" width="200px">
+  <img src='docs/resources/yolop2.png' height="200px" width="200px">
+  <img src='docs/resources/yolop2.gif' height="200px" width="200px">
+
+</div>   
 
 
 <details>
@@ -339,6 +346,7 @@ For example, ArcFace in [insightface](https://github.com/deepinsight/insightface
 |[EfficientDet](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch)|15M| [...EfficientDet...](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_efficientdet.cpp) |
 |[EfficientDetD7](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch)|220M| [...EfficientDet...](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_efficientdet_d7.cpp) |
 |[EfficientDetD8](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch)|322M| [...EfficientDet...](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_efficientdet_d8.cpp) |
+|[YOLOP](https://github.com/hustvl/YOLOP)|30M| [YOLOP](https://github.com/hustvl/YOLOP) | 🔥🔥new↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolop.cpp) |
 
 
 * Face Recognition.  
@@ -726,6 +734,7 @@ auto *detector = new lite::cv::detection::ScaledYoloV4(onnx_path);
 auto *detector = new lite::cv::detection::EfficientDet(onnx_path); 
 auto *detector = new lite::cv::detection::EfficientDetD7(onnx_path); 
 auto *detector = new lite::cv::detection::EfficientDetD8(onnx_path); 
+auto *detector = new lite::cv::detection::YOLOP(onnx_path); 
 ```
 
 </details>

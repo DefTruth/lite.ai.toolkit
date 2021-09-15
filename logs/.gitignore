@@ -13,3 +13,6 @@ test_lite_yolor*
 test_lite_tiny_yolov4*
 test_lite_scaled_yolov4*
 test_lite_efficientdet*
+test_lite_yolop_da.jpg
+test_lite_yolop_ll.jpg
+test_lite_yolop_det.jpg

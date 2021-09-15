@@ -96,6 +96,9 @@ You can download all the pretrained models files of ONNX format from ([Baidu Dri
 | *lite::cv::detection::EfficientDet* |   efficientdet-d6.onnx     |      [...EfficientDet...](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch)      | 220Mb  |
 | *lite::cv::detection::EfficientDetD7* |   efficientdet-d7.onnx     |      [...EfficientDet...](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch)      | 220Mb  |
 | *lite::cv::detection::EfficientDetD8* |   efficientdet-d8.onnx     |      [...EfficientDet...](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch)      | 322Mb  |
+| *lite::cv::detection::YOLOP* |    yolop-1280-1280.onnx     |       [YOLOP](https://github.com/hustvl/YOLOP)       | 30Mb  |
+| *lite::cv::detection::YOLOP* |    yolop-640-640.onnx     |       [YOLOP](https://github.com/hustvl/YOLOP)       | 30Mb  |
+| *lite::cv::detection::YOLOP* |    yolop-320-320.onnx     |       [YOLOP](https://github.com/hustvl/YOLOP)       | 30Mb  |
 
 
 ## Classification.  
