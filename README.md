@@ -17,8 +17,9 @@
 
 ## Introduction.    
 
-[![](https://img.shields.io/badge/MacOS-success-green.svg)](https://github.com/DefTruth/lite.ai/releases/tag/v0.0.1) ![](https://img.shields.io/badge/Linux-doing-yellowgreen.svg) [![](https://img.shields.io/badge/Version-0.0.1-brightgreen.svg)](https://github.com/DefTruth/lite.ai/releases/tag/v0.0.1) ![](https://img.shields.io/badge/Language-C%2B%2B-orange.svg) ![](https://img.shields.io/badge/License-MIT-blue.svg)
+[![](https://img.shields.io/badge/MacOS-pass-brightgreen.svg)](https://github.com/DefTruth/lite.ai/releases/tag/v0.0.1) ![](https://img.shields.io/badge/Linux-pass-brightgreen.svg) ![](https://img.shields.io/badge/Windows-pass-brightgreen.svg) [![](https://img.shields.io/badge/Version-0.0.1-green.svg)](https://github.com/DefTruth/lite.ai/releases/tag/v0.0.1) ![](https://img.shields.io/badge/Language-C/C%2B%2B-orange.svg) ![](https://img.shields.io/badge/License-MIT-blue.svg)
 
+[![Stargazers repo roster for @DefTruth/lite.ai](https://reporoster.com/stars/DefTruth/lite.ai)](https://github.com/DefTruth/lite.ai/stargazers)
 
 <div id="lite.ai-Introduction"></div> 
 
@@ -1340,4 +1341,6 @@ Do you want to contribute a model? To get started, just open an new issue with t
 Do you want a C++ user friendly version of you own pretrained models ? Come and join us ~  🙃🤪🍀
 
 ----->  
+
+[![Forkers repo roster for @DefTruth/lite.ai](https://reporoster.com/forks/DefTruth/lite.ai)](https://github.com/DefTruth/lite.ai/network/members)
 
