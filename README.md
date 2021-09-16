@@ -1322,25 +1322,7 @@ Many thanks to the following projects. All the Lite.AI's models are sourced from
 
 </details>  
 
-Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀
 
-<!----
-
-## 8. Contributions.  
-<div id="lite.ai-Contributions"></div>  
-
-Do you want to contribute a model? To get started, just open an new issue with the title like *contribute-lite.ai-cv-detection-xxx(your model | repo name | alias)*, such as *contribute-lite.ai-cv-detection-YoloV5*. And, put the link to you project and point out how to find your model files and inference code. I will try to convert you model file and add it into *Lite.AI* as soon as I can. Then, I will list you repo in Lite.AI's Model Zoo and Acknowledgements. You could found a template at [contribute-issue-template](https://github.com/DefTruth/lite.ai/issues/1) . For examples:   
-
-* issue name: contribute-lite.ai-cv-detection-YoloV5  
-* model information: The information for the model is listed below.
-
-| Project Address                                        | Author      | Model File                                                   | Inference                                                    |
-| ------------------------------------------------------ | ----------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑) | ultralytics | [yolov5-model-pytorch-hub](https://github.com/ultralytics/yolov5/issues/36) | [detect.py](https://github.com/ultralytics/yolov5/blob/master/detect.py) |
-
-Do you want a C++ user friendly version of you own pretrained models ? Come and join us ~  🙃🤪🍀
-
------>  
 
 [![Forkers repo roster for @DefTruth/lite.ai](https://reporoster.com/forks/DefTruth/lite.ai)](https://github.com/DefTruth/lite.ai/network/members)
 
