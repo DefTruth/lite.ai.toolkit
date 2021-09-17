@@ -367,6 +367,59 @@ namespace lite
   }
 }
 
+// models for mobile device
+namespace lite
+{
+  namespace mobile
+  {
+    // classification
+    namespace classification
+    {
+    }
+    // object detection
+    namespace detection
+    {
+    }
+    // face etc.
+    namespace face
+    {
+      namespace detect
+      {
+      }
+      namespace align
+      {
+      }
+      namespace pose
+      {
+      }
+      namespace attr
+      {
+      }
+    }
+    // face recognition
+    namespace faceid
+    {
+    }
+    // segmentation
+    namespace segmentation
+    {
+    }
+    // reid
+    namespace reid
+    {
+    }
+    // ocr
+    namespace ocr
+    {
+    }
+    // matting
+    namespace matting
+    {
+    }
+
+  }
+}
+
 // ONNXRuntime version
 namespace lite
 {
