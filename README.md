@@ -1,6 +1,6 @@
 
 
-# Lite.AI 🚀🚀🌟  
+# Lite.AI.ToolKit 🚀🚀🌟  
 
 <div align='center'>
   <img src='logs/test_lite_yolov5_1.jpg' height="200px" width="200px">
@@ -17,22 +17,22 @@
 
 ## Introduction.    
 
-[![](https://img.shields.io/badge/MacOS-pass-brightgreen.svg)](https://github.com/DefTruth/lite.ai/releases/tag/v0.0.1) ![](https://img.shields.io/badge/Linux-pass-brightgreen.svg) ![](https://img.shields.io/badge/Windows-pass-brightgreen.svg) [![](https://img.shields.io/badge/Version-0.0.1-green.svg)](https://github.com/DefTruth/lite.ai/releases/tag/v0.0.1) ![](https://img.shields.io/badge/Language-C/C%2B%2B-orange.svg) ![](https://img.shields.io/badge/Device-GPU/CPU-yellow.svg) ![](https://img.shields.io/badge/License-MIT-blue.svg)
+[![](https://img.shields.io/badge/MacOS-pass-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/releases/tag/v0.0.1) ![](https://img.shields.io/badge/Linux-pass-brightgreen.svg) ![](https://img.shields.io/badge/Windows-pass-brightgreen.svg) [![](https://img.shields.io/badge/Version-0.0.1-green.svg)](https://github.com/DefTruth/lite.ai.toolkit/releases/tag/v0.0.1) ![](https://img.shields.io/badge/Language-C/C%2B%2B-orange.svg) ![](https://img.shields.io/badge/Device-GPU/CPU-yellow.svg) ![](https://img.shields.io/badge/License-MIT-blue.svg)
 
-[![Stargazers repo roster for @DefTruth/lite.ai](https://reporoster.com/stars/DefTruth/lite.ai)](https://github.com/DefTruth/lite.ai/stargazers)
+[![Stargazers repo roster for @DefTruth/lite.ai.toolkit](https://reporoster.com/stars/DefTruth/lite.ai.toolkit)](https://github.com/DefTruth/lite.ai.toolkit/stargazers)
 
-<div id="lite.ai-Introduction"></div> 
+<div id="lite.ai.toolkit-Introduction"></div> 
 
-*Lite.AI* 🚀🚀🌟 is a simple and user-friendly C++ library of awesome🔥🔥🔥 AI models. It's a collection of personal interests. such as YOLOX, YoloV5, YoloV4, DeepLabV3, ArcFace, etc. *Lite.AI* based on *[onnxruntime c++](https://github.com/microsoft/onnxruntime)* by default. I do have plans to reimplement it with *[ncnn](https://github.com/Tencent/ncnn)* and *[MNN](https://github.com/alibaba/MNN)*, but not coming soon. It includes [object detection](#lite.ai-object-detection), [face detection](#lite.ai-face-detection), [style transfer](#lite.ai-style-transfer), [face alignment](#lite.ai-face-alignment), [face recognition](#lite.ai-face-recognition), [segmentation](#lite.ai-segmentation), [colorization](#lite.ai-colorization), [face attributes analysis](#lite.ai-face-attributes-analysis), [image classification](#lite.ai-image-classification), [matting](#lite.ai-matting), etc. You can use these awesome models simply through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai-object-detection)*.
+*Lite.AI.ToolKit* 🚀🚀🌟 is a simple and user-friendly C++ library of *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* awesome🔥🔥🔥 AI models. It's a collection of personal interests. such as YOLOX, YoloV5, YoloV4, DeepLabV3, ArcFace, etc. *Lite.AI.ToolKit* based on *[onnxruntime c++](https://github.com/microsoft/onnxruntime)* by default. I do have plans to reimplement it with *[ncnn](https://github.com/Tencent/ncnn)* and *[MNN](https://github.com/alibaba/MNN)*, but not coming soon. It includes [object detection](#lite.ai.toolkit-object-detection), [face detection](#lite.ai.toolkit-face-detection), [style transfer](#lite.ai.toolkit-style-transfer), [face alignment](#lite.ai.toolkit-face-alignment), [face recognition](#lite.ai.toolkit-face-recognition), [segmentation](#lite.ai.toolkit-segmentation), [colorization](#lite.ai.toolkit-colorization), [face attributes analysis](#lite.ai.toolkit-face-attributes-analysis), [image classification](#lite.ai.toolkit-image-classification), [matting](#lite.ai.toolkit-matting), etc. You can use these awesome models simply through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)*.
 
 ## Citations.
 
-Cite it as follows if you use Lite.AI. Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀
+Cite it as follows if you use *Lite.AI.ToolKit*. Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀
 ```BibTeX
-@misc{lite.ai2021,
-  title={Lite.AI: A simple and user friendly C++ library of awesome AI models.},
-  url={https://github.com/DefTruth/lite.ai},
-  note={Open-source software available at https://github.com/DefTruth/lite.ai},
+@misc{lite.ai.toolkit2021,
+  title={lite.ai.toolkit: A simple and user friendly C++ library of awesome AI models.},
+  url={https://github.com/DefTruth/lite.ai.toolkit},
+  note={Open-source software available at https://github.com/DefTruth/lite.ai.toolkit},
   author={Yan Jun},
   year={2021}
 }
@@ -40,11 +40,12 @@ Cite it as follows if you use Lite.AI. Star 🌟👆🏻 this repo if it does an
 
 ## Important Notes !!!  
 
-* 🔥 (20210915) Added [YOLOP](https://github.com/hustvl/YOLOP) Panoptic 🚗 Perception! Use it through [*lite::cv::detection::YOLOP*](#lite.ai-object-detection) ! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolop.cpp).
-* 🔥 (20210807) Added [YoloR](https://github.com/WongKinYiu/yolor) to *Lite.AI* ! Use it through [*lite::cv::detection::YoloR*](#lite.ai-object-detection) syntax ! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolor.cpp).
-* ✅ (20210731) Added [RetinaFace-CVPR2020](https://github.com/biubug6/Pytorch_Retinaface) for face detection, 1.6Mb only! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_retinaface.cpp).
-* 🔥 (20210728) Added [FaceLandmarks1000](https://github.com/Single430/FaceLandmark1000) for 1000 facial landmarks detection, 2Mb only! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_face_landmarks_1000.cpp).
-* 🔥 (20210721) Added [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) to *Lite.AI* ! Use it through [*lite::cv::detection::YoloX*](#lite.ai-object-detection) syntax ! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolox.cpp).  
+* ⚠️ (20210919) *Lite.AI.ToolKit* was rename from the *Lite.AI* repo! *Lite.AI* will no longer be maintained.
+* 🔥 (20210915) Added [YOLOP](https://github.com/hustvl/YOLOP) Panoptic 🚗 Perception! Use it through [*lite::cv::detection::YOLOP*](#lite.ai.toolkit-object-detection) ! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolop.cpp).
+* 🔥 (20210807) Added [YoloR](https://github.com/WongKinYiu/yolor) ! Use it through [*lite::cv::detection::YoloR*](#lite.ai.toolkit-object-detection) syntax ! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolor.cpp).
+* ✅ (20210731) Added [RetinaFace-CVPR2020](https://github.com/biubug6/Pytorch_Retinaface) for face detection, 1.6Mb only! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_retinaface.cpp).
+* 🔥 (20210728) Added [FaceLandmarks1000](https://github.com/Single430/FaceLandmark1000) for 1000 facial landmarks detection, 2Mb only! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_face_landmarks_1000.cpp).
+* 🔥 (20210721) Added [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)! Use it through [*lite::cv::detection::YoloX*](#lite.ai.toolkit-object-detection) syntax ! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolox.cpp).  
 
 <div align='center'>
   <img src='docs/resources/yolop1.png' height="200px" width="200px">
@@ -60,54 +61,54 @@ Cite it as follows if you use Lite.AI. Star 🌟👆🏻 this repo if it does an
 
 ## More Notes !!!    
 
-* ✅ (20210815) Added [EfficientDet](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch) for object detection! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_efficientdet.cpp).  
-* ✅ (20210808) Added [ScaledYoloV4](https://github.com/WongKinYiu/ScaledYOLOv4) for object detection! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_scaled_yolov4.cpp).  
-* ✅ (20210807) Added [TinyYoloV4VOC](https://github.com/bubbliiiing/yolov4-tiny-pytorch) for object detection! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_tiny_yolov4_voc.cpp).  
-* ✅ (20210807) Added [TinyYoloV4COCO](https://github.com/bubbliiiing/yolov4-tiny-pytorch) for object detection! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_tiny_yolov4_coco.cpp).  
-* ✅ (20210722) Update [lite.ai.hub.onnx.md](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md) ! *Lite.AI* contains *[70+](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md)* AI models with *[150+](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md)* .onnx files now.  
-* ⚠️ (20210802) Added GPU Compatibility for CUDAExecutionProvider. See [issue#10](https://github.com/DefTruth/lite.ai/issues/10).
-* ⚠️ (20210801) fixed [issue#9](https://github.com/DefTruth/lite.ai/issues/9) YOLOX inference error for non-square shape. See [yolox.cpp](https://github.com/DefTruth/lite.ai/blob/main/ort/cv/yolox.cpp).  
-* ✅ (20210801) Added [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch) for face detection! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_faceboxes.cpp).  
-* ✅ (20210727) Added [MobileNetV2SE68、PFLD68](https://github.com/cunjian/pytorch_face_landmark) for 68 facial landmarks detection! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_pfld68.cpp).  
-* ✅ (20210726) Added [PFLD98](https://github.com/polarisZhao/PFLD-pytorch) for 98 facial landmarks detection! See [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_pfld98.cpp).  
+* ✅ (20210815) Added [EfficientDet](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch) for object detection! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_efficientdet.cpp).  
+* ✅ (20210808) Added [ScaledYoloV4](https://github.com/WongKinYiu/ScaledYOLOv4) for object detection! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_scaled_yolov4.cpp).  
+* ✅ (20210807) Added [TinyYoloV4VOC](https://github.com/bubbliiiing/yolov4-tiny-pytorch) for object detection! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_tiny_yolov4_voc.cpp).  
+* ✅ (20210807) Added [TinyYoloV4COCO](https://github.com/bubbliiiing/yolov4-tiny-pytorch) for object detection! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_tiny_yolov4_coco.cpp).  
+* ✅ (20210722) Update [lite.ai.toolkit.hub.onnx.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.toolkit.hub.onnx.md) ! *Lite.AI* contains *[70+](https://github.com/DefTruth/lite.ai.toolkit.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* AI models with *[150+](https://github.com/DefTruth/lite.ai.toolkit.toolkit/tree/main/docs/hub/lite.ai.toolkit.toolkit.hub.onnx.md)* .onnx files now.  
+* ⚠️ (20210802) Added GPU Compatibility for CUDAExecutionProvider. See [issue#10](https://github.com/DefTruth/lite.ai.toolkit/issues/10).
+* ⚠️ (20210801) fixed [issue#9](https://github.com/DefTruth/lite.ai.toolkit/issues/9) YOLOX inference error for non-square shape. See [yolox.cpp](https://github.com/DefTruth/lite.ai.toolkit/blob/main/ort/cv/yolox.cpp).  
+* ✅ (20210801) Added [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch) for face detection! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_faceboxes.cpp).  
+* ✅ (20210727) Added [MobileNetV2SE68、PFLD68](https://github.com/cunjian/pytorch_face_landmark) for 68 facial landmarks detection! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_pfld68.cpp).  
+* ✅ (20210726) Added [PFLD98](https://github.com/polarisZhao/PFLD-pytorch) for 98 facial landmarks detection! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_pfld98.cpp).  
 * ⚠️ (20210716) *Lite.AI* was rename from the *LiteHub* repo! *LiteHub* will no longer be maintained.    
 
 
 ## Working Notes. 👇🏻  
 
-  * ✅ [object detection](#lite.ai-object-detection) 
-  * ✅ [image classification](#lite.ai-object-detection) 
-  * ❇️ [face detection](#lite.ai-face-detection) 
-  * ✅ [face alignment](#lite.ai-face-alignment) 
-  * ✅ [face recognition](#lite.ai-face-recognition) 
-  * ✅ [face attributes analysis](#lite.ai-face-attributes-analysis)
-  * ⚠️ [segmentation](#lite.ai-segmentation)
-  * ⚠️ [style transfer](#lite.ai-style-transfer)
-  * ⚠️ [colorization](#lite.ai-colorization)
-  * ⚠️ [matting](#lite.ai-matting)
+  * ✅ [object detection](#lite.ai.toolkit-object-detection) 
+  * ✅ [image classification](#lite.ai.toolkit-object-detection) 
+  * ❇️ [face detection](#lite.ai.toolkit-face-detection) 
+  * ✅ [face alignment](#lite.ai.toolkit-face-alignment) 
+  * ✅ [face recognition](#lite.ai.toolkit-face-recognition) 
+  * ✅ [face attributes analysis](#lite.ai.toolkit-face-attributes-analysis)
+  * ⚠️ [segmentation](#lite.ai.toolkit-segmentation)
+  * ⚠️ [style transfer](#lite.ai.toolkit-style-transfer)
+  * ⚠️ [colorization](#lite.ai.toolkit-colorization)
+  * ⚠️ [matting](#lite.ai.toolkit-matting)
 
 </details>
 
 <!----
 
 ## Contents.
-* [Dependencies](#lite.ai-Dependencies)
-* [Build Lite.AI](#lite.ai-Build-Lite.AI)
-* [Model Zoo](#lite.ai-Model-Zoo)
-* [Examples for LiteHub](#lite.ai-Examples-for-Lite.AI)
+* [Dependencies](#lite.ai.toolkit-Dependencies)
+* [Build Lite.AI](#lite.ai.toolkit-Build-Lite.AI)
+* [Model Zoo](#lite.ai.toolkit-Model-Zoo)
+* [Examples for LiteHub](#lite.ai.toolkit-Examples-for-Lite.AI)
  
-* [Contributions](#lite.ai-Contributions)
+* [Contributions](#lite.ai.toolkit-Contributions)
 ---->
 
 <!----
 
 ## 1. Dependencies.  
 
-<div id="lite.ai-Dependencies"></div>
+<div id="lite.ai.toolkit-Dependencies"></div>
 
 ### Mac OS.  
 
-install `OpenCV` and `onnxruntime` libraries using Homebrew or you can download the built dependencies from this repo. See [third_party](https://github.com/DefTruth/litehub/tree/main/third_party) and build-docs[<sup>1</sup>](#lite.ai-1) for more details.
+install `OpenCV` and `onnxruntime` libraries using Homebrew or you can download the built dependencies from this repo. See [third_party](https://github.com/DefTruth/lite.ai.toolkit/tree/main/third_party) and build-docs[<sup>1</sup>](#lite.ai.toolkit-1) for more details.
 
 ```shell
   brew update
@@ -136,11 +137,11 @@ install `OpenCV` and `onnxruntime` libraries using Homebrew or you can download 
 
 ---->
 
-## 1. Build Lite.AI.
+## 1. Build Lite.AI.ToolKit
 
-<div id="lite.ai-Build-Lite.AI"></div>
+<div id="lite.ai.toolkit-Build-Lite.AI.ToolKit"></div>
 
-Build the shared lib of Lite.AI for *MacOS* from sources. Note that Lite.AI uses `onnxruntime` as default backend, for the reason that onnxruntime supports the most of onnx's operators. 
+Build the shared lib of *Lite.AI.ToolKit* for *MacOS* from sources. Note that Lite.AI.ToolKit uses `onnxruntime` as default backend, for the reason that onnxruntime supports the most of onnx's operators. 
 
 
 <details>
@@ -148,11 +149,11 @@ Build the shared lib of Lite.AI for *MacOS* from sources. Note that Lite.AI uses
 
 ### Linux and Windows.  
 
-⚠️ Lite.AI is not directly support Linux and Windows now. For Linux and Windows, you need to build or download(if have official builts) the shared libs of *OpenCV* and *ONNXRuntime* firstly and put then into the *third_party* directory. Please reference the build-docs[<sup>1</sup>](#lite.ai-1) for *third_party*.   
+⚠️ *Lite.AI.ToolKit* is not directly support Linux and Windows now. For Linux and Windows, you need to build or download(if have official builts) the shared libs of *OpenCV* and *ONNXRuntime* firstly and put then into the *third_party* directory. Please reference the build-docs[<sup>1</sup>](#lite.ai.toolkit-1) for *third_party*.   
 
 
-* Windows: You can reference to [issue#6](https://github.com/DefTruth/lite.ai/issues/6)  
-* Linux: The Docs and Docker image for Linux will be coming soon ~ [issue#2](https://github.com/DefTruth/lite.ai/issues/2)  
+* Windows: You can reference to [issue#6](https://github.com/DefTruth/lite.ai.toolkit/issues/6)  
+* Linux: The Docs and Docker image for Linux will be coming soon ~ [issue#2](https://github.com/DefTruth/lite.ai.toolkit/issues/2)  
 * Happy News !!! : 🚀 You can download the latest *ONNXRuntime* official built libs of Windows, Linux, MacOS and Arm !!! Both CPU and GPU versions are available. No more attentions needed pay to build it from source. Download the official built libs from [v1.8.1](https://github.com/microsoft/onnxruntime/releases). I have used version 1.7.0 for Lite.AI now, you can downlod it from [v1.7.0](https://github.com/microsoft/onnxruntime/releases/tag/v1.7.0), but version 1.8.1 should also work, I guess ~  🙃🤪🍀. For *OpenCV*, try to build from source(Linux) or down load the official built(Windows) from [OpenCV 4.5.3](https://github.com/opencv/opencv/releases). Then put the includes and libs into *third_party* directory of Lite.AI. 
 
 </details>  
@@ -161,31 +162,31 @@ Build the shared lib of Lite.AI for *MacOS* from sources. Note that Lite.AI uses
 
 * Clone the Lite.AI from sources:
 ```shell
-git clone --depth=1 https://github.com/DefTruth/lite.ai.git  # latest
+git clone --depth=1 https://github.com/DefTruth/lite.ai.toolkit.git  # latest
 ```
 
 <!---
 * For users in China, you can try:
 ```shell
-git clone --depth=1 https://github.com.cnpmjs.org/DefTruth/lite.ai.git  # latest
+git clone --depth=1 https://github.com.cnpmjs.org/DefTruth/lite.ai.toolkit.git  # latest
 ```
 --->
 
 * Build shared lib.
 ```shell
-cd lite.ai
+cd lite.ai.toolkit
 sh ./build.sh
 ```
 
-* GPU Compatibility: See [issue#10](https://github.com/DefTruth/lite.ai/issues/10).
+* GPU Compatibility: See [issue#10](https://github.com/DefTruth/lite.ai.toolkit/issues/10).
 
 <details>
-<summary> Expand for more details of How to link the shared lib of Lite.AI?</summary>  
+<summary> Expand for more details of How to link the shared lib of Lite.AI.ToolKit?</summary>  
 
 ```shell
-cd ./build/lite.ai/lib && otool -L liblite.ai.0.0.1.dylib 
-liblite.ai.0.0.1.dylib:
-        @rpath/liblite.ai.0.0.1.dylib (compatibility version 0.0.1, current version 0.0.1)
+cd ./build/lite.ai.toolkit/lib && otool -L liblite.ai.toolkit.0.0.1.dylib 
+liblite.ai.toolkit.0.0.1.dylib:
+        @rpath/liblite.ai.toolkit.0.0.1.dylib (compatibility version 0.0.1, current version 0.0.1)
         @rpath/libopencv_highgui.4.5.dylib (compatibility version 4.5.0, current version 4.5.2)
         @rpath/libonnxruntime.1.7.0.dylib (compatibility version 0.0.0, current version 1.7.0)
         ...
@@ -202,12 +203,12 @@ cd ../ && tree .
 │   │   └── lite.h
 │   └── ort
 └── lib
-    └── liblite.ai.0.0.1.dylib
+    └── liblite.ai.toolkit.0.0.1.dylib
 ```
 * Run the built examples:
 ```shell
-cd ./build/lite.ai/bin && ls -lh | grep lite
--rwxr-xr-x  1 root  staff   301K Jun 26 23:10 liblite.ai.0.0.1.dylib
+cd ./build/lite.ai.toolkit/bin && ls -lh | grep lite
+-rwxr-xr-x  1 root  staff   301K Jun 26 23:10 liblite.ai.toolkit.0.0.1.dylib
 ...
 -rwxr-xr-x  1 root  staff   196K Jun 26 23:10 lite_yolov4
 -rwxr-xr-x  1 root  staff   196K Jun 26 23:10 lite_yolov5
@@ -224,11 +225,11 @@ generate_bboxes num: 66
 Default Version Detected Boxes Num: 5
 ```
 
-* To link `lite.ai` shared lib. You need to make sure that `OpenCV` and `onnxruntime` are linked correctly. Just like:
+* To link `lite.ai.toolkit` shared lib. You need to make sure that `OpenCV` and `onnxruntime` are linked correctly. Just like:
 
 ```cmake
 cmake_minimum_required(VERSION 3.17)
-project(testlite.ai)
+project(testlite.ai.toolkit)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_BUILD_TYPE debug)
 # link opencv.
@@ -241,31 +242,31 @@ set(ONNXRUNTIME_INCLUDE_DIR ${ONNXRUNTIME_DIR}/include)
 set(ONNXRUNTIME_LIBRARY_DIR ${ONNXRUNTIME_DIR}/lib)
 include_directories(${ONNXRUNTIME_INCLUDE_DIR})
 link_directories(${ONNXRUNTIME_LIBRARY_DIR})
-# link lite.ai.
-set(LITEHUB_DIR ${CMAKE_SOURCE_DIR}/lite.ai)
+# link lite.ai.toolkit.toolkit.
+set(LITEHUB_DIR ${CMAKE_SOURCE_DIR}/lite.ai.toolkit)
 set(LITEHUB_INCLUDE_DIR ${LITEHUB_DIR}/include)
 set(LITEHUB_LIBRARY_DIR ${LITEHUB_DIR}/lib)
 include_directories(${LITEHUB_INCLUDE_DIR})
 link_directories(${LITEHUB_LIBRARY_DIR})
 # add your executable
 add_executable(lite_yolov5 test_lite_yolov5.cpp)
-target_link_libraries(lite_yolov5 lite.ai onnxruntime ${OpenCV_LIBS})
+target_link_libraries(lite_yolov5 lite.ai.toolkit onnxruntime ${OpenCV_LIBS})
 ```
-A minimum example to show you how to link the shared lib of Lite.AI correctly for your own project can be found at [lite.ai-release](https://github.com/DefTruth/lite.ai-release) .
+A minimum example to show you how to link the shared lib of Lite.AI correctly for your own project can be found at [lite.ai.toolkit-release](https://github.com/DefTruth/lite.ai.toolkit-release) .
 
 </details>
 
 
 ## 2. Model Zoo.
 
-<div id="lite.ai-Model-Zoo"></div>
+<div id="lite.ai.toolkit.toolkit-Model-Zoo"></div>
 
-*Lite.AI* contains *[70+](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md)* AI models with *[150+](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md)* frozen pretrained *.onnx* files now. Note that the models here are all from third-party projects. Most of the models were converted by *Lite.AI*. In Lite.AI, different names of the same algorithm mean that the corresponding models come from different repositories, different implementations, or use different training data, etc. ✅ means passed the test and ⚠️ means not implements yet but coming soon. For classes which denoted ✅, you can use it through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai-object-detection)* . More details can be found at [Examples for Lite.AI](#lite.ai-Examples-for-Lite.AI) .  
+*Lite.AI.ToolKit* contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* AI models with *[150+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained *.onnx* files now. Note that the models here are all from third-party projects. Most of the models were converted by *Lite.AI.ToolKit*. In Lite.AI, different names of the same algorithm mean that the corresponding models come from different repositories, different implementations, or use different training data, etc. ✅ means passed the test and ⚠️ means not implements yet but coming soon. For classes which denoted ✅, you can use it through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)* . More details can be found at [Examples for Lite.AI](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit) .  
 <details>
-<summary> Expand Details for Namespace and Lite.AI modules.</summary>  
+<summary> Expand Details for Namespace and Lite.AI.ToolKit modules.</summary>  
 
 ### Namespace and Lite.AI modules.
-*Lite.AI* contains *[70+](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md)* AI models with *[150+](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md)* frozen pretrained *.onnx* files now. They come from different fields of computer vision. Click the Expand ▶️ button for more details.
+*Lite.AI* contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* AI models with *[150+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained *.onnx* files now. They come from different fields of computer vision. Click the Expand ▶️ button for more details.
 
 
 | Namepace                   | Details                                                      |
@@ -287,7 +288,7 @@ A minimum example to show you how to link the shared lib of Lite.AI correctly fo
 
 ### Lite.AI's Classes and Pretrained Files.
 
-Correspondence between the classes in *Lite.AI* and pretrained model files can be found at [lite.ai.hub.onnx.md](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md). For examples, the pretrained model files for *lite::cv::detection::YoloV5* and *lite::cv::detection::YoloX* are listed as follows.
+Correspondence between the classes in *Lite.AI.ToolKit* and pretrained model files can be found at [lite.ai.toolkit.hub.onnx.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md). For examples, the pretrained model files for *lite::cv::detection::YoloV5* and *lite::cv::detection::YoloX* are listed as follows.
 
 
 |             Class             | Pretrained ONNX Files |                   Rename or Converted From (Repo)                   | Size  |
@@ -322,7 +323,7 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
 
 * Downloads:  
 [Baidu Drive](https://pan.baidu.com/s/1elUGcx7CZkkjEoYhTMwTRQ) code: 8gin && [Google Drive](https://drive.google.com/drive/folders/1p6uBcxGeyS1exc-T61vL8YRhwjYL4iD2?usp=sharing) .   
-Note, I can not upload all the *.onnx files because of the storage limitation of Google Driver (15G). <div id="lite.ai-2"></div>
+Note, I can not upload all the *.onnx files because of the storage limitation of Google Driver (15G). <div id="lite.ai.toolkit.toolkit-2"></div>
 
 <!---
 For example, ArcFace in [insightface](https://github.com/deepinsight/insightface) is different from ArcFace in [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) . ArcFace in [insightface](https://github.com/deepinsight/insightface) uses Arc-Loss + Softmax, while ArcFace in [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) uses Arc-Loss + Focal-Loss. Lite.AI uses naming to make the necessary distinctions between models from different sources.
@@ -333,43 +334,43 @@ For example, ArcFace in [insightface](https://github.com/deepinsight/insightface
 
 |Class|Size|From|Awesome|File|Type|State|Usage|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|[YoloV5](https://github.com/ultralytics/yolov5)|28M|[yolov5](https://github.com/ultralytics/yolov5)|🔥🔥💥↑| [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection)  | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolov5.cpp) |
-|[YoloV3](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/yolov3)|236M|[onnx-models](https://github.com/onnx/models)|🔥🔥🔥↑| [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolov3.cpp) |
-|[TinyYoloV3](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/tiny-yolov3)|33M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_tiny_yolov3.cpp) |
-|[YoloV4](https://github.com/argusswift/YOLOv4-pytorch)|176M| [YOLOv4...](https://github.com/argusswift/YOLOv4-pytorch) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolov4.cpp) |
-|[SSD](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd)|76M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_ssd.cpp) |
-|[SSDMobileNetV1](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd-mobilenetv1)|27M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_ssd_mobilenetv1.cpp) |
-|[YoloX](https://github.com/Megvii-BaseDetection/YOLOX)|3.5M| [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) | 🔥🔥new↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolox.cpp) |
-|[TinyYoloV4VOC](https://github.com/bubbliiiing/yolov4-tiny-pytorch)|22M| [yolov4-tiny...](https://github.com/bubbliiiing/yolov4-tiny-pytorch) | 🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_tiny_yolov4_voc.cpp) |
-|[TinyYoloV4COCO](https://github.com/bubbliiiing/yolov4-tiny-pytorch)|22M| [yolov4-tiny...](https://github.com/bubbliiiing/yolov4-tiny-pytorch) | 🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_tiny_yolov4_coco.cpp) |
-|[YoloR](https://github.com/WongKinYiu/yolor)|39M| [yolor](https://github.com/WongKinYiu/yolor) | 🔥🔥new↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolor.cpp) |
-|[ScaledYoloV4](https://github.com/WongKinYiu/ScaledYOLOv4)|270M| [ScaledYOLOv4](https://github.com/WongKinYiu/ScaledYOLOv4) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_scaled_yolov4.cpp) |
-|[EfficientDet](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch)|15M| [...EfficientDet...](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_efficientdet.cpp) |
-|[EfficientDetD7](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch)|220M| [...EfficientDet...](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_efficientdet_d7.cpp) |
-|[EfficientDetD8](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch)|322M| [...EfficientDet...](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_efficientdet_d8.cpp) |
-|[YOLOP](https://github.com/hustvl/YOLOP)|30M| [YOLOP](https://github.com/hustvl/YOLOP) | 🔥🔥new↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_yolop.cpp) |
+|[YoloV5](https://github.com/ultralytics/yolov5)|28M|[yolov5](https://github.com/ultralytics/yolov5)|🔥🔥💥↑| [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-object-detection)  | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolov5.cpp) |
+|[YoloV3](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/yolov3)|236M|[onnx-models](https://github.com/onnx/models)|🔥🔥🔥↑| [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolov3.cpp) |
+|[TinyYoloV3](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/tiny-yolov3)|33M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_tiny_yolov3.cpp) |
+|[YoloV4](https://github.com/argusswift/YOLOv4-pytorch)|176M| [YOLOv4...](https://github.com/argusswift/YOLOv4-pytorch) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolov4.cpp) |
+|[SSD](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd)|76M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_ssd.cpp) |
+|[SSDMobileNetV1](https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd-mobilenetv1)|27M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_ssd_mobilenetv1.cpp) |
+|[YoloX](https://github.com/Megvii-BaseDetection/YOLOX)|3.5M| [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) | 🔥🔥new↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolox.cpp) |
+|[TinyYoloV4VOC](https://github.com/bubbliiiing/yolov4-tiny-pytorch)|22M| [yolov4-tiny...](https://github.com/bubbliiiing/yolov4-tiny-pytorch) | 🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_tiny_yolov4_voc.cpp) |
+|[TinyYoloV4COCO](https://github.com/bubbliiiing/yolov4-tiny-pytorch)|22M| [yolov4-tiny...](https://github.com/bubbliiiing/yolov4-tiny-pytorch) | 🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_tiny_yolov4_coco.cpp) |
+|[YoloR](https://github.com/WongKinYiu/yolor)|39M| [yolor](https://github.com/WongKinYiu/yolor) | 🔥🔥new↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolor.cpp) |
+|[ScaledYoloV4](https://github.com/WongKinYiu/ScaledYOLOv4)|270M| [ScaledYOLOv4](https://github.com/WongKinYiu/ScaledYOLOv4) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_scaled_yolov4.cpp) |
+|[EfficientDet](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch)|15M| [...EfficientDet...](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_efficientdet.cpp) |
+|[EfficientDetD7](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch)|220M| [...EfficientDet...](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_efficientdet_d7.cpp) |
+|[EfficientDetD8](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch)|322M| [...EfficientDet...](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_efficientdet_d8.cpp) |
+|[YOLOP](https://github.com/hustvl/YOLOP)|30M| [YOLOP](https://github.com/hustvl/YOLOP) | 🔥🔥new↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolop.cpp) |
 
 
 * Face Recognition.  
 
 |Class|Size|From|Awesome|File|Type|State|Usage|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|[GlintArcFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch)|92M|  [insightface](https://github.com/deepinsight/insightface)   | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-recognition) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_glint_arcface.cpp) |
-|[GlintCosFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch)|92M|  [insightface](https://github.com/deepinsight/insightface)   | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-recognition) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_glint_cosface.cpp) |
-|[GlintPartialFC](https://github.com/deepinsight/insightface/tree/master/recognition/partial_fc)|170M|  [insightface](https://github.com/deepinsight/insightface)   | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-recognition) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_glint_partial_fc.cpp) |
-|[FaceNet](https://github.com/timesler/facenet-pytorch)|89M| [facenet...](https://github.com/timesler/facenet-pytorch) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-recognition) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_facenet.cpp) |
-|[FocalArcFace](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch)|166M| [face.evoLVe...](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-recognition) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_focal_arcface.cpp) |
-|[FocalAsiaArcFace](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch)|166M| [face.evoLVe...](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-recognition) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_focal_asia_arcface.cpp) |
-|[TencentCurricularFace](https://github.com/Tencent/TFace/tree/master/tasks/distfc)|249M|          [TFace](https://github.com/Tencent/TFace)           |  🔥🔥↑  | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-recognition) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_tencent_curricular_face.cpp) |
-|[TencentCifpFace](https://github.com/Tencent/TFace/tree/master/tasks/cifp)|130M|          [TFace](https://github.com/Tencent/TFace)           |  🔥🔥↑  | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-recognition) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_tencent_cifp_face.cpp) |
-|[CenterLossFace](https://github.com/louis-she/center-loss.pytorch)| 280M |  [center-loss...](https://github.com/louis-she/center-loss.pytorch)           |  🔥🔥↑  | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-recognition) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_center_loss_face.cpp) |
-|[SphereFace](https://github.com/clcarwin/sphereface_pytorch)| 80M |  [sphere...](https://github.com/clcarwin/sphereface_pytorch)   |  🔥🔥↑  | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-recognition) | *faceid* | ✅️ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_sphere_face.cpp) |
-|[PoseRobustFace](https://github.com/penincillin/DREAM)| 92M | [DREAM](https://github.com/penincillin/DREAM)  |  🔥🔥↑  | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-recognition) | *faceid* | ✅️ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_pose_robust_face.cpp) |
-|[NaivePoseRobustFace](https://github.com/penincillin/DREAM)| 43M | [DREAM](https://github.com/penincillin/DREAM)  |  🔥🔥↑  | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-recognition) | *faceid* | ✅️ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_naive_pose_robust_face.cpp) |
-|[MobileFaceNet](https://github.com/Xiaoccer/MobileFaceNet_Pytorch)| 3.8M |  [MobileFace...](https://github.com/Xiaoccer/MobileFaceNet_Pytorch)           |  🔥🔥↑  | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-recognition) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_mobile_facenet.cpp) |
-|[CavaGhostArcFace](https://github.com/cavalleria/cavaface.pytorch)| 15M | [cavaface...](https://github.com/cavalleria/cavaface.pytorch) |  🔥🔥↑  | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-recognition) | *faceid* |  ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_cava_ghost_arcface.cpp) |
-|[CavaCombinedFace](https://github.com/cavalleria/cavaface.pytorch)| 250M | [cavaface...](https://github.com/cavalleria/cavaface.pytorch) |  🔥🔥↑  | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-recognition) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_cava_combined_face.cpp) |
-|[MobileSEFocalFace](https://github.com/grib0ed0v/face_recognition.pytorch)|4.5M| [face_recog...](https://github.com/grib0ed0v/face_recognition.pytorch) | 🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-recognition) | *faceid* | ✅ |  [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_mobilese_focal_face.cpp) |
+|[GlintArcFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch)|92M|  [insightface](https://github.com/deepinsight/insightface)   | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-recognition) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_glint_arcface.cpp) |
+|[GlintCosFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch)|92M|  [insightface](https://github.com/deepinsight/insightface)   | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-recognition) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_glint_cosface.cpp) |
+|[GlintPartialFC](https://github.com/deepinsight/insightface/tree/master/recognition/partial_fc)|170M|  [insightface](https://github.com/deepinsight/insightface)   | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-recognition) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_glint_partial_fc.cpp) |
+|[FaceNet](https://github.com/timesler/facenet-pytorch)|89M| [facenet...](https://github.com/timesler/facenet-pytorch) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-recognition) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_facenet.cpp) |
+|[FocalArcFace](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch)|166M| [face.evoLVe...](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-recognition) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_focal_arcface.cpp) |
+|[FocalAsiaArcFace](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch)|166M| [face.evoLVe...](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-recognition) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_focal_asia_arcface.cpp) |
+|[TencentCurricularFace](https://github.com/Tencent/TFace/tree/master/tasks/distfc)|249M|          [TFace](https://github.com/Tencent/TFace)           |  🔥🔥↑  | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-recognition) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_tencent_curricular_face.cpp) |
+|[TencentCifpFace](https://github.com/Tencent/TFace/tree/master/tasks/cifp)|130M|          [TFace](https://github.com/Tencent/TFace)           |  🔥🔥↑  | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-recognition) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_tencent_cifp_face.cpp) |
+|[CenterLossFace](https://github.com/louis-she/center-loss.pytorch)| 280M |  [center-loss...](https://github.com/louis-she/center-loss.pytorch)           |  🔥🔥↑  | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-recognition) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_center_loss_face.cpp) |
+|[SphereFace](https://github.com/clcarwin/sphereface_pytorch)| 80M |  [sphere...](https://github.com/clcarwin/sphereface_pytorch)   |  🔥🔥↑  | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-recognition) | *faceid* | ✅️ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_sphere_face.cpp) |
+|[PoseRobustFace](https://github.com/penincillin/DREAM)| 92M | [DREAM](https://github.com/penincillin/DREAM)  |  🔥🔥↑  | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-recognition) | *faceid* | ✅️ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_pose_robust_face.cpp) |
+|[NaivePoseRobustFace](https://github.com/penincillin/DREAM)| 43M | [DREAM](https://github.com/penincillin/DREAM)  |  🔥🔥↑  | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-recognition) | *faceid* | ✅️ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_naive_pose_robust_face.cpp) |
+|[MobileFaceNet](https://github.com/Xiaoccer/MobileFaceNet_Pytorch)| 3.8M |  [MobileFace...](https://github.com/Xiaoccer/MobileFaceNet_Pytorch)           |  🔥🔥↑  | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-recognition) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mobile_facenet.cpp) |
+|[CavaGhostArcFace](https://github.com/cavalleria/cavaface.pytorch)| 15M | [cavaface...](https://github.com/cavalleria/cavaface.pytorch) |  🔥🔥↑  | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-recognition) | *faceid* |  ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_cava_ghost_arcface.cpp) |
+|[CavaCombinedFace](https://github.com/cavalleria/cavaface.pytorch)| 250M | [cavaface...](https://github.com/cavalleria/cavaface.pytorch) |  🔥🔥↑  | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-recognition) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_cava_combined_face.cpp) |
+|[MobileSEFocalFace](https://github.com/grib0ed0v/face_recognition.pytorch)|4.5M| [face_recog...](https://github.com/grib0ed0v/face_recognition.pytorch) | 🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-recognition) | *faceid* | ✅ |  [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mobilese_focal_face.cpp) |
 
 <details>
 <summary> ⚠️ Expand More Details for Lite.AI's Model Zoo.</summary>  
@@ -378,21 +379,21 @@ For example, ArcFace in [insightface](https://github.com/deepinsight/insightface
 
 |Class|Size|From|Awesome|File|Type|State|Usage|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|[UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB)|1.1M| [Ultra-Light...](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-detection) | *face::detect* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_ultraface.cpp) |
-|[RetinaFace](https://github.com/biubug6/Pytorch_Retinaface)|1.6M| [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-detection) | *face::detect* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_retinaface.cpp) |
-|[FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)|3.8M| [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch) | 🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-detection) | *face::detect* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_faceboxes.cpp) |
+|[UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB)|1.1M| [Ultra-Light...](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-detection) | *face::detect* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_ultraface.cpp) |
+|[RetinaFace](https://github.com/biubug6/Pytorch_Retinaface)|1.6M| [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-detection) | *face::detect* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_retinaface.cpp) |
+|[FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)|3.8M| [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch) | 🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-detection) | *face::detect* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_faceboxes.cpp) |
 
 
 * Face Alignment.
 
 |Class|Size|From|Awesome|File|Type|State|Usage|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|[PFLD](https://github.com/Hsintao/pfld_106_face_landmarks)|1.0M| [pfld_106_...](https://github.com/Hsintao/pfld_106_face_landmarks) |  🔥🔥↑  | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-alignment) | *face::align* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_pfld.cpp) |
-|[PFLD98](https://github.com/polarisZhao/PFLD-pytorch)|4.8M| [PFLD...](https://github.com/polarisZhao/PFLD-pytorch) | 🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-alignment) | *face::align* | ✅️ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_pfld98.cpp) |
-|[MobileNetV268](https://github.com/cunjian/pytorch_face_landmark)|9.4M| [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 🔥🔥↑ |  [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-alignment) | *face::align* | ✅️️ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_mobilenetv2_68.cpp) |
-|[MobileNetV2SE68](https://github.com/cunjian/pytorch_face_landmark)|11M| [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 🔥🔥↑ |  [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-alignment) | *face::align* | ✅️️ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_mobilenetv2_se_68.cpp) |
-|[PFLD68](https://github.com/cunjian/pytorch_face_landmark)|2.8M| [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 🔥🔥↑ |  [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-alignment) | *face::align* | ✅️ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_pfld68.cpp) |
-|[FaceLandmark1000](https://github.com/Single430/FaceLandmark1000)|2.0M| [FaceLandm...](https://github.com/Single430/FaceLandmark1000) | 🔥↑ |  [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-alignment) | *face::align* | ✅️ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_face_landmarks_1000.cpp) |
+|[PFLD](https://github.com/Hsintao/pfld_106_face_landmarks)|1.0M| [pfld_106_...](https://github.com/Hsintao/pfld_106_face_landmarks) |  🔥🔥↑  | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-alignment) | *face::align* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_pfld.cpp) |
+|[PFLD98](https://github.com/polarisZhao/PFLD-pytorch)|4.8M| [PFLD...](https://github.com/polarisZhao/PFLD-pytorch) | 🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-alignment) | *face::align* | ✅️ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_pfld98.cpp) |
+|[MobileNetV268](https://github.com/cunjian/pytorch_face_landmark)|9.4M| [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 🔥🔥↑ |  [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-alignment) | *face::align* | ✅️️ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mobilenetv2_68.cpp) |
+|[MobileNetV2SE68](https://github.com/cunjian/pytorch_face_landmark)|11M| [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 🔥🔥↑ |  [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-alignment) | *face::align* | ✅️️ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mobilenetv2_se_68.cpp) |
+|[PFLD68](https://github.com/cunjian/pytorch_face_landmark)|2.8M| [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 🔥🔥↑ |  [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-alignment) | *face::align* | ✅️ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_pfld68.cpp) |
+|[FaceLandmark1000](https://github.com/Single430/FaceLandmark1000)|2.0M| [FaceLandm...](https://github.com/Single430/FaceLandmark1000) | 🔥↑ |  [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-alignment) | *face::align* | ✅️ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_face_landmarks_1000.cpp) |
 
 
 
@@ -400,79 +401,79 @@ For example, ArcFace in [insightface](https://github.com/deepinsight/insightface
 
 |Class|Size|From|Awesome|File|Type|State|Usage|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|[FSANet](https://github.com/omasaht/headpose-fsanet-pytorch)|1.2M| [...fsanet...](https://github.com/omasaht/headpose-fsanet-pytorch) | 🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-head-pose-estimation) | *face::pose* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_fsanet.cpp) |
+|[FSANet](https://github.com/omasaht/headpose-fsanet-pytorch)|1.2M| [...fsanet...](https://github.com/omasaht/headpose-fsanet-pytorch) | 🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-head-pose-estimation) | *face::pose* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_fsanet.cpp) |
 
 
 * Face Attributes.
 
 |Class|Size|From|Awesome|File|Type|State|Usage|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|[AgeGoogleNet](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender)|23M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-attributes) | *face::attr* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_age_googlenet.cpp) |
-|[GenderGoogleNet](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender)|23M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-attributes) | *face::attr* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_gender_googlenet.cpp) |
-|[EmotionFerPlus](https://github.com/onnx/models/blob/master/vision/body_analysis/emotion_ferplus)|33M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-attributes) | *face::attr* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_emotion_ferplus.cpp) |
-|[VGG16Age](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender)|514M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-attributes) | *face::attr* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_vgg16_age.cpp) |
-|[VGG16Gender](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender)|512M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-attributes) | *face::attr* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_vgg16_gender.cpp) |
-|[SSRNet](https://github.com/oukohou/SSR_Net_Pytorch)|190K| [SSR_Net...](https://github.com/oukohou/SSR_Net_Pytorch) | 🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-attributes) | *face::attr* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_ssrnet.cpp) |
-|[EfficientEmotion7](https://github.com/HSE-asavchenko/face-emotion-recognition)|15M| [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-attributes) | *face::attr* | ✅️ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_efficient_emotion7.cpp) |
-|[EfficientEmotion8](https://github.com/HSE-asavchenko/face-emotion-recognition)|15M| [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-attributes) | *face::attr* | ✅  | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_efficient_emotion8.cpp) |
-|[MobileEmotion7](https://github.com/HSE-asavchenko/face-emotion-recognition)|13M| [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-attributes) | *face::attr* |  ✅  | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_mobile_emotion7.cpp) |
-|[ReXNetEmotion7](https://github.com/HSE-asavchenko/face-emotion-recognition)|30M| [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-face-attributes) | *face::attr* |  ✅  | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_rexnet_emotion7.cpp) |
+|[AgeGoogleNet](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender)|23M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-attributes) | *face::attr* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_age_googlenet.cpp) |
+|[GenderGoogleNet](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender)|23M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-attributes) | *face::attr* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_gender_googlenet.cpp) |
+|[EmotionFerPlus](https://github.com/onnx/models/blob/master/vision/body_analysis/emotion_ferplus)|33M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-attributes) | *face::attr* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_emotion_ferplus.cpp) |
+|[VGG16Age](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender)|514M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-attributes) | *face::attr* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_vgg16_age.cpp) |
+|[VGG16Gender](https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender)|512M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-attributes) | *face::attr* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_vgg16_gender.cpp) |
+|[SSRNet](https://github.com/oukohou/SSR_Net_Pytorch)|190K| [SSR_Net...](https://github.com/oukohou/SSR_Net_Pytorch) | 🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-attributes) | *face::attr* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_ssrnet.cpp) |
+|[EfficientEmotion7](https://github.com/HSE-asavchenko/face-emotion-recognition)|15M| [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-attributes) | *face::attr* | ✅️ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_efficient_emotion7.cpp) |
+|[EfficientEmotion8](https://github.com/HSE-asavchenko/face-emotion-recognition)|15M| [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-attributes) | *face::attr* | ✅  | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_efficient_emotion8.cpp) |
+|[MobileEmotion7](https://github.com/HSE-asavchenko/face-emotion-recognition)|13M| [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-attributes) | *face::attr* |  ✅  | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mobile_emotion7.cpp) |
+|[ReXNetEmotion7](https://github.com/HSE-asavchenko/face-emotion-recognition)|30M| [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-attributes) | *face::attr* |  ✅  | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_rexnet_emotion7.cpp) |
 
 
 * Classification.
 
 |Class|Size|From|Awesome|File|Type|State|Usage|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|[EfficientNetLite4](https://github.com/onnx/models/blob/master/vision/classification/efficientnet-lite4)|49M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-classification)  | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_efficientnet_lite4.cpp) |
-|[ShuffleNetV2](https://github.com/onnx/models/blob/master/vision/classification/shufflenet)|8.7M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-classification)  | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_shufflenetv2.cpp) |
-|[DenseNet121](https://pytorch.org/hub/pytorch_vision_densenet/)|30.7M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-classification)  | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_densenet.cpp) |
-|[GhostNet](https://pytorch.org/hub/pytorch_vision_ghostnet/)|20M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-classification)  | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_ghostnet.cpp) |
-|[HdrDNet](https://pytorch.org/hub/pytorch_vision_hardnet//)|13M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-classification) | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_hardnet.cpp) |
-|[IBNNet](https://pytorch.org/hub/pytorch_vision_ibnnet/)|97M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-classification)  | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_ibnnet.cpp) |
-|[MobileNetV2](https://pytorch.org/hub/pytorch_vision_mobilenet_v2/)|13M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-classification)  | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_mobilenetv2.cpp) |
-|[ResNet](https://pytorch.org/hub/pytorch_vision_resnet/)|44M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-classification)  | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_resnet.cpp) |
-|[ResNeXt](https://pytorch.org/hub/pytorch_vision_resnext/)|95M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-classification)  | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_resnext.cpp) |
+|[EfficientNetLite4](https://github.com/onnx/models/blob/master/vision/classification/efficientnet-lite4)|49M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-classification)  | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_efficientnet_lite4.cpp) |
+|[ShuffleNetV2](https://github.com/onnx/models/blob/master/vision/classification/shufflenet)|8.7M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-classification)  | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_shufflenetv2.cpp) |
+|[DenseNet121](https://pytorch.org/hub/pytorch_vision_densenet/)|30.7M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-classification)  | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_densenet.cpp) |
+|[GhostNet](https://pytorch.org/hub/pytorch_vision_ghostnet/)|20M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-classification)  | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_ghostnet.cpp) |
+|[HdrDNet](https://pytorch.org/hub/pytorch_vision_hardnet//)|13M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-classification) | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_hardnet.cpp) |
+|[IBNNet](https://pytorch.org/hub/pytorch_vision_ibnnet/)|97M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-classification)  | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_ibnnet.cpp) |
+|[MobileNetV2](https://pytorch.org/hub/pytorch_vision_mobilenet_v2/)|13M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-classification)  | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mobilenetv2.cpp) |
+|[ResNet](https://pytorch.org/hub/pytorch_vision_resnet/)|44M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-classification)  | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_resnet.cpp) |
+|[ResNeXt](https://pytorch.org/hub/pytorch_vision_resnext/)|95M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-classification)  | *classification* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_resnext.cpp) |
 
 
 * Segmentation.   
 
 |Class|Size|From|Awesome|File|Type|State|Usage|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|[DeepLabV3ResNet101](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/)|232M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-segmentation) | *segmentation* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_deeplabv3_resnet101.cpp) |
-|[FCNResNet101](https://pytorch.org/hub/pytorch_vision_fcn_resnet101/)|207M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-segmentation) | *segmentation* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_fcn_resnet101.cpp) |
+|[DeepLabV3ResNet101](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/)|232M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-segmentation) | *segmentation* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_deeplabv3_resnet101.cpp) |
+|[FCNResNet101](https://pytorch.org/hub/pytorch_vision_fcn_resnet101/)|207M|       [torchvision](https://github.com/pytorch/vision)       | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-segmentation) | *segmentation* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_fcn_resnet101.cpp) |
 
 
 * Style Transfer.  
 
 |Class|Size|From|Awesome|File|Type|State|Usage|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|[FastStyleTransfer](https://github.com/onnx/models/blob/master/vision/style_transfer/fast_neural_style)|6.4M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-style-transfer) | *style* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_fast_style_transfer.cpp) |
+|[FastStyleTransfer](https://github.com/onnx/models/blob/master/vision/style_transfer/fast_neural_style)|6.4M|        [onnx-models](https://github.com/onnx/models)         | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-style-transfer) | *style* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_fast_style_transfer.cpp) |
 
 
 * Colorization.  
 
 |Class|Size|From|Awesome|File|Type|State|Usage|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|[Colorizer](https://github.com/richzhang/colorization)|123M|  [colorization](https://github.com/richzhang/colorization)   | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-colorization) | *colorization* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_colorizer.cpp) |
+|[Colorizer](https://github.com/richzhang/colorization)|123M|  [colorization](https://github.com/richzhang/colorization)   | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-colorization) | *colorization* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_colorizer.cpp) |
 
 
 * Super Resolution.  
 
 |Class|Size|From|Awesome|File|Type|State|Usage|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|[SubPixelCNN](https://github.com/niazwazir/SUB_PIXEL_CNN)|234K| [...PIXEL...](https://github.com/niazwazir/SUB_PIXEL_CNN)  |    🔥↑    | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai/tree/main/docs/hub/lite.ai.hub.onnx.md#lite.ai.hub.onnx-super-resolution) | *resolution* | ✅ | [demo](https://github.com/DefTruth/lite.ai/blob/main/examples/lite/cv/test_lite_subpixel_cnn.cpp) |
+|[SubPixelCNN](https://github.com/niazwazir/SUB_PIXEL_CNN)|234K| [...PIXEL...](https://github.com/niazwazir/SUB_PIXEL_CNN)  |    🔥↑    | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-super-resolution) | *resolution* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_subpixel_cnn.cpp) |
 
 </details>
 
-## 3. Examples for Lite.AI.  
+## 3. Examples for Lite.AI.ToolKit.  
 
-<div id="lite.ai-Examples-for-Lite.AI"></div>
+<div id="lite.ai.toolkit-Examples-for-Lite.AI.ToolKit"></div>
 
-More examples can be found at [lite.ai-demos](https://github.com/DefTruth/lite.ai/tree/main/examples/lite/cv).  Note that the default backend for Lite.AI is `onnxruntime`, for the reason that onnxruntime supports the most of onnx's operators. Click the Expand ▶️ button will show you more examples for the specific topic you are interested in.
+More examples can be found at [lite.ai.toolkit-demos](https://github.com/DefTruth/lite.ai.toolkit/tree/main/examples/lite/cv).  Note that the default backend for *Lite.AI.ToolKit* is `onnxruntime`, for the reason that onnxruntime supports the most of onnx's operators. Click the Expand ▶️ button will show you more examples for the specific topic you are interested in.
 
-<div id="lite.ai-object-detection"></div>
+<div id="lite.ai.toolkit-object-detection"></div>
 
-#### Example0: Object Detection using [YoloV5](https://github.com/ultralytics/yolov5). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
+#### Example0: Object Detection using [YoloV5](https://github.com/ultralytics/yolov5). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
 ```c++
 #include "lite/lite.h"
 
@@ -504,9 +505,9 @@ Or you can use Newest 🔥🔥 ! YOLO series's detector [YOLOX](https://github.c
 
 ****
 
-<div id="lite.ai-face-alignment"></div>
+<div id="lite.ai.toolkit-face-alignment"></div>
 
-#### Example1: 1000 Facial Landmarks Detection using [FaceLandmarks1000](https://github.com/Single430/FaceLandmark1000). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
+#### Example1: 1000 Facial Landmarks Detection using [FaceLandmarks1000](https://github.com/Single430/FaceLandmark1000). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
 ```c++
 #include "lite/lite.h"
 
@@ -536,9 +537,9 @@ The output is:
 
 ****
 
-<div id="lite.ai-colorization"></div>
+<div id="lite.ai.toolkit-colorization"></div>
 
-#### Example2: Colorization using [colorization](https://github.com/richzhang/colorization). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
+#### Example2: Colorization using [colorization](https://github.com/richzhang/colorization). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
 ```c++
 #include "lite/lite.h"
 
@@ -572,9 +573,9 @@ The output is:
 
 ****
 
-<div id="lite.ai-face-recognition"></div>  
+<div id="lite.ai.toolkit-face-recognition"></div>  
 
-#### Example3: Face Recognition using [ArcFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
+#### Example3: Face Recognition using [ArcFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
 
 ```c++
 #include "lite/lite.h"
@@ -620,9 +621,9 @@ The output is:
 
 ****
 
-<div id="lite.ai-face-detection"></div>
+<div id="lite.ai.toolkit-face-detection"></div>
 
-#### Example4: Face Detection using [UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
+#### Example4: Face Detection using [UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
 ```c++
 #include "lite/lite.h"
 
@@ -651,20 +652,20 @@ The output is:
 </div>  
 
 
-<div id="lite.ai-segmentation"></div>  
-<div id="lite.ai-face-attributes-analysis"></div>  
-<div id="lite.ai-image-classification"></div>  
-<div id="lite.ai-head-pose-estimation"></div>
-<div id="lite.ai-style-transfer"></div>
-<div id="lite.ai-matting"></div>
+<div id="lite.ai.toolkit-segmentation"></div>  
+<div id="lite.ai.toolkit-face-attributes-analysis"></div>  
+<div id="lite.ai.toolkit-image-classification"></div>  
+<div id="lite.ai.toolkit-head-pose-estimation"></div>
+<div id="lite.ai.toolkit-style-transfer"></div>
+<div id="lite.ai.toolkit-matting"></div>
 
 <details>
-<summary> ⚠️ Expand All Examples for Each Topic in Lite.AI.</summary>  
+<summary> ⚠️ Expand All Examples for Each Topic in Lite.AI.ToolKit </summary>  
 
 <details>
 <summary> 3.1 Expand Examples for Object Detection.</summary>
 
-#### 3.1 Object Detection using [YoloV5](https://github.com/ultralytics/yolov5). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
+#### 3.1 Object Detection using [YoloV5](https://github.com/ultralytics/yolov5). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
 ```c++
 #include "lite/lite.h"
 
@@ -744,7 +745,7 @@ auto *detector = new lite::cv::detection::YOLOP(onnx_path);
 <details>
 <summary> 3.2 Expand Examples for Face Recognition.</summary>
 
-#### 3.2 Face Recognition using [ArcFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
+#### 3.2 Face Recognition using [ArcFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
 
 ```c++
 #include "lite/lite.h"
@@ -814,7 +815,7 @@ auto *recognition = new lite::cv::faceid::MobileSEFocalFace(onnx_path); // 4.5Mb
 <details>
 <summary> 3.3 Expand Examples for Segmentation.</summary>
 
-#### 3.3 Segmentation using [DeepLabV3ResNet101](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
+#### 3.3 Segmentation using [DeepLabV3ResNet101](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
 ```c++
 #include "lite/lite.h"
 
@@ -865,7 +866,7 @@ auto *segment = new lite::cv::segmentation::FCNResNet101(onnx_path);
 <details>
 <summary> 3.4 Expand Examples for Face Attributes Analysis.</summary>
 
-#### 3.4 Age Estimation using [SSRNet](https://github.com/oukohou/SSR_Net_Pytorch) . Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
+#### 3.4 Age Estimation using [SSRNet](https://github.com/oukohou/SSR_Net_Pytorch) . Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
 ```c++
 #include "lite/lite.h"
 
@@ -914,7 +915,7 @@ auto *attribute = new lite::cv::face::attr::ReXNetEmotion7(onnx_path); // 7 emot
 <details>
 <summary> 3.5 Expand Examples for Image Classification.</summary>
 
-#### 3.5 1000 Classes Classification using [DenseNet](https://pytorch.org/hub/pytorch_vision_densenet/). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
+#### 3.5 1000 Classes Classification using [DenseNet](https://pytorch.org/hub/pytorch_vision_densenet/). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
 ```c++
 #include "lite/lite.h"
 
@@ -970,7 +971,7 @@ auto *classifier = new lite::cv::classification::ResNeXt(onnx_path);
 <details>
 <summary> 3.6 Expand Examples for Face Detection.</summary>
 
-#### 3.6 Face Detection using [UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
+#### 3.6 Face Detection using [UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
 ```c++
 #include "lite/lite.h"
 
@@ -1011,7 +1012,7 @@ auto *detector = new lite::face::detect::RetinaFace(onnx_path);  // 1.6Mb only !
 <details>
 <summary> 3.7 Expand Examples for Colorization.</summary>
 
-#### 3.7 Colorization using [colorization](https://github.com/richzhang/colorization). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
+#### 3.7 Colorization using [colorization](https://github.com/richzhang/colorization). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
 ```c++
 #include "lite/lite.h"
 
@@ -1049,7 +1050,7 @@ The output is:
 <details>
 <summary> 3.8 Expand Examples for Head Pose Estimation.</summary>
 
-#### 3.8 Head Pose Estimation using [FSANet](https://github.com/omasaht/headpose-fsanet-pytorch). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
+#### 3.8 Head Pose Estimation using [FSANet](https://github.com/omasaht/headpose-fsanet-pytorch). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
 
 ```c++
 #include "lite/lite.h"
@@ -1088,7 +1089,7 @@ The output is:
 <details>
 <summary> 3.9 Expand Examples for Face Alignment.</summary>
 
-#### 3.9 1000 Facial Landmarks Detection using [FaceLandmarks1000](https://github.com/Single430/FaceLandmark1000). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
+#### 3.9 1000 Facial Landmarks Detection using [FaceLandmarks1000](https://github.com/Single430/FaceLandmark1000). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
 ```c++
 #include "lite/lite.h"
 
@@ -1132,7 +1133,7 @@ auto *align = new lite::cv::face::align::FaceLandmark1000(onnx_path);  // 1000 l
 <details>
 <summary> 3.10 Expand Examples for Style Transfer.</summary>
 
-#### 3.10 Style Transfer using [FastStyleTransfer](https://github.com/onnx/models/tree/master/vision/style_transfer/fast_neural_style). Download model from Model-Zoo[<sup>2</sup>](#lite.ai-2).
+#### 3.10 Style Transfer using [FastStyleTransfer](https://github.com/onnx/models/tree/master/vision/style_transfer/fast_neural_style). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
 ```c++
 #include "lite/lite.h"
 
@@ -1179,10 +1180,10 @@ The output is:
 
 ## 4. Lite.AI API Docs.
 
-<div id="lite.ai-Lite.AI-API-Docs"></div>
+<div id="lite.ai.toolkit-Lite.AI-API-Docs"></div>
 
 ### 4.1 Default Version APIs.  
-More details of Default Version APIs can be found at [default-version-api-docs](https://github.com/DefTruth/lite.ai/blob/main/docs/api/default.md) . For examples, the interface for YoloV5 is:
+More details of Default Version APIs can be found at [default-version-api-docs](https://github.com/DefTruth/lite.ai.toolkit/blob/main/docs/api/default.md) . For examples, the interface for YoloV5 is:
 
 > `lite::cv::detection::YoloV5`
 ```c++
@@ -1196,7 +1197,7 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 <summary> Expand for ONNXRuntime, MNN and NCNN version APIs.</summary>
 
 ### 4.2 ONNXRuntime Version APIs.  
-More details of ONNXRuntime Version APIs can be found at [onnxruntime-version-api-docs](https://github.com/DefTruth/lite.ai/blob/main/docs/api/onnxruntime.md) . For examples, the interface for YoloV5 is:
+More details of ONNXRuntime Version APIs can be found at [onnxruntime-version-api-docs](https://github.com/DefTruth/lite.ai.toolkit/blob/main/docs/api/onnxruntime.md) . For examples, the interface for YoloV5 is:
 
 > `lite::onnxruntime::cv::detection::YoloV5`
 ```c++
@@ -1241,33 +1242,33 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 
 ## 5. Other Docs.  
 
-<div id="lite.ai-Other-Docs"></div>  
-<div id="lite.ai-1"></div>
+<div id="lite.ai.toolkit-Other-Docs"></div>  
+<div id="lite.ai.toolkit-1"></div>
 
 <details>
 <summary> Expand More Details for Other Docs.</summary>
 
 ### 5.1 Docs for ONNXRuntime. 
-* [Rapid implementation of your inference using BasicOrtHandler](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_handler.zh.md)  
-* [Some very useful onnxruntime c++ interfaces](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_useful_api.zh.md)  
-* [How to compile a single model in this library you needed](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_build_single.zh.md)
-* [How to convert SubPixelCNN to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_subpixel_cnn.zh.md)
-* [How to convert Colorizer to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_colorizer.zh.md)
-* [How to convert SSRNet to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_ssrnet.zh.md)
-* [How to convert YoloV3 to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_yolov3.zh.md)
-* [How to convert YoloV5 to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/lite.ai/blob/main/docs/ort/ort_yolov5.zh.md)
+* [Rapid implementation of your inference using BasicOrtHandler](https://github.com/DefTruth/lite.ai.toolkit/blob/main/docs/ort/ort_handler.zh.md)  
+* [Some very useful onnxruntime c++ interfaces](https://github.com/DefTruth/lite.ai.toolkit/blob/main/docs/ort/ort_useful_api.zh.md)  
+* [How to compile a single model in this library you needed](https://github.com/DefTruth/lite.ai.toolkit/blob/main/docs/ort/ort_build_single.zh.md)
+* [How to convert SubPixelCNN to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/lite.ai.toolkit/blob/main/docs/ort/ort_subpixel_cnn.zh.md)
+* [How to convert Colorizer to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/lite.ai.toolkit/blob/main/docs/ort/ort_colorizer.zh.md)
+* [How to convert SSRNet to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/lite.ai.toolkit/blob/main/docs/ort/ort_ssrnet.zh.md)
+* [How to convert YoloV3 to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/lite.ai.toolkit/blob/main/docs/ort/ort_yolov3.zh.md)
+* [How to convert YoloV5 to ONNX and implements with onnxruntime c++](https://github.com/DefTruth/lite.ai.toolkit/blob/main/docs/ort/ort_yolov5.zh.md)
 
 
-### 5.2 Docs for [third_party](https://github.com/DefTruth/lite.ai/tree/main/third_party).  
+### 5.2 Docs for [third_party](https://github.com/DefTruth/lite.ai.toolkit/tree/main/third_party).  
 Other build documents for different engines and different targets will be added later.
 
 
 |Library|Target|Docs|
 |:---:|:---:|:---:|
-|OpenCV| mac-x86_64 | [opencv-mac-x86_64-build.zh.md](https://github.com/DefTruth/lite.ai/blob/main/docs/third_party/opencv-mac-x86_64-build.zh.md) |
-|OpenCV| android-arm | [opencv-static-android-arm-build.zh.md](https://github.com/DefTruth/lite.ai/blob/main/docs/third_party/opencv-static-android-arm-build.zh.md) |
-|onnxruntime| mac-x86_64 | [onnxruntime-mac-x86_64-build.zh.md](https://github.com/DefTruth/lite.ai/blob/main/docs/third_party/onnxruntime-mac-x86_64-build.zh.md) |
-|onnxruntime| android-arm | [onnxruntime-android-arm-build.zh.md](https://github.com/DefTruth/lite.ai/blob/main/docs/third_party/onnxruntime-android-arm-build.zh.md) |
+|OpenCV| mac-x86_64 | [opencv-mac-x86_64-build.zh.md](https://github.com/DefTruth/lite.ai.toolkit/blob/main/docs/third_party/opencv-mac-x86_64-build.zh.md) |
+|OpenCV| android-arm | [opencv-static-android-arm-build.zh.md](https://github.com/DefTruth/lite.ai.toolkit/blob/main/docs/third_party/opencv-static-android-arm-build.zh.md) |
+|onnxruntime| mac-x86_64 | [onnxruntime-mac-x86_64-build.zh.md](https://github.com/DefTruth/lite.ai.toolkit/blob/main/docs/third_party/onnxruntime-mac-x86_64-build.zh.md) |
+|onnxruntime| android-arm | [onnxruntime-android-arm-build.zh.md](https://github.com/DefTruth/lite.ai.toolkit/blob/main/docs/third_party/onnxruntime-android-arm-build.zh.md) |
 |NCNN| mac-x86_64 | todo⚠️ |
 |MNN| mac-x86_64 | todo⚠️ |
 |TNN| mac-x86_64 | todo⚠️ |
@@ -1276,14 +1277,14 @@ Other build documents for different engines and different targets will be added 
 
 ## 6. License.
 
-<div id="lite.ai-License"></div>
+<div id="lite.ai.toolkit-License"></div>
 
-The code of [Lite.AI](#lite.ai-Introduction) is released under the MIT License.
+The code of [Lite.AI.ToolKit](#lite.ai.toolkit-Introduction) is released under the MIT License.
 
 
 ## 7. References.  
 
-<div id="lite.ai-References"></div>
+<div id="lite.ai.toolkit-References"></div>
 
 Many thanks to the following projects. All the Lite.AI's models are sourced from these repos. 
 
@@ -1324,5 +1325,4 @@ Many thanks to the following projects. All the Lite.AI's models are sourced from
 
 
 
-[![Forkers repo roster for @DefTruth/lite.ai](https://reporoster.com/forks/DefTruth/lite.ai)](https://github.com/DefTruth/lite.ai/network/members)
-
+[![Forkers repo roster for @DefTruth/lite.ai.toolkit](https://reporoster.com/forks/DefTruth/lite.ai.toolkit)](https://github.com/DefTruth/lite.ai.toolkit/network/members)

@@ -18,11 +18,11 @@ set(NCNN_SRCS
 
 # 3. copy
 if (LITE_AI_COPY_BUILD)
-    message("Installing Lite.AI Headers for NCNN Backend ...")
+    message("Installing Lite.AI.ToolKit Headers for NCNN Backend ...")
     # "INSTALL" can copy all files from the list to the specified path.
     # "COPY" only copies one file to a specified path
-    file(INSTALL ${NCNN_CORE_HEAD} DESTINATION ${CMAKE_SOURCE_DIR}/build/lite.ai/include/ncnn/core)
-    file(INSTALL ${NCNN_CV_HEAD} DESTINATION ${CMAKE_SOURCE_DIR}/build/lite.ai/include/ncnn/cv)
-    file(INSTALL ${NCNN_ASR_HEAD} DESTINATION ${CMAKE_SOURCE_DIR}/build/lite.ai/include/ncnn/asr)
-    file(INSTALL ${NCNN_NLP_HEAD} DESTINATION ${CMAKE_SOURCE_DIR}/build/lite.ai/include/ncnn/nlp)
+    file(INSTALL ${NCNN_CORE_HEAD} DESTINATION ${CMAKE_SOURCE_DIR}/build/lite.ai.toolkit/include/ncnn/core)
+    file(INSTALL ${NCNN_CV_HEAD} DESTINATION ${CMAKE_SOURCE_DIR}/build/lite.ai.toolkit/include/ncnn/cv)
+    file(INSTALL ${NCNN_ASR_HEAD} DESTINATION ${CMAKE_SOURCE_DIR}/build/lite.ai.toolkit/include/ncnn/asr)
+    file(INSTALL ${NCNN_NLP_HEAD} DESTINATION ${CMAKE_SOURCE_DIR}/build/lite.ai.toolkit/include/ncnn/nlp)
 endif ()

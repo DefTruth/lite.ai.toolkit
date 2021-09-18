@@ -8,3 +8,7 @@ CMakeFiles
 examples
 lite.ai/bin
 lite.ai/include
+
+lite.ai.toolkit/bin
+lite.ai.toolkit/include
+

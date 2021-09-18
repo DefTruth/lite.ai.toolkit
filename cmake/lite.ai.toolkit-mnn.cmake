@@ -18,11 +18,11 @@ set(MNN_SRCS
 
 # 3. copy
 if (LITE_AI_COPY_BUILD)
-    message("Installing Lite.AI Headers for MNN Backend ...")
+    message("Installing Lite.AI.ToolKit Headers for MNN Backend ...")
     # "INSTALL" can copy all files from the list to the specified path.
     # "COPY" only copies one file to a specified path
-    file(INSTALL ${MNN_CORE_HEAD} DESTINATION ${CMAKE_SOURCE_DIR}/build/lite.ai/include/mnn/core)
-    file(INSTALL ${MNN_CV_HEAD} DESTINATION ${CMAKE_SOURCE_DIR}/build/lite.ai/include/mnn/cv)
-    file(INSTALL ${MNN_ASR_HEAD} DESTINATION ${CMAKE_SOURCE_DIR}/build/lite.ai/include/mnn/asr)
-    file(INSTALL ${MNN_NLP_HEAD} DESTINATION ${CMAKE_SOURCE_DIR}/build/lite.ai/include/mnn/nlp)
+    file(INSTALL ${MNN_CORE_HEAD} DESTINATION ${CMAKE_SOURCE_DIR}/build/lite.ai.toolkit/include/mnn/core)
+    file(INSTALL ${MNN_CV_HEAD} DESTINATION ${CMAKE_SOURCE_DIR}/build/lite.ai.toolkit/include/mnn/cv)
+    file(INSTALL ${MNN_ASR_HEAD} DESTINATION ${CMAKE_SOURCE_DIR}/build/lite.ai.toolkit/include/mnn/asr)
+    file(INSTALL ${MNN_NLP_HEAD} DESTINATION ${CMAKE_SOURCE_DIR}/build/lite.ai.toolkit/include/mnn/nlp)
 endif ()
