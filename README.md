@@ -1178,9 +1178,9 @@ The output is:
 </details>
 
 
-## 4. Lite.AI API Docs.
+## 4. Lite.AI.ToolKit API Docs.
 
-<div id="lite.ai.toolkit-Lite.AI-API-Docs"></div>
+<div id="lite.ai.toolkit-Lite.AI.ToolKit-API-Docs"></div>
 
 ### 4.1 Default Version APIs.  
 More details of Default Version APIs can be found at [default-version-api-docs](https://github.com/DefTruth/lite.ai.toolkit/blob/main/docs/api/default.md) . For examples, the interface for YoloV5 is:
