@@ -373,7 +373,7 @@ For example, ArcFace in [insightface](https://github.com/deepinsight/insightface
 |[MobileSEFocalFace](https://github.com/grib0ed0v/face_recognition.pytorch)|4.5M| [face_recog...](https://github.com/grib0ed0v/face_recognition.pytorch) | 🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-recognition) | *faceid* | ✅ |  [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mobilese_focal_face.cpp) |
 
 <details>
-<summary> ⚠️ Expand More Details for Lite.AI's Model Zoo.</summary>  
+<summary> ⚠️ Expand More Details for Lite.AI.ToolKit's Model Zoo.</summary>  
 
 * Face Detection.
 
