@@ -6,7 +6,6 @@
 
 [![Stargazers repo roster for @DefTruth/lite.ai.toolkit](https://reporoster.com/stars/DefTruth/lite.ai.toolkit)](https://github.com/DefTruth/lite.ai.toolkit/stargazers)
 
-Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀
 
 ## Introduction.    
 
@@ -36,7 +35,6 @@ Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀
     auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only !
     auto *yolov5 = new lite::cv::detection::YoloV5("yolov5s.onnx");  // for mobile device  
   ```
-  
 * *Minimum Dependencies & Easy to build.*  
   Currently, Lite.AI.ToolKit only depends on OpencV and ONNXRuntime. 🚀 You can download the latest *ONNXRuntime* official built libs from [v1.8.1](https://github.com/microsoft/onnxruntime/releases), [v1.7.0](https://github.com/microsoft/onnxruntime/releases/tag/v1.7.0). No more attentions needed pay to build it from source. On MacOS, it takes only a few lines of command to build Lite.AI.ToolKit, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit).
     ```shell
@@ -47,8 +45,7 @@ Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀
   
 * *Cross-platform support.*  
   Lite.AI.ToolKit support MacOS/Linux/Windows and CPU/GPU now. More platforms may be supported in the future ~
-
-
+  
 * *Lots of Algorithm Modules.*  
   Currently, Lite.AI.ToolKit includes 10+ modules for Computer Vision, see [model zoo](#lite.ai.toolkit-Model-Zoo). Such as:  
   * [object detection](#lite.ai.toolkit-object-detection)  
@@ -56,10 +53,8 @@ Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀
   * [face alignment](#lite.ai.toolkit-face-alignment) 
   * [face recognition](#lite.ai.toolkit-face-recognition) 
   * [segmentation](#lite.ai.toolkit-segmentation) 
-  * [colorization](#lite.ai.toolkit-colorization)  
   * [matting](#lite.ai.toolkit-matting), etc.
-
-
+  
 * *Releases Lists and Documentation.*  
   Now, for MacOS, you can download the released built lib of Lite.AI.ToolKit and all the needed dependencies. A minimum quick start to show you how to link Lite.AI.ToolKit correctly can be found at [lite.ai.toolkit.demo](https://github.com/DefTruth/lite.ai.toolkit.demo).
   * 👉[lite.ai.toolkit.macos.v0.1.0](https://github.com/DefTruth/lite.ai.toolkit.demo/tree/main/releases/macos/v0.1.0)
@@ -68,7 +63,7 @@ Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀
 
 ## Citations.
 
-Cite it as follows if you use *Lite.AI.ToolKit*. *Star 🌟👆🏻 & Watch 👀👆🏻* this repo, more awesome models will be added ~
+Cite it as follows if you use *Lite.AI.ToolKit*. Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀  
 ```BibTeX
 @misc{lite.ai.toolkit2021,
   title={lite.ai.toolkit: A lite C++ toolkit of awesome AI models.},
