@@ -254,7 +254,7 @@ A minimum example to show you how to link the shared lib of Lite.AI.ToolKit corr
 <summary> Expand Details for Namespace and Lite.AI.ToolKit modules.</summary>  
 
 ### Namespace and Lite.AI.ToolKit modules.
-*Lite.AI* contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* AI models with *[150+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained *.onnx* files now. They come from different fields of computer vision. Click the Expand ▶️ button for more details.
+*Lite.AI.ToolKit* contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* AI models with *[150+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained *.onnx* files now. They come from different fields of computer vision. Click the Expand ▶️ button for more details.
 
 
 | Namepace                   | Details                                                      |
@@ -292,7 +292,7 @@ Correspondence between the classes in *Lite.AI.ToolKit* and pretrained model fil
 | *lite::cv::detection::YoloX* |     yolox_tiny.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 19Mb |
 | *lite::cv::detection::YoloX* |     yolox_nano.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 3.5Mb |
 
-It means that you can load the the any one `yolov5*.onnx` and  `yolox_*.onnx` according to your application through the same Lite.AI classes, such as *YoloV5*, *YoloX*, etc.
+It means that you can load the the any one `yolov5*.onnx` and  `yolox_*.onnx` according to your application through the same Lite.AI.ToolKit's classes, such as *YoloV5*, *YoloX*, etc.
 
 ```c++
 auto *yolov5 = new lite::cv::detection::YoloV5("yolov5x.onnx");  // for server
@@ -311,7 +311,7 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
 
 * Downloads:  
 [Baidu Drive](https://pan.baidu.com/s/1elUGcx7CZkkjEoYhTMwTRQ) code: 8gin && [Google Drive](https://drive.google.com/drive/folders/1p6uBcxGeyS1exc-T61vL8YRhwjYL4iD2?usp=sharing) .   
-Note, I can not upload all the *.onnx files because of the storage limitation of Google Driver (15G). <div id="lite.ai.toolkit.toolkit-2"></div>
+Note, I can not upload all the *.onnx files because of the storage limitation of Google Driver (15G). <div id="lite.ai.toolkit-2"></div>
   
 
 * Object Detection.  
