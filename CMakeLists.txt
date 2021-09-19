@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.17)
 project(lite.ai.toolkit)
 
 set(CMAKE_CXX_STANDARD 11)
-set(VERSION_STRING 0.0.1)
-set(SOVERSION_STRING 0.0.1)
+set(VERSION_STRING 0.1.0)
+set(SOVERSION_STRING 0.1.0)
 
 message("==================================== Lite.AI.ToolKit ${VERSION_STRING} =============================")
 message("Project: Lite.AI.ToolKit")
