@@ -47,7 +47,7 @@ Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀
   Lite.AI.ToolKit support MacOS/Linux/Windows and CPU/GPU now. More platforms may be supported in the future ~
   
 * *Lots of Algorithm Modules.*  
-  Currently, Lite.AI.ToolKit includes 10+ modules for Computer Vision, see [model zoo](#lite.ai.toolkit-Model-Zoo). Such as [object detection](#lite.ai.toolkit-object-detection), [face detection](#lite.ai.toolkit-face-detection), [face alignment](#lite.ai.toolkit-face-alignment), [face recognition](#lite.ai.toolkit-face-recognition), [segmentation](#lite.ai.toolkit-segmentation), [matting](#lite.ai.toolkit-matting), etc.
+  Currently, Lite.AI.ToolKit includes 10+ modules for Computer Vision, such as [object detection](#lite.ai.toolkit-object-detection), [face detection](#lite.ai.toolkit-face-detection), [face alignment](#lite.ai.toolkit-face-alignment), [face recognition](#lite.ai.toolkit-face-recognition), [segmentation](#lite.ai.toolkit-segmentation), [matting](#lite.ai.toolkit-matting), etc. See [model zoo](#lite.ai.toolkit-Model-Zoo).
   
 * *Releases Lists and Documentation.*  
   Now, for MacOS, you can download the released built lib of Lite.AI.ToolKit and all the needed dependencies. A minimum quick start to show you how to link Lite.AI.ToolKit correctly can be found at [lite.ai.toolkit.demo](https://github.com/DefTruth/lite.ai.toolkit.demo).
