@@ -25,11 +25,46 @@ Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀
 </div>   
 
 
-*Lite.AI.ToolKit* 🚀🚀🌟: A lite C++ toolkit of awesome AI models which contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* models now. It's a collection of personal interests. Such as YOLOX, YOLOP, YOLOR, YoloV5, YoloV4, DeepLabV3, ArcFace, etc. *Lite.AI.ToolKit* based on *[onnxruntime](https://github.com/microsoft/onnxruntime)* by default. I do have plans to reimplement it with *[ncnn](https://github.com/Tencent/ncnn)* and *[MNN](https://github.com/alibaba/MNN)*, but not coming soon. It includes [object detection](#lite.ai.toolkit-object-detection), [face detection](#lite.ai.toolkit-face-detection), [face alignment](#lite.ai.toolkit-face-alignment), [face recognition](#lite.ai.toolkit-face-recognition), [segmentation](#lite.ai.toolkit-segmentation), [colorization](#lite.ai.toolkit-colorization), [matting](#lite.ai.toolkit-matting), etc. You can use these awesome models simply through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)*.
+*Lite.AI.ToolKit* 🚀🚀🌟: A lite C++ toolkit of awesome AI models which contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* models now. It's a collection of personal interests. Such as YOLOX, YOLOP, YOLOR, YoloV5, YoloV4, DeepLabV3, ArcFace, etc. *Lite.AI.ToolKit* based on *[onnxruntime](https://github.com/microsoft/onnxruntime)* by default. I do have plans to reimplement it with *[ncnn](https://github.com/Tencent/ncnn)* and *[MNN](https://github.com/alibaba/MNN)*, but not coming soon. The core features of *Lite.AI.ToolKit* are listed as follows.  
+
+* Simply and User friendly.   
+  To use Lite.AI.ToolKit, you do not need to have a lot of AI skills, C++ is enough. You can use these awesome models simply through *lite::cv::Type::Class* syntax, see [examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
+  ```c++
+    auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only !
+    auto *yolov5 = new lite::cv::detection::YoloV5("yolov5s.onnx");  // for mobile device  
+  ```
+  
+* Minimum Dependencies & Easy to build.  
+  Currently, Lite.AI.ToolKit only depends on OpencV and ONNXRuntime. 🚀 You can download the latest *ONNXRuntime* official built libs from [v1.8.1](https://github.com/microsoft/onnxruntime/releases), [v1.7.0](https://github.com/microsoft/onnxruntime/releases/tag/v1.7.0). No more attentions needed pay to build it from source. On MacOS, it takes only a few lines of command to build Lite.AI.ToolKit, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit).
+    ```shell
+    git clone --depth=1 https://github.com/DefTruth/lite.ai.toolkit.git  # latest
+    cd lite.ai.toolkit
+    sh ./build.sh  # On MacOS, you can use the built OpenCV and ONNXRuntime libs in this repo.
+    ```
+  
+* Cross-platform support.  
+  Lite.AI.ToolKit support MacOS/Linux/Windows and CPU/GPU now. More platforms may be supported in the future ~
+
+
+* Lots of Algorithm Modules.  
+  Currently, Lite.AI.ToolKit includes 10+ modules for Computer Vision, see [model zoo](#lite.ai.toolkit-Model-Zoo). Such as:  
+  * [image classification](#lite.ai.toolkit-image-classification) 
+  * [object detection](#lite.ai.toolkit-object-detection)  
+  * [face detection](#lite.ai.toolkit-face-detection) 
+  * [face alignment](#lite.ai.toolkit-face-alignment) 
+  * [face recognition](#lite.ai.toolkit-face-recognition) 
+  * [face attributes analysis](#lite.ai.toolkit-face-attributes-analysis) 
+  * [head pose estimation](#lite.ai.toolkit-head-pose-estimation) 
+  * [segmentation](#lite.ai.toolkit-segmentation) 
+  * [colorization](#lite.ai.toolkit-colorization)  
+  * [style transfer](#lite.ai.toolkit-style-transfer)  
+  * [matting](#lite.ai.toolkit-matting)  
+
+
 
 ## Citations.
 
-Cite it as follows if you use *Lite.AI.ToolKit*. Note, More models will continue to be added ~
+Cite it as follows if you use *Lite.AI.ToolKit*. Watch 👀👆🏻 this repo, more models will continue to be added ~
 ```BibTeX
 @misc{lite.ai.toolkit2021,
   title={lite.ai.toolkit: A lite C++ toolkit of awesome AI models.},
@@ -113,25 +148,6 @@ install `OpenCV` and `onnxruntime` libraries using Homebrew or you can download 
   brew install opencv
   brew install onnxruntime
 ```
-
-<details>
-<summary> Expand for More Details of Dependencies.</summary>  
-
-### Linux.  
-  * *todo*⚠️  
-
-### Windows.   
-  * *todo*⚠️  
-
-### Inference Engine Plans:
-  * *doing*:  
-    ❇️ `onnxruntime` 
-  * *todo*:  
-    ⚠️ `NCNN`  
-    ⚠️ `MNN`  
-    ⚠️ `OpenMP`
-
-</details>  
 
 ---->
 
