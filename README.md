@@ -70,9 +70,7 @@ Cite it as follows if you use *Lite.AI.ToolKit*. Star 🌟👆🏻 this repo if 
 * ⚠️ (20210801) fixed [issue#9](https://github.com/DefTruth/lite.ai.toolkit/issues/9) YOLOX inference error for non-square shape. See [yolox.cpp](https://github.com/DefTruth/lite.ai.toolkit/blob/main/ort/cv/yolox.cpp).  
 * ✅ (20210801) Added [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch) for face detection! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_faceboxes.cpp).  
 * ✅ (20210727) Added [MobileNetV2SE68、PFLD68](https://github.com/cunjian/pytorch_face_landmark) for 68 facial landmarks detection! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_pfld68.cpp).  
-* ✅ (20210726) Added [PFLD98](https://github.com/polarisZhao/PFLD-pytorch) for 98 facial landmarks detection! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_pfld98.cpp).  
-* ⚠️ (20210716) *Lite.AI* was rename from the *LiteHub* repo! *LiteHub* will no longer be maintained.    
-
+* ✅ (20210726) Added [PFLD98](https://github.com/polarisZhao/PFLD-pytorch) for 98 facial landmarks detection! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_pfld98.cpp).
 
 ## Working Notes. 👇🏻  
 
