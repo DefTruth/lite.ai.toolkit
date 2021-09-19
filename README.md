@@ -41,7 +41,6 @@
     git clone --depth=1 https://github.com/DefTruth/lite.ai.toolkit.git  # latest
     cd lite.ai.toolkit && sh ./build.sh  # On MacOS, you can use the built OpenCV and ONNXRuntime libs in this repo.
     ```
-  
 * *Cross-platform support.*  
   Lite.AI.ToolKit support MacOS/Linux/Windows and CPU/GPU now. More platforms may be supported in the future ~
   
