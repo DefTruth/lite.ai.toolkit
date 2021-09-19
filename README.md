@@ -67,7 +67,7 @@ Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀
 
 ## Citations.
 
-Cite it as follows if you use *Lite.AI.ToolKit*. *Star 🌟👆🏻 & Watch 👀👆🏻* this repo, more models will continue to be added ~
+Cite it as follows if you use *Lite.AI.ToolKit*. *Star 🌟👆🏻 & Watch 👀👆🏻* this repo, more models will be added ~
 ```BibTeX
 @misc{lite.ai.toolkit2021,
   title={lite.ai.toolkit: A lite C++ toolkit of awesome AI models.},
