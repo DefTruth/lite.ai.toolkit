@@ -90,16 +90,15 @@ Cite it as follows if you use *Lite.AI.ToolKit*. Star 🌟👆🏻 this repo if 
 
 </details>
 
-<!----
 
 ## Contents.
-* [Dependencies](#lite.ai.toolkit-Dependencies)
-* [Build Lite.AI](#lite.ai.toolkit-Build-Lite.AI)
+* [Build](#lite.ai.toolkit-Build-Lite.AI.ToolKit)
 * [Model Zoo](#lite.ai.toolkit-Model-Zoo)
-* [Examples for LiteHub](#lite.ai.toolkit-Examples-for-Lite.AI)
- 
-* [Contributions](#lite.ai.toolkit-Contributions)
----->
+* [Examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit)
+* [API Docs](#lite.ai.toolkit-Lite.AI.ToolKit-API-Docs)
+* [Other Docs](#lite.ai.toolkit-Other-Docs)
+* [License](#lite.ai.toolkit-License)
+* [References](#lite.ai.toolkit-References)
 
 <!----
 
@@ -243,7 +242,7 @@ set(ONNXRUNTIME_INCLUDE_DIR ${ONNXRUNTIME_DIR}/include)
 set(ONNXRUNTIME_LIBRARY_DIR ${ONNXRUNTIME_DIR}/lib)
 include_directories(${ONNXRUNTIME_INCLUDE_DIR})
 link_directories(${ONNXRUNTIME_LIBRARY_DIR})
-# link lite.ai.toolkit.toolkit.
+# link lite.ai.toolkit.
 set(LITEHUB_DIR ${CMAKE_SOURCE_DIR}/lite.ai.toolkit)
 set(LITEHUB_INCLUDE_DIR ${LITEHUB_DIR}/include)
 set(LITEHUB_LIBRARY_DIR ${LITEHUB_DIR}/lib)
@@ -260,13 +259,13 @@ A minimum example to show you how to link the shared lib of Lite.AI correctly fo
 
 ## 2. Model Zoo.
 
-<div id="lite.ai.toolkit.toolkit-Model-Zoo"></div>
+<div id="lite.ai.toolkit-Model-Zoo"></div>
 
 *Lite.AI.ToolKit* contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* AI models with *[150+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained *.onnx* files now. Note that the models here are all from third-party projects. Most of the models were converted by *Lite.AI.ToolKit*. In Lite.AI, different names of the same algorithm mean that the corresponding models come from different repositories, different implementations, or use different training data, etc. ✅ means passed the test and ⚠️ means not implements yet but coming soon. For classes which denoted ✅, you can use it through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)* . More details can be found at [Examples for Lite.AI](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit) .  
 <details>
 <summary> Expand Details for Namespace and Lite.AI.ToolKit modules.</summary>  
 
-### Namespace and Lite.AI modules.
+### Namespace and Lite.AI.ToolKit modules.
 *Lite.AI* contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* AI models with *[150+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained *.onnx* files now. They come from different fields of computer vision. Click the Expand ▶️ button for more details.
 
 
@@ -287,7 +286,7 @@ A minimum example to show you how to link the shared lib of Lite.AI correctly fo
 | *lite::cv::resolution*     | Super Resolution.  ⚠️                                         |
 
 
-### Lite.AI's Classes and Pretrained Files.
+### Lite.AI.ToolKit's Classes and Pretrained Files.
 
 Correspondence between the classes in *Lite.AI.ToolKit* and pretrained model files can be found at [lite.ai.toolkit.hub.onnx.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md). For examples, the pretrained model files for *lite::cv::detection::YoloV5* and *lite::cv::detection::YoloX* are listed as follows.
 
@@ -325,11 +324,7 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
 * Downloads:  
 [Baidu Drive](https://pan.baidu.com/s/1elUGcx7CZkkjEoYhTMwTRQ) code: 8gin && [Google Drive](https://drive.google.com/drive/folders/1p6uBcxGeyS1exc-T61vL8YRhwjYL4iD2?usp=sharing) .   
 Note, I can not upload all the *.onnx files because of the storage limitation of Google Driver (15G). <div id="lite.ai.toolkit.toolkit-2"></div>
-
-<!---
-For example, ArcFace in [insightface](https://github.com/deepinsight/insightface) is different from ArcFace in [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) . ArcFace in [insightface](https://github.com/deepinsight/insightface) uses Arc-Loss + Softmax, while ArcFace in [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) uses Arc-Loss + Focal-Loss. Lite.AI uses naming to make the necessary distinctions between models from different sources.
----->  
-
+  
 
 * Object Detection.  
 
@@ -1184,7 +1179,7 @@ The output is:
 <div id="lite.ai.toolkit-Lite.AI.ToolKit-API-Docs"></div>
 
 ### 4.1 Default Version APIs.  
-More details of Default Version APIs can be found at [default-version-api-docs](https://github.com/DefTruth/lite.ai.toolkit/blob/main/docs/api/default.md) . For examples, the interface for YoloV5 is:
+More details of Default Version APIs can be found at [api.default.md](https://github.com/DefTruth/lite.ai.toolkit/blob/main/docs/api/api.default.md) . For examples, the interface for YoloV5 is:
 
 > `lite::cv::detection::YoloV5`
 ```c++
@@ -1198,7 +1193,7 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 <summary> Expand for ONNXRuntime, MNN and NCNN version APIs.</summary>
 
 ### 4.2 ONNXRuntime Version APIs.  
-More details of ONNXRuntime Version APIs can be found at [onnxruntime-version-api-docs](https://github.com/DefTruth/lite.ai.toolkit/blob/main/docs/api/onnxruntime.md) . For examples, the interface for YoloV5 is:
+More details of ONNXRuntime Version APIs can be found at [api.onnxruntime.md](https://github.com/DefTruth/lite.ai.toolkit/blob/main/docs/api/api.onnxruntime.md) . For examples, the interface for YoloV5 is:
 
 > `lite::onnxruntime::cv::detection::YoloV5`
 ```c++
