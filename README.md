@@ -6,6 +6,7 @@
 
 [![Stargazers repo roster for @DefTruth/lite.ai.toolkit](https://reporoster.com/stars/DefTruth/lite.ai.toolkit)](https://github.com/DefTruth/lite.ai.toolkit/stargazers)
 
+Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀
 
 ## Introduction.    
 
@@ -39,8 +40,7 @@
   Currently, Lite.AI.ToolKit only depends on OpencV and ONNXRuntime. 🚀 You can download the latest *ONNXRuntime* official built libs from [v1.8.1](https://github.com/microsoft/onnxruntime/releases), [v1.7.0](https://github.com/microsoft/onnxruntime/releases/tag/v1.7.0). No more attentions needed pay to build it from source. On MacOS, it takes only a few lines of command to build Lite.AI.ToolKit, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit).
     ```shell
     git clone --depth=1 https://github.com/DefTruth/lite.ai.toolkit.git  # latest
-    cd lite.ai.toolkit
-    sh ./build.sh  # On MacOS, you can use the built OpenCV and ONNXRuntime libs in this repo.
+    cd lite.ai.toolkit && sh ./build.sh  # On MacOS, you can use the built OpenCV and ONNXRuntime libs in this repo.
     ```
   
 * *Cross-platform support.*  
@@ -57,7 +57,7 @@
 
 ## Citations.
 
-Cite it as follows if you use *Lite.AI.ToolKit*. Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀  
+Cite it as follows if you use *Lite.AI.ToolKit*. 
 ```BibTeX
 @misc{lite.ai.toolkit2021,
   title={lite.ai.toolkit: A lite C++ toolkit of awesome AI models.},
