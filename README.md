@@ -6,7 +6,6 @@
 
 [![Stargazers repo roster for @DefTruth/lite.ai.toolkit](https://reporoster.com/stars/DefTruth/lite.ai.toolkit)](https://github.com/DefTruth/lite.ai.toolkit/stargazers)
 
-Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀
 
 ## Introduction.    
 
@@ -57,7 +56,7 @@ Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀
 
 ## Citations.
 
-Cite it as follows if you use *Lite.AI.ToolKit*. 
+Cite it as follows if you use *Lite.AI.ToolKit*. Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀  
 ```BibTeX
 @misc{lite.ai.toolkit2021,
   title={lite.ai.toolkit: A lite C++ toolkit of awesome AI models.},
