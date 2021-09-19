@@ -6,7 +6,7 @@
 
 [![Stargazers repo roster for @DefTruth/lite.ai.toolkit](https://reporoster.com/stars/DefTruth/lite.ai.toolkit)](https://github.com/DefTruth/lite.ai.toolkit/stargazers)
 
-
+Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀
 
 ## Introduction.    
 
@@ -21,14 +21,15 @@
   <img src='logs/test_lite_fsanet.jpg' height="100px" width="100px">
   <img src='logs/test_lite_deeplabv3_resnet101.jpg' height="100px" width="100px">
   <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="100px" width="100px"> 
+
 </div>   
 
 
-*Lite.AI.ToolKit* 🚀🚀🌟is a lite C++ toolkit of awesome AI models which contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* models now. It's a collection of personal interests. Such as YOLOX, YOLOP, YOLOR, YoloV5, YoloV4, DeepLabV3, ArcFace, etc. *Lite.AI.ToolKit* based on *[onnxruntime](https://github.com/microsoft/onnxruntime)* by default. I do have plans to reimplement it with *[ncnn](https://github.com/Tencent/ncnn)* and *[MNN](https://github.com/alibaba/MNN)*, but not coming soon. It includes [object detection](#lite.ai.toolkit-object-detection), [face detection](#lite.ai.toolkit-face-detection), [face alignment](#lite.ai.toolkit-face-alignment), [face recognition](#lite.ai.toolkit-face-recognition), [segmentation](#lite.ai.toolkit-segmentation), [colorization](#lite.ai.toolkit-colorization), [matting](#lite.ai.toolkit-matting), etc. You can use these awesome models simply through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)*.
+*Lite.AI.ToolKit* 🚀🚀🌟: A lite C++ toolkit of awesome AI models which contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* models now. It's a collection of personal interests. Such as YOLOX, YOLOP, YOLOR, YoloV5, YoloV4, DeepLabV3, ArcFace, etc. *Lite.AI.ToolKit* based on *[onnxruntime](https://github.com/microsoft/onnxruntime)* by default. I do have plans to reimplement it with *[ncnn](https://github.com/Tencent/ncnn)* and *[MNN](https://github.com/alibaba/MNN)*, but not coming soon. It includes [object detection](#lite.ai.toolkit-object-detection), [face detection](#lite.ai.toolkit-face-detection), [face alignment](#lite.ai.toolkit-face-alignment), [face recognition](#lite.ai.toolkit-face-recognition), [segmentation](#lite.ai.toolkit-segmentation), [colorization](#lite.ai.toolkit-colorization), [matting](#lite.ai.toolkit-matting), etc. You can use these awesome models simply through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)*.
 
 ## Citations.
 
-Cite it as follows if you use *Lite.AI.ToolKit*. Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀
+Cite it as follows if you use *Lite.AI.ToolKit*. Note, More models will continue to be added ~
 ```BibTeX
 @misc{lite.ai.toolkit2021,
   title={lite.ai.toolkit: A lite C++ toolkit of awesome AI models.},
@@ -258,7 +259,8 @@ A minimum example to show you how to link the shared lib of Lite.AI correctly fo
 
 <div id="lite.ai.toolkit-Model-Zoo"></div>
 
-*Lite.AI.ToolKit* contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* AI models with *[150+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained *.onnx* files now. Note that the models here are all from third-party projects. Most of the models were converted by *Lite.AI.ToolKit*. In Lite.AI, different names of the same algorithm mean that the corresponding models come from different repositories, different implementations, or use different training data, etc. ✅ means passed the test and ⚠️ means not implements yet but coming soon. For classes which denoted ✅, you can use it through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)* . More details can be found at [Examples for Lite.AI](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit) .  
+*Lite.AI.ToolKit* contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* AI models with *[150+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained *.onnx* files now. Note that the models here are all from third-party projects. Most of the models were converted by *Lite.AI.ToolKit*. In Lite.AI, different names of the same algorithm mean that the corresponding models come from different repositories, different implementations, or use different training data, etc. ✅ means passed the test and ⚠️ means not implements yet but coming soon. For classes which denoted ✅, you can use it through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)*. More details can be found at [Examples for Lite.AI](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).  
+
 <details>
 <summary> Expand Details for Namespace and Lite.AI.ToolKit modules.</summary>  
 
