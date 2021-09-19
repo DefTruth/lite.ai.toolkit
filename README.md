@@ -41,7 +41,6 @@ Cite it as follows if you use *Lite.AI.ToolKit*. Star 🌟👆🏻 this repo if 
 
 ## Important Notes !!!  
 
-* ⚠️ (20210919) *Lite.AI.ToolKit* was rename from the *Lite.AI* repo! 
 * 🔥 (20210915) Added [YOLOP](https://github.com/hustvl/YOLOP) Panoptic 🚗 Perception! Use it through [*lite::cv::detection::YOLOP*](#lite.ai.toolkit-object-detection) ! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolop.cpp).
 * 🔥 (20210807) Added [YoloR](https://github.com/WongKinYiu/yolor) ! Use it through [*lite::cv::detection::YoloR*](#lite.ai.toolkit-object-detection) syntax ! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolor.cpp).
 * ✅ (20210731) Added [RetinaFace-CVPR2020](https://github.com/biubug6/Pytorch_Retinaface) for face detection, 1.6Mb only! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_retinaface.cpp).
@@ -1282,7 +1281,7 @@ The code of [Lite.AI.ToolKit](#lite.ai.toolkit-Introduction) is released under t
 
 <div id="lite.ai.toolkit-References"></div>
 
-Many thanks to the following projects. All the Lite.AI.ToolKit's models are sourced from these repos. 
+Many thanks to these following projects. All the Lite.AI.ToolKit's models are sourced from these repos. 
 
 * [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥🔥new!!↑)
 * [YOLOP](https://github.com/hustvl/YOLOP) (🔥🔥new!!↑)
@@ -1290,18 +1289,22 @@ Many thanks to the following projects. All the Lite.AI.ToolKit's models are sour
 * [ScaledYOLOv4](https://github.com/WongKinYiu/ScaledYOLOv4) (🔥🔥🔥↑)
 * [insightface](https://github.com/deepinsight/insightface) (🔥🔥🔥↑)
 * [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑)
+* [TFace](https://github.com/Tencent/TFace) (🔥🔥↑)
+* [YOLOv4-pytorch](https://github.com/argusswift/YOLOv4-pytorch) (🔥🔥🔥↑)
+* [Ultra-Light-Fast-Generic-Face-Detector-1MB](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) (🔥🔥🔥↑)  
+
+<details>
+<summary> Expand for More References.</summary>  
+
 * [headpose-fsanet-pytorch](https://github.com/omasaht/headpose-fsanet-pytorch) (🔥↑)
 * [pfld_106_face_landmarks](https://github.com/Hsintao/pfld_106_face_landmarks) (🔥🔥↑)
-* [Ultra-Light-Fast-Generic-Face-Detector-1MB](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) (🔥🔥🔥↑)
 * [onnx-models](https://github.com/onnx/models) (🔥🔥🔥↑)
 * [SSR_Net_Pytorch](https://github.com/oukohou/SSR_Net_Pytorch) (🔥↑)
 * [colorization](https://github.com/richzhang/colorization) (🔥🔥🔥↑)
 * [SUB_PIXEL_CNN](https://github.com/niazwazir/SUB_PIXEL_CNN) (🔥↑)
-* [YOLOv4-pytorch](https://github.com/argusswift/YOLOv4-pytorch) (🔥🔥🔥↑)
 * [torchvision](https://github.com/pytorch/vision) (🔥🔥🔥↑)
 * [facenet-pytorch](https://github.com/timesler/facenet-pytorch) (🔥↑)
 * [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) (🔥🔥🔥↑)
-* [TFace](https://github.com/Tencent/TFace) (🔥🔥↑)
 * [center-loss.pytorch](https://github.com/louis-she/center-loss.pytorch) (🔥🔥↑)
 * [sphereface_pytorch](https://github.com/clcarwin/sphereface_pytorch) (🔥🔥↑)
 * [DREAM](https://github.com/penincillin/DREAM) (🔥🔥↑)
@@ -1316,5 +1319,6 @@ Many thanks to the following projects. All the Lite.AI.ToolKit's models are sour
 * [Pytorch_Retinaface](https://github.com/biubug6/Pytorch_Retinaface) (🔥🔥🔥↑)
 * [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch) (🔥🔥↑)  
 
+</details>
 
 [![Forkers repo roster for @DefTruth/lite.ai.toolkit](https://reporoster.com/forks/DefTruth/lite.ai.toolkit)](https://github.com/DefTruth/lite.ai.toolkit/network/members)
