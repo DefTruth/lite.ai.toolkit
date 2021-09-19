@@ -22,19 +22,22 @@ Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀
   <img src='logs/test_lite_deeplabv3_resnet101.jpg' height="100px" width="100px">
   <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="100px" width="100px"> 
 
-</div>   
+</div>    
 
+---
 
-*Lite.AI.ToolKit* 🚀🚀🌟: A lite C++ toolkit of awesome AI models which contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* models now. It's a collection of personal interests. Such as YOLOX, YOLOP, YOLOR, YoloV5, YoloV4, DeepLabV3, ArcFace, etc. *Lite.AI.ToolKit* based on *[onnxruntime](https://github.com/microsoft/onnxruntime)* by default. I do have plans to reimplement it with *[ncnn](https://github.com/Tencent/ncnn)* and *[MNN](https://github.com/alibaba/MNN)*, but not coming soon. The core features of *Lite.AI.ToolKit* are listed as follows.  
+*Lite.AI.ToolKit* 🚀🚀🌟: A lite C++ toolkit of awesome AI models which contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* models now. It's a collection of personal interests. Such as YOLOX, YOLOP, YOLOR, YoloV5, YoloV4, DeepLabV3, ArcFace, etc. *Lite.AI.ToolKit* based on *[onnxruntime](https://github.com/microsoft/onnxruntime)* by default. I do have plans to reimplement it with *[ncnn](https://github.com/Tencent/ncnn)* and *[MNN](https://github.com/alibaba/MNN)*, but not coming soon. The core features of *Lite.AI.ToolKit* are listed as follows.
 
-* Simply and User friendly.   
+---
+
+* *Simply and User friendly.*   
   To use Lite.AI.ToolKit, you do not need to have a lot of AI skills, C++ is enough. You can use these awesome models simply through *lite::cv::Type::Class* syntax, see [examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
   ```c++
     auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only !
     auto *yolov5 = new lite::cv::detection::YoloV5("yolov5s.onnx");  // for mobile device  
   ```
   
-* Minimum Dependencies & Easy to build.  
+* *Minimum Dependencies & Easy to build.*  
   Currently, Lite.AI.ToolKit only depends on OpencV and ONNXRuntime. 🚀 You can download the latest *ONNXRuntime* official built libs from [v1.8.1](https://github.com/microsoft/onnxruntime/releases), [v1.7.0](https://github.com/microsoft/onnxruntime/releases/tag/v1.7.0). No more attentions needed pay to build it from source. On MacOS, it takes only a few lines of command to build Lite.AI.ToolKit, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit).
     ```shell
     git clone --depth=1 https://github.com/DefTruth/lite.ai.toolkit.git  # latest
@@ -42,11 +45,11 @@ Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀
     sh ./build.sh  # On MacOS, you can use the built OpenCV and ONNXRuntime libs in this repo.
     ```
   
-* Cross-platform support.  
+* *Cross-platform support.*  
   Lite.AI.ToolKit support MacOS/Linux/Windows and CPU/GPU now. More platforms may be supported in the future ~
 
 
-* Lots of Algorithm Modules.  
+* *Lots of Algorithm Modules.*  
   Currently, Lite.AI.ToolKit includes 10+ modules for Computer Vision, see [model zoo](#lite.ai.toolkit-Model-Zoo). Such as:  
   * [image classification](#lite.ai.toolkit-image-classification) 
   * [object detection](#lite.ai.toolkit-object-detection)  
@@ -60,7 +63,7 @@ Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀
   * [style transfer](#lite.ai.toolkit-style-transfer)  
   * [matting](#lite.ai.toolkit-matting)  
 
-
+---
 
 ## Citations.
 
@@ -101,25 +104,12 @@ Cite it as follows if you use *Lite.AI.ToolKit*. Watch 👀👆🏻 this repo, m
 * ✅ (20210808) Added [ScaledYoloV4](https://github.com/WongKinYiu/ScaledYOLOv4) for object detection! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_scaled_yolov4.cpp).  
 * ✅ (20210807) Added [TinyYoloV4VOC](https://github.com/bubbliiiing/yolov4-tiny-pytorch) for object detection! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_tiny_yolov4_voc.cpp).  
 * ✅ (20210807) Added [TinyYoloV4COCO](https://github.com/bubbliiiing/yolov4-tiny-pytorch) for object detection! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_tiny_yolov4_coco.cpp).  
-* ✅ (20210722) Update [lite.ai.toolkit.hub.onnx.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.toolkit.hub.onnx.md) ! *Lite.AI* contains *[70+](https://github.com/DefTruth/lite.ai.toolkit.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* AI models with *[150+](https://github.com/DefTruth/lite.ai.toolkit.toolkit/tree/main/docs/hub/lite.ai.toolkit.toolkit.hub.onnx.md)* .onnx files now.  
+* ✅ (20210722) Update [lite.ai.toolkit.hub.onnx.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md) ! *Lite.AI.Toolkit* contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* AI models with *[150+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* .onnx files now.  
 * ⚠️ (20210802) Added GPU Compatibility for CUDAExecutionProvider. See [issue#10](https://github.com/DefTruth/lite.ai.toolkit/issues/10).
 * ⚠️ (20210801) fixed [issue#9](https://github.com/DefTruth/lite.ai.toolkit/issues/9) YOLOX inference error for non-square shape. See [yolox.cpp](https://github.com/DefTruth/lite.ai.toolkit/blob/main/ort/cv/yolox.cpp).  
 * ✅ (20210801) Added [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch) for face detection! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_faceboxes.cpp).  
 * ✅ (20210727) Added [MobileNetV2SE68、PFLD68](https://github.com/cunjian/pytorch_face_landmark) for 68 facial landmarks detection! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_pfld68.cpp).  
 * ✅ (20210726) Added [PFLD98](https://github.com/polarisZhao/PFLD-pytorch) for 98 facial landmarks detection! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_pfld98.cpp).
-
-## Working Notes. 👇🏻  
-
-  * ✅ [object detection](#lite.ai.toolkit-object-detection) 
-  * ✅ [image classification](#lite.ai.toolkit-object-detection) 
-  * ❇️ [face detection](#lite.ai.toolkit-face-detection) 
-  * ✅ [face alignment](#lite.ai.toolkit-face-alignment) 
-  * ✅ [face recognition](#lite.ai.toolkit-face-recognition) 
-  * ✅ [face attributes analysis](#lite.ai.toolkit-face-attributes-analysis)
-  * ⚠️ [segmentation](#lite.ai.toolkit-segmentation)
-  * ⚠️ [style transfer](#lite.ai.toolkit-style-transfer)
-  * ⚠️ [colorization](#lite.ai.toolkit-colorization)
-  * ⚠️ [matting](#lite.ai.toolkit-matting)
 
 </details>
 
@@ -133,23 +123,6 @@ Cite it as follows if you use *Lite.AI.ToolKit*. Watch 👀👆🏻 this repo, m
 * [License](#lite.ai.toolkit-License)
 * [References](#lite.ai.toolkit-References)
 
-<!----
-
-## 1. Dependencies.  
-
-<div id="lite.ai.toolkit-Dependencies"></div>
-
-### Mac OS.  
-
-install `OpenCV` and `onnxruntime` libraries using Homebrew or you can download the built dependencies from this repo. See [third_party](https://github.com/DefTruth/lite.ai.toolkit/tree/main/third_party) and build-docs[<sup>1</sup>](#lite.ai.toolkit-1) for more details.
-
-```shell
-  brew update
-  brew install opencv
-  brew install onnxruntime
-```
-
----->
 
 ## 1. Build Lite.AI.ToolKit
 
@@ -266,7 +239,7 @@ link_directories(${LITEHUB_LIBRARY_DIR})
 add_executable(lite_yolov5 test_lite_yolov5.cpp)
 target_link_libraries(lite_yolov5 lite.ai.toolkit onnxruntime ${OpenCV_LIBS})
 ```
-A minimum example to show you how to link the shared lib of Lite.AI correctly for your own project can be found at [lite.ai.toolkit-release](https://github.com/DefTruth/lite.ai.toolkit-release) .
+A minimum example to show you how to link the shared lib of Lite.AI.ToolKit correctly for your own project can be found at [lite.ai.toolkit.demo](https://github.com/DefTruth/lite.ai.toolkit.demo).
 
 </details>
 
@@ -275,7 +248,7 @@ A minimum example to show you how to link the shared lib of Lite.AI correctly fo
 
 <div id="lite.ai.toolkit-Model-Zoo"></div>
 
-*Lite.AI.ToolKit* contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* AI models with *[150+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained *.onnx* files now. Note that the models here are all from third-party projects. Most of the models were converted by *Lite.AI.ToolKit*. In Lite.AI.ToolKit, different names of the same algorithm mean that the corresponding models come from different repositories, different implementations, or use different training data, etc. ✅ means passed the test and ⚠️ means not implements yet but coming soon. For classes which denoted ✅, you can use it through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)*. More details can be found at [Examples for Lite.AI](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).  
+*Lite.AI.ToolKit* contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* AI models with *[150+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained *.onnx* files now. Note that the models here are all from third-party projects. Most of the models were converted by *Lite.AI.ToolKit*. In Lite.AI.ToolKit, different names of the same algorithm mean that the corresponding models come from different repositories, different implementations, or use different training data, etc. ✅ means passed the test and ⚠️ means not implements yet but coming soon. For classes which denoted ✅, you can use it through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)*. More details can be found at [Examples for Lite.AI.ToolKit](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).  
 
 <details>
 <summary> Expand Details for Namespace and Lite.AI.ToolKit modules.</summary>  
