@@ -1,36 +1,37 @@
 
 
-# Lite.AI.ToolKit 🚀🚀🌟  
-
-<div align='center'>
-  <img src='logs/test_lite_yolov5_1.jpg' height="200px" width="200px">
-  <img src='docs/resources/efficientdet_d0.jpg' height="200px" width="200px">
-  <img src='docs/resources/street.jpg' height="200px" width="200px">
-  <img src='logs/test_lite_ultraface.jpg' height="200px" width="200px">
-  <br> 
-  <img src='logs/test_lite_face_landmarks_1000.jpg' height="200px" width="200px">
-  <img src='logs/test_lite_fsanet.jpg' height="200px" width="200px">
-  <img src='logs/test_lite_deeplabv3_resnet101.jpg' height="200px" width="200px">
-  <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="200px" width="200px"> 
-</div>   
-
-
-## Introduction.    
+## Lite.AI.ToolKit 🚀🚀🌟: A lite C++ toolkit of awesome AI models.  
 
 [![](https://img.shields.io/badge/MacOS-pass-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/releases/tag/v0.0.1) ![](https://img.shields.io/badge/Linux-pass-brightgreen.svg) ![](https://img.shields.io/badge/Windows-pass-brightgreen.svg) [![](https://img.shields.io/badge/Version-0.0.1-green.svg)](https://github.com/DefTruth/lite.ai.toolkit/releases/tag/v0.0.1) ![](https://img.shields.io/badge/Language-C/C%2B%2B-orange.svg) ![](https://img.shields.io/badge/Device-GPU/CPU-yellow.svg) ![](https://img.shields.io/badge/License-MIT-blue.svg)
 
 [![Stargazers repo roster for @DefTruth/lite.ai.toolkit](https://reporoster.com/stars/DefTruth/lite.ai.toolkit)](https://github.com/DefTruth/lite.ai.toolkit/stargazers)
 
-<div id="lite.ai.toolkit-Introduction"></div> 
 
-*Lite.AI.ToolKit* 🚀🚀🌟 is a simple and user-friendly C++ library of *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* awesome 🔥🔥🔥 AI models. It's a collection of personal interests. such as YOLOX, YoloV5, YoloV4, DeepLabV3, ArcFace, etc. *Lite.AI.ToolKit* based on *[onnxruntime c++](https://github.com/microsoft/onnxruntime)* by default. I do have plans to reimplement it with *[ncnn](https://github.com/Tencent/ncnn)* and *[MNN](https://github.com/alibaba/MNN)*, but not coming soon. It includes [object detection](#lite.ai.toolkit-object-detection), [face detection](#lite.ai.toolkit-face-detection), [style transfer](#lite.ai.toolkit-style-transfer), [face alignment](#lite.ai.toolkit-face-alignment), [face recognition](#lite.ai.toolkit-face-recognition), [segmentation](#lite.ai.toolkit-segmentation), [colorization](#lite.ai.toolkit-colorization), [matting](#lite.ai.toolkit-matting), etc. You can use these awesome models simply through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)*.
+
+## Introduction.    
+
+<div id="lite.ai.toolkit-Introduction"></div>  
+
+<div align='center'>
+  <img src='logs/test_lite_yolov5_1.jpg' height="100px" width="100px">
+  <img src='docs/resources/efficientdet_d0.jpg' height="100px" width="100px">
+  <img src='docs/resources/street.jpg' height="100px" width="100px">
+  <img src='logs/test_lite_ultraface.jpg' height="100px" width="100px">
+  <img src='logs/test_lite_face_landmarks_1000.jpg' height="100px" width="100px">
+  <img src='logs/test_lite_fsanet.jpg' height="100px" width="100px">
+  <img src='logs/test_lite_deeplabv3_resnet101.jpg' height="100px" width="100px">
+  <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="100px" width="100px"> 
+</div>   
+
+
+*Lite.AI.ToolKit* 🚀🚀🌟is a lite C++ toolkit of awesome AI models which contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* models now. It's a collection of personal interests. Such as YOLOX, YOLOP, YOLOR, YoloV5, YoloV4, DeepLabV3, ArcFace, etc. *Lite.AI.ToolKit* based on *[onnxruntime](https://github.com/microsoft/onnxruntime)* by default. I do have plans to reimplement it with *[ncnn](https://github.com/Tencent/ncnn)* and *[MNN](https://github.com/alibaba/MNN)*, but not coming soon. It includes [object detection](#lite.ai.toolkit-object-detection), [face detection](#lite.ai.toolkit-face-detection), [face alignment](#lite.ai.toolkit-face-alignment), [face recognition](#lite.ai.toolkit-face-recognition), [segmentation](#lite.ai.toolkit-segmentation), [colorization](#lite.ai.toolkit-colorization), [matting](#lite.ai.toolkit-matting), etc. You can use these awesome models simply through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)*.
 
 ## Citations.
 
 Cite it as follows if you use *Lite.AI.ToolKit*. Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀
 ```BibTeX
 @misc{lite.ai.toolkit2021,
-  title={lite.ai.toolkit: A simple and user friendly C++ library of awesome AI models.},
+  title={lite.ai.toolkit: A lite C++ toolkit of awesome AI models.},
   url={https://github.com/DefTruth/lite.ai.toolkit},
   note={Open-source software available at https://github.com/DefTruth/lite.ai.toolkit},
   author={Yan Jun},
@@ -40,7 +41,7 @@ Cite it as follows if you use *Lite.AI.ToolKit*. Star 🌟👆🏻 this repo if 
 
 ## Important Notes !!!  
 
-* ⚠️ (20210919) *Lite.AI.ToolKit* was rename from the *Lite.AI* repo! *Lite.AI* will no longer be maintained.
+* ⚠️ (20210919) *Lite.AI.ToolKit* was rename from the *Lite.AI* repo! 
 * 🔥 (20210915) Added [YOLOP](https://github.com/hustvl/YOLOP) Panoptic 🚗 Perception! Use it through [*lite::cv::detection::YOLOP*](#lite.ai.toolkit-object-detection) ! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolop.cpp).
 * 🔥 (20210807) Added [YoloR](https://github.com/WongKinYiu/yolor) ! Use it through [*lite::cv::detection::YoloR*](#lite.ai.toolkit-object-detection) syntax ! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolor.cpp).
 * ✅ (20210731) Added [RetinaFace-CVPR2020](https://github.com/biubug6/Pytorch_Retinaface) for face detection, 1.6Mb only! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_retinaface.cpp).
@@ -154,13 +155,13 @@ Build the shared lib of *Lite.AI.ToolKit* for *MacOS* from sources. Note that Li
 
 * Windows: You can reference to [issue#6](https://github.com/DefTruth/lite.ai.toolkit/issues/6)  
 * Linux: The Docs and Docker image for Linux will be coming soon ~ [issue#2](https://github.com/DefTruth/lite.ai.toolkit/issues/2)  
-* Happy News !!! : 🚀 You can download the latest *ONNXRuntime* official built libs of Windows, Linux, MacOS and Arm !!! Both CPU and GPU versions are available. No more attentions needed pay to build it from source. Download the official built libs from [v1.8.1](https://github.com/microsoft/onnxruntime/releases). I have used version 1.7.0 for Lite.AI now, you can downlod it from [v1.7.0](https://github.com/microsoft/onnxruntime/releases/tag/v1.7.0), but version 1.8.1 should also work, I guess ~  🙃🤪🍀. For *OpenCV*, try to build from source(Linux) or down load the official built(Windows) from [OpenCV 4.5.3](https://github.com/opencv/opencv/releases). Then put the includes and libs into *third_party* directory of Lite.AI. 
+* Happy News !!! : 🚀 You can download the latest *ONNXRuntime* official built libs of Windows, Linux, MacOS and Arm !!! Both CPU and GPU versions are available. No more attentions needed pay to build it from source. Download the official built libs from [v1.8.1](https://github.com/microsoft/onnxruntime/releases). I have used version 1.7.0 for Lite.AI.ToolKit now, you can downlod it from [v1.7.0](https://github.com/microsoft/onnxruntime/releases/tag/v1.7.0), but version 1.8.1 should also work, I guess ~  🙃🤪🍀. For *OpenCV*, try to build from source(Linux) or down load the official built(Windows) from [OpenCV 4.5.3](https://github.com/opencv/opencv/releases). Then put the includes and libs into *third_party* directory of Lite.AI. 
 
 </details>  
 
 
 
-* Clone the Lite.AI from sources:
+* Clone the Lite.AI.ToolKit from sources:
 ```shell
 git clone --depth=1 https://github.com/DefTruth/lite.ai.toolkit.git  # latest
 ```
