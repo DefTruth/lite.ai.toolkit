@@ -1282,15 +1282,14 @@ The code of [Lite.AI.ToolKit](#lite.ai.toolkit-Introduction) is released under t
 
 <div id="lite.ai.toolkit-References"></div>
 
-Many thanks to the following projects. All the Lite.AI's models are sourced from these repos. 
+Many thanks to the following projects. All the Lite.AI.ToolKit's models are sourced from these repos. 
 
-* [YOLOX]( https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥new!!↑)
+* [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥🔥new!!↑)
+* [YOLOP](https://github.com/hustvl/YOLOP) (🔥🔥new!!↑)
+* [YOLOR](https://github.com/WongKinYiu/yolor) (🔥🔥new!!↑)
+* [ScaledYOLOv4](https://github.com/WongKinYiu/ScaledYOLOv4) (🔥🔥🔥↑)
 * [insightface](https://github.com/deepinsight/insightface) (🔥🔥🔥↑)
-* [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑)  
-
-<details>
-<summary> Expand More Details for References.</summary>
-
+* [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑)
 * [headpose-fsanet-pytorch](https://github.com/omasaht/headpose-fsanet-pytorch) (🔥↑)
 * [pfld_106_face_landmarks](https://github.com/Hsintao/pfld_106_face_landmarks) (🔥🔥↑)
 * [Ultra-Light-Fast-Generic-Face-Detector-1MB](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) (🔥🔥🔥↑)
@@ -1316,9 +1315,6 @@ Many thanks to the following projects. All the Lite.AI's models are sourced from
 * [FaceLandmark1000](https://github.com/Single430/FaceLandmark1000) (🔥🔥↑)
 * [Pytorch_Retinaface](https://github.com/biubug6/Pytorch_Retinaface) (🔥🔥🔥↑)
 * [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch) (🔥🔥↑)  
-
-</details>  
-
 
 
 [![Forkers repo roster for @DefTruth/lite.ai.toolkit](https://reporoster.com/forks/DefTruth/lite.ai.toolkit)](https://github.com/DefTruth/lite.ai.toolkit/network/members)
