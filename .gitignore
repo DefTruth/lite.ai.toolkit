@@ -4,3 +4,5 @@ cmake-build-debug
 cmake-build-release
 .idea
 build-debug.sh
+ncnn
+mnn
