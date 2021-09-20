@@ -4,9 +4,6 @@
 
 [![](https://img.shields.io/badge/MacOS-pass-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/releases/tag/v0.1.0) ![](https://img.shields.io/badge/Linux-pass-brightgreen.svg) ![](https://img.shields.io/badge/Windows-pass-brightgreen.svg) [![](https://img.shields.io/badge/Version-0.1.0-green.svg)](https://github.com/DefTruth/lite.ai.toolkit/releases/tag/v0.1.0) ![](https://img.shields.io/badge/Language-C/C%2B%2B-orange.svg) ![](https://img.shields.io/badge/Device-GPU/CPU-yellow.svg) ![](https://img.shields.io/badge/License-MIT-blue.svg)
 
-[![Stargazers repo roster for @DefTruth/lite.ai.toolkit](https://reporoster.com/stars/DefTruth/lite.ai.toolkit)](https://github.com/DefTruth/lite.ai.toolkit/stargazers)
-
-
 ## Introduction.    
 
 <div id="lite.ai.toolkit-Introduction"></div>  
@@ -20,6 +17,15 @@
   <img src='logs/test_lite_fsanet.jpg' height="100px" width="100px">
   <img src='logs/test_lite_deeplabv3_resnet101.jpg' height="100px" width="100px">
   <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="100px" width="100px"> 
+  <br>
+  <img src='docs/resources/rvm0is.gif' height="100px" width="100px">
+  <img src='docs/resources/rvm0s.gif' height="100px" width="100px">
+  <img src='docs/resources/rvm1is.gif' height="100px" width="100px">
+  <img src='docs/resources/rvm1s.gif' height="100px" width="100px">  
+  <img src='docs/resources/yolop1.png' height="100px" width="100px">
+  <img src='docs/resources/yolop1.gif' height="100px" width="100px">
+  <img src='docs/resources/yolop2.png' height="100px" width="100px">
+  <img src='docs/resources/yolop2.gif' height="100px" width="100px">
 
 </div>    
 
@@ -1371,7 +1377,10 @@ Many thanks to these following projects. All the Lite.AI.ToolKit's models are so
 * [Pytorch_Retinaface](https://github.com/biubug6/Pytorch_Retinaface) (🔥🔥🔥↑)
 * [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch) (🔥🔥↑)  
 
-</details>
+</details>  
+
+[![Stargazers repo roster for @DefTruth/lite.ai.toolkit](https://reporoster.com/stars/DefTruth/lite.ai.toolkit)](https://github.com/DefTruth/lite.ai.toolkit/stargazers)
+
 
 [![Forkers repo roster for @DefTruth/lite.ai.toolkit](https://reporoster.com/forks/DefTruth/lite.ai.toolkit)](https://github.com/DefTruth/lite.ai.toolkit/network/members)
 
