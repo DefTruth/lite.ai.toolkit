@@ -509,7 +509,7 @@ static void test_default()
   std::vector<lite::cv::types::MattingContent> contents;
   
   // 1. video matting.
-  rvm->detect_video(video_path, output_path, contents);
+  rvm->detect_video(video_path, output_path, contents, false, 0.4f);
   
   delete rvm;
 }
