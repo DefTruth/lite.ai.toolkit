@@ -494,7 +494,7 @@ Or you can use Newest 🔥🔥 ! YOLO series's detector [YOLOX](https://github.c
 
 <div id="lite.ai.toolkit-matting"></div>  
 
-#### Example1: Video Matting using [RobustVideoMatting🔥🔥🔥newest!](https://github.com/PeterL1n/RobustVideoMatting). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
+#### Example1: Video Matting using [RobustVideoMatting🔥🔥🔥](https://github.com/PeterL1n/RobustVideoMatting). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
 
 ```c++
 #include "lite/lite.h"
