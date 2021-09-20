@@ -71,9 +71,14 @@ namespace ortcv
     }; // End BoundingBox.
 
     // specific alias.
-    template class LITE_EXPORTS BoundingBoxType<int, float>;
-    template class LITE_EXPORTS BoundingBoxType<float, float>;
-    template class LITE_EXPORTS BoundingBoxType<double, double>;
+    template
+    class LITE_EXPORTS BoundingBoxType<int, float>;
+
+    template
+    class LITE_EXPORTS BoundingBoxType<float, float>;
+
+    template
+    class LITE_EXPORTS BoundingBoxType<double, double>;
 
     typedef BoundingBoxType<int, float> Boxi;
     typedef BoundingBoxType<float, float> Boxf;
@@ -202,6 +207,16 @@ namespace ortcv
       {};
     } SegmentContent;
 
+    typedef struct LITE_EXPORTS MattingContentType
+    {
+      cv::Mat fgr_mat; // fore ground mat 3 channel (R,G,B) 0.~1. or 0~255
+      cv::Mat pha_mat; // alpha(matte) 0.~1.
+      cv::Mat merge_mat; // merge bg and fg according pha
+      bool flag;
+
+      MattingContentType(): flag(false)
+      {};
+    } MattingContent;
 
   } // NAMESPACE TYPES
 } // NAMESPACE ORTCV

@@ -68,10 +68,18 @@ Cite it as follows if you use *Lite.AI.ToolKit*. Star 🌟👆🏻 this repo if 
 
 ## Important Notes !!!  
 
+* 🔥 (20210920) Added [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)! Use it through [*lite::cv::matting::RobustVideoMatting*](#lite.ai.toolkit-matting) ! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_rvm.cpp).  
+
+<div align='center'>
+  <img src='docs/resources/rvm0is.gif' height="200px" width="200px">
+  <img src='docs/resources/rvm0s.gif' height="200px" width="200px">
+  <img src='docs/resources/rvm1is.gif' height="200px" width="200px">
+  <img src='docs/resources/rvm1s.gif' height="200px" width="200px">
+</div>
+
 * 🔥 (20210915) Added [YOLOP](https://github.com/hustvl/YOLOP) Panoptic 🚗 Perception! Use it through [*lite::cv::detection::YOLOP*](#lite.ai.toolkit-object-detection) ! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolop.cpp).
-* 🔥 (20210807) Added [YoloR](https://github.com/WongKinYiu/yolor) ! Use it through [*lite::cv::detection::YoloR*](#lite.ai.toolkit-object-detection) syntax ! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolor.cpp).
+* ✅ (20210807) Added [YoloR](https://github.com/WongKinYiu/yolor) ! Use it through [*lite::cv::detection::YoloR*](#lite.ai.toolkit-object-detection) syntax ! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolor.cpp).
 * ✅ (20210731) Added [RetinaFace-CVPR2020](https://github.com/biubug6/Pytorch_Retinaface) for face detection, 1.6Mb only! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_retinaface.cpp).
-* 🔥 (20210728) Added [FaceLandmarks1000](https://github.com/Single430/FaceLandmark1000) for 1000 facial landmarks detection, 2Mb only! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_face_landmarks_1000.cpp).
 * 🔥 (20210721) Added [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)! Use it through [*lite::cv::detection::YoloX*](#lite.ai.toolkit-object-detection) syntax ! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolox.cpp).  
 
 <div align='center'>
@@ -344,6 +352,13 @@ Note, I can not upload all the *.onnx files because of the storage limitation of
 |[CavaCombinedFace](https://github.com/cavalleria/cavaface.pytorch)| 250M | [cavaface...](https://github.com/cavalleria/cavaface.pytorch) |  🔥🔥↑  | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-recognition) | *faceid* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_cava_combined_face.cpp) |
 |[MobileSEFocalFace](https://github.com/grib0ed0v/face_recognition.pytorch)|4.5M| [face_recog...](https://github.com/grib0ed0v/face_recognition.pytorch) | 🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-face-recognition) | *faceid* | ✅ |  [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mobilese_focal_face.cpp) |
 
+* Matting.
+
+|Class|Size|From|Awesome|File|Type|State|Usage|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|[RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)|14M| [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)  |   🔥🔥🔥latest↑   | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-matting) | *matting* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_rvm.cpp) |
+
+
 <details>
 <summary> ⚠️ Expand More Details for Lite.AI.ToolKit's Model Zoo.</summary>  
 
@@ -477,9 +492,43 @@ Or you can use Newest 🔥🔥 ! YOLO series's detector [YOLOX](https://github.c
 
 ****
 
+<div id="lite.ai.toolkit-matting"></div>  
+
+#### Example1: Video Matting using [RobustVideoMatting🔥🔥🔥newest!](https://github.com/PeterL1n/RobustVideoMatting). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
+
+```c++
+#include "lite/lite.h"
+
+static void test_default()
+{
+  std::string onnx_path = "../../../hub/onnx/cv/rvm_mobilenetv3_fp32.onnx";
+  std::string video_path = "../../../examples/lite/resources/test_lite_rvm_0.mp4";
+  std::string output_path = "../../../logs/test_lite_rvm_0.mp4";
+  
+  auto *rvm = new lite::cv::matting::RobustVideoMatting(onnx_path, 16); // 16 threads
+  std::vector<lite::cv::types::MattingContent> contents;
+  
+  // 1. video matting.
+  rvm->detect_video(video_path, output_path, contents);
+  
+  delete rvm;
+}
+```
+The output is:
+
+<div align='center'>
+  <img src='docs/resources/rvm0is.gif' height="200px" width="200px">
+  <img src='docs/resources/rvm0s.gif' height="200px" width="200px">
+  <img src='docs/resources/rvm1is.gif' height="200px" width="200px">
+  <img src='docs/resources/rvm1s.gif' height="200px" width="200px">
+</div>
+
+
+****
+
 <div id="lite.ai.toolkit-face-alignment"></div>
 
-#### Example1: 1000 Facial Landmarks Detection using [FaceLandmarks1000](https://github.com/Single430/FaceLandmark1000). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
+#### Example2: 1000 Facial Landmarks Detection using [FaceLandmarks1000](https://github.com/Single430/FaceLandmark1000). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
 ```c++
 #include "lite/lite.h"
 
@@ -507,11 +556,11 @@ The output is:
   <img src='logs/test_lite_face_landmarks_1000_0.jpg' height="224px" width="224px">
 </div>    
 
-****
+****  
 
 <div id="lite.ai.toolkit-colorization"></div>
 
-#### Example2: Colorization using [colorization](https://github.com/richzhang/colorization). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
+#### Example3: Colorization using [colorization](https://github.com/richzhang/colorization). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
 ```c++
 #include "lite/lite.h"
 
@@ -547,7 +596,7 @@ The output is:
 
 <div id="lite.ai.toolkit-face-recognition"></div>  
 
-#### Example3: Face Recognition using [ArcFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
+#### Example4: Face Recognition using [ArcFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
 
 ```c++
 #include "lite/lite.h"
@@ -595,7 +644,7 @@ The output is:
 
 <div id="lite.ai.toolkit-face-detection"></div>
 
-#### Example4: Face Detection using [UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
+#### Example5: Face Detection using [UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
 ```c++
 #include "lite/lite.h"
 
@@ -629,7 +678,6 @@ The output is:
 <div id="lite.ai.toolkit-image-classification"></div>  
 <div id="lite.ai.toolkit-head-pose-estimation"></div>
 <div id="lite.ai.toolkit-style-transfer"></div>
-<div id="lite.ai.toolkit-matting"></div>
 
 <details>
 <summary> ⚠️ Expand All Examples for Each Topic in Lite.AI.ToolKit </summary>  
@@ -832,7 +880,6 @@ auto *segment = new lite::cv::segmentation::FCNResNet101(onnx_path);
 ```
 
 </details>
-
 
 
 <details>
@@ -1143,7 +1190,35 @@ The output is:
 <details>
 <summary> 3.11 Expand Examples for Image Matting.</summary>
 
-* *todo*⚠️
+#### 3.11 Video Matting using [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2). 
+
+```c++
+#include "lite/lite.h"
+
+static void test_default()
+{
+  std::string onnx_path = "../../../hub/onnx/cv/rvm_mobilenetv3_fp32.onnx";
+  std::string video_path = "../../../examples/lite/resources/test_lite_rvm_0.mp4";
+  std::string output_path = "../../../logs/test_lite_rvm_0.mp4";
+  
+  auto *rvm = new lite::cv::matting::RobustVideoMatting(onnx_path, 16); // 16 threads
+  std::vector<lite::cv::types::MattingContent> contents;
+  
+  // 1. video matting.
+  rvm->detect_video(video_path, output_path, contents);
+  
+  delete rvm;
+}
+```
+The output is:
+
+<div align='center'>
+  <img src='docs/resources/rvm0is.gif' height="200px" width="200px">
+  <img src='docs/resources/rvm0s.gif' height="200px" width="200px">
+  <img src='docs/resources/rvm1is.gif' height="200px" width="200px">
+  <img src='docs/resources/rvm1s.gif' height="200px" width="200px">
+</div>
+
 
 </details>
 
@@ -1299,3 +1374,4 @@ Many thanks to these following projects. All the Lite.AI.ToolKit's models are so
 </details>
 
 [![Forkers repo roster for @DefTruth/lite.ai.toolkit](https://reporoster.com/forks/DefTruth/lite.ai.toolkit)](https://github.com/DefTruth/lite.ai.toolkit/network/members)
+

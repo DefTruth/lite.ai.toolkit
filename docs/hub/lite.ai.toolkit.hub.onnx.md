@@ -276,3 +276,15 @@ You can download all the pretrained models files of ONNX format from ([Baidu Dri
 | :---------------------------------: | :-------------------: | :-------------------------------------------------------: | :---: |
 | *lite::cv::resolution::SubPixelCNN* |   subpixel-cnn.onnx   | [...PIXEL...](https://github.com/niazwazir/SUB_PIXEL_CNN) | 234Kb |
 
+
+## Matting.
+
+<div id="lite.ai.toolkit.hub.onnx-matting"></div>
+
+|                Class                | Pretrained ONNX Files |              Rename or Converted From (Repo)              | Size  |
+| :---------------------------------: | :-------------------: | :-------------------------------------------------------: | :---: |
+| *lite::cv::matting::RobustVideoMatting* |   rvm_mobilenetv3_fp32.onnx   | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 14Mb |
+| *lite::cv::matting::RobustVideoMatting* |   rvm_mobilenetv3_fp16.onnx   | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 7.2Mb |
+| *lite::cv::matting::RobustVideoMatting* |   rvm_resnet50_fp32.onnx   | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 50Mb |
+| *lite::cv::matting::RobustVideoMatting* |   rvm_resnet50_fp16.onnx   | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 100Mb |
+

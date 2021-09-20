@@ -87,6 +87,7 @@ namespace ortcv
   class LITE_EXPORTS EfficientDetD7;             // [72] * reference: https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch
   class LITE_EXPORTS EfficientDetD8;             // [73] * reference: https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch
   class LITE_EXPORTS YOLOP;                      // [74] * reference: https://github.com/hustvl/YOLOP
+  class LITE_EXPORTS RobustVideoMatting;         // [75] * reference: https://github.com/PeterL1n/RobustVideoMatting
 
 }
 

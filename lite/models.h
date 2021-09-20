@@ -77,6 +77,7 @@
 #include "ort/cv/efficientdet_d7.h"
 #include "ort/cv/efficientdet_d8.h"
 #include "ort/cv/yolop.h"
+#include "ort/cv/rvm.h"
 
 #endif
 
@@ -164,6 +165,7 @@ namespace lite
     typedef ortcv::EfficientDetD7 _EfficientDetD7;
     typedef ortcv::EfficientDetD8 _EfficientDetD8;
     typedef ortcv::YOLOP _YOLOP;
+    typedef ortcv::RobustVideoMatting _RobustVideoMatting;
 #endif
 
     // 1. classification
@@ -350,6 +352,7 @@ namespace lite
     namespace matting
     {
 #ifdef BACKEND_ONNXRUNTIME
+      typedef _RobustVideoMatting RobustVideoMatting;
 #endif
     }
   }
@@ -495,6 +498,7 @@ namespace lite
       typedef ortcv::EfficientDetD7 _ONNXEfficientDetD7;
       typedef ortcv::EfficientDetD8 _ONNXEfficientDetD8;
       typedef ortcv::YOLOP _ONNXYOLOP;
+      typedef ortcv::RobustVideoMatting _ONNXRobustVideoMatting;
 
       // 1. classification
       namespace classification
@@ -652,7 +656,7 @@ namespace lite
       // 12. image & face & human matting
       namespace matting
       {
-
+        typedef _ONNXRobustVideoMatting RobustVideoMatting;
       }
 
     }

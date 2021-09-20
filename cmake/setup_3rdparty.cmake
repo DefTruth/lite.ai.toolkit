@@ -48,7 +48,7 @@ endif ()
 
 if (OpenCV_FOUND)
     include_directories(${OpenCV_INCLUDE_DIRS})
-    set(OpenCV_LIBS opencv_highgui opencv_core opencv_imgcodecs opencv_imgproc) # need only
+    set(OpenCV_LIBS opencv_highgui opencv_core opencv_imgcodecs opencv_imgproc opencv_video opencv_videoio) # need only
     message("=================================================================================")
     message(STATUS "    OpenCV library status:")
     message(STATUS "    version: ${OpenCV_VERSION}")
@@ -60,7 +60,7 @@ else ()
     find_package(OpenCV 4 REQUIRED)
     if (OpenCV_FOUND)
         include_directories(${OpenCV_INCLUDE_DIRS})
-        set(OpenCV_LIBS opencv_highgui opencv_core opencv_imgcodecs opencv_imgproc) # need only
+        set(OpenCV_LIBS opencv_highgui opencv_core opencv_imgcodecs opencv_imgproc opencv_video opencv_videoio) # need only
         message("=================================================================================")
         message(STATUS "    OpenCV library status:")
         message(STATUS "    version: ${OpenCV_VERSION}")
