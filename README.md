@@ -691,19 +691,19 @@ The output is:
 
 static void test_default()
 {
-std::string onnx_path = "../../../hub/onnx/cv/yolov5s.onnx";
-std::string test_img_path = "../../../examples/lite/resources/test_lite_yolov5_1.jpg";
-std::string save_img_path = "../../../logs/test_lite_yolov5_1.jpg";
-
-auto *yolov5 = new lite::cv::detection::YoloV5(onnx_path);
-std::vector<lite::cv::types::Boxf> detected_boxes;
-cv::Mat img_bgr = cv::imread(test_img_path);
-yolov5->detect(img_bgr, detected_boxes);
-
-lite::cv::utils::draw_boxes_inplace(img_bgr, detected_boxes);
-cv::imwrite(save_img_path, img_bgr);
-
-delete yolov5;
+  std::string onnx_path = "../../../hub/onnx/cv/yolov5s.onnx";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_yolov5_1.jpg";
+  std::string save_img_path = "../../../logs/test_lite_yolov5_1.jpg";
+  
+  auto *yolov5 = new lite::cv::detection::YoloV5(onnx_path);
+  std::vector<lite::cv::types::Boxf> detected_boxes;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  yolov5->detect(img_bgr, detected_boxes);
+  
+  lite::cv::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+  cv::imwrite(save_img_path, img_bgr);
+  
+  delete yolov5;
 }
 ```
 
