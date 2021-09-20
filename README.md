@@ -3,6 +3,7 @@
 ## Lite.AI.ToolKit 🚀🚀🌟: A lite C++ toolkit of awesome AI models.  
 
 [![](https://img.shields.io/badge/MacOS-pass-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/releases/tag/v0.1.0) ![](https://img.shields.io/badge/Linux-pass-brightgreen.svg) ![](https://img.shields.io/badge/Windows-pass-brightgreen.svg) [![](https://img.shields.io/badge/Version-0.1.0-green.svg)](https://github.com/DefTruth/lite.ai.toolkit/releases/tag/v0.1.0) ![](https://img.shields.io/badge/Language-C/C%2B%2B-orange.svg) ![](https://img.shields.io/badge/Device-GPU/CPU-yellow.svg) ![](https://img.shields.io/badge/License-MIT-blue.svg)
+[![Stargazers repo roster for @DefTruth/lite.ai.toolkit](https://reporoster.com/stars/DefTruth/lite.ai.toolkit)](https://github.com/DefTruth/lite.ai.toolkit/stargazers)
 
 ## Introduction.    
 
@@ -1378,9 +1379,6 @@ Many thanks to these following projects. All the Lite.AI.ToolKit's models are so
 * [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch) (🔥🔥↑)  
 
 </details>  
-
-[![Stargazers repo roster for @DefTruth/lite.ai.toolkit](https://reporoster.com/stars/DefTruth/lite.ai.toolkit)](https://github.com/DefTruth/lite.ai.toolkit/stargazers)
-
 
 [![Forkers repo roster for @DefTruth/lite.ai.toolkit](https://reporoster.com/forks/DefTruth/lite.ai.toolkit)](https://github.com/DefTruth/lite.ai.toolkit/network/members)
 
