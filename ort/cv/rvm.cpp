@@ -166,18 +166,7 @@ void RobustVideoMatting::detect_video(const std::string &video_path,
     if (content.flag)
     {
       if (save_contents) contents.push_back(content);
-      if (!content.merge_mat.empty())
-      {
-        // cv::resize(content.merge_mat, content.merge_mat, cv::Size(width, height));
-        video_writer.write(content.merge_mat);
-#ifdef LITEORT_DEBUG
-        if (i == 2)
-        {
-          cv::imwrite("../../../logs/test_lite_rvm_debug.jpg", content.merge_mat);
-        }
-        std::cout << "write done!" << " ";
-#endif
-      }
+      if (!content.merge_mat.empty()) video_writer.write(content.merge_mat);
     }
     // 4. check context states.
     if (!context_is_update) break;
@@ -186,7 +175,7 @@ void RobustVideoMatting::detect_video(const std::string &video_path,
 #endif
   }
 
-  // 3. release
+  // 5. release
   video_capture.release();
   video_writer.release();
 
