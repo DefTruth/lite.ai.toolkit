@@ -19,10 +19,10 @@
   <img src='logs/test_lite_deeplabv3_resnet101.jpg' height="100px" width="100px">
   <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="100px" width="100px"> 
   <br>
-  <img src='docs/resources/rvm0is.gif' height="100px" width="100px">
-  <img src='docs/resources/rvm0s.gif' height="100px" width="100px">
-  <img src='docs/resources/rvm1is.gif' height="100px" width="100px">
-  <img src='docs/resources/rvm1s.gif' height="100px" width="100px">  
+  <img src='docs/resources/teslai.gif' height="100px" width="100px">
+  <img src='docs/resources/tesla.gif' height="100px" width="100px">
+  <img src='docs/resources/dance3i.gif' height="100px" width="100px">
+  <img src='docs/resources/dance3.gif' height="100px" width="100px">  
   <img src='docs/resources/yolop1.png' height="100px" width="100px">
   <img src='docs/resources/yolop1.gif' height="100px" width="100px">
   <img src='docs/resources/yolop2.png' height="100px" width="100px">
@@ -78,11 +78,17 @@ Cite it as follows if you use *Lite.AI.ToolKit*. Star 🌟👆🏻 this repo if 
 * 🔥 (20210920) Added [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)! Use it through [*lite::cv::matting::RobustVideoMatting*](#lite.ai.toolkit-matting) ! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_rvm.cpp).  
 
 <div align='center'>
-  <img src='docs/resources/rvm0is.gif' height="200px" width="200px">
-  <img src='docs/resources/rvm0s.gif' height="200px" width="200px">
-  <img src='docs/resources/rvm1is.gif' height="200px" width="200px">
-  <img src='docs/resources/rvm1s.gif' height="200px" width="200px">
+  <img src='docs/resources/interviewi.gif' height="200px" width="200px">
+  <img src='docs/resources/interview.gif' height="200px" width="200px">  
+  <img src='docs/resources/dance3i.gif' height="200px" width="200px">
+  <img src='docs/resources/dance3.gif' height="200px" width="200px">
+  <br>
+  <img src='docs/resources/teslai.gif' height="200px" width="200px">
+  <img src='docs/resources/tesla.gif' height="200px" width="200px">  
+  <img src='docs/resources/b5i.gif' height="200px" width="200px">
+  <img src='docs/resources/b5.gif' height="200px" width="200px">
 </div>
+
 
 * 🔥 (20210915) Added [YOLOP](https://github.com/hustvl/YOLOP) Panoptic 🚗 Perception! Use it through [*lite::cv::detection::YOLOP*](#lite.ai.toolkit-object-detection) ! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolop.cpp).
 * ✅ (20210807) Added [YoloR](https://github.com/WongKinYiu/yolor) ! Use it through [*lite::cv::detection::YoloR*](#lite.ai.toolkit-object-detection) syntax ! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolor.cpp).
