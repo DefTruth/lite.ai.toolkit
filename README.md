@@ -530,10 +530,15 @@ static void test_default()
 The output is:
 
 <div align='center'>
-  <img src='docs/resources/rvm0is.gif' height="200px" width="200px">
-  <img src='docs/resources/rvm0s.gif' height="200px" width="200px">
-  <img src='docs/resources/rvm1is.gif' height="200px" width="200px">
-  <img src='docs/resources/rvm1s.gif' height="200px" width="200px">
+  <img src='docs/resources/interviewi.gif' height="200px" width="200px">
+  <img src='docs/resources/interview.gif' height="200px" width="200px">  
+  <img src='docs/resources/dance3i.gif' height="200px" width="200px">
+  <img src='docs/resources/dance3.gif' height="200px" width="200px">
+  <br>
+  <img src='docs/resources/teslai.gif' height="200px" width="200px">
+  <img src='docs/resources/tesla.gif' height="200px" width="200px">  
+  <img src='docs/resources/b5i.gif' height="200px" width="200px">
+  <img src='docs/resources/b5.gif' height="200px" width="200px">
 </div>
 
 
@@ -1226,10 +1231,15 @@ static void test_default()
 The output is:
 
 <div align='center'>
-  <img src='docs/resources/rvm0is.gif' height="200px" width="200px">
-  <img src='docs/resources/rvm0s.gif' height="200px" width="200px">
-  <img src='docs/resources/rvm1is.gif' height="200px" width="200px">
-  <img src='docs/resources/rvm1s.gif' height="200px" width="200px">
+  <img src='docs/resources/interviewi.gif' height="200px" width="200px">
+  <img src='docs/resources/interview.gif' height="200px" width="200px">  
+  <img src='docs/resources/dance3i.gif' height="200px" width="200px">
+  <img src='docs/resources/dance3.gif' height="200px" width="200px">
+  <br>
+  <img src='docs/resources/teslai.gif' height="200px" width="200px">
+  <img src='docs/resources/tesla.gif' height="200px" width="200px">  
+  <img src='docs/resources/b5i.gif' height="200px" width="200px">
+  <img src='docs/resources/b5.gif' height="200px" width="200px">
 </div>
 
 
@@ -1348,6 +1358,7 @@ The code of [Lite.AI.ToolKit](#lite.ai.toolkit-Introduction) is released under t
 
 Many thanks to these following projects. All the Lite.AI.ToolKit's models are sourced from these repos. 
 
+* [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) (🔥🔥🔥new!!↑)
 * [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥🔥new!!↑)
 * [YOLOP](https://github.com/hustvl/YOLOP) (🔥🔥new!!↑)
 * [YOLOR](https://github.com/WongKinYiu/yolor) (🔥🔥new!!↑)
