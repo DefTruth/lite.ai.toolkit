@@ -1351,7 +1351,7 @@ Other build documents for different engines and different targets will be added 
 
 <div id="lite.ai.toolkit-License"></div>
 
-The code of [Lite.AI.ToolKit](#lite.ai.toolkit-Introduction) is released under the MIT License.
+The code of [Lite.AI.ToolKit](#lite.ai.toolkit-Introduction) is released under the GPL-3.0 License.
 
 
 ## 7. References.  
