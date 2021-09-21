@@ -32,29 +32,31 @@
 
 ---
 
-*Lite.AI.ToolKit* 🚀🚀🌟: A lite C++ toolkit of awesome AI models which contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* models now. It's a collection of personal interests. Such as YOLOX, YOLOP, YOLOR, YoloV5, YoloV4, DeepLabV3, ArcFace, etc. *Lite.AI.ToolKit* based on *[onnxruntime](https://github.com/microsoft/onnxruntime)* by default. I do have plans to reimplement it with *[ncnn](https://github.com/Tencent/ncnn)* and *[MNN](https://github.com/alibaba/MNN)*, but not coming soon. The core features of *Lite.AI.ToolKit* are listed as follows.
+*Lite.AI.ToolKit* 🚀🚀🌟: A lite C++ toolkit of awesome AI models which contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* models now. It's a collection of personal interests. Such as YOLOX, YOLOP, YOLOR, YoloV5, YoloV4, DeepLabV3, ArcFace, etc. *Lite.AI.ToolKit* based on *[onnxruntime](https://github.com/microsoft/onnxruntime)* by default. I do have plans to reimplement it with *[ncnn](https://github.com/Tencent/ncnn)* and *[MNN](https://github.com/alibaba/MNN)*, but not coming soon. 
 
----
+---  
 
-* *Simply and User friendly.*   
+### Core Features of Lite.AI.ToolKit 🚀🚀🌟
+
+* 😎*Simply and User friendly.*   
   To use Lite.AI.ToolKit, you do not need to have a lot of AI skills, C++ is enough. You can use these awesome models simply through *lite::cv::Type::Class* syntax, see [examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
   ```c++
     auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only !
     auto *yolov5 = new lite::cv::detection::YoloV5("yolov5s.onnx");  // for mobile device  
   ```
-* *Minimum Dependencies & Easy to build.*  
+* ⚡*Minimum Dependencies & Easy to build.*  
   Currently, Lite.AI.ToolKit only depends on OpencV and ONNXRuntime. 🚀 You can download the latest *ONNXRuntime* official built libs from [v1.8.1](https://github.com/microsoft/onnxruntime/releases), [v1.7.0](https://github.com/microsoft/onnxruntime/releases/tag/v1.7.0). No more attentions needed pay to build it from source. On MacOS, it takes only a few lines of command to build Lite.AI.ToolKit, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit).
     ```shell
     git clone --depth=1 https://github.com/DefTruth/lite.ai.toolkit.git  # latest
     cd lite.ai.toolkit && sh ./build.sh  # On MacOS, you can use the built OpenCV and ONNXRuntime libs in this repo.
     ```
-* *Cross-platform support.*  
+* 😎*Cross-platform support.*  
   Lite.AI.ToolKit support MacOS/Linux/Windows and CPU/GPU now. More platforms may be supported in the future ~
   
-* *Lots of Algorithm Modules.*  
+* 😎*Lots of Algorithm Modules.*  
   Currently, Lite.AI.ToolKit includes 10+ modules for Computer Vision, such as [object detection](#lite.ai.toolkit-object-detection), [face detection](#lite.ai.toolkit-face-detection), [face alignment](#lite.ai.toolkit-face-alignment), [face recognition](#lite.ai.toolkit-face-recognition), [segmentation](#lite.ai.toolkit-segmentation), [matting](#lite.ai.toolkit-matting), etc. See [model zoo](#lite.ai.toolkit-Model-Zoo).
   
-* *Releases Lists and Documentation.*  
+* ⚡*Releases Lists and Documentation.*  
   Now, for MacOS, you can download the released built lib of Lite.AI.ToolKit and all the needed dependencies. A minimum quick start to show you how to link Lite.AI.ToolKit correctly can be found at [lite.ai.toolkit.demo](https://github.com/DefTruth/lite.ai.toolkit.demo).
   * 👉[lite.ai.toolkit.macos.v0.1.0](https://github.com/DefTruth/lite.ai.toolkit.demo/tree/main/releases/macos/v0.1.0)
 
