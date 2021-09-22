@@ -195,8 +195,8 @@ void RobustVideoMatting::generate_matting(std::vector<Ort::Value> &output_tensor
   float *fgr_ptr = fgr.GetTensorMutableData<float>();
   float *pha_ptr = pha.GetTensorMutableData<float>();
   cv::Mat rmat(height, width, CV_32FC1, fgr_ptr);
-  cv::Mat bmat(height, width, CV_32FC1, fgr_ptr + channel_step);
-  cv::Mat gmat(height, width, CV_32FC1, fgr_ptr + 2 * channel_step);
+  cv::Mat gmat(height, width, CV_32FC1, fgr_ptr + channel_step);
+  cv::Mat bmat(height, width, CV_32FC1, fgr_ptr + 2 * channel_step);
   cv::Mat pmat(height, width, CV_32FC1, pha_ptr);
   rmat *= 255.;
   bmat *= 255.;
@@ -218,42 +218,6 @@ void RobustVideoMatting::generate_matting(std::vector<Ort::Value> &output_tensor
   cv::merge(merge_channel_mats, content.merge_mat);
   content.fgr_mat.convertTo(content.fgr_mat, CV_8UC3);
   content.merge_mat.convertTo(content.merge_mat, CV_8UC3);
-
-//  content.fgr_mat = cv::Mat(height, width, CV_8UC3, cv::Scalar(0, 0, 0)); // BGR
-//  content.pha_mat = cv::Mat(height, width, CV_32FC1, cv::Scalar(0.f));
-//  content.merge_mat = cv::Mat(height, width, CV_8UC3, cv::Scalar(153, 255, 120)); // BGR
-//
-//  for (unsigned int i = 0; i < height; ++i)
-//  {
-//    // row ptr
-//    float *p_pha = content.pha_mat.ptr<float>(i);
-//    cv::Vec3b *p_fgr = content.fgr_mat.ptr<cv::Vec3b>(i);
-//    cv::Vec3b *p_merge = content.merge_mat.ptr<cv::Vec3b>(i);
-//    // (CHW->HWC).
-//    for (unsigned int j = 0; j < width; ++j)
-//    {
-//      float pha_ij = pha.At<float>({0, 0, i, j}); // 0.~1.
-//      float fgr_ij_b = fgr.At<float>({0, 2, i, j}); // 0.~1. B
-//      float fgr_ij_g = fgr.At<float>({0, 1, i, j}); // 0.~1. G
-//      float fgr_ij_r = fgr.At<float>({0, 0, i, j}); // 0.~1. R
-//      // pha
-//      p_pha[j] = pha_ij;
-//      // fgr
-//      p_fgr[j][0] = cv::saturate_cast<uchar>(fgr_ij_b * 255.f); // B
-//      p_fgr[j][1] = cv::saturate_cast<uchar>(fgr_ij_g * 255.f); // G
-//      p_fgr[j][2] = cv::saturate_cast<uchar>(fgr_ij_r * 255.f); // R
-//      // merge
-//      p_merge[j][0] = cv::saturate_cast<uchar>(
-//          (float) p_fgr[j][0] * pha_ij + (float) p_merge[j][0] * (1.f - pha_ij)
-//      );
-//      p_merge[j][1] = cv::saturate_cast<uchar>(
-//          (float) p_fgr[j][1] * pha_ij + (float) p_merge[j][1] * (1.f - pha_ij)
-//      );
-//      p_merge[j][2] = cv::saturate_cast<uchar>(
-//          (float) p_fgr[j][2] * pha_ij + (float) p_merge[j][2] * (1.f - pha_ij)
-//      );
-//    }
-//  }
 
   content.flag = true;
 }
