@@ -32,7 +32,7 @@
 
 ---
 
-*Lite.AI.ToolKit* 🚀🚀🌟: A lite `C++` toolkit of awesome AI models which contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* models now. It's a collection of personal interests. Such as RVM, YOLOX, YOLOP, YOLOR, YoloV5, DeepLabV3, ArcFace, etc. *Lite.AI.ToolKit* based on *[ONNXRuntime C++](https://github.com/microsoft/onnxruntime)* by default. I do have plans to reimplement it with *[ncnn](https://github.com/Tencent/ncnn)* and *[MNN](https://github.com/alibaba/MNN)*, but not coming soon. Currently, I mainly consider its ease of use. Developers who need higher performance support can optimize based on the `C++` implementation and `ONNX` files provided by this repo~ If you have a new model that you want to add to this repo, welcome to open a `PR`~ 👏👋
+*Lite.AI.ToolKit* 🚀🚀🌟: A lite `C++` toolkit of awesome AI models which contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* models now. It's a collection of personal interests. Such as RVM, YOLOX, YOLOP, YOLOR, YoloV5, DeepLabV3, ArcFace, etc. *Lite.AI.ToolKit* based on *[ONNXRuntime C++](https://github.com/microsoft/onnxruntime)* by default. I do have plans to reimplement it with *[ncnn](https://github.com/Tencent/ncnn)* and *[MNN](https://github.com/alibaba/MNN)*, but not coming soon. Currently, I mainly consider its ease of use. Developers who need higher performance can optimize based on the `C++` implementation and `ONNX` files provided by this repo~ welcome to open a `PR`~ 👏👋, if you want to add a new model to this repo.
 
 ---  
 
