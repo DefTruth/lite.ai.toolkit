@@ -52,7 +52,7 @@
     cd lite.ai.toolkit && sh ./build.sh  # On MacOS, you can use the built OpenCV and ONNXRuntime libs in this repo.
     ```
 * ✅ *Cross-Platform support.*  
-  Support [MacOS/Linux/Windows](#lite.ai.toolkit-Introduction) and CPU/GPU now. More platforms and frameworks may be supported in the future ~
+  Support [MacOS/Linux/Windows](#lite.ai.toolkit-Introduction) and CPU/GPU now. More platforms may be supported in the future ~
   
 * ❤️ *Lots of Algorithm Modules.*  
   Contains 10+ modules and *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* famous models for Computer Vision now, such as [object detection](#lite.ai.toolkit-object-detection), [face detection](#lite.ai.toolkit-face-detection), [face alignment](#lite.ai.toolkit-face-alignment), [face recognition](#lite.ai.toolkit-face-recognition), [segmentation](#lite.ai.toolkit-segmentation), [matting](#lite.ai.toolkit-matting), etc. See [model zoo](#lite.ai.toolkit-Model-Zoo). New models will continue to be added ~ 😎
@@ -94,17 +94,19 @@ Cite it as follows if you use *Lite.AI.ToolKit*. Star 🌟👆🏻 this repo if 
 
 
 * 🔥 (20210915) Added [YOLOP](https://github.com/hustvl/YOLOP) Panoptic 🚗 Perception! Use it through [*lite::cv::detection::YOLOP*](#lite.ai.toolkit-object-detection) ! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolop.cpp).
+
+<div align='center'>
+  <img src='docs/resources/yolop1.png' height="100px" width="200px">
+  <img src='docs/resources/yolop1.gif' height="100px" width="200px">
+  <img src='docs/resources/yolop2.png' height="100px" width="200px">
+  <img src='docs/resources/yolop2.gif' height="100px" width="200px">
+
+</div>   
+
+
 * ✅ (20210807) Added [YoloR](https://github.com/WongKinYiu/yolor) ! Use it through [*lite::cv::detection::YoloR*](#lite.ai.toolkit-object-detection) syntax ! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolor.cpp).
 * ✅ (20210731) Added [RetinaFace-CVPR2020](https://github.com/biubug6/Pytorch_Retinaface) for face detection, 1.6Mb only! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_retinaface.cpp).
 * 🔥 (20210721) Added [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)! Use it through [*lite::cv::detection::YoloX*](#lite.ai.toolkit-object-detection) syntax ! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolox.cpp).  
-
-<div align='center'>
-  <img src='docs/resources/yolop1.png' height="200px" width="200px">
-  <img src='docs/resources/yolop1.gif' height="200px" width="200px">
-  <img src='docs/resources/yolop2.png' height="200px" width="200px">
-  <img src='docs/resources/yolop2.gif' height="200px" width="200px">
-
-</div>   
 
 
 <details>
