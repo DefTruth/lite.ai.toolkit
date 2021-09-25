@@ -82,15 +82,14 @@ Cite it as follows if you use *Lite.AI.ToolKit*. Star 🌟👆🏻 this repo if 
 * 🔥 (20210920) Added [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)! Use it through [*lite::cv::matting::RobustVideoMatting*](#lite.ai.toolkit-matting) ! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_rvm.cpp).  
 
 <div align='center'>
-  <img src='docs/resources/interviewi.gif' height="200px" width="200px">
-  <img src='docs/resources/interview.gif' height="200px" width="200px">  
-  <img src='docs/resources/dance3i.gif' height="200px" width="200px">
-  <img src='docs/resources/dance3.gif' height="200px" width="200px">
-  <br>
-  <img src='docs/resources/teslai.gif' height="200px" width="200px">
-  <img src='docs/resources/tesla.gif' height="200px" width="200px">  
-  <img src='docs/resources/b5i.gif' height="200px" width="200px">
-  <img src='docs/resources/b5.gif' height="200px" width="200px">
+  <img src='docs/resources/interviewi.gif' height="100px" width="100px">
+  <img src='docs/resources/interview.gif' height="100px" width="100px">  
+  <img src='docs/resources/dance3i.gif' height="100px" width="100px">
+  <img src='docs/resources/dance3.gif' height="100px" width="100px">
+  <img src='docs/resources/teslai.gif' height="100px" width="100px">
+  <img src='docs/resources/tesla.gif' height="100px" width="100px">  
+  <img src='docs/resources/b5i.gif' height="100px" width="100px">
+  <img src='docs/resources/b5.gif' height="100px" width="100px">
 </div>
 
 
