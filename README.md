@@ -58,8 +58,10 @@
   Contains 10+ modules and *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* famous models for Computer Vision now, such as [object detection](#lite.ai.toolkit-object-detection), [face detection](#lite.ai.toolkit-face-detection), [face alignment](#lite.ai.toolkit-face-alignment), [face recognition](#lite.ai.toolkit-face-recognition), [segmentation](#lite.ai.toolkit-segmentation), [matting](#lite.ai.toolkit-matting), etc. See [model zoo](#lite.ai.toolkit-Model-Zoo). New models will continue to be added ~ 😎
   
 * ✅ *Latest Release and Documentation.*  
-  For MacOS, you can download the released built lib of *Lite.AI.ToolKit* and all the needed dependencies. A minimum quick start to show you how to link Lite.AI.ToolKit correctly can be found at [lite.ai.toolkit.demo](https://github.com/DefTruth/lite.ai.toolkit.demo).  Click the link of [demo](#lite.ai.toolkit-Model-Zoo) for specific model will show you the usage directly.
-  * 👉[lite.ai.toolkit.macos.v0.1.0](https://github.com/DefTruth/lite.ai.toolkit.demo/tree/main/releases/macos/v0.1.0). 
+  
+  |Release|Quick Start|Usage| 
+  |:---:|:---:|:---:| 
+  | 👉 [lite.ai.toolkit.macos.v0.1.0](https://github.com/DefTruth/lite.ai.toolkit.demo/tree/main/releases/macos/v0.1.0) |  👉 [lite.ai.toolkit.demo](https://github.com/DefTruth/lite.ai.toolkit.demo) & [Quick Start Examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit) |  👉 [lite.ai.toolkit.examples](https://github.com/DefTruth/lite.ai.toolkit/tree/main/examples/lite/cv) |
 
 ---
 
@@ -474,7 +476,7 @@ Note, I can not upload all the *.onnx files because of the storage limitation of
 
 <div id="lite.ai.toolkit-Examples-for-Lite.AI.ToolKit"></div>
 
-More examples can be found at [lite.ai.toolkit-demos](https://github.com/DefTruth/lite.ai.toolkit/tree/main/examples/lite/cv).  Note that the default backend for *Lite.AI.ToolKit* is `onnxruntime`, for the reason that onnxruntime supports the most of onnx's operators. Click the Expand ▶️ button will show you more examples for the specific topic you are interested in.
+More examples can be found at [lite.ai.toolkit.examples](https://github.com/DefTruth/lite.ai.toolkit/tree/main/examples/lite/cv).  Note that the default backend for *Lite.AI.ToolKit* is `onnxruntime`, for the reason that onnxruntime supports the most of onnx's operators. Click the Expand ▶️ button will show you more examples for the specific topic you are interested in.
 
 <div id="lite.ai.toolkit-object-detection"></div>
 
