@@ -55,7 +55,7 @@
   Support [MacOS/Linux/Windows](#lite.ai.toolkit-Introduction) and CPU/GPU now. More platforms may be supported in the future ~
   
 * ❤️ *Lots of Algorithm Modules.*  
-  Contains 10+ modules and *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* famous models for Computer Vision now, such as [object detection](#lite.ai.toolkit-object-detection), [face detection](#lite.ai.toolkit-face-detection), [face alignment](#lite.ai.toolkit-face-alignment), [face recognition](#lite.ai.toolkit-face-recognition), [segmentation](#lite.ai.toolkit-segmentation), [matting](#lite.ai.toolkit-matting), etc. See [model zoo](#lite.ai.toolkit-Model-Zoo). New models will continue to be added ~ 😎
+    Contains 10+ modules and *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* famous models now, such as [object detection](#lite.ai.toolkit-object-detection), [face detection](#lite.ai.toolkit-face-detection), [face recognition](#lite.ai.toolkit-face-recognition), [segmentation](#lite.ai.toolkit-segmentation), [matting](#lite.ai.toolkit-matting), etc. See [Model Zoo](#lite.ai.toolkit-Model-Zoo). New models will continue to be added ~ 😎
   
 * ✅ *Latest Release and Documentation.*  
   
