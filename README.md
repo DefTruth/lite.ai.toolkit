@@ -32,7 +32,7 @@
 
 ---
 
-*Lite.AI.ToolKit* 🚀🚀🌟: A lite C++ toolkit of awesome AI models which contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* models now. It's a collection of personal interests. Such as YOLOX, YOLOP, YOLOR, YoloV5, YoloV4, DeepLabV3, ArcFace, etc. *Lite.AI.ToolKit* based on *[onnxruntime](https://github.com/microsoft/onnxruntime)* by default. I do have plans to reimplement it with *[ncnn](https://github.com/Tencent/ncnn)* and *[MNN](https://github.com/alibaba/MNN)*, but not coming soon. 
+*Lite.AI.ToolKit* 🚀🚀🌟: A lite `C++` toolkit of awesome AI models which contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* models now. It's a collection of personal interests. Such as RVM, YOLOX, YOLOP, YOLOR, YoloV5, DeepLabV3, ArcFace, etc. *Lite.AI.ToolKit* based on *[ONNXRuntime C++](https://github.com/microsoft/onnxruntime)* by default. I do have plans to reimplement it with *[ncnn](https://github.com/Tencent/ncnn)* and *[MNN](https://github.com/alibaba/MNN)*, but not coming soon. Currently, I mainly consider its ease of use. Developers who need higher performance support can optimize based on the `C++` implementation and `ONNX` files provided by this repo~ If you have a new model that you want to add to this repo, welcome to open a `PR`~ 👏👋
 
 ---  
 
@@ -157,7 +157,7 @@ Build the shared lib of *Lite.AI.ToolKit* for *MacOS* from sources. Note that Li
 
 * Windows: You can reference to [issue#6](https://github.com/DefTruth/lite.ai.toolkit/issues/6)  
 * Linux: The Docs and Docker image for Linux will be coming soon ~ [issue#2](https://github.com/DefTruth/lite.ai.toolkit/issues/2)  
-* Happy News !!! : 🚀 You can download the latest *ONNXRuntime* official built libs of Windows, Linux, MacOS and Arm !!! Both CPU and GPU versions are available. No more attentions needed pay to build it from source. Download the official built libs from [v1.8.1](https://github.com/microsoft/onnxruntime/releases). I have used version 1.7.0 for Lite.AI.ToolKit now, you can downlod it from [v1.7.0](https://github.com/microsoft/onnxruntime/releases/tag/v1.7.0), but version 1.8.1 should also work, I guess ~  🙃🤪🍀. For *OpenCV*, try to build from source(Linux) or down load the official built(Windows) from [OpenCV 4.5.3](https://github.com/opencv/opencv/releases). Then put the includes and libs into *third_party* directory of Lite.AI. 
+* Happy News !!! : 🚀 You can download the latest *ONNXRuntime* official built libs of Windows, Linux, MacOS and Arm !!! Both CPU and GPU versions are available. No more attentions needed pay to build it from source. Download the official built libs from [v1.8.1](https://github.com/microsoft/onnxruntime/releases). I have used version 1.7.0 for Lite.AI.ToolKit now, you can downlod it from [v1.7.0](https://github.com/microsoft/onnxruntime/releases/tag/v1.7.0), but version 1.8.1 should also work, I guess ~  🙃🤪🍀. For *OpenCV*, try to build from source(Linux) or down load the official built(Windows) from [OpenCV 4.5.3](https://github.com/opencv/opencv/releases). Then put the includes and libs into *third_party* directory of Lite.AI.ToolKit. 
 
 </details>  
 
@@ -264,14 +264,12 @@ A minimum example to show you how to link the shared lib of Lite.AI.ToolKit corr
 
 <div id="lite.ai.toolkit-Model-Zoo"></div>
 
-*Lite.AI.ToolKit* contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* AI models with *[150+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained *.onnx* files now. Note that the models here are all from third-party projects. Most of the models were converted by *Lite.AI.ToolKit*. In Lite.AI.ToolKit, different names of the same algorithm mean that the corresponding models come from different repositories, different implementations, or use different training data, etc. ✅ means passed the test and ⚠️ means not implements yet but coming soon. For classes which denoted ✅, you can use it through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)*. More details can be found at [Examples for Lite.AI.ToolKit](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).  
+*Lite.AI.ToolKit* contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* AI models with *[150+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained *.onnx* files now. Most of the onnx files are converted by myself.You can use it through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)*. More details can be found at [Examples for Lite.AI.ToolKit](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).  
 
 <details>
 <summary> Expand Details for Namespace and Lite.AI.ToolKit modules.</summary>  
 
 ### Namespace and Lite.AI.ToolKit modules.
-*Lite.AI.ToolKit* contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* AI models with *[150+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained *.onnx* files now. They come from different fields of computer vision. Click the Expand ▶️ button for more details.
-
 
 | Namepace                   | Details                                                      |
 | :------------------------- | :----------------------------------------------------------- |
@@ -476,7 +474,7 @@ Note, I can not upload all the *.onnx files because of the storage limitation of
 
 <div id="lite.ai.toolkit-Examples-for-Lite.AI.ToolKit"></div>
 
-More examples can be found at [lite.ai.toolkit.examples](https://github.com/DefTruth/lite.ai.toolkit/tree/main/examples/lite/cv).  Note that the default backend for *Lite.AI.ToolKit* is `onnxruntime`, for the reason that onnxruntime supports the most of onnx's operators. Click the Expand ▶️ button will show you more examples for the specific topic you are interested in.
+More examples can be found at [lite.ai.toolkit.examples](https://github.com/DefTruth/lite.ai.toolkit/tree/main/examples/lite/cv). Click ▶️ will show you more examples for the specific topic you are interested in.
 
 <div id="lite.ai.toolkit-object-detection"></div>
 
@@ -514,7 +512,7 @@ Or you can use Newest 🔥🔥 ! YOLO series's detector [YOLOX](https://github.c
 
 <div id="lite.ai.toolkit-matting"></div>  
 
-#### Example1: Video Matting using [RobustVideoMatting🔥🔥🔥](https://github.com/PeterL1n/RobustVideoMatting). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
+#### Example1: Video Matting using [RobustVideoMatting2021🔥🔥🔥](https://github.com/PeterL1n/RobustVideoMatting). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
 
 ```c++
 #include "lite/lite.h"
