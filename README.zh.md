@@ -1,6 +1,6 @@
 
 
-## Lite.AI.ToolKit 🚀🚀🌟: 一个轻量级的C++ AI模型工具箱
+## Lite.AI.ToolKit 🚀🚀🌟: 一个开箱即用的C++ AI模型工具箱
 
 [![](https://img.shields.io/badge/MacOS-pass-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/releases/tag/v0.1.0) ![](https://img.shields.io/badge/Linux-pass-brightgreen.svg) ![](https://img.shields.io/badge/Windows-pass-brightgreen.svg) [![](https://img.shields.io/badge/Version-0.1.0-green.svg)](https://github.com/DefTruth/lite.ai.toolkit/releases/tag/v0.1.0) ![](https://img.shields.io/badge/Language-C/C%2B%2B-orange.svg) ![](https://img.shields.io/badge/Device-GPU/CPU-yellow.svg) ![](https://img.shields.io/badge/License-GPLv3-blue.svg)
 
