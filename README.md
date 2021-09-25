@@ -1402,4 +1402,6 @@ Many thanks to these following projects. All the Lite.AI.ToolKit's models are so
 
 </details>  
 
+![](https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social) ![](https://img.shields.io/github/forks/DefTruth/lite.ai.toolkit.svg?style=social) ![](https://img.shields.io/github/watchers/DefTruth/lite.ai.toolkit.svg?style=social)
 
+Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀  
