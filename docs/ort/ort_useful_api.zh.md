@@ -1,6 +1,11 @@
-# Some very useful onnxruntime c++ interfaces
+# Some very useful onnxruntime c++ interfaces 
+
+![](https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social) ![](https://img.shields.io/github/forks/DefTruth/lite.ai.toolkit.svg?style=social) ![](https://img.shields.io/github/watchers/DefTruth/lite.ai.toolkit.svg?style=social)
+  
+整理不易，欢迎关注，🌟点赞收藏~ 🙃🤪🍀
+
 ## 前言  
-这份文档主要记录了onnxruntime的一些参考资料，以及本人在使用过程中的一些经验。开卷有益，欢迎关注，持续更新~😄
+这份文档主要记录了onnxruntime的一些参考资料，以及本人在使用过程中的一些经验。
 
 ## 1. onnxruntime官方资料
 * [1] [onnxruntime官网学习资料](https://www.onnxruntime.ai/)
@@ -225,3 +230,7 @@ int main(int argc, char* argv[]) {
 * [7] [onnxruntime添加一个新的execution-provider](https://blog.csdn.net/xxradon/article/details/104100243?spm=1001.2014.3001.5501)
 * [8] [onnxruntime图优化方法说明](https://blog.csdn.net/xxradon/article/details/104117617?spm=1001.2014.3001.5501)
 * [9] [onnx结构分析](https://blog.csdn.net/u013597931/article/details/84401047?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-4.baidujs&dist_request_id=&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-4.baidujs)
+
+![](https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social) ![](https://img.shields.io/github/forks/DefTruth/lite.ai.toolkit.svg?style=social) ![](https://img.shields.io/github/watchers/DefTruth/lite.ai.toolkit.svg?style=social)
+
+整理不易，欢迎关注，🌟点赞收藏~ 🙃🤪🍀
