@@ -28,45 +28,32 @@
 
 </div>    
 
-![](https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social) ![](https://img.shields.io/github/forks/DefTruth/lite.ai.toolkit.svg?style=social) ![](https://img.shields.io/github/watchers/DefTruth/lite.ai.toolkit.svg?style=social)
 
 
-
----
 
 *Lite.AI.ToolKit* 🚀🚀🌟: 一个轻量级的`C++` AI模型工具箱，用户友好，开箱即用。已经包括 *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* 流行的开源模型，还会继续增加😎。这是一个根据个人兴趣整理的C++工具箱，目前主要集中在`检测、分割、抠图、识别和目标跟踪`等领域，包含了最新的RVM, YOLOX, YOLOP, YOLOR, YoloV5, DeepLabV3, ArcFace等模型。 *Lite.AI.ToolKit* 默认是基于 *[ONNXRuntime C++](https://github.com/microsoft/onnxruntime)* 推理引擎的，后期可能会加入对 *[ncnn](https://github.com/Tencent/ncnn)* 或 *[MNN](https://github.com/alibaba/MNN)* 的支持，目前主要考虑易用性。需要更高性能支持的小伙伴可以基于本项目提供的`C++`实现和`ONNX`文件进行优化~ 如果您有想添加到本项目的新模型，欢迎`PR` ~👏👋 
 
-<p align="center"><a href="README.zh.md">English</a> | 中文 </p>
+<p align="center"><a href="README.md">English</a> | 中文 </p>
 
 ---  
 
-### Lite.AI.ToolKit 🚀🚀🌟 的核心特性  
+### Lite.AI.ToolKit 🚀🚀🌟 的核心特性  ![](https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social) ![](https://img.shields.io/github/forks/DefTruth/lite.ai.toolkit.svg?style=social) ![](https://img.shields.io/github/watchers/DefTruth/lite.ai.toolkit.svg?style=social)
 
-* ❤️ *用户友好，开箱即用。*  
-  使用简单一致的调用语法，如*lite::cv::Type::Class*，详见[examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
-  ```c++
-    auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only !
-    auto *yolov5 = new lite::cv::detection::YoloV5("yolov5s.onnx");  // for mobile device  
-  ```
-* ⚡ *少量依赖，构建容易。*  
-  目前, 只依赖 *OpenCV* 和 *ONNXRuntime*，详见[build](#lite.ai.toolkit-Build-Lite.AI.ToolKit)。对于 MacOS，只需运行.👇
-    ```shell
-    git clone --depth=1 https://github.com/DefTruth/lite.ai.toolkit.git  # 最新源码
-    cd lite.ai.toolkit && sh ./build.sh  # 对于MacOS, 你可以直接利用本项目包含的依赖库，无需重新编译
-    ```
-* ✅ *多平台编译支持，GPU/CPU支持。*  
-  目前，支持 [MacOS/Linux/Windows](#lite.ai.toolkit-Introduction) 和 CPU/GPU。未来会对更多平台进行支持~
+* ❤️ *用户友好，开箱即用。* 👉使用简单一致的调用语法，如*lite::cv::Type::Class*，详见[examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
+ 
+* ⚡ *少量依赖，构建容易。* 👉目前, 只依赖 *OpenCV* 和 *ONNXRuntime*，详见[build](#lite.ai.toolkit-Build-Lite.AI.ToolKit)。
+   
+* ✅ *多平台编译支持，GPU/CPU支持。* 👉目前，支持 [MacOS/Linux/Windows](#lite.ai.toolkit-Introduction) 和 CPU/GPU。
 
-* ❤️ *众多的算法模块，且持续更新*  
-  目前，包括 10+ 算法模块和 *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* 流行的开源模型, 涵盖[目标检测](#lite.ai.toolkit-object-detection)、[人脸检测](#lite.ai.toolkit-face-detection)、[人脸识别](#lite.ai.toolkit-face-recognition)、[语义分割](#lite.ai.toolkit-segmentation)、[抠图](#lite.ai.toolkit-matting)等领域。详见 [Model Zoo](#lite.ai.toolkit-Model-Zoo)。更多的新模型将会不断地加入进来 ~ 😎
-
-* ✅ *最新的发行版本，以及详细的文档。*
-
-  |发行版本|快速开始|详细用法| 
+* ❤️ *众多的算法模块，且持续更新。* 👉目前，包括 10+ 算法模块和 *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* 流行的开源模型, 涵盖[目标检测](#lite.ai.toolkit-object-detection)、[人脸检测](#lite.ai.toolkit-face-detection)、[人脸识别](#lite.ai.toolkit-face-recognition)、[语义分割](#lite.ai.toolkit-segmentation)、[抠图](#lite.ai.toolkit-matting)等领域。详见 [Model Zoo](#lite.ai.toolkit-Model-Zoo)。更多的新模型将会不断地加入进来 ~ 😎
+  
+  |最新发行版本|快速开始|详细用法| 
     |:---:|:---:|:---:| 
   | 👉 [lite.ai.toolkit.macos.v0.1.0](https://github.com/DefTruth/lite.ai.toolkit.demo/tree/main/releases/macos/v0.1.0) |  👉 [lite.ai.toolkit.demo](https://github.com/DefTruth/lite.ai.toolkit.demo) & [Quick Start Examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit) |  👉 [lite.ai.toolkit.examples](https://github.com/DefTruth/lite.ai.toolkit/tree/main/examples/lite/cv) |
 
 ---
+
+
 
 ## 重要更新 !!!
 
@@ -150,17 +137,9 @@
 
 </details>  
 
-
-* 下载Lite.AI.ToolKit源码:
 ```shell
-git clone --depth=1 https://github.com/DefTruth/lite.ai.toolkit.git  # latest
-```
-
-
-* 编译动态库.
-```shell
-cd lite.ai.toolkit
-sh ./build.sh
+    git clone --depth=1 https://github.com/DefTruth/lite.ai.toolkit.git  # 最新源码
+    cd lite.ai.toolkit && sh ./build.sh  # 对于MacOS, 你可以直接利用本项目包含的依赖库，无需重新编译
 ```
 
 * GPU兼容性: 详见[issue#10](https://github.com/DefTruth/lite.ai.toolkit/issues/10).
