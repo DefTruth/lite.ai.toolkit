@@ -1,8 +1,6 @@
 
 
-## Lite.AI.ToolKit 🚀🚀🌟: 一个开箱即用的C++ AI模型工具箱
-
-[![](https://img.shields.io/badge/MacOS-pass-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/releases/tag/v0.1.0) ![](https://img.shields.io/badge/Linux-pass-brightgreen.svg) ![](https://img.shields.io/badge/Windows-pass-brightgreen.svg) [![](https://img.shields.io/badge/Version-0.1.0-green.svg)](https://github.com/DefTruth/lite.ai.toolkit/releases/tag/v0.1.0) ![](https://img.shields.io/badge/Language-C/C%2B%2B-orange.svg) ![](https://img.shields.io/badge/Device-GPU/CPU-yellow.svg) ![](https://img.shields.io/badge/License-GPLv3-blue.svg)
+## <p align="center"> Lite.AI.ToolKit 🚀🚀🌟: 一个开箱即用的C++ AI模型工具箱</p>
 
 
 <div id="lite.ai.toolkit-Introduction"></div>  
@@ -28,6 +26,17 @@
 
 </div>    
 <p align="center"><a href="README.md">English</a> | 中文 </p>
+
+
+<div align='center'>
+  <img src=https://img.shields.io/badge/MacOS-pass-brightgreen.svg >
+  <img src=https://img.shields.io/badge/Linux-pass-brightgreen.svg >
+  <img src=https://img.shields.io/badge/Windows-pass-brightgreen.svg >
+  <img src=https://img.shields.io/badge/Version-0.1.0-green.svg >
+  <img src=https://img.shields.io/badge/Language-C/C%2B%2B-orange.svg >
+  <img src=https://img.shields.io/badge/Device-GPU/CPU-yellow.svg >
+  <img src=https://img.shields.io/badge/License-GPLv3-blue.svg >
+</div>    
 
 <div align='center'>
   <img src=https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social >
