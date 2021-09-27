@@ -39,9 +39,6 @@
 <p align="center">English | <a href="README.zh.md">中文</a></p>
 
 
-
-### Core Features 🚀🚀🌟 
-
 * ❤️ *Simply and User friendly.* 👉 Simply and Consistent syntax like *lite::cv::Type::Class*, see [examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
 * ⚡ *Minimum Dependencies & Easy to build.* 👉 Only *OpenCV* and *ONNXRuntime* are required, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit). 
 * ✅ *Cross-Platform support.* 👉Support [MacOS/Linux/Windows](#lite.ai.toolkit-Introduction) and CPU/GPU now. 
