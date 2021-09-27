@@ -43,11 +43,8 @@
 ### Core Features 🚀🚀🌟 
 
 * ❤️ *Simply and User friendly.* 👉 Simply and Consistent syntax like *lite::cv::Type::Class*, see [examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
-  
 * ⚡ *Minimum Dependencies & Easy to build.* 👉 Only *OpenCV* and *ONNXRuntime* are required, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit). 
-   
 * ✅ *Cross-Platform support.* 👉Support [MacOS/Linux/Windows](#lite.ai.toolkit-Introduction) and CPU/GPU now. 
-  
 * ❤️ *Lots of Algorithm Modules.* 👉 Contains 10+ modules and *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* famous models now, such as [object detection](#lite.ai.toolkit-object-detection), [face detection](#lite.ai.toolkit-face-detection), [face recognition](#lite.ai.toolkit-face-recognition), [segmentation](#lite.ai.toolkit-segmentation), [matting](#lite.ai.toolkit-matting), etc. See [Model Zoo](#lite.ai.toolkit-Model-Zoo). New models will continue to be added ~ 😎
 
   |Latest Release|Quick Start|Usage| 
