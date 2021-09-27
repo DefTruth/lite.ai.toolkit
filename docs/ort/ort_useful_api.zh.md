@@ -320,7 +320,7 @@ int main(int argc, char* argv[]) {
 * [1] [FCNResNet101 语义分割 ONNXRuntime C++实现](https://github.com/DefTruth/lite.ai.toolkit/blob/main/ort/cv/fcn_resnet101.cpp)
 
 ### 12.10 风格迁移  
-* [0] [FastStyleTransfer 8种自然风格迁移 ONNXRuntime C++实现](https://github.com/DefTruth/lite.ai.toolkit/blob/main/ort/cv/fsat_style_transfer.cpp)
+* [0] [FastStyleTransfer 8种自然风格迁移 ONNXRuntime C++实现](https://github.com/DefTruth/lite.ai.toolkit/blob/main/ort/cv/fast_style_transfer.cpp)
 
 ### 12.11 图片着色  
 * [0] [Colorizer 灰色图片变彩色 ONNXRuntime C++实现](https://github.com/DefTruth/lite.ai.toolkit/blob/main/ort/cv/colorizer.cpp) 
