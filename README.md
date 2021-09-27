@@ -27,6 +27,8 @@
 
 </div>    
 
+<p align="center">English | <a href="README.zh.md">中文</a></p>
+
 <div align='center'>
   <img src=https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social >
   <img src=https://img.shields.io/github/forks/DefTruth/lite.ai.toolkit.svg?style=social >
@@ -45,7 +47,6 @@
   |:---:|:---:|:---:| 
   | [lite.ai.toolkit.macos.v0.1.0](https://github.com/DefTruth/lite.ai.toolkit.demo/tree/main/releases/macos/v0.1.0) | [lite.ai.toolkit.demo](https://github.com/DefTruth/lite.ai.toolkit.demo) & [Quick Start Examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit) | [lite.ai.toolkit.examples](https://github.com/DefTruth/lite.ai.toolkit/tree/main/examples/lite/cv) |
   
-<p align="center">English | <a href="README.zh.md">中文</a></p>
 
 ## Important Notes !!!  
 
