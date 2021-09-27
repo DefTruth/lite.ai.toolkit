@@ -29,7 +29,11 @@
 </div>    
 
 
-
+<div align='center'>
+  <img src=https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social >
+  <img src=https://img.shields.io/github/forks/DefTruth/lite.ai.toolkit.svg?style=social >
+  <img src=https://img.shields.io/github/watchers/DefTruth/lite.ai.toolkit.svg?style=social>
+</div>    
 
 *Lite.AI.ToolKit* 🚀🚀🌟: 一个轻量级的`C++` AI模型工具箱，用户友好，开箱即用。已经包括 *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* 流行的开源模型，还会继续增加😎。这是一个根据个人兴趣整理的C++工具箱，目前主要集中在`检测、分割、抠图、识别和目标跟踪`等领域，包含了最新的RVM, YOLOX, YOLOP, YOLOR, YoloV5, DeepLabV3, ArcFace等模型。 *Lite.AI.ToolKit* 默认是基于 *[ONNXRuntime C++](https://github.com/microsoft/onnxruntime)* 推理引擎的，后期可能会加入对 *[ncnn](https://github.com/Tencent/ncnn)* 或 *[MNN](https://github.com/alibaba/MNN)* 的支持，目前主要考虑易用性。需要更高性能支持的小伙伴可以基于本项目提供的`C++`实现和`ONNX`文件进行优化~ 如果您有想添加到本项目的新模型，欢迎`PR` ~👏👋 
 
@@ -37,7 +41,7 @@
 
 ---  
 
-## 核心特性 🚀🚀🌟 ![](https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social) ![](https://img.shields.io/github/forks/DefTruth/lite.ai.toolkit.svg?style=social) ![](https://img.shields.io/github/watchers/DefTruth/lite.ai.toolkit.svg?style=social)
+### 核心特性 🚀🚀🌟 
 
 * ❤️ *用户友好，开箱即用。* 👉使用简单一致的调用语法，如*lite::cv::Type::Class*，详见[examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
  
@@ -1361,7 +1365,7 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 
 </details>    
 
-## 引用本项目 ![](https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social) ![](https://img.shields.io/github/forks/DefTruth/lite.ai.toolkit.svg?style=social) ![](https://img.shields.io/github/watchers/DefTruth/lite.ai.toolkit.svg?style=social)
+## 引用本项目 
 
 如果您在自己的项目中使用了*Lite.AI.ToolKit*，可考虑按以下方式进行引用。整理不易，欢迎关注，🌟点赞收藏~ 🙃🤪🍀
 ```BibTeX
@@ -1374,5 +1378,9 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 }
 ```  
 
+<div align='center'>
+  <img src=https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social >
+  <img src=https://img.shields.io/github/forks/DefTruth/lite.ai.toolkit.svg?style=social >
+  <img src=https://img.shields.io/github/watchers/DefTruth/lite.ai.toolkit.svg?style=social>
 
-
+</div>    
