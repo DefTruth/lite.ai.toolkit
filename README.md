@@ -38,10 +38,10 @@
 
 *Lite.AI.ToolKit* 🚀🚀🌟: A lite `C++` toolkit of awesome AI models which contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* models now. It's a collection of personal interests. Such as RVM, YOLOX, YOLOP, YOLOR, YoloV5, DeepLabV3, ArcFace, etc. *Lite.AI.ToolKit* based on *[ONNXRuntime C++](https://github.com/microsoft/onnxruntime)* by default. I do have plans to reimplement it with *[ncnn](https://github.com/Tencent/ncnn)* and *[MNN](https://github.com/alibaba/MNN)*, but not coming soon. Currently, I mainly consider its ease of use. Developers who need higher performance can make new optimizations based on the `C++` implementation and `ONNX` files provided by this repo~ Welcome to open a new `PR`~ 👏👋, if you want to add a new model to this repo.
 
-* ❤️ Simply and User friendly. 👉 Simply and Consistent syntax like *lite::cv::Type::Class*, see [examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).  
+* ✅ Simply and User friendly. 👉 Simply and Consistent syntax like *lite::cv::Type::Class*, see [examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).  
 * ⚡ Minimum Dependencies & Easy to build. 👉 Only *OpenCV* and *ONNXRuntime* are required, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit).  
 * ✅ Cross-Platform support. 👉Support [MacOS/Linux/Windows](#lite.ai.toolkit-Introduction) and CPU/GPU now.  
-* ❤️ Lots of Algorithm Modules. 👉 Contains 10+ modules and *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* famous models now, such as [object detection](#lite.ai.toolkit-object-detection), [face detection](#lite.ai.toolkit-face-detection), [face recognition](#lite.ai.toolkit-face-recognition), [segmentation](#lite.ai.toolkit-segmentation), [matting](#lite.ai.toolkit-matting), etc. See [Model Zoo](#lite.ai.toolkit-Model-Zoo). New models will continue to be added ~ 😎  
+* ✅ Lots of Algorithm Modules. 👉 Contains 10+ modules and *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* famous models now, such as [object detection](#lite.ai.toolkit-object-detection), [face detection](#lite.ai.toolkit-face-detection), [face recognition](#lite.ai.toolkit-face-recognition), [segmentation](#lite.ai.toolkit-segmentation), [matting](#lite.ai.toolkit-matting), etc. See [Model Zoo](#lite.ai.toolkit-Model-Zoo). New models will continue to be added ~ 😎  
 
   |Latest Release|Quick Start|Usage| 
   |:---:|:---:|:---:| 
