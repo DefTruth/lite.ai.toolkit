@@ -2,7 +2,7 @@
 
 ![](https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social) ![](https://img.shields.io/github/forks/DefTruth/lite.ai.toolkit.svg?style=social) ![](https://img.shields.io/github/watchers/DefTruth/lite.ai.toolkit.svg?style=social)
 
-整理不易，持续更新，欢迎关注，🌟👆🏻点赞收藏~ 🙃🤪  
+整理不易，持续更新，如果对你有用的话，❤️那就给个⭐️🌟支持一下吧~ 🙃🤪🍀  
 
 ## 前言  
 这份文档主要记录了onnxruntime的一些参考资料，包含C++/Java/Python，以及本人在使用过程中的一些经验。
@@ -333,4 +333,4 @@ int main(int argc, char* argv[]) {
 
 ![](https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social) ![](https://img.shields.io/github/forks/DefTruth/lite.ai.toolkit.svg?style=social) ![](https://img.shields.io/github/watchers/DefTruth/lite.ai.toolkit.svg?style=social)
 
-整理不易，持续更新，欢迎关注，🌟👆🏻点赞收藏~ 🙃🤪
+整理不易，持续更新，如果对你有用的话，❤️那就给个⭐️🌟支持一下吧~ 🙃🤪🍀

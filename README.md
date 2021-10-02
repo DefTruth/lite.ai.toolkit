@@ -61,6 +61,7 @@
 
 ## Important Notes !!!  
 
+* 🔥 (20211002) Added [NanoDet](https://github.com/PeterL1n/RobustVideoMatting) for object detection. ⚡ Super fast and tiny! 1.1Mb only! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp).  
 * 🔥 (20210920) Added [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)! Use it through [*lite::cv::matting::RobustVideoMatting*](#lite.ai.toolkit-matting) ! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_rvm.cpp).  
 
 <div align='center'>
@@ -312,6 +313,7 @@ Note, I can not upload all the *.onnx files because of the storage limitation of
 |[EfficientDetD7](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch)|220M| [...EfficientDet...](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_efficientdet_d7.cpp) |
 |[EfficientDetD8](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch)|322M| [...EfficientDet...](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_efficientdet_d8.cpp) |
 |[YOLOP](https://github.com/hustvl/YOLOP)|30M| [YOLOP](https://github.com/hustvl/YOLOP) | 🔥🔥new↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolop.cpp) |
+|[NanoDet](https://github.com/RangiLyu/nanodet)|1.1M| [nanodet](https://github.com/RangiLyu/nanodet) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp) |
 
 
 * Face Recognition.  
@@ -744,7 +746,8 @@ auto *detector = new lite::cv::detection::ScaledYoloV4(onnx_path);
 auto *detector = new lite::cv::detection::EfficientDet(onnx_path); 
 auto *detector = new lite::cv::detection::EfficientDetD7(onnx_path); 
 auto *detector = new lite::cv::detection::EfficientDetD8(onnx_path); 
-auto *detector = new lite::cv::detection::YOLOP(onnx_path); 
+auto *detector = new lite::cv::detection::YOLOP(onnx_path);
+auto *detector = new lite::cv::detection::NanoDet(onnx_path); // Super fast and tiny!
 ```
 
 </details>
@@ -1369,7 +1372,7 @@ Many thanks to these following projects. All the Lite.AI.ToolKit's models are so
 
 ## Citations. 
 
-Cite it as follows if you use *Lite.AI.ToolKit*. Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀
+Cite it as follows if you use *Lite.AI.ToolKit*.  ❤️ Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀
 ```BibTeX
 @misc{lite.ai.toolkit2021,
   title={lite.ai.toolkit: A lite C++ toolkit of awesome AI models.},
