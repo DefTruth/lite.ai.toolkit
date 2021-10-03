@@ -1,5 +1,4 @@
 ## 🔥🔥🔥 全网最详细 ONNXRuntime C++/Java/Python 使用教程 ！  
-整理不易，持续更新，如果对你有用的话，❤️那就给个⭐️🌟支持一下吧~ 🙃🤪🍀
 
 <div align='center'>
   <img src=https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social >
@@ -12,6 +11,7 @@
 
 </div>    
 
+<p align="center"> 整理不易，持续更新，如果对你有用的话，❤️那就给个⭐️🌟支持一下吧~ 🙃🤪🍀 </p>
 
 ## 前言  
 这份文档主要记录了onnxruntime的一些参考资料，包含C++/Java/Python，以及本人在使用过程中的一些经验。
@@ -340,7 +340,6 @@ int main(int argc, char* argv[]) {
 
 【新的模型案例将会不断加入进来！！！欢迎关注收藏~】
 
-整理不易，持续更新，如果对你有用的话，❤️那就给个⭐️🌟支持一下吧~ 🙃🤪🍀  
 
 <div align='center'>
   <img src=https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social >

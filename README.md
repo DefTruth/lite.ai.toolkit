@@ -50,6 +50,9 @@
   
 </div>    
 
+<p align="center"> ❤️ Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀 </p>
+
+
 *Lite.AI.ToolKit* 🚀🚀🌟: A lite `C++` toolkit of awesome AI models which contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* models now. It's a collection of personal interests. Such as RVM, YOLOX, YOLOP, YOLOR, YoloV5, DeepLabV3, ArcFace, etc. *Lite.AI.ToolKit* based on *[ONNXRuntime C++](https://github.com/microsoft/onnxruntime)* by default. I do have plans to reimplement it with *[ncnn](https://github.com/Tencent/ncnn)* and *[MNN](https://github.com/alibaba/MNN)*, but not coming soon. Currently, I mainly consider its ease of use. Developers who need higher performance can make new optimizations based on the `C++` implementation and `ONNX` files provided by this repo~ Welcome to open a new `PR`~ 👏👋, if you want to add a new model to this repo.  
 
 <p align="center">Core Features 🚀🚀🌟</p>
@@ -1377,7 +1380,7 @@ Many thanks to these following projects. All the Lite.AI.ToolKit's models are so
 
 ## Citations. 
 
-Cite it as follows if you use *Lite.AI.ToolKit*.  ❤️ Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀
+Cite it as follows if you use *Lite.AI.ToolKit*. 
 ```BibTeX
 @misc{lite.ai.toolkit2021,
   title={lite.ai.toolkit: A lite C++ toolkit of awesome AI models.},
