@@ -24,7 +24,6 @@ namespace ortcv
     bool flag;
   } NanoScaleParams;
 
-
   class LITE_EXPORTS NanoDet : public BasicOrtHandler
   {
   public:
