@@ -91,6 +91,14 @@ namespace ortcv
              float iou_threshold, unsigned int topk, unsigned int nms_type);
 
   public:
+    /**
+     * @param mat cv::Mat BGR format
+     * @param detected_boxes vector of Boxf to catch detected boxes.
+     * @param score_threshold default 0.45f, only keep the result which >= score_threshold.
+     * @param iou_threshold default 0.3f, iou threshold for NMS.
+     * @param topk default 100, maximum output boxes after NMS.
+     * @param nms_type the method.
+     */
     void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
                 float score_threshold = 0.45f, float iou_threshold = 0.3f,
                 unsigned int topk = 100, unsigned int nms_type = NMS::OFFSET);
