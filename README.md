@@ -69,7 +69,7 @@
 
 ## Important Notes !!!  
 
-* 🔥 (20211002) Added [NanoDet](https://github.com/PeterL1n/RobustVideoMatting) for object detection. ⚡ Super fast and tiny! 1.1Mb only! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp).  
+* 🔥 (20211002) Added [NanoDet](https://github.com/RangiLyu/nanodet) for object detection. ⚡ Super fast and tiny! 1.1Mb only! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp).  
 * 🔥 (20210920) Added [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)! Use it through [*lite::cv::matting::RobustVideoMatting*](#lite.ai.toolkit-matting) ! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_rvm.cpp).  
 
 <div align='center'>
