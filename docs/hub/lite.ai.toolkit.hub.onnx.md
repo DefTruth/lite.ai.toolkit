@@ -99,6 +99,17 @@ You can download all the pretrained models files of ONNX format from ([Baidu Dri
 | *lite::cv::detection::YOLOP* |    yolop-1280-1280.onnx     |       [YOLOP](https://github.com/hustvl/YOLOP)       | 30Mb  |
 | *lite::cv::detection::YOLOP* |    yolop-640-640.onnx     |       [YOLOP](https://github.com/hustvl/YOLOP)       | 30Mb  |
 | *lite::cv::detection::YOLOP* |    yolop-320-320.onnx     |       [YOLOP](https://github.com/hustvl/YOLOP)       | 30Mb  |
+| *lite::cv::detection::NanoDet* |    nanodet_m_0.5x.onnx     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 1.1Mb  |
+| *lite::cv::detection::NanoDet* |    nanodet_m.onnx     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 3.6Mb  |
+| *lite::cv::detection::NanoDet* |    nanodet_m_1.5x.onnx     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 7.9Mb  |
+| *lite::cv::detection::NanoDet* |    nanodet_m_1.5x_416.onnx     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 7.9Mb  |
+| *lite::cv::detection::NanoDet* |    nanodet_m_416.onnx     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 3.6Mb  |
+| *lite::cv::detection::NanoDet* |    nanodet_g.onnx     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 14Mb  |
+| *lite::cv::detection::NanoDet* |    nanodet_t.onnx     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 5.1Mb  |
+| *lite::cv::detection::NanoDet* |    nanodet-RepVGG-A0_416.onnx     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 26Mb  |
+| *lite::cv::detection::NanoDet* |    nanodet-EfficientNet-Lite0_320.onnx     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 12Mb  |
+| *lite::cv::detection::NanoDet* |    nanodet-EfficientNet-Lite1_416.onnx     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 15Mb  |
+| *lite::cv::detection::NanoDet* |    nanodet-EfficientNet-Lite2_512.onnx     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 18Mb  |
 
 
 ## Classification.  

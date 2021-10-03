@@ -44,6 +44,14 @@
   <img src=https://img.shields.io/github/watchers/DefTruth/lite.ai.toolkit.svg?style=social>
 </div>    
 
+<div align='center'>
+  <img src=https://visitor-badge.laobi.icu/badge?page_id=DefTruth.lite.ai.toolkit >
+
+</div>    
+
+<p align="center"> 整理不易，如果对你有用的话，❤️那就给个⭐️🌟支持一下吧~ 🙃🤪🍀 </p>
+
+
 *Lite.AI.ToolKit* 🚀🚀🌟: 一个轻量级的`C++` AI模型工具箱，用户友好，开箱即用。已经包括 *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* 流行的开源模型，还会继续增加😎。这是一个根据个人兴趣整理的C++工具箱，目前主要集中在`检测、分割、抠图、识别和目标跟踪`等领域，包含了最新的RVM, YOLOX, YOLOP, YOLOR, YoloV5, DeepLabV3, ArcFace等模型。 *Lite.AI.ToolKit* 默认是基于 *[ONNXRuntime C++](https://github.com/microsoft/onnxruntime)* 推理引擎的，后期可能会加入对 *[ncnn](https://github.com/Tencent/ncnn)* 或 *[MNN](https://github.com/alibaba/MNN)* 的支持，目前主要考虑易用性。需要更高性能支持的小伙伴可以基于本项目提供的`C++`实现和`ONNX`文件进行优化~ 如果您有想添加到本项目的新模型，欢迎`PR` ~👏👋 
 
 <p align="center">核心特征 🚀🚀🌟</p>
@@ -58,8 +66,8 @@
 |  👉[lite.ai.toolkit.macos.v0.1.0](https://github.com/DefTruth/lite.ai.toolkit.demo/tree/main/releases/macos/v0.1.0) |   👉[lite.ai.toolkit.demo](https://github.com/DefTruth/lite.ai.toolkit.demo) & [Quick Start Examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit) |   👉[lite.ai.toolkit.examples](https://github.com/DefTruth/lite.ai.toolkit/tree/main/examples/lite/cv) |
 
 
-## 重要更新 !!!
-
+## 重要更新 !!!  
+* 🔥 (20211002) 增加[NanoDet](https://github.com/PeterL1n/RobustVideoMatting) 目标检测. ⚡ 超高性能! 只有1.1Mb! 详见[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp).  
 * 🔥 (20210920) 增加[RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) 视频抠图! 通过[*lite::cv::matting::RobustVideoMatting*](#lite.ai.toolkit-matting)调用! 详见[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_rvm.cpp).
 
 <div align='center'>
@@ -311,6 +319,7 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
 |[EfficientDetD7](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch)|220M| [...EfficientDet...](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_efficientdet_d7.cpp) |
 |[EfficientDetD8](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch)|322M| [...EfficientDet...](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_efficientdet_d8.cpp) |
 |[YOLOP](https://github.com/hustvl/YOLOP)|30M| [YOLOP](https://github.com/hustvl/YOLOP) | 🔥🔥new↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolop.cpp) |
+|[NanoDet](https://github.com/RangiLyu/nanodet)|1.1M| [nanodet](https://github.com/RangiLyu/nanodet) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp) |
 
 
 * 人脸识别
@@ -744,6 +753,7 @@ auto *detector = new lite::cv::detection::EfficientDet(onnx_path);
 auto *detector = new lite::cv::detection::EfficientDetD7(onnx_path); 
 auto *detector = new lite::cv::detection::EfficientDetD8(onnx_path); 
 auto *detector = new lite::cv::detection::YOLOP(onnx_path); 
+auto *detector = new lite::cv::detection::NanoDet(onnx_path); // Super fast and tiny!
 ```
 
 </details>
@@ -1366,7 +1376,7 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 
 ## 引用本项目 
 
-如果您在自己的项目中使用了*Lite.AI.ToolKit*，可考虑按以下方式进行引用。整理不易，欢迎关注，🌟点赞收藏~ 🙃🤪🍀
+如果您在自己的项目中使用了*Lite.AI.ToolKit*，可考虑按以下方式进行引用。
 ```BibTeX
 @misc{lite.ai.toolkit2021,
   title={lite.ai.toolkit: A lite C++ toolkit of awesome AI models.},
@@ -1381,5 +1391,10 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
   <img src=https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social >
   <img src=https://img.shields.io/github/forks/DefTruth/lite.ai.toolkit.svg?style=social >
   <img src=https://img.shields.io/github/watchers/DefTruth/lite.ai.toolkit.svg?style=social>
+
+</div>    
+
+<div align='center'>
+  <img src=https://visitor-badge.laobi.icu/badge?page_id=DefTruth.lite.ai.toolkit >
 
 </div>    

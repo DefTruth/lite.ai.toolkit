@@ -10,14 +10,13 @@
 namespace ortcv
 {
   typedef struct
-  _YOLOPScaleParams
   {
     float r;
     int dw;
     int dh;
     int new_unpad_w;
     int new_unpad_h;
-    bool flag = false;
+    bool flag;
   } YOLOPScaleParams;
 
   class LITE_EXPORTS YOLOP : public BasicOrtHandler

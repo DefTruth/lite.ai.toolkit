@@ -258,22 +258,3 @@ void RobustVideoMatting::update_context(std::vector<Ort::Value> &output_tensors)
   std::memcpy(dynamic_r4i_value_handler.data(), new_r4i_value_ptr, new_r4i_value_size * sizeof(float));
   context_is_update = true;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
