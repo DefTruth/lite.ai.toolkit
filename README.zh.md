@@ -66,7 +66,7 @@
 <p align="center"> 整理不易，如果对你有用的话，❤️那就给个⭐️🌟支持一下吧~ 🙃🤪🍀 </p>
 
 ## 重要更新 !!!  
-* 🔥 (20211002) 增加[NanoDet](https://github.com/PeterL1n/RobustVideoMatting) 目标检测. ⚡ 超高性能! 只有1.1Mb! 详见[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp).  
+* 🔥 (20211002) 增加[NanoDet](https://github.com/RangiLyu/nanodet) 目标检测. ⚡ 超高性能! 只有1.1Mb! 详见[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp).  
 * 🔥 (20210920) 增加[RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) 视频抠图! 通过[*lite::cv::matting::RobustVideoMatting*](#lite.ai.toolkit-matting)调用! 详见[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_rvm.cpp).
 
 <div align='center'>
