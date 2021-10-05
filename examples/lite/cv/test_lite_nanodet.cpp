@@ -29,6 +29,7 @@ static void test_default()
 
 static void test_onnxruntime()
 {
+#ifdef ENABLE_ONNXRUNTIME
   std::string onnx_path = "../../../hub/onnx/cv/nanodet_m.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_detection_2.jpg";
   std::string save_img_path = "../../../logs/test_lite_nanodet_2.jpg";
@@ -48,21 +49,25 @@ static void test_onnxruntime()
   std::cout << "ONNXRuntime Version Detected Boxes Num: " << detected_boxes.size() << std::endl;
 
   delete nanodet;
+#endif
 }
 
 static void test_mnn()
 {
-
+#ifdef ENABLE_MNN
+#endif
 }
 
 static void test_ncnn()
 {
-
+#ifdef ENABLE_NCNN
+#endif
 }
 
 static void test_tnn()
 {
-
+#ifdef ENABLE_TNN
+#endif
 }
 
 static void test_lite()
