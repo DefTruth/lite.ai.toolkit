@@ -1402,3 +1402,9 @@ If there is a model you are interested in and want to be supported by Lite.AI.To
 </div>    
 
 <p align="center"> ❤️ Haha~ Star 🌟👆🏻 this repo to support me if it does any helps to you ~ 🙃🤪🍀 </p>
+
+
+## 10. Related projects.
+* [nanodet.lite.ai.toolkit](https://github.com/DefTruth/nanodet.lite.ai.toolkit)
+* [RobustVideoMatting.lite.ai.toolkit](https://github.com/DefTruth/RobustVideoMatting.lite.ai.toolkit)
+* [lite.ai.toolkit.demo](https://github.com/DefTruth/lite.ai.toolkit.demo)
