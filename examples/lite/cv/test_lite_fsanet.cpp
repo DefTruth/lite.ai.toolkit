@@ -86,17 +86,20 @@ static void test_onnxruntime()
 
 static void test_mnn()
 {
-
+#ifdef ENABLE_MNN
+#endif
 }
 
 static void test_ncnn()
 {
-
+#ifdef ENABLE_NCNN
+#endif
 }
 
 static void test_tnn()
 {
-
+#ifdef ENABLE_TNN
+#endif
 }
 
 static void test_lite()

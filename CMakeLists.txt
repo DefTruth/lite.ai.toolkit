@@ -4,12 +4,14 @@ project(lite.ai.toolkit)
 set(CMAKE_CXX_STANDARD 11)
 set(VERSION_STRING 0.1.0)
 set(SOVERSION_STRING 0.1.0)
+include(cmake/lite.ai.toolkit-platform.cmake)  # checking platform
 
 message("==================================== Lite.AI.ToolKit ${VERSION_STRING} =============================")
 message("Project: Lite.AI.ToolKit")
 message("Version: ${VERSION_STRING}")
 message("SO Version: ${SOVERSION_STRING}")
 message("Build Type: ${CMAKE_BUILD_TYPE}")
+message("Platform: ${PLATFORM_NAME}")
 message("Root Path: ${CMAKE_SOURCE_DIR}")
 message("================================================================================")
 

@@ -58,7 +58,7 @@
 |:---:|:---:|:---:| 
 |  👉[lite.ai.toolkit.macos.v0.1.0](https://github.com/DefTruth/lite.ai.toolkit.demo/tree/main/releases/macos/v0.1.0) |   👉[lite.ai.toolkit.demo](https://github.com/DefTruth/lite.ai.toolkit.demo) & [Quick Start Examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit) |   👉[lite.ai.toolkit.examples](https://github.com/DefTruth/lite.ai.toolkit/tree/main/examples/lite/cv) |
 
-<p align="center"> 本项目属于业余过过瘾时整理而成，若是有用，❤️不妨给个⭐️🌟支持一下吧~ 🙃🤪🍀 </p>
+<p align="center"> 本项目属于业余学习推理引擎时整理而成，若是有用，❤️不妨给个⭐️🌟支持一下吧~ 🙃🤪🍀 </p>
 
 ## 重要更新 !!!  
 * 🔥 (20211002) 增加[NanoDet](https://github.com/RangiLyu/nanodet) 目标检测. ⚡ 超高性能! 只有1.1Mb! 详见[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp).  
@@ -1395,7 +1395,7 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 
 </div>    
 
-<p align="center"> 哈哈，是的，又是本业余，整理不易，若是有用，❤️那就给个⭐️🌟支持一下吧~ 🙃🤪🍀 </p>
+<p align="center"> 哈哈，整理不易，若是有用，❤️不妨给个⭐️🌟支持一下吧~ 🙃🤪🍀 </p>
 
 ## 10. 关联项目  
 * [nanodet.lite.ai.toolkit](https://github.com/DefTruth/nanodet.lite.ai.toolkit)  
