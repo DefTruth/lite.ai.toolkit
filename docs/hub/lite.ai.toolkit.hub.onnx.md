@@ -107,9 +107,9 @@ You can download all the pretrained models files of ONNX format from ([Baidu Dri
 | *lite::cv::detection::NanoDet* |    nanodet_g.onnx     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 14Mb  |
 | *lite::cv::detection::NanoDet* |    nanodet_t.onnx     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 5.1Mb  |
 | *lite::cv::detection::NanoDet* |    nanodet-RepVGG-A0_416.onnx     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 26Mb  |
-| *lite::cv::detection::NanoDet* |    nanodet-EfficientNet-Lite0_320.onnx     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 12Mb  |
-| *lite::cv::detection::NanoDet* |    nanodet-EfficientNet-Lite1_416.onnx     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 15Mb  |
-| *lite::cv::detection::NanoDet* |    nanodet-EfficientNet-Lite2_512.onnx     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 18Mb  |
+| *lite::cv::detection::NanoDetEfficientNetLite* |    nanodet-EfficientNet-Lite0_320.onnx     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 12Mb  |
+| *lite::cv::detection::NanoDetEfficientNetLite* |    nanodet-EfficientNet-Lite1_416.onnx     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 15Mb  |
+| *lite::cv::detection::NanoDetEfficientNetLite* |    nanodet-EfficientNet-Lite2_512.onnx     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 18Mb  |
 
 
 ## Classification.  

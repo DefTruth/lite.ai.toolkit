@@ -58,7 +58,7 @@
 |:---:|:---:|:---:| 
 |  👉[lite.ai.toolkit.macos.v0.1.0](https://github.com/DefTruth/lite.ai.toolkit.demo/tree/main/releases/macos/v0.1.0) |   👉[lite.ai.toolkit.demo](https://github.com/DefTruth/lite.ai.toolkit.demo) & [Quick Start Examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit) |   👉[lite.ai.toolkit.examples](https://github.com/DefTruth/lite.ai.toolkit/tree/main/examples/lite/cv) |
 
-<p align="center"> 整理不易，如果对你有用的话，❤️那就给个⭐️🌟支持一下吧~ 🙃🤪🍀 </p>
+<p align="center"> 本项目属于业余过过瘾时整理而成，若是有用，❤️不妨给个⭐️🌟支持一下吧~ 🙃🤪🍀 </p>
 
 ## 重要更新 !!!  
 * 🔥 (20211002) 增加[NanoDet](https://github.com/RangiLyu/nanodet) 目标检测. ⚡ 超高性能! 只有1.1Mb! 详见[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp).  
@@ -314,6 +314,7 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
 |[EfficientDetD8](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch)|322M| [...EfficientDet...](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_efficientdet_d8.cpp) |
 |[YOLOP](https://github.com/hustvl/YOLOP)|30M| [YOLOP](https://github.com/hustvl/YOLOP) | 🔥🔥new↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolop.cpp) |
 |[NanoDet](https://github.com/RangiLyu/nanodet)|1.1M| [nanodet](https://github.com/RangiLyu/nanodet) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp) |
+|[NanoDetEfficientNetLite](https://github.com/RangiLyu/nanodet)|12M| [nanodet](https://github.com/RangiLyu/nanodet) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet_efficientnet_lite.cpp) |
 
 
 * 人脸识别
@@ -1330,6 +1331,7 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 本项目参考了以下开源项目。
 
 * [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) (🔥🔥🔥new!!↑)
+* [nanodet](https://github.com/RangiLyu/nanodet) (🔥🔥🔥↑)
 * [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥🔥new!!↑)
 * [YOLOP](https://github.com/hustvl/YOLOP) (🔥🔥new!!↑)
 * [YOLOR](https://github.com/WongKinYiu/yolor) (🔥🔥new!!↑)
@@ -1368,7 +1370,7 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 
 </details>    
 
-## 引用本项目 
+## 8. 引用 
 
 如果您在自己的项目中使用了*Lite.AI.ToolKit*，可考虑按以下方式进行引用。
 ```BibTeX
@@ -1381,6 +1383,10 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 }
 ```  
 
+## 9. 告知
+
+如果有你感兴趣的模型希望被Lite.AI.ToolKit支持，你可以fork这个repo并修改[TODOLIST.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/TODOLIST.md) ，然后提交PR~我会review这个PR，并在未来尝试支持这个模型，但不确保能完成。另外，未来会增加一些模型的MNN和NCNN支持，但由于算子兼容等原因，也无法确保所有被ONNXRuntime C++支持的模型能够在MNN和NCNN下跑通。所以，如果您想使用本项目支持的所有模型，并且不在意1~2ms的性能差距的话，请使用ONNXRuntime版本的实现。ONNXRuntime是本仓库默认的推理引擎。
+
 <div align='center'>
   <img src=https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social >
   <img src=https://img.shields.io/github/forks/DefTruth/lite.ai.toolkit.svg?style=social >
@@ -1388,3 +1394,5 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
   <img src=https://visitor-badge.laobi.icu/badge?page_id=DefTruth.lite.ai.toolkit >
 
 </div>    
+
+<p align="center"> 哈哈，是的，又是本业余，整理不易，若是有用，❤️那就给个⭐️🌟支持一下吧~ 🙃🤪🍀 </p>

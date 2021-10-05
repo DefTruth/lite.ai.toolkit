@@ -79,6 +79,7 @@
 #include "ort/cv/yolop.h"
 #include "ort/cv/rvm.h"
 #include "ort/cv/nanodet.h"
+#include "ort/cv/nanodet_efficientnet_lite.h"
 
 #endif
 
@@ -88,6 +89,10 @@
 
 // ENABLE_NCNN
 #ifdef ENABLE_NCNN
+#endif
+
+// ENABLE_TNN
+#ifdef ENABLE_TNN
 #endif
 
 // Default Engine ONNXRuntime
@@ -168,6 +173,7 @@ namespace lite
     typedef ortcv::YOLOP _YOLOP;
     typedef ortcv::RobustVideoMatting _RobustVideoMatting;
     typedef ortcv::NanoDet _NanoDet;
+    typedef ortcv::NanoDetEfficientNetLite _NanoDetEfficientNetLite;
 #endif
 
     // 1. classification
@@ -206,6 +212,7 @@ namespace lite
       typedef _EfficientDetD8 EfficientDetD8;
       typedef _YOLOP YOLOP;
       typedef _NanoDet NanoDet;
+      typedef _NanoDetEfficientNetLite NanoDetEfficientNetLite;
 #endif
     }
     // 3. face detection & facial attributes detection
@@ -429,6 +436,7 @@ namespace lite
 // ONNXRuntime version
 namespace lite
 {
+#ifdef ENABLE_ONNXRUNTIME
   namespace onnxruntime
   {
     namespace cv
@@ -503,6 +511,8 @@ namespace lite
       typedef ortcv::YOLOP _ONNXYOLOP;
       typedef ortcv::RobustVideoMatting _ONNXRobustVideoMatting;
       typedef ortcv::NanoDet _ONNXNanoDet;
+      typedef ortcv::NanoDetEfficientNetLite _ONNXNanoDetEfficientNetLite;
+
 
       // 1. classification
       namespace classification
@@ -537,6 +547,7 @@ namespace lite
         typedef _ONNXEfficientDetD8 EfficientDetD8;
         typedef _ONNXYOLOP YOLOP;
         typedef _ONNXNanoDet NanoDet;
+        typedef _ONNXNanoDetEfficientNetLite NanoDetEfficientNetLite;
       }
       // 3. face detection & facial attributes detection
       namespace face
@@ -675,30 +686,37 @@ namespace lite
     {
     }
   }
+#endif
 }
 
 // MNN version
 namespace lite
 {
+#ifdef ENABLE_MNN
   namespace mnn
   {
   }
+#endif
 }
 
 // NCNN version
 namespace lite
 {
-  namespace ncnn
+#ifdef ENABLE_NCNN
+namespace ncnn
   {
   }
+#endif
 }
 
 // TNN version
 namespace lite
 {
-  namespace tnn
+#ifdef ENABLE_TNN
+namespace tnn
   {
   }
+#endif
 }
 
 #endif //LITE_AI_MODELS_H

@@ -59,7 +59,7 @@
 |  👉 [lite.ai.toolkit.macos.v0.1.0](https://github.com/DefTruth/lite.ai.toolkit.demo/tree/main/releases/macos/v0.1.0) |  👉 [lite.ai.toolkit.demo](https://github.com/DefTruth/lite.ai.toolkit.demo) & [Quick Start Examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit) |  👉 [lite.ai.toolkit.examples](https://github.com/DefTruth/lite.ai.toolkit/tree/main/examples/lite/cv) |
 
 
-<p align="center"> ❤️ Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀 </p>
+<p align="center"> ❤️ Star 🌟👆🏻 this repo to support me if it does any helps to you ~ 🙃🤪🍀 </p>
 
 
 ## Important Notes !!!  
@@ -317,6 +317,7 @@ Note, I can not upload all the *.onnx files because of the storage limitation of
 |[EfficientDetD8](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch)|322M| [...EfficientDet...](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_efficientdet_d8.cpp) |
 |[YOLOP](https://github.com/hustvl/YOLOP)|30M| [YOLOP](https://github.com/hustvl/YOLOP) | 🔥🔥new↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolop.cpp) |
 |[NanoDet](https://github.com/RangiLyu/nanodet)|1.1M| [nanodet](https://github.com/RangiLyu/nanodet) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp) |
+|[NanoDetEfficientNetLite](https://github.com/RangiLyu/nanodet)|12M| [nanodet](https://github.com/RangiLyu/nanodet) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet_efficientnet_lite.cpp) |
 
 
 * Face Recognition.  
@@ -751,6 +752,7 @@ auto *detector = new lite::cv::detection::EfficientDetD7(onnx_path);
 auto *detector = new lite::cv::detection::EfficientDetD8(onnx_path); 
 auto *detector = new lite::cv::detection::YOLOP(onnx_path);
 auto *detector = new lite::cv::detection::NanoDet(onnx_path); // Super fast and tiny!
+auto *detector = new lite::cv::detection::NanoDetEfficientNetLite(onnx_path); // Super fast and tiny!
 ```
 
 </details>
@@ -1335,6 +1337,7 @@ The code of [Lite.AI.ToolKit](#lite.ai.toolkit-Introduction) is released under t
 Many thanks to these following projects. All the Lite.AI.ToolKit's models are sourced from these repos. 
 
 * [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) (🔥🔥🔥new!!↑)
+* [nanodet](https://github.com/RangiLyu/nanodet) (🔥🔥🔥↑)   
 * [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥🔥new!!↑)
 * [YOLOP](https://github.com/hustvl/YOLOP) (🔥🔥new!!↑)
 * [YOLOR](https://github.com/WongKinYiu/yolor) (🔥🔥new!!↑)
@@ -1373,7 +1376,7 @@ Many thanks to these following projects. All the Lite.AI.ToolKit's models are so
 
 </details>  
 
-## Citations. 
+## 8. Citations. 
 
 Cite it as follows if you use *Lite.AI.ToolKit*. 
 ```BibTeX
@@ -1384,7 +1387,11 @@ Cite it as follows if you use *Lite.AI.ToolKit*.
   author={Yan Jun},
   year={2021}
 }
-```  
+```    
+
+## 9. Notification.
+
+If there is a model you are interested in and want to be supported by Lite.AI.ToolKit, you can fork this repo and modify [TODOLIST.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/TODOLIST.md), then submit a PR~ I will review this PR and try to support this model in the future, but I don’t make sure this can be done. In addition, MNN and NCNN support for some models will be added in the future, but due to operator compatibility and some other reasons, it is impossible to ensure that all models supported by ONNXRuntime C++ can run through MNN and NCNN. So, if you want to use all the models supported by this repo and don't care about the performance gap of 1~2ms, please use the implementation of ONNXRuntime version. ONNXRuntime is the default inference engine for this repo.
 
 <div align='center'>
   <img src=https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social >
@@ -1394,3 +1401,4 @@ Cite it as follows if you use *Lite.AI.ToolKit*.
 
 </div>    
 
+<p align="center"> ❤️ Haha~ Star 🌟👆🏻 this repo to support me if it does any helps to you ~ 🙃🤪🍀 </p>
