@@ -29,6 +29,7 @@ static void test_default()
 
 static void test_onnxruntime()
 {
+#ifdef ENABLE_ONNXRUNTIME
   std::string onnx_path = "../../../hub/onnx/cv/emotion-ferplus-8.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_emotion_ferplus.jpg";
   std::string save_img_path = "../../../logs/test_lite_emotion_ferplus.jpg";
@@ -47,6 +48,7 @@ static void test_onnxruntime()
   std::cout << "ONNXRuntime Version Detected Emotion: " << emotions.text << std::endl;
 
   delete emotion_ferplus;
+#endif
 }
 
 static void test_mnn()

@@ -30,6 +30,7 @@ static void test_default()
 
 static void test_onnxruntime()
 {
+#ifdef ENABLE_ONNXRUNTIME
   std::string onnx_path = "../../../hub/onnx/cv/Tencent_Cifp_BUPT_Balancedface_IR_34.onnx";
   std::string test_img_path0 = "../../../examples/lite/resources/test_lite_faceid_0.png";
   std::string test_img_path1 = "../../../examples/lite/resources/test_lite_faceid_2.png";
@@ -51,6 +52,7 @@ static void test_onnxruntime()
   }
 
   delete tencent_cifp_face;
+#endif
 }
 
 static void test_mnn()

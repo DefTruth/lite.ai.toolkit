@@ -30,6 +30,7 @@ static void test_default()
 
 static void test_onnxruntime()
 {
+#ifdef ENABLE_ONNXRUNTIME
   std::string onnx_path = "../../../hub/onnx/cv/age_googlenet.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_age_googlenet.jpg";
   std::string save_img_path = "../../../logs/test_lite_age_googlenet.jpg";
@@ -45,6 +46,7 @@ static void test_onnxruntime()
     std::cout << "ONNXRuntime Version Detected Age: " << age.age << std::endl;
 
   delete onnx_age_googlenet;
+#endif
 }
 
 static void test_mnn()

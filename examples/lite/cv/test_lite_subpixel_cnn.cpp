@@ -25,6 +25,7 @@ static void test_default()
 
 static void test_onnxruntime()
 {
+#ifdef ENABLE_ONNXRUNTIME
   std::string onnx_path = "../../../hub/onnx/cv/subpixel-cnn.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_subpixel_cnn.jpg";
   std::string save_img_path = "../../../logs/test_onnx_subpixel_cnn.jpg";
@@ -41,6 +42,7 @@ static void test_onnxruntime()
   std::cout << "ONNXRuntime Version Done! Super Resolution Done." << std::endl;
 
   delete subpixel_cnn;
+#endif
 }
 
 static void test_mnn()

@@ -29,6 +29,7 @@ static void test_default()
 
 static void test_onnxruntime()
 {
+#ifdef ENABLE_ONNXRUNTIME
   std::string onnx_path = "../../../hub/onnx/cv/ScaledYoloV4_yolov4-p5-640-640.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_detection_2.jpg";
   std::string save_img_path = "../../../logs/test_lite_scaled_yolov4_2.jpg";
@@ -48,6 +49,7 @@ static void test_onnxruntime()
   std::cout << "ONNXRuntime Version Detected Boxes Num: " << detected_boxes.size() << std::endl;
 
   delete scaled_yolov4;
+#endif
 }
 
 static void test_mnn()

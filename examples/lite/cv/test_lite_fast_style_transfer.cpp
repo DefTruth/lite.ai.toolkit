@@ -61,6 +61,7 @@ static void test_default()
 
 static void test_onnxruntime()
 {
+#ifdef ENABLE_ONNXRUNTIME
   std::string candy_onnx_path = "../../../hub/onnx/cv/style-candy-8.onnx";
   std::string mosaic_onnx_path = "../../../hub/onnx/cv/style-mosaic-8.onnx";
   std::string pointilism_onnx_path = "../../../hub/onnx/cv/style-pointilism-8.onnx";
@@ -111,6 +112,7 @@ static void test_onnxruntime()
   delete pointilism_fast_style_transfer;
   delete rain_princess_fast_style_transfer;
   delete udnie_fast_style_transfer;
+#endif
 }
 
 static void test_mnn()

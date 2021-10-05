@@ -27,6 +27,7 @@ static void test_default()
 
 static void test_onnxruntime()
 {
+#ifdef ENABLE_ONNXRUNTIME
   std::string onnx_path = "../../../hub/onnx/cv/FaceBoxes.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_face_detector_2.jpg";
   std::string save_img_path = "../../../logs/test_onnx_faceboxes_2.jpg";
@@ -45,6 +46,7 @@ static void test_onnxruntime()
   std::cout << "ONNXRuntime Version Done! Detected Face Num: " << detected_boxes.size() << std::endl;
 
   delete faceboxes;
+#endif
 }
 
 static void test_mnn()

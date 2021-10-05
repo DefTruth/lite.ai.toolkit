@@ -51,6 +51,7 @@ static void test_default()
 
 static void test_onnxruntime()
 {
+#ifdef ENABLE_ONNXRUNTIME
   std::string onnx_path = "../../../hub/onnx/cv/dream_ijba_res18_end2end.onnx";
   std::string pose_onnx_path = "../../../hub/onnx/cv/fsanet-var.onnx";
   std::string test_img_path0 = "../../../examples/lite/resources/test_lite_faceid_0.png";
@@ -91,6 +92,7 @@ static void test_onnxruntime()
 
   delete pose_robust_face;
   delete fsanet;
+#endif
 }
 
 static void test_mnn()

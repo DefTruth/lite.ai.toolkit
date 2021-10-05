@@ -31,6 +31,7 @@ static void test_default()
 
 static void test_onnxruntime()
 {
+#ifdef ENABLE_ONNXRUNTIME
   std::string onnx_path = "../../../hub/onnx/cv/cavaface_IR_SE_100_Combined_Epoch_24.onnx";
   std::string test_img_path0 = "../../../examples/lite/resources/test_lite_faceid_0.png";
   std::string test_img_path1 = "../../../examples/lite/resources/test_lite_faceid_2.png";
@@ -52,6 +53,7 @@ static void test_onnxruntime()
   }
 
   delete cava_combined_face;
+#endif
 }
 
 static void test_mnn()

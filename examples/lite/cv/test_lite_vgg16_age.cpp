@@ -27,6 +27,7 @@ static void test_default()
 
 static void test_onnxruntime()
 {
+#ifdef ENABLE_ONNXRUNTIME
   std::string onnx_path = "../../../hub/onnx/cv/vgg_ilsvrc_16_age_imdb_wiki.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_vgg16_age.jpg";
   std::string save_img_path = "../../../logs/test_onnx_vgg16_age.jpg";
@@ -45,6 +46,7 @@ static void test_onnxruntime()
   std::cout << "ONNXRuntime Version Done! Detected Age: " << age.age << std::endl;
 
   delete vgg16_age;
+#endif
 }
 
 static void test_mnn()

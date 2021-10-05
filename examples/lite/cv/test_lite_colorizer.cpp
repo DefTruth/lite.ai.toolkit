@@ -69,6 +69,7 @@ static void test_default()
 
 static void test_onnxruntime()
 {
+#ifdef ENABLE_ONNXRUNTIME
   std::string eccv16_onnx_path = "../../../hub/onnx/cv/eccv16-colorizer.onnx";
   std::string siggraph17_onnx_path = "../../../hub/onnx/cv/siggraph17-colorizer.onnx";
   std::string test_img_path1 = "../../../examples/lite/resources/test_lite_colorizer_1.jpg";
@@ -128,6 +129,7 @@ static void test_onnxruntime()
 
   delete eccv16_colorizer;
   delete siggraph17_colorizer;
+#endif
 }
 
 static void test_mnn()

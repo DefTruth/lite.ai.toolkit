@@ -21,6 +21,7 @@ static void test_default()
 
 static void test_onnxruntime()
 {
+#ifdef ENABLE_ONNXRUNTIME
   std::string onnx_path = "../../../hub/onnx/cv/rvm_mobilenetv3_fp32.onnx";
   std::string video_path = "../../../examples/lite/resources/test_lite_rvm_1.mp4";
   std::string output_path = "../../../logs/test_lite_rvm_1.mp4";
@@ -32,6 +33,7 @@ static void test_onnxruntime()
   rvm->detect_video(video_path, output_path, contents, false, 0.4f);
 
   delete rvm;
+#endif
 }
 
 static void test_mnn()
