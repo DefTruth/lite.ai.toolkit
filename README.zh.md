@@ -1396,3 +1396,8 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 </div>    
 
 <p align="center"> 哈哈，是的，又是本业余，整理不易，若是有用，❤️那就给个⭐️🌟支持一下吧~ 🙃🤪🍀 </p>
+
+## 10. 关联项目  
+* [nanodet.lite.ai.toolkit](https://github.com/DefTruth/nanodet.lite.ai.toolkit)  
+* [RobustVideoMatting.lite.ai.toolkit](https://github.com/DefTruth/RobustVideoMatting.lite.ai.toolkit)  
+* [lite.ai.toolkit.demo](https://github.com/DefTruth/lite.ai.toolkit.demo)
