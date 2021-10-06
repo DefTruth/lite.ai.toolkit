@@ -35,6 +35,7 @@ static void test_default()
 
 static void test_onnxruntime()
 {
+#ifdef ENABLE_ONNXRUNTIME
   std::string onnx_path = "../../../hub/onnx/cv/mobilenetv2.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_mobilenetv2.jpg";
 
@@ -61,6 +62,7 @@ static void test_onnxruntime()
   }
 
   delete mobilenetv2;
+#endif
 }
 
 static void test_mnn()

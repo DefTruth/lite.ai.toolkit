@@ -36,6 +36,7 @@ static void test_default()
 
 static void test_onnxruntime()
 {
+#ifdef ENABLE_ONNXRUNTIME
   std::string onnx_path = "../../../hub/onnx/cv/shufflenet-v2-10.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_shufflenetv2.jpg";
 
@@ -62,6 +63,7 @@ static void test_onnxruntime()
   }
 
   delete shufflenetv2;
+#endif
 }
 
 static void test_mnn()

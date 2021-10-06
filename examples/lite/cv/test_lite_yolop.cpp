@@ -66,6 +66,7 @@ static void test_default()
 
 static void test_onnxruntime()
 {
+#ifdef ENABLE_ONNXRUNTIME
   std::string onnx_path = "../../../hub/onnx/cv/yolop-640-640.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_yolop.jpg";
   std::string save_det_path = "../../../logs/test_lite_yolop_det_onnx.jpg";
@@ -123,6 +124,7 @@ static void test_onnxruntime()
   }
 
   delete yolop;
+#endif
 }
 
 static void test_mnn()

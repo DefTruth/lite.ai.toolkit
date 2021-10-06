@@ -46,6 +46,7 @@ static void test_default()
 
 static void test_onnxruntime()
 {
+#ifdef ENABLE_ONNXRUNTIME
   std::string var_onnx_path = "../../../hub/onnx/cv/fsanet-var.onnx";
   std::string conv_onnx_path = "../../../hub/onnx/cv/fsanet-1x1.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_fsanet.jpg";
@@ -82,6 +83,7 @@ static void test_onnxruntime()
 
   delete var_fsanet;
   delete conv_fsanet;
+#endif
 }
 
 static void test_mnn()

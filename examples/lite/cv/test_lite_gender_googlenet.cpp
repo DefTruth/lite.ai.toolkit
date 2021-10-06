@@ -28,6 +28,7 @@ static void test_default()
 
 static void test_onnxruntime()
 {
+#ifdef ENABLE_ONNXRUNTIME
   std::string onnx_path = "../../../hub/onnx/cv/gender_googlenet.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_gender_googlenet.jpg";
   std::string save_img_path = "../../../logs/test_onnx_gender_googlenet.jpg";
@@ -46,6 +47,7 @@ static void test_onnxruntime()
   std::cout << "ONNXRuntime Version Done! Detected Gender: " << gender.label << std::endl;
 
   delete gender_googlenet;
+#endif
 }
 
 static void test_mnn()

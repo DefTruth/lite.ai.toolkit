@@ -30,6 +30,7 @@ static void test_default()
 
 static void test_onnxruntime()
 {
+#ifdef ENABLE_ONNXRUNTIME
   std::string onnx_path = "../../../hub/onnx/cv/focal-arcface-bh-ir50-asia.onnx";
   std::string test_img_path0 = "../../../examples/lite/resources/test_lite_focal_asia_arcface_0.png";
   std::string test_img_path1 = "../../../examples/lite/resources/test_lite_focal_asia_arcface_2.png";
@@ -51,6 +52,7 @@ static void test_onnxruntime()
   }
 
   delete focal_asia_arcface;
+#endif
 }
 
 static void test_mnn()

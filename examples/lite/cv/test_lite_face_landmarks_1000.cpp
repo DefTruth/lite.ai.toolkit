@@ -29,6 +29,7 @@ static void test_default()
 
 static void test_onnxruntime()
 {
+#ifdef ENABLE_ONNXRUNTIME
   std::string onnx_path = "../../../hub/onnx/cv/FaceLandmark1000.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_face_landmarks_0.png";
   std::string save_img_path = "../../../logs/test_onnx_face_landmarks_1000.jpg";
@@ -48,6 +49,7 @@ static void test_onnxruntime()
             << landmarks.points.size() << std::endl;
 
   delete face_landmarks_1000;
+#endif
 }
 
 static void test_mnn()

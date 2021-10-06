@@ -30,6 +30,7 @@ static void test_default()
 
 static void test_onnxruntime()
 {
+#ifdef ENABLE_ONNXRUNTIME
   std::string onnx_path = "../../../hub/onnx/cv/partial_fc_glint360k_r50.onnx";
   std::string test_img_path0 = "../../../examples/lite/resources/test_lite_glint_partial_fc_0.png";
   std::string test_img_path1 = "../../../examples/lite/resources/test_lite_glint_partial_fc_2.png";
@@ -51,6 +52,7 @@ static void test_onnxruntime()
   }
 
   delete glint_partial_fc;
+#endif
 }
 
 static void test_mnn()

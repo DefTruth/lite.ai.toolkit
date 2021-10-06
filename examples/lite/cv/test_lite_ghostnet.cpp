@@ -35,6 +35,7 @@ static void test_default()
 
 static void test_onnxruntime()
 {
+#ifdef ENABLE_ONNXRUNTIME
   std::string onnx_path = "../../../hub/onnx/cv/ghostnet.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_ghostnet.jpg";
 
@@ -61,6 +62,7 @@ static void test_onnxruntime()
   }
 
   delete ghostnet;
+#endif
 }
 
 static void test_mnn()

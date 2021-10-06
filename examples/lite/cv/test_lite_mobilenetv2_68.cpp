@@ -29,6 +29,7 @@ static void test_default()
 
 static void test_onnxruntime()
 {
+#ifdef ENABLE_ONNXRUNTIME
   std::string onnx_path = "../../../hub/onnx/cv/pytorch_face_landmarks_landmark_detection_56.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_face_landmarks.png";
   std::string save_img_path = "../../../logs/test_onnx_mobilenetv2_68.jpg";
@@ -48,6 +49,7 @@ static void test_onnxruntime()
             << landmarks.points.size() << std::endl;
 
   delete mobilenetv2_68;
+#endif
 }
 
 static void test_mnn()

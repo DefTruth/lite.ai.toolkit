@@ -28,6 +28,7 @@ static void test_default()
 
 static void test_onnxruntime()
 {
+#ifdef ENABLE_ONNXRUNTIME
   std::string onnx_path = "../../../hub/onnx/cv/ssd_mobilenet_v1_10.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_ssd_mobilenetv1.png";
   std::string save_img_path = "../../../logs/test_onnx_ssd_mobilenetv1.jpg";
@@ -46,6 +47,7 @@ static void test_onnxruntime()
   std::cout << "ONNXRuntime Version Done! Detected Boxes Num: " << detected_boxes.size() << std::endl;
 
   delete ssd_mobilenetv1;
+#endif
 }
 
 static void test_mnn()
