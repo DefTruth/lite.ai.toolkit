@@ -1385,7 +1385,21 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 
 ## 9. 告知
 
-如果有你感兴趣的模型希望被Lite.AI.ToolKit🚀🚀🌟支持，你可以fork这个repo并修改[TODOLIST.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/TODOLIST.md) ，然后提交PR~ 我会review这个PR，并在未来尝试支持这个模型，但不确保能完成。另外，未来会增加一些模型的[MNN](https://github.com/alibaba/MNN) 和[NCNN](https://github.com/Tencent/ncnn) 支持，但由于算子兼容等原因，也无法确保所有被[ONNXRuntime C++](https://github.com/microsoft/onnxruntime) 支持的模型能够在[MNN](https://github.com/alibaba/MNN) 和[NCNN](https://github.com/Tencent/ncnn) 下跑通。所以，如果您想使用本项目支持的所有模型，并且不在意*1~2ms*的性能差距的话，请使用ONNXRuntime版本的实现。[ONNXRuntime](https://github.com/microsoft/onnxruntime) 是本仓库默认的推理引擎。
+如果有你感兴趣的模型希望被Lite.AI.ToolKit🚀🚀🌟支持，你可以fork这个repo并修改[TODOLIST.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/TODOLIST.md) ，然后提交PR~ 我会review这个PR，并在未来尝试支持这个模型，但不确保能完成。另外，未来会增加一些模型的[MNN](https://github.com/alibaba/MNN) 和[NCNN](https://github.com/Tencent/ncnn) 支持，但由于算子兼容等原因，也无法确保所有被[ONNXRuntime C++](https://github.com/microsoft/onnxruntime) 支持的模型能够在[MNN](https://github.com/alibaba/MNN) 和[NCNN](https://github.com/Tencent/ncnn) 下跑通。所以，如果您想使用本项目支持的所有模型，并且不在意*1~2ms*的性能差距的话，请使用ONNXRuntime版本的实现。[ONNXRuntime](https://github.com/microsoft/onnxruntime) 是本仓库默认的推理引擎。但是如果你确实希望编译支持[MNN](https://github.com/alibaba/MNN) 或[NCNN](https://github.com/Tencent/ncnn) 支持的Lite.AI.ToolKit🚀🚀🌟动态库，你可以按照以下的步骤进行设置（⚠️目前不稳定，只支持少数模型，暂时不推荐开启MNN或NCNN选项！！！先说明白了哈，出了bug我不一定有时间修啊🤦‍️） 
+
+* 在`build.sh`中添加`DENABLE_MNN=ON` 或 `DENABLE_NCNN=ON`，比如
+```shell
+cd build && cmake -DCMAKE_BUILD_TYPE=MinSizeRel -DENABLE_MNN=ON .. && make -j8
+```  
+* 使用MNN或NCNN版本的接口，详见案例[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp) ，比如
+```C++
+auto *nanodet = new lite::mnn::cv::detection::NanoDet(mnn_path);
+```
+
+## 10. 关联项目  
+* [nanodet.lite.ai.toolkit](https://github.com/DefTruth/nanodet.lite.ai.toolkit)  
+* [RobustVideoMatting.lite.ai.toolkit](https://github.com/DefTruth/RobustVideoMatting.lite.ai.toolkit)  
+* [lite.ai.toolkit.demo](https://github.com/DefTruth/lite.ai.toolkit.demo)  
 
 <div align='center'>
   <img src=https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social >
@@ -1396,8 +1410,3 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 </div>    
 
 <p align="center"> 哈哈，整理不易，若是有用，❤️不妨给个⭐️🌟支持一下吧~ 🙃🤪🍀 </p>
-
-## 10. 关联项目  
-* [nanodet.lite.ai.toolkit](https://github.com/DefTruth/nanodet.lite.ai.toolkit)  
-* [RobustVideoMatting.lite.ai.toolkit](https://github.com/DefTruth/RobustVideoMatting.lite.ai.toolkit)  
-* [lite.ai.toolkit.demo](https://github.com/DefTruth/lite.ai.toolkit.demo)
