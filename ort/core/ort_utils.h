@@ -133,7 +133,7 @@ namespace ortasr
 template<typename T>
 std::vector<T> ortcv::utils::math::softmax(const T *logits, unsigned int _size, unsigned int &max_id)
 {
-  ::__assert_type<T>();
+  types::__assert_type<T>();
   if (_size == 0 or logits == nullptr) return {};
   T max_prob = static_cast<T>(0), total_exp = static_cast<T>(0);
   std::vector<float> softmax_probs(_size);
@@ -157,7 +157,7 @@ std::vector<T> ortcv::utils::math::softmax(const T *logits, unsigned int _size, 
 template<typename T>
 std::vector<T> ortcv::utils::math::softmax(const std::vector<T> &logits, unsigned int &max_id)
 {
-  ::__assert_type<T>();
+  types::__assert_type<T>();
   if (logits.empty()) return {};
   const unsigned int _size = logits.size();
   T max_prob = static_cast<T>(0), total_exp = static_cast<T>(0);
@@ -182,7 +182,7 @@ std::vector<T> ortcv::utils::math::softmax(const std::vector<T> &logits, unsigne
 template<typename T>
 std::vector<unsigned int> ortcv::utils::math::argsort(const std::vector<T> &arr)
 {
-  ::__assert_type<T>();
+  types::__assert_type<T>();
   if (arr.empty()) return {};
   const unsigned int _size = arr.size();
   std::vector<unsigned int> indices;
@@ -196,7 +196,7 @@ std::vector<unsigned int> ortcv::utils::math::argsort(const std::vector<T> &arr)
 template<typename T>
 std::vector<unsigned int> ortcv::utils::math::argsort(const T *arr, unsigned int _size)
 {
-  ::__assert_type<T>();
+  types::__assert_type<T>();
   if (_size == 0 || arr == nullptr) return {};
   std::vector<unsigned int> indices;
   for (unsigned int i = 0; i < _size; ++i) indices.push_back(i);
@@ -209,7 +209,7 @@ std::vector<unsigned int> ortcv::utils::math::argsort(const T *arr, unsigned int
 template<typename T>
 T ortcv::utils::math::cosine_similarity(const std::vector<T> &a, const std::vector<T> &b)
 {
-  ::__assert_type<T>();
+  types::__assert_type<T>();
   T zero_vale = static_cast<T>(0);
   if (a.empty() || b.empty() || (a.size() != b.size())) return zero_vale;
   const unsigned int _size = a.size();

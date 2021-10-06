@@ -116,8 +116,8 @@ void NanoDet::generate_bboxes(const NanoScaleParams &scale_params,
   Ort::Value &cls_pred_stride_16 = output_tensors.at(1); // e.g (1,400,80)
   Ort::Value &cls_pred_stride_32 = output_tensors.at(2); // e.g (1,100,80)
   Ort::Value &dis_pred_stride_8 = output_tensors.at(3);  // e.g (1,1600,4) xyxy (l,t,r,b)
-  Ort::Value &dis_pred_stride_16 = output_tensors.at(4); // e.g (1,400,4) xyxy (l,t,r,b)
-  Ort::Value &dis_pred_stride_32 = output_tensors.at(5); // e.g (1,100,4) xyxy (l,t,r,b)
+  Ort::Value &dis_pred_stride_16 = output_tensors.at(4); // e.g (1,400,4)  xyxy (l,t,r,b)
+  Ort::Value &dis_pred_stride_32 = output_tensors.at(5); // e.g (1,100,4)  xyxy (l,t,r,b)
   auto input_height = static_cast<unsigned int>(input_node_dims.at(2)); // e.g 320
   auto input_width = static_cast<unsigned int>(input_node_dims.at(3));  // e.g 320
   this->generate_points(input_height, input_width);
