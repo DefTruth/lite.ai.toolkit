@@ -12,14 +12,17 @@
 #include <cassert>
 #include <locale.h>
 #include <string>
+#include <memory>
 #include <algorithm>
 #include <unordered_map>
 #include <unordered_set>
 #include "opencv2/opencv.hpp"
-#include "onnxruntime/core/session/onnxruntime_cxx_api.h"
 
-#ifdef USE_CUDA
+#ifdef ENABLE_ONNXRUNTIME
+#include "onnxruntime/core/session/onnxruntime_cxx_api.h"
+#  ifdef USE_CUDA
 #include "onnxruntime/core/providers/cuda/cuda_provider_factory.h"
+#  endif
 #endif
 
 namespace core {}

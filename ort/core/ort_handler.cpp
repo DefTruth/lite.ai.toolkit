@@ -91,6 +91,7 @@ void BasicOrtHandler::print_debug_string()
       std::cout << "Output: " << i << " Name: "
                 << output_node_names.at(i) << " Dim: " << j << " :"
                 << output_node_dims.at(i).at(j) << std::endl;
+  std::cout << "========================================\n";
 }
 
 //***********************************BasicMultiOrtHandler**********************************/
@@ -180,4 +181,5 @@ void BasicMultiOrtHandler::print_debug_string()
       std::cout << "Output: " << i << " Name: "
                 << output_node_names.at(i) << " Dim: " << j << " :"
                 << output_node_dims.at(i).at(j) << std::endl;
+  std::cout << "========================================\n";
 }

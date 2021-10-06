@@ -85,6 +85,12 @@
 
 // ENABLE_MNN
 #ifdef ENABLE_MNN
+
+#include "mnn/core/mnn_core.h"
+#include "mnn/core/mnn_utils.h"
+#include "mnn/cv/mnn_nanodet.h"
+#include "mnn/cv/mnn_nanodet_efficientnet_lite.h"
+
 #endif
 
 // ENABLE_NCNN
@@ -695,6 +701,66 @@ namespace lite
 #ifdef ENABLE_MNN
   namespace mnn
   {
+    namespace cv
+    {
+      namespace utils = mnncv::utils;
+      namespace types = mnncv::types;
+
+      // classification
+      namespace classification
+      {
+      }
+      // object detection
+      namespace detection
+      {
+        typedef mnncv::MNNNanoDet NanoDet;
+        typedef mnncv::MNNNanoDetEfficientNetLite NanoDetEfficientNetLite;
+      }
+      // face etc.
+      namespace face
+      {
+        namespace detect
+        {
+        }
+        namespace align
+        {
+        }
+        namespace pose
+        {
+        }
+        namespace attr
+        {
+        }
+      }
+      // face recognition
+      namespace faceid
+      {
+      }
+      // segmentation
+      namespace segmentation
+      {
+      }
+      // reid
+      namespace reid
+      {
+      }
+      // ocr
+      namespace ocr
+      {
+      }
+      // matting
+      namespace matting
+      {
+      }
+
+    } // namespace cv
+
+    namespace nlp
+    {
+    }
+    namespace asr
+    {
+    }
   }
 #endif
 }
@@ -703,9 +769,9 @@ namespace lite
 namespace lite
 {
 #ifdef ENABLE_NCNN
-namespace ncnn
-  {
-  }
+  namespace ncnn
+    {
+    }
 #endif
 }
 
@@ -713,9 +779,9 @@ namespace ncnn
 namespace lite
 {
 #ifdef ENABLE_TNN
-namespace tnn
-  {
-  }
+  namespace tnn
+    {
+    }
 #endif
 }
 

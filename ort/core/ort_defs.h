@@ -5,6 +5,7 @@
 #ifndef LITE_AI_ORT_CORE_ORT_DEFS_H
 #define LITE_AI_ORT_CORE_ORT_DEFS_H
 
+#include "lite/config.h"
 #include "lite/lite.ai.defs.h"
 
 #define LITEORT_DEBUG 1

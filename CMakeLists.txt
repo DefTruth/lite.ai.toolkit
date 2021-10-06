@@ -30,13 +30,13 @@ option(LITE_AI_BUILD_TEST "whether to build shared|static libraries." ON)
 option(LITE_AI_BUILD_LITE_TEST "whether to build lite test examples" ON)
 # engine backend: config.h.in -> config.h
 option(ENABLE_ONNXRUNTIME "whether to enable ONNXRuntime engine" ON)
-option(ENABLE_MNN "whether to enable MNN engine" OFF)
+option(ENABLE_MNN "whether to enable MNN engine" OFF)  # unstable now
 option(ENABLE_NCNN "whether to enable NCNN engine" OFF)
 option(ENABLE_TNN "whether to enable TNN engine" OFF)
 option(BACKEND_ONNXRUNTIME "whether to set ONNXRuntime as the main backend of lite.ai.toolkit" ON)
-option(BACKEND_MNN "whether to set MNN as the main backend of lite.ai.toolkit" OFF)
-option(BACKEND_NCNN "whether to set NCNN as the main backend of lite.ai.toolkit" OFF)
-option(BACKEND_TNN "whether to set TNN as the main backend of lite.ai.toolkit" OFF)
+option(BACKEND_MNN "whether to set MNN as the main backend of lite.ai.toolkit" OFF)  # now, OFF only
+option(BACKEND_NCNN "whether to set NCNN as the main backend of lite.ai.toolkit" OFF)  # now, OFF only
+option(BACKEND_TNN "whether to set TNN as the main backend of lite.ai.toolkit" OFF)  # now, OFF only
 
 include_directories(${LITE_AI_ROOT_DIR})
 
