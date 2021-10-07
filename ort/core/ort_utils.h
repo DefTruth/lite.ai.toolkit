@@ -134,7 +134,7 @@ template<typename T>
 std::vector<T> ortcv::utils::math::softmax(const T *logits, unsigned int _size, unsigned int &max_id)
 {
   types::__assert_type<T>();
-  if (_size == 0 or logits == nullptr) return {};
+  if (_size == 0 || logits == nullptr) return {};
   T max_prob = static_cast<T>(0), total_exp = static_cast<T>(0);
   std::vector<float> softmax_probs(_size);
   for (unsigned int i = 0; i < _size; ++i)

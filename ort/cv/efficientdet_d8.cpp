@@ -70,8 +70,16 @@ void EfficientDetD8::generate_anchors(const float target_height, const float tar
             float x1 = xv - anchor_size_x_2; // cx - aw/2
             float y2 = yv + anchor_size_y_2; // cy + ah/2
             float x2 = xv + anchor_size_x_2; // cx + aw/2
-
+#ifdef LITE_WIN32
+            EfficientDetD8Anchor anchor;
+            anchor.y1 = y1;
+            anchor.x1 = x1;
+            anchor.y2 = y2;
+            anchor.x2 = x2;
+            anchors_buffer.push_back(anchor);
+#else
             anchors_buffer.push_back((EfficientDetD8Anchor) {y1, x1, y2, x2});
+#endif
           } // end ratios 3
         } // end scale 3
       }

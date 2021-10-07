@@ -87,7 +87,15 @@ void YoloX::generate_anchors(const int target_height,
     {
       for (int g0 = 0; g0 < num_grid_w; ++g0)
       {
+#ifdef LITE_WIN32
+        YoloXAnchor anchor;
+        anchor.grid0 = g0;
+        anchor.grid1 = g1;
+        anchor.stride = stride;
+        anchors.push_back(anchor);
+#else
         anchors.push_back((YoloXAnchor) {g0, g1, stride});
+#endif
       }
     }
   }

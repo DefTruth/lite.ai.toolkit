@@ -109,7 +109,15 @@ void MNNNanoDetEfficientNetLite::generate_points(unsigned int target_height, uns
       {
         float grid0 = (float) g0 + 0.5f;
         float grid1 = (float) g1 + 0.5f;
+#ifdef LITE_WIN32
+        NanoLiteCenterPoint point;
+        point.grid0 = grid0;
+        point.grid1 = grid1;
+        point.stride = (float) stride;
+        points.push_back(point);
+#else
         points.push_back((NanoLiteCenterPoint) {grid0, grid1, (float) stride});
+#endif
       }
     }
     center_points[stride] = points;
