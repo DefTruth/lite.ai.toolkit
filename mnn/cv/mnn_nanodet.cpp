@@ -13,7 +13,7 @@ MNNNanoDet::MNNNanoDet(const std::string _mnn_path, unsigned int _num_threads) :
   initialize_pretreat();
 }
 
-void MNNNanoDet::initialize_pretreat()
+inline void MNNNanoDet::initialize_pretreat()
 {
   pretreat = std::shared_ptr<MNN::CV::ImageProcess>(
       MNN::CV::ImageProcess::create(
@@ -25,7 +25,7 @@ void MNNNanoDet::initialize_pretreat()
   );
 }
 
-void MNNNanoDet::transform(const cv::Mat &mat_rs)
+inline void MNNNanoDet::transform(const cv::Mat &mat_rs)
 {
   pretreat->convert(mat_rs.data, input_width, input_height, mat_rs.step[0], input_tensor);
 }
@@ -109,7 +109,15 @@ void MNNNanoDet::generate_points(unsigned int target_height, unsigned int target
       {
         float grid0 = (float) g0 + 0.5f;
         float grid1 = (float) g1 + 0.5f;
+#ifdef LITE_WIN32
+        NanoCenterPoint point;
+        point.grid0 = grid0;
+        point.grid1 = grid1;
+        point.stride = (float) stride;
+        points.push_back(point);
+#else
         points.push_back((NanoCenterPoint) {grid0, grid1, (float) stride});
+#endif
       }
     }
     center_points[stride] = points;

@@ -21,7 +21,7 @@ function(add_lite_ai_toolkit_shared_library version soversion)
     if (ENABLE_MNN)
         include(cmake/lite.ai.toolkit-mnn.cmake)
         set(LITE_SRCS ${LITE_SRCS} ${MNN_SRCS})
-        set(LITE_DEPENDENCIES ${LITE_DEPENDENCIES} mnn)
+        set(LITE_DEPENDENCIES ${LITE_DEPENDENCIES} MNN)
     endif()
 
     if (ENABLE_NCNN)
@@ -33,7 +33,7 @@ function(add_lite_ai_toolkit_shared_library version soversion)
     if (ENABLE_TNN)
         include(cmake/lite.ai.toolkit-tnn.cmake)
         set(LITE_SRCS ${LITE_SRCS} ${TNN_SRCS})
-        set(LITE_DEPENDENCIES ${LITE_DEPENDENCIES} tnn)
+        set(LITE_DEPENDENCIES ${LITE_DEPENDENCIES} TNN)
     endif()
 
     # 4. shared library
@@ -51,7 +51,7 @@ function(add_lite_ai_toolkit_shared_library version soversion)
 endfunction()
 
 # add custom command for lite.ai shared lib.
-function(add_lite_ai_toolkit_custom_command)
+function(add_lite_ai_toolkit_pre_custom_command)
     if (LITE_AI_BUILD_TEST)
         add_custom_command(TARGET lite.ai.toolkit
                 PRE_BUILD
@@ -60,6 +60,11 @@ function(add_lite_ai_toolkit_custom_command)
                 COMMAND ${CMAKE_COMMAND} -E echo "create ${LIBRARY_OUTPUT_PATH} done!"
                 COMMAND ${CMAKE_COMMAND} -E echo "create ${EXECUTABLE_OUTPUT_PATH} done!"
                 )
+    endif()
+endfunction()
+
+function(add_lite_ai_toolkit_post_custom_command)
+    if (LITE_AI_BUILD_TEST)
         # copy opencv & lite.ai libs.
         add_custom_command(TARGET lite.ai.toolkit
                 POST_BUILD
@@ -110,40 +115,4 @@ function(add_lite_executable executable_name field)
     add_executable(${executable_name} ${field}/test_${executable_name}.cpp)
     target_link_libraries(${executable_name} lite.ai.toolkit)  # link lite.ai.toolkit
     message(">>>> Added Lite Executable: ${executable_name} !")
-endfunction ()
-
-function(add_ort_executable executable_name field)
-    if (NOT ${THIRDPARTY_SET_STATE})
-        include(${CMAKE_SOURCE_DIR}/cmake/setup_3rdparty.cmake)
-    endif()
-    add_executable(${executable_name} ${field}/test_${executable_name}.cpp)
-    target_link_libraries(${executable_name} lite.ai.toolkit)  # link lite.ai.toolkit
-    message(">>>> Added Ort Executable: ${executable_name} !")
-endfunction ()
-
-function(add_mnn_executable executable_name field)
-    if (NOT ${THIRDPARTY_SET_STATE})
-        include(${CMAKE_SOURCE_DIR}/cmake/setup_3rdparty.cmake)
-    endif()
-    add_executable(${executable_name} ${field}/test_${executable_name}.cpp)
-    target_link_libraries(${executable_name} lite.ai.toolkit)  # link lite.ai.toolkit
-    message(">>>> Added MNN Executable: ${executable_name} !")
-endfunction ()
-
-function(add_ncnn_executable executable_name field)
-    if (NOT ${THIRDPARTY_SET_STATE})
-        include(${CMAKE_SOURCE_DIR}/cmake/setup_3rdparty.cmake)
-    endif()
-    add_executable(${executable_name} ${field}/test_${executable_name}.cpp)
-    target_link_libraries(${executable_name} lite.ai.toolkit)  # link lite.ai.toolkit
-    message(">>>> Added NCNN Executable: ${executable_name} !")
-endfunction ()
-
-function(add_tnn_executable executable_name field)
-    if (NOT ${THIRDPARTY_SET_STATE})
-        include(${CMAKE_SOURCE_DIR}/cmake/setup_3rdparty.cmake)
-    endif()
-    add_executable(${executable_name} ${field}/test_${executable_name}.cpp)
-    target_link_libraries(${executable_name} lite.ai.toolkit)  # link lite.ai.toolkit
-    message(">>>> Added TNN Executable: ${executable_name} !")
 endfunction ()
