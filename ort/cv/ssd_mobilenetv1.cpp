@@ -4,6 +4,7 @@
 
 #include "ssd_mobilenetv1.h"
 #include "ort/core/ort_utils.h"
+#include "lite/utils.h"
 
 using ortcv::SSDMobileNetV1;
 
@@ -11,7 +12,7 @@ SSDMobileNetV1::SSDMobileNetV1(const std::string &_onnx_path, unsigned int _num_
     log_id(_onnx_path.data()), num_threads(_num_threads)
 {
 #ifdef LITE_WIN32
-  std::wstring _w_onnx_path(ortcv::utils::to_wstring(_onnx_path));
+  std::wstring _w_onnx_path(lite::utils::to_wstring(_onnx_path));
   onnx_path = _w_onnx_path.data();
 #else
   onnx_path = _onnx_path.data();
@@ -149,9 +150,9 @@ void SSDMobileNetV1::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
 void SSDMobileNetV1::nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
                          float iou_threshold, unsigned int topk, unsigned int nms_type)
 {
-  if (nms_type == NMS::BLEND) ortcv::utils::blending_nms(input, output, iou_threshold, topk);
-  else if (nms_type == NMS::OFFSET) ortcv::utils::offset_nms(input, output, iou_threshold, topk);
-  else ortcv::utils::hard_nms(input, output, iou_threshold, topk);
+  if (nms_type == NMS::BLEND) lite::utils::blending_nms(input, output, iou_threshold, topk);
+  else if (nms_type == NMS::OFFSET) lite::utils::offset_nms(input, output, iou_threshold, topk);
+  else lite::utils::hard_nms(input, output, iou_threshold, topk);
 }
 
 

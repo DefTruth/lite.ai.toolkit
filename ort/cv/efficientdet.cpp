@@ -4,6 +4,8 @@
 
 #include "efficientdet.h"
 #include "ort/core/ort_utils.h"
+#include "lite/utils.h"
+
 
 using ortcv::EfficientDet;
 
@@ -11,7 +13,6 @@ Ort::Value EfficientDet::transform(const cv::Mat &mat)
 {
   cv::Mat canva = mat.clone();
   cv::cvtColor(canva, canva, cv::COLOR_BGR2RGB);
-  // resize without padding, todo: add padding as the official Python implementation.
   cv::resize(canva, canva, cv::Size(input_node_dims.at(3),
                                     input_node_dims.at(2)));
   // (1,3,512,512) 1xCXHXW
@@ -170,7 +171,7 @@ void EfficientDet::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
 void EfficientDet::nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
                        float iou_threshold, unsigned int topk, unsigned int nms_type)
 {
-  if (nms_type == NMS::BLEND) ortcv::utils::blending_nms(input, output, iou_threshold, topk);
-  else if (nms_type == NMS::OFFSET) ortcv::utils::offset_nms(input, output, iou_threshold, topk);
-  else ortcv::utils::hard_nms(input, output, iou_threshold, topk);
+  if (nms_type == NMS::BLEND) lite::utils::blending_nms(input, output, iou_threshold, topk);
+  else if (nms_type == NMS::OFFSET) lite::utils::offset_nms(input, output, iou_threshold, topk);
+  else lite::utils::hard_nms(input, output, iou_threshold, topk);
 }

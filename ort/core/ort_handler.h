@@ -6,7 +6,6 @@
 #define LITE_AI_ORT_CORE_ORT_HANDLER_H
 
 #include "ort_config.h"
-//#include "ort_types.h"
 
 // global
 namespace core

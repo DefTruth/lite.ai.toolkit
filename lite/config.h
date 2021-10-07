@@ -3,7 +3,7 @@
 
 #define ENABLE_ONNXRUNTIME
 #define ENABLE_MNN
-/* #undef ENABLE_NCNN */
+#define ENABLE_NCNN
 /* #undef ENABLE_TNN */
 #define BACKEND_ONNXRUNTIME
 /* #undef BACKEND_MNN */

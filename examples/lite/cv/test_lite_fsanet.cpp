@@ -14,13 +14,13 @@ static void test_default()
   lite::cv::face::pose::FSANet *var_fsanet = new lite::cv::face::pose::FSANet(var_onnx_path);
   lite::cv::face::pose::FSANet *conv_fsanet = new lite::cv::face::pose::FSANet(conv_onnx_path);
   cv::Mat img_bgr = cv::imread(test_img_path);
-  lite::cv::types::EulerAngles var_euler_angles, conv_euler_angles;
+  lite::types::EulerAngles var_euler_angles, conv_euler_angles;
 
   // 1. detect euler angles.
   var_fsanet->detect(img_bgr, var_euler_angles);
   conv_fsanet->detect(img_bgr, conv_euler_angles);
 
-  lite::cv::types::EulerAngles euler_angles;
+  lite::types::EulerAngles euler_angles;
 
   euler_angles.yaw = (var_euler_angles.yaw + conv_euler_angles.yaw) / 2.0f;
   euler_angles.pitch = (var_euler_angles.pitch + conv_euler_angles.pitch) / 2.0f;
@@ -29,7 +29,7 @@ static void test_default()
 
   if (euler_angles.flag)
   {
-    lite::cv::utils::draw_axis_inplace(img_bgr, euler_angles);
+    lite::utils::draw_axis_inplace(img_bgr, euler_angles);
 
     cv::imwrite(save_img_path, img_bgr);
 
@@ -57,13 +57,13 @@ static void test_onnxruntime()
   lite::onnxruntime::cv::face::pose::FSANet *conv_fsanet =
       new lite::onnxruntime::cv::face::pose::FSANet(conv_onnx_path);
   cv::Mat img_bgr = cv::imread(test_img_path);
-  lite::onnxruntime::cv::types::EulerAngles var_euler_angles, conv_euler_angles;
+  lite::types::EulerAngles var_euler_angles, conv_euler_angles;
 
   // 1. detect euler angles.
   var_fsanet->detect(img_bgr, var_euler_angles);
   conv_fsanet->detect(img_bgr, conv_euler_angles);
 
-  lite::onnxruntime::cv::types::EulerAngles euler_angles;
+  lite::types::EulerAngles euler_angles;
 
   euler_angles.yaw = (var_euler_angles.yaw + conv_euler_angles.yaw) / 2.0f;
   euler_angles.pitch = (var_euler_angles.pitch + conv_euler_angles.pitch) / 2.0f;
@@ -72,7 +72,7 @@ static void test_onnxruntime()
 
   if (euler_angles.flag)
   {
-    lite::onnxruntime::cv::utils::draw_axis_inplace(img_bgr, euler_angles);
+    lite::utils::draw_axis_inplace(img_bgr, euler_angles);
     cv::imwrite(save_img_path, img_bgr);
 
     std::cout << "ONNXRuntime Version"

@@ -457,11 +457,11 @@ static void test_default()
   std::string save_img_path = "../../../logs/test_lite_yolov5_1.jpg";
 
   auto *yolov5 = new lite::cv::detection::YoloV5(onnx_path); 
-  std::vector<lite::cv::types::Boxf> detected_boxes;
+  std::vector<lite::types::Boxf> detected_boxes;
   cv::Mat img_bgr = cv::imread(test_img_path);
   yolov5->detect(img_bgr, detected_boxes);
   
-  lite::cv::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+  lite::utils::draw_boxes_inplace(img_bgr, detected_boxes);
   cv::imwrite(save_img_path, img_bgr);  
   
   delete yolov5;
@@ -492,7 +492,7 @@ static void test_default()
   std::string output_path = "../../../logs/test_lite_rvm_0.mp4";
   
   auto *rvm = new lite::cv::matting::RobustVideoMatting(onnx_path, 16); // 16 threads
-  std::vector<lite::cv::types::MattingContent> contents;
+  std::vector<lite::types::MattingContent> contents;
   
   // 1. video matting.
   rvm->detect_video(video_path, output_path, contents, false, 0.4f);
@@ -531,10 +531,10 @@ static void test_default()
     
   auto *face_landmarks_1000 = new lite::cv::face::align::FaceLandmark1000(onnx_path);
 
-  lite::cv::types::Landmarks landmarks;
+  lite::types::Landmarks landmarks;
   cv::Mat img_bgr = cv::imread(test_img_path);
   face_landmarks_1000->detect(img_bgr, landmarks);
-  lite::cv::utils::draw_landmarks_inplace(img_bgr, landmarks);
+  lite::utils::draw_landmarks_inplace(img_bgr, landmarks);
   cv::imwrite(save_img_path, img_bgr);
   
   delete face_landmarks_1000;
@@ -564,7 +564,7 @@ static void test_default()
   auto *colorizer = new lite::cv::colorization::Colorizer(onnx_path);
   
   cv::Mat img_bgr = cv::imread(test_img_path);
-  lite::cv::types::ColorizeContent colorize_content;
+  lite::types::ColorizeContent colorize_content;
   colorizer->detect(img_bgr, colorize_content);
   
   if (colorize_content.flag) cv::imwrite(save_img_path, colorize_content.mat);
@@ -601,7 +601,7 @@ static void test_default()
 
   auto *glint_arcface = new lite::cv::faceid::GlintArcFace(onnx_path);
 
-  lite::cv::types::FaceContent face_content0, face_content1, face_content2;
+  lite::types::FaceContent face_content0, face_content1, face_content2;
   cv::Mat img_bgr0 = cv::imread(test_img_path0);
   cv::Mat img_bgr1 = cv::imread(test_img_path1);
   cv::Mat img_bgr2 = cv::imread(test_img_path2);
@@ -611,9 +611,9 @@ static void test_default()
 
   if (face_content0.flag && face_content1.flag && face_content2.flag)
   {
-    float sim01 = lite::cv::utils::math::cosine_similarity<float>(
+    float sim01 = lite::utils::math::cosine_similarity<float>(
         face_content0.embedding, face_content1.embedding);
-    float sim02 = lite::cv::utils::math::cosine_similarity<float>(
+    float sim02 = lite::utils::math::cosine_similarity<float>(
         face_content0.embedding, face_content2.embedding);
     std::cout << "Detected Sim01: " << sim  << " Sim02: " << sim02 << std::endl;
   }
@@ -647,10 +647,10 @@ static void test_default()
 
   auto *ultraface = new lite::cv::face::detect::UltraFace(onnx_path);
 
-  std::vector<lite::cv::types::Boxf> detected_boxes;
+  std::vector<lite::types::Boxf> detected_boxes;
   cv::Mat img_bgr = cv::imread(test_img_path);
   ultraface->detect(img_bgr, detected_boxes);
-  lite::cv::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+  lite::utils::draw_boxes_inplace(img_bgr, detected_boxes);
   cv::imwrite(save_img_path, img_bgr);
 
   delete ultraface;
@@ -687,11 +687,11 @@ static void test_default()
   std::string save_img_path = "../../../logs/test_lite_yolov5_1.jpg";
   
   auto *yolov5 = new lite::cv::detection::YoloV5(onnx_path);
-  std::vector<lite::cv::types::Boxf> detected_boxes;
+  std::vector<lite::types::Boxf> detected_boxes;
   cv::Mat img_bgr = cv::imread(test_img_path);
   yolov5->detect(img_bgr, detected_boxes);
   
-  lite::cv::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+  lite::utils::draw_boxes_inplace(img_bgr, detected_boxes);
   cv::imwrite(save_img_path, img_bgr);
   
   delete yolov5;
@@ -716,11 +716,11 @@ static void test_default()
   std::string save_img_path = "../../../logs/test_lite_yolox_1.jpg";
 
   auto *yolox = new lite::cv::detection::YoloX(onnx_path); 
-  std::vector<lite::cv::types::Boxf> detected_boxes;
+  std::vector<lite::types::Boxf> detected_boxes;
   cv::Mat img_bgr = cv::imread(test_img_path);
   yolox->detect(img_bgr, detected_boxes);
   
-  lite::cv::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+  lite::utils::draw_boxes_inplace(img_bgr, detected_boxes);
   cv::imwrite(save_img_path, img_bgr);  
   
   delete yolox;
@@ -771,7 +771,7 @@ static void test_default()
 
   auto *glint_arcface = new lite::cv::faceid::GlintArcFace(onnx_path);
 
-  lite::cv::types::FaceContent face_content0, face_content1, face_content2;
+  lite::types::FaceContent face_content0, face_content1, face_content2;
   cv::Mat img_bgr0 = cv::imread(test_img_path0);
   cv::Mat img_bgr1 = cv::imread(test_img_path1);
   cv::Mat img_bgr2 = cv::imread(test_img_path2);
@@ -781,9 +781,9 @@ static void test_default()
 
   if (face_content0.flag && face_content1.flag && face_content2.flag)
   {
-    float sim01 = lite::cv::utils::math::cosine_similarity<float>(
+    float sim01 = lite::utils::math::cosine_similarity<float>(
         face_content0.embedding, face_content1.embedding);
-    float sim02 = lite::cv::utils::math::cosine_similarity<float>(
+    float sim02 = lite::utils::math::cosine_similarity<float>(
         face_content0.embedding, face_content2.embedding);
     std::cout << "Detected Sim01: " << sim  << " Sim02: " << sim02 << std::endl;
   }
@@ -839,7 +839,7 @@ static void test_default()
 
   auto *deeplabv3_resnet101 = new lite::cv::segmentation::DeepLabV3ResNet101(onnx_path, 16); // 16 threads
 
-  lite::cv::types::SegmentContent content;
+  lite::types::SegmentContent content;
   cv::Mat img_bgr = cv::imread(test_img_path);
   deeplabv3_resnet101->detect(img_bgr, content);
 
@@ -889,10 +889,10 @@ static void test_default()
 
   lite::cv::face::attr::SSRNet *ssrnet = new lite::cv::face::attr::SSRNet(onnx_path);
 
-  lite::cv::types::Age age;
+  lite::types::Age age;
   cv::Mat img_bgr = cv::imread(test_img_path);
   ssrnet->detect(img_bgr, age);
-  lite::cv::utils::draw_age_inplace(img_bgr, age);
+  lite::utils::draw_age_inplace(img_bgr, age);
   cv::imwrite(save_img_path, img_bgr);
   std::cout << "Default Version Done! Detected SSRNet Age: " << age.age << std::endl;
 
@@ -937,7 +937,7 @@ static void test_default()
 
   auto *densenet = new lite::cv::classification::DenseNet(onnx_path);
 
-  lite::cv::types::ImageNetContent content;
+  lite::types::ImageNetContent content;
   cv::Mat img_bgr = cv::imread(test_img_path);
   densenet->detect(img_bgr, content);
   if (content.flag)
@@ -994,10 +994,10 @@ static void test_default()
 
   auto *ultraface = new lite::cv::face::detect::UltraFace(onnx_path);
 
-  std::vector<lite::cv::types::Boxf> detected_boxes;
+  std::vector<lite::types::Boxf> detected_boxes;
   cv::Mat img_bgr = cv::imread(test_img_path);
   ultraface->detect(img_bgr, detected_boxes);
-  lite::cv::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+  lite::utils::draw_boxes_inplace(img_bgr, detected_boxes);
   cv::imwrite(save_img_path, img_bgr);
 
   delete ultraface;
@@ -1036,7 +1036,7 @@ static void test_default()
   auto *colorizer = new lite::cv::colorization::Colorizer(onnx_path);
   
   cv::Mat img_bgr = cv::imread(test_img_path);
-  lite::cv::types::ColorizeContent colorize_content;
+  lite::types::ColorizeContent colorize_content;
   colorizer->detect(img_bgr, colorize_content);
   
   if (colorize_content.flag) cv::imwrite(save_img_path, colorize_content.mat);
@@ -1074,12 +1074,12 @@ static void test_default()
 
   auto *fsanet = new lite::cv::face::pose::FSANet(onnx_path);
   cv::Mat img_bgr = cv::imread(test_img_path);
-  lite::cv::types::EulerAngles euler_angles;
+  lite::types::EulerAngles euler_angles;
   fsanet->detect(img_bgr, euler_angles);
   
   if (euler_angles.flag)
   {
-    lite::cv::utils::draw_axis_inplace(img_bgr, euler_angles);
+    lite::utils::draw_axis_inplace(img_bgr, euler_angles);
     cv::imwrite(save_img_path, img_bgr);
     std::cout << "yaw:" << euler_angles.yaw << " pitch:" << euler_angles.pitch << " row:" << euler_angles.roll << std::endl;
   }
@@ -1112,10 +1112,10 @@ static void test_default()
     
   auto *face_landmarks_1000 = new lite::cv::face::align::FaceLandmark1000(onnx_path);
 
-  lite::cv::types::Landmarks landmarks;
+  lite::types::Landmarks landmarks;
   cv::Mat img_bgr = cv::imread(test_img_path);
   face_landmarks_1000->detect(img_bgr, landmarks);
-  lite::cv::utils::draw_landmarks_inplace(img_bgr, landmarks);
+  lite::utils::draw_landmarks_inplace(img_bgr, landmarks);
   cv::imwrite(save_img_path, img_bgr);
   
   delete face_landmarks_1000;
@@ -1156,7 +1156,7 @@ static void test_default()
   
   auto *fast_style_transfer = new lite::cv::style::FastStyleTransfer(onnx_path);
  
-  lite::cv::types::StyleContent style_content;
+  lite::types::StyleContent style_content;
   cv::Mat img_bgr = cv::imread(test_img_path);
   fast_style_transfer->detect(img_bgr, style_content);
 
@@ -1194,7 +1194,7 @@ static void test_default()
   std::string output_path = "../../../logs/test_lite_rvm_0.mp4";
   
   auto *rvm = new lite::cv::matting::RobustVideoMatting(onnx_path, 16); // 16 threads
-  std::vector<lite::cv::types::MattingContent> contents;
+  std::vector<lite::types::MattingContent> contents;
   
   // 1. video matting.
   rvm->detect_video(video_path, output_path, contents);

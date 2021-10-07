@@ -6,17 +6,7 @@
 #define LITE_AI_ORT_CORE_ORT_CONFIG_H
 
 #include "ort_defs.h"
-
-#include <cmath>
-#include <vector>
-#include <cassert>
-#include <locale.h>
-#include <string>
-#include <memory>
-#include <algorithm>
-#include <unordered_map>
-#include <unordered_set>
-#include "opencv2/opencv.hpp"
+#include "lite/lite.ai.headers.h"
 
 #ifdef ENABLE_ONNXRUNTIME
 #include "onnxruntime/core/session/onnxruntime_cxx_api.h"

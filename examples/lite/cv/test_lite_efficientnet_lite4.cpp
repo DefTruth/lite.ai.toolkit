@@ -12,7 +12,7 @@ static void test_default()
   lite::cv::classification::EfficientNetLite4 *efficientnet_lite4 =
       new lite::cv::classification::EfficientNetLite4(onnx_path);
 
-  lite::cv::types::ImageNetContent content;
+  lite::types::ImageNetContent content;
   cv::Mat img_bgr = cv::imread(test_img_path);
   efficientnet_lite4->detect(img_bgr, content);
 
@@ -43,7 +43,7 @@ static void test_onnxruntime()
   lite::onnxruntime::cv::classification::EfficientNetLite4 *efficientnet_lite4 =
       new lite::onnxruntime::cv::classification::EfficientNetLite4(onnx_path);
 
-  lite::onnxruntime::cv::types::ImageNetContent content;
+  lite::types::ImageNetContent content;
   cv::Mat img_bgr = cv::imread(test_img_path);
   efficientnet_lite4->detect(img_bgr, content);
 

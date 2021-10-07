@@ -3,6 +3,7 @@
 //
 #include "age_googlenet.h"
 #include "ort/core/ort_utils.h"
+#include "lite/utils.h"
 
 using ortcv::AgeGoogleNet;
 
@@ -35,7 +36,7 @@ void AgeGoogleNet::detect(const cv::Mat &mat, types::Age &age)
   unsigned int interval = 0;
   const unsigned int num_intervals = age_dims.at(1); // 8
   const float *pred_logits = age_logits.GetTensorMutableData<float>();
-  auto softmax_probs = ortcv::utils::math::softmax<float>(pred_logits, num_intervals, interval);
+  auto softmax_probs = lite::utils::math::softmax<float>(pred_logits, num_intervals, interval);
   const float pred_age = static_cast<float>(
                              age_intervals[interval][0] + age_intervals[interval][1]) / 2.0f;
   age.age = pred_age;

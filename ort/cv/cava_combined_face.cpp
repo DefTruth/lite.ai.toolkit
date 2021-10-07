@@ -4,6 +4,7 @@
 
 #include "cava_combined_face.h"
 #include "ort/core/ort_utils.h"
+#include "lite/utils.h"
 
 using ortcv::CavaCombinedFace;
 

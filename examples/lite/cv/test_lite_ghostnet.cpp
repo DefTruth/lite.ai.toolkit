@@ -11,7 +11,7 @@ static void test_default()
 
   lite::cv::classification::GhostNet *ghostnet = new lite::cv::classification::GhostNet(onnx_path);
 
-  lite::cv::types::ImageNetContent content;
+  lite::types::ImageNetContent content;
   cv::Mat img_bgr = cv::imread(test_img_path);
   ghostnet->detect(img_bgr, content);
 
@@ -42,7 +42,7 @@ static void test_onnxruntime()
   lite::onnxruntime::cv::classification::GhostNet *ghostnet =
       new lite::onnxruntime::cv::classification::GhostNet(onnx_path);
 
-  lite::onnxruntime::cv::types::ImageNetContent content;
+  lite::types::ImageNetContent content;
   cv::Mat img_bgr = cv::imread(test_img_path);
   ghostnet->detect(img_bgr, content);
 

@@ -4,6 +4,8 @@
 
 #include "efficient_emotion8.h"
 #include "ort/core/ort_utils.h"
+#include "lite/utils.h"
+
 
 using ortcv::EfficientEmotion8;
 
@@ -35,7 +37,7 @@ void EfficientEmotion8::detect(const cv::Mat &mat, types::Emotions &emotions)
   unsigned int pred_label = 0;
   const unsigned int num_emotions = emotion_dims.at(1); // 8
   const float *pred_logits = emotion_logits.GetTensorMutableData<float>();
-  auto softmax_probs = ortcv::utils::math::softmax<float>(pred_logits, num_emotions, pred_label);
+  auto softmax_probs = lite::utils::math::softmax<float>(pred_logits, num_emotions, pred_label);
   emotions.label = pred_label;
   emotions.score = softmax_probs[pred_label];
   emotions.text = emotion_texts[pred_label];

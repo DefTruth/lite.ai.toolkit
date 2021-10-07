@@ -13,11 +13,11 @@ static void test_default()
   // 1. Test Default Engine ONNXRuntime
   lite::cv::detection::YoloX *yolox = new lite::cv::detection::YoloX(onnx_path); // default
 
-  std::vector<lite::cv::types::Boxf> detected_boxes;
+  std::vector<lite::types::Boxf> detected_boxes;
   cv::Mat img_bgr = cv::imread(test_img_path);
   yolox->detect(img_bgr, detected_boxes);
 
-  lite::cv::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+  lite::utils::draw_boxes_inplace(img_bgr, detected_boxes);
 
   cv::imwrite(save_img_path, img_bgr);
 
@@ -38,11 +38,11 @@ static void test_onnxruntime()
   lite::onnxruntime::cv::detection::YoloX *yolox =
       new lite::onnxruntime::cv::detection::YoloX(onnx_path);
 
-  std::vector<lite::onnxruntime::cv::types::Boxf> detected_boxes;
+  std::vector<lite::types::Boxf> detected_boxes;
   cv::Mat img_bgr = cv::imread(test_img_path);
   yolox->detect(img_bgr, detected_boxes);
 
-  lite::onnxruntime::cv::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+  lite::utils::draw_boxes_inplace(img_bgr, detected_boxes);
 
   cv::imwrite(save_img_path, img_bgr);
 

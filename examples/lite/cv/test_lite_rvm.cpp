@@ -11,7 +11,7 @@ static void test_default()
   std::string output_path = "../../../logs/test_lite_rvm_0.mp4";
 
   auto *rvm = new lite::cv::matting::RobustVideoMatting(onnx_path, 16); // 16 threads
-  std::vector<lite::cv::types::MattingContent> contents;
+  std::vector<lite::types::MattingContent> contents;
 
   // 1. video matting.
   rvm->detect_video(video_path, output_path, contents, false, 0.4f);
@@ -27,7 +27,7 @@ static void test_onnxruntime()
   std::string output_path = "../../../logs/test_lite_rvm_1.mp4";
 
   auto *rvm = new lite::onnxruntime::cv::matting::RobustVideoMatting(onnx_path, 16); // 16 threads
-  std::vector<lite::onnxruntime::cv::types::MattingContent> contents;
+  std::vector<lite::types::MattingContent> contents;
 
   // 1. video matting.
   rvm->detect_video(video_path, output_path, contents, false, 0.4f);

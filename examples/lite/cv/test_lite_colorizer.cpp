@@ -31,15 +31,15 @@ static void test_default()
   cv::Mat img_bgr3 = cv::imread(test_img_path3);
   cv::Mat img_bgr4 = cv::imread(test_img_path4);
 
-  lite::cv::types::ColorizeContent eccv16_colorize_content1;
-  lite::cv::types::ColorizeContent eccv16_colorize_content2;
-  lite::cv::types::ColorizeContent eccv16_colorize_content3;
-  lite::cv::types::ColorizeContent eccv16_colorize_content4;
+  lite::types::ColorizeContent eccv16_colorize_content1;
+  lite::types::ColorizeContent eccv16_colorize_content2;
+  lite::types::ColorizeContent eccv16_colorize_content3;
+  lite::types::ColorizeContent eccv16_colorize_content4;
 
-  lite::cv::types::ColorizeContent siggraph17_colorize_content1;
-  lite::cv::types::ColorizeContent siggraph17_colorize_content2;
-  lite::cv::types::ColorizeContent siggraph17_colorize_content3;
-  lite::cv::types::ColorizeContent siggraph17_colorize_content4;
+  lite::types::ColorizeContent siggraph17_colorize_content1;
+  lite::types::ColorizeContent siggraph17_colorize_content2;
+  lite::types::ColorizeContent siggraph17_colorize_content3;
+  lite::types::ColorizeContent siggraph17_colorize_content4;
 
   eccv16_colorizer->detect(img_bgr1, eccv16_colorize_content1);
   eccv16_colorizer->detect(img_bgr2, eccv16_colorize_content2);
@@ -95,15 +95,15 @@ static void test_onnxruntime()
   cv::Mat img_bgr3 = cv::imread(test_img_path3);
   cv::Mat img_bgr4 = cv::imread(test_img_path4);
 
-  lite::onnxruntime::cv::types::ColorizeContent eccv16_colorize_content1;
-  lite::onnxruntime::cv::types::ColorizeContent eccv16_colorize_content2;
-  lite::onnxruntime::cv::types::ColorizeContent eccv16_colorize_content3;
-  lite::onnxruntime::cv::types::ColorizeContent eccv16_colorize_content4;
+  lite::types::ColorizeContent eccv16_colorize_content1;
+  lite::types::ColorizeContent eccv16_colorize_content2;
+  lite::types::ColorizeContent eccv16_colorize_content3;
+  lite::types::ColorizeContent eccv16_colorize_content4;
 
-  lite::onnxruntime::cv::types::ColorizeContent siggraph17_colorize_content1;
-  lite::onnxruntime::cv::types::ColorizeContent siggraph17_colorize_content2;
-  lite::onnxruntime::cv::types::ColorizeContent siggraph17_colorize_content3;
-  lite::onnxruntime::cv::types::ColorizeContent siggraph17_colorize_content4;
+  lite::types::ColorizeContent siggraph17_colorize_content1;
+  lite::types::ColorizeContent siggraph17_colorize_content2;
+  lite::types::ColorizeContent siggraph17_colorize_content3;
+  lite::types::ColorizeContent siggraph17_colorize_content4;
 
   eccv16_colorizer->detect(img_bgr1, eccv16_colorize_content1);
   eccv16_colorizer->detect(img_bgr2, eccv16_colorize_content2);

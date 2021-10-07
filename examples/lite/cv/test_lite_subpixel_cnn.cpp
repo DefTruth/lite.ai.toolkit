@@ -12,7 +12,7 @@ static void test_default()
 
   lite::cv::resolution::SubPixelCNN *subpixel_cnn = new lite::cv::resolution::SubPixelCNN(onnx_path);
 
-  lite::cv::types::SuperResolutionContent super_resolution_content;
+  lite::types::SuperResolutionContent super_resolution_content;
   cv::Mat img_bgr = cv::imread(test_img_path);
   subpixel_cnn->detect(img_bgr, super_resolution_content);
 
@@ -33,7 +33,7 @@ static void test_onnxruntime()
   lite::onnxruntime::cv::resolution::SubPixelCNN *subpixel_cnn =
       new lite::onnxruntime::cv::resolution::SubPixelCNN(onnx_path);
 
-  lite::onnxruntime::cv::types::SuperResolutionContent super_resolution_content;
+  lite::types::SuperResolutionContent super_resolution_content;
   cv::Mat img_bgr = cv::imread(test_img_path);
   subpixel_cnn->detect(img_bgr, super_resolution_content);
 

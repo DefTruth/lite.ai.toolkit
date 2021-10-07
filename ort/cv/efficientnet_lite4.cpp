@@ -4,6 +4,7 @@
 
 #include "efficientnet_lite4.h"
 #include "ort/core/ort_utils.h"
+#include "lite/utils.h"
 
 using ortcv::EfficientNetLite4;
 
@@ -34,7 +35,7 @@ void EfficientNetLite4::detect(const cv::Mat &mat, types::ImageNetContent &conte
   Ort::Value &scores_tensor = output_tensors.at(0); // (1,1000)
   const unsigned int num_classes = output_node_dims.at(0).at(1);
   const float *scores = scores_tensor.GetTensorMutableData<float>(); // float
-  std::vector<unsigned int> sorted_indices = ortcv::utils::math::argsort<float>(scores, num_classes);
+  std::vector<unsigned int> sorted_indices = lite::utils::math::argsort<float>(scores, num_classes);
   if (top_k > num_classes) top_k = num_classes;
 
   content.scores.clear();

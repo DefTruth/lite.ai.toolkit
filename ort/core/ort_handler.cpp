@@ -4,7 +4,7 @@
 #include "ort_handler.h"
 
 #ifdef LITE_WIN32
-#include "ort_utils.h"
+#include "lite/utils.h"
 #endif
 
 using core::BasicOrtHandler;
@@ -16,7 +16,7 @@ BasicOrtHandler::BasicOrtHandler(
     log_id(_onnx_path.data()), num_threads(_num_threads)
 {
 #ifdef LITE_WIN32
-  std::wstring _w_onnx_path(ortcv::utils::to_wstring(_onnx_path));
+  std::wstring _w_onnx_path(lite::utils::to_wstring(_onnx_path));
   onnx_path = _w_onnx_path.data();
 #else
   onnx_path = _onnx_path.data();
@@ -100,7 +100,7 @@ BasicMultiOrtHandler::BasicMultiOrtHandler(
     log_id(_onnx_path.data()), num_threads(_num_threads)
 {
 #ifdef LITE_WIN32
-  std::wstring _w_onnx_path(ortcv::utils::to_wstring(_onnx_path));
+  std::wstring _w_onnx_path(lite::utils::to_wstring(_onnx_path));
   onnx_path = _w_onnx_path.data();
 #else
   onnx_path = _onnx_path.data();
