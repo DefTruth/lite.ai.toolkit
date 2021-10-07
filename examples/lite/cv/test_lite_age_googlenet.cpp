@@ -13,11 +13,11 @@ static void test_default()
   // 1. Test Default Engine ONNXRuntime
   lite::cv::face::attr::AgeGoogleNet *age_googlenet = new lite::cv::face::attr::AgeGoogleNet(onnx_path);
 
-  lite::cv::types::Age age;
+  lite::types::Age age;
   cv::Mat img_bgr = cv::imread(test_img_path);
   age_googlenet->detect(img_bgr, age);
 
-  lite::cv::utils::draw_age_inplace(img_bgr, age);
+  lite::utils::draw_age_inplace(img_bgr, age);
 
   cv::imwrite(save_img_path, img_bgr);
 
@@ -38,7 +38,7 @@ static void test_onnxruntime()
   // 2. Test Specific Engine ONNXRuntime
   lite::onnxruntime::cv::face::attr::AgeGoogleNet *onnx_age_googlenet =
       new lite::onnxruntime::cv::face::attr::AgeGoogleNet(onnx_path);
-  lite::onnxruntime::cv::types::Age age;
+  lite::types::Age age;
   cv::Mat img_bgr = cv::imread(test_img_path);
   onnx_age_googlenet->detect(img_bgr, age);
 

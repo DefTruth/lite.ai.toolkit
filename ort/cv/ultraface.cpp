@@ -4,6 +4,7 @@
 
 #include "ultraface.h"
 #include "ort/core/ort_utils.h"
+#include "lite/utils.h"
 
 using ortcv::UltraFace;
 
@@ -81,9 +82,9 @@ void UltraFace::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
 void UltraFace::nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
                     float iou_threshold, unsigned int topk, unsigned int nms_type)
 {
-  if (nms_type == NMS::BLEND) ortcv::utils::blending_nms(input, output, iou_threshold, topk);
-  else if (nms_type == NMS::OFFSET) ortcv::utils::offset_nms(input, output, iou_threshold, topk);
-  else ortcv::utils::hard_nms(input, output, iou_threshold, topk);
+  if (nms_type == NMS::BLEND) lite::utils::blending_nms(input, output, iou_threshold, topk);
+  else if (nms_type == NMS::OFFSET) lite::utils::offset_nms(input, output, iou_threshold, topk);
+  else lite::utils::hard_nms(input, output, iou_threshold, topk);
 }
 
 

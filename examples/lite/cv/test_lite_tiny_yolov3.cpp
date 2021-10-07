@@ -12,11 +12,11 @@ static void test_default()
 
   lite::cv::detection::TinyYoloV3 *tiny_yolov3 = new lite::cv::detection::TinyYoloV3(onnx_path);
 
-  std::vector<lite::cv::types::Boxf> detected_boxes;
+  std::vector<lite::types::Boxf> detected_boxes;
   cv::Mat img_bgr = cv::imread(test_img_path);
   tiny_yolov3->detect(img_bgr, detected_boxes);
 
-  lite::cv::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+  lite::utils::draw_boxes_inplace(img_bgr, detected_boxes);
 
   cv::imwrite(save_img_path, img_bgr);
 
@@ -35,11 +35,11 @@ static void test_onnxruntime()
   lite::onnxruntime::cv::detection::TinyYoloV3 *tiny_yolov3 =
       new lite::onnxruntime::cv::detection::TinyYoloV3(onnx_path);
 
-  std::vector<lite::onnxruntime::cv::types::Boxf> detected_boxes;
+  std::vector<lite::types::Boxf> detected_boxes;
   cv::Mat img_bgr = cv::imread(test_img_path);
   tiny_yolov3->detect(img_bgr, detected_boxes);
 
-  lite::onnxruntime::cv::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+  lite::utils::draw_boxes_inplace(img_bgr, detected_boxes);
 
   cv::imwrite(save_img_path, img_bgr);
 

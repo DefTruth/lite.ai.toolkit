@@ -3,6 +3,7 @@
 //
 #include "gender_googlenet.h"
 #include "ort/core/ort_utils.h"
+#include "lite/utils.h"
 
 using ortcv::GenderGoogleNet;
 
@@ -35,7 +36,7 @@ void GenderGoogleNet::detect(const cv::Mat &mat, types::Gender &gender)
   const unsigned int num_genders = gender_dims.at(1); // 2
   unsigned int pred_gender = 0;
   const float *pred_logits = gender_logits.GetTensorMutableData<float>();
-  auto softmax_probs = ortcv::utils::math::softmax<float>(pred_logits, num_genders, pred_gender);
+  auto softmax_probs = lite::utils::math::softmax<float>(pred_logits, num_genders, pred_gender);
   unsigned int gender_label = pred_gender == 1 ? 0 : 1;
   gender.label = gender_label;
   gender.text = gender_texts[gender_label];

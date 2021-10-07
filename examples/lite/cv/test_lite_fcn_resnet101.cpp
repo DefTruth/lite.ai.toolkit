@@ -13,7 +13,7 @@ static void test_default()
   lite::cv::segmentation::FCNResNet101 *fcn_resnet101 =
       new lite::cv::segmentation::FCNResNet101(onnx_path, 16);
 
-  lite::cv::types::SegmentContent content;
+  lite::types::SegmentContent content;
   cv::Mat img_bgr = cv::imread(test_img_path);
   fcn_resnet101->detect(img_bgr, content);
 
@@ -45,7 +45,7 @@ static void test_onnxruntime()
   lite::onnxruntime::cv::segmentation::FCNResNet101 *fcn_resnet101 =
       new lite::onnxruntime::cv::segmentation::FCNResNet101(onnx_path, 16);
 
-  lite::onnxruntime::cv::types::SegmentContent content;
+  lite::types::SegmentContent content;
   cv::Mat img_bgr = cv::imread(test_img_path);
   fcn_resnet101->detect(img_bgr, content);
 

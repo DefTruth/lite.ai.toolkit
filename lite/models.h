@@ -107,11 +107,6 @@ namespace lite
   namespace cv
   {
 #ifdef BACKEND_ONNXRUNTIME
-    namespace utils = ortcv::utils;
-    namespace types = ortcv::types;
-#endif
-
-#ifdef BACKEND_ONNXRUNTIME
     typedef ortcv::FSANet _FSANet;
     typedef ortcv::PFLD _PFLD;
     typedef ortcv::UltraFace _UltraFace;
@@ -447,9 +442,6 @@ namespace lite
   {
     namespace cv
     {
-      namespace utils = ortcv::utils;
-      namespace types = ortcv::types;
-
       typedef ortcv::FSANet _ONNXFSANet;
       typedef ortcv::PFLD _ONNXPFLD;
       typedef ortcv::UltraFace _ONNXUltraFace;
@@ -703,9 +695,6 @@ namespace lite
   {
     namespace cv
     {
-      namespace utils = mnncv::utils;
-      namespace types = mnncv::types;
-
       // classification
       namespace classification
       {

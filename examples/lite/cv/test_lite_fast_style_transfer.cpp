@@ -29,11 +29,11 @@ static void test_default()
   lite::cv::style::FastStyleTransfer *udnie_fast_style_transfer =
       new lite::cv::style::FastStyleTransfer(udnie_onnx_path);
 
-  lite::cv::types::StyleContent candy_style_content;
-  lite::cv::types::StyleContent mosaic_style_content;
-  lite::cv::types::StyleContent pointilism_style_content;
-  lite::cv::types::StyleContent rain_princess_style_content;
-  lite::cv::types::StyleContent udnie_style_content;
+  lite::types::StyleContent candy_style_content;
+  lite::types::StyleContent mosaic_style_content;
+  lite::types::StyleContent pointilism_style_content;
+  lite::types::StyleContent rain_princess_style_content;
+  lite::types::StyleContent udnie_style_content;
 
   cv::Mat img_bgr = cv::imread(test_img_path);
 
@@ -85,11 +85,11 @@ static void test_onnxruntime()
   lite::onnxruntime::cv::style::FastStyleTransfer *udnie_fast_style_transfer =
       new lite::onnxruntime::cv::style::FastStyleTransfer(udnie_onnx_path);
 
-  lite::onnxruntime::cv::types::StyleContent candy_style_content;
-  lite::onnxruntime::cv::types::StyleContent mosaic_style_content;
-  lite::onnxruntime::cv::types::StyleContent pointilism_style_content;
-  lite::onnxruntime::cv::types::StyleContent rain_princess_style_content;
-  lite::onnxruntime::cv::types::StyleContent udnie_style_content;
+  lite::types::StyleContent candy_style_content;
+  lite::types::StyleContent mosaic_style_content;
+  lite::types::StyleContent pointilism_style_content;
+  lite::types::StyleContent rain_princess_style_content;
+  lite::types::StyleContent udnie_style_content;
 
   cv::Mat img_bgr = cv::imread(test_img_path);
 

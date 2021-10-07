@@ -13,11 +13,11 @@ static void test_default()
   lite::cv::face::align::FaceLandmark1000 *face_landmarks_1000 =
       new lite::cv::face::align::FaceLandmark1000(onnx_path);
 
-  lite::cv::types::Landmarks landmarks;
+  lite::types::Landmarks landmarks;
   cv::Mat img_bgr = cv::imread(test_img_path);
   face_landmarks_1000->detect(img_bgr, landmarks);
 
-  lite::cv::utils::draw_landmarks_inplace(img_bgr, landmarks);
+  lite::utils::draw_landmarks_inplace(img_bgr, landmarks);
 
   cv::imwrite(save_img_path, img_bgr);
 
@@ -37,11 +37,11 @@ static void test_onnxruntime()
   lite::onnxruntime::cv::face::align::FaceLandmark1000 *face_landmarks_1000 =
       new lite::onnxruntime::cv::face::align::FaceLandmark1000(onnx_path);
 
-  lite::onnxruntime::cv::types::Landmarks landmarks;
+  lite::types::Landmarks landmarks;
   cv::Mat img_bgr = cv::imread(test_img_path);
   face_landmarks_1000->detect(img_bgr, landmarks);
 
-  lite::onnxruntime::cv::utils::draw_landmarks_inplace(img_bgr, landmarks);
+  lite::utils::draw_landmarks_inplace(img_bgr, landmarks);
 
   cv::imwrite(save_img_path, img_bgr);
 

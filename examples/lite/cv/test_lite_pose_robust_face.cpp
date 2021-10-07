@@ -14,8 +14,8 @@ static void test_default()
   lite::cv::faceid::PoseRobustFace *pose_robust_face = new lite::cv::faceid::PoseRobustFace(onnx_path);
   lite::cv::face::pose::FSANet *fsanet = new lite::cv::face::pose::FSANet(pose_onnx_path);
 
-  lite::cv::types::FaceContent face_content0, face_content1;
-  lite::cv::types::EulerAngles euler_angles0, euler_angles1;
+  lite::types::FaceContent face_content0, face_content1;
+  lite::types::EulerAngles euler_angles0, euler_angles1;
   cv::Mat img_bgr0 = cv::imread(test_img_path0);
   cv::Mat img_bgr1 = cv::imread(test_img_path1);
   fsanet->detect(img_bgr0, euler_angles0); // head pose estimation first
@@ -40,7 +40,7 @@ static void test_default()
 
   if (face_content0.flag && face_content1.flag)
   {
-    float sim = lite::cv::utils::math::cosine_similarity<float>(
+    float sim = lite::utils::math::cosine_similarity<float>(
         face_content0.embedding, face_content1.embedding);
     std::cout << "Default Version Detected Sim: " << sim << std::endl;
   }
@@ -62,8 +62,8 @@ static void test_onnxruntime()
   lite::onnxruntime::cv::face::pose::FSANet *fsanet =
       new lite::onnxruntime::cv::face::pose::FSANet(pose_onnx_path);
 
-  lite::onnxruntime::cv::types::FaceContent face_content0, face_content1;
-  lite::cv::types::EulerAngles euler_angles0, euler_angles1;
+  lite::types::FaceContent face_content0, face_content1;
+  lite::types::EulerAngles euler_angles0, euler_angles1;
   cv::Mat img_bgr0 = cv::imread(test_img_path0);
   cv::Mat img_bgr1 = cv::imread(test_img_path1);
   fsanet->detect(img_bgr0, euler_angles0); // head pose estimation first
@@ -85,7 +85,7 @@ static void test_onnxruntime()
 
   if (face_content0.flag && face_content1.flag)
   {
-    float sim = lite::onnxruntime::cv::utils::math::cosine_similarity<float>(
+    float sim = lite::utils::math::cosine_similarity<float>(
         face_content0.embedding, face_content1.embedding);
     std::cout << "ONNXRuntime Version Detected Sim: " << sim << std::endl;
   }

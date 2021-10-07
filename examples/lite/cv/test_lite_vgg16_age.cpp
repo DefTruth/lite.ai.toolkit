@@ -12,11 +12,11 @@ static void test_default()
 
   lite::cv::face::attr::VGG16Age *vgg16_age = new lite::cv::face::attr::VGG16Age(onnx_path);
 
-  lite::cv::types::Age age;
+  lite::types::Age age;
   cv::Mat img_bgr = cv::imread(test_img_path);
   vgg16_age->detect(img_bgr, age);
 
-  lite::cv::utils::draw_age_inplace(img_bgr, age);
+  lite::utils::draw_age_inplace(img_bgr, age);
 
   cv::imwrite(save_img_path, img_bgr);
 
@@ -35,11 +35,11 @@ static void test_onnxruntime()
   lite::onnxruntime::cv::face::attr::VGG16Age *vgg16_age =
       new lite::onnxruntime::cv::face::attr::VGG16Age(onnx_path);
 
-  lite::onnxruntime::cv::types::Age age;
+  lite::types::Age age;
   cv::Mat img_bgr = cv::imread(test_img_path);
   vgg16_age->detect(img_bgr, age);
 
-  lite::onnxruntime::cv::utils::draw_age_inplace(img_bgr, age);
+  lite::utils::draw_age_inplace(img_bgr, age);
 
   cv::imwrite(save_img_path, img_bgr);
 

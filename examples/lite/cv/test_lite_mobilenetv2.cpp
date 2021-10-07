@@ -11,7 +11,7 @@ static void test_default()
 
   lite::cv::classification::MobileNetV2 *mobilenetv2 = new lite::cv::classification::MobileNetV2(onnx_path);
 
-  lite::cv::types::ImageNetContent content;
+  lite::types::ImageNetContent content;
   cv::Mat img_bgr = cv::imread(test_img_path);
   mobilenetv2->detect(img_bgr, content);
 
@@ -42,7 +42,7 @@ static void test_onnxruntime()
   lite::onnxruntime::cv::classification::MobileNetV2 *mobilenetv2 =
       new lite::onnxruntime::cv::classification::MobileNetV2(onnx_path);
 
-  lite::onnxruntime::cv::types::ImageNetContent content;
+  lite::types::ImageNetContent content;
   cv::Mat img_bgr = cv::imread(test_img_path);
   mobilenetv2->detect(img_bgr, content);
 

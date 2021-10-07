@@ -15,9 +15,9 @@ static void test_default()
 
   lite::cv::detection::YOLOP *yolop = new lite::cv::detection::YOLOP(onnx_path, 16); // 16 threads
 
-  lite::cv::types::SegmentContent da_seg_content;
-  lite::cv::types::SegmentContent ll_seg_content;
-  std::vector<lite::cv::types::Boxf> detected_boxes;
+  lite::types::SegmentContent da_seg_content;
+  lite::types::SegmentContent ll_seg_content;
+  std::vector<lite::types::Boxf> detected_boxes;
   cv::Mat img_bgr = cv::imread(test_img_path);
   yolop->detect(img_bgr, detected_boxes, da_seg_content, ll_seg_content);
 
@@ -25,7 +25,7 @@ static void test_default()
   {
     // boxes.
     cv::Mat img_det = img_bgr.clone();
-    lite::cv::utils::draw_boxes_inplace(img_det, detected_boxes);
+    lite::utils::draw_boxes_inplace(img_det, detected_boxes);
     cv::imwrite(save_det_path, img_det);
     std::cout << "Saved " << save_det_path << " done!" << "\n";
     // da && ll seg
@@ -38,7 +38,7 @@ static void test_default()
     cv::Mat color_seg = da_seg_content.color_mat + ll_seg_content.color_mat;
 
     cv::addWeighted(img_merge, 0.5, color_seg, 0.5, 0., img_merge);
-    lite::cv::utils::draw_boxes_inplace(img_merge, detected_boxes);
+    lite::utils::draw_boxes_inplace(img_merge, detected_boxes);
     cv::imwrite(save_merge_path, img_merge);
     std::cout << "Saved " << save_merge_path << " done!" << "\n";
 
@@ -77,9 +77,9 @@ static void test_onnxruntime()
   lite::onnxruntime::cv::detection::YOLOP *yolop =
       new lite::onnxruntime::cv::detection::YOLOP(onnx_path, 16); // 16 threads
 
-  lite::onnxruntime::cv::types::SegmentContent da_seg_content;
-  lite::onnxruntime::cv::types::SegmentContent ll_seg_content;
-  std::vector<lite::onnxruntime::cv::types::Boxf> detected_boxes;
+  lite::types::SegmentContent da_seg_content;
+  lite::types::SegmentContent ll_seg_content;
+  std::vector<lite::types::Boxf> detected_boxes;
   cv::Mat img_bgr = cv::imread(test_img_path);
   yolop->detect(img_bgr, detected_boxes, da_seg_content, ll_seg_content);
 
@@ -87,7 +87,7 @@ static void test_onnxruntime()
   {
     // boxes.
     cv::Mat img_det = img_bgr.clone();
-    lite::onnxruntime::cv::utils::draw_boxes_inplace(img_det, detected_boxes);
+    lite::utils::draw_boxes_inplace(img_det, detected_boxes);
     cv::imwrite(save_det_path, img_det);
     std::cout << "Saved " << save_det_path << " done!" << "\n";
     // da && ll seg
@@ -100,7 +100,7 @@ static void test_onnxruntime()
     cv::Mat color_seg = da_seg_content.color_mat + ll_seg_content.color_mat;
 
     cv::addWeighted(img_merge, 0.5, color_seg, 0.5, 0., img_merge);
-    lite::onnxruntime::cv::utils::draw_boxes_inplace(img_merge, detected_boxes);
+    lite::utils::draw_boxes_inplace(img_merge, detected_boxes);
     cv::imwrite(save_merge_path, img_merge);
     std::cout << "Saved " << save_merge_path << " done!" << "\n";
 

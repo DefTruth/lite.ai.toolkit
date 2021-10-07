@@ -3,7 +3,7 @@
 //
 
 #include "mnn_nanodet.h"
-#include "mnn/core/mnn_utils.h"
+#include "lite/utils.h"
 
 using mnncv::MNNNanoDet;
 
@@ -243,7 +243,7 @@ void MNNNanoDet::nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &
                      float iou_threshold, unsigned int topk,
                      unsigned int nms_type)
 {
-  if (nms_type == NMS::BLEND) mnncv::utils::blending_nms(input, output, iou_threshold, topk);
-  else if (nms_type == NMS::OFFSET) mnncv::utils::offset_nms(input, output, iou_threshold, topk);
-  else mnncv::utils::hard_nms(input, output, iou_threshold, topk);
+  if (nms_type == NMS::BLEND) lite::utils::blending_nms(input, output, iou_threshold, topk);
+  else if (nms_type == NMS::OFFSET) lite::utils::offset_nms(input, output, iou_threshold, topk);
+  else lite::utils::hard_nms(input, output, iou_threshold, topk);
 }

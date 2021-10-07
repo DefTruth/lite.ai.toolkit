@@ -4,6 +4,7 @@
 
 #include "ghostnet.h"
 #include "ort/core/ort_utils.h"
+#include "lite/utils.h"
 
 using ortcv::GhostNet;
 
@@ -36,8 +37,8 @@ void GhostNet::detect(const cv::Mat &mat, types::ImageNetContent &content, unsig
   const unsigned int num_classes = output_node_dims.at(0).at(1);
   const float *logits = logits_tensor.GetTensorMutableData<float>(); // float
   unsigned int max_id;
-  std::vector<float> scores = ortcv::utils::math::softmax<float>(logits, num_classes, max_id);
-  std::vector<unsigned int> sorted_indices = ortcv::utils::math::argsort<float>(scores);
+  std::vector<float> scores = lite::utils::math::softmax<float>(logits, num_classes, max_id);
+  std::vector<unsigned int> sorted_indices = lite::utils::math::argsort<float>(scores);
   if (top_k > num_classes) top_k = num_classes;
 
   content.scores.clear();

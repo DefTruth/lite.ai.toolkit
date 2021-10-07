@@ -12,11 +12,11 @@ static void test_default()
 
   lite::cv::face::attr::VGG16Gender *vgg16_gender = new lite::cv::face::attr::VGG16Gender(onnx_path);
 
-  lite::cv::types::Gender gender;
+  lite::types::Gender gender;
   cv::Mat img_bgr = cv::imread(test_img_path);
   vgg16_gender->detect(img_bgr, gender);
 
-  lite::cv::utils::draw_gender_inplace(img_bgr, gender);
+  lite::utils::draw_gender_inplace(img_bgr, gender);
 
   cv::imwrite(save_img_path, img_bgr);
 
@@ -36,11 +36,11 @@ static void test_onnxruntime()
   lite::onnxruntime::cv::face::attr::VGG16Gender *vgg16_gender =
       new lite::onnxruntime::cv::face::attr::VGG16Gender(onnx_path);
 
-  lite::onnxruntime::cv::types::Gender gender;
+  lite::types::Gender gender;
   cv::Mat img_bgr = cv::imread(test_img_path);
   vgg16_gender->detect(img_bgr, gender);
 
-  lite::onnxruntime::cv::utils::draw_gender_inplace(img_bgr, gender);
+  lite::utils::draw_gender_inplace(img_bgr, gender);
 
   cv::imwrite(save_img_path, img_bgr);
 

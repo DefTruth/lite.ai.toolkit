@@ -13,11 +13,11 @@ static void test_default()
   lite::cv::face::attr::MobileEmotion7 *mobile_emotion7 =
       new lite::cv::face::attr::MobileEmotion7(onnx_path);
 
-  lite::cv::types::Emotions emotions;
+  lite::types::Emotions emotions;
   cv::Mat img_bgr = cv::imread(test_img_path);
   mobile_emotion7->detect(img_bgr, emotions);
 
-  lite::cv::utils::draw_emotion_inplace(img_bgr, emotions);
+  lite::utils::draw_emotion_inplace(img_bgr, emotions);
 
   cv::imwrite(save_img_path, img_bgr);
 
@@ -38,11 +38,11 @@ static void test_onnxruntime()
   lite::onnxruntime::cv::face::attr::MobileEmotion7 *mobile_emotion7 =
       new lite::onnxruntime::cv::face::attr::MobileEmotion7(onnx_path);
 
-  lite::onnxruntime::cv::types::Emotions emotions;
+  lite::types::Emotions emotions;
   cv::Mat img_bgr = cv::imread(test_img_path);
   mobile_emotion7->detect(img_bgr, emotions);
 
-  lite::onnxruntime::cv::utils::draw_emotion_inplace(img_bgr, emotions);
+  lite::utils::draw_emotion_inplace(img_bgr, emotions);
 
   cv::imwrite(save_img_path, img_bgr);
 

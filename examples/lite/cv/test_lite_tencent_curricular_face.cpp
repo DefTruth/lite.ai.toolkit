@@ -13,7 +13,7 @@ static void test_default()
   lite::cv::faceid::TencentCurricularFace *tencent_curricular_face =
       new lite::cv::faceid::TencentCurricularFace(onnx_path);
 
-  lite::cv::types::FaceContent face_content0, face_content1;
+  lite::types::FaceContent face_content0, face_content1;
   cv::Mat img_bgr0 = cv::imread(test_img_path0);
   cv::Mat img_bgr1 = cv::imread(test_img_path1);
   tencent_curricular_face->detect(img_bgr0, face_content0);
@@ -21,7 +21,7 @@ static void test_default()
 
   if (face_content0.flag && face_content1.flag)
   {
-    float sim = lite::cv::utils::math::cosine_similarity<float>(
+    float sim = lite::utils::math::cosine_similarity<float>(
         face_content0.embedding, face_content1.embedding);
     std::cout << "Default Version Detected Sim: " << sim << std::endl;
   }
@@ -39,7 +39,7 @@ static void test_onnxruntime()
   lite::onnxruntime::cv::faceid::TencentCurricularFace *tencent_curricular_face =
       new lite::onnxruntime::cv::faceid::TencentCurricularFace(onnx_path);
 
-  lite::onnxruntime::cv::types::FaceContent face_content0, face_content1;
+  lite::types::FaceContent face_content0, face_content1;
   cv::Mat img_bgr0 = cv::imread(test_img_path0);
   cv::Mat img_bgr1 = cv::imread(test_img_path1);
   tencent_curricular_face->detect(img_bgr0, face_content0);
@@ -47,7 +47,7 @@ static void test_onnxruntime()
 
   if (face_content0.flag && face_content1.flag)
   {
-    float sim = lite::onnxruntime::cv::utils::math::cosine_similarity<float>(
+    float sim = lite::utils::math::cosine_similarity<float>(
         face_content0.embedding, face_content1.embedding);
     std::cout << "ONNXRuntime Version Detected Sim: " << sim << std::endl;
   }
