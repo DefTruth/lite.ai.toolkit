@@ -31,7 +31,7 @@ namespace mnncv
     ~MNNNanoDetEfficientNetLite() override = default;
 
   private:
-    const float mean_vals[3] = {103.53f, 116.28f, 123.675f}; // BGR
+    const float mean_vals[3] = {127.f, 127.f, 127.f}; // BGR
     const float norm_vals[3] = {1.f / 128.0f, 1.f / 128.0f, 1.f / 128.0f};
 
     const char *class_names[80] = {

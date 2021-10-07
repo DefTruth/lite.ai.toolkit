@@ -5,4 +5,29 @@
 #ifndef LITE_AI_TOOLKIT_NCNN_CORE_NCNN_CORE_H
 #define LITE_AI_TOOLKIT_NCNN_CORE_NCNN_CORE_H
 
+#include "ncnn_config.h"
+#include "ncnn_handler.h"
+#include "ncnn_types.h"
+
+namespace ncnncv
+{
+  class LITE_EXPORTS NCNNNanoDet;                     // [0] reference: https://github.com/RangiLyu/nanodet
+  class LITE_EXPORTS NCNNNanoDetEfficientNetLite;     // [1] reference: https://github.com/RangiLyu/nanodet
+}
+
+namespace ncnncv
+{
+  using ncnncore::BasicNCNNHandler;
+}
+
+namespace ncnnnlp
+{
+  using ncnncore::BasicNCNNHandler;
+}
+
+namespace ncnnasr
+{
+  using ncnncore::BasicNCNNHandler;
+}
+
 #endif //LITE_AI_TOOLKIT_NCNN_CORE_NCNN_CORE_H

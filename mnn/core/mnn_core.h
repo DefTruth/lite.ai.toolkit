@@ -11,8 +11,8 @@
 
 namespace mnncv
 {
-  class LITE_EXPORTS MNNNanoDet;                     // [0] reference: https://github.com/RangiLyu/nanodet
-  class LITE_EXPORTS MNNNanoDetEfficientNetLite;     // [1] reference: https://github.com/RangiLyu/nanodet
+  class LITE_EXPORTS MNNNanoDet;                     // [0] * reference: https://github.com/RangiLyu/nanodet
+  class LITE_EXPORTS MNNNanoDetEfficientNetLite;     // [1] * reference: https://github.com/RangiLyu/nanodet
 }
 
 namespace mnncv

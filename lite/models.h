@@ -95,6 +95,12 @@
 
 // ENABLE_NCNN
 #ifdef ENABLE_NCNN
+
+#include "ncnn/core/ncnn_core.h"
+#include "ncnn/core/ncnn_utils.h"
+#include "ncnn/cv/ncnn_nanodet.h"
+#include "ncnn/cv/ncnn_nanodet_efficientnet_lite.h"
+
 #endif
 
 // ENABLE_TNN
@@ -675,14 +681,6 @@ namespace lite
 
     }
 
-    namespace asr
-    {
-
-    }
-
-    namespace nlp
-    {
-    }
   }
 #endif
 }
@@ -744,12 +742,6 @@ namespace lite
 
     } // namespace cv
 
-    namespace nlp
-    {
-    }
-    namespace asr
-    {
-    }
   }
 #endif
 }
@@ -760,7 +752,58 @@ namespace lite
 #ifdef ENABLE_NCNN
   namespace ncnn
     {
-    }
+    namespace cv
+    {
+      // classification
+      namespace classification
+      {
+      }
+      // object detection
+      namespace detection
+      {
+        typedef ncnncv::NCNNNanoDet NanoDet;
+        typedef ncnncv::NCNNNanoDetEfficientNetLite NanoDetEfficientNetLite;
+      }
+      // face etc.
+      namespace face
+      {
+        namespace detect
+        {
+        }
+        namespace align
+        {
+        }
+        namespace pose
+        {
+        }
+        namespace attr
+        {
+        }
+      }
+      // face recognition
+      namespace faceid
+      {
+      }
+      // segmentation
+      namespace segmentation
+      {
+      }
+      // reid
+      namespace reid
+      {
+      }
+      // ocr
+      namespace ocr
+      {
+      }
+      // matting
+      namespace matting
+      {
+      }
+
+    } // namespace cv
+
+  }
 #endif
 }
 

@@ -9,7 +9,6 @@
 
 namespace mnncore
 {
-  // single input & multi outputs. not support for dynamic shape currently.
   class LITE_EXPORTS BasicMNNHandler
   {
   protected:
@@ -20,7 +19,6 @@ namespace mnncore
     std::shared_ptr<MNN::CV::ImageProcess> pretreat; // init at subclass
     const char *log_id = nullptr;
     const char *mnn_path = nullptr;
-    int num_outputs = 1;
 
   protected:
     const unsigned int num_threads; // initialize at runtime.

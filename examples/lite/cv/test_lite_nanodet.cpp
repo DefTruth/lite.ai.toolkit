@@ -79,6 +79,26 @@ static void test_mnn()
 static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
+  std::string param_path = "../../../hub/ncnn/cv/nanodet_m-opt.param";
+  std::string bin_path = "../../../hub/ncnn/cv/nanodet_m-opt.bin";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_detection_2.jpg";
+  std::string save_img_path = "../../../logs/test_lite_nanodet_ncnn_2.jpg";
+
+  // 2. Test Specific Engine MNN
+  lite::ncnn::cv::detection::NanoDet *nanodet =
+      new lite::ncnn::cv::detection::NanoDet(
+          param_path, bin_path,1, 320, 320);
+
+  std::vector<lite::types::Boxf> detected_boxes;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  nanodet->detect(img_bgr, detected_boxes);
+
+  lite::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+  cv::imwrite(save_img_path, img_bgr);
+
+  std::cout << "NCNN Version Detected Boxes Num: " << detected_boxes.size() << std::endl;
+
+  delete nanodet;
 #endif
 }
 

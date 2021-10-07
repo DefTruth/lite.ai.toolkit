@@ -5,7 +5,8 @@
 #ifndef LITE_AI_TOOLKIT_MNN_CORE_MNN_UTILS_H
 #define LITE_AI_TOOLKIT_MNN_CORE_MNN_UTILS_H
 
-namespace mnncv {
+namespace mnncv
+{
   // no specific utils for MNN now.
 }
 
