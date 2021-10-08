@@ -85,7 +85,7 @@ static void test_ncnn()
   std::string test_img_path = "../../../examples/lite/resources/test_lite_detection_2.jpg";
   std::string save_img_path = "../../../logs/test_lite_nanodet_efficientnet_lite_ncnn_2.jpg";
 
-  // 2. Test Specific Engine MNN
+  // 2. Test Specific Engine NCNN
   lite::ncnn::cv::detection::NanoDetEfficientNetLite *nanodet =
       new lite::ncnn::cv::detection::NanoDetEfficientNetLite(
           param_path, bin_path,1, 512, 512);
