@@ -11,8 +11,10 @@
 
 namespace ncnncv
 {
-  class LITE_EXPORTS NCNNNanoDet;                     // [0] reference: https://github.com/RangiLyu/nanodet
-  class LITE_EXPORTS NCNNNanoDetEfficientNetLite;     // [1] reference: https://github.com/RangiLyu/nanodet
+  class LITE_EXPORTS NCNNNanoDet;                                // [0] * reference: https://github.com/RangiLyu/nanodet
+  class LITE_EXPORTS NCNNNanoDetEfficientNetLite;                // [1] * reference: https://github.com/RangiLyu/nanodet
+  class LITE_EXPORTS NCNNNanoDetDepreciated;                     // [2] * reference: https://github.com/RangiLyu/nanodet
+  class LITE_EXPORTS NCNNNanoDetEfficientNetLiteDepreciated;     // [3] * reference: https://github.com/RangiLyu/nanodet
 }
 
 namespace ncnncv

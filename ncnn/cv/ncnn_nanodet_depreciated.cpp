@@ -1,25 +1,25 @@
 //
-// Created by DefTruth on 2021/10/7.
+// Created by DefTruth on 2021/10/9.
 //
 
-#include "ncnn_nanodet.h"
+#include "ncnn_nanodet_depreciated.h"
 #include "lite/utils.h"
 
-using ncnncv::NCNNNanoDet;
+using ncnncv::NCNNNanoDetDepreciated;
 
-NCNNNanoDet::NCNNNanoDet(const std::string &_param_path,
-                         const std::string &_bin_path,
-                         unsigned int _num_threads,
-                         int _input_height, int _input_width) :
+NCNNNanoDetDepreciated::NCNNNanoDetDepreciated(const std::string &_param_path,
+                                               const std::string &_bin_path,
+                                               unsigned int _num_threads,
+                                               int _input_height, int _input_width) :
     BasicNCNNHandler(_param_path, _bin_path, _num_threads)
 {
   input_height = _input_height;
   input_width = _input_width;
 }
 
-void NCNNNanoDet::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
-                                 int target_height, int target_width,
-                                 NanoScaleParams &scale_params)
+void NCNNNanoDetDepreciated::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
+                                            int target_height, int target_width,
+                                            NanoDepreciatedScaleParams &scale_params)
 {
   if (mat.empty()) return;
   int img_height = static_cast<int>(mat.rows);
@@ -52,16 +52,16 @@ void NCNNNanoDet::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
   scale_params.flag = true;
 }
 
-void NCNNNanoDet::transform(const cv::Mat &mat_rs, ncnn::Mat &in)
+void NCNNNanoDetDepreciated::transform(const cv::Mat &mat_rs, ncnn::Mat &in)
 {
   // BGR NHWC -> BGR NCHW
   in = ncnn::Mat::from_pixels(mat_rs.data, ncnn::Mat::PIXEL_BGR, input_width, input_height);
   in.substract_mean_normalize(mean_vals, norm_vals);
 }
 
-void NCNNNanoDet::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
-                         float score_threshold, float iou_threshold,
-                         unsigned int topk, unsigned int nms_type)
+void NCNNNanoDetDepreciated::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
+                                    float score_threshold, float iou_threshold,
+                                    unsigned int topk, unsigned int nms_type)
 {
   if (mat.empty()) return;
   auto img_height = static_cast<float>(mat.rows);
@@ -69,7 +69,7 @@ void NCNNNanoDet::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_
 
   // resize & unscale
   cv::Mat mat_rs;
-  NanoScaleParams scale_params;
+  NanoDepreciatedScaleParams scale_params;
   this->resize_unscale(mat, mat_rs, input_height, input_width, scale_params);
 
   // 1. make input tensor
@@ -87,7 +87,7 @@ void NCNNNanoDet::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_
   this->nms(bbox_collection, detected_boxes, iou_threshold, topk, nms_type);
 }
 
-void NCNNNanoDet::generate_points(unsigned int target_height, unsigned int target_width)
+void NCNNNanoDetDepreciated::generate_points(unsigned int target_height, unsigned int target_width)
 {
   if (center_points_is_update && (!is_dynamic_input)) return;
 
@@ -95,7 +95,7 @@ void NCNNNanoDet::generate_points(unsigned int target_height, unsigned int targe
   {
     unsigned int num_grid_w = target_width / stride;
     unsigned int num_grid_h = target_height / stride;
-    std::vector<NanoCenterPoint> points;
+    std::vector<NanoDepreciatedCenterPoint> points;
 
     for (unsigned int g1 = 0; g1 < num_grid_h; ++g1)
     {
@@ -104,13 +104,13 @@ void NCNNNanoDet::generate_points(unsigned int target_height, unsigned int targe
         float grid0 = (float) g0 + 0.5f;
         float grid1 = (float) g1 + 0.5f;
 #ifdef LITE_WIN32
-        NanoCenterPoint point;
+        NanoDepreciatedCenterPoint point;
         point.grid0 = grid0;
         point.grid1 = grid1;
         point.stride = (float) stride;
         points.push_back(point);
 #else
-        points.push_back((NanoCenterPoint) {grid0, grid1, (float) stride});
+        points.push_back((NanoDepreciatedCenterPoint) {grid0, grid1, (float) stride});
 #endif
       }
     }
@@ -120,11 +120,11 @@ void NCNNNanoDet::generate_points(unsigned int target_height, unsigned int targe
   center_points_is_update = true;
 }
 
-void NCNNNanoDet::generate_bboxes(const NanoScaleParams &scale_params,
-                                  std::vector<types::Boxf> &bbox_collection,
-                                  ncnn::Extractor &extractor,
-                                  float score_threshold,
-                                  float img_height, float img_width)
+void NCNNNanoDetDepreciated::generate_bboxes(const NanoDepreciatedScaleParams &scale_params,
+                                             std::vector<types::Boxf> &bbox_collection,
+                                             ncnn::Extractor &extractor,
+                                             float score_threshold,
+                                             float img_height, float img_width)
 {
   ncnn::Mat cls_pred_stride_8;
   ncnn::Mat cls_pred_stride_16;
@@ -153,11 +153,11 @@ void NCNNNanoDet::generate_bboxes(const NanoScaleParams &scale_params,
 #endif
 }
 
-void NCNNNanoDet::generate_bboxes_single_stride(const NanoScaleParams &scale_params,
-                                                ncnn::Mat &cls_pred, ncnn::Mat &dis_pred,
-                                                unsigned int stride, float score_threshold,
-                                                float img_height, float img_width,
-                                                std::vector<types::Boxf> &bbox_collection)
+void NCNNNanoDetDepreciated::generate_bboxes_single_stride(const NanoDepreciatedScaleParams &scale_params,
+                                                           ncnn::Mat &cls_pred, ncnn::Mat &dis_pred,
+                                                           unsigned int stride, float score_threshold,
+                                                           float img_height, float img_width,
+                                                           std::vector<types::Boxf> &bbox_collection)
 {
   unsigned int nms_pre_ = (stride / 8) * nms_pre; // 1 * 1000,2*1000,...
   nms_pre_ = nms_pre_ >= nms_pre ? nms_pre_ : nms_pre;
@@ -166,6 +166,9 @@ void NCNNNanoDet::generate_bboxes_single_stride(const NanoScaleParams &scale_par
   const unsigned int f_w = (unsigned int) input_height / stride;
   const unsigned int num_points = f_h * f_w;
   const unsigned int num_classes = 80;
+
+  const unsigned int dis_pred_w = dis_pred.w;
+  const unsigned int reg_max = dis_pred_w / 4; // e.g 8
 
   float ratio = scale_params.ratio;
   int dw = scale_params.dw;
@@ -195,7 +198,18 @@ void NCNNNanoDet::generate_bboxes_single_stride(const NanoScaleParams &scale_par
     const float cy = point.grid1; // cy
     const float s = point.stride; // stride
 
-    const float *offsets = dis_pred.row(i);
+    const float *logits = dis_pred.row(i);  // 32|44...
+    std::vector<float> offsets(4);
+    for (unsigned int k = 0; k < 4; ++k)
+    {
+      float offset = 0.f;
+      unsigned int max_id;
+      auto probs = lite::utils::math::softmax<float>(
+          logits + (k * reg_max), reg_max, max_id);
+      for (unsigned int l = 0; l < reg_max; ++l)
+        offset += (float) l * probs[l];
+      offsets[k] = offset;
+    }
     float l = offsets[0]; // left
     float t = offsets[1]; // top
     float r = offsets[2]; // right
@@ -232,9 +246,9 @@ void NCNNNanoDet::generate_bboxes_single_stride(const NanoScaleParams &scale_par
 
 }
 
-void NCNNNanoDet::nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
-                      float iou_threshold, unsigned int topk,
-                      unsigned int nms_type)
+void NCNNNanoDetDepreciated::nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
+                                 float iou_threshold, unsigned int topk,
+                                 unsigned int nms_type)
 {
   if (nms_type == NMS::BLEND) lite::utils::blending_nms(input, output, iou_threshold, topk);
   else if (nms_type == NMS::OFFSET) lite::utils::offset_nms(input, output, iou_threshold, topk);

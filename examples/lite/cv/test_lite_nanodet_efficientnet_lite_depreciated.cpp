@@ -1,5 +1,5 @@
 //
-// Created by DefTruth on 2021/10/5.
+// Created by DefTruth on 2021/10/10.
 //
 
 #include "lite/lite.h"
@@ -80,15 +80,15 @@ static void test_mnn()
 static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
-  std::string param_path = "../../../hub/ncnn/cv/nanodet-EfficientNet-Lite2_512-opt.param";
-  std::string bin_path = "../../../hub/ncnn/cv/nanodet-EfficientNet-Lite2_512-opt.bin";
+  std::string param_path = "../../../hub/ncnn/cv/nanodet-EfficientNet-Lite2_512-depreciated-opt.param";
+  std::string bin_path = "../../../hub/ncnn/cv/nanodet-EfficientNet-Lite2_512-depreciated-opt.bin";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_detection_2.jpg";
-  std::string save_img_path = "../../../logs/test_lite_nanodet_efficientnet_lite_ncnn_2.jpg";
+  std::string save_img_path = "../../../logs/test_lite_nanodet_efficientnet_lite_depreciated_ncnn_2.jpg";
 
   // 4. Test Specific Engine NCNN
-  lite::ncnn::cv::detection::NanoDetEfficientNetLite *nanodet =
-      new lite::ncnn::cv::detection::NanoDetEfficientNetLite(
-          param_path, bin_path,1, 512, 512);
+  lite::ncnn::cv::detection::NanoDetEfficientNetLiteDepreciated *nanodet =
+      new lite::ncnn::cv::detection::NanoDetEfficientNetLiteDepreciated(
+          param_path, bin_path, 1, 512, 512);
 
   std::vector<lite::types::Boxf> detected_boxes;
   cv::Mat img_bgr = cv::imread(test_img_path);

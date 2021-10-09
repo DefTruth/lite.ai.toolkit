@@ -1,18 +1,17 @@
 //
-// Created by DefTruth on 2021/10/5.
+// Created by DefTruth on 2021/10/10.
 //
 
 #include "lite/lite.h"
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/nanodet-EfficientNet-Lite2_512.onnx";
+  std::string onnx_path = "../../../hub/onnx/cv/nanodet_m.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_detection_1.jpg";
-  std::string save_img_path = "../../../logs/test_lite_nanodet_efficientnet_lite_1.jpg";
+  std::string save_img_path = "../../../logs/test_lite_nanodet_1.jpg";
 
   // 1. Test Default Engine ONNXRuntime
-  lite::cv::detection::NanoDetEfficientNetLite *nanodet =
-      new lite::cv::detection::NanoDetEfficientNetLite(onnx_path); // default
+  lite::cv::detection::NanoDet *nanodet = new lite::cv::detection::NanoDet(onnx_path); // default
 
   std::vector<lite::types::Boxf> detected_boxes;
   cv::Mat img_bgr = cv::imread(test_img_path);
@@ -31,13 +30,13 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string onnx_path = "../../../hub/onnx/cv/nanodet-EfficientNet-Lite2_512.onnx";
+  std::string onnx_path = "../../../hub/onnx/cv/nanodet_m.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_detection_2.jpg";
-  std::string save_img_path = "../../../logs/test_lite_nanodet_efficientnet_lite_2.jpg";
+  std::string save_img_path = "../../../logs/test_lite_nanodet_2.jpg";
 
   // 2. Test Specific Engine ONNXRuntime
-  lite::onnxruntime::cv::detection::NanoDetEfficientNetLite *nanodet =
-      new lite::onnxruntime::cv::detection::NanoDetEfficientNetLite(onnx_path);
+  lite::onnxruntime::cv::detection::NanoDet *nanodet =
+      new lite::onnxruntime::cv::detection::NanoDet(onnx_path);
 
   std::vector<lite::types::Boxf> detected_boxes;
   cv::Mat img_bgr = cv::imread(test_img_path);
@@ -56,13 +55,13 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
-  std::string mnn_path = "../../../hub/mnn/cv/nanodet-EfficientNet-Lite2_512.mnn";
+  std::string mnn_path = "../../../hub/mnn/cv/nanodet_m.mnn";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_detection_2.jpg";
-  std::string save_img_path = "../../../logs/test_lite_nanodet_efficientnet_lite_mnn_2.jpg";
+  std::string save_img_path = "../../../logs/test_lite_nanodet_mnn_2.jpg";
 
   // 3. Test Specific Engine MNN
-  lite::mnn::cv::detection::NanoDetEfficientNetLite *nanodet =
-      new lite::mnn::cv::detection::NanoDetEfficientNetLite(mnn_path);
+  lite::mnn::cv::detection::NanoDet *nanodet =
+      new lite::mnn::cv::detection::NanoDet(mnn_path);
 
   std::vector<lite::types::Boxf> detected_boxes;
   cv::Mat img_bgr = cv::imread(test_img_path);
@@ -80,15 +79,15 @@ static void test_mnn()
 static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
-  std::string param_path = "../../../hub/ncnn/cv/nanodet-EfficientNet-Lite2_512-opt.param";
-  std::string bin_path = "../../../hub/ncnn/cv/nanodet-EfficientNet-Lite2_512-opt.bin";
+  std::string param_path = "../../../hub/ncnn/cv/nanodet_m-depreciated-opt.param";
+  std::string bin_path = "../../../hub/ncnn/cv/nanodet_m-depreciated-opt.bin";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_detection_2.jpg";
-  std::string save_img_path = "../../../logs/test_lite_nanodet_efficientnet_lite_ncnn_2.jpg";
+  std::string save_img_path = "../../../logs/test_lite_nanodet_depreciated_ncnn_2.jpg";
 
   // 4. Test Specific Engine NCNN
-  lite::ncnn::cv::detection::NanoDetEfficientNetLite *nanodet =
-      new lite::ncnn::cv::detection::NanoDetEfficientNetLite(
-          param_path, bin_path,1, 512, 512);
+  lite::ncnn::cv::detection::NanoDetDepreciated *nanodet =
+      new lite::ncnn::cv::detection::NanoDetDepreciated(
+          param_path, bin_path, 1, 320, 320);
 
   std::vector<lite::types::Boxf> detected_boxes;
   cv::Mat img_bgr = cv::imread(test_img_path);
