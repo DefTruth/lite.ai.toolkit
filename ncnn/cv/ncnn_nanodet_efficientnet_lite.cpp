@@ -167,9 +167,6 @@ void NCNNNanoDetEfficientNetLite::generate_bboxes_single_stride(const NanoLiteSc
   const unsigned int num_points = f_h * f_w;
   const unsigned int num_classes = 80;
 
-  const unsigned int dis_pred_w = dis_pred.w;
-  const unsigned int reg_max = dis_pred_w / 4; // e.g 8
-
   float ratio = scale_params.ratio;
   int dw = scale_params.dw;
   int dh = scale_params.dh;
@@ -198,19 +195,7 @@ void NCNNNanoDetEfficientNetLite::generate_bboxes_single_stride(const NanoLiteSc
     const float cy = point.grid1; // cy
     const float s = point.stride; // stride
 
-    const float *logits = dis_pred.row(i);  // 32|44...
-    std::vector<float> offsets(4);
-    for (unsigned int k = 0; k < 4; ++k)
-    {
-      float offset = 0.f;
-      unsigned int max_id;
-      auto probs = lite::utils::math::softmax<float>(
-          logits + (k * reg_max), reg_max, max_id);
-      for (unsigned int l = 0; l < reg_max; ++l)
-        offset += (float) l * probs[l];
-      offsets[k] = offset;
-    }
-
+    const float *offsets = dis_pred.row(i);
     float l = offsets[0]; // left
     float t = offsets[1]; // top
     float r = offsets[2]; // right
