@@ -191,7 +191,7 @@ void RobustVideoMatting::generate_matting(std::vector<Ort::Value> &output_tensor
   const unsigned int height = fgr_dims.at(2); // output height
   const unsigned int width = fgr_dims.at(3); // output width
   const unsigned int channel_step = height * width;
-  // cv::merge -> assign & channel transpose(CHW->HWC).
+  // fast assign & channel transpose(CHW->HWC).
   float *fgr_ptr = fgr.GetTensorMutableData<float>();
   float *pha_ptr = pha.GetTensorMutableData<float>();
   cv::Mat rmat(height, width, CV_32FC1, fgr_ptr);
