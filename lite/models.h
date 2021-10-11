@@ -90,6 +90,7 @@
 #include "mnn/core/mnn_utils.h"
 #include "mnn/cv/mnn_nanodet.h"
 #include "mnn/cv/mnn_nanodet_efficientnet_lite.h"
+#include "mnn/cv/mnn_rvm.h"
 
 #endif
 
@@ -102,6 +103,7 @@
 #include "ncnn/cv/ncnn_nanodet_efficientnet_lite.h"
 #include "ncnn/cv/ncnn_nanodet_depreciated.h"
 #include "ncnn/cv/ncnn_nanodet_efficientdet_lite_depreciated.h"
+#include "ncnn/cv/ncnn_rvm.h"
 
 #endif
 
@@ -740,6 +742,7 @@ namespace lite
       // matting
       namespace matting
       {
+        typedef mnncv::MNNRobustVideoMatting RobustVideoMatting;
       }
 
     } // namespace cv
@@ -803,6 +806,7 @@ namespace lite
       // matting
       namespace matting
       {
+        typedef ncnncv::NCNNRobustVideoMatting RobustVideoMatting;
       }
 
     } // namespace cv

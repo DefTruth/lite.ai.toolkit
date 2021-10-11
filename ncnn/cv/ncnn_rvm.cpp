@@ -3,7 +3,6 @@
 //
 
 #include "ncnn_rvm.h"
-#include "lite/utils.h"
 
 using ncnncv::NCNNRobustVideoMatting;
 
@@ -26,34 +25,34 @@ void NCNNRobustVideoMatting::initialize_context()
   {
     if (input_width == 1920 && input_height == 1080)
     {
-      r1i = ncnn::Mat(135, 240, 16);
-      r2i = ncnn::Mat(68, 120, 20);
-      r3i = ncnn::Mat(34, 60, 40);
-      r4i = ncnn::Mat(17, 30, 64);
+      r1i = ncnn::Mat(240, 135, 16); // w,h,c in NCNN
+      r2i = ncnn::Mat(120, 68, 20);
+      r3i = ncnn::Mat(60, 34, 40);
+      r4i = ncnn::Mat(30, 17, 64);
     } // hxw 480x640 480x480 640x480
     else
     {
-      r1i = ncnn::Mat(input_height / 2, input_width / 2, 16);
-      r2i = ncnn::Mat(input_height / 4, input_width / 4, 20);
-      r3i = ncnn::Mat(input_height / 8, input_width / 8, 40);
-      r4i = ncnn::Mat(input_height / 16, input_width / 16, 64);
+      r1i = ncnn::Mat(input_width / 2, input_height / 2, 16);
+      r2i = ncnn::Mat(input_width / 4, input_height / 4, 20);
+      r3i = ncnn::Mat(input_width / 8, input_height / 8, 40);
+      r4i = ncnn::Mat(input_width / 16, input_height / 16, 64);
     }
   } // RESNET50
   else
   {
     if (input_width == 1920 && input_height == 1080)
     {
-      r1i = ncnn::Mat(135, 240, 16);
-      r2i = ncnn::Mat(68, 120, 32);
-      r3i = ncnn::Mat(34, 60, 64);
-      r4i = ncnn::Mat(17, 30, 128);
+      r1i = ncnn::Mat(240, 135, 16);
+      r2i = ncnn::Mat(120, 68, 32);
+      r3i = ncnn::Mat(60, 34, 64);
+      r4i = ncnn::Mat(30, 17, 128);
     } // hxw 480x640 480x480 640x480
     else
     {
-      r1i = ncnn::Mat(input_height / 2, input_width / 2, 16);
-      r2i = ncnn::Mat(input_height / 4, input_width / 4, 32);
-      r3i = ncnn::Mat(input_height / 8, input_width / 8, 64);
-      r4i = ncnn::Mat(input_height / 16, input_width / 16, 128);
+      r1i = ncnn::Mat(input_width / 2, input_height / 2, 16);
+      r2i = ncnn::Mat(input_width / 4, input_height / 4, 20);
+      r3i = ncnn::Mat(input_width / 8, input_height / 8, 40);
+      r4i = ncnn::Mat(input_width / 16, input_height / 16, 64);
     }
   }
   // init 0.
@@ -67,7 +66,7 @@ void NCNNRobustVideoMatting::initialize_context()
 
 void NCNNRobustVideoMatting::transform(const cv::Mat &mat, ncnn::Mat &in)
 {
-  // BGR NHWC -> RGB NCHW
+  // BGR NHWC -> RGB NCHW & resize
   int h = mat.rows;
   int w = mat.cols;
   in = ncnn::Mat::from_pixels_resize(
@@ -87,17 +86,20 @@ void NCNNRobustVideoMatting::detect(const cv::Mat &mat, types::MattingContent &c
   // 1. make input tensor
   ncnn::Mat src;
   this->transform(mat, src);
+
   // 2. inference & extract
   auto extractor = net->create_extractor();
-  extractor.set_light_mode(false);  // default
+  extractor.set_light_mode(true);  // default
   extractor.set_num_threads(num_threads);
   extractor.input("src", src);
   extractor.input("r1i", r1i);
   extractor.input("r2i", r2i);
   extractor.input("r3i", r3i);
   extractor.input("r4i", r4i);
+
   // 3. generate matting
   this->generate_matting(extractor, content, img_h, img_w);
+
   // 4. update context (needed for video detection.)
   context_is_update = false; // init state.
   this->update_context(extractor);
@@ -160,9 +162,9 @@ void NCNNRobustVideoMatting::generate_matting(ncnn::Extractor &extractor,
   ncnn::Mat fgr, pha;
   extractor.extract("fgr", fgr);
   extractor.extract("pha", pha);
-
   float *fgr_ptr = (float *) fgr.data;
   float *pha_ptr = (float *) pha.data;
+
   const unsigned int channel_step = input_height * input_width;
 
   // fast assign & channel transpose(CHW->HWC).
