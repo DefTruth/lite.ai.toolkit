@@ -41,7 +41,6 @@
   <img src=https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social >
   <img src=https://img.shields.io/github/forks/DefTruth/lite.ai.toolkit.svg?style=social >
   <img src=https://img.shields.io/github/watchers/DefTruth/lite.ai.toolkit.svg?style=social> 
-  <img src=https://visitor-badge.laobi.icu/badge?page_id=DefTruth.lite.ai.toolkit >
 
 </div>    
 
@@ -53,14 +52,16 @@
 * ⚡ *Minimum Dependencies & Easy to build.* 👋 Only *OpenCV* and *ONNXRuntime* are required, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit).
 * ✅ *Cross-Platform support.* 👋 Support [MacOS/Linux/Windows](#lite.ai.toolkit-Introduction) and CPU/GPU now.
 * ❤️ *Lots of Algorithm Modules.* 👋 Contains 10+ modules and *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* famous models now, such as [object detection](#lite.ai.toolkit-object-detection), [face detection](#lite.ai.toolkit-face-detection), [face recognition](#lite.ai.toolkit-face-recognition), [segmentation](#lite.ai.toolkit-segmentation), [matting](#lite.ai.toolkit-matting), etc. See [Model Zoo](#lite.ai.toolkit-Model-Zoo). 
-  
+ 
+<!----
 |Latest Release|Quick Start|Usage| 
 |:---:|:---:|:---:| 
 |  👉 [lite.ai.toolkit.macos.v0.1.0](https://github.com/DefTruth/lite.ai.toolkit.demo/tree/main/releases/macos/v0.1.0) |  👉 [lite.ai.toolkit.demo](https://github.com/DefTruth/lite.ai.toolkit.demo) & [Quick Start Examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit) |  👉 [lite.ai.toolkit.examples](https://github.com/DefTruth/lite.ai.toolkit/tree/main/examples/lite/cv) |
 
+  <img src=https://visitor-badge.laobi.icu/badge?page_id=DefTruth.lite.ai.toolkit >
 
 <p align="center"> ❤️ Star 🌟👆🏻 this repo to support me if it does any helps to you ~ 🙃🤪🍀 </p>
-
+---->
 
 ## Important Notes !!!  
 
@@ -1391,7 +1392,7 @@ Cite it as follows if you use *Lite.AI.ToolKit*.
 
 ## 9. Notification.
 
-If there is a model you are interested in and want to be supported by Lite.AI.ToolKit🚀🚀🌟, you can fork this repo and modify [TODOLIST.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/TODOLIST.md), then submit a PR~ I will review this PR and try to support this model in the future, but I don’t make sure this can be done. In addition, [MNN](https://github.com/alibaba/MNN) and [NCNN](https://github.com/Tencent/ncnn) support for some models will be added in the future, but due to operator compatibility and some other reasons, it is impossible to ensure that all models supported by [ONNXRuntime C++](https://github.com/microsoft/onnxruntime) can run through [MNN](https://github.com/alibaba/MNN) and [NCNN](https://github.com/Tencent/ncnn). So, if you want to use all the models supported by this repo and don't care about the performance gap of *1~2ms*, please use the implementation of ONNXRuntime version. [ONNXRuntime](https://github.com/microsoft/onnxruntime) is the default inference engine for this repo. However, you can follow the steps below if you want to build Lite.AI.ToolKit🚀🚀🌟 with [MNN](https://github.com/alibaba/MNN) or [NCNN](https://github.com/Tencent/ncnn) support (⚠️ NOT STABLE NOW! NOT RECOMMENDED!!! I DON'T necessarily have time to fix bugs🤦)  
+If there is a model you are interested in and want to be supported by Lite.AI.ToolKit🚀🚀🌟, you can fork this repo and modify [TODOLIST.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/TODOLIST.md), then submit a PR~ I will review this PR and try to support this model in the future, but I don’t make sure this can be done. In addition, [MNN](https://github.com/alibaba/MNN) and [NCNN](https://github.com/Tencent/ncnn) support for some models will be added in the future, but due to operator compatibility and some other reasons, it is impossible to ensure that all models supported by [ONNXRuntime C++](https://github.com/microsoft/onnxruntime) can run through [MNN](https://github.com/alibaba/MNN) and [NCNN](https://github.com/Tencent/ncnn). So, if you want to use all the models supported by this repo and don't care about the performance gap of *1~2ms*, please use the implementation of ONNXRuntime version. [ONNXRuntime](https://github.com/microsoft/onnxruntime) is the default inference engine for this repo. However, you can follow the steps below if you want to build Lite.AI.ToolKit🚀🚀🌟 with [MNN](https://github.com/alibaba/MNN) or [NCNN](https://github.com/Tencent/ncnn) support (⚠️ NOT STABLE NOW! NOT RECOMMENDED!!!🤦)  
 
 * change the `build.sh` with `DENABLE_MNN=ON` or `DENABLE_NCNN=ON`, such as  
 ```shell
@@ -1412,7 +1413,6 @@ auto *nanodet = new lite::mnn::cv::detection::NanoDet(mnn_path);
   <img src=https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social >
   <img src=https://img.shields.io/github/forks/DefTruth/lite.ai.toolkit.svg?style=social >
   <img src=https://img.shields.io/github/watchers/DefTruth/lite.ai.toolkit.svg?style=social> 
-  <img src=https://visitor-badge.laobi.icu/badge?page_id=DefTruth.lite.ai.toolkit >
 
 </div>    
 

@@ -39,12 +39,39 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
+  std::string mnn_path = "../../../hub/mnn/cv/rvm_mobilenetv3_fp32-480-640.mnn";
+  std::string video_path = "../../../examples/lite/resources/test_lite_rvm_1.mp4";
+  std::string output_path = "../../../logs/test_lite_rvm_1_mnn.mp4";
+
+  auto *rvm = new lite::mnn::cv::matting::RobustVideoMatting(mnn_path, 16, 0); // 16 threads
+  std::vector<lite::types::MattingContent> contents;
+
+  // 1. video matting.
+  rvm->detect_video(video_path, output_path, contents, false);
+
+  delete rvm;
 #endif
 }
 
 static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
+
+  // WARNING: Test Failed!
+
+  std::string param_path = "../../../hub/ncnn/cv/rvm_mobilenetv3_fp32-480-480-opt.param";
+  std::string bin_path = "../../../hub/ncnn/cv/rvm_mobilenetv3_fp32-480-480-opt.bin";
+  std::string video_path = "../../../examples/lite/resources/test_lite_rvm_1.mp4";
+  std::string output_path = "../../../logs/test_lite_rvm_1_ncnn.mp4";
+
+  auto *rvm = new lite::ncnn::cv::matting::RobustVideoMatting(
+      param_path, bin_path, 1, 480, 480, 0); // 1 threads
+  std::vector<lite::types::MattingContent> contents;
+
+  // 1. video matting.
+  rvm->detect_video(video_path, output_path, contents, false);
+
+  delete rvm;
 #endif
 }
 
