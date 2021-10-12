@@ -29,15 +29,18 @@
 
 <div align='center'>
   <img src=https://img.shields.io/badge/MacOS-pass-brightgreen.svg >
-  <img src=https://img.shields.io/badge/Linux-pass-brightgreen.svg >
-  <img src=https://img.shields.io/badge/Windows-pass-brightgreen.svg >
+  <img src=https://img.shields.io/badge/Linux-wait-red.svg >
+  <img src=https://img.shields.io/badge/Windows-wait-red.svg >
   <img src=https://img.shields.io/badge/Version-0.1.0-green.svg >
-  <img src=https://img.shields.io/badge/Language-C/C%2B%2B-orange.svg >
+  <img src=https://img.shields.io/badge/Language-C%2B%2B-orange.svg >
   <img src=https://img.shields.io/badge/Device-GPU/CPU-yellow.svg >
   <img src=https://img.shields.io/badge/License-GPLv3-blue.svg >
-</div>    
+</div>   
 
-<div align='center'>
+<div align='center'> 
+  <img src=https://img.shields.io/badge/ONNXRuntime-yes-brightgreen.svg >
+  <img src=https://img.shields.io/badge/NCNN-yes-brightgreen.svg >
+  <img src=https://img.shields.io/badge/MNN-yes-brightgreen.svg >
   <img src=https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social >
   <img src=https://img.shields.io/github/forks/DefTruth/lite.ai.toolkit.svg?style=social >
   <img src=https://img.shields.io/github/watchers/DefTruth/lite.ai.toolkit.svg?style=social> 
@@ -49,11 +52,12 @@
 <p align="center">Core Features 🚀🚀🌟</p>
 
 * ❤️ *Simply and User friendly.* 👋Simply and Consistent syntax like *lite::cv::Type::Class*, see [examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
-* ⚡ *Minimum Dependencies & Easy to build.* 👋 Only *OpenCV* and *ONNXRuntime* are required, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit).
-* ✅ *Cross-Platform support.* 👋 Support [MacOS/Linux/Windows](#lite.ai.toolkit-Introduction) and CPU/GPU now.
+* ⚡ *Minimum Dependencies & Easy to build.* 👋 Only *OpenCV* and *ONNXRuntime* are required by default, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit).
 * ❤️ *Lots of Algorithm Modules.* 👋 Contains 10+ modules and *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* famous models now, such as [object detection](#lite.ai.toolkit-object-detection), [face detection](#lite.ai.toolkit-face-detection), [face recognition](#lite.ai.toolkit-face-recognition), [segmentation](#lite.ai.toolkit-segmentation), [matting](#lite.ai.toolkit-matting), etc. See [Model Zoo](#lite.ai.toolkit-Model-Zoo). 
  
 <!----
+* ✅ *Cross-Platform support.* 👋 Support [MacOS/Linux/Windows](#lite.ai.toolkit-Introduction) and CPU/GPU now.
+
 |Latest Release|Quick Start|Usage| 
 |:---:|:---:|:---:| 
 |  👉 [lite.ai.toolkit.macos.v0.1.0](https://github.com/DefTruth/lite.ai.toolkit.demo/tree/main/releases/macos/v0.1.0) |  👉 [lite.ai.toolkit.demo](https://github.com/DefTruth/lite.ai.toolkit.demo) & [Quick Start Examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit) |  👉 [lite.ai.toolkit.examples](https://github.com/DefTruth/lite.ai.toolkit/tree/main/examples/lite/cv) |
@@ -234,7 +238,7 @@ A minimum example to show you how to link the shared lib of Lite.AI.ToolKit corr
 
 <div id="lite.ai.toolkit-Model-Zoo"></div>
 
-*Lite.AI.ToolKit* contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* AI models with *[150+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained *.onnx* files now. Most of the onnx files are converted by myself. You can use it through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)*. More details can be found at [Examples for Lite.AI.ToolKit](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).  
+*Lite.AI.ToolKit* contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* AI models with *[200+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained *.onnx/.mnn/.ncnn* files now. Most of the onnx files are converted by myself. You can use it through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)*. More details can be found at [Examples for Lite.AI.ToolKit](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).  
 
 <details>
 <summary> Expand Details for Namespace and Lite.AI.ToolKit modules.</summary>  
