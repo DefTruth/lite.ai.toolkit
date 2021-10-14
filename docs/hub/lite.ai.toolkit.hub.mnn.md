@@ -19,6 +19,12 @@ You can download all the pretrained models files of MNN format from ([Baidu Driv
 | *lite::mnn::cv::detection::NanoDetEfficientNetLite* |    nanodet-EfficientNet-Lite0_320.mnn     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 12Mb  |
 | *lite::mnn::cv::detection::NanoDetEfficientNetLite* |    nanodet-EfficientNet-Lite1_416.mnn     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 15Mb  |
 | *lite::mnn::cv::detection::NanoDetEfficientNetLite* |    nanodet-EfficientNet-Lite2_512.mnn     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 18Mb  |
+|     *lite::mnn::cv::detection::YoloX*      |          yolox_x.mnn           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 378Mb |
+|     *lite::mnn::cv::detection::YoloX*      |          yolox_l.mnn           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 207Mb |
+|     *lite::mnn::cv::detection::YoloX*      |          yolox_m.mnn           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 97Mb  |
+|     *lite::mnn::cv::detection::YoloX*      |          yolox_s.mnn           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 34Mb  |
+|     *lite::mnn::cv::detection::YoloX*      |         yolox_tiny.mnn         |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 19Mb  |
+|     *lite::mnn::cv::detection::YoloX*      |         yolox_nano.mnn         |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 3.5Mb |
 
 ## Matting.
 

@@ -91,6 +91,7 @@
 #include "mnn/cv/mnn_nanodet.h"
 #include "mnn/cv/mnn_nanodet_efficientnet_lite.h"
 #include "mnn/cv/mnn_rvm.h"
+#include "mnn/cv/mnn_yolox.h"
 
 #endif
 
@@ -706,6 +707,8 @@ namespace lite
       {
         typedef mnncv::MNNNanoDet NanoDet;
         typedef mnncv::MNNNanoDetEfficientNetLite NanoDetEfficientNetLite;
+        typedef mnncv::MNNYoloX YoloX;
+
       }
       // face etc.
       namespace face
