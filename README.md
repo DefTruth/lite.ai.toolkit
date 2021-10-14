@@ -332,6 +332,7 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
 
 |Class|Size|From|Awesome|File|Type|State|Usage|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|[YoloX](https://github.com/Megvii-BaseDetection/YOLOX)|3.5M| [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) | 🔥🔥new↑ | [![](https://img.shields.io/badge/MNN-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md#lite.ai.toolkit.hub.mnn-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolox.cpp) |
 |[NanoDet](https://github.com/RangiLyu/nanodet)|1.1M| [nanodet](https://github.com/RangiLyu/nanodet) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/MNN-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md#lite.ai.toolkit.hub.mnn-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp) |
 |[NanoDetEfficientNetLite](https://github.com/RangiLyu/nanodet)|12M| [nanodet](https://github.com/RangiLyu/nanodet) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/MNN-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md#lite.ai.toolkit.hub.mnn-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet_efficientnet_lite.cpp) |
 
