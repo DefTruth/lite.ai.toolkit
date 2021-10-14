@@ -55,6 +55,25 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
+  std::string mnn_path = "../../../hub/mnn/cv/yolox_s.mnn";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_yolox_2.jpg";
+  std::string save_img_path = "../../../logs/test_lite_yolox_mnn_2.jpg";
+
+  // 2. Test Specific Engine MNN
+  lite::mnn::cv::detection::YoloX *yolox =
+      new lite::mnn::cv::detection::YoloX(mnn_path);
+
+  std::vector<lite::types::Boxf> detected_boxes;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  yolox->detect(img_bgr, detected_boxes);
+
+  lite::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+
+  cv::imwrite(save_img_path, img_bgr);
+
+  std::cout << "MNN Version Detected Boxes Num: " << detected_boxes.size() << std::endl;
+
+  delete yolox;
 #endif
 }
 

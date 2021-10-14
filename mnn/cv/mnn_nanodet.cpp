@@ -84,7 +84,6 @@ void MNNNanoDet::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_b
 
   // 2. inference scores & boxes.
   mnn_interpreter->runSession(mnn_session);
-
   auto output_tensors = mnn_interpreter->getSessionOutputAll(mnn_session);
   // 3. rescale & exclude.
   std::vector<types::Boxf> bbox_collection;
