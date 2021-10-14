@@ -89,7 +89,7 @@ void NCNNRobustVideoMatting::detect(const cv::Mat &mat, types::MattingContent &c
 
   // 2. inference & extract
   auto extractor = net->create_extractor();
-  extractor.set_light_mode(true);  // default
+  extractor.set_light_mode(false);  // default
   extractor.set_num_threads(num_threads);
   extractor.input("src", src);
   extractor.input("r1i", r1i);
