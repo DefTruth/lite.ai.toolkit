@@ -158,6 +158,41 @@
 
 * GPU兼容性: 详见[issue#10](https://github.com/DefTruth/lite.ai.toolkit/issues/10).
 
+* 你可参考以下的CMakeLists.txt设置来链接动态库.
+
+```cmake
+cmake_minimum_required(VERSION 3.17)
+project(lite.ai.toolkit.demo)
+
+set(CMAKE_CXX_STANDARD 11)
+
+# setting up lite.ai.toolkit
+set(LITE_AI_DIR ${CMAKE_SOURCE_DIR}/lite.ai.toolkit)
+set(LITE_AI_INCLUDE_DIR ${LITE_AI_DIR}/include)
+set(LITE_AI_LIBRARY_DIR ${LITE_AI_DIR}/lib)
+include_directories(${LITE_AI_INCLUDE_DIR})
+link_directories(${LITE_AI_LIBRARY_DIR})
+
+set(OpenCV_LIBS
+        opencv_highgui
+        opencv_core
+        opencv_imgcodecs
+        opencv_imgproc
+        opencv_video
+        opencv_videoio
+        )
+# add your executable
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/examples/build)
+
+add_executable(lite_rvm examples/test_lite_rvm.cpp)
+target_link_libraries(lite_rvm
+        lite.ai.toolkit
+        onnxruntime
+        MNN
+        ncnn
+        ${OpenCV_LIBS})  # link lite.ai.toolkit & other libs.
+```
+
 <details>
 <summary> 如何链接Lite.AI.ToolKit动态库?</summary>  
 
@@ -207,28 +242,35 @@ Default Version Detected Boxes Num: 5
 
 ```cmake
 cmake_minimum_required(VERSION 3.17)
-project(testlite.ai.toolkit)
+project(lite.ai.toolkit.demo)
+
 set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_BUILD_TYPE debug)
-# link opencv.
-set(OpenCV_DIR ${CMAKE_SOURCE_DIR}/opencv/lib/cmake/opencv4)
-find_package(OpenCV 4 REQUIRED)
-include_directories(${OpenCV_INCLUDE_DIRS})
-# link onnxruntime.
-set(ONNXRUNTIME_DIR ${CMAKE_SOURCE_DIR}/onnxruntime/)
-set(ONNXRUNTIME_INCLUDE_DIR ${ONNXRUNTIME_DIR}/include)
-set(ONNXRUNTIME_LIBRARY_DIR ${ONNXRUNTIME_DIR}/lib)
-include_directories(${ONNXRUNTIME_INCLUDE_DIR})
-link_directories(${ONNXRUNTIME_LIBRARY_DIR})
-# link lite.ai.toolkit.
-set(LITEHUB_DIR ${CMAKE_SOURCE_DIR}/lite.ai.toolkit)
-set(LITEHUB_INCLUDE_DIR ${LITEHUB_DIR}/include)
-set(LITEHUB_LIBRARY_DIR ${LITEHUB_DIR}/lib)
-include_directories(${LITEHUB_INCLUDE_DIR})
-link_directories(${LITEHUB_LIBRARY_DIR})
+
+# setting up lite.ai.toolkit
+set(LITE_AI_DIR ${CMAKE_SOURCE_DIR}/lite.ai.toolkit)
+set(LITE_AI_INCLUDE_DIR ${LITE_AI_DIR}/include)
+set(LITE_AI_LIBRARY_DIR ${LITE_AI_DIR}/lib)
+include_directories(${LITE_AI_INCLUDE_DIR})
+link_directories(${LITE_AI_LIBRARY_DIR})
+
+set(OpenCV_LIBS
+        opencv_highgui
+        opencv_core
+        opencv_imgcodecs
+        opencv_imgproc
+        opencv_video
+        opencv_videoio
+        )
 # add your executable
-add_executable(lite_yolov5 test_lite_yolov5.cpp)
-target_link_libraries(lite_yolov5 lite.ai.toolkit onnxruntime ${OpenCV_LIBS})
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/examples/build)
+
+add_executable(lite_rvm examples/test_lite_rvm.cpp)
+target_link_libraries(lite_rvm
+        lite.ai.toolkit
+        onnxruntime
+        MNN
+        ncnn
+        ${OpenCV_LIBS})  # link lite.ai.toolkit & other libs.
 ```
 你可以在[lite.ai.toolkit.demo](https://github.com/DefTruth/lite.ai.toolkit.demo) 中找到一个简单且完整的，关于如何正确地链接Lite.AI.ToolKit动态库的应用案例。
 
@@ -375,7 +417,7 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
 
 |Class|Size|From|Awesome|File|Type|State|Usage|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|[RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)|14M| [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)  |   🔥🔥🔥↑   | [![](https://img.shields.io/badge/NCNN-failed-red.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md#lite.ai.toolkit.hub.ncnn-matting) | *matting* | ⚠️ | [code](https://github.com/DefTruth/lite.ai.toolkit/blob/main/ncnn/cv/ncnn_rvm.cpp) |
+|[RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)|14M| [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)  |   🔥🔥🔥↑   | [![](https://img.shields.io/badge/NCNN-failed-red.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md#lite.ai.toolkit.hub.ncnn-matting) | *matting* | ⚠️ | [code](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/ncnn/cv/ncnn_rvm.cpp) |
 
 
 <details>
