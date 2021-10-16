@@ -30,8 +30,8 @@
 
 <div align='center'>
   <img src=https://img.shields.io/badge/MacOS-pass-brightgreen.svg >
-  <img src=https://img.shields.io/badge/Linux-wait-red.svg >
-  <img src=https://img.shields.io/badge/Windows-wait-red.svg >
+  <img src=https://img.shields.io/badge/Linux-unofficial-blue.svg >
+  <img src=https://img.shields.io/badge/Windows-unofficial-blue.svg >
   <img src=https://img.shields.io/badge/Version-0.1.0-green.svg >
   <img src=https://img.shields.io/badge/Language-C%2B%2B-orange.svg >
   <img src=https://img.shields.io/badge/Device-GPU/CPU-yellow.svg >
@@ -39,9 +39,9 @@
 </div>   
 
 <div align='center'> 
-  <img src=https://img.shields.io/badge/ONNXRuntime-yes-brightgreen.svg >
-  <img src=https://img.shields.io/badge/NCNN-yes-brightgreen.svg >
-  <img src=https://img.shields.io/badge/MNN-yes-brightgreen.svg >
+  <img src=https://img.shields.io/badge/ONNXRuntime-support-brightgreen.svg >
+  <img src=https://img.shields.io/badge/NCNN-support-brightgreen.svg >
+  <img src=https://img.shields.io/badge/MNN-support-brightgreen.svg >
   <img src=https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social >
   <img src=https://img.shields.io/github/forks/DefTruth/lite.ai.toolkit.svg?style=social >
   <img src=https://img.shields.io/github/watchers/DefTruth/lite.ai.toolkit.svg?style=social> 
@@ -142,18 +142,48 @@
 
 ### Linux 和 Windows
 
-⚠️ *Lite.AI.ToolKit* 的发行版本目前不直接支持Linux和Windows，你需要从下载*Lite.AI.ToolKit*的源码进行构建。首先，你需要下载(如果有官方编译好的发行版本的话)或编译*OpenCV* and *ONNXRuntime*的动态库，然后把它们放入*third_party*文件夹。请参考依赖库的编译文档[<sup>1</sup>](#lite.ai.toolkit-1)。
+⚠️ *Lite.AI.ToolKit* 的发行版本目前不直接支持Linux和Windows，你需要从下载*Lite.AI.ToolKit*的源码进行构建。首先，你需要下载(如果有官方编译好的发行版本的话)或编译*OpenCV* 、*ONNXRuntime* 和其他你需要的推理引擎，如MNN、NCNN、TNN，然后把它们的头文件分别放入各自对应的文件夹，或者直接使用本项目提供的头文件。本项目的依赖库头文件是直接从相应的官方库拷贝而来的，但不同操作系统下的动态库需要重新编译或下载，MacOS用户可以直接使用本项目提供的各个依赖库的动态库。  
+* `lite.ai.toolkit/opencv2`
+  ```shell
+    copy -r you-path-to-downloaded-or-built-opencv/include/opencv4/opencv2 lite.ai.toolkit/opencv2
+  ```
+* `lite.ai.toolkit/onnxruntime`
+  ```shell
+    copy -r you-path-to-downloaded-or-built-onnxruntime/include/onnxruntime lite.ai.toolkit/onnxruntime
+  ```
+* `lite.ai.toolkit/MNN`
+  ```shell
+    copy -r you-path-to-downloaded-or-built-MNN/include/MNN lite.ai.toolkit/MNN
+  ```
+* `lite.ai.toolkit/ncnn`
+  ```shell
+    copy -r you-path-to-downloaded-or-built-ncnn/include/ncnn lite.ai.toolkit/ncnn
+  ```
+* `lite.ai.toolkit/tnn`
+  ```shell
+    copy -r you-path-to-downloaded-or-built-TNN/include/tnn lite.ai.toolkit/tnn
+  ```
+  
+然后把各个依赖库拷贝到`lite.ai.toolkit/lib` 文件夹。 请参考依赖库的编译文档[<sup>1</sup>](#lite.ai.toolkit-1)。  
+* `lite.ai.toolkit/lib`
+  ```shell
+     copy you-path-to-downloaded-or-built-opencv/lib/*opencv* lite.ai.toolkit/lib
+     copy you-path-to-downloaded-or-built-onnxruntime/lib/*onnxruntime* lite.ai.toolkit/lib
+     copy you-path-to-downloaded-or-built-MNN/lib/*MNN* lite.ai.toolkit/lib
+     copy you-path-to-downloaded-or-built-ncnn/lib/*ncnn* lite.ai.toolkit/lib
+     copy you-path-to-downloaded-or-built-TNN/lib/*TNN* lite.ai.toolkit/lib
+  ```
 
 
 * Windows: 你可以参考[issue#6](https://github.com/DefTruth/lite.ai.toolkit/issues/6) ，讨论了常见的编译问题。
 * Linux: 参考MacOS下的编译，替换Linux版本的依赖库即可。Linux下的发行版本将会在近期添加 ~ [issue#2](https://github.com/DefTruth/lite.ai.toolkit/issues/2)
-* 令人开心的消息!!! : 🚀 你可以直接下载最新的*ONNXRuntime*官方构建的动态库，包含Windows, Linux, MacOS and Arm的版本!!! CPU和GPU的版本均可获得。不需要再从源码进行编译了，nice。可以从[v1.8.1](https://github.com/microsoft/onnxruntime/releases) 下载最新的动态库. 我目前在*Lite.AI.ToolKit*中用的是1.7.0，你可以从[v1.7.0](https://github.com/microsoft/onnxruntime/releases/tag/v1.7.0) 下载, 但1.8.1应该也是可行的。对于*OpenCV*，请尝试从源码构建(Linux) 或者 直接从[OpenCV 4.5.3](https://github.com/opencv/opencv/releases) 下载官方编译好的动态库(Windows). 然后把头文件和依赖库放入 *third_party* 文件夹.
+* 令人开心的消息!!! : 🚀 你可以直接下载最新的*ONNXRuntime*官方构建的动态库，包含Windows, Linux, MacOS and Arm的版本!!! CPU和GPU的版本均可获得。不需要再从源码进行编译了，nice。可以从[v1.8.1](https://github.com/microsoft/onnxruntime/releases) 下载最新的动态库. 我目前在*Lite.AI.ToolKit*中用的是1.7.0，你可以从[v1.7.0](https://github.com/microsoft/onnxruntime/releases/tag/v1.7.0) 下载, 但1.8.1应该也是可行的。对于*OpenCV*，请尝试从源码构建(Linux) 或者 直接从[OpenCV 4.5.3](https://github.com/opencv/opencv/releases) 下载官方编译好的动态库(Windows). 然后把头文件和依赖库放入上述的文件夹中.
 
 </details>  
 
 ```shell
     git clone --depth=1 https://github.com/DefTruth/lite.ai.toolkit.git  # 最新源码
-    cd lite.ai.toolkit && sh ./build.sh  # 对于MacOS, 你可以直接利用本项目包含的依赖库，无需重新编译
+    cd lite.ai.toolkit && sh ./build.sh  # 对于MacOS, 你可以直接利用本项目包含的OpenCV, ONNXRuntime, MNN, NCNN and TNN依赖库，无需重新编译
 ```
 
 * GPU兼容性: 详见[issue#10](https://github.com/DefTruth/lite.ai.toolkit/issues/10).
@@ -188,8 +218,9 @@ add_executable(lite_rvm examples/test_lite_rvm.cpp)
 target_link_libraries(lite_rvm
         lite.ai.toolkit
         onnxruntime
-        MNN
-        ncnn
+        MNN  # need, if built lite.ai.toolkit with ENABLE_MNN=ON,  default OFF
+        ncnn # need, if built lite.ai.toolkit with ENABLE_NCNN=ON, default OFF 
+        TNN  # need, if built lite.ai.toolkit with ENABLE_TNN=ON,  default OFF 
         ${OpenCV_LIBS})  # link lite.ai.toolkit & other libs.
 ```
 

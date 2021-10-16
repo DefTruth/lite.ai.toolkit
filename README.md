@@ -29,8 +29,8 @@
 
 <div align='center'>
   <img src=https://img.shields.io/badge/MacOS-pass-brightgreen.svg >
-  <img src=https://img.shields.io/badge/Linux-wait-red.svg >
-  <img src=https://img.shields.io/badge/Windows-wait-red.svg >
+  <img src=https://img.shields.io/badge/Linux-unofficial-blue.svg >
+  <img src=https://img.shields.io/badge/Windows-unofficial-blue.svg >
   <img src=https://img.shields.io/badge/Version-0.1.0-green.svg >
   <img src=https://img.shields.io/badge/Language-C%2B%2B-orange.svg >
   <img src=https://img.shields.io/badge/Device-GPU/CPU-yellow.svg >
@@ -38,9 +38,9 @@
 </div>   
 
 <div align='center'> 
-  <img src=https://img.shields.io/badge/ONNXRuntime-yes-brightgreen.svg >
-  <img src=https://img.shields.io/badge/NCNN-yes-brightgreen.svg >
-  <img src=https://img.shields.io/badge/MNN-yes-brightgreen.svg >
+  <img src=https://img.shields.io/badge/ONNXRuntime-support-brightgreen.svg >
+  <img src=https://img.shields.io/badge/NCNN-support-brightgreen.svg >
+  <img src=https://img.shields.io/badge/MNN-support-brightgreen.svg >
   <img src=https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social >
   <img src=https://img.shields.io/github/forks/DefTruth/lite.ai.toolkit.svg?style=social >
   <img src=https://img.shields.io/github/watchers/DefTruth/lite.ai.toolkit.svg?style=social> 
@@ -143,18 +143,48 @@ Build the shared lib of *Lite.AI.ToolKit* for *MacOS* from sources. Note that Li
 
 ### Linux and Windows.  
 
-⚠️ *Lite.AI.ToolKit* is not directly support Linux and Windows now. For Linux and Windows, you need to build or download(if have official builts) the shared libs of *OpenCV* and *ONNXRuntime* firstly and put then into the *third_party* directory. Please reference the build-docs[<sup>1</sup>](#lite.ai.toolkit-1) for *third_party*.   
+⚠️ *Lite.AI.ToolKit* is not directly support Linux and Windows now. For Linux and Windows, you need to build or download(if have official builts) the shared libs of *OpenCV*、*ONNXRuntime* and any other Engines(like MNN, NCNN, TNN) firstly, then put the headers into the specific directories or just let these directories unchange(use the headers offer by this repo, the header file of the dependent library of this project is directly copied from the corresponding official library). However, the dynamic libraries under different operating systems need to be recompiled or downloaded. MacOS users can directly use the dynamic libraries of each dependent library provided by this project:   
+* `lite.ai.toolkit/opencv2`  
+  ```shell
+    copy -r you-path-to-downloaded-or-built-opencv/include/opencv4/opencv2 lite.ai.toolkit/opencv2
+  ```
+* `lite.ai.toolkit/onnxruntime`  
+  ```shell
+    copy -r you-path-to-downloaded-or-built-onnxruntime/include/onnxruntime lite.ai.toolkit/onnxruntime
+  ```
+* `lite.ai.toolkit/MNN`  
+  ```shell
+    copy -r you-path-to-downloaded-or-built-MNN/include/MNN lite.ai.toolkit/MNN
+  ```
+* `lite.ai.toolkit/ncnn`   
+  ```shell
+    copy -r you-path-to-downloaded-or-built-ncnn/include/ncnn lite.ai.toolkit/ncnn
+  ```
+* `lite.ai.toolkit/tnn`   
+  ```shell
+    copy -r you-path-to-downloaded-or-built-TNN/include/tnn lite.ai.toolkit/tnn
+  ```
+
+and put the libs into `lite.ai.toolkit/lib` directory. Please reference the build-docs[<sup>1</sup>](#lite.ai.toolkit-1) for *third_party*.   
+* `lite.ai.toolkit/lib`  
+  ```shell
+     copy you-path-to-downloaded-or-built-opencv/lib/*opencv* lite.ai.toolkit/lib
+     copy you-path-to-downloaded-or-built-onnxruntime/lib/*onnxruntime* lite.ai.toolkit/lib
+     copy you-path-to-downloaded-or-built-MNN/lib/*MNN* lite.ai.toolkit/lib
+     copy you-path-to-downloaded-or-built-ncnn/lib/*ncnn* lite.ai.toolkit/lib
+     copy you-path-to-downloaded-or-built-TNN/lib/*TNN* lite.ai.toolkit/lib
+  ```
 
 
 * Windows: You can reference to [issue#6](https://github.com/DefTruth/lite.ai.toolkit/issues/6)  
 * Linux: The Docs and Docker image for Linux will be coming soon ~ [issue#2](https://github.com/DefTruth/lite.ai.toolkit/issues/2)  
-* Happy News !!! : 🚀 You can download the latest *ONNXRuntime* official built libs of Windows, Linux, MacOS and Arm !!! Both CPU and GPU versions are available. No more attentions needed pay to build it from source. Download the official built libs from [v1.8.1](https://github.com/microsoft/onnxruntime/releases). I have used version 1.7.0 for Lite.AI.ToolKit now, you can downlod it from [v1.7.0](https://github.com/microsoft/onnxruntime/releases/tag/v1.7.0), but version 1.8.1 should also work, I guess ~  🙃🤪🍀. For *OpenCV*, try to build from source(Linux) or down load the official built(Windows) from [OpenCV 4.5.3](https://github.com/opencv/opencv/releases). Then put the includes and libs into *third_party* directory of Lite.AI.ToolKit. 
+* Happy News !!! : 🚀 You can download the latest *ONNXRuntime* official built libs of Windows, Linux, MacOS and Arm !!! Both CPU and GPU versions are available. No more attentions needed pay to build it from source. Download the official built libs from [v1.8.1](https://github.com/microsoft/onnxruntime/releases). I have used version 1.7.0 for Lite.AI.ToolKit now, you can downlod it from [v1.7.0](https://github.com/microsoft/onnxruntime/releases/tag/v1.7.0), but version 1.8.1 should also work, I guess ~  🙃🤪🍀. For *OpenCV*, try to build from source(Linux) or down load the official built(Windows) from [OpenCV 4.5.3](https://github.com/opencv/opencv/releases). Then put the includes and libs into specific directory of Lite.AI.ToolKit. 
 
 </details>  
 
 ```shell
     git clone --depth=1 https://github.com/DefTruth/lite.ai.toolkit.git  # latest
-    cd lite.ai.toolkit && sh ./build.sh  # On MacOS, you can use the built OpenCV and ONNXRuntime libs in this repo.
+    cd lite.ai.toolkit && sh ./build.sh  # On MacOS, you can use the built OpenCV, ONNXRuntime, MNN, NCNN and TNN libs in this repo.
 ```
 
 * GPU Compatibility: See [issue#10](https://github.com/DefTruth/lite.ai.toolkit/issues/10).  
@@ -189,8 +219,9 @@ add_executable(lite_rvm examples/test_lite_rvm.cpp)
 target_link_libraries(lite_rvm
         lite.ai.toolkit
         onnxruntime
-        MNN
-        ncnn
+        MNN  # need, if built lite.ai.toolkit with ENABLE_MNN=ON,  default OFF
+        ncnn # need, if built lite.ai.toolkit with ENABLE_NCNN=ON, default OFF 
+        TNN  # need, if built lite.ai.toolkit with ENABLE_TNN=ON,  default OFF 
         ${OpenCV_LIBS})  # link lite.ai.toolkit & other libs.
 ```
 
