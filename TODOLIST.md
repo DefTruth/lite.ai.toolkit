@@ -11,4 +11,12 @@ The models listed below may be supported in the future:
 * https://github.com/chenjun2hao/CenterFace.pytorch  
 * https://github.com/AIZOOTech/FaceMaskDetection  
 * https://github.com/dlunion/DBFace  
-* https://github.com/HRNet/HRNet-Facial-Landmark-Detection
+* https://github.com/HRNet/HRNet-Facial-Landmark-Detection  
+
+## Access to Model files  
+
+* git lfs(todo #21 #61)  
+
+## Optimizations
+
+* make lite.ai.toolkit a singleton lib (todo #46)
