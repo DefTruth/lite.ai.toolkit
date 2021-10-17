@@ -110,6 +110,11 @@
 
 // ENABLE_TNN
 #ifdef ENABLE_TNN
+
+#include "lite/tnn/core/tnn_core.h"
+#include "lite/tnn/core/tnn_utils.h"
+#include "lite/tnn/cv/tnn_yolox.h"
+
 #endif
 
 // Default Engine ONNXRuntime
@@ -759,7 +764,7 @@ namespace lite
 {
 #ifdef ENABLE_NCNN
   namespace ncnn
-    {
+  {
     namespace cv
     {
       // classification
@@ -823,8 +828,57 @@ namespace lite
 {
 #ifdef ENABLE_TNN
   namespace tnn
+  {
+    namespace cv
     {
-    }
+      // classification
+      namespace classification
+      {
+      }
+      // object detection
+      namespace detection
+      {
+        typedef tnncv::TNNYoloX YoloX;
+      }
+      // face etc.
+      namespace face
+      {
+        namespace detect
+        {
+        }
+        namespace align
+        {
+        }
+        namespace pose
+        {
+        }
+        namespace attr
+        {
+        }
+      }
+      // face recognition
+      namespace faceid
+      {
+      }
+      // segmentation
+      namespace segmentation
+      {
+      }
+      // reid
+      namespace reid
+      {
+      }
+      // ocr
+      namespace ocr
+      {
+      }
+      // matting
+      namespace matting
+      {
+      }
+
+    } // namespace cv
+  }
 #endif
 }
 

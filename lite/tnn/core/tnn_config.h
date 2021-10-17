@@ -11,6 +11,7 @@
 #ifdef ENABLE_TNN
 #include "tnn/core/macro.h"
 #include "tnn/core/tnn.h"
+#include "tnn/core/mat.h"
 #include "tnn/utils/blob_converter.h"
 #include "tnn/utils/mat_utils.h"
 #include "tnn/utils/dims_vector_utils.h"

@@ -1,6 +1,6 @@
 ############################## Source Files of LiteHub Based on TNN #################################
 # 1. glob sources files
-file(GLOB TNN_CORE_SRCS ${CMAKE_SOURCE_DIR}/lite/tnn/tnn/core/*.cpp)
+file(GLOB TNN_CORE_SRCS ${CMAKE_SOURCE_DIR}/lite/tnn/core/*.cpp)
 file(GLOB TNN_CV_SRCS ${CMAKE_SOURCE_DIR}/lite/tnn/cv/*.cpp)
 file(GLOB TNN_NLP_SRCS ${CMAKE_SOURCE_DIR}/lite/tnn/nlp/*.cpp)
 file(GLOB TNN_ASR_SRCS ${CMAKE_SOURCE_DIR}/lite/tnn/asr/*.cpp)

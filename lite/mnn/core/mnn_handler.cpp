@@ -36,16 +36,17 @@ void BasicMNNHandler::initialize_handler()
   // 6. resize tensor & session needed ???
   if (dimension_type == MNN::Tensor::CAFFE)
   {
+    // NCHW
     mnn_interpreter->resizeTensor(
-        input_tensor,{input_batch, input_channel, input_height, input_width});
+        input_tensor, {input_batch, input_channel, input_height, input_width});
     mnn_interpreter->resizeSession(mnn_session);
-  }
+  } // NHWC
   else if (dimension_type == MNN::Tensor::TENSORFLOW)
   {
     mnn_interpreter->resizeTensor(
-        input_tensor,{input_batch, input_height, input_width, input_channel});
+        input_tensor, {input_batch, input_height, input_width, input_channel});
     mnn_interpreter->resizeSession(mnn_session);
-  }
+  } // NC4HW4
   else if (dimension_type == MNN::Tensor::CAFFE_C4)
   {
 #ifdef LITEMNN_DEBUG
