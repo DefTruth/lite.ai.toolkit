@@ -143,35 +143,35 @@
 ### Linux 和 Windows
 
 ⚠️ *Lite.AI.ToolKit* 的发行版本目前不直接支持Linux和Windows，你需要从下载*Lite.AI.ToolKit*的源码进行构建。首先，你需要下载(如果有官方编译好的发行版本的话)或编译*OpenCV* 、*ONNXRuntime* 和其他你需要的推理引擎，如MNN、NCNN、TNN，然后把它们的头文件分别放入各自对应的文件夹，或者直接使用本项目提供的头文件。本项目的依赖库头文件是直接从相应的官方库拷贝而来的，但不同操作系统下的动态库需要重新编译或下载，MacOS用户可以直接使用本项目提供的各个依赖库的动态库。  
-* `lite.ai.toolkit/opencv2`
+* *lite.ai.toolkit/opencv2*
   ```shell
-    copy -r you-path-to-downloaded-or-built-opencv/include/opencv4/opencv2 lite.ai.toolkit/opencv2
+    cp -r you-path-to-downloaded-or-built-opencv/include/opencv4/opencv2 lite.ai.toolkit/opencv2
   ```
-* `lite.ai.toolkit/onnxruntime`
+* *lite.ai.toolkit/onnxruntime*
   ```shell
-    copy -r you-path-to-downloaded-or-built-onnxruntime/include/onnxruntime lite.ai.toolkit/onnxruntime
+    cp -r you-path-to-downloaded-or-built-onnxruntime/include/onnxruntime lite.ai.toolkit/onnxruntime
   ```
-* `lite.ai.toolkit/MNN`
+* *lite.ai.toolkit/MNN*
   ```shell
-    copy -r you-path-to-downloaded-or-built-MNN/include/MNN lite.ai.toolkit/MNN
+    cp -r you-path-to-downloaded-or-built-MNN/include/MNN lite.ai.toolkit/MNN
   ```
-* `lite.ai.toolkit/ncnn`
+* *lite.ai.toolkit/ncnn*
   ```shell
-    copy -r you-path-to-downloaded-or-built-ncnn/include/ncnn lite.ai.toolkit/ncnn
+    cp -r you-path-to-downloaded-or-built-ncnn/include/ncnn lite.ai.toolkit/ncnn
   ```
-* `lite.ai.toolkit/tnn`
+* *lite.ai.toolkit/tnn*
   ```shell
-    copy -r you-path-to-downloaded-or-built-TNN/include/tnn lite.ai.toolkit/tnn
+    cp -r you-path-to-downloaded-or-built-TNN/include/tnn lite.ai.toolkit/tnn
   ```
   
-然后把各个依赖库拷贝到`lite.ai.toolkit/lib` 文件夹。 请参考依赖库的编译文档[<sup>1</sup>](#lite.ai.toolkit-1)。  
-* `lite.ai.toolkit/lib`
+然后把各个依赖库拷贝到*lite.ai.toolkit/lib* 文件夹。 请参考依赖库的编译文档[<sup>1</sup>](#lite.ai.toolkit-1)。  
+* *lite.ai.toolkit/lib*
   ```shell
-     copy you-path-to-downloaded-or-built-opencv/lib/*opencv* lite.ai.toolkit/lib
-     copy you-path-to-downloaded-or-built-onnxruntime/lib/*onnxruntime* lite.ai.toolkit/lib
-     copy you-path-to-downloaded-or-built-MNN/lib/*MNN* lite.ai.toolkit/lib
-     copy you-path-to-downloaded-or-built-ncnn/lib/*ncnn* lite.ai.toolkit/lib
-     copy you-path-to-downloaded-or-built-TNN/lib/*TNN* lite.ai.toolkit/lib
+    cp you-path-to-downloaded-or-built-opencv/lib/*opencv* lite.ai.toolkit/lib
+    cp you-path-to-downloaded-or-built-onnxruntime/lib/*onnxruntime* lite.ai.toolkit/lib
+    cp you-path-to-downloaded-or-built-MNN/lib/*MNN* lite.ai.toolkit/lib
+    cp you-path-to-downloaded-or-built-ncnn/lib/*ncnn* lite.ai.toolkit/lib
+    cp you-path-to-downloaded-or-built-TNN/lib/*TNN* lite.ai.toolkit/lib
   ```
 
 

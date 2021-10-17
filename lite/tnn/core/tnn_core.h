@@ -1,0 +1,8 @@
+//
+// Created by DefTruth on 2021/10/17.
+//
+
+#ifndef LITE_AI_TOOLKIT_TNN_CORE_TNN_CORE_H
+#define LITE_AI_TOOLKIT_TNN_CORE_TNN_CORE_H
+
+#endif //LITE_AI_TOOLKIT_TNN_CORE_TNN_CORE_H

@@ -144,35 +144,35 @@ Build the shared lib of *Lite.AI.ToolKit* for *MacOS* from sources. Note that Li
 ### Linux and Windows.  
 
 ⚠️ *Lite.AI.ToolKit* is not directly support Linux and Windows now. For Linux and Windows, you need to build or download(if have official builts) the shared libs of *OpenCV*、*ONNXRuntime* and any other Engines(like MNN, NCNN, TNN) firstly, then put the headers into the specific directories or just let these directories unchange(use the headers offer by this repo, the header file of the dependent library of this project is directly copied from the corresponding official library). However, the dynamic libraries under different operating systems need to be recompiled or downloaded. MacOS users can directly use the dynamic libraries of each dependent library provided by this project:   
-* `lite.ai.toolkit/opencv2`  
+* *lite.ai.toolkit/opencv2*  
   ```shell
-    copy -r you-path-to-downloaded-or-built-opencv/include/opencv4/opencv2 lite.ai.toolkit/opencv2
+    cp -r you-path-to-downloaded-or-built-opencv/include/opencv4/opencv2 lite.ai.toolkit/opencv2
   ```
-* `lite.ai.toolkit/onnxruntime`  
+* *lite.ai.toolkit/onnxruntime*  
   ```shell
-    copy -r you-path-to-downloaded-or-built-onnxruntime/include/onnxruntime lite.ai.toolkit/onnxruntime
+    cp -r you-path-to-downloaded-or-built-onnxruntime/include/onnxruntime lite.ai.toolkit/onnxruntime
   ```
-* `lite.ai.toolkit/MNN`  
+* *lite.ai.toolkit/MNN*  
   ```shell
-    copy -r you-path-to-downloaded-or-built-MNN/include/MNN lite.ai.toolkit/MNN
+    cp -r you-path-to-downloaded-or-built-MNN/include/MNN lite.ai.toolkit/MNN
   ```
-* `lite.ai.toolkit/ncnn`   
+* *lite.ai.toolkit/ncnn*   
   ```shell
-    copy -r you-path-to-downloaded-or-built-ncnn/include/ncnn lite.ai.toolkit/ncnn
+    cp -r you-path-to-downloaded-or-built-ncnn/include/ncnn lite.ai.toolkit/ncnn
   ```
-* `lite.ai.toolkit/tnn`   
+* *lite.ai.toolkit/tnn*   
   ```shell
-    copy -r you-path-to-downloaded-or-built-TNN/include/tnn lite.ai.toolkit/tnn
+    cp -r you-path-to-downloaded-or-built-TNN/include/tnn lite.ai.toolkit/tnn
   ```
 
-and put the libs into `lite.ai.toolkit/lib` directory. Please reference the build-docs[<sup>1</sup>](#lite.ai.toolkit-1) for *third_party*.   
-* `lite.ai.toolkit/lib`  
+and put the libs into *lite.ai.toolkit/lib* directory. Please reference the build-docs[<sup>1</sup>](#lite.ai.toolkit-1) for *third_party*.   
+* *lite.ai.toolkit/lib*  
   ```shell
-     copy you-path-to-downloaded-or-built-opencv/lib/*opencv* lite.ai.toolkit/lib
-     copy you-path-to-downloaded-or-built-onnxruntime/lib/*onnxruntime* lite.ai.toolkit/lib
-     copy you-path-to-downloaded-or-built-MNN/lib/*MNN* lite.ai.toolkit/lib
-     copy you-path-to-downloaded-or-built-ncnn/lib/*ncnn* lite.ai.toolkit/lib
-     copy you-path-to-downloaded-or-built-TNN/lib/*TNN* lite.ai.toolkit/lib
+    cp you-path-to-downloaded-or-built-opencv/lib/*opencv* lite.ai.toolkit/lib
+    cp you-path-to-downloaded-or-built-onnxruntime/lib/*onnxruntime* lite.ai.toolkit/lib
+    cp you-path-to-downloaded-or-built-MNN/lib/*MNN* lite.ai.toolkit/lib
+    cp you-path-to-downloaded-or-built-ncnn/lib/*ncnn* lite.ai.toolkit/lib
+    cp you-path-to-downloaded-or-built-TNN/lib/*TNN* lite.ai.toolkit/lib
   ```
 
 
