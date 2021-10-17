@@ -19,4 +19,9 @@ The models listed below may be supported in the future:
 
 ## Optimizations
 
-* make lite.ai.toolkit a singleton lib (todo #46)
+* make lite.ai.toolkit a singleton lib (todo #46)  
+
+## CMake 
+
+* add `FindLite.AI.ToolKit.cmake` to enable find_package()
+* reference: [FindPackage](https://github.com/BrightXiaoHan/CMakeTutorial/tree/master/FindPackage)
