@@ -1,6 +1,10 @@
 
 
-##  <p align="center"> Lite.AI.ToolKit 🚀🚀🌟: A lite C++ toolkit of awesome AI models. </p>
+##  <p align="center"> Lite.AI.ToolKit 🚀🚀🌟: A lite C++ toolkit of awesome AI models. </p>  
+<div align='center'>
+  <img src=https://img.shields.io/badge/lite.ai.toolkit-"Try%20to%20make%20interesting%20things%20more%20complete~"-blue.svg >
+</div>   
+
 
 <div id="lite.ai.toolkit-Introduction"></div>  
 

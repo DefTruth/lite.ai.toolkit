@@ -2,6 +2,9 @@
 
 ## <p align="center"> Lite.AI.ToolKit 🚀🚀🌟: 一个开箱即用的C++ AI模型工具箱</p>
 
+<div align='center'>
+  <img src=https://img.shields.io/badge/lite.ai.toolkit-"尝试让有趣的事情变得更完整~"-blue.svg >
+</div>   
 
 <div id="lite.ai.toolkit-Introduction"></div>  
 

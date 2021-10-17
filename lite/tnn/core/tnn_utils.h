@@ -5,15 +5,9 @@
 #ifndef LITE_AI_TOOLKIT_TNN_CORE_TNN_UTILS_H
 #define LITE_AI_TOOLKIT_TNN_CORE_TNN_UTILS_H
 
-#include "lite/config.h"
-#include "lite/lite.ai.defs.h"
-
-#define LITETNN_DEBUG 1
-
-#ifdef LITE_WIN32
-#  ifndef NONMINMAX
-#    define NONMINMAX
-#  endif
-#endif
+namespace tnncv
+{
+  // no specific utils for TNN now.
+}
 
 #endif //LITE_AI_TOOLKIT_TNN_CORE_TNN_UTILS_H
