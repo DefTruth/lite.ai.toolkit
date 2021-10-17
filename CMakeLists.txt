@@ -30,7 +30,7 @@ option(INCLUDE_OPENCV "whether to include OpenCV into lite.ai.toolkit." ON)
 option(ENABLE_ONNXRUNTIME "whether to enable ONNXRuntime engine" ON)
 option(ENABLE_MNN "whether to enable MNN engine" ON)  # unstable now, DON'T use
 option(ENABLE_NCNN "whether to enable NCNN engine" ON) # unstable now, DON'T use
-option(ENABLE_TNN "whether to enable TNN engine" OFF) # unstable now, DON'T use
+option(ENABLE_TNN "whether to enable TNN engine" ON) # unstable now, DON'T use
 option(BACKEND_ONNXRUNTIME "whether to set ONNXRuntime as the main backend of lite.ai.toolkit" ON)
 option(BACKEND_MNN "whether to set MNN as the main backend of lite.ai.toolkit" OFF)  # now, OFF only
 option(BACKEND_NCNN "whether to set NCNN as the main backend of lite.ai.toolkit" OFF)  # now, OFF only
