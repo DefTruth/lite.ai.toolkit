@@ -2,10 +2,6 @@
 
 ## <p align="center"> Lite.AI.ToolKit 🚀🚀🌟: 一个开箱即用的C++ AI模型工具箱</p>
 
-<div align='center'>
-  <img src=https://img.shields.io/badge/lite.ai.toolkit-"尝试让有趣的事情变得更完整~"-blue.svg >
-</div>   
-
 <div id="lite.ai.toolkit-Introduction"></div>  
 
 <div align='center'>
@@ -30,7 +26,6 @@
 </div>    
 <p align="center"><a href="README.md">English</a> | 中文 </p>
 
-
 <div align='center'>
   <img src=https://img.shields.io/badge/MacOS-pass-brightgreen.svg >
   <img src=https://img.shields.io/badge/Linux-unofficial-blue.svg >
@@ -50,6 +45,10 @@
   <img src=https://img.shields.io/github/watchers/DefTruth/lite.ai.toolkit.svg?style=social> 
 
 </div>    
+<div align='center'>
+  <img src=https://img.shields.io/badge/lite.ai.toolkit-"尝试让有趣的事情变得更完整~"-blue.svg >
+</div>   
+
 
 *Lite.AI.ToolKit* 🚀🚀🌟: 一个轻量级的`C++` AI模型工具箱，用户友好，开箱即用。已经包括 *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* 流行的开源模型，如最新的RVM, YOLOX, YOLOP, YOLOR, YoloV5, DeepLabV3, ArcFace等模型，还会继续增加😎。这是一个根据个人兴趣整理的C++工具箱，emmm😞 ... 其实还不是很完善，基本可编译成动态库直接使用，大家暂且把它当做推理引擎的案例大集合吧，看到的有用的代码就尽情抠出来用吧。个人的兴趣目前主要集中在`检测、分割、抠图、识别和目标跟踪`等领域。 *Lite.AI.ToolKit* 默认是基于 *[ONNXRuntime C++](https://github.com/microsoft/onnxruntime)* 推理引擎的，后期会陆续加入对 *[NCNN](https://github.com/Tencent/ncnn)* 或 *[MNN](https://github.com/alibaba/MNN)* 的支持，已经支持部分模型的MNN和NCNN推理。目前主要考虑易用性。需要更高性能支持的小伙伴可以基于本项目提供的`C++`实现和`ONNX`文件进行优化~ 如果您有想添加到本项目的新模型，欢迎`PR` ~👏👋 
 
