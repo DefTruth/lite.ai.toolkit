@@ -24,7 +24,7 @@
   <img src='docs/resources/yolop2.gif' height="100px" width="100px">
 
 </div>    
-<p align="center"><a href="README.md">English</a> | 中文 </p>
+<p align="center"><a href="README.md">English</a> | 中文文档 | <a href=#lite.ai.toolkit-Build-MacOS>MacOS</a> | <a href=#lite.ai.toolkit-Build-Linux>Linux</a> | <a href=#lite.ai.toolkit-Build-Windows>Windows</a> </p>
 
 <div align='center'>
   <img src=https://img.shields.io/badge/MacOS-pass-brightgreen.svg >
@@ -38,17 +38,21 @@
 
 <div align='center'> 
   <img src=https://img.shields.io/badge/ONNXRuntime-support-brightgreen.svg >
-  <img src=https://img.shields.io/badge/NCNN-support-brightgreen.svg >
-  <img src=https://img.shields.io/badge/MNN-support-brightgreen.svg >
+  <img src=https://img.shields.io/badge/NCNN-unofficial-blue.svg >
+  <img src=https://img.shields.io/badge/MNN-unofficial-blue.svg >
+  <img src=https://img.shields.io/badge/TNN-unofficial-blue.svg >
+<br>
   <img src=https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social >
   <img src=https://img.shields.io/github/forks/DefTruth/lite.ai.toolkit.svg?style=social >
   <img src=https://img.shields.io/github/watchers/DefTruth/lite.ai.toolkit.svg?style=social> 
 
-</div>    
+</div> 
+
+<!----  
 <div align='center'>
   <img src=https://img.shields.io/badge/lite.ai.toolkit-"尝试让有趣的事情变得更完整~"-blue.svg >
 </div>   
-
+---->
 
 *Lite.AI.ToolKit* 🚀🚀🌟: 一个轻量级的`C++` AI模型工具箱，用户友好，开箱即用。已经包括 *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* 流行的开源模型，如最新的RVM, YOLOX, YOLOP, YOLOR, YoloV5, DeepLabV3, ArcFace等模型，还会继续增加😎。这是一个根据个人兴趣整理的C++工具箱，emmm😞 ... 其实还不是很完善，基本可编译成动态库直接使用，大家暂且把它当做推理引擎的案例大集合吧，看到的有用的代码就尽情抠出来用吧。个人的兴趣目前主要集中在`检测、分割、抠图、识别和目标跟踪`等领域。 *Lite.AI.ToolKit* 默认是基于 *[ONNXRuntime C++](https://github.com/microsoft/onnxruntime)* 推理引擎的，后期会陆续加入对 *[NCNN](https://github.com/Tencent/ncnn)* 或 *[MNN](https://github.com/alibaba/MNN)* 的支持，已经支持部分模型的MNN和NCNN推理。目前主要考虑易用性。需要更高性能支持的小伙伴可以基于本项目提供的`C++`实现和`ONNX`文件进行优化~ 如果您有想添加到本项目的新模型，欢迎`PR` ~👏👋 
 
@@ -58,7 +62,7 @@
 * ⚡ *少量依赖，构建容易。* 目前, 默认只依赖 *OpenCV* 和 *ONNXRuntime*，详见[build](#lite.ai.toolkit-Build-Lite.AI.ToolKit)。
 * ❤️ *众多的算法模块，且持续更新。* 目前，包括 10+ 算法模块、*[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* 流行的开源模型以及 *[200+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)*  *.onnx/.mnn/.param&bin(ncnn)* 权重文件., 涵盖[目标检测](#lite.ai.toolkit-object-detection)、[人脸检测](#lite.ai.toolkit-face-detection)、[人脸识别](#lite.ai.toolkit-face-recognition)、[语义分割](#lite.ai.toolkit-segmentation)、[抠图](#lite.ai.toolkit-matting)等领域。详见 [Model Zoo](#lite.ai.toolkit-Model-Zoo) 和 [lite.ai.toolkit.hub.onnx.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md) 。更多的新模型将会不断地加入进来 ~ 😎
 
-<p align="center"> 本项目属于业余学习推理引擎时整理而成，若是有用，❤️不妨给个⭐️🌟支持一下吧~ 🙃🤪🍀 </p>
+<p align="center"> 若是有用，❤️不妨给个⭐️🌟支持一下吧~ 🙃🤪🍀 </p>
 
 <!----  
 * ✅ *多平台编译支持，GPU/CPU支持。* 目前，支持 [MacOS/Linux/Windows](#lite.ai.toolkit-Introduction) 和 CPU/GPU。
@@ -132,15 +136,17 @@
 * [引用参考](#lite.ai.toolkit-References)
 
 
-## 1. 编译Lite.AI.ToolKit
-
+## 1. 编译Lite.AI.ToolKit 🚀🚀🌟
+<div id="lite.ai.toolkit-Build-MacOS"></div>
 <div id="lite.ai.toolkit-Build-Lite.AI.ToolKit"></div>
 
-从*Lite.AI.ToolKit* 源码编译*MacOS*下的动态库。需要注意的是*Lite.AI.ToolKit* 使用`onnxruntime`作为默认的后端，因为onnxruntime支持大部分onnx的原生算子，具有更高的易用性。
+从*Lite.AI.ToolKit* 源码编译*MacOS*下的动态库。需要注意的是*Lite.AI.ToolKit* 使用`onnxruntime`作为默认的后端，因为onnxruntime支持大部分onnx的原生算子，具有更高的易用性。如何编译Linux和Windows版本？点击 ▶️ 查看。
 
+<div id="lite.ai.toolkit-Build-Linux"></div>
+<div id="lite.ai.toolkit-Build-Windows"></div>
 
 <details>
-<summary> Linux 和 Windows </summary>  
+<summary> ⚠️ Linux 和 Windows </summary>  
 
 ### Linux 和 Windows
 
@@ -1497,7 +1503,13 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 
 * 在`build.sh`中添加`DENABLE_MNN=ON` 或 `DENABLE_NCNN=ON`，比如
 ```shell
-cd build && cmake -DCMAKE_BUILD_TYPE=MinSizeRel -DENABLE_MNN=ON .. && make -j8
+cd build && cmake \
+  -DCMAKE_BUILD_TYPE=MinSizeRel \
+  -DINCLUDE_OPENCV=ON \   # 是否打包OpenCV进lite.ai.toolkit，默认ON；否则，你需要单独设置OpenCV
+  -DENABLE_MNN=ON \       # 是否编译MNN版本的模型， 默认OFF，目前只支持部分模型
+  -DENABLE_NCNN=OFF \     # 是否编译NCNN版本的模型，默认OFF，目前只支持部分模型
+  -DENABLE_TNN=OFF \      # 是否编译TNN版本的模型， 默认OFF，目前只支持部分模型
+  .. && make -j8
 ```  
 * 使用MNN或NCNN版本的接口，详见案例[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp) ，比如
 ```C++
@@ -1508,12 +1520,3 @@ auto *nanodet = new lite::mnn::cv::detection::NanoDet(mnn_path);
 * [nanodet.lite.ai.toolkit](https://github.com/DefTruth/nanodet.lite.ai.toolkit)  
 * [RobustVideoMatting.lite.ai.toolkit](https://github.com/DefTruth/RobustVideoMatting.lite.ai.toolkit)  
 * [lite.ai.toolkit.demo](https://github.com/DefTruth/lite.ai.toolkit.demo)  
-
-<div align='center'>
-  <img src=https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social >
-  <img src=https://img.shields.io/github/forks/DefTruth/lite.ai.toolkit.svg?style=social >
-  <img src=https://img.shields.io/github/watchers/DefTruth/lite.ai.toolkit.svg?style=social> 
-
-</div>    
-
-<p align="center"> 本项目属于业余学习推理引擎时整理而成，若是有用，❤️不妨给个⭐️🌟支持一下吧~ 🙃🤪🍀 </p>

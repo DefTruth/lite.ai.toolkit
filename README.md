@@ -25,7 +25,7 @@
 
 </div>    
 
-<p align="center">English | <a href="README.zh.md">中文</a></p>
+<p align="center">English | <a href="README.zh.md">中文文档</a> | <a href=#lite.ai.toolkit-Build-MacOS>MacOS</a> | <a href=#lite.ai.toolkit-Build-Linux>Linux</a> | <a href=#lite.ai.toolkit-Build-Windows>Windows</a> </p>
 
 <div align='center'>
   <img src=https://img.shields.io/badge/MacOS-pass-brightgreen.svg >
@@ -39,17 +39,21 @@
 
 <div align='center'> 
   <img src=https://img.shields.io/badge/ONNXRuntime-support-brightgreen.svg >
-  <img src=https://img.shields.io/badge/NCNN-support-brightgreen.svg >
-  <img src=https://img.shields.io/badge/MNN-support-brightgreen.svg >
+  <img src=https://img.shields.io/badge/NCNN-unofficial-blue.svg >
+  <img src=https://img.shields.io/badge/MNN-unofficial-blue.svg >
+  <img src=https://img.shields.io/badge/TNN-unofficial-blue.svg >
+<br>
   <img src=https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social >
   <img src=https://img.shields.io/github/forks/DefTruth/lite.ai.toolkit.svg?style=social >
   <img src=https://img.shields.io/github/watchers/DefTruth/lite.ai.toolkit.svg?style=social> 
 
 </div>    
 
+<!-----
 <div align='center'>
   <img src=https://img.shields.io/badge/lite.ai.toolkit-"Try%20to%20make%20interesting%20things%20more%20complete~"-blue.svg >
 </div>   
+----->
 
 *Lite.AI.ToolKit* 🚀🚀🌟: A lite `C++` toolkit of awesome AI models which contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* models now. It's a collection of personal interests. Such as RVM, YOLOX, YOLOP, YOLOR, YoloV5, DeepLabV3, ArcFace, etc. emmm😞 ... it's not perfect yet, but it can be compiled into a dynamic library and used directly. For now, let's regard it as a large collection of application cases for inference engines. *Lite.AI.ToolKit* based on *[ONNXRuntime C++](https://github.com/microsoft/onnxruntime)* by default. I do have plans to reimplement it with *[NCNN](https://github.com/Tencent/ncnn)* and *[MNN](https://github.com/alibaba/MNN)*, some models are already supported. Currently, I mainly consider its ease of use. Developers who need higher performance can make new optimizations based on the `C++` implementation and `ONNX` files provided by this repo~ Welcome to open a new `PR`~ 👏👋, if you want to add a new model to this repo.  
 
@@ -59,7 +63,7 @@
 * ⚡ *Minimum Dependencies.* Only *OpenCV* and *ONNXRuntime* are required by default, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit).
 * ❤️ *Lots of Algorithm Modules.* Contains 10+ modules and *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* famous models with *[200+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained *.onnx/.mnn/.param&bin(ncnn)* files now, such as [object detection](#lite.ai.toolkit-object-detection), [face detection](#lite.ai.toolkit-face-detection), [face recognition](#lite.ai.toolkit-face-recognition), [segmentation](#lite.ai.toolkit-segmentation), [matting](#lite.ai.toolkit-matting), etc. See [Model Zoo](#lite.ai.toolkit-Model-Zoo) and [lite.ai.toolkit.hub.onnx.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md).
 
-<p align="center"> ❤️ Haha~ Star 🌟👆🏻 this repo to support me if it does any helps to you ~ 🙃🤪🍀 </p>
+<p align="center"> ❤️ Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀 </p>
  
 <!----
 * ✅ *Cross-Platform support.* 👋 Support [MacOS/Linux/Windows](#lite.ai.toolkit-Introduction) and CPU/GPU now.
@@ -135,15 +139,17 @@
 * [References](#lite.ai.toolkit-References)
 
 
-## 1. Build Lite.AI.ToolKit
-
+## 1. Build Lite.AI.ToolKit 🚀🚀🌟
+<div id="lite.ai.toolkit-Build-MacOS"></div>
 <div id="lite.ai.toolkit-Build-Lite.AI.ToolKit"></div>
 
-Build the shared lib of *Lite.AI.ToolKit* for *MacOS* from sources. Note that Lite.AI.ToolKit uses `onnxruntime` as default backend, for the reason that onnxruntime supports the most of onnx's operators. 
+Build the shared lib of *Lite.AI.ToolKit* for *MacOS* from sources. Note that Lite.AI.ToolKit uses `onnxruntime` as default backend, for the reason that onnxruntime supports the most of onnx's operators.  Click ▶️ will show you the docs how to build *Lite.AI.ToolKit* 🚀🚀🌟 for Linux and Windows.
 
+<div id="lite.ai.toolkit-Build-Linux"></div>
+<div id="lite.ai.toolkit-Build-Windows"></div>
 
 <details>
-<summary> Linux and Windows. </summary>  
+<summary> ⚠️ Linux and Windows. </summary>  
 
 ### Linux and Windows.  
 
@@ -1505,7 +1511,13 @@ If there is a model you are interested in and want to be supported by Lite.AI.To
 
 * change the `build.sh` with `DENABLE_MNN=ON` or `DENABLE_NCNN=ON`, such as  
 ```shell
-cd build && cmake -DCMAKE_BUILD_TYPE=MinSizeRel -DENABLE_MNN=ON .. && make -j8
+cd build && cmake \
+  -DCMAKE_BUILD_TYPE=MinSizeRel \
+  -DINCLUDE_OPENCV=ON \   # Whether to package OpenCV into lite.ai.toolkit, default ON; otherwise, you need to setup OpenCV yourself.
+  -DENABLE_MNN=ON \       # Whether to build with MNN,  default OFF, only some models are supported now.
+  -DENABLE_NCNN=OFF \     # Whether to build with NCNN, default OFF, only some models are supported now.
+  -DENABLE_TNN=OFF \      # Whether to build with MNN,  default OFF, only some models are supported now.
+  .. && make -j8
 ```  
 * use the MNN or NCNN version interface, see [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp), such as  
 ```C++
@@ -1517,12 +1529,3 @@ auto *nanodet = new lite::mnn::cv::detection::NanoDet(mnn_path);
 * [nanodet.lite.ai.toolkit](https://github.com/DefTruth/nanodet.lite.ai.toolkit)
 * [RobustVideoMatting.lite.ai.toolkit](https://github.com/DefTruth/RobustVideoMatting.lite.ai.toolkit)
 * [lite.ai.toolkit.demo](https://github.com/DefTruth/lite.ai.toolkit.demo)
-
-<div align='center'>
-  <img src=https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social >
-  <img src=https://img.shields.io/github/forks/DefTruth/lite.ai.toolkit.svg?style=social >
-  <img src=https://img.shields.io/github/watchers/DefTruth/lite.ai.toolkit.svg?style=social> 
-
-</div>    
-
-<p align="center"> ❤️ Haha~ Star 🌟👆🏻 this repo to support me if it does any helps to you ~ 🙃🤪🍀 </p>
