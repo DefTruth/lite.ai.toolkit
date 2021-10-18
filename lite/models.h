@@ -10,106 +10,111 @@
 // ENABLE_ONNXRUNTIME
 #ifdef ENABLE_ONNXRUNTIME
 
-#include "ort/core/ort_core.h"
-#include "ort/core/ort_utils.h"
-#include "ort/cv/age_googlenet.h"
-#include "ort/cv/glint_arcface.h"
-#include "ort/cv/colorizer.h"
-#include "ort/cv/deeplabv3_resnet101.h"
-#include "ort/cv/densenet.h"
-#include "ort/cv/efficientnet_lite4.h"
-#include "ort/cv/emotion_ferplus.h"
-#include "ort/cv/fast_style_transfer.h"
-#include "ort/cv/fcn_resnet101.h"
-#include "ort/cv/fsanet.h"
-#include "ort/cv/gender_googlenet.h"
-#include "ort/cv/ghostnet.h"
-#include "ort/cv/hardnet.h"
-#include "ort/cv/ibnnet.h"
-#include "ort/cv/mobilenetv2.h"
-#include "ort/cv/pfld.h"
-#include "ort/cv/resnet.h"
-#include "ort/cv/resnext.h"
-#include "ort/cv/shufflenetv2.h"
-#include "ort/cv/ssd.h"
-#include "ort/cv/ssd_mobilenetv1.h"
-#include "ort/cv/ssrnet.h"
-#include "ort/cv/subpixel_cnn.h"
-#include "ort/cv/tiny_yolov3.h"
-#include "ort/cv/ultraface.h"
-#include "ort/cv/vgg16_age.h"
-#include "ort/cv/vgg16_gender.h"
-#include "ort/cv/yolov3.h"
-#include "ort/cv/yolov4.h"
-#include "ort/cv/yolov5.h"
-#include "ort/cv/glint_cosface.h"
-#include "ort/cv/glint_partial_fc.h"
-#include "ort/cv/facenet.h"
-#include "ort/cv/focal_arcface.h"
-#include "ort/cv/focal_asia_arcface.h"
-#include "ort/cv/tencent_cifp_face.h"
-#include "ort/cv/tencent_curricular_face.h"
-#include "ort/cv/center_loss_face.h"
-#include "ort/cv/sphere_face.h"
-#include "ort/cv/pose_robust_face.h"
-#include "ort/cv/naive_pose_robust_face.h"
-#include "ort/cv/mobile_facenet.h"
-#include "ort/cv/cava_ghost_arcface.h"
-#include "ort/cv/cava_combined_face.h"
-#include "ort/cv/yolox.h"
-#include "ort/cv/mobilese_focal_face.h"
-#include "ort/cv/efficient_emotion7.h"
-#include "ort/cv/efficient_emotion8.h"
-#include "ort/cv/mobile_emotion7.h"
-#include "ort/cv/rexnet_emotion7.h"
-#include "ort/cv/pfld98.h"
-#include "ort/cv/pfld68.h"
-#include "ort/cv/mobilenetv2_68.h"
-#include "ort/cv/mobilenetv2_se_68.h"
-#include "ort/cv/face_landmarks_1000.h"
-#include "ort/cv/retinaface.h"
-#include "ort/cv/faceboxes.h"
-#include "ort/cv/tiny_yolov4_voc.h"
-#include "ort/cv/tiny_yolov4_coco.h"
-#include "ort/cv/yolor.h"
-#include "ort/cv/scaled_yolov4.h"
-#include "ort/cv/efficientdet.h"
-#include "ort/cv/efficientdet_d7.h"
-#include "ort/cv/efficientdet_d8.h"
-#include "ort/cv/yolop.h"
-#include "ort/cv/rvm.h"
-#include "ort/cv/nanodet.h"
-#include "ort/cv/nanodet_efficientnet_lite.h"
+#include "lite/ort/core/ort_core.h"
+#include "lite/ort/core/ort_utils.h"
+#include "lite/ort/cv/age_googlenet.h"
+#include "lite/ort/cv/glint_arcface.h"
+#include "lite/ort/cv/colorizer.h"
+#include "lite/ort/cv/deeplabv3_resnet101.h"
+#include "lite/ort/cv/densenet.h"
+#include "lite/ort/cv/efficientnet_lite4.h"
+#include "lite/ort/cv/emotion_ferplus.h"
+#include "lite/ort/cv/fast_style_transfer.h"
+#include "lite/ort/cv/fcn_resnet101.h"
+#include "lite/ort/cv/fsanet.h"
+#include "lite/ort/cv/gender_googlenet.h"
+#include "lite/ort/cv/ghostnet.h"
+#include "lite/ort/cv/hardnet.h"
+#include "lite/ort/cv/ibnnet.h"
+#include "lite/ort/cv/mobilenetv2.h"
+#include "lite/ort/cv/pfld.h"
+#include "lite/ort/cv/resnet.h"
+#include "lite/ort/cv/resnext.h"
+#include "lite/ort/cv/shufflenetv2.h"
+#include "lite/ort/cv/ssd.h"
+#include "lite/ort/cv/ssd_mobilenetv1.h"
+#include "lite/ort/cv/ssrnet.h"
+#include "lite/ort/cv/subpixel_cnn.h"
+#include "lite/ort/cv/tiny_yolov3.h"
+#include "lite/ort/cv/ultraface.h"
+#include "lite/ort/cv/vgg16_age.h"
+#include "lite/ort/cv/vgg16_gender.h"
+#include "lite/ort/cv/yolov3.h"
+#include "lite/ort/cv/yolov4.h"
+#include "lite/ort/cv/yolov5.h"
+#include "lite/ort/cv/glint_cosface.h"
+#include "lite/ort/cv/glint_partial_fc.h"
+#include "lite/ort/cv/facenet.h"
+#include "lite/ort/cv/focal_arcface.h"
+#include "lite/ort/cv/focal_asia_arcface.h"
+#include "lite/ort/cv/tencent_cifp_face.h"
+#include "lite/ort/cv/tencent_curricular_face.h"
+#include "lite/ort/cv/center_loss_face.h"
+#include "lite/ort/cv/sphere_face.h"
+#include "lite/ort/cv/pose_robust_face.h"
+#include "lite/ort/cv/naive_pose_robust_face.h"
+#include "lite/ort/cv/mobile_facenet.h"
+#include "lite/ort/cv/cava_ghost_arcface.h"
+#include "lite/ort/cv/cava_combined_face.h"
+#include "lite/ort/cv/yolox.h"
+#include "lite/ort/cv/mobilese_focal_face.h"
+#include "lite/ort/cv/efficient_emotion7.h"
+#include "lite/ort/cv/efficient_emotion8.h"
+#include "lite/ort/cv/mobile_emotion7.h"
+#include "lite/ort/cv/rexnet_emotion7.h"
+#include "lite/ort/cv/pfld98.h"
+#include "lite/ort/cv/pfld68.h"
+#include "lite/ort/cv/mobilenetv2_68.h"
+#include "lite/ort/cv/mobilenetv2_se_68.h"
+#include "lite/ort/cv/face_landmarks_1000.h"
+#include "lite/ort/cv/retinaface.h"
+#include "lite/ort/cv/faceboxes.h"
+#include "lite/ort/cv/tiny_yolov4_voc.h"
+#include "lite/ort/cv/tiny_yolov4_coco.h"
+#include "lite/ort/cv/yolor.h"
+#include "lite/ort/cv/scaled_yolov4.h"
+#include "lite/ort/cv/efficientdet.h"
+#include "lite/ort/cv/efficientdet_d7.h"
+#include "lite/ort/cv/efficientdet_d8.h"
+#include "lite/ort/cv/yolop.h"
+#include "lite/ort/cv/rvm.h"
+#include "lite/ort/cv/nanodet.h"
+#include "lite/ort/cv/nanodet_efficientnet_lite.h"
 
 #endif
 
 // ENABLE_MNN
 #ifdef ENABLE_MNN
 
-#include "mnn/core/mnn_core.h"
-#include "mnn/core/mnn_utils.h"
-#include "mnn/cv/mnn_nanodet.h"
-#include "mnn/cv/mnn_nanodet_efficientnet_lite.h"
-#include "mnn/cv/mnn_rvm.h"
-#include "mnn/cv/mnn_yolox.h"
+#include "lite/mnn/core/mnn_core.h"
+#include "lite/mnn/core/mnn_utils.h"
+#include "lite/mnn/cv/mnn_nanodet.h"
+#include "lite/mnn/cv/mnn_nanodet_efficientnet_lite.h"
+#include "lite/mnn/cv/mnn_rvm.h"
+#include "lite/mnn/cv/mnn_yolox.h"
 
 #endif
 
 // ENABLE_NCNN
 #ifdef ENABLE_NCNN
 
-#include "ncnn/core/ncnn_core.h"
-#include "ncnn/core/ncnn_utils.h"
-#include "ncnn/cv/ncnn_nanodet.h"
-#include "ncnn/cv/ncnn_nanodet_efficientnet_lite.h"
-#include "ncnn/cv/ncnn_nanodet_depreciated.h"
-#include "ncnn/cv/ncnn_nanodet_efficientdet_lite_depreciated.h"
-#include "ncnn/cv/ncnn_rvm.h"
+#include "lite/ncnn/core/ncnn_core.h"
+#include "lite/ncnn/core/ncnn_utils.h"
+#include "lite/ncnn/cv/ncnn_nanodet.h"
+#include "lite/ncnn/cv/ncnn_nanodet_efficientnet_lite.h"
+#include "lite/ncnn/cv/ncnn_nanodet_depreciated.h"
+#include "lite/ncnn/cv/ncnn_nanodet_efficientdet_lite_depreciated.h"
+#include "lite/ncnn/cv/ncnn_rvm.h"
 
 #endif
 
 // ENABLE_TNN
 #ifdef ENABLE_TNN
+
+#include "lite/tnn/core/tnn_core.h"
+#include "lite/tnn/core/tnn_utils.h"
+#include "lite/tnn/cv/tnn_yolox.h"
+
 #endif
 
 // Default Engine ONNXRuntime
@@ -759,7 +764,7 @@ namespace lite
 {
 #ifdef ENABLE_NCNN
   namespace ncnn
-    {
+  {
     namespace cv
     {
       // classification
@@ -823,8 +828,57 @@ namespace lite
 {
 #ifdef ENABLE_TNN
   namespace tnn
+  {
+    namespace cv
     {
-    }
+      // classification
+      namespace classification
+      {
+      }
+      // object detection
+      namespace detection
+      {
+        typedef tnncv::TNNYoloX YoloX;
+      }
+      // face etc.
+      namespace face
+      {
+        namespace detect
+        {
+        }
+        namespace align
+        {
+        }
+        namespace pose
+        {
+        }
+        namespace attr
+        {
+        }
+      }
+      // face recognition
+      namespace faceid
+      {
+      }
+      // segmentation
+      namespace segmentation
+      {
+      }
+      // reid
+      namespace reid
+      {
+      }
+      // ocr
+      namespace ocr
+      {
+      }
+      // matting
+      namespace matting
+      {
+      }
+
+    } // namespace cv
+  }
 #endif
 }
 
