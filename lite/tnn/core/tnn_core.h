@@ -15,6 +15,7 @@ namespace tnncv
   class LITE_EXPORTS TNNNanoDetEfficientNetLite;     // [1] * reference: https://github.com/RangiLyu/nanodet
   class LITE_EXPORTS TNNRobustVideoMatting;          // [2] * reference: https://github.com/PeterL1n/RobustVideoMatting
   class LITE_EXPORTS TNNYoloX;                       // [3] * reference: https://github.com/Megvii-BaseDetection/YOLOX
+  class LITE_EXPORTS TNNYOLOP;                       // [4] reference: https://github.com/hustvl/YOLOP
 }
 
 namespace tnncv

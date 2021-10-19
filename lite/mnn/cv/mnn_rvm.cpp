@@ -7,10 +7,13 @@
 using mnncv::MNNRobustVideoMatting;
 
 MNNRobustVideoMatting::MNNRobustVideoMatting(
-    const std::string _mnn_path, unsigned int _num_threads,
+    const std::string _mnn_path,
+    unsigned int _num_threads,
     unsigned int _variant_type
-) : log_id(_mnn_path.data()), mnn_path(_mnn_path.data()),
-    num_threads(_num_threads), variant_type(_variant_type)
+) : log_id(_mnn_path.data()),
+    mnn_path(_mnn_path.data()),
+    num_threads(_num_threads),
+    variant_type(_variant_type)
 {
   initialize_interpreter();
   initialize_context();
@@ -178,7 +181,7 @@ void MNNRobustVideoMatting::detect(const cv::Mat &mat, types::MattingContent &co
   auto output_tensors = mnn_interpreter->getSessionOutputAll(mnn_session);
   // 3. generate matting
   this->generate_matting(output_tensors, content, img_h, img_w);
-  // 4.  update context (needed for video detection.)
+  // 4.  update context (needed for video matting)
   context_is_update = false; // init state.
   this->update_context(output_tensors);
 }

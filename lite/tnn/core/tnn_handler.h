@@ -59,7 +59,6 @@ namespace tnncore
   private:
     void initialize_handler(); // init net & instance
     void print_debug_string(); // debug information
-    void print_name_shape(std::string name, tnn::DimsVector &shape);
 
   protected:
     // helper functions.
@@ -73,8 +72,28 @@ namespace tnncore
     std::vector<std::string> get_output_names();
 
   public:
+    // helper functions. override for user firendly
+    static tnn::DimsVector get_input_shape(
+        const std::shared_ptr<tnn::Instance> &_instance, std::string name);
+    static tnn::DimsVector get_output_shape(
+        const std::shared_ptr<tnn::Instance> &_instance, std::string name);
+    static tnn::MatType get_output_mat_type(
+        const std::shared_ptr<tnn::Instance> &_instance, std::string name);
+    static tnn::DataFormat get_output_data_format(
+        const std::shared_ptr<tnn::Instance> &_instance, std::string name);
+    static tnn::MatType get_input_mat_type(
+        const std::shared_ptr<tnn::Instance> &_instance, std::string name);
+    static tnn::DataFormat get_input_data_format(
+        const std::shared_ptr<tnn::Instance> &_instance, std::string name);
+    static std::vector<std::string> get_input_names(
+        const std::shared_ptr<tnn::Instance> &_instance);
+    static std::vector<std::string> get_output_names(
+        const std::shared_ptr<tnn::Instance> &_instance);
+
+  public:
     static std::string content_buffer_from(
         const char *proto_or_model_path);
+    static void print_name_shape(std::string name, tnn::DimsVector &shape);
 
   };
 }
