@@ -23,32 +23,6 @@ BasicTNNHandler::~BasicTNNHandler()
   input_mat = nullptr;
 }
 
-// reference: https://github.com/Tencent/TNN/blob/master/examples/base/utils/utils.cc
-std::string BasicTNNHandler::content_buffer_from(const char *proto_or_model_path)
-{
-  std::ifstream file(proto_or_model_path, std::ios::binary);
-  if (file.is_open())
-  {
-    file.seekg(0, file.end);
-    int size = file.tellg();
-    char *content = new char[size];
-    file.seekg(0, file.beg);
-    file.read(content, size);
-    std::string file_content;
-    file_content.assign(content, size);
-    delete[] content;
-    file.close();
-    return file_content;
-  } // empty buffer
-  else
-  {
-#ifdef LITETNN_DEBUG
-    std::cout << "Can not open " << proto_or_model_path << "\n";
-#endif
-    return "";
-  }
-}
-
 void BasicTNNHandler::initialize_handler()
 {
   std::string proto_content_buffer, model_content_buffer;
@@ -101,7 +75,7 @@ void BasicTNNHandler::initialize_handler()
   {
 #ifdef LITETNN_DEBUG
     throw std::runtime_error("Found input_shape.size()!=4, but "
-                             "BasicHandler only support 4 dims."
+                             "BasicTNNHandler only support 4 dims."
                              "Such as NCHW, NHWC ...");
 #else
     return;
@@ -127,7 +101,7 @@ void BasicTNNHandler::initialize_handler()
   else
   {
 #ifdef LITETNN_DEBUG
-    std::cout << "Basic only support NCHW and NHWC "
+    std::cout << "BasicTNNHandler only support NCHW and NHWC "
                  "input_data_format, but found others.\n";
 #endif
     return;
@@ -143,147 +117,61 @@ void BasicTNNHandler::initialize_handler()
 #endif
 }
 
-tnn::DimsVector BasicTNNHandler::get_input_shape(std::string name)
+inline tnn::DimsVector BasicTNNHandler::get_input_shape(std::string name)
 {
-  tnn::DimsVector shape = {};
-  tnn::BlobMap blob_map = {};
-  if (instance)
-  {
-    instance->GetAllInputBlobs(blob_map);
-  }
-
-  if (name == "" && blob_map.size() > 0)
-    if (blob_map.begin()->second)
-      shape = blob_map.begin()->second->GetBlobDesc().dims;
-
-  if (blob_map.find(name) != blob_map.end()
-      && blob_map[name])
-  {
-    shape = blob_map[name]->GetBlobDesc().dims;
-  }
-  return shape;
+  return BasicTNNHandler::get_input_shape(instance, name);
 }
 
-tnn::DimsVector BasicTNNHandler::get_output_shape(std::string name)
+inline tnn::DimsVector BasicTNNHandler::get_output_shape(std::string name)
 {
-  tnn::DimsVector shape = {};
-  tnn::BlobMap blob_map = {};
-  if (instance)
-  {
-    instance->GetAllOutputBlobs(blob_map);
-  }
-
-  if (name == "" && blob_map.size() > 0)
-    if (blob_map.begin()->second)
-      shape = blob_map.begin()->second->GetBlobDesc().dims;
-
-  if (blob_map.find(name) != blob_map.end()
-      && blob_map[name])
-  {
-    shape = blob_map[name]->GetBlobDesc().dims;
-  }
-
-  return shape;
+  return BasicTNNHandler::get_output_shape(instance, name);
 }
 
-std::vector<std::string> BasicTNNHandler::get_input_names()
+inline std::vector<std::string> BasicTNNHandler::get_input_names()
 {
-  std::vector<std::string> names;
-  if (instance)
-  {
-    tnn::BlobMap blob_map;
-    instance->GetAllInputBlobs(blob_map);
-    for (const auto &item : blob_map)
-    {
-      names.push_back(item.first);
-    }
-  }
-  return names;
+  return BasicTNNHandler::get_input_names(instance);
 }
 
-std::vector<std::string> BasicTNNHandler::get_output_names()
+inline std::vector<std::string> BasicTNNHandler::get_output_names()
 {
-  std::vector<std::string> names;
-  if (instance)
-  {
-    tnn::BlobMap blob_map;
-    instance->GetAllOutputBlobs(blob_map);
-    for (const auto &item : blob_map)
-    {
-      names.push_back(item.first);
-    }
-  }
-  return names;
+  return BasicTNNHandler::get_output_names(instance);
 }
 
-tnn::MatType BasicTNNHandler::get_output_mat_type(std::string name)
+inline tnn::MatType BasicTNNHandler::get_output_mat_type(std::string name)
 {
-  if (instance)
-  {
-    tnn::BlobMap output_blobs;
-    instance->GetAllOutputBlobs(output_blobs);
-    auto blob = (name == "") ? output_blobs.begin()->second : output_blobs[name];
-    if (blob->GetBlobDesc().data_type == tnn::DATA_TYPE_INT32)
-    {
-      return tnn::NC_INT32;
-    }
-  }
-  return tnn::NCHW_FLOAT;
+  return BasicTNNHandler::get_output_mat_type(instance, name);
 }
 
-tnn::DataFormat BasicTNNHandler::get_output_data_format(std::string name)
+inline tnn::DataFormat BasicTNNHandler::get_output_data_format(std::string name)
 {
-  if (instance)
-  {
-    tnn::BlobMap output_blobs;
-    instance->GetAllOutputBlobs(output_blobs);
-    auto blob = (name == "") ? output_blobs.begin()->second : output_blobs[name];
-    return blob->GetBlobDesc().data_format;
-  }
-  return tnn::DATA_FORMAT_NCHW;
+  return BasicTNNHandler::get_output_data_format(instance, name);
 }
 
-tnn::MatType BasicTNNHandler::get_input_mat_type(std::string name)
+inline tnn::MatType BasicTNNHandler::get_input_mat_type(std::string name)
 {
-  if (instance)
-  {
-    tnn::BlobMap input_blobs;
-    instance->GetAllInputBlobs(input_blobs);
-    auto blob = (name == "") ? input_blobs.begin()->second : input_blobs[name];
-    if (blob->GetBlobDesc().data_type == tnn::DATA_TYPE_INT32)
-    {
-      return tnn::NC_INT32;
-    }
-  }
-  return tnn::NCHW_FLOAT;
+  return BasicTNNHandler::get_input_mat_type(instance, name);
 }
 
-tnn::DataFormat BasicTNNHandler::get_input_data_format(std::string name)
+inline tnn::DataFormat BasicTNNHandler::get_input_data_format(std::string name)
 {
-  if (instance)
-  {
-    tnn::BlobMap input_blobs;
-    instance->GetAllInputBlobs(input_blobs);
-    auto blob = (name == "") ? input_blobs.begin()->second : input_blobs[name];
-    return blob->GetBlobDesc().data_format;
-  }
-  return tnn::DATA_FORMAT_NCHW;
+  return BasicTNNHandler::get_input_data_format(instance, name);
 }
 
 void BasicTNNHandler::print_debug_string()
 {
   std::cout << "LITETNN_DEBUG LogId: " << log_id << "\n";
   std::cout << "=============== Input-Dims ==============\n";
-  this->print_name_shape(input_name, input_shape);
+  BasicTNNHandler::print_name_shape(input_name, input_shape);
   std::string data_format_string =
       (input_data_format == tnn::DATA_FORMAT_NCHW) ? "NCHW" : "NHWC";
   std::cout << "Input Data Format: " << data_format_string << "\n";
   std::cout << "=============== Output-Dims ==============\n";
   for (auto &out: output_shapes)
-    this->print_name_shape(out.first, out.second);
+    BasicTNNHandler::print_name_shape(out.first, out.second);
   std::cout << "========================================\n";
 }
 
+// static methods.
 void BasicTNNHandler::print_name_shape(std::string name, tnn::DimsVector &shape)
 {
   std::cout << name << ": [";
@@ -291,7 +179,182 @@ void BasicTNNHandler::print_name_shape(std::string name, tnn::DimsVector &shape)
   std::cout << "]\n";
 }
 
+// static methods.
+// reference: https://github.com/Tencent/TNN/blob/master/examples/base/utils/utils.cc
+std::string BasicTNNHandler::content_buffer_from(const char *proto_or_model_path)
+{
+  std::ifstream file(proto_or_model_path, std::ios::binary);
+  if (file.is_open())
+  {
+    file.seekg(0, file.end);
+    int size = file.tellg();
+    char *content = new char[size];
+    file.seekg(0, file.beg);
+    file.read(content, size);
+    std::string file_content;
+    file_content.assign(content, size);
+    delete[] content;
+    file.close();
+    return file_content;
+  } // empty buffer
+  else
+  {
+#ifdef LITETNN_DEBUG
+    std::cout << "Can not open " << proto_or_model_path << "\n";
+#endif
+    return "";
+  }
+}
 
+// static methods.
+tnn::DimsVector BasicTNNHandler::get_input_shape(
+    const std::shared_ptr<tnn::Instance> &_instance,
+    std::string name)
+{
+  tnn::DimsVector shape = {};
+  tnn::BlobMap blob_map = {};
+  if (_instance)
+  {
+    _instance->GetAllOutputBlobs(blob_map);
+  }
+
+  if (name == "" && blob_map.size() > 0)
+    if (blob_map.begin()->second)
+      shape = blob_map.begin()->second->GetBlobDesc().dims;
+
+  if (blob_map.find(name) != blob_map.end()
+      && blob_map[name])
+  {
+    shape = blob_map[name]->GetBlobDesc().dims;
+  }
+
+  return shape;
+}
+
+// static methods.
+tnn::DimsVector BasicTNNHandler::get_output_shape(
+    const std::shared_ptr<tnn::Instance> &_instance,
+    std::string name)
+{
+  tnn::DimsVector shape = {};
+  tnn::BlobMap blob_map = {};
+  if (_instance)
+  {
+    _instance->GetAllOutputBlobs(blob_map);
+  }
+
+  if (name == "" && blob_map.size() > 0)
+    if (blob_map.begin()->second)
+      shape = blob_map.begin()->second->GetBlobDesc().dims;
+
+  if (blob_map.find(name) != blob_map.end()
+      && blob_map[name])
+  {
+    shape = blob_map[name]->GetBlobDesc().dims;
+  }
+
+  return shape;
+}
+
+// static methods.
+std::vector<std::string> BasicTNNHandler::get_input_names(
+    const std::shared_ptr<tnn::Instance> &_instance)
+{
+  std::vector<std::string> names;
+  if (_instance)
+  {
+    tnn::BlobMap blob_map;
+    _instance->GetAllInputBlobs(blob_map);
+    for (const auto &item : blob_map)
+    {
+      names.push_back(item.first);
+    }
+  }
+  return names;
+}
+
+// static method
+std::vector<std::string> BasicTNNHandler::get_output_names(
+    const std::shared_ptr<tnn::Instance> &_instance)
+{
+  std::vector<std::string> names;
+  if (_instance)
+  {
+    tnn::BlobMap blob_map;
+    _instance->GetAllOutputBlobs(blob_map);
+    for (const auto &item : blob_map)
+    {
+      names.push_back(item.first);
+    }
+  }
+  return names;
+}
+
+// static method
+tnn::MatType BasicTNNHandler::get_output_mat_type(
+    const std::shared_ptr<tnn::Instance> &_instance,
+    std::string name)
+{
+  if (_instance)
+  {
+    tnn::BlobMap output_blobs;
+    _instance->GetAllOutputBlobs(output_blobs);
+    auto blob = (name == "") ? output_blobs.begin()->second : output_blobs[name];
+    if (blob->GetBlobDesc().data_type == tnn::DATA_TYPE_INT32)
+    {
+      return tnn::NC_INT32;
+    }
+  }
+  return tnn::NCHW_FLOAT;
+}
+
+// static method
+tnn::DataFormat BasicTNNHandler::get_output_data_format(
+    const std::shared_ptr<tnn::Instance> &_instance,
+    std::string name)
+{
+  if (_instance)
+  {
+    tnn::BlobMap output_blobs;
+    _instance->GetAllOutputBlobs(output_blobs);
+    auto blob = (name == "") ? output_blobs.begin()->second : output_blobs[name];
+    return blob->GetBlobDesc().data_format;
+  }
+  return tnn::DATA_FORMAT_NCHW;
+}
+
+// static method
+tnn::MatType BasicTNNHandler::get_input_mat_type(
+    const std::shared_ptr<tnn::Instance> &_instance,
+    std::string name)
+{
+  if (_instance)
+  {
+    tnn::BlobMap input_blobs;
+    _instance->GetAllInputBlobs(input_blobs);
+    auto blob = (name == "") ? input_blobs.begin()->second : input_blobs[name];
+    if (blob->GetBlobDesc().data_type == tnn::DATA_TYPE_INT32)
+    {
+      return tnn::NC_INT32;
+    }
+  }
+  return tnn::NCHW_FLOAT;
+}
+
+// static method
+tnn::DataFormat BasicTNNHandler::get_input_data_format(
+    const std::shared_ptr<tnn::Instance> &_instance,
+    std::string name)
+{
+  if (_instance)
+  {
+    tnn::BlobMap input_blobs;
+    _instance->GetAllInputBlobs(input_blobs);
+    auto blob = (name == "") ? input_blobs.begin()->second : input_blobs[name];
+    return blob->GetBlobDesc().data_format;
+  }
+  return tnn::DATA_FORMAT_NCHW;
+}
 
 
 

@@ -1516,7 +1516,7 @@ cd build && cmake \
   -DINCLUDE_OPENCV=ON \   # Whether to package OpenCV into lite.ai.toolkit, default ON; otherwise, you need to setup OpenCV yourself.
   -DENABLE_MNN=ON \       # Whether to build with MNN,  default OFF, only some models are supported now.
   -DENABLE_NCNN=OFF \     # Whether to build with NCNN, default OFF, only some models are supported now.
-  -DENABLE_TNN=OFF \      # Whether to build with MNN,  default OFF, only some models are supported now.
+  -DENABLE_TNN=OFF \      # Whether to build with TNN,  default OFF, only some models are supported now.
   .. && make -j8
 ```  
 * use the MNN or NCNN version interface, see [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp), such as  
