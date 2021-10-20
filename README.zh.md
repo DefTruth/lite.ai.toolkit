@@ -38,8 +38,8 @@
 
 <div align='center'> 
   <img src=https://img.shields.io/badge/ONNXRuntime-support-brightgreen.svg >
-  <img src=https://img.shields.io/badge/NCNN-unofficial-blue.svg >
   <img src=https://img.shields.io/badge/MNN-unofficial-blue.svg >
+  <img src=https://img.shields.io/badge/NCNN-unofficial-blue.svg >
   <img src=https://img.shields.io/badge/TNN-unofficial-blue.svg >
 <br>
   <img src=https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social >
@@ -384,6 +384,7 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
   * ONNX 模型文件 👉[Baidu Drive](https://pan.baidu.com/s/1elUGcx7CZkkjEoYhTMwTRQ) code: 8gin && [Google Drive](https://drive.google.com/drive/folders/1p6uBcxGeyS1exc-T61vL8YRhwjYL4iD2?usp=sharing). 详见 [lite.ai.toolkit.hub.onnx.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)
   * MNN 模型文件 👉[Baidu Drive](https://pan.baidu.com/s/1KyO-bCYUv6qPq2M8BH_Okg) code: 9v63 && Google Drive(Wait). 详见 [lite.ai.toolkit.hub.mnn.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md)   
   * NCNN 模型文件 👉[Baidu Drive](https://pan.baidu.com/s/1hlnqyNsFbMseGFWscgVhgQ) code: sc7f && Google Drive(Wait). 详见 [lite.ai.toolkit.hub.ncnn.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md)
+  * TNN 模型文件 👉[Baidu Drive](https://pan.baidu.com/s/1hlnqyNsFbMseGFWscgVhgQ) code: sc7f && Google Drive(Wait). 详见 [lite.ai.toolkit.hub.tnn.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md)
 
 
 * 目标检测
@@ -422,6 +423,9 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
 |[NanoDetDepreciated](https://github.com/RangiLyu/nanodet)|1.1M| [nanodet](https://github.com/RangiLyu/nanodet) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/NCNN-done-yellow.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md#lite.ai.toolkit.hub.ncnn-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet_depreciated.cpp) |
 |[NanoDetEfficientNetLiteD...](https://github.com/RangiLyu/nanodet)|12M| [nanodet](https://github.com/RangiLyu/nanodet) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/NCNN-done-yellow.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md#lite.ai.toolkit.hub.ncnn-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet_efficientnet_lite_depreciated.cpp) |
 
+|Class|Size|From|Awesome|File|Type|State|Usage|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|[YoloX](https://github.com/Megvii-BaseDetection/YOLOX)|3.5M| [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/TNN-done-pink.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md#lite.ai.toolkit.hub.mnn-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolox.cpp) |
 
 * 人脸识别
 
@@ -458,6 +462,9 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |[RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)|14M| [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)  |   🔥🔥🔥↑   | [![](https://img.shields.io/badge/NCNN-failed-red.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md#lite.ai.toolkit.hub.ncnn-matting) | *matting* | ⚠️ | [code](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/ncnn/cv/ncnn_rvm.cpp) |
 
+Class|Size|From|Awesome|File|Type|State|Usage|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|[RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)|14M| [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)  |   🔥🔥🔥↑   | [![](https://img.shields.io/badge/TNN-done-pink.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md#lite.ai.toolkit.hub.tnn-matting) | *matting* | ✅️ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_rvm.cpp) |
 
 <details>
 <summary> ⚠️ 展开Lite.AI.ToolKit的Model Zoo中更多的模型 </summary>  

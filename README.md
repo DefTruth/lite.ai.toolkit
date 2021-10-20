@@ -39,8 +39,8 @@
 
 <div align='center'> 
   <img src=https://img.shields.io/badge/ONNXRuntime-support-brightgreen.svg >
-  <img src=https://img.shields.io/badge/NCNN-unofficial-blue.svg >
   <img src=https://img.shields.io/badge/MNN-unofficial-blue.svg >
+  <img src=https://img.shields.io/badge/NCNN-unofficial-blue.svg >
   <img src=https://img.shields.io/badge/TNN-unofficial-blue.svg >
 <br>
   <img src=https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social >
@@ -61,7 +61,7 @@
 
 * ❤️ *Simply and User friendly.* Simply and Consistent syntax like *lite::cv::Type::Class*, see [examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
 * ⚡ *Minimum Dependencies.* Only *OpenCV* and *ONNXRuntime* are required by default, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit).
-* ❤️ *Lots of Algorithm Modules.* Contains 10+ modules and *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* famous models with *[200+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained *.onnx/.mnn/.param&bin(ncnn)* files now, such as [object detection](#lite.ai.toolkit-object-detection), [face detection](#lite.ai.toolkit-face-detection), [face recognition](#lite.ai.toolkit-face-recognition), [segmentation](#lite.ai.toolkit-segmentation), [matting](#lite.ai.toolkit-matting), etc. See [Model Zoo](#lite.ai.toolkit-Model-Zoo) and [lite.ai.toolkit.hub.onnx.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md).
+* ❤️ *Lots of Algorithm Modules.* Contains 10+ modules and *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* famous models with *[300+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained *.onnx/.mnn/.param&bin(ncnn)/.tnnmodel&tnnproto* files now, such as [object detection](#lite.ai.toolkit-object-detection), [face detection](#lite.ai.toolkit-face-detection), [face recognition](#lite.ai.toolkit-face-recognition), [segmentation](#lite.ai.toolkit-segmentation), [matting](#lite.ai.toolkit-matting), etc. See [Model Zoo](#lite.ai.toolkit-Model-Zoo) and [lite.ai.toolkit.hub.onnx.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md).
 
 <p align="center"> ❤️ Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀 </p>
  
@@ -323,7 +323,7 @@ A minimum example to show you how to link the shared lib of Lite.AI.ToolKit corr
 
 <div id="lite.ai.toolkit-Model-Zoo"></div>
 
-*Lite.AI.ToolKit* contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* AI models with *[200+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained *.onnx/.mnn/.param&bin(ncnn)* files now. Most of the files are converted by myself. You can use it through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)*. More details can be found at [Examples for Lite.AI.ToolKit](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).  
+*Lite.AI.ToolKit* contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* AI models with *[300+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained *.onnx/.mnn/.param&bin(ncnn)/.tnnmodel&tnnproto* files now. Most of the files are converted by myself. You can use it through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)*. More details can be found at [Examples for Lite.AI.ToolKit](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).  
 
 <details>
 <summary> Expand Details for Namespace and Lite.AI.ToolKit modules.</summary>  
@@ -388,6 +388,7 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
   * ONNX files 👉 [Baidu Drive](https://pan.baidu.com/s/1elUGcx7CZkkjEoYhTMwTRQ) code: 8gin && [Google Drive](https://drive.google.com/drive/folders/1p6uBcxGeyS1exc-T61vL8YRhwjYL4iD2?usp=sharing). See [lite.ai.toolkit.hub.onnx.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)
   * MNN files 👉 [Baidu Drive](https://pan.baidu.com/s/1KyO-bCYUv6qPq2M8BH_Okg) code: 9v63 && Google Drive(Wait). See [lite.ai.toolkit.hub.mnn.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md)
   * NCNN files 👉 [Baidu Drive](https://pan.baidu.com/s/1hlnqyNsFbMseGFWscgVhgQ) code: sc7f && Google Drive(Wait). See [lite.ai.toolkit.hub.ncnn.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md)  
+  * TNN files 👉 [Baidu Drive](https://pan.baidu.com/s/1lvM2YKyUbEc5HKVtqITpcw) code: 6o6k && Google Drive(Wait). See [lite.ai.toolkit.hub.tnn.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md)  
     
 
 * Object Detection.  
@@ -427,6 +428,10 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
 |[NanoDetDepreciated](https://github.com/RangiLyu/nanodet)|1.1M| [nanodet](https://github.com/RangiLyu/nanodet) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/NCNN-done-yellow.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md#lite.ai.toolkit.hub.ncnn-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet_depreciated.cpp) |
 |[NanoDetEfficientNetLiteD...](https://github.com/RangiLyu/nanodet)|12M| [nanodet](https://github.com/RangiLyu/nanodet) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/NCNN-done-yellow.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md#lite.ai.toolkit.hub.ncnn-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet_efficientnet_lite_depreciated.cpp) |
 
+|Class|Size|From|Awesome|File|Type|State|Usage|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|[YoloX](https://github.com/Megvii-BaseDetection/YOLOX)|3.5M| [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/TNN-done-pink.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md#lite.ai.toolkit.hub.mnn-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolox.cpp) |
+
 
 * Face Recognition.  
 
@@ -463,6 +468,9 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |[RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)|14M| [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)  |   🔥🔥🔥↑   | [![](https://img.shields.io/badge/NCNN-failed-red.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md#lite.ai.toolkit.hub.ncnn-matting) | *matting* | ⚠️ | [code](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/ncnn/cv/ncnn_rvm.cpp) |
 
+Class|Size|From|Awesome|File|Type|State|Usage|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|[RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)|14M| [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)  |   🔥🔥🔥↑   | [![](https://img.shields.io/badge/TNN-done-pink.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md#lite.ai.toolkit.hub.tnn-matting) | *matting* | ✅️ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_rvm.cpp) |
 
 <details>
 <summary> ⚠️ Expand More Details for Lite.AI.ToolKit's Model Zoo.</summary>  

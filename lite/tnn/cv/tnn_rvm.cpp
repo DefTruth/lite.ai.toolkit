@@ -145,26 +145,24 @@ void TNNRobustVideoMatting::print_debug_string()
 
 void TNNRobustVideoMatting::initialize_context()
 {
-  auto context_mat_type =
-      BasicTNNHandler::get_input_mat_type(instance, "r1i");
   r1i_mat = std::make_shared<tnn::Mat>(
       input_device_type,
-      context_mat_type,
+      tnn::NCHW_FLOAT,
       input_shapes.at("r1i")
   );
   r2i_mat = std::make_shared<tnn::Mat>(
       input_device_type,
-      context_mat_type,
+      tnn::NCHW_FLOAT,
       input_shapes.at("r2i")
   );
   r3i_mat = std::make_shared<tnn::Mat>(
       input_device_type,
-      context_mat_type,
+      tnn::NCHW_FLOAT,
       input_shapes.at("r3i")
   );
   r4i_mat = std::make_shared<tnn::Mat>(
       input_device_type,
-      context_mat_type,
+      tnn::NCHW_FLOAT,
       input_shapes.at("r4i")
   );
   r1i_size = this->value_size_of(input_shapes.at("r1i"));
@@ -185,7 +183,6 @@ void TNNRobustVideoMatting::transform(const cv::Mat &mat)
   cv::Mat canvas = mat.clone();
   cv::resize(canvas, canvas, cv::Size(input_width, input_height));
   cv::cvtColor(canvas, canvas, cv::COLOR_BGR2RGB);
-
   // push into src_mat
   src_mat = std::make_shared<tnn::Mat>(
       input_device_type,
@@ -193,6 +190,12 @@ void TNNRobustVideoMatting::transform(const cv::Mat &mat)
       input_shapes.at("src"),
       (void *) canvas.data
   );
+  if (!src_mat->GetData())
+  {
+#ifdef LITETNN_DEBUG
+    std::cout << "input_mat == nullptr! transform failed\n";
+#endif
+  }
 }
 
 void TNNRobustVideoMatting::detect(const cv::Mat &mat, types::MattingContent &content)
@@ -398,10 +401,10 @@ void TNNRobustVideoMatting::update_context(std::shared_ptr<tnn::Instance> &_inst
     return;
   }
 
-  tnn::MatUtils::Copy(r1o_mat, r1i_mat, command_queue);
-  tnn::MatUtils::Copy(r2o_mat, r2i_mat, command_queue);
-  tnn::MatUtils::Copy(r3o_mat, r3i_mat, command_queue);
-  tnn::MatUtils::Copy(r4o_mat, r4i_mat, command_queue);
+  tnn::MatUtils::Copy(*r1o_mat, *r1i_mat, command_queue);
+  tnn::MatUtils::Copy(*r2o_mat, *r2i_mat, command_queue);
+  tnn::MatUtils::Copy(*r3o_mat, *r3i_mat, command_queue);
+  tnn::MatUtils::Copy(*r4o_mat, *r4i_mat, command_queue);
 
   context_is_update = true;
 }
