@@ -6,7 +6,7 @@ You can download all the pretrained models files of TNN format from ([Baidu Driv
 
 <div id="lite.ai.toolkit.hub.tnn-object-detection"></div>
 
-|                 Class                 |      Pretrained MNN Files      |              Rename or Converted From (Repo)              | Size  |
+|                 Class                 |      Pretrained TNN Files      |              Rename or Converted From (Repo)              | Size  |
 | :-----------------------------------: | :-----------------------------: | :-------------------------------------------------------: | :---: |
 |     *lite::tnn::cv::detection::YoloX*      |          yolox_x.opt.tnnproto&tnnmodel           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 378Mb |
 |     *lite::tnn::cv::detection::YoloX*      |          yolox_l.opt.tnnproto&tnnmodel           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 207Mb |
@@ -22,7 +22,7 @@ You can download all the pretrained models files of TNN format from ([Baidu Driv
 
 <div id="lite.ai.toolkit.hub.tnn-matting"></div>
 
-|                Class                | Pretrained MNN Files |              Rename or Converted From (Repo)              | Size  |
+|                Class                | Pretrained TNN Files |              Rename or Converted From (Repo)              | Size  |
 | :---------------------------------: | :-------------------: | :-------------------------------------------------------: | :---: |
 | *lite::tnn::cv::matting::RobustVideoMatting* |   rvm_mobilenetv3_fp32-480-480-sim.tnnproto&tnnmodel   | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 14Mb |
 | *lite::tnn::cv::matting::RobustVideoMatting* |   rvm_mobilenetv3_fp32-480-480-sim.opt.tnnproto&tnnmodel   | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 14Mb |
