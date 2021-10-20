@@ -305,8 +305,8 @@ void TNNRobustVideoMatting::generate_matting(std::shared_ptr<tnn::Instance> &_in
   tnn::MatConvertParam cvt_param;
   tnn::Status status_fgr, status_pha;
 
-  status_fgr = instance->GetOutputMat(fgr_mat, cvt_param, "fgr", output_device_type);
-  status_pha = instance->GetOutputMat(pha_mat, cvt_param, "pha", output_device_type);
+  status_fgr = _instance->GetOutputMat(fgr_mat, cvt_param, "fgr", output_device_type);
+  status_pha = _instance->GetOutputMat(pha_mat, cvt_param, "pha", output_device_type);
 
   if (status_fgr != tnn::TNN_OK || status_pha != tnn::TNN_OK)
   {
@@ -370,10 +370,10 @@ void TNNRobustVideoMatting::update_context(std::shared_ptr<tnn::Instance> &_inst
   tnn::Status status_r3o;
   tnn::Status status_r4o;
 
-  status_r1o = instance->GetOutputMat(r1o_mat, cvt_param, "r1o", output_device_type);
-  status_r2o = instance->GetOutputMat(r2o_mat, cvt_param, "r2o", output_device_type);
-  status_r3o = instance->GetOutputMat(r3o_mat, cvt_param, "r3o", output_device_type);
-  status_r4o = instance->GetOutputMat(r4o_mat, cvt_param, "r4o", output_device_type);
+  status_r1o = _instance->GetOutputMat(r1o_mat, cvt_param, "r1o", output_device_type);
+  status_r2o = _instance->GetOutputMat(r2o_mat, cvt_param, "r2o", output_device_type);
+  status_r3o = _instance->GetOutputMat(r3o_mat, cvt_param, "r3o", output_device_type);
+  status_r4o = _instance->GetOutputMat(r4o_mat, cvt_param, "r4o", output_device_type);
 
   if (status_r1o != tnn::TNN_OK || status_r2o != tnn::TNN_OK ||
       status_r3o != tnn::TNN_OK || status_r4o != tnn::TNN_OK)
@@ -388,12 +388,12 @@ void TNNRobustVideoMatting::update_context(std::shared_ptr<tnn::Instance> &_inst
     return;
   }
   void *command_queue = nullptr;
-  auto status = instance->GetCommandQueue(&command_queue);
-  if (status != tnn::TNN_OK)
+  auto status_cmd = _instance->GetCommandQueue(&command_queue);
+  if (status_cmd != tnn::TNN_OK)
   {
 #ifdef LITETNN_DEBUG
     std::cout << "instance->GetCommandQueue failed!:"
-              << status.description().c_str() << "\n";
+              << status_cmd.description().c_str() << "\n";
 #endif
     return;
   }
