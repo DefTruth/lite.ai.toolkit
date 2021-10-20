@@ -215,7 +215,7 @@ tnn::DimsVector BasicTNNHandler::get_input_shape(
   tnn::BlobMap blob_map = {};
   if (_instance)
   {
-    _instance->GetAllOutputBlobs(blob_map);
+    _instance->GetAllInputBlobs(blob_map);
   }
 
   if (name == "" && blob_map.size() > 0)

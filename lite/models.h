@@ -114,6 +114,7 @@
 #include "lite/tnn/core/tnn_core.h"
 #include "lite/tnn/core/tnn_utils.h"
 #include "lite/tnn/cv/tnn_yolox.h"
+#include "lite/tnn/cv/tnn_rvm.h"
 
 #endif
 
@@ -875,6 +876,7 @@ namespace lite
       // matting
       namespace matting
       {
+        typedef tnncv::TNNRobustVideoMatting RobustVideoMatting;
       }
 
     } // namespace cv

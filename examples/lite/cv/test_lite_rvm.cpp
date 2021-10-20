@@ -78,6 +78,20 @@ static void test_ncnn()
 static void test_tnn()
 {
 #ifdef ENABLE_TNN
+
+  std::string proto_path = "../../../hub/tnn/cv/rvm_mobilenetv3_fp32-480-480-sim.opt.tnnproto";
+  std::string model_path = "../../../hub/tnn/cv/rvm_mobilenetv3_fp32-480-480-sim.opt.tnnmodel";
+  std::string video_path = "../../../examples/lite/resources/test_lite_rvm_1.mp4";
+  std::string output_path = "../../../logs/test_lite_rvm_1_tnn.mp4";
+
+  auto *rvm = new lite::tnn::cv::matting::RobustVideoMatting(
+      proto_path, model_path, 16); // 16 threads
+  std::vector<lite::types::MattingContent> contents;
+
+  // 1. video matting.
+  rvm->detect_video(video_path, output_path, contents, false);
+
+  delete rvm;
 #endif
 }
 
