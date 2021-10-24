@@ -71,12 +71,6 @@ void TNNYoloX::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_box
   std::shared_ptr<tnn::Mat> pred_mat;
   tnn::MatConvertParam pred_cvt_param; // default
 
-#ifdef __ANDROID__
-  auto output_device_type = tnn::DEVICE_ARM;
-#else
-  auto output_device_type = tnn::DEVICE_X86;
-#endif
-
   status = instance->GetOutputMat(pred_mat, pred_cvt_param, "outputs", output_device_type);
   if (status != tnn::TNN_OK)
   {

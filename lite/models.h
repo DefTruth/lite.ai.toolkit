@@ -115,6 +115,7 @@
 #include "lite/tnn/core/tnn_utils.h"
 #include "lite/tnn/cv/tnn_yolox.h"
 #include "lite/tnn/cv/tnn_rvm.h"
+#include "lite/tnn/cv/tnn_yolop.h"
 
 #endif
 
@@ -840,6 +841,7 @@ namespace lite
       namespace detection
       {
         typedef tnncv::TNNYoloX YoloX;
+        typedef tnncv::TNNYOLOP YOLOP;
       }
       // face etc.
       namespace face

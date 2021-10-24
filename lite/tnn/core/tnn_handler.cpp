@@ -49,9 +49,11 @@ void BasicTNNHandler::initialize_handler()
 #ifdef __ANDROID__
   network_device_type = tnn::DEVICE_ARM; // CPU,GPU
   input_device_type = tnn::DEVICE_ARM; // CPU only
+  output_device_type = tnn::DEVICE_ARM;
 #else
   network_device_type = tnn::DEVICE_X86; // CPU,GPU
   input_device_type = tnn::DEVICE_X86; // CPU only
+  output_device_type = tnn::DEVICE_X86;
 #endif
   // 3. init instance
   tnn::NetworkConfig network_config;
