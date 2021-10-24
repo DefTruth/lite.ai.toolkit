@@ -1,22 +1,22 @@
 //
-// Created by DefTruth on 2021/10/18.
+// Created by DefTruth on 2021/10/24.
 //
 
-#include "tnn_nanodet.h"
+#include "tnn_nanodet_efficientnet_lite.h"
 #include "lite/utils.h"
 
-using tnncv::TNNNanoDet;
+using tnncv::TNNNanoDetEfficientNetLite;
 
-TNNNanoDet::TNNNanoDet(const std::string &_proto_path,
-                       const std::string &_model_path,
-                       unsigned int _num_threads) :
+TNNNanoDetEfficientNetLite::TNNNanoDetEfficientNetLite(const std::string &_proto_path,
+                                                       const std::string &_model_path,
+                                                       unsigned int _num_threads) :
     BasicTNNHandler(_proto_path, _model_path, _num_threads)
 {
 }
 
-void TNNNanoDet::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
-                                int target_height, int target_width,
-                                NanoScaleParams &scale_params)
+void TNNNanoDetEfficientNetLite::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
+                                                int target_height, int target_width,
+                                                NanoLiteScaleParams &scale_params)
 {
   if (mat.empty()) return;
   int img_height = static_cast<int>(mat.rows);
@@ -49,7 +49,7 @@ void TNNNanoDet::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
   scale_params.flag = true;
 }
 
-void TNNNanoDet::transform(const cv::Mat &mat_rs)
+void TNNNanoDetEfficientNetLite::transform(const cv::Mat &mat_rs)
 {
   // push into input_mat, BGR
   input_mat = std::make_shared<tnn::Mat>(input_device_type, tnn::N8UC3,
@@ -62,9 +62,9 @@ void TNNNanoDet::transform(const cv::Mat &mat_rs)
   }
 }
 
-void TNNNanoDet::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
-                        float score_threshold, float iou_threshold,
-                        unsigned int topk, unsigned int nms_type)
+void TNNNanoDetEfficientNetLite::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
+                                        float score_threshold, float iou_threshold,
+                                        unsigned int topk, unsigned int nms_type)
 {
   if (mat.empty()) return;
   float img_height = static_cast<float>(mat.rows);
@@ -72,7 +72,7 @@ void TNNNanoDet::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_b
 
   // resize & unscale
   cv::Mat mat_rs;
-  NanoScaleParams scale_params;
+  NanoLiteScaleParams scale_params;
   this->resize_unscale(mat, mat_rs, input_height, input_width, scale_params);
 
   if ((!scale_params.flag) || mat_rs.empty()) return;
@@ -110,7 +110,7 @@ void TNNNanoDet::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_b
   this->nms(bbox_collection, detected_boxes, iou_threshold, topk, nms_type);
 }
 
-void TNNNanoDet::generate_points(unsigned int target_height, unsigned int target_width)
+void TNNNanoDetEfficientNetLite::generate_points(unsigned int target_height, unsigned int target_width)
 {
   if (center_points_is_update) return;
 
@@ -118,7 +118,7 @@ void TNNNanoDet::generate_points(unsigned int target_height, unsigned int target
   {
     unsigned int num_grid_w = target_width / stride;
     unsigned int num_grid_h = target_height / stride;
-    std::vector<NanoCenterPoint> points;
+    std::vector<NanoLiteCenterPoint> points;
 
     for (unsigned int g1 = 0; g1 < num_grid_h; ++g1)
     {
@@ -127,13 +127,13 @@ void TNNNanoDet::generate_points(unsigned int target_height, unsigned int target
         float grid0 = (float) g0 + 0.5f;
         float grid1 = (float) g1 + 0.5f;
 #ifdef LITE_WIN32
-        NanoCenterPoint point;
+        NanoLiteCenterPoint point;
         point.grid0 = grid0;
         point.grid1 = grid1;
         point.stride = (float) stride;
         points.push_back(point);
 #else
-        points.push_back((NanoCenterPoint) {grid0, grid1, (float) stride});
+        points.push_back((NanoLiteCenterPoint) {grid0, grid1, (float) stride});
 #endif
       }
     }
@@ -143,11 +143,11 @@ void TNNNanoDet::generate_points(unsigned int target_height, unsigned int target
   center_points_is_update = true;
 }
 
-void TNNNanoDet::generate_bboxes(const NanoScaleParams &scale_params,
-                                 std::vector<types::Boxf> &bbox_collection,
-                                 std::shared_ptr<tnn::Instance> &_instance,
-                                 float score_threshold, float img_height,
-                                 float img_width)
+void TNNNanoDetEfficientNetLite::generate_bboxes(const NanoLiteScaleParams &scale_params,
+                                                 std::vector<types::Boxf> &bbox_collection,
+                                                 std::shared_ptr<tnn::Instance> &_instance,
+                                                 float score_threshold, float img_height,
+                                                 float img_width)
 {
   std::shared_ptr<tnn::Mat> cls_pred_stride_8;
   std::shared_ptr<tnn::Mat> cls_pred_stride_16;
@@ -169,9 +169,9 @@ void TNNNanoDet::generate_bboxes(const NanoScaleParams &scale_params,
   status_dis_8 = _instance->GetOutputMat(
       dis_pred_stride_8, cvt_param, "dis_pred_stride_8", output_device_type);   // (1,1600,4) xyxy (l,t,r,b)
   status_dis_16 = _instance->GetOutputMat(
-      dis_pred_stride_16, cvt_param, "dis_pred_stride_16", output_device_type);  // (1,400,4)  xyxy (l,t,r,b)
+      dis_pred_stride_16, cvt_param, "dis_pred_stride_16", output_device_type); // (1,400,4)  xyxy (l,t,r,b)
   status_dis_32 = _instance->GetOutputMat(
-      dis_pred_stride_32, cvt_param, "dis_pred_stride_32", output_device_type);  // (1,100,4)  xyxy (l,t,r,b)
+      dis_pred_stride_32, cvt_param, "dis_pred_stride_32", output_device_type); // (1,100,4)  xyxy (l,t,r,b)
 
   if (status_cls_8 != tnn::TNN_OK || status_cls_16 != tnn::TNN_OK || status_cls_32 != tnn::TNN_OK ||
       status_dis_8 != tnn::TNN_OK || status_dis_16 != tnn::TNN_OK || status_dis_32 != tnn::TNN_OK)
@@ -201,17 +201,16 @@ void TNNNanoDet::generate_bboxes(const NanoScaleParams &scale_params,
 #if LITETNN_DEBUG
   std::cout << "generate_bboxes num: " << bbox_collection.size() << "\n";
 #endif
-
 }
 
-void TNNNanoDet::generate_bboxes_single_stride(const NanoScaleParams &scale_params,
-                                               const std::shared_ptr<tnn::Mat> &cls_pred,
-                                               const std::shared_ptr<tnn::Mat> &dis_pred,
-                                               unsigned int stride, float score_threshold,
-                                               float img_height, float img_width,
-                                               std::vector<types::Boxf> &bbox_collection)
+void TNNNanoDetEfficientNetLite::generate_bboxes_single_stride(const NanoLiteScaleParams &scale_params,
+                                                               const std::shared_ptr<tnn::Mat> &cls_pred,
+                                                               const std::shared_ptr<tnn::Mat> &dis_pred,
+                                                               unsigned int stride, float score_threshold,
+                                                               float img_height, float img_width,
+                                                               std::vector<types::Boxf> &bbox_collection)
 {
-  unsigned int nms_pre_ = (stride / 8) * nms_pre; // 1 * 1000,2*1000,...
+  unsigned int nms_pre_ = (stride / 8) * nms_pre; // 1 * 1000,2 * 1000,...
   nms_pre_ = nms_pre_ >= nms_pre ? nms_pre_ : nms_pre;
 
   auto cls_pred_dims = cls_pred->GetDims(); // e.g (1,1600,80)
@@ -226,7 +225,7 @@ void TNNNanoDet::generate_bboxes_single_stride(const NanoScaleParams &scale_para
   auto &stride_points = center_points[stride];
   for (unsigned int i = 0; i < num_points; ++i)
   {
-    const float *scores = (float *)cls_pred->GetData() + (i * num_classes); // row ptr
+    const float *scores = (float *) cls_pred->GetData() + (i * num_classes); // row ptr
     float cls_conf = scores[0];
     unsigned int label = 0;
     for (unsigned int j = 0; j < num_classes; ++j)
@@ -245,7 +244,7 @@ void TNNNanoDet::generate_bboxes_single_stride(const NanoScaleParams &scale_para
     const float cy = point.grid1; // cy
     const float s = point.stride; // stride
 
-    const float *offsets = (float *)dis_pred->GetData() + (i * 4);
+    const float *offsets = (float *) dis_pred->GetData() + (i * 4);
 
     float l = offsets[0]; // left
     float t = offsets[1]; // top
@@ -282,11 +281,10 @@ void TNNNanoDet::generate_bboxes_single_stride(const NanoScaleParams &scale_para
   }
 }
 
-void TNNNanoDet::nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
-                     float iou_threshold, unsigned int topk, unsigned int nms_type)
+void TNNNanoDetEfficientNetLite::nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
+                                     float iou_threshold, unsigned int topk, unsigned int nms_type)
 {
   if (nms_type == NMS::BLEND) lite::utils::blending_nms(input, output, iou_threshold, topk);
   else if (nms_type == NMS::OFFSET) lite::utils::offset_nms(input, output, iou_threshold, topk);
   else lite::utils::hard_nms(input, output, iou_threshold, topk);
 }
-

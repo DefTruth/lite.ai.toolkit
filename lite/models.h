@@ -116,6 +116,8 @@
 #include "lite/tnn/cv/tnn_yolox.h"
 #include "lite/tnn/cv/tnn_rvm.h"
 #include "lite/tnn/cv/tnn_yolop.h"
+#include "lite/tnn/cv/tnn_nanodet.h"
+#include "lite/tnn/cv/tnn_nanodet_efficientnet_lite.h"
 
 #endif
 
@@ -842,6 +844,8 @@ namespace lite
       {
         typedef tnncv::TNNYoloX YoloX;
         typedef tnncv::TNNYOLOP YOLOP;
+        typedef tnncv::TNNNanoDet NanoDet;
+        typedef tnncv::TNNNanoDetEfficientNetLite NanoDetEfficientNetLite;
       }
       // face etc.
       namespace face

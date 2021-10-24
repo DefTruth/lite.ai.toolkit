@@ -106,6 +106,25 @@ static void test_ncnn()
 static void test_tnn()
 {
 #ifdef ENABLE_TNN
+  std::string proto_path = "../../../hub/tnn/cv/nanodet-EfficientNet-Lite2_512.opt.tnnproto";
+  std::string model_path = "../../../hub/tnn/cv/nanodet-EfficientNet-Lite2_512.opt.tnnmodel";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_detection_2.jpg";
+  std::string save_img_path = "../../../logs/test_lite_nanodet_efficientnet_lite_tnn_2.jpg";
+
+  // 4. Test Specific Engine TNN
+  lite::tnn::cv::detection::NanoDetEfficientNetLite *nanodet =
+      new lite::tnn::cv::detection::NanoDetEfficientNetLite(proto_path, model_path);
+
+  std::vector<lite::types::Boxf> detected_boxes;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  nanodet->detect(img_bgr, detected_boxes);
+
+  lite::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+  cv::imwrite(save_img_path, img_bgr);
+
+  std::cout << "TNN Version Detected Boxes Num: " << detected_boxes.size() << std::endl;
+
+  delete nanodet;
 #endif
 }
 
