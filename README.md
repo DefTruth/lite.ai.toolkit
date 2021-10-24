@@ -55,7 +55,7 @@
 </div>   
 ----->
 
-*Lite.AI.ToolKit* 🚀🚀🌟: A lite `C++` toolkit of awesome AI models which contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* models now. It's a collection of personal interests. Such as RVM, YOLOX, YOLOP, YOLOR, YoloV5, DeepLabV3, ArcFace, etc. emmm😞 ... it's not perfect yet. For now, let's regard it as a large collection of application cases for inference engines. *Lite.AI.ToolKit* based on *[ONNXRuntime C++](https://github.com/microsoft/onnxruntime)* by default. I do have plans to reimplement it with *[NCNN](https://github.com/Tencent/ncnn)* and *[MNN](https://github.com/alibaba/MNN)*, some models are already supported. Currently, I mainly consider its ease of use. Developers who need higher performance can make new optimizations based on the `C++` implementation and `ONNX` files provided by this repo~ Welcome to open a new `PR`~ 👏👋, if you want to add a new model to this repo.  
+*Lite.AI.ToolKit* 🚀🚀🌟: A lite `C++` toolkit of awesome AI models which contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* models now. It's a collection of personal interests. Such as RVM, YOLOX, YOLOP, YOLOR, YoloV5, DeepLabV3, ArcFace, etc. emmm😞 ... it's not perfect yet. For now, let's regard it as a large collection of application cases for inference engines. *Lite.AI.ToolKit* based on *[ONNXRuntime C++](https://github.com/microsoft/onnxruntime)* by default. I do have plans to reimplement it with *[NCNN](https://github.com/Tencent/ncnn)*, *[MNN](https://github.com/alibaba/MNN)* and *[TNN](https://github.com/Tencent/TNN)*, some models are already supported. Currently, I mainly consider its ease of use. Developers who need higher performance can make new optimizations based on the `C++` implementation and `ONNX` files provided by this repo~ Welcome to open a new `PR`~ 👏👋, if you want to add a new model to this repo.  
 
 <p align="center">Core Features 🚀🚀🌟</p>
 
@@ -1370,7 +1370,7 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 
 
 <details>
-<summary> Expand for ONNXRuntime, MNN and NCNN version APIs.</summary>
+<summary> Expand for ONNXRuntime, MNN, NCNN and TNN version APIs.</summary>
 
 ### 4.2 ONNXRuntime Version APIs.  
 More details of ONNXRuntime Version APIs can be found at [api.onnxruntime.md](https://github.com/DefTruth/lite.ai.toolkit/blob/main/docs/api/api.onnxruntime.md) . For examples, the interface for YoloV5 is:
@@ -1409,6 +1409,20 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 > `lite::ncnn::cv::detection::YoloV3`
 
 > `lite::ncnn::cv::detection::SSD`
+
+...
+
+### 4.5 TNN Version APIs.
+
+(*todo*⚠️: Not implementation now, coming soon.)
+
+> `lite::tnn::cv::detection::YoloV5`
+
+> `lite::tnn::cv::detection::YoloV4`
+
+> `lite::tnn::cv::detection::YoloV3`
+
+> `lite::tnn::cv::detection::SSD`
 
 ...
 
@@ -1519,9 +1533,9 @@ Cite it as follows if you use *Lite.AI.ToolKit*.
 
 ## 9. Notification.
 
-If there is a model you are interested in and want to be supported by Lite.AI.ToolKit🚀🚀🌟, you can fork this repo and modify [TODOLIST.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/TODOLIST.md), then submit a PR~ I will review this PR and try to support this model in the future, but I don’t make sure this can be done. In addition, [MNN](https://github.com/alibaba/MNN) and [NCNN](https://github.com/Tencent/ncnn) support for some models will be added in the future, but due to operator compatibility and some other reasons, it is impossible to ensure that all models supported by [ONNXRuntime C++](https://github.com/microsoft/onnxruntime) can run through [MNN](https://github.com/alibaba/MNN) and [NCNN](https://github.com/Tencent/ncnn). So, if you want to use all the models supported by this repo and don't care about the performance gap of *1~2ms*, please use the implementation of ONNXRuntime version. [ONNXRuntime](https://github.com/microsoft/onnxruntime) is the default inference engine for this repo. However, you can follow the steps below if you want to build Lite.AI.ToolKit🚀🚀🌟 with [MNN](https://github.com/alibaba/MNN) or [NCNN](https://github.com/Tencent/ncnn) support (⚠️ NOT STABLE NOW! NOT RECOMMENDED!!!🤦)  
+If there is a model you are interested in and want to be supported by Lite.AI.ToolKit🚀🚀🌟, you can fork this repo and modify [TODOLIST.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/TODOLIST.md), then submit a PR~ I will review this PR and try to support this model in the future, but I don’t make sure this can be done. In addition, [MNN](https://github.com/alibaba/MNN), [NCNN](https://github.com/Tencent/ncnn) and [TNN](https://github.com/Tencent/TNN) support for some models will be added in the future, but due to operator compatibility and some other reasons, it is impossible to ensure that all models supported by [ONNXRuntime C++](https://github.com/microsoft/onnxruntime) can run through [MNN](https://github.com/alibaba/MNN), [NCNN](https://github.com/Tencent/ncnn) and [TNN](https://github.com/Tencent/TNN). So, if you want to use all the models supported by this repo and don't care about the performance gap of *1~2ms*, please use the implementation of ONNXRuntime version. [ONNXRuntime](https://github.com/microsoft/onnxruntime) is the default inference engine for this repo. However, you can follow the steps below if you want to build Lite.AI.ToolKit🚀🚀🌟 with [MNN](https://github.com/alibaba/MNN), [NCNN](https://github.com/Tencent/ncnn) or [TNN](https://github.com/Tencent/TNN) support (⚠️ NOT STABLE NOW! NOT RECOMMENDED!!!🤦)  
 
-* change the `build.sh` with `DENABLE_MNN=ON` or `DENABLE_NCNN=ON`, such as  
+* change the `build.sh` with `DENABLE_MNN=ON`,`DENABLE_NCNN=ON` or `DENABLE_TNN=ON`, such as  
 ```shell
 cd build && cmake \
   -DCMAKE_BUILD_TYPE=MinSizeRel \
@@ -1531,11 +1545,12 @@ cd build && cmake \
   -DENABLE_TNN=OFF \      # Whether to build with TNN,  default OFF, only some models are supported now.
   .. && make -j8
 ```  
-* use the MNN or NCNN version interface, see [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp), such as  
+* use the MNN, NCNN or TNN version interface, see [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp), such as  
 ```C++
 auto *nanodet = new lite::mnn::cv::detection::NanoDet(mnn_path);
+auto *nanodet = new lite::tnn::cv::detection::NanoDet(proto_path, model_path);
+auto *nanodet = new lite::ncnn::cv::detection::NanoDet(param_path, bin_path);
 ```
-
 
 ## 10. Related projects.
 * [nanodet.lite.ai.toolkit](https://github.com/DefTruth/nanodet.lite.ai.toolkit)

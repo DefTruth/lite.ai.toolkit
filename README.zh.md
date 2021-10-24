@@ -54,7 +54,7 @@
 </div>   
 ---->
 
-*Lite.AI.ToolKit* 🚀🚀🌟: 一个轻量级的`C++` AI模型工具箱，用户友好，开箱即用。已经包括 *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* 流行的开源模型，如最新的RVM, YOLOX, YOLOP, YOLOR, YoloV5, DeepLabV3, ArcFace等模型，还会继续增加😎。这是一个根据个人兴趣整理的C++工具箱，emmm😞 ... 其实还不是很完善，基本可编译成动态库直接使用，大家暂且把它当做推理引擎的案例大集合吧，看到的有用的代码就尽情抠出来用吧。个人的兴趣目前主要集中在`检测、分割、抠图、识别和目标跟踪`等领域。 *Lite.AI.ToolKit* 默认是基于 *[ONNXRuntime C++](https://github.com/microsoft/onnxruntime)* 推理引擎的，后期会陆续加入对 *[NCNN](https://github.com/Tencent/ncnn)* 或 *[MNN](https://github.com/alibaba/MNN)* 的支持，已经支持部分模型的MNN和NCNN推理。目前主要考虑易用性。需要更高性能支持的小伙伴可以基于本项目提供的`C++`实现和`ONNX`文件进行优化~ 如果您有想添加到本项目的新模型，欢迎`PR` ~👏👋 
+*Lite.AI.ToolKit* 🚀🚀🌟: 一个轻量级的`C++` AI模型工具箱，用户友好，开箱即用。已经包括 *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* 流行的开源模型，如最新的RVM, YOLOX, YOLOP, YOLOR, YoloV5, DeepLabV3, ArcFace等模型，还会继续增加😎。这是一个根据个人兴趣整理的C++工具箱，emmm😞 ... 其实还不是很完善，基本可编译成动态库直接使用，大家暂且把它当做推理引擎的案例大集合吧，看到的有用的代码就尽情抠出来用吧。个人的兴趣目前主要集中在`检测、分割、抠图、识别和目标跟踪`等领域。 *Lite.AI.ToolKit* 默认是基于 *[ONNXRuntime C++](https://github.com/microsoft/onnxruntime)* 推理引擎的，后期会陆续加入对 *[NCNN](https://github.com/Tencent/ncnn)*, *[MNN](https://github.com/alibaba/MNN)* 和 *[TNN](https://github.com/Tencent/TNN)* 的支持，已经支持部分模型的MNN和NCNN推理。目前主要考虑易用性。需要更高性能支持的小伙伴可以基于本项目提供的`C++`实现和`ONNX`文件进行优化~ 如果您有想添加到本项目的新模型，欢迎`PR` ~👏👋 
 
 <p align="center">核心特征 🚀🚀🌟</p>
 
@@ -1363,7 +1363,7 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 
 
 <details>
-<summary> ONNXRuntime，MNN 和 NCNN 版本的APIs.</summary>
+<summary> ONNXRuntime，MNN, NCNN 和 TNN 版本的APIs.</summary>
 
 ### 4.2 ONNXRuntime 版本 APIs.
 更多ONNXRuntime版本的API文档，详见 [api.onnxruntime.md](https://github.com/DefTruth/lite.ai.toolkit/blob/main/docs/api/api.onnxruntime.md) 。比如，YoloV5的API是:
@@ -1402,6 +1402,20 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 > `lite::ncnn::cv::detection::YoloV3`
 
 > `lite::ncnn::cv::detection::SSD`
+
+...
+
+### 4.5 TNN 版本 APIs.
+
+(*todo*⚠️: 待实现)
+
+> `lite::tnn::cv::detection::YoloV5`
+
+> `lite::tnn::cv::detection::YoloV4`
+
+> `lite::tnn::cv::detection::YoloV3`
+
+> `lite::tnn::cv::detection::SSD`
 
 ...
 
@@ -1510,9 +1524,9 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 
 ## 9. 告知
 
-如果有你感兴趣的模型希望被Lite.AI.ToolKit🚀🚀🌟支持，你可以fork这个repo并修改[TODOLIST.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/TODOLIST.md) ，然后提交PR~ 我会review这个PR，并在未来尝试支持这个模型，但不确保能完成。另外，未来会增加一些模型的[MNN](https://github.com/alibaba/MNN) 和[NCNN](https://github.com/Tencent/ncnn) 支持，但由于算子兼容等原因，也无法确保所有被[ONNXRuntime C++](https://github.com/microsoft/onnxruntime) 支持的模型能够在[MNN](https://github.com/alibaba/MNN) 和[NCNN](https://github.com/Tencent/ncnn) 下跑通。所以，如果您想使用本项目支持的所有模型，并且不在意*1~2ms*的性能差距的话，请使用ONNXRuntime版本的实现。[ONNXRuntime](https://github.com/microsoft/onnxruntime) 是本仓库默认的推理引擎。但是如果你确实希望编译支持[MNN](https://github.com/alibaba/MNN) 或[NCNN](https://github.com/Tencent/ncnn) 支持的Lite.AI.ToolKit🚀🚀🌟动态库，你可以按照以下的步骤进行设置（⚠️目前不稳定，只支持少数模型，暂时不推荐开启MNN或NCNN选项！！！🤦‍️） 
+如果有你感兴趣的模型希望被Lite.AI.ToolKit🚀🚀🌟支持，你可以fork这个repo并修改[TODOLIST.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/TODOLIST.md) ，然后提交PR~ 我会review这个PR，并在未来尝试支持这个模型，但不确保能完成。另外，未来会增加一些模型的[MNN](https://github.com/alibaba/MNN) 、[NCNN](https://github.com/Tencent/ncnn) 和 [TNN](https://github.com/Tencent/TNN) 支持，但由于算子兼容等原因，也无法确保所有被[ONNXRuntime C++](https://github.com/microsoft/onnxruntime) 支持的模型能够在[MNN](https://github.com/alibaba/MNN) 、[NCNN](https://github.com/Tencent/ncnn) 和 [TNN](https://github.com/Tencent/TNN) 下跑通。所以，如果您想使用本项目支持的所有模型，并且不在意*1~2ms*的性能差距的话，请使用ONNXRuntime版本的实现。[ONNXRuntime](https://github.com/microsoft/onnxruntime) 是本仓库默认的推理引擎。但是如果你确实希望编译支持[MNN](https://github.com/alibaba/MNN) 、[NCNN](https://github.com/Tencent/ncnn) 和 [TNN](https://github.com/Tencent/TNN) 支持的Lite.AI.ToolKit🚀🚀🌟动态库，你可以按照以下的步骤进行设置（⚠️目前不稳定，只支持少数模型，不推荐开启MNN、NCNN或TNN选项！🤦‍️） 
 
-* 在`build.sh`中添加`DENABLE_MNN=ON` 或 `DENABLE_NCNN=ON`，比如
+* 在`build.sh`中添加`DENABLE_MNN=ON` 、`DENABLE_NCNN=ON` 或 `DENABLE_TNN=ON`，比如
 ```shell
 cd build && cmake \
   -DCMAKE_BUILD_TYPE=MinSizeRel \
@@ -1522,9 +1536,11 @@ cd build && cmake \
   -DENABLE_TNN=OFF \      # 是否编译TNN版本的模型， 默认OFF，目前只支持部分模型
   .. && make -j8
 ```  
-* 使用MNN或NCNN版本的接口，详见案例[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp) ，比如
+* 使用MNN、NCNN或TNN版本的接口，详见案例[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp) ，比如
 ```C++
 auto *nanodet = new lite::mnn::cv::detection::NanoDet(mnn_path);
+auto *nanodet = new lite::tnn::cv::detection::NanoDet(proto_path, model_path);
+auto *nanodet = new lite::ncnn::cv::detection::NanoDet(param_path, bin_path);
 ```
 
 ## 10. 关联项目  
