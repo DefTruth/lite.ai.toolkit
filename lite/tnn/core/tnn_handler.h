@@ -30,6 +30,7 @@ namespace tnncore
     tnn::DataFormat input_data_format;  // e.g DATA_FORMAT_NHWC
     tnn::MatType input_mat_type; // e.g NCHW_FLOAT
     tnn::DeviceType input_device_type; // only CPU, namely ARM or X86
+    tnn::DeviceType output_device_type; // only CPU, namely ARM or X86
     tnn::DeviceType network_device_type; // e.g DEVICE_X86 DEVICE_NAIVE DEVICE_ARM
     // Actually, i prefer to hardcode the input/output names
     // into subclasses, but we just let the auto detection here

@@ -12,6 +12,7 @@ The models listed below may be supported in the future:
 * https://github.com/AIZOOTech/FaceMaskDetection  
 * https://github.com/dlunion/DBFace  
 * https://github.com/HRNet/HRNet-Facial-Landmark-Detection  
+* https://github.com/ibaiGorordo/ONNX-Mobile-Human-Pose-3D
 
 ## Access to Model files  
 

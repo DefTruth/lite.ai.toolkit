@@ -54,8 +54,8 @@ function(add_lite_ai_toolkit_engines_headers_command)
             PRE_BUILD
             COMMAND ${CMAKE_COMMAND} -E make_directory ${EXECUTABLE_OUTPUT_PATH}
             COMMAND ${CMAKE_COMMAND} -E make_directory ${LIBRARY_OUTPUT_PATH}
-            COMMAND ${CMAKE_COMMAND} -E echo "create ${LIBRARY_OUTPUT_PATH} done!"
-            COMMAND ${CMAKE_COMMAND} -E echo "create ${EXECUTABLE_OUTPUT_PATH} done!"
+            COMMAND ${CMAKE_COMMAND} -E echo "Preparing  ${LIBRARY_OUTPUT_PATH} ... done!"
+            COMMAND ${CMAKE_COMMAND} -E echo "Preparing  ${EXECUTABLE_OUTPUT_PATH} ... done!"
             )
 
     # copy opencv2 headers
@@ -63,12 +63,11 @@ function(add_lite_ai_toolkit_engines_headers_command)
         add_custom_command(TARGET lite.ai.toolkit
                 PRE_BUILD
                 COMMAND ${CMAKE_COMMAND} -E make_directory ${BUILD_LITE_AI_DIR}/include/opencv2
-                COMMAND ${CMAKE_COMMAND} -E echo "create ${BUILD_LITE_AI_DIR}/include/opencv2 done!"
                 )
         add_custom_command(TARGET lite.ai.toolkit
                 PRE_BUILD
                 COMMAND ${CMAKE_COMMAND} -E copy_directory ${LITE_AI_ROOT_DIR}/opencv2 ${BUILD_LITE_AI_DIR}/include/opencv2
-                COMMAND ${CMAKE_COMMAND} -E echo "copy opencv2 headers to ${BUILD_LITE_AI_DIR}/opencv2 done!"
+                COMMAND ${CMAKE_COMMAND} -E echo "Installing opencv2 headers to ${BUILD_LITE_AI_DIR}/opencv2 ... done!"
                 )
     endif()
 
@@ -76,13 +75,12 @@ function(add_lite_ai_toolkit_engines_headers_command)
         add_custom_command(TARGET lite.ai.toolkit
                 PRE_BUILD
                 COMMAND ${CMAKE_COMMAND} -E make_directory ${BUILD_LITE_AI_DIR}/include/onnxruntime
-                COMMAND ${CMAKE_COMMAND} -E echo "create ${BUILD_LITE_AI_DIR}/include/onnxruntime done!"
                 )
         # copy onnxruntime headers
         add_custom_command(TARGET lite.ai.toolkit
                 PRE_BUILD
                 COMMAND ${CMAKE_COMMAND} -E copy_directory ${LITE_AI_ROOT_DIR}/onnxruntime ${BUILD_LITE_AI_DIR}/include/onnxruntime
-                COMMAND ${CMAKE_COMMAND} -E echo "copy onnxruntime headers to ${BUILD_LITE_AI_DIR}/include/onnxruntime done!"
+                COMMAND ${CMAKE_COMMAND} -E echo "Installing onnxruntime headers to ${BUILD_LITE_AI_DIR}/include/onnxruntime ... done!"
                 )
 
     endif()
@@ -91,13 +89,12 @@ function(add_lite_ai_toolkit_engines_headers_command)
         add_custom_command(TARGET lite.ai.toolkit
                 PRE_BUILD
                 COMMAND ${CMAKE_COMMAND} -E make_directory ${BUILD_LITE_AI_DIR}/include/MNN
-                COMMAND ${CMAKE_COMMAND} -E echo "create ${BUILD_LITE_AI_DIR}/include/MNN done!"
                 )
         # copy MNN headers
         add_custom_command(TARGET lite.ai.toolkit
                 PRE_BUILD
                 COMMAND ${CMAKE_COMMAND} -E copy_directory ${LITE_AI_ROOT_DIR}/MNN ${BUILD_LITE_AI_DIR}/include/MNN
-                COMMAND ${CMAKE_COMMAND} -E echo "copy MNN headers to ${BUILD_LITE_AI_DIR}/include/MNN done!"
+                COMMAND ${CMAKE_COMMAND} -E echo "Installing MNN headers to ${BUILD_LITE_AI_DIR}/include/MNN ... done!"
                 )
 
     endif()
@@ -106,13 +103,12 @@ function(add_lite_ai_toolkit_engines_headers_command)
         add_custom_command(TARGET lite.ai.toolkit
                 PRE_BUILD
                 COMMAND ${CMAKE_COMMAND} -E make_directory ${BUILD_LITE_AI_DIR}/include/ncnn
-                COMMAND ${CMAKE_COMMAND} -E echo "create ${BUILD_LITE_AI_DIR}/include/ncnn done!"
                 )
         # copy ncnn headers
         add_custom_command(TARGET lite.ai.toolkit
                 PRE_BUILD
                 COMMAND ${CMAKE_COMMAND} -E copy_directory ${LITE_AI_ROOT_DIR}/ncnn ${BUILD_LITE_AI_DIR}/include/ncnn
-                COMMAND ${CMAKE_COMMAND} -E echo "copy NCNN headers to ${BUILD_LITE_AI_DIR}/ncnn done!"
+                COMMAND ${CMAKE_COMMAND} -E echo "Installing NCNN headers to ${BUILD_LITE_AI_DIR}/ncnn ... done!"
                 )
     endif()
 
@@ -120,13 +116,12 @@ function(add_lite_ai_toolkit_engines_headers_command)
         add_custom_command(TARGET lite.ai.toolkit
                 PRE_BUILD
                 COMMAND ${CMAKE_COMMAND} -E make_directory ${BUILD_LITE_AI_DIR}/include/tnn
-                COMMAND ${CMAKE_COMMAND} -E echo "create ${BUILD_LITE_AI_DIR}/include/tnn done!"
                 )
         # copy TNN headers
         add_custom_command(TARGET lite.ai.toolkit
                 PRE_BUILD
                 COMMAND ${CMAKE_COMMAND} -E copy_directory ${LITE_AI_ROOT_DIR}/tnn ${BUILD_LITE_AI_DIR}/include/tnn
-                COMMAND ${CMAKE_COMMAND} -E echo "copy TNN headers to ${BUILD_LITE_AI_DIR}/include/tnn done!"
+                COMMAND ${CMAKE_COMMAND} -E echo "Installing TNN headers to ${BUILD_LITE_AI_DIR}/include/tnn ... done!"
                 )
     endif()
 
@@ -163,15 +158,6 @@ function(add_lite_ai_toolkit_engines_libs_command)
         file(GLOB ALL_TNN_LIBS ${LITE_AI_ROOT_DIR}/lib/*TNN*)
         file(INSTALL ${ALL_TNN_LIBS} DESTINATION ${LIBRARY_OUTPUT_PATH})
     endif()
-
-    if (LITE_AI_BUILD_TEST)
-        # copy opencv & lite.ai.toolkit & engines libs to bin directory
-        add_custom_command(TARGET lite.ai.toolkit
-                POST_BUILD
-                COMMAND ${CMAKE_COMMAND} -E copy_directory ${LIBRARY_OUTPUT_PATH} ${EXECUTABLE_OUTPUT_PATH}
-                COMMAND ${CMAKE_COMMAND} -E echo "copy all lite.ai.toolkit libs to ${EXECUTABLE_OUTPUT_PATH} done!"
-                )
-    endif()
 endfunction()
 
 function(add_lite_ai_toolkit_test_custom_command)
@@ -180,7 +166,7 @@ function(add_lite_ai_toolkit_test_custom_command)
         add_custom_command(TARGET lite.ai.toolkit
                 POST_BUILD
                 COMMAND ${CMAKE_COMMAND} -E copy_directory ${LIBRARY_OUTPUT_PATH} ${EXECUTABLE_OUTPUT_PATH}
-                COMMAND ${CMAKE_COMMAND} -E echo "copy all lite.ai.toolkit libs to ${EXECUTABLE_OUTPUT_PATH} done!"
+                COMMAND ${CMAKE_COMMAND} -E echo "Installing all lite.ai.toolkit libs to ${EXECUTABLE_OUTPUT_PATH} ... done!"
                 )
     endif()
 endfunction()

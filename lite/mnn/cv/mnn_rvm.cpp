@@ -7,7 +7,7 @@
 using mnncv::MNNRobustVideoMatting;
 
 MNNRobustVideoMatting::MNNRobustVideoMatting(
-    const std::string _mnn_path,
+    const std::string &_mnn_path,
     unsigned int _num_threads,
     unsigned int _variant_type
 ) : log_id(_mnn_path.data()),

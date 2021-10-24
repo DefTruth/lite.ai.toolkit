@@ -92,6 +92,7 @@
 #include "lite/mnn/cv/mnn_nanodet_efficientnet_lite.h"
 #include "lite/mnn/cv/mnn_rvm.h"
 #include "lite/mnn/cv/mnn_yolox.h"
+#include "lite/mnn/cv/mnn_yolop.h"
 
 #endif
 
@@ -115,6 +116,9 @@
 #include "lite/tnn/core/tnn_utils.h"
 #include "lite/tnn/cv/tnn_yolox.h"
 #include "lite/tnn/cv/tnn_rvm.h"
+#include "lite/tnn/cv/tnn_yolop.h"
+#include "lite/tnn/cv/tnn_nanodet.h"
+#include "lite/tnn/cv/tnn_nanodet_efficientnet_lite.h"
 
 #endif
 
@@ -714,6 +718,7 @@ namespace lite
         typedef mnncv::MNNNanoDet NanoDet;
         typedef mnncv::MNNNanoDetEfficientNetLite NanoDetEfficientNetLite;
         typedef mnncv::MNNYoloX YoloX;
+        typedef mnncv::MNNYOLOP YOLOP;
 
       }
       // face etc.
@@ -840,6 +845,9 @@ namespace lite
       namespace detection
       {
         typedef tnncv::TNNYoloX YoloX;
+        typedef tnncv::TNNYOLOP YOLOP;
+        typedef tnncv::TNNNanoDet NanoDet;
+        typedef tnncv::TNNNanoDetEfficientNetLite NanoDetEfficientNetLite;
       }
       // face etc.
       namespace face

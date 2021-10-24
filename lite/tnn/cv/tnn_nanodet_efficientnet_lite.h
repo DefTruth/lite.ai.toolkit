@@ -1,20 +1,20 @@
 //
-// Created by DefTruth on 2021/10/6.
+// Created by DefTruth on 2021/10/24.
 //
 
-#ifndef LITE_AI_TOOLKIT_MNN_CV_MNN_NANODET_H
-#define LITE_AI_TOOLKIT_MNN_CV_MNN_NANODET_H
+#ifndef LITE_AI_TOOLKIT_TNN_CV_TNN_NANODET_EFFICIENTNET_LITE_H
+#define LITE_AI_TOOLKIT_TNN_CV_TNN_NANODET_EFFICIENTNET_LITE_H
 
-#include "lite/mnn/core/mnn_core.h"
+#include "lite/tnn/core/tnn_core.h"
 
-namespace mnncv
+namespace tnncv
 {
   typedef struct
   {
     float grid0;
     float grid1;
     float stride;
-  } NanoCenterPoint;
+  } NanoLiteCenterPoint;
 
   typedef struct
   {
@@ -22,17 +22,20 @@ namespace mnncv
     int dw;
     int dh;
     bool flag;
-  } NanoScaleParams;
+  } NanoLiteScaleParams;
 
-  class LITE_EXPORTS MNNNanoDet : public BasicMNNHandler
+  class LITE_EXPORTS TNNNanoDetEfficientNetLite : public BasicTNNHandler
   {
   public:
-    explicit MNNNanoDet(const std::string &_mnn_path, unsigned int _num_threads = 1); //
-    ~MNNNanoDet() override = default;
+    explicit TNNNanoDetEfficientNetLite(const std::string &_proto_path,
+                                        const std::string &_model_path,
+                                        unsigned int _num_threads = 1); //
+    ~TNNNanoDetEfficientNetLite() override = default;
 
   private:
-    const float mean_vals[3] = {103.53f, 116.28f, 123.675f}; // BGR
-    const float norm_vals[3] = {0.017429f, 0.017507f, 0.017125f};
+    // In TNN: x*scale + bias
+    std::vector<float> scale_vals = {0.0078125f, 0.0078125f, 0.0078125f}; // BGR (1/128)
+    std::vector<float> bias_vals = {-0.9921875f, -0.9921875f, -0.9921875f}; // (1/128)*127
 
     const char *class_names[80] = {
         "person", "bicycle", "car", "motorcycle", "airplane", "bus", "train", "truck", "boat", "traffic light",
@@ -54,35 +57,33 @@ namespace mnncv
 
     // multi-levels center points
     std::vector<unsigned int> strides = {8, 16, 32};
-    std::unordered_map<unsigned int, std::vector<NanoCenterPoint>> center_points;
+    std::unordered_map<unsigned int, std::vector<NanoLiteCenterPoint>> center_points;
     bool center_points_is_update = false;
 
   private:
     void transform(const cv::Mat &mat_rs) override; // without resize
 
-    void initialize_pretreat(); //
-
     void resize_unscale(const cv::Mat &mat,
                         cv::Mat &mat_rs,
                         int target_height,
                         int target_width,
-                        NanoScaleParams &scale_params);
+                        NanoLiteScaleParams &scale_params);
 
     // only generate once
     void generate_points(unsigned int target_height, unsigned int target_width);
 
-    void generate_bboxes_single_stride(const NanoScaleParams &scale_params,
-                                       const MNN::Tensor *device_cls_pred,
-                                       const MNN::Tensor *device_dis_pred,
+    void generate_bboxes_single_stride(const NanoLiteScaleParams &scale_params,
+                                       const std::shared_ptr<tnn::Mat> &cls_pred,
+                                       const std::shared_ptr<tnn::Mat> &dis_pred,
                                        unsigned int stride,
                                        float score_threshold,
                                        float img_height,
                                        float img_width,
                                        std::vector<types::Boxf> &bbox_collection);
 
-    void generate_bboxes(const NanoScaleParams &scale_params,
+    void generate_bboxes(const NanoLiteScaleParams &scale_params,
                          std::vector<types::Boxf> &bbox_collection,
-                         const std::map<std::string, MNN::Tensor*> &output_tensors,
+                         std::shared_ptr<tnn::Instance> &_instance,
                          float score_threshold, float img_height,
                          float img_width); // rescale & exclude
 
@@ -102,6 +103,8 @@ namespace mnncv
                 float score_threshold = 0.45f, float iou_threshold = 0.3f,
                 unsigned int topk = 100, unsigned int nms_type = NMS::OFFSET);
   };
+
 }
 
-#endif //LITE_AI_TOOLKIT_MNN_CV_MNN_NANODET_H
+
+#endif //LITE_AI_TOOLKIT_TNN_CV_TNN_NANODET_EFFICIENTNET_LITE_H

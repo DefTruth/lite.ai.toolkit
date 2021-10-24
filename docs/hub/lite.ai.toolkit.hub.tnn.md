@@ -17,6 +17,17 @@ You can download all the pretrained models files of TNN format from ([Baidu Driv
 |     *lite::tnn::cv::detection::YOLOP*      |          yolop-320-320.opt.tnnproto&tnnmodel           |  [YOLOP](https://github.com/hustvl/YOLOP)   | 30Mb |
 |     *lite::tnn::cv::detection::YOLOP*      |          yolop-640-640.opt.tnnproto&tnnmodel           |  [YOLOP](https://github.com/hustvl/YOLOP)   | 30Mb |
 |     *lite::tnn::cv::detection::YOLOP*      |          yolop-1280-1280.opt.tnnproto&tnnmodel           |  [YOLOP](https://github.com/hustvl/YOLOP)   | 30Mb  |
+| *lite::tnn::cv::detection::NanoDet* |    nanodet_m_0.5x.opt.tnnproto&tnnmodel     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 1.1Mb  |
+| *lite::tnn::cv::detection::NanoDet* |    nanodet_m.opt.tnnproto&tnnmodel     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 3.6Mb  |
+| *lite::tnn::cv::detection::NanoDet* |    nanodet_m_1.5x.opt.tnnproto&tnnmodel     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 7.9Mb  |
+| *lite::tnn::cv::detection::NanoDet* |    nanodet_m_1.5x_416.opt.tnnproto&tnnmodel     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 7.9Mb  |
+| *lite::tnn::cv::detection::NanoDet* |    nanodet_m_416.opt.tnnproto&tnnmodel     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 3.6Mb  |
+| *lite::tnn::cv::detection::NanoDet* |    nanodet_g.opt.tnnproto&tnnmodel     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 14Mb  |
+| *lite::tnn::cv::detection::NanoDet* |    nanodet_t.opt.tnnproto&tnnmodel     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 5.1Mb  |
+| *lite::tnn::cv::detection::NanoDet* |    nanodet-RepVGG-A0_416.opt.tnnproto&tnnmodel     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 26Mb  |
+| *lite::tnn::cv::detection::NanoDetEfficientNetLite* |    nanodet-EfficientNet-Lite0_320.opt.tnnproto&tnnmodel     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 12Mb  |
+| *lite::tnn::cv::detection::NanoDetEfficientNetLite* |    nanodet-EfficientNet-Lite1_416.opt.tnnproto&tnnmodel     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 15Mb  |
+| *lite::tnn::cv::detection::NanoDetEfficientNetLite* |    nanodet-EfficientNet-Lite2_512.opt.tnnproto&tnnmodel     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 18Mb  |
 
 ## Matting.
 

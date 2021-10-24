@@ -207,18 +207,18 @@ void YOLOP::generate_bboxes_da_ll(const YOLOPScaleParams &scale_params,
     }
   }
   // resize to original size.
-  const unsigned int h = static_cast<unsigned int>(img_height);
-  const unsigned int w = static_cast<unsigned int>(img_width);
+  const unsigned int img_h = static_cast<unsigned int>(img_height);
+  const unsigned int img_w = static_cast<unsigned int>(img_width);
   // da_seg_mask 255 or 0
   cv::resize(da_seg_content.class_mat, da_seg_content.class_mat,
-             cv::Size(w, h), cv::INTER_LINEAR);
+             cv::Size(img_w, img_h), cv::INTER_LINEAR);
   cv::resize(da_seg_content.color_mat, da_seg_content.color_mat,
-             cv::Size(w, h), cv::INTER_LINEAR);
+             cv::Size(img_w, img_h), cv::INTER_LINEAR);
   // ll_seg_mask 255 or 0
   cv::resize(ll_seg_content.class_mat, ll_seg_content.class_mat,
-             cv::Size(w, h), cv::INTER_LINEAR);
+             cv::Size(img_w, img_h), cv::INTER_LINEAR);
   cv::resize(ll_seg_content.color_mat, ll_seg_content.color_mat,
-             cv::Size(w, h), cv::INTER_LINEAR);
+             cv::Size(img_w, img_h), cv::INTER_LINEAR);
 
   da_seg_content.flag = true;
   ll_seg_content.flag = true;

@@ -1,6 +1,9 @@
 test_ortcv_eccv16_colorizer_one_piece_0.jpg
 test_ortcv_siggraph17_colorizer_one_piece_0.jpg
 *onnx*
+*tnn*
+*mnn*
+*ncnn*
 *ortcv*
 test_lite_emotion.jpg
 test_lite_pfld98.jpg
@@ -19,3 +22,7 @@ test_lite_yolop_det.jpg
 test_lite_rvm*
 test_lite_nanodet*
 test_lite_yolox_tnn_2.jpg
+test_lite_yolop_da_tnn.jpg
+test_lite_yolop_ll_tnn.jpg
+test_lite_yolop_det_tnn.jpg
+test_lite_yolop_merge_tnn.jpg

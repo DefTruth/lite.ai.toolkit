@@ -7,7 +7,7 @@
 
 using mnncv::MNNNanoDet;
 
-MNNNanoDet::MNNNanoDet(const std::string _mnn_path, unsigned int _num_threads) :
+MNNNanoDet::MNNNanoDet(const std::string &_mnn_path, unsigned int _num_threads) :
     BasicMNNHandler(_mnn_path, _num_threads)
 {
   initialize_pretreat();
