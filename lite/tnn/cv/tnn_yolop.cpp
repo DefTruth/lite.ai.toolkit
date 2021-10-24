@@ -138,8 +138,8 @@ void TNNYOLOP::generate_bboxes_da_ll(const YOLOPScaleParams &scale_params,
 
   // (1,n,6=5+1=cxcy+cwch+obj_conf+cls_conf) (1,2,640,640) (1,2,640,640)
   status_det_out    = _instance->GetOutputMat(det_out_mat, cvt_param, "det_out", output_device_type);
-  status_da_seg_out = _instance->GetOutputMat(da_seg_out_mat, cvt_param, "da_seg_out", output_device_type);
-  status_ll_seg_out = _instance->GetOutputMat(ll_seg_out_mat, cvt_param, "ll_seg_out", output_device_type);
+  status_da_seg_out = _instance->GetOutputMat(da_seg_out_mat, cvt_param, "drive_area_seg", output_device_type);
+  status_ll_seg_out = _instance->GetOutputMat(ll_seg_out_mat, cvt_param, "lane_line_seg", output_device_type);
 
   if (status_det_out != tnn::TNN_OK || status_da_seg_out != tnn::TNN_OK
       || status_ll_seg_out != tnn::TNN_OK)
