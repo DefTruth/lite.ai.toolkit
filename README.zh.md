@@ -5,25 +5,26 @@
 <div id="lite.ai.toolkit-Introduction"></div>  
 
 <div align='center'>
-  <img src='logs/test_lite_yolov5_1.jpg' height="100px" width="100px">
-  <img src='docs/resources/efficientdet_d0.jpg' height="100px" width="100px">
-  <img src='docs/resources/street.jpg' height="100px" width="100px">
-  <img src='logs/test_lite_ultraface.jpg' height="100px" width="100px">
-  <img src='logs/test_lite_face_landmarks_1000.jpg' height="100px" width="100px">
-  <img src='logs/test_lite_fsanet.jpg' height="100px" width="100px">
-  <img src='logs/test_lite_deeplabv3_resnet101.jpg' height="100px" width="100px">
-  <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="100px" width="100px"> 
+  <img src='logs/test_lite_yolov5_1.jpg' height="80px" width="80px">
+  <img src='docs/resources/efficientdet_d0.jpg' height="80px" width="80px">
+  <img src='docs/resources/street.jpg' height="80px" width="80px">
+  <img src='logs/test_lite_ultraface.jpg' height="80px" width="80px">
+  <img src='logs/test_lite_face_landmarks_1000.jpg' height="80px" width="80px">
+  <img src='logs/test_lite_fsanet.jpg' height="80px" width="80px">
+  <img src='logs/test_lite_deeplabv3_resnet101.jpg' height="80px" width="80px">
+  <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="80px" width="80px"> 
   <br>
-  <img src='docs/resources/teslai.gif' height="100px" width="100px">
-  <img src='docs/resources/tesla.gif' height="100px" width="100px">
-  <img src='docs/resources/dance3i.gif' height="100px" width="100px">
-  <img src='docs/resources/dance3.gif' height="100px" width="100px">  
-  <img src='docs/resources/yolop1.png' height="100px" width="100px">
-  <img src='docs/resources/yolop1.gif' height="100px" width="100px">
-  <img src='docs/resources/yolop2.png' height="100px" width="100px">
-  <img src='docs/resources/yolop2.gif' height="100px" width="100px">
+  <img src='docs/resources/teslai.gif' height="80px" width="80px">
+  <img src='docs/resources/tesla.gif' height="80px" width="80px">
+  <img src='docs/resources/dance3i.gif' height="80px" width="80px">
+  <img src='docs/resources/dance3.gif' height="80px" width="80px">  
+  <img src='docs/resources/yolop1.png' height="80px" width="80px">
+  <img src='docs/resources/yolop1.gif' height="80px" width="80px">
+  <img src='docs/resources/yolop2.png' height="80px" width="80px">
+  <img src='docs/resources/yolop2.gif' height="80px" width="80px">
 
 </div>    
+
 <p align="center"><a href="README.md">English</a> | 中文文档 | <a href=#lite.ai.toolkit-Build-MacOS>MacOS</a> | <a href=#lite.ai.toolkit-Build-Linux>Linux</a> | <a href=#lite.ai.toolkit-Build-Windows>Windows</a> </p>
 
 <div align='center'>
@@ -80,26 +81,28 @@
 * 🔥 (20210920) 增加[RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) 视频抠图! 通过[*lite::cv::matting::RobustVideoMatting*](#lite.ai.toolkit-matting)调用! 详见[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_rvm.cpp).
 
 <div align='center'>
-  <img src='docs/resources/interviewi.gif' height="100px" width="100px">
-  <img src='docs/resources/interview.gif' height="100px" width="100px">  
-  <img src='docs/resources/dance3i.gif' height="100px" width="100px">
-  <img src='docs/resources/dance3.gif' height="100px" width="100px">
-  <img src='docs/resources/teslai.gif' height="100px" width="100px">
-  <img src='docs/resources/tesla.gif' height="100px" width="100px">  
-  <img src='docs/resources/b5i.gif' height="100px" width="100px">
-  <img src='docs/resources/b5.gif' height="100px" width="100px">
+  <img src='docs/resources/interviewi.gif' height="80px" width="80px">
+  <img src='docs/resources/interview.gif' height="80px" width="80px">  
+  <img src='docs/resources/dance3i.gif' height="80px" width="80px">
+  <img src='docs/resources/dance3.gif' height="80px" width="80px">
+  <img src='docs/resources/teslai.gif' height="80px" width="80px">
+  <img src='docs/resources/tesla.gif' height="80px" width="80px">  
+  <img src='docs/resources/b5i.gif' height="80px" width="80px">
+  <img src='docs/resources/b5.gif' height="80px" width="80px">
 </div>
+
 
 
 * 🔥 (20210915) 增加[YOLOP](https://github.com/hustvl/YOLOP) 全景🚗感知! 通过[*lite::cv::detection::YOLOP*](#lite.ai.toolkit-object-detection)调用! 详见[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolop.cpp).
 
 <div align='center'>
-  <img src='docs/resources/yolop1.png' height="100px" width="200px">
-  <img src='docs/resources/yolop1.gif' height="100px" width="200px">
-  <img src='docs/resources/yolop2.png' height="100px" width="200px">
-  <img src='docs/resources/yolop2.gif' height="100px" width="200px">
+  <img src='docs/resources/yolop1.png' height="80px" width="160px">
+  <img src='docs/resources/yolop1.gif' height="80px" width="160px">
+  <img src='docs/resources/yolop2.png' height="80px" width="160px">
+  <img src='docs/resources/yolop2.gif' height="80px" width="160px">
 
 </div>   
+
 
 
 * ✅ (20210807) 增加[YoloR](https://github.com/WongKinYiu/yolor) ! 通过[*lite::cv::detection::YoloR*](#lite.ai.toolkit-object-detection)调用! 详见[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolor.cpp).
@@ -628,17 +631,16 @@ static void test_default()
 输出的结果是:
 
 <div align='center'>
-  <img src='docs/resources/interviewi.gif' height="200px" width="200px">
-  <img src='docs/resources/interview.gif' height="200px" width="200px">  
-  <img src='docs/resources/dance3i.gif' height="200px" width="200px">
-  <img src='docs/resources/dance3.gif' height="200px" width="200px">
+  <img src='docs/resources/interviewi.gif' height="80px" width="150px">
+  <img src='docs/resources/interview.gif' height="80px" width="150px">  
+  <img src='docs/resources/dance3i.gif' height="80px" width="150px">
+  <img src='docs/resources/dance3.gif' height="80px" width="150px">
   <br>
-  <img src='docs/resources/teslai.gif' height="200px" width="200px">
-  <img src='docs/resources/tesla.gif' height="200px" width="200px">  
-  <img src='docs/resources/b5i.gif' height="200px" width="200px">
-  <img src='docs/resources/b5.gif' height="200px" width="200px">
+  <img src='docs/resources/teslai.gif' height="80px" width="150px">
+  <img src='docs/resources/tesla.gif' height="80px" width="150px">  
+  <img src='docs/resources/b5i.gif' height="80px" width="150px">
+  <img src='docs/resources/b5.gif' height="80px" width="150px">
 </div>
-
 
 ****
 
