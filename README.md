@@ -5,23 +5,23 @@
 <div id="lite.ai.toolkit-Introduction"></div>  
 
 <div align='center'>
-  <img src='logs/test_lite_yolov5_1.jpg' height="100px" width="100px">
-  <img src='docs/resources/efficientdet_d0.jpg' height="100px" width="100px">
-  <img src='docs/resources/street.jpg' height="100px" width="100px">
-  <img src='logs/test_lite_ultraface.jpg' height="100px" width="100px">
-  <img src='logs/test_lite_face_landmarks_1000.jpg' height="100px" width="100px">
-  <img src='logs/test_lite_fsanet.jpg' height="100px" width="100px">
-  <img src='logs/test_lite_deeplabv3_resnet101.jpg' height="100px" width="100px">
-  <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="100px" width="100px"> 
+  <img src='logs/test_lite_yolov5_1.jpg' height="80px" width="80px">
+  <img src='docs/resources/efficientdet_d0.jpg' height="80px" width="80px">
+  <img src='docs/resources/street.jpg' height="80px" width="80px">
+  <img src='logs/test_lite_ultraface.jpg' height="80px" width="80px">
+  <img src='logs/test_lite_face_landmarks_1000.jpg' height="80px" width="80px">
+  <img src='logs/test_lite_fsanet.jpg' height="80px" width="80px">
+  <img src='logs/test_lite_deeplabv3_resnet101.jpg' height="80px" width="80px">
+  <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="80px" width="80px"> 
   <br>
-  <img src='docs/resources/teslai.gif' height="100px" width="100px">
-  <img src='docs/resources/tesla.gif' height="100px" width="100px">
-  <img src='docs/resources/dance3i.gif' height="100px" width="100px">
-  <img src='docs/resources/dance3.gif' height="100px" width="100px">  
-  <img src='docs/resources/yolop1.png' height="100px" width="100px">
-  <img src='docs/resources/yolop1.gif' height="100px" width="100px">
-  <img src='docs/resources/yolop2.png' height="100px" width="100px">
-  <img src='docs/resources/yolop2.gif' height="100px" width="100px">
+  <img src='docs/resources/teslai.gif' height="80px" width="80px">
+  <img src='docs/resources/tesla.gif' height="80px" width="80px">
+  <img src='docs/resources/dance3i.gif' height="80px" width="80px">
+  <img src='docs/resources/dance3.gif' height="80px" width="80px">  
+  <img src='docs/resources/yolop1.png' height="80px" width="80px">
+  <img src='docs/resources/yolop1.gif' height="80px" width="80px">
+  <img src='docs/resources/yolop2.png' height="80px" width="80px">
+  <img src='docs/resources/yolop2.gif' height="80px" width="80px">
 
 </div>    
 
@@ -83,24 +83,24 @@
 * 🔥 (20210920) Added [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)! Use it through [*lite::cv::matting::RobustVideoMatting*](#lite.ai.toolkit-matting) ! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_rvm.cpp).  
 
 <div align='center'>
-  <img src='docs/resources/interviewi.gif' height="100px" width="100px">
-  <img src='docs/resources/interview.gif' height="100px" width="100px">  
-  <img src='docs/resources/dance3i.gif' height="100px" width="100px">
-  <img src='docs/resources/dance3.gif' height="100px" width="100px">
-  <img src='docs/resources/teslai.gif' height="100px" width="100px">
-  <img src='docs/resources/tesla.gif' height="100px" width="100px">  
-  <img src='docs/resources/b5i.gif' height="100px" width="100px">
-  <img src='docs/resources/b5.gif' height="100px" width="100px">
+  <img src='docs/resources/interviewi.gif' height="80px" width="80px">
+  <img src='docs/resources/interview.gif' height="80px" width="80px">  
+  <img src='docs/resources/dance3i.gif' height="80px" width="80px">
+  <img src='docs/resources/dance3.gif' height="80px" width="80px">
+  <img src='docs/resources/teslai.gif' height="80px" width="80px">
+  <img src='docs/resources/tesla.gif' height="80px" width="80px">  
+  <img src='docs/resources/b5i.gif' height="80px" width="80px">
+  <img src='docs/resources/b5.gif' height="80px" width="80px">
 </div>
 
 
 * 🔥 (20210915) Added [YOLOP](https://github.com/hustvl/YOLOP) Panoptic 🚗 Perception! Use it through [*lite::cv::detection::YOLOP*](#lite.ai.toolkit-object-detection) ! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolop.cpp).
 
 <div align='center'>
-  <img src='docs/resources/yolop1.png' height="100px" width="200px">
-  <img src='docs/resources/yolop1.gif' height="100px" width="200px">
-  <img src='docs/resources/yolop2.png' height="100px" width="200px">
-  <img src='docs/resources/yolop2.gif' height="100px" width="200px">
+  <img src='docs/resources/yolop1.png' height="80px" width="160px">
+  <img src='docs/resources/yolop1.gif' height="80px" width="160px">
+  <img src='docs/resources/yolop2.png' height="80px" width="160px">
+  <img src='docs/resources/yolop2.gif' height="80px" width="160px">
 
 </div>   
 
@@ -634,15 +634,15 @@ static void test_default()
 The output is:
 
 <div align='center'>
-  <img src='docs/resources/interviewi.gif' height="200px" width="200px">
-  <img src='docs/resources/interview.gif' height="200px" width="200px">  
-  <img src='docs/resources/dance3i.gif' height="200px" width="200px">
-  <img src='docs/resources/dance3.gif' height="200px" width="200px">
+  <img src='docs/resources/interviewi.gif' height="80px" width="150px">
+  <img src='docs/resources/interview.gif' height="80px" width="150px">  
+  <img src='docs/resources/dance3i.gif' height="80px" width="150px">
+  <img src='docs/resources/dance3.gif' height="80px" width="150px">
   <br>
-  <img src='docs/resources/teslai.gif' height="200px" width="200px">
-  <img src='docs/resources/tesla.gif' height="200px" width="200px">  
-  <img src='docs/resources/b5i.gif' height="200px" width="200px">
-  <img src='docs/resources/b5.gif' height="200px" width="200px">
+  <img src='docs/resources/teslai.gif' height="80px" width="150px">
+  <img src='docs/resources/tesla.gif' height="80px" width="150px">  
+  <img src='docs/resources/b5i.gif' height="80px" width="150px">
+  <img src='docs/resources/b5.gif' height="80px" width="150px">
 </div>
 
 
