@@ -17,7 +17,7 @@ namespace ncnncv
                                     unsigned int _num_threads = 1,
                                     int _input_height = 480,
                                     int _input_width = 640,
-                                    unsigned int _variant_type = VARIANT::MOBILENETV3); //
+                                    unsigned int _variant_type = 0); //
     ~NCNNRobustVideoMatting() override = default;
 
   private:
