@@ -43,7 +43,7 @@ void MNNYOLOP::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
   // scale ratio (new / old) new_shape(h,w)
   float w_r = (float) target_width / (float) img_width;
   float h_r = (float) target_height / (float) img_height;
-  float r = std::fmin(w_r, h_r);
+  float r = std::min(w_r, h_r);
   // compute padding
   int new_unpad_w = static_cast<int>((float) img_width * r); // floor
   int new_unpad_h = static_cast<int>((float) img_height * r); // floor
