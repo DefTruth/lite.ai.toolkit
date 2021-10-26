@@ -30,7 +30,7 @@ void NCNNNanoDetDepreciated::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
   // scale ratio (new / old) new_shape(h,w)
   float w_r = (float) target_width / (float) img_width;
   float h_r = (float) target_height / (float) img_height;
-  float r = std::fmin(w_r, h_r);
+  float r = std::min(w_r, h_r);
   // compute padding
   int new_unpad_w = static_cast<int>((float) img_width * r); // floor
   int new_unpad_h = static_cast<int>((float) img_height * r); // floor
@@ -220,10 +220,10 @@ void NCNNNanoDetDepreciated::generate_bboxes_single_stride(const NanoDepreciated
     float y1 = ((cy - t) * s - (float) dh) / ratio;  // cy - t y1
     float x2 = ((cx + r) * s - (float) dw) / ratio;  // cx + r x2
     float y2 = ((cy + b) * s - (float) dh) / ratio;  // cy + b y2
-    box.x1 = std::fmax(0.f, x1);
-    box.y1 = std::fmax(0.f, y1);
-    box.x2 = std::fmin(img_width, x2);
-    box.y2 = std::fmin(img_height, y2);
+    box.x1 = std::max(0.f, x1);
+    box.y1 = std::max(0.f, y1);
+    box.x2 = std::min(img_width, x2);
+    box.y2 = std::min(img_height, y2);
     box.score = cls_conf;
     box.label = label;
     box.label_text = class_names[label];

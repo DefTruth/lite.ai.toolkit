@@ -143,8 +143,8 @@ void EfficientDetD8::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
 
     float cx = dx * wa + cxa;
     float cy = dy * ha + cya;
-    float w = std::expf(dw) * wa;
-    float h = std::expf(dh) * ha;
+    float w = std::exp(dw) * wa;
+    float h = std::exp(dh) * ha;
 
     types::Boxf box;
     box.x1 = (cx - w / 2.f) * scale_width;

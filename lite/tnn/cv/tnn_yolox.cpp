@@ -164,8 +164,8 @@ void TNNYoloX::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
 
     float cx = (dx + (float) grid0) * (float) stride;
     float cy = (dy + (float) grid1) * (float) stride;
-    float w = std::expf(dw) * (float) stride;
-    float h = std::expf(dh) * (float) stride;
+    float w = std::exp(dw) * (float) stride;
+    float h = std::exp(dh) * (float) stride;
 
     types::Boxf box;
     box.x1 = (cx - w / 2.f) * scale_width;

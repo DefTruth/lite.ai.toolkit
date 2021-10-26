@@ -88,7 +88,7 @@ std::vector<Ort::Value> TinyYoloV3::transform(const std::vector<cv::Mat> &mats)
   const unsigned int image_height = canvas.rows;
   const unsigned int image_width = canvas.cols;
 
-  const float scale = std::fmin(
+  const float scale = std::min(
       (float) input_width / (float) image_width,
       (float) input_height / (float) image_height
   );

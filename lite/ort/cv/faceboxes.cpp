@@ -52,8 +52,8 @@ void FaceBoxes::generate_anchors(const int target_height,
   {
     feature_maps.push_back(
         {
-            (int) std::ceilf((float) target_height / (float) step),
-            (int) std::ceilf((float) target_width / (float) step)
+            (int) std::ceil((float) target_height / (float) step),
+            (int) std::ceil((float) target_width / (float) step)
         } // ceil
     );
   }
@@ -166,8 +166,8 @@ void FaceBoxes::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
     // ref: https://github.com/zisianw/FaceBoxes.PyTorch/blob/master/utils/box_utils.py
     float cx = prior_cx + dx * variance[0] * prior_s_kx;
     float cy = prior_cy + dy * variance[0] * prior_s_ky;
-    float w = prior_s_kx * std::expf(dw * variance[1]);
-    float h = prior_s_ky * std::expf(dh * variance[1]); // norm coor (0.,1.)
+    float w = prior_s_kx * std::exp(dw * variance[1]);
+    float h = prior_s_ky * std::exp(dh * variance[1]); // norm coor (0.,1.)
 
     types::Boxf box;
     box.x1 = (cx - w / 2.f) * img_width;

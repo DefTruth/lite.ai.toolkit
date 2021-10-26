@@ -29,8 +29,8 @@ std::wstring lite::utils::to_wstring(const std::string &str)
 
 // reference: https://github.com/DefTruth/headpose-fsanet-pytorch/blob/master/src/utils.py
 void lite::utils::draw_axis_inplace(cv::Mat &mat_inplace,
-                                     const types::EulerAngles &euler_angles,
-                                     float size, int thickness)
+                                    const types::EulerAngles &euler_angles,
+                                    float size, int thickness)
 {
   if (!euler_angles.flag) return;
 
@@ -45,20 +45,20 @@ void lite::utils::draw_axis_inplace(cv::Mat &mat_inplace,
   const int tdy = static_cast<int>(height / 2.0f);
 
   // X-Axis pointing to right. drawn in red
-  const int x1 = static_cast<int>(size * std::cosf(yaw) * std::cosf(roll)) + tdx;
+  const int x1 = static_cast<int>(size * std::cos(yaw) * std::cos(roll)) + tdx;
   const int y1 = static_cast<int>(
-                     size * (std::cosf(pitch) * std::sinf(roll)
-                             + std::cosf(roll) * std::sinf(pitch) * std::sinf(yaw))
+                     size * (std::cos(pitch) * std::sin(roll)
+                             + std::cos(roll) * std::sin(pitch) * std::sin(yaw))
                  ) + tdy;
   // Y-Axis | drawn in green
-  const int x2 = static_cast<int>(-size * std::cosf(yaw) * std::sinf(roll)) + tdx;
+  const int x2 = static_cast<int>(-size * std::cos(yaw) * std::sin(roll)) + tdx;
   const int y2 = static_cast<int>(
-                     size * (std::cosf(pitch) * std::cosf(roll)
-                             - std::sinf(pitch) * std::sinf(yaw) * std::sinf(roll))
+                     size * (std::cos(pitch) * std::cos(roll)
+                             - std::sin(pitch) * std::sin(yaw) * std::sin(roll))
                  ) + tdy;
   // Z-Axis (out of the screen) drawn in blue
-  const int x3 = static_cast<int>(size * std::sinf(yaw)) + tdx;
-  const int y3 = static_cast<int>(-size * std::cosf(yaw) * std::sinf(pitch)) + tdy;
+  const int x3 = static_cast<int>(size * std::sin(yaw)) + tdx;
+  const int y3 = static_cast<int>(-size * std::cos(yaw) * std::sin(pitch)) + tdy;
 
   cv::line(mat_inplace, cv::Point2i(tdx, tdy), cv::Point2i(x1, y1), cv::Scalar(0, 0, 255), thickness);
   cv::line(mat_inplace, cv::Point2i(tdx, tdy), cv::Point2i(x2, y2), cv::Scalar(0, 255, 0), thickness);
@@ -66,8 +66,8 @@ void lite::utils::draw_axis_inplace(cv::Mat &mat_inplace,
 }
 
 cv::Mat lite::utils::draw_axis(const cv::Mat &mat,
-                                const types::EulerAngles &euler_angles,
-                                float size, int thickness)
+                               const types::EulerAngles &euler_angles,
+                               float size, int thickness)
 {
   if (!euler_angles.flag) return mat;
 
@@ -83,20 +83,20 @@ cv::Mat lite::utils::draw_axis(const cv::Mat &mat,
   const int tdy = static_cast<int>(height / 2.0f);
 
   // X-Axis pointing to right. drawn in red
-  const int x1 = static_cast<int>(size * std::cosf(yaw) * std::cosf(roll)) + tdx;
+  const int x1 = static_cast<int>(size * std::cos(yaw) * std::cos(roll)) + tdx;
   const int y1 = static_cast<int>(
-                     size * (std::cosf(pitch) * std::sinf(roll)
-                             + std::cosf(roll) * std::sinf(pitch) * std::sinf(yaw))
+                     size * (std::cos(pitch) * std::sin(roll)
+                             + std::cos(roll) * std::sin(pitch) * std::sin(yaw))
                  ) + tdy;
   // Y-Axis | drawn in green
-  const int x2 = static_cast<int>(-size * std::cosf(yaw) * std::sinf(roll)) + tdx;
+  const int x2 = static_cast<int>(-size * std::cos(yaw) * std::sin(roll)) + tdx;
   const int y2 = static_cast<int>(
-                     size * (std::cosf(pitch) * std::cosf(roll)
-                             - std::sinf(pitch) * std::sinf(yaw) * std::sinf(roll))
+                     size * (std::cos(pitch) * std::cos(roll)
+                             - std::sin(pitch) * std::sin(yaw) * std::sin(roll))
                  ) + tdy;
   // Z-Axis (out of the screen) drawn in blue
-  const int x3 = static_cast<int>(size * std::sinf(yaw)) + tdx;
-  const int y3 = static_cast<int>(-size * std::cosf(yaw) * std::sinf(pitch)) + tdy;
+  const int x3 = static_cast<int>(size * std::sin(yaw)) + tdx;
+  const int y3 = static_cast<int>(-size * std::cos(yaw) * std::sin(pitch)) + tdy;
 
   cv::line(mat_copy, cv::Point2i(tdx, tdy), cv::Point2i(x1, y1), cv::Scalar(0, 0, 255), thickness);
   cv::line(mat_copy, cv::Point2i(tdx, tdy), cv::Point2i(x2, y2), cv::Scalar(0, 255, 0), thickness);
@@ -250,7 +250,7 @@ void lite::utils::draw_emotion_inplace(cv::Mat &mat_inplace, types::Emotions &em
 // reference: https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB/
 //            blob/master/ncnn/src/UltraFace.cpp
 void lite::utils::hard_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
-                            float iou_threshold, unsigned int topk)
+                           float iou_threshold, unsigned int topk)
 {
   if (input.empty()) return;
   std::sort(input.begin(), input.end(),
@@ -291,7 +291,7 @@ void lite::utils::hard_nms(std::vector<types::Boxf> &input, std::vector<types::B
 }
 
 void lite::utils::blending_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
-                                float iou_threshold, unsigned int topk)
+                               float iou_threshold, unsigned int topk)
 {
   if (input.empty()) return;
   std::sort(input.begin(), input.end(),
@@ -324,12 +324,12 @@ void lite::utils::blending_nms(std::vector<types::Boxf> &input, std::vector<type
     float total = 0.f;
     for (unsigned int k = 0; k < buf.size(); ++k)
     {
-      total += std::expf(buf[k].score);
+      total += std::exp(buf[k].score);
     }
     types::Boxf rects;
     for (unsigned int l = 0; l < buf.size(); ++l)
     {
-      float rate = std::expf(buf[l].score) / total;
+      float rate = std::exp(buf[l].score) / total;
       rects.x1 += buf[l].x1 * rate;
       rects.y1 += buf[l].y1 * rate;
       rects.x2 += buf[l].x2 * rate;
@@ -348,7 +348,7 @@ void lite::utils::blending_nms(std::vector<types::Boxf> &input, std::vector<type
 
 // reference: https://github.com/ultralytics/yolov5/blob/master/utils/general.py
 void lite::utils::offset_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
-                              float iou_threshold, unsigned int topk)
+                             float iou_threshold, unsigned int topk)
 {
   if (input.empty()) return;
   std::sort(input.begin(), input.end(),

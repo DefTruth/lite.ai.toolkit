@@ -45,8 +45,8 @@ void PFLD68::detect(const cv::Mat &mat, types::Landmarks &landmarks)
     float x = landmarks_norm.At<float>({0, i});
     float y = landmarks_norm.At<float>({0, i + 1});
 
-    x = std::fmin(std::fmax(0., x), 1.0f);
-    y = std::fmin(std::fmax(0., y), 1.0f);
+    x = std::min(std::max(0.f, x), 1.0f);
+    y = std::min(std::max(0.f, y), 1.0f);
 
     landmarks.points.push_back(cv::Point2f(x * img_width, y * img_height));
   }
