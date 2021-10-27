@@ -1548,4 +1548,5 @@ auto *nanodet = new lite::ncnn::cv::detection::NanoDet(param_path, bin_path);
 ## 10. 关联项目  
 * [nanodet.lite.ai.toolkit](https://github.com/DefTruth/nanodet.lite.ai.toolkit)  
 * [RobustVideoMatting.lite.ai.toolkit](https://github.com/DefTruth/RobustVideoMatting.lite.ai.toolkit)  
+* [yolox.lite.ai.toolkit](https://github.com/DefTruth/yolox.lite.ai.toolkit)
 * [lite.ai.toolkit.demo](https://github.com/DefTruth/lite.ai.toolkit.demo)  
