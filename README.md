@@ -80,7 +80,7 @@
 ## Important Notes !!!  
 
 * 🔥 (20211002) Added [NanoDet](https://github.com/RangiLyu/nanodet) for object detection. ⚡ Super fast and tiny! 1.1Mb only! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp).  
-* 🔥 (20210920) Added [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)! Use it through [*lite::cv::matting::RobustVideoMatting*](#lite.ai.toolkit-matting) ! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_rvm.cpp).  
+* 🔥 (20210920) Added [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) as [*lite::cv::matting::RobustVideoMatting*](#lite.ai.toolkit-matting) ! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_rvm.cpp).  
 
 <div align='center'>
   <img src='docs/resources/interviewi.gif' height="80px" width="80px">
@@ -94,7 +94,7 @@
 </div>
 
 
-* 🔥 (20210915) Added [YOLOP](https://github.com/hustvl/YOLOP) Panoptic 🚗 Perception! Use it through [*lite::cv::detection::YOLOP*](#lite.ai.toolkit-object-detection) ! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolop.cpp).
+* 🔥 (20210915) Added [YOLOP](https://github.com/hustvl/YOLOP) Panoptic 🚗 Perception as [*lite::cv::detection::YOLOP*](#lite.ai.toolkit-object-detection) ! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolop.cpp).
 
 <div align='center'>
   <img src='docs/resources/yolop1.png' height="80px" width="160px">
@@ -1553,7 +1553,7 @@ auto *nanodet = new lite::ncnn::cv::detection::NanoDet(param_path, bin_path);
 ```
 
 ## 10. Related projects.
-* [nanodet.lite.ai.toolkit](https://github.com/DefTruth/nanodet.lite.ai.toolkit)
-* [RobustVideoMatting.lite.ai.toolkit](https://github.com/DefTruth/RobustVideoMatting.lite.ai.toolkit)
-* [yolox.lite.ai.toolkit](https://github.com/DefTruth/yolox.lite.ai.toolkit)  
-* [lite.ai.toolkit.demo](https://github.com/DefTruth/lite.ai.toolkit.demo)
+* [NanoDet.lite.ai.toolkit 🚀🚀🌟](https://github.com/DefTruth/nanodet.lite.ai.toolkit)
+* [RobustVideoMatting.lite.ai.toolkit 🚀🚀🌟](https://github.com/DefTruth/RobustVideoMatting.lite.ai.toolkit)
+* [YOLOX.lite.ai.toolkit 🚀🚀🌟](https://github.com/DefTruth/yolox.lite.ai.toolkit)  
+* [YOLOP.lite.ai.toolkit 🚀🚀🌟](https://github.com/DefTruth/yolop.lite.ai.toolkit)
