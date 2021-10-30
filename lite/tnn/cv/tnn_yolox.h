@@ -16,6 +16,16 @@ namespace tnncv
     int stride;
   } YoloXAnchor;
 
+  typedef struct
+  {
+    float r;
+    int dw;
+    int dh;
+    int new_unpad_w;
+    int new_unpad_h;
+    bool flag;
+  } YoloXScaleParams;
+
   class LITE_EXPORTS TNNYoloX : public BasicTNNHandler
   {
   public:
@@ -47,17 +57,23 @@ namespace tnncv
     static constexpr const unsigned int max_nms = 30000;
 
   private:
-    void transform(const cv::Mat &mat) override; //
+    void transform(const cv::Mat &mat_rs) override; //
+
+    void resize_unscale(const cv::Mat &mat,
+                        cv::Mat &mat_rs,
+                        int target_height,
+                        int target_width,
+                        YoloXScaleParams &scale_params);
 
     void generate_anchors(const int target_height,
                           const int target_width,
                           std::vector<int> &strides,
                           std::vector<YoloXAnchor> &anchors);
 
-    void generate_bboxes(std::vector<types::Boxf> &bbox_collection,
+    void generate_bboxes(const YoloXScaleParams &scale_params,
+                         std::vector<types::Boxf> &bbox_collection,
                          const std::shared_ptr<tnn::Mat> &pred_mat,
-                         float score_threshold, float img_height,
-                         float img_width); // rescale & exclude
+                         float score_threshold); // rescale & exclude
 
     void nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
              float iou_threshold, unsigned int topk, unsigned int nms_type);

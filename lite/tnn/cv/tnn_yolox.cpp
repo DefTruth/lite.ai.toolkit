@@ -15,10 +15,10 @@ TNNYoloX::TNNYoloX(const std::string &_proto_path,
 {
 }
 
-void TNNYoloX::transform(const cv::Mat &mat)
+void TNNYoloX::transform(const cv::Mat &mat_rs)
 {
-  cv::Mat canvas = mat.clone();
-  cv::resize(canvas, canvas, cv::Size(input_width, input_height));
+  cv::Mat canvas = mat_rs.clone();
+  // cv::resize(canvas, canvas, cv::Size(input_width, input_height));
   cv::cvtColor(canvas, canvas, cv::COLOR_BGR2RGB);
   // push into input_mat
   input_mat = std::make_shared<tnn::Mat>(input_device_type, tnn::N8UC3,
@@ -31,16 +31,56 @@ void TNNYoloX::transform(const cv::Mat &mat)
   }
 }
 
+void TNNYoloX::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
+                              int target_height, int target_width,
+                              YoloXScaleParams &scale_params)
+{
+  if (mat.empty()) return;
+  int img_height = static_cast<int>(mat.rows);
+  int img_width = static_cast<int>(mat.cols);
+
+  mat_rs = cv::Mat(target_height, target_width, CV_8UC3,
+                   cv::Scalar(114, 114, 114));
+  // scale ratio (new / old) new_shape(h,w)
+  float w_r = (float) target_width / (float) img_width;
+  float h_r = (float) target_height / (float) img_height;
+  float r = std::min(w_r, h_r);
+  // compute padding
+  int new_unpad_w = static_cast<int>((float) img_width * r); // floor
+  int new_unpad_h = static_cast<int>((float) img_height * r); // floor
+  int pad_w = target_width - new_unpad_w; // >=0
+  int pad_h = target_height - new_unpad_h; // >=0
+
+  int dw = pad_w / 2;
+  int dh = pad_h / 2;
+
+  // resize with unscaling
+  cv::Mat new_unpad_mat = mat.clone();
+  cv::resize(new_unpad_mat, new_unpad_mat, cv::Size(new_unpad_w, new_unpad_h));
+  new_unpad_mat.copyTo(mat_rs(cv::Rect(dw, dh, new_unpad_w, new_unpad_h)));
+
+  // record scale params.
+  scale_params.r = r;
+  scale_params.dw = dw;
+  scale_params.dh = dh;
+  scale_params.new_unpad_w = new_unpad_w;
+  scale_params.new_unpad_h = new_unpad_h;
+  scale_params.flag = true;
+}
+
 void TNNYoloX::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
                       float score_threshold, float iou_threshold,
                       unsigned int topk, unsigned int nms_type)
 {
   if (mat.empty()) return;
-  float img_height = static_cast<float>(mat.rows);
-  float img_width = static_cast<float>(mat.cols);
+
+  // resize & unscale
+  cv::Mat mat_rs;
+  YoloXScaleParams scale_params;
+  this->resize_unscale(mat, mat_rs, input_height, input_width, scale_params);
 
   // 1. make input tensor
-  this->transform(mat);
+  this->transform(mat_rs);
   // 2. set input_mat
   tnn::MatConvertParam input_cvt_param;
   input_cvt_param.scale = scale_vals;
@@ -82,7 +122,7 @@ void TNNYoloX::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_box
   }
   // 5. rescale & exclude.
   std::vector<types::Boxf> bbox_collection;
-  this->generate_bboxes(bbox_collection, pred_mat, score_threshold, img_height, img_width);
+  this->generate_bboxes(scale_params, bbox_collection, pred_mat, score_threshold);
   // 6. hard|blend|offset nms with topk.
   this->nms(bbox_collection, detected_boxes, iou_threshold, topk, nms_type);
 }
@@ -114,20 +154,24 @@ void TNNYoloX::generate_anchors(const int target_height,
   }
 }
 
-void TNNYoloX::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
+void TNNYoloX::generate_bboxes(const YoloXScaleParams &scale_params,
+                               std::vector<types::Boxf> &bbox_collection,
                                const std::shared_ptr<tnn::Mat> &pred_mat,
-                               float score_threshold, float img_height,
-                               float img_width)
+                               float score_threshold)
 {
   auto pred_dims = pred_mat->GetDims();
   const unsigned int num_anchors = pred_dims.at(1); // n = ?
   const unsigned int num_classes = pred_dims.at(2) - 5;
-  const float scale_height = img_height / (float) input_height;
-  const float scale_width = img_width / (float) input_width;
+  // const float scale_height = img_height / (float) input_height;
+  // const float scale_width = img_width / (float) input_width;
 
   std::vector<YoloXAnchor> anchors;
   std::vector<int> strides = {8, 16, 32}; // might have stride=64
   this->generate_anchors(input_height, input_width, strides, anchors);
+
+  float r_ = scale_params.r;
+  int dw_ = scale_params.dw;
+  int dh_ = scale_params.dh;
 
   bbox_collection.clear();
   unsigned int count = 0;
@@ -168,10 +212,10 @@ void TNNYoloX::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
     float h = std::exp(dh) * (float) stride;
 
     types::Boxf box;
-    box.x1 = (cx - w / 2.f) * scale_width;
-    box.y1 = (cy - h / 2.f) * scale_height;
-    box.x2 = (cx + w / 2.f) * scale_width;
-    box.y2 = (cy + h / 2.f) * scale_height;
+    box.x1 = ((cx - w / 2.f) - (float) dw_) / r_;
+    box.y1 = ((cy - h / 2.f) - (float) dh_) / r_;
+    box.x2 = ((cx + w / 2.f) - (float) dw_) / r_;
+    box.y2 = ((cy + h / 2.f) - (float) dh_) / r_;
     box.score = conf;
     box.label = label;
     box.label_text = class_names[label];
