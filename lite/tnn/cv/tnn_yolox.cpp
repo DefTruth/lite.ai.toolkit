@@ -18,7 +18,6 @@ TNNYoloX::TNNYoloX(const std::string &_proto_path,
 void TNNYoloX::transform(const cv::Mat &mat_rs)
 {
   cv::Mat canvas = mat_rs.clone();
-  // cv::resize(canvas, canvas, cv::Size(input_width, input_height));
   cv::cvtColor(canvas, canvas, cv::COLOR_BGR2RGB);
   // push into input_mat
   input_mat = std::make_shared<tnn::Mat>(input_device_type, tnn::N8UC3,
@@ -73,7 +72,8 @@ void TNNYoloX::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_box
                       unsigned int topk, unsigned int nms_type)
 {
   if (mat.empty()) return;
-
+  int img_height = static_cast<int>(mat.rows);
+  int img_width = static_cast<int>(mat.cols);
   // resize & unscale
   cv::Mat mat_rs;
   YoloXScaleParams scale_params;
@@ -122,7 +122,7 @@ void TNNYoloX::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_box
   }
   // 5. rescale & exclude.
   std::vector<types::Boxf> bbox_collection;
-  this->generate_bboxes(scale_params, bbox_collection, pred_mat, score_threshold);
+  this->generate_bboxes(scale_params, bbox_collection, pred_mat, score_threshold, img_height, img_width);
   // 6. hard|blend|offset nms with topk.
   this->nms(bbox_collection, detected_boxes, iou_threshold, topk, nms_type);
 }
@@ -157,13 +157,12 @@ void TNNYoloX::generate_anchors(const int target_height,
 void TNNYoloX::generate_bboxes(const YoloXScaleParams &scale_params,
                                std::vector<types::Boxf> &bbox_collection,
                                const std::shared_ptr<tnn::Mat> &pred_mat,
-                               float score_threshold)
+                               float score_threshold, int img_height,
+                               int img_width)
 {
   auto pred_dims = pred_mat->GetDims();
   const unsigned int num_anchors = pred_dims.at(1); // n = ?
   const unsigned int num_classes = pred_dims.at(2) - 5;
-  // const float scale_height = img_height / (float) input_height;
-  // const float scale_width = img_width / (float) input_width;
 
   std::vector<YoloXAnchor> anchors;
   std::vector<int> strides = {8, 16, 32}; // might have stride=64
@@ -210,12 +209,16 @@ void TNNYoloX::generate_bboxes(const YoloXScaleParams &scale_params,
     float cy = (dy + (float) grid1) * (float) stride;
     float w = std::exp(dw) * (float) stride;
     float h = std::exp(dh) * (float) stride;
+    float x1 = ((cx - w / 2.f) - (float) dw_) / r_;
+    float y1 = ((cy - h / 2.f) - (float) dh_) / r_;
+    float x2 = ((cx + w / 2.f) - (float) dw_) / r_;
+    float y2 = ((cy + h / 2.f) - (float) dh_) / r_;
 
     types::Boxf box;
-    box.x1 = ((cx - w / 2.f) - (float) dw_) / r_;
-    box.y1 = ((cy - h / 2.f) - (float) dh_) / r_;
-    box.x2 = ((cx + w / 2.f) - (float) dw_) / r_;
-    box.y2 = ((cy + h / 2.f) - (float) dh_) / r_;
+    box.x1 = std::max(0.f, x1);
+    box.y1 = std::max(0.f, y1);
+    box.x2 = std::min(x2, (float) img_width);
+    box.y2 = std::min(y2, (float) img_height);
     box.score = conf;
     box.label = label;
     box.label_text = class_names[label];

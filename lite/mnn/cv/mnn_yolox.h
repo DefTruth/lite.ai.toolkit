@@ -72,7 +72,8 @@ namespace mnncv
     void generate_bboxes(const YoloXScaleParams &scale_params,
                          std::vector<types::Boxf> &bbox_collection,
                          const std::map<std::string, MNN::Tensor *> &output_tensors,
-                         float score_threshold); // rescale & exclude
+                         float score_threshold, int img_height,
+                         int img_width); // rescale & exclude
 
     void nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
              float iou_threshold, unsigned int topk, unsigned int nms_type);

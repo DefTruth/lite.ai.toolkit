@@ -71,6 +71,8 @@ void YoloX::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
   if (mat.empty()) return;
   const int input_height = input_node_dims.at(2);
   const int input_width = input_node_dims.at(3);
+  int img_height = static_cast<int>(mat.rows);
+  int img_width = static_cast<int>(mat.cols);
 
   // resize & unscale
   cv::Mat mat_rs;
@@ -86,7 +88,7 @@ void YoloX::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
   );
   // 3. rescale & exclude.
   std::vector<types::Boxf> bbox_collection;
-  this->generate_bboxes(scale_params, bbox_collection, output_tensors, score_threshold);
+  this->generate_bboxes(scale_params, bbox_collection, output_tensors, score_threshold, img_height, img_width);
   // 4. hard|blend|offset nms with topk.
   this->nms(bbox_collection, detected_boxes, iou_threshold, topk, nms_type);
 }
@@ -148,7 +150,8 @@ void YoloX::generate_anchors(const int target_height,
 void YoloX::generate_bboxes(const YoloXScaleParams &scale_params,
                             std::vector<types::Boxf> &bbox_collection,
                             std::vector<Ort::Value> &output_tensors,
-                            float score_threshold)
+                            float score_threshold, int img_height,
+                            int img_width)
 {
   Ort::Value &pred = output_tensors.at(0); // (1,n,85=5+80=cxcy+cwch+obj_conf+cls_conf)
   auto pred_dims = output_node_dims.at(0); // (1,n,85)
@@ -156,8 +159,6 @@ void YoloX::generate_bboxes(const YoloXScaleParams &scale_params,
   const unsigned int num_classes = pred_dims.at(2) - 5;
   const float input_height = static_cast<float>(input_node_dims.at(2)); // e.g 640
   const float input_width = static_cast<float>(input_node_dims.at(3)); // e.g 640
-  // const float scale_height = img_height / input_height;
-  // const float scale_width = img_width / input_width;
 
   std::vector<YoloXAnchor> anchors;
   std::vector<int> strides = {8, 16, 32}; // might have stride=64
@@ -201,12 +202,16 @@ void YoloX::generate_bboxes(const YoloXScaleParams &scale_params,
     float cy = (dy + (float) grid1) * (float) stride;
     float w = std::exp(dw) * (float) stride;
     float h = std::exp(dh) * (float) stride;
+    float x1 = ((cx - w / 2.f) - (float) dw_) / r_;
+    float y1 = ((cy - h / 2.f) - (float) dh_) / r_;
+    float x2 = ((cx + w / 2.f) - (float) dw_) / r_;
+    float y2 = ((cy + h / 2.f) - (float) dh_) / r_;
 
     types::Boxf box;
-    box.x1 = ((cx - w / 2.f) - (float) dw_) / r_;
-    box.y1 = ((cy - h / 2.f) - (float) dh_) / r_;
-    box.x2 = ((cx + w / 2.f) - (float) dw_) / r_;
-    box.y2 = ((cy + h / 2.f) - (float) dh_) / r_;
+    box.x1 = std::max(0.f, x1);
+    box.y1 = std::max(0.f, y1);
+    box.x2 = std::min(x2, (float) img_width);
+    box.y2 = std::min(y2, (float) img_height);
     box.score = conf;
     box.label = label;
     box.label_text = class_names[label];

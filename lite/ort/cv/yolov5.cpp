@@ -75,7 +75,7 @@ void YoloV5::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes
   this->resize_unscale(mat, mat_rs, input_height, input_width, scale_params);
 
   // 1. make input tensor
-  Ort::Value input_tensor = this->transform(mat);
+  Ort::Value input_tensor = this->transform(mat_rs);
   // 2. inference scores & boxes.
   auto output_tensors = ort_session->Run(
       Ort::RunOptions{nullptr}, input_node_names.data(),
