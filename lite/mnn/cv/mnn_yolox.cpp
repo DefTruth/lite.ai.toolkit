@@ -25,12 +25,48 @@ inline void MNNYoloX::initialize_pretreat()
   );
 }
 
-void MNNYoloX::transform(const cv::Mat &mat)
+void MNNYoloX::transform(const cv::Mat &mat_rs)
 {
-  cv::Mat canvas = mat.clone();
-  cv::resize(canvas, canvas, cv::Size(input_width, input_height));
+  cv::Mat canvas = mat_rs.clone();
   // normalize & HWC -> CHW & BGR -> RGB
   pretreat->convert(canvas.data, input_width, input_height, canvas.step[0], input_tensor);
+}
+
+void MNNYoloX::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
+                              int target_height, int target_width,
+                              YoloXScaleParams &scale_params)
+{
+  if (mat.empty()) return;
+  int img_height = static_cast<int>(mat.rows);
+  int img_width = static_cast<int>(mat.cols);
+
+  mat_rs = cv::Mat(target_height, target_width, CV_8UC3,
+                   cv::Scalar(114, 114, 114));
+  // scale ratio (new / old) new_shape(h,w)
+  float w_r = (float) target_width / (float) img_width;
+  float h_r = (float) target_height / (float) img_height;
+  float r = std::min(w_r, h_r);
+  // compute padding
+  int new_unpad_w = static_cast<int>((float) img_width * r); // floor
+  int new_unpad_h = static_cast<int>((float) img_height * r); // floor
+  int pad_w = target_width - new_unpad_w; // >=0
+  int pad_h = target_height - new_unpad_h; // >=0
+
+  int dw = pad_w / 2;
+  int dh = pad_h / 2;
+
+  // resize with unscaling
+  cv::Mat new_unpad_mat = mat.clone();
+  cv::resize(new_unpad_mat, new_unpad_mat, cv::Size(new_unpad_w, new_unpad_h));
+  new_unpad_mat.copyTo(mat_rs(cv::Rect(dw, dh, new_unpad_w, new_unpad_h)));
+
+  // record scale params.
+  scale_params.r = r;
+  scale_params.dw = dw;
+  scale_params.dh = dh;
+  scale_params.new_unpad_w = new_unpad_w;
+  scale_params.new_unpad_h = new_unpad_h;
+  scale_params.flag = true;
 }
 
 void MNNYoloX::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
@@ -38,17 +74,22 @@ void MNNYoloX::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_box
                       unsigned int topk, unsigned int nms_type)
 {
   if (mat.empty()) return;
-  float img_height = static_cast<float>(mat.rows);
-  float img_width = static_cast<float>(mat.cols);
+  int img_height = static_cast<int>(mat.rows);
+  int img_width = static_cast<int>(mat.cols);
+
+  // resize & unscale
+  cv::Mat mat_rs;
+  YoloXScaleParams scale_params;
+  this->resize_unscale(mat, mat_rs, input_height, input_width, scale_params);
 
   // 1. make input tensor
-  this->transform(mat);
+  this->transform(mat_rs);
   // 2. inference scores & boxes.
   mnn_interpreter->runSession(mnn_session);
   auto output_tensors = mnn_interpreter->getSessionOutputAll(mnn_session);
   // 3. rescale & exclude.
   std::vector<types::Boxf> bbox_collection;
-  this->generate_bboxes(bbox_collection, output_tensors, score_threshold, img_height, img_width);
+  this->generate_bboxes(scale_params, bbox_collection, output_tensors, score_threshold, img_height, img_width);
   // 4. hard|blend|offset nms with topk.
   this->nms(bbox_collection, detected_boxes, iou_threshold, topk, nms_type);
 }
@@ -80,10 +121,11 @@ void MNNYoloX::generate_anchors(const int target_height,
   }
 }
 
-void MNNYoloX::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
+void MNNYoloX::generate_bboxes(const YoloXScaleParams &scale_params,
+                               std::vector<types::Boxf> &bbox_collection,
                                const std::map<std::string, MNN::Tensor *> &output_tensors,
-                               float score_threshold, float img_height,
-                               float img_width)
+                               float score_threshold, int img_height,
+                               int img_width)
 {
   // device tensors
   auto device_pred_ptr = output_tensors.at("outputs");
@@ -94,12 +136,14 @@ void MNNYoloX::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
   auto pred_dims = host_pred_tensor.shape();
   const unsigned int num_anchors = pred_dims.at(1); // n = ?
   const unsigned int num_classes = pred_dims.at(2) - 5;
-  const float scale_height = img_height / (float) input_height;
-  const float scale_width = img_width / (float) input_width;
 
   std::vector<YoloXAnchor> anchors;
   std::vector<int> strides = {8, 16, 32}; // might have stride=64
   this->generate_anchors(input_height, input_width, strides, anchors);
+
+  float r_ = scale_params.r;
+  int dw_ = scale_params.dw;
+  int dh_ = scale_params.dh;
 
   bbox_collection.clear();
   unsigned int count = 0;
@@ -138,12 +182,16 @@ void MNNYoloX::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
     float cy = (dy + (float) grid1) * (float) stride;
     float w = std::exp(dw) * (float) stride;
     float h = std::exp(dh) * (float) stride;
+    float x1 = ((cx - w / 2.f) - (float) dw_) / r_;
+    float y1 = ((cy - h / 2.f) - (float) dh_) / r_;
+    float x2 = ((cx + w / 2.f) - (float) dw_) / r_;
+    float y2 = ((cy + h / 2.f) - (float) dh_) / r_;
 
     types::Boxf box;
-    box.x1 = (cx - w / 2.f) * scale_width;
-    box.y1 = (cy - h / 2.f) * scale_height;
-    box.x2 = (cx + w / 2.f) * scale_width;
-    box.y2 = (cy + h / 2.f) * scale_height;
+    box.x1 = std::max(0.f, x1);
+    box.y1 = std::max(0.f, y1);
+    box.x2 = std::min(x2, (float) img_width);
+    box.y2 = std::min(y2, (float) img_height);
     box.score = conf;
     box.label = label;
     box.label_text = class_names[label];

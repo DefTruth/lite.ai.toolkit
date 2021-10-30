@@ -8,20 +8,55 @@
 
 using ortcv::YoloV5;
 
-Ort::Value YoloV5::transform(const cv::Mat &mat)
+Ort::Value YoloV5::transform(const cv::Mat &mat_rs)
 {
-  cv::Mat canva = mat.clone();
+  cv::Mat canva = mat_rs.clone();
   cv::cvtColor(canva, canva, cv::COLOR_BGR2RGB);
-  cv::resize(canva, canva, cv::Size(input_node_dims.at(3),
-                                    input_node_dims.at(2)));
+  // cv::resize(canva, canva, cv::Size(input_node_dims.at(3),
+  //                                   input_node_dims.at(2)));
   // (1,3,640,640) 1xCXHXW
-
   ortcv::utils::transform::normalize_inplace(canva, mean_val, scale_val); // float32
   return ortcv::utils::transform::create_tensor(
       canva, input_node_dims, memory_info_handler,
       input_values_handler, ortcv::utils::transform::CHW);
 }
 
+void YoloV5::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
+                            int target_height, int target_width,
+                            YoloV5ScaleParams &scale_params)
+{
+  if (mat.empty()) return;
+  int img_height = static_cast<int>(mat.rows);
+  int img_width = static_cast<int>(mat.cols);
+
+  mat_rs = cv::Mat(target_height, target_width, CV_8UC3,
+                   cv::Scalar(114, 114, 114));
+  // scale ratio (new / old) new_shape(h,w)
+  float w_r = (float) target_width / (float) img_width;
+  float h_r = (float) target_height / (float) img_height;
+  float r = std::min(w_r, h_r);
+  // compute padding
+  int new_unpad_w = static_cast<int>((float) img_width * r); // floor
+  int new_unpad_h = static_cast<int>((float) img_height * r); // floor
+  int pad_w = target_width - new_unpad_w; // >=0
+  int pad_h = target_height - new_unpad_h; // >=0
+
+  int dw = pad_w / 2;
+  int dh = pad_h / 2;
+
+  // resize with unscaling
+  cv::Mat new_unpad_mat = mat.clone();
+  cv::resize(new_unpad_mat, new_unpad_mat, cv::Size(new_unpad_w, new_unpad_h));
+  new_unpad_mat.copyTo(mat_rs(cv::Rect(dw, dh, new_unpad_w, new_unpad_h)));
+
+  // record scale params.
+  scale_params.r = r;
+  scale_params.dw = dw;
+  scale_params.dh = dh;
+  scale_params.new_unpad_w = new_unpad_w;
+  scale_params.new_unpad_h = new_unpad_h;
+  scale_params.flag = true;
+}
 
 void YoloV5::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
                     float score_threshold, float iou_threshold, unsigned int topk,
@@ -29,11 +64,18 @@ void YoloV5::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes
 {
   if (mat.empty()) return;
   // this->transform(mat);
-  float img_height = static_cast<float>(mat.rows);
-  float img_width = static_cast<float>(mat.cols);
+  const int input_height = input_node_dims.at(2);
+  const int input_width = input_node_dims.at(3);
+  int img_height = static_cast<int>(mat.rows);
+  int img_width = static_cast<int>(mat.cols);
+
+  // resize & unscale
+  cv::Mat mat_rs;
+  YoloV5ScaleParams scale_params;
+  this->resize_unscale(mat, mat_rs, input_height, input_width, scale_params);
 
   // 1. make input tensor
-  Ort::Value input_tensor = this->transform(mat);
+  Ort::Value input_tensor = this->transform(mat_rs);
   // 2. inference scores & boxes.
   auto output_tensors = ort_session->Run(
       Ort::RunOptions{nullptr}, input_node_names.data(),
@@ -41,25 +83,26 @@ void YoloV5::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes
   );
   // 3. rescale & exclude.
   std::vector<types::Boxf> bbox_collection;
-  this->generate_bboxes(bbox_collection, output_tensors, score_threshold, img_height, img_width);
+  this->generate_bboxes(scale_params, bbox_collection, output_tensors, score_threshold, img_height, img_width);
   // 4. hard|blend nms with topk.
   this->nms(bbox_collection, detected_boxes, iou_threshold, topk, nms_type);
 }
 
-void YoloV5::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
+void YoloV5::generate_bboxes(const YoloV5ScaleParams &scale_params,
+                             std::vector<types::Boxf> &bbox_collection,
                              std::vector<Ort::Value> &output_tensors,
-                             float score_threshold, float img_height,
-                             float img_width)
+                             float score_threshold, int img_height,
+                             int img_width)
 {
 
   Ort::Value &pred = output_tensors.at(0); // (1,n,85=5+80=cxcy+cwch+obj_conf+cls_conf)
   auto pred_dims = output_node_dims.at(0); // (1,n,85)
   const unsigned int num_anchors = pred_dims.at(1); // n = ?
   const unsigned int num_classes = pred_dims.at(2) - 5;
-  const float input_height = static_cast<float>(input_node_dims.at(2)); // e.g 640
-  const float input_width = static_cast<float>(input_node_dims.at(3)); // e.g 640
-  const float scale_height = img_height / input_height;
-  const float scale_width = img_width / input_width;
+
+  float r_ = scale_params.r;
+  int dw_ = scale_params.dw;
+  int dh_ = scale_params.dh;
 
   bbox_collection.clear();
   unsigned int count = 0;
@@ -86,12 +129,16 @@ void YoloV5::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
     float cy = pred.At<float>({0, i, 1});
     float w = pred.At<float>({0, i, 2});
     float h = pred.At<float>({0, i, 3});
+    float x1 = ((cx - w / 2.f) - (float) dw_) / r_;
+    float y1 = ((cy - h / 2.f) - (float) dh_) / r_;
+    float x2 = ((cx + w / 2.f) - (float) dw_) / r_;
+    float y2 = ((cy + h / 2.f) - (float) dh_) / r_;
 
     types::Boxf box;
-    box.x1 = (cx - w / 2.f) * scale_width;
-    box.y1 = (cy - h / 2.f) * scale_height;
-    box.x2 = (cx + w / 2.f) * scale_width;
-    box.y2 = (cy + h / 2.f) * scale_height;
+    box.x1 = std::max(0.f, x1);
+    box.y1 = std::max(0.f, y1);
+    box.x2 = std::min(x2, (float) img_width);
+    box.y2 = std::min(y2, (float) img_height);
     box.score = conf;
     box.label = label;
     box.label_text = class_names[label];
