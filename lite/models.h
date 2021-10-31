@@ -106,6 +106,7 @@
 #include "lite/ncnn/cv/ncnn_nanodet_depreciated.h"
 #include "lite/ncnn/cv/ncnn_nanodet_efficientdet_lite_depreciated.h"
 #include "lite/ncnn/cv/ncnn_rvm.h"
+#include "lite/ncnn/cv/ncnn_yolox.h"
 
 #endif
 
@@ -784,6 +785,7 @@ namespace lite
         typedef ncnncv::NCNNNanoDetEfficientNetLite NanoDetEfficientNetLite;
         typedef ncnncv::NCNNNanoDetDepreciated NanoDetDepreciated;
         typedef ncnncv::NCNNNanoDetEfficientNetLiteDepreciated NanoDetEfficientNetLiteDepreciated;
+        typedef ncnncv::NCNNYoloX YoloX;
       }
       // face etc.
       namespace face

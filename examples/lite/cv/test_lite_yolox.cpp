@@ -59,7 +59,7 @@ static void test_mnn()
   std::string test_img_path = "../../../examples/lite/resources/test_lite_yolox_2.jpg";
   std::string save_img_path = "../../../logs/test_lite_yolox_mnn_2.jpg";
 
-  // 2. Test Specific Engine MNN
+  // 3. Test Specific Engine MNN
   lite::mnn::cv::detection::YoloX *yolox =
       new lite::mnn::cv::detection::YoloX(mnn_path);
 
@@ -80,6 +80,26 @@ static void test_mnn()
 static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
+  std::string param_path = "../../../hub/ncnn/cv/yolox_s.opt.param";
+  std::string bin_path = "../../../hub/ncnn/cv/yolox_s.opt.bin";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_yolox_2.jpg";
+  std::string save_img_path = "../../../logs/test_lite_yolox_ncnn_2.jpg";
+
+  // 4. Test Specific Engine NCNN
+  lite::ncnn::cv::detection::YoloX *yolox =
+      new lite::ncnn::cv::detection::YoloX(param_path, bin_path);
+
+  std::vector<lite::types::Boxf> detected_boxes;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  yolox->detect(img_bgr, detected_boxes);
+
+  lite::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+
+  cv::imwrite(save_img_path, img_bgr);
+
+  std::cout << "NCNN Version Detected Boxes Num: " << detected_boxes.size() << std::endl;
+
+  delete yolox;
 #endif
 }
 
@@ -91,7 +111,7 @@ static void test_tnn()
   std::string test_img_path = "../../../examples/lite/resources/test_lite_yolox_2.jpg";
   std::string save_img_path = "../../../logs/test_lite_yolox_tnn_2.jpg";
 
-  // 2. Test Specific Engine TNN
+  // 5. Test Specific Engine TNN
   lite::tnn::cv::detection::YoloX *yolox =
       new lite::tnn::cv::detection::YoloX(proto_path, model_path);
 

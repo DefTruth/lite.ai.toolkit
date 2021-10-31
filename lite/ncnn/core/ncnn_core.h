@@ -8,6 +8,7 @@
 #include "ncnn_config.h"
 #include "ncnn_handler.h"
 #include "ncnn_types.h"
+#include "ncnn_custom.h"
 
 namespace ncnncv
 {
@@ -16,6 +17,7 @@ namespace ncnncv
   class LITE_EXPORTS NCNNNanoDetDepreciated;                     // [2] * reference: https://github.com/RangiLyu/nanodet
   class LITE_EXPORTS NCNNNanoDetEfficientNetLiteDepreciated;     // [3] * reference: https://github.com/RangiLyu/nanodet
   class LITE_EXPORTS NCNNRobustVideoMatting;                     // [4] * reference: https://github.com/PeterL1n/RobustVideoMatting
+  class LITE_EXPORTS NCNNYoloX;                                  // [5] * reference: https://github.com/Megvii-BaseDetection/YOLOX
 }
 
 namespace ncnncv
