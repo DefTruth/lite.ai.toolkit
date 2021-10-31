@@ -7,7 +7,8 @@
 
 #include "lite/ncnn/core/ncnn_core.h"
 
-namespace ncnncv {
+namespace ncnncv
+{
   typedef struct
   {
     float grid0;
