@@ -194,8 +194,8 @@ static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
   // WARNING: Test Failed!
-  std::string param_path = "../../../hub/ncnn/cv/yolop-640-640.opt.param";
-  std::string bin_path = "../../../hub/ncnn/cv/yolop-640-640.opt.bin";
+  std::string param_path = "../../../hub/ncnn/cv/yolop-opt.param";
+  std::string bin_path = "../../../hub/ncnn/cv/yolop-opt.bin";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_yolop.jpg";
   std::string save_det_path = "../../../logs/test_lite_yolop_det_ncnn.jpg";
   std::string save_da_path = "../../../logs/test_lite_yolop_da_ncnn.jpg";
@@ -211,7 +211,7 @@ static void test_ncnn()
   cv::Mat img_bgr = cv::imread(test_img_path);
   yolop->detect(img_bgr, detected_boxes, da_seg_content, ll_seg_content);
 
-  if (!detected_boxes.empty() && da_seg_content.flag && ll_seg_content.flag)
+  if (da_seg_content.flag && ll_seg_content.flag)
   {
     // boxes.
     cv::Mat img_det = img_bgr.clone();

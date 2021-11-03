@@ -100,7 +100,7 @@ void NCNNYOLOP::detect(const cv::Mat &mat,
   auto extractor = net->create_extractor();
   extractor.set_light_mode(false);  // default
   extractor.set_num_threads(num_threads);
-  extractor.input("images", input);
+  extractor.input("input", input);
   // 4. rescale & fetch da|ll seg.
   std::vector<types::Boxf> bbox_collection;
   this->generate_bboxes_da_ll(scale_params, extractor, bbox_collection,
@@ -119,12 +119,20 @@ void NCNNYOLOP::generate_bboxes_da_ll(const YOLOPScaleParams &scale_params,
                                       float img_width)
 {
   // (1,n,6=5+1=cxcy+cwch+obj_conf+cls_conf) (1,2,640,640) (1,2,640,640)
-  ncnn::Mat det_out, da_seg_out, ll_seg_out;
-  extractor.extract("det_out", det_out);
-  extractor.extract("drive_area_seg", da_seg_out);
-  extractor.extract("lane_line_seg", ll_seg_out);
+  ncnn::Mat det0, det1, det2,  da_seg_out, ll_seg_out;
+  extractor.extract("det0", det0);
+  extractor.extract("det1", det1);
+  extractor.extract("det2", det2);
+  extractor.extract("da", da_seg_out);
+  extractor.extract("ll", ll_seg_out);
 
-  const unsigned int num_anchors = det_out.h;
+  std::cout << det0.c << "," << det0.h << "," << det0.w << "\n";
+  std::cout << det1.c << "," << det1.h << "," << det1.w << "\n";
+  std::cout << det2.c << "," << det2.h << "," << det2.w << "\n";
+  std::cout << da_seg_out.c << "," << da_seg_out.h << "," << da_seg_out.w << "\n";
+  std::cout << ll_seg_out.c << "," << ll_seg_out.h << "," << ll_seg_out.w << "\n";
+
+  const unsigned int num_anchors = det0.h;
 
   float r = scale_params.r;
   int dw = scale_params.dw;
@@ -137,7 +145,7 @@ void NCNNYOLOP::generate_bboxes_da_ll(const YOLOPScaleParams &scale_params,
   unsigned int count = 0;
   for (unsigned int i = 0; i < num_anchors; ++i)
   {
-    const float *offset_obj_cls_ptr = (float *) det_out.data + (i * 6);
+    const float *offset_obj_cls_ptr = (float *) det0.data + (i * 6);
     float obj_conf = offset_obj_cls_ptr[4];
     if (obj_conf < score_threshold) continue; // filter first.
 
@@ -185,10 +193,10 @@ void NCNNYOLOP::generate_bboxes_da_ll(const YOLOPScaleParams &scale_params,
   ll_seg_content.color_mat = cv::Mat(new_unpad_h, new_unpad_w, CV_8UC3, cv::Scalar(0, 0, 0));
 
   const unsigned int channel_step = input_height * input_width;
-  const float *da_seg_bg_ptr = (float *) da_seg_out.channel(0); // background
-  const float *da_seg_fg_ptr = (float *) da_seg_out.channel(1); // foreground
-  const float *ll_seg_bg_ptr = (float *) ll_seg_out.channel(0); // background
-  const float *ll_seg_fg_ptr = (float *) ll_seg_out.channel(1); // foreground
+  const float *da_seg_bg_ptr = (float *) da_seg_out.data; // background
+  const float *da_seg_fg_ptr = (float *) da_seg_out.data + channel_step; // foreground
+  const float *ll_seg_bg_ptr = (float *) ll_seg_out.data; // background
+  const float *ll_seg_fg_ptr = (float *) ll_seg_out.data + channel_step; // foreground
 
   std::cout << *da_seg_bg_ptr << "\n";
 
@@ -208,7 +216,7 @@ void NCNNYOLOP::generate_bboxes_da_ll(const YOLOPScaleParams &scale_params,
       float da_fg_prob = da_seg_fg_ptr[i * input_height + j];
       float ll_bg_prob = ll_seg_bg_ptr[i * input_height + j];
       float ll_fg_prob = ll_seg_fg_ptr[i * input_height + j];
-      // std::cout << da_fg_prob << "," << da_bg_prob << "\n";
+      std::cout << da_fg_prob << "," << da_bg_prob << "\n";
       unsigned int da_label = da_bg_prob < da_fg_prob ? 1 : 0;
       unsigned int ll_label = ll_bg_prob < ll_fg_prob ? 1 : 0;
 
