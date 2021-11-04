@@ -144,13 +144,17 @@ void MNNYOLOP::generate_bboxes_da_ll(const YOLOPScaleParams &scale_params,
     float cy = offset_obj_cls_ptr[1];
     float w = offset_obj_cls_ptr[2];
     float h = offset_obj_cls_ptr[3];
+    float x1 = ((cx - w / 2.f) - (float) dw) / r;
+    float y1 = ((cy - h / 2.f) - (float) dh) / r;
+    float x2 = ((cx + w / 2.f) - (float) dw) / r;
+    float y2 = ((cy + h / 2.f) - (float) dh) / r;
 
     types::Boxf box;
     // de-padding & rescaling
-    box.x1 = ((cx - w / 2.f) - (float) dw) / r;
-    box.y1 = ((cy - h / 2.f) - (float) dh) / r;
-    box.x2 = ((cx + w / 2.f) - (float) dw) / r;
-    box.y2 = ((cy + h / 2.f) - (float) dh) / r;
+    box.x1 = std::max(0.f, x1);
+    box.y1 = std::max(0.f, y1);
+    box.x2 = std::min(x2, (float) img_width);
+    box.y2 = std::min(y2, (float) img_height);
     box.score = conf;
     box.label = label;
     box.label_text = "traffic car";

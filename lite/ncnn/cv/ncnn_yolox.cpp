@@ -18,11 +18,11 @@ NCNNYoloX::NCNNYoloX(const std::string &_param_path,
     input_height(_input_height), input_width(_input_width)
 {
   net = new ncnn::Net();
+  // init net, change this setting for better performance.
   net->opt.use_fp16_arithmetic = false;
   net->opt.use_vulkan_compute = false; // default
   // setup Focus in yolov5
   net->register_custom_layer("YoloV5Focus", YoloV5Focus_layer_creator);
-  // init net, change this setting for better performance.
   net->load_param(param_path);
   net->load_model(bin_path);
 #ifdef LITENCNN_DEBUG
