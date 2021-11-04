@@ -193,7 +193,6 @@ static void test_mnn()
 static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
-  // WARNING: Test Failed!
   std::string param_path = "../../../hub/ncnn/cv/yolop-640-640.opt.param";
   std::string bin_path = "../../../hub/ncnn/cv/yolop-640-640.opt.bin";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_yolop.jpg";
