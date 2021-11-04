@@ -110,6 +110,11 @@ void NCNNYOLOP::detect(const cv::Mat &mat,
   this->nms(bbox_collection, detected_boxes, iou_threshold, topk, nms_type);
 }
 
+void NCNNYOLOP::generate_anchors(unsigned int target_height, unsigned int target_width)
+{
+
+}
+
 void NCNNYOLOP::generate_bboxes_da_ll(const YOLOPScaleParams &scale_params,
                                       ncnn::Extractor &extractor,
                                       std::vector<types::Boxf> &bbox_collection,
@@ -119,7 +124,7 @@ void NCNNYOLOP::generate_bboxes_da_ll(const YOLOPScaleParams &scale_params,
                                       float img_width)
 {
   // (1,n,6=5+1=cxcy+cwch+obj_conf+cls_conf) (1,2,640,640) (1,2,640,640)
-  ncnn::Mat det0, det1, det2,  da_seg_out, ll_seg_out;
+  ncnn::Mat det0, det1, det2, da_seg_out, ll_seg_out;
   extractor.extract("det0", det0);
   extractor.extract("det1", det1);
   extractor.extract("det2", det2);
@@ -262,6 +267,14 @@ void NCNNYOLOP::generate_bboxes_da_ll(const YOLOPScaleParams &scale_params,
 
   da_seg_content.flag = true;
   ll_seg_content.flag = true;
+
+}
+
+void NCNNYOLOP::generate_bboxes_single_stride(
+    const YOLOPScaleParams &scale_params, ncnn::Mat &det_pred, unsigned int stride,
+    float score_threshold, float img_height, float img_width,
+    std::vector<types::Boxf> &bbox_collection)
+{
 
 }
 

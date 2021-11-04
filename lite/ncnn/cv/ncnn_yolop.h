@@ -11,6 +11,15 @@ namespace ncnncv
 {
   typedef struct
   {
+    int grid0;
+    int grid1;
+    int stride;
+    float width;
+    float height;
+  } YOLOPAnchor;
+
+  typedef struct
+  {
     float r;
     int dw;
     int dh;
@@ -54,6 +63,10 @@ namespace ncnncv
     };
     static constexpr const unsigned int max_nms = 30000;
 
+    std::vector<unsigned int> strides = {8, 16, 32};
+    std::unordered_map<unsigned int, std::vector<YOLOPAnchor>> center_anchors;
+    bool center_anchors_is_update = false;
+
   protected:
     NCNNYOLOP(const NCNNYOLOP &) = delete; //
     NCNNYOLOP(NCNNYOLOP &&) = delete; //
@@ -70,6 +83,17 @@ namespace ncnncv
                         int target_height,
                         int target_width,
                         YOLOPScaleParams &scale_params);
+
+    // only generate once
+    void generate_anchors(unsigned int target_height, unsigned int target_width);
+
+    void generate_bboxes_single_stride(const YOLOPScaleParams &scale_params,
+                                       ncnn::Mat &det_pred,
+                                       unsigned int stride,
+                                       float score_threshold,
+                                       float img_height,
+                                       float img_width,
+                                       std::vector<types::Boxf> &bbox_collection);
 
     void generate_bboxes_da_ll(const YOLOPScaleParams &scale_params,
                                ncnn::Extractor &extractor,
