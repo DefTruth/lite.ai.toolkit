@@ -100,7 +100,7 @@ void NCNNYOLOP::detect(const cv::Mat &mat,
   auto extractor = net->create_extractor();
   extractor.set_light_mode(false);  // default
   extractor.set_num_threads(num_threads);
-  extractor.input("input", input);
+  extractor.input("images", input);
   // 4. rescale & fetch da|ll seg.
   std::vector<types::Boxf> bbox_collection;
   this->generate_bboxes_da_ll(scale_params, extractor, bbox_collection,
@@ -112,7 +112,153 @@ void NCNNYOLOP::detect(const cv::Mat &mat,
 
 void NCNNYOLOP::generate_anchors(unsigned int target_height, unsigned int target_width)
 {
+  if (center_anchors_is_update) return;
 
+  for (auto stride : strides)
+  {
+    unsigned int num_grid_w = target_width / stride;
+    unsigned int num_grid_h = target_height / stride;
+    std::vector<YOLOPAnchor> anchors;
+
+    if (stride == 8)
+    {
+      // 0 anchor
+      for (unsigned int g1 = 0; g1 < num_grid_h; ++g1)
+      {
+        for (unsigned int g0 = 0; g0 < num_grid_w; ++g0)
+        {
+          YOLOPAnchor anchor;
+          anchor.grid0 = g0;
+          anchor.grid1 = g1;
+          anchor.stride = stride;
+          anchor.width = 3.f;
+          anchor.height = 9.f;
+          anchors.push_back(anchor);
+        }
+      }
+      // 1 anchor
+      for (unsigned int g1 = 0; g1 < num_grid_h; ++g1)
+      {
+        for (unsigned int g0 = 0; g0 < num_grid_w; ++g0)
+        {
+          YOLOPAnchor anchor;
+          anchor.grid0 = g0;
+          anchor.grid1 = g1;
+          anchor.stride = stride;
+          anchor.width = 5.f;
+          anchor.height = 11.f;
+          anchors.push_back(anchor);
+        }
+      }
+      // 2 anchor
+      for (unsigned int g1 = 0; g1 < num_grid_h; ++g1)
+      {
+        for (unsigned int g0 = 0; g0 < num_grid_w; ++g0)
+        {
+          YOLOPAnchor anchor;
+          anchor.grid0 = g0;
+          anchor.grid1 = g1;
+          anchor.stride = stride;
+          anchor.width = 4.f;
+          anchor.height = 20.f;
+          anchors.push_back(anchor);
+        }
+      }
+    } // 16
+    else if (stride == 16)
+    {
+      // 0 anchor
+      for (unsigned int g1 = 0; g1 < num_grid_h; ++g1)
+      {
+        for (unsigned int g0 = 0; g0 < num_grid_w; ++g0)
+        {
+          YOLOPAnchor anchor;
+          anchor.grid0 = g0;
+          anchor.grid1 = g1;
+          anchor.stride = stride;
+          anchor.width = 7.f;
+          anchor.height = 18.f;
+          anchors.push_back(anchor);
+        }
+      }
+      // 1 anchor
+      for (unsigned int g1 = 0; g1 < num_grid_h; ++g1)
+      {
+        for (unsigned int g0 = 0; g0 < num_grid_w; ++g0)
+        {
+          YOLOPAnchor anchor;
+          anchor.grid0 = g0;
+          anchor.grid1 = g1;
+          anchor.stride = stride;
+          anchor.width = 6.f;
+          anchor.height = 39.f;
+          anchors.push_back(anchor);
+        }
+      }
+      // 2 anchor
+      for (unsigned int g1 = 0; g1 < num_grid_h; ++g1)
+      {
+        for (unsigned int g0 = 0; g0 < num_grid_w; ++g0)
+        {
+          YOLOPAnchor anchor;
+          anchor.grid0 = g0;
+          anchor.grid1 = g1;
+          anchor.stride = stride;
+          anchor.width = 12.f;
+          anchor.height = 31.f;
+          anchors.push_back(anchor);
+        }
+      }
+    } // 32
+    else
+    {
+      // 0 anchor
+      for (unsigned int g1 = 0; g1 < num_grid_h; ++g1)
+      {
+        for (unsigned int g0 = 0; g0 < num_grid_w; ++g0)
+        {
+          YOLOPAnchor anchor;
+          anchor.grid0 = g0;
+          anchor.grid1 = g1;
+          anchor.stride = stride;
+          anchor.width = 19.f;
+          anchor.height = 50.f;
+          anchors.push_back(anchor);
+        }
+      }
+      // 1 anchor
+      for (unsigned int g1 = 0; g1 < num_grid_h; ++g1)
+      {
+        for (unsigned int g0 = 0; g0 < num_grid_w; ++g0)
+        {
+          YOLOPAnchor anchor;
+          anchor.grid0 = g0;
+          anchor.grid1 = g1;
+          anchor.stride = stride;
+          anchor.width = 38.f;
+          anchor.height = 81.f;
+          anchors.push_back(anchor);
+        }
+      }
+      // 2 anchor
+      for (unsigned int g1 = 0; g1 < num_grid_h; ++g1)
+      {
+        for (unsigned int g0 = 0; g0 < num_grid_w; ++g0)
+        {
+          YOLOPAnchor anchor;
+          anchor.grid0 = g0;
+          anchor.grid1 = g1;
+          anchor.stride = stride;
+          anchor.width = 68.f;
+          anchor.height = 157.f;
+          anchors.push_back(anchor);
+        }
+      }
+    }
+    center_anchors[stride] = anchors;
+  }
+
+  center_anchors_is_update = true;
 }
 
 void NCNNYOLOP::generate_bboxes_da_ll(const YOLOPScaleParams &scale_params,
@@ -124,71 +270,31 @@ void NCNNYOLOP::generate_bboxes_da_ll(const YOLOPScaleParams &scale_params,
                                       float img_width)
 {
   // (1,n,6=5+1=cxcy+cwch+obj_conf+cls_conf) (1,2,640,640) (1,2,640,640)
-  ncnn::Mat det0, det1, det2, da_seg_out, ll_seg_out;
-  extractor.extract("det0", det0);
-  extractor.extract("det1", det1);
-  extractor.extract("det2", det2);
-  extractor.extract("da", da_seg_out);
-  extractor.extract("ll", ll_seg_out);
+  ncnn::Mat det_stride_8, det_stride_16, det_stride_32, da_seg_out, ll_seg_out;
+  extractor.extract("det_stride_8", det_stride_8);
+  extractor.extract("det_stride_16", det_stride_16);
+  extractor.extract("det_stride_32", det_stride_32);
+  extractor.extract("drive_area_seg", da_seg_out);
+  extractor.extract("lane_line_seg", ll_seg_out);
 
-  std::cout << det0.c << "," << det0.h << "," << det0.w << "\n";
-  std::cout << det1.c << "," << det1.h << "," << det1.w << "\n";
-  std::cout << det2.c << "," << det2.h << "," << det2.w << "\n";
-  std::cout << da_seg_out.c << "," << da_seg_out.h << "," << da_seg_out.w << "\n";
-  std::cout << ll_seg_out.c << "," << ll_seg_out.h << "," << ll_seg_out.w << "\n";
+  this->generate_anchors(input_height, input_width);
 
-  const unsigned int num_anchors = det0.h;
+  // generate bounding boxes.
+  bbox_collection.clear();
+  this->generate_bboxes_single_stride(scale_params, det_stride_8, 8, score_threshold,
+                                      img_height, img_width, bbox_collection);
+  this->generate_bboxes_single_stride(scale_params, det_stride_16, 16, score_threshold,
+                                      img_height, img_width, bbox_collection);
+  this->generate_bboxes_single_stride(scale_params, det_stride_32, 32, score_threshold,
+                                      img_height, img_width, bbox_collection);
+#if LITENCNN_DEBUG
+  std::cout << "generate_bboxes num: " << bbox_collection.size() << "\n";
+#endif
 
-  float r = scale_params.r;
   int dw = scale_params.dw;
   int dh = scale_params.dh;
   int new_unpad_w = scale_params.new_unpad_w;
   int new_unpad_h = scale_params.new_unpad_h;
-
-  // generate bounding boxes.
-  bbox_collection.clear();
-  unsigned int count = 0;
-  for (unsigned int i = 0; i < num_anchors; ++i)
-  {
-    const float *offset_obj_cls_ptr = (float *) det0.data + (i * 6);
-    float obj_conf = offset_obj_cls_ptr[4];
-    if (obj_conf < score_threshold) continue; // filter first.
-
-    unsigned int label = 1;  // 1 class only
-    float cls_conf = offset_obj_cls_ptr[5];
-    float conf = obj_conf * cls_conf; // cls_conf (0.,1.)
-    if (conf < score_threshold) continue; // filter
-
-    float cx = offset_obj_cls_ptr[0];
-    float cy = offset_obj_cls_ptr[1];
-    float w = offset_obj_cls_ptr[2];
-    float h = offset_obj_cls_ptr[3];
-    float x1 = ((cx - w / 2.f) - (float) dw) / r;
-    float y1 = ((cy - h / 2.f) - (float) dh) / r;
-    float x2 = ((cx + w / 2.f) - (float) dw) / r;
-    float y2 = ((cy + h / 2.f) - (float) dh) / r;
-
-    types::Boxf box;
-    // de-padding & rescaling
-    box.x1 = std::max(0.f, x1);
-    box.y1 = std::max(0.f, y1);
-    box.x2 = std::min(x2, (float) img_width);
-    box.y2 = std::min(y2, (float) img_height);
-    box.score = conf;
-    box.label = label;
-    box.label_text = "traffic car";
-    box.flag = true;
-    bbox_collection.push_back(box);
-
-    count += 1; // limit boxes for nms.
-    if (count > max_nms)
-      break;
-  }
-#if LITENCNN_DEBUG
-  std::cout << "detected num_anchors: " << num_anchors << "\n";
-  std::cout << "generate_bboxes num: " << bbox_collection.size() << "\n";
-#endif
-
   // generate da && ll seg.
   da_seg_content.names_map.clear();
   da_seg_content.class_mat = cv::Mat(new_unpad_h, new_unpad_w, CV_8UC1, cv::Scalar(0));
@@ -202,9 +308,6 @@ void NCNNYOLOP::generate_bboxes_da_ll(const YOLOPScaleParams &scale_params,
   const float *da_seg_fg_ptr = (float *) da_seg_out.data + channel_step; // foreground
   const float *ll_seg_bg_ptr = (float *) ll_seg_out.data; // background
   const float *ll_seg_fg_ptr = (float *) ll_seg_out.data + channel_step; // foreground
-
-  std::cout << *da_seg_bg_ptr << "\n";
-
 
   for (int i = dh; i < dh + new_unpad_h; ++i)
   {
@@ -221,7 +324,6 @@ void NCNNYOLOP::generate_bboxes_da_ll(const YOLOPScaleParams &scale_params,
       float da_fg_prob = da_seg_fg_ptr[i * input_height + j];
       float ll_bg_prob = ll_seg_bg_ptr[i * input_height + j];
       float ll_fg_prob = ll_seg_fg_ptr[i * input_height + j];
-      std::cout << da_fg_prob << "," << da_bg_prob << "\n";
       unsigned int da_label = da_bg_prob < da_fg_prob ? 1 : 0;
       unsigned int ll_label = ll_bg_prob < ll_fg_prob ? 1 : 0;
 
@@ -270,11 +372,92 @@ void NCNNYOLOP::generate_bboxes_da_ll(const YOLOPScaleParams &scale_params,
 
 }
 
-void NCNNYOLOP::generate_bboxes_single_stride(
-    const YOLOPScaleParams &scale_params, ncnn::Mat &det_pred, unsigned int stride,
-    float score_threshold, float img_height, float img_width,
-    std::vector<types::Boxf> &bbox_collection)
+static inline float sigmoid(float x)
 {
+  return static_cast<float>(1.f / (1.f + std::exp(-x)));
+}
+
+// reference: https://github.com/Tencent/ncnn/blob/master/examples/yolov5.cpp
+void NCNNYOLOP::generate_bboxes_single_stride(const YOLOPScaleParams &scale_params,
+                                              ncnn::Mat &det_pred,
+                                              unsigned int stride,
+                                              float score_threshold,
+                                              float img_height,
+                                              float img_width,
+                                              std::vector<types::Boxf> &bbox_collection)
+{
+  unsigned int nms_pre_ = (stride / 8) * nms_pre; // 1 * 1000,2*1000,...
+  nms_pre_ = nms_pre_ >= nms_pre ? nms_pre_ : nms_pre;
+
+  const unsigned int f_h = (unsigned int) input_height / stride;
+  const unsigned int f_w = (unsigned int) input_height / stride;
+  // e.g, 3*80*80 + 3*40*40 + 3*20*20 = 25200
+  const unsigned int num_anchors = 3 * f_h * f_w;
+
+  float r_ = scale_params.r;
+  int dw_ = scale_params.dw;
+  int dh_ = scale_params.dh;
+
+  // have c=3 indicate 3 anchors at one grid
+  unsigned int count = 0;
+  auto &stride_anchors = center_anchors[stride];
+
+  for (unsigned int i = 0; i < num_anchors; ++i)
+  {
+    const float *offset_obj_cls_ptr = (float *) det_pred.data + (i * 6);
+    float obj_conf = sigmoid(offset_obj_cls_ptr[4]);
+    if (obj_conf < score_threshold) continue; // filter first.
+
+    unsigned int label = 1;  // 1 class only
+    float cls_conf = sigmoid(offset_obj_cls_ptr[5]);
+    float conf = obj_conf * cls_conf; // cls_conf (0.,1.)
+    if (conf < score_threshold) continue; // filter
+
+    int grid0 = stride_anchors.at(i).grid0; // w
+    int grid1 = stride_anchors.at(i).grid1; // h
+    float anchor_w = stride_anchors.at(i).width;
+    float anchor_h = stride_anchors.at(i).height;
+
+    float dx = sigmoid(offset_obj_cls_ptr[0]);
+    float dy = sigmoid(offset_obj_cls_ptr[1]);
+    float dw = sigmoid(offset_obj_cls_ptr[2]);
+    float dh = sigmoid(offset_obj_cls_ptr[3]);
+
+    float cx = (dx * 2.f - 0.5f + (float)grid0) * (float)stride;
+    float cy = (dy * 2.f - 0.5f + (float)grid1) * (float)stride;
+    float w = std::pow(dw * 2.f, 2) * anchor_w;
+    float h = std::pow(dh * 2.f, 2) * anchor_h;
+
+    float x1 = ((cx - w / 2.f) - (float) dw_) / r_;
+    float y1 = ((cy - h / 2.f) - (float) dh_) / r_;
+    float x2 = ((cx + w / 2.f) - (float) dw_) / r_;
+    float y2 = ((cy + h / 2.f) - (float) dh_) / r_;
+
+    types::Boxf box;
+    // de-padding & rescaling
+    box.x1 = std::max(0.f, x1);
+    box.y1 = std::max(0.f, y1);
+    box.x2 = std::min(x2, (float) img_width);
+    box.y2 = std::min(y2, (float) img_height);
+    box.score = conf;
+    box.label = label;
+    box.label_text = "traffic car";
+    box.flag = true;
+    bbox_collection.push_back(box);
+
+    count += 1; // limit boxes for nms.
+    if (count > max_nms)
+      break;
+  }
+
+  if (bbox_collection.size() > nms_pre_)
+  {
+    std::sort(bbox_collection.begin(), bbox_collection.end(),
+              [](const types::Boxf &a, const types::Boxf &b)
+              { return a.score > b.score; }); // sort inplace
+    // trunc
+    bbox_collection.resize(nms_pre_);
+  }
 
 }
 

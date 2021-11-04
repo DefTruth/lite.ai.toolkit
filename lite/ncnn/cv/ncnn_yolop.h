@@ -61,6 +61,7 @@ namespace ncnncv
     {
       HARD = 0, BLEND = 1, OFFSET = 2
     };
+    static constexpr const unsigned int nms_pre = 1000;
     static constexpr const unsigned int max_nms = 30000;
 
     std::vector<unsigned int> strides = {8, 16, 32};
