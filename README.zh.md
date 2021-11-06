@@ -63,7 +63,7 @@
 * ⚡ *少量依赖，构建容易。* 目前, 默认只依赖 *OpenCV* 和 *ONNXRuntime*，详见[build](#lite.ai.toolkit-Build-Lite.AI.ToolKit)。
 * ❤️ *众多的算法模块，且持续更新。* 目前，包括 10+ 算法模块、*[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* 流行的开源模型以及 *[300+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)*  *.onnx/.mnn/.param&bin(ncnn)/.tnnmodel&tnnproto* 权重文件., 涵盖[目标检测](#lite.ai.toolkit-object-detection)、[人脸检测](#lite.ai.toolkit-face-detection)、[人脸识别](#lite.ai.toolkit-face-recognition)、[语义分割](#lite.ai.toolkit-segmentation)、[抠图](#lite.ai.toolkit-matting)等领域。详见 [Model Zoo](#lite.ai.toolkit-Model-Zoo) 和 [lite.ai.toolkit.hub.onnx.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md) 。更多的新模型将会不断地加入进来 ~ 😎
 
-<p align="center"> 其实本来也没打算整这么一个库，后来写得多了，分开管理很麻烦，要不就捏在一起吧。❤️所以⭐️🌟什么的就随缘吧~ 🙃🤪🍀 </p>
+<p align="center"> 其实本来也没打算整一个库，后来写得多了，分开管理很麻烦，要不就捏在一起吧。<br> ❤️所以⭐️🌟什么的就随缘吧~ 🙃🤪🍀 </p>
 
 <!----  
 * ✅ *多平台编译支持，GPU/CPU支持。* 目前，支持 [MacOS/Linux/Windows](#lite.ai.toolkit-Introduction) 和 CPU/GPU。
