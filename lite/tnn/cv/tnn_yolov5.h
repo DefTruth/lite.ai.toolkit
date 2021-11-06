@@ -73,6 +73,6 @@ namespace tnncv
                 float score_threshold = 0.25f, float iou_threshold = 0.45f,
                 unsigned int topk = 100, unsigned int nms_type = NMS::OFFSET);
 
-  }
-
+  };
+}
 #endif //LITE_AI_TOOLKIT_TNN_CV_TNN_YOLOV5_H
