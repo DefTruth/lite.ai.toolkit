@@ -26,3 +26,4 @@ test_lite_yolop_da_tnn.jpg
 test_lite_yolop_ll_tnn.jpg
 test_lite_yolop_det_tnn.jpg
 test_lite_yolop_merge_tnn.jpg
+test_lite_yolox_v0.1.1*

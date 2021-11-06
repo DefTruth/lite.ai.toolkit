@@ -110,6 +110,12 @@ You can download all the pretrained models files of ONNX format from ([Baidu Dri
 | *lite::cv::detection::NanoDetEfficientNetLite* |    nanodet-EfficientNet-Lite0_320.onnx     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 12Mb  |
 | *lite::cv::detection::NanoDetEfficientNetLite* |    nanodet-EfficientNet-Lite1_416.onnx     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 15Mb  |
 | *lite::cv::detection::NanoDetEfficientNetLite* |    nanodet-EfficientNet-Lite2_512.onnx     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 18Mb  |
+|     *lite::cv::detection::YoloX_V_0_1_1*      |          yolox_x_v0.1.1.onnx           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 378Mb |
+|     *lite::cv::detection::YoloX_V_0_1_1*      |          yolox_l_v0.1.1.onnx           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 207Mb |
+|     *lite::cv::detection::YoloX_V_0_1_1*      |          yolox_m_v0.1.1.onnx           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 97Mb  |
+|     *lite::cv::detection::YoloX_V_0_1_1*      |          yolox_s_v0.1.1.onnx           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 34Mb  |
+|     *lite::cv::detection::YoloX_V_0_1_1*      |         yolox_tiny_v0.1.1.onnx         |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 19Mb  |
+|     *lite::cv::detection::YoloX_V_0_1_1*      |         yolox_nano_v0.1.1.onnx         |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 3.5Mb |
 
 
 ## Classification.  

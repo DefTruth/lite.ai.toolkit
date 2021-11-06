@@ -1,38 +1,28 @@
 //
-// Created by DefTruth on 2021/10/17.
+// Created by DefTruth on 2021/11/6.
 //
 
-#include "tnn_yolox.h"
+#include "yolox_v0.1.1.h"
+#include "lite/ort/core/ort_utils.h"
 #include "lite/utils.h"
 
-using tnncv::TNNYoloX;
+using ortcv::YoloX_V_0_1_1;
 
-TNNYoloX::TNNYoloX(const std::string &_proto_path,
-                   const std::string &_model_path,
-                   unsigned int _num_threads) :
-    BasicTNNHandler(_proto_path, _model_path, _num_threads)
-
+Ort::Value YoloX_V_0_1_1::transform(const cv::Mat &mat_rs)
 {
+  cv::Mat canva;
+  cv::cvtColor(mat_rs, canva, cv::COLOR_BGR2RGB);
+  // There is no normalization for the latest official C++ implementation of
+  // v0.1.1 YOLOX model using ncnn. Reference:
+  // [1] https://github.com/Megvii-BaseDetection/YOLOX/blob/main/demo/ncnn/cpp/yolox.cpp
+  return ortcv::utils::transform::create_tensor(
+      canva, input_node_dims, memory_info_handler,
+      input_values_handler, ortcv::utils::transform::CHW);
 }
 
-void TNNYoloX::transform(const cv::Mat &mat_rs)
-{
-  cv::Mat canvas;
-  cv::cvtColor(mat_rs, canvas, cv::COLOR_BGR2RGB);
-  // push into input_mat
-  input_mat = std::make_shared<tnn::Mat>(input_device_type, tnn::N8UC3,
-                                         input_shape, (void *)canvas.data);
-  if (!input_mat->GetData())
-  {
-#ifdef LITETNN_DEBUG
-    std::cout << "input_mat == nullptr! transform failed\n";
-#endif
-  }
-}
-
-void TNNYoloX::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
-                              int target_height, int target_width,
-                              YoloXScaleParams &scale_params)
+void YoloX_V_0_1_1::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
+                                   int target_height, int target_width,
+                                   YoloXScaleParams &scale_params)
 {
   if (mat.empty()) return;
   int img_height = static_cast<int>(mat.rows);
@@ -67,70 +57,65 @@ void TNNYoloX::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
   scale_params.flag = true;
 }
 
-void TNNYoloX::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
-                      float score_threshold, float iou_threshold,
-                      unsigned int topk, unsigned int nms_type)
+void YoloX_V_0_1_1::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
+                           float score_threshold, float iou_threshold,
+                           unsigned int topk, unsigned int nms_type)
 {
   if (mat.empty()) return;
+  const int input_height = input_node_dims.at(2);
+  const int input_width = input_node_dims.at(3);
   int img_height = static_cast<int>(mat.rows);
   int img_width = static_cast<int>(mat.cols);
+
   // resize & unscale
   cv::Mat mat_rs;
   YoloXScaleParams scale_params;
   this->resize_unscale(mat, mat_rs, input_height, input_width, scale_params);
 
   // 1. make input tensor
-  this->transform(mat_rs);
-  // 2. set input_mat
-  tnn::MatConvertParam input_cvt_param;
-  input_cvt_param.scale = scale_vals;
-  input_cvt_param.bias = bias_vals;
-
-  tnn::Status status;
-  status = instance->SetInputMat(input_mat, input_cvt_param);
-  if (status != tnn::TNN_OK)
-  {
-#ifdef LITETNN_DEBUG
-    std::cout << "instance->SetInputMat failed!:"
-              << status.description().c_str() << "\n";
-#endif
-    return;
-  }
-
-  // 3. forward
-  status = instance->Forward();
-  if (status != tnn::TNN_OK)
-  {
-#ifdef LITETNN_DEBUG
-    std::cout << "instance->Forward failed!:"
-              << status.description().c_str() << "\n";
-#endif
-    return;
-  }
-  // 4. fetch output mat
-  std::shared_ptr<tnn::Mat> pred_mat;
-  tnn::MatConvertParam pred_cvt_param; // default
-
-  status = instance->GetOutputMat(pred_mat, pred_cvt_param, "outputs", output_device_type);
-  if (status != tnn::TNN_OK)
-  {
-#ifdef LITETNN_DEBUG
-    std::cout << "instance->GetOutputMat failed!:"
-              << status.description().c_str() << "\n";
-#endif
-    return;
-  }
-  // 5. rescale & exclude.
+  Ort::Value input_tensor = this->transform(mat_rs);
+  // 2. inference scores & boxes.
+  auto output_tensors = ort_session->Run(
+      Ort::RunOptions{nullptr}, input_node_names.data(),
+      &input_tensor, 1, output_node_names.data(), num_outputs
+  );
+  // 3. rescale & exclude.
   std::vector<types::Boxf> bbox_collection;
-  this->generate_bboxes(scale_params, bbox_collection, pred_mat, score_threshold, img_height, img_width);
-  // 6. hard|blend|offset nms with topk.
+  this->generate_bboxes(scale_params, bbox_collection, output_tensors, score_threshold, img_height, img_width);
+  // 4. hard|blend|offset nms with topk.
   this->nms(bbox_collection, detected_boxes, iou_threshold, topk, nms_type);
 }
 
-void TNNYoloX::generate_anchors(const int target_height,
-                                const int target_width,
-                                std::vector<int> &strides,
-                                std::vector<YoloXAnchor> &anchors)
+// Issue: https://github.com/DefTruth/lite.ai/issues/9
+// Note!!!: The implementation of Anchor generation in Lite.AI is slightly different
+// with the official one in order to fix the inference error for non-square input shape.
+// Official: https://github.com/Megvii-BaseDetection/YOLOX/blob/main/demo/ncnn/cpp/yolox.cpp
+/** Official implementation. It assumes that the input shape must be a square.
+ *  When you use the YOLOX model that was trained by yourself, but the input tensor of
+ *  the model is not square, you will encounter an error. So, I decided to extend the
+ *  official implementation for compatibility with square and non-square input.
+ *
+ * static void generate_grids_and_stride(const int target_size, std::vector<int>& strides,
+ *                                       std::vector<GridAndStride>& grid_strides)
+ * {
+ *  for (auto stride : strides)
+ *  {
+ *       int num_grid = target_size / stride;
+ *       for (int g1 = 0; g1 < num_grid; g1++)
+ *       {
+ *           for (int g0 = 0; g0 < num_grid; g0++)
+ *           {
+ *               grid_strides.push_back((GridAndStride){g0, g1, stride});
+ *           }
+ *       }
+ *   }
+ * }
+ */
+
+void YoloX_V_0_1_1::generate_anchors(const int target_height,
+                                     const int target_width,
+                                     std::vector<int> &strides,
+                                     std::vector<YoloXAnchor> &anchors)
 {
   for (auto stride : strides)
   {
@@ -154,15 +139,19 @@ void TNNYoloX::generate_anchors(const int target_height,
   }
 }
 
-void TNNYoloX::generate_bboxes(const YoloXScaleParams &scale_params,
-                               std::vector<types::Boxf> &bbox_collection,
-                               const std::shared_ptr<tnn::Mat> &pred_mat,
-                               float score_threshold, int img_height,
-                               int img_width)
+
+void YoloX_V_0_1_1::generate_bboxes(const YoloXScaleParams &scale_params,
+                                    std::vector<types::Boxf> &bbox_collection,
+                                    std::vector<Ort::Value> &output_tensors,
+                                    float score_threshold, int img_height,
+                                    int img_width)
 {
-  auto pred_dims = pred_mat->GetDims();
+  Ort::Value &pred = output_tensors.at(0); // (1,n,85=5+80=cxcy+cwch+obj_conf+cls_conf)
+  auto pred_dims = output_node_dims.at(0); // (1,n,85)
   const unsigned int num_anchors = pred_dims.at(1); // n = ?
   const unsigned int num_classes = pred_dims.at(2) - 5;
+  const float input_height = static_cast<float>(input_node_dims.at(2)); // e.g 640
+  const float input_width = static_cast<float>(input_node_dims.at(3)); // e.g 640
 
   std::vector<YoloXAnchor> anchors;
   std::vector<int> strides = {8, 16, 32}; // might have stride=64
@@ -176,23 +165,20 @@ void TNNYoloX::generate_bboxes(const YoloXScaleParams &scale_params,
   unsigned int count = 0;
   for (unsigned int i = 0; i < num_anchors; ++i)
   {
-    const float *offset_obj_cls_ptr =
-        (float *) pred_mat->GetData() + (i * (num_classes + 5));
-    float obj_conf = offset_obj_cls_ptr[4];
+    float obj_conf = pred.At<float>({0, i, 4});
     if (obj_conf < score_threshold) continue; // filter first.
 
-    float cls_conf = offset_obj_cls_ptr[5];
+    float cls_conf = pred.At<float>({0, i, 5});
     unsigned int label = 0;
     for (unsigned int j = 0; j < num_classes; ++j)
     {
-      float tmp_conf = offset_obj_cls_ptr[j + 5];
+      float tmp_conf = pred.At<float>({0, i, j + 5});
       if (tmp_conf > cls_conf)
       {
         cls_conf = tmp_conf;
         label = j;
       }
     } // argmax
-
     float conf = obj_conf * cls_conf; // cls_conf (0.,1.)
     if (conf < score_threshold) continue; // filter
 
@@ -200,10 +186,10 @@ void TNNYoloX::generate_bboxes(const YoloXScaleParams &scale_params,
     const int grid1 = anchors.at(i).grid1;
     const int stride = anchors.at(i).stride;
 
-    float dx = offset_obj_cls_ptr[0];
-    float dy = offset_obj_cls_ptr[1];
-    float dw = offset_obj_cls_ptr[2];
-    float dh = offset_obj_cls_ptr[3];
+    float dx = pred.At<float>({0, i, 0});
+    float dy = pred.At<float>({0, i, 1});
+    float dw = pred.At<float>({0, i, 2});
+    float dh = pred.At<float>({0, i, 3});
 
     float cx = (dx + (float) grid0) * (float) stride;
     float cy = (dy + (float) grid1) * (float) stride;
@@ -229,37 +215,19 @@ void TNNYoloX::generate_bboxes(const YoloXScaleParams &scale_params,
     if (count > max_nms)
       break;
   }
-#if LITETNN_DEBUG
+#if LITEORT_DEBUG
   std::cout << "detected num_anchors: " << num_anchors << "\n";
   std::cout << "generate_bboxes num: " << bbox_collection.size() << "\n";
 #endif
 }
 
-void TNNYoloX::nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
-                   float iou_threshold, unsigned int topk,
-                   unsigned int nms_type)
+
+void YoloX_V_0_1_1::nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
+                        float iou_threshold, unsigned int topk, unsigned int nms_type)
 {
   if (nms_type == NMS::BLEND) lite::utils::blending_nms(input, output, iou_threshold, topk);
   else if (nms_type == NMS::OFFSET) lite::utils::offset_nms(input, output, iou_threshold, topk);
   else lite::utils::hard_nms(input, output, iou_threshold, topk);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

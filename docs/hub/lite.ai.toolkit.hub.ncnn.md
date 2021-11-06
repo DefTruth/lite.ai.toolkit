@@ -41,6 +41,13 @@ You can download all the pretrained models files of NCNN format from ([Baidu Dri
 | *lite::ncnn::cv::detection::NanoDetEfficientNetLiteDepreciated* |    nanodet-EfficientNet-Lite0_320-depreciated-opt.param&bin     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 12Mb  |
 | *lite::ncnn::cv::detection::NanoDetEfficientNetLiteDepreciated* |    nanodet-EfficientNet-Lite1_416-depreciated-opt.param&bin     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 15Mb  |
 | *lite::ncnn::cv::detection::NanoDetEfficientNetLiteDepreciated* |    nanodet-EfficientNet-Lite2_512-depreciated-opt.param&bin     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 18Mb  |
+|     *lite::ncnn::cv::detection::YoloX_V_0_1_1*      |          yolox_x_v0.1.1.opt.param&bin           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 378Mb |
+|     *lite::ncnn::cv::detection::YoloX_V_0_1_1*      |          yolox_l_v0.1.1.opt.param&bin           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 207Mb |
+|     *lite::ncnn::cv::detection::YoloX_V_0_1_1*      |          yolox_m_v0.1.1.opt.param&bin           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 97Mb  |
+|     *lite::ncnn::cv::detection::YoloX_V_0_1_1*      |          yolox_s_v0.1.1.opt.param&bin           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 34Mb  |
+|     *lite::ncnn::cv::detection::YoloX_V_0_1_1*      |         yolox_tiny_v0.1.1.opt.param&bin         |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 19Mb  |
+|     *lite::ncnn::cv::detection::YoloX_V_0_1_1*      |         yolox_nano_v0.1.1.opt.param&bin         |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 3.5Mb |
+
 
 ## Matting.
 

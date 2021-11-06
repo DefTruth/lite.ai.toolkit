@@ -1,38 +1,50 @@
 //
-// Created by DefTruth on 2021/10/17.
+// Created by DefTruth on 2021/11/6.
 //
 
-#include "tnn_yolox.h"
+#include "ncnn_yolox_v0.1.1.h"
 #include "lite/utils.h"
 
-using tnncv::TNNYoloX;
+using ncnncv::NCNNYoloX_V_0_1_1;
 
-TNNYoloX::TNNYoloX(const std::string &_proto_path,
-                   const std::string &_model_path,
-                   unsigned int _num_threads) :
-    BasicTNNHandler(_proto_path, _model_path, _num_threads)
 
+NCNNYoloX_V_0_1_1::NCNNYoloX_V_0_1_1(const std::string &_param_path,
+                                     const std::string &_bin_path,
+                                     unsigned int _num_threads,
+                                     int _input_height,
+                                     int _input_width) :
+    log_id(_param_path.data()), param_path(_param_path.data()),
+    bin_path(_bin_path.data()), num_threads(_num_threads),
+    input_height(_input_height), input_width(_input_width)
 {
-}
-
-void TNNYoloX::transform(const cv::Mat &mat_rs)
-{
-  cv::Mat canvas;
-  cv::cvtColor(mat_rs, canvas, cv::COLOR_BGR2RGB);
-  // push into input_mat
-  input_mat = std::make_shared<tnn::Mat>(input_device_type, tnn::N8UC3,
-                                         input_shape, (void *)canvas.data);
-  if (!input_mat->GetData())
-  {
-#ifdef LITETNN_DEBUG
-    std::cout << "input_mat == nullptr! transform failed\n";
+  net = new ncnn::Net();
+  // init net, change this setting for better performance.
+  net->opt.use_fp16_arithmetic = false;
+  net->opt.use_vulkan_compute = false; // default
+  // setup Focus in yolov5
+  net->register_custom_layer("YoloV5Focus", YoloV5Focus_layer_creator);
+  net->load_param(param_path);
+  net->load_model(bin_path);
+#ifdef LITENCNN_DEBUG
+  this->print_debug_string();
 #endif
-  }
 }
 
-void TNNYoloX::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
-                              int target_height, int target_width,
-                              YoloXScaleParams &scale_params)
+NCNNYoloX_V_0_1_1::~NCNNYoloX_V_0_1_1()
+{
+  if (net) delete net;
+  net = nullptr;
+}
+
+void NCNNYoloX_V_0_1_1::transform(const cv::Mat &mat_rs, ncnn::Mat &in)
+{
+  // BGR NHWC -> RGB NCHW
+  in = ncnn::Mat::from_pixels(mat_rs.data, ncnn::Mat::PIXEL_BGR2RGB, input_width, input_height);
+}
+
+void NCNNYoloX_V_0_1_1::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
+                                       int target_height, int target_width,
+                                       YoloXScaleParams &scale_params)
 {
   if (mat.empty()) return;
   int img_height = static_cast<int>(mat.rows);
@@ -67,9 +79,9 @@ void TNNYoloX::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
   scale_params.flag = true;
 }
 
-void TNNYoloX::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
-                      float score_threshold, float iou_threshold,
-                      unsigned int topk, unsigned int nms_type)
+void NCNNYoloX_V_0_1_1::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
+                               float score_threshold, float iou_threshold,
+                               unsigned int topk, unsigned int nms_type)
 {
   if (mat.empty()) return;
   int img_height = static_cast<int>(mat.rows);
@@ -80,57 +92,24 @@ void TNNYoloX::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_box
   this->resize_unscale(mat, mat_rs, input_height, input_width, scale_params);
 
   // 1. make input tensor
-  this->transform(mat_rs);
-  // 2. set input_mat
-  tnn::MatConvertParam input_cvt_param;
-  input_cvt_param.scale = scale_vals;
-  input_cvt_param.bias = bias_vals;
-
-  tnn::Status status;
-  status = instance->SetInputMat(input_mat, input_cvt_param);
-  if (status != tnn::TNN_OK)
-  {
-#ifdef LITETNN_DEBUG
-    std::cout << "instance->SetInputMat failed!:"
-              << status.description().c_str() << "\n";
-#endif
-    return;
-  }
-
-  // 3. forward
-  status = instance->Forward();
-  if (status != tnn::TNN_OK)
-  {
-#ifdef LITETNN_DEBUG
-    std::cout << "instance->Forward failed!:"
-              << status.description().c_str() << "\n";
-#endif
-    return;
-  }
-  // 4. fetch output mat
-  std::shared_ptr<tnn::Mat> pred_mat;
-  tnn::MatConvertParam pred_cvt_param; // default
-
-  status = instance->GetOutputMat(pred_mat, pred_cvt_param, "outputs", output_device_type);
-  if (status != tnn::TNN_OK)
-  {
-#ifdef LITETNN_DEBUG
-    std::cout << "instance->GetOutputMat failed!:"
-              << status.description().c_str() << "\n";
-#endif
-    return;
-  }
-  // 5. rescale & exclude.
+  ncnn::Mat input;
+  this->transform(mat_rs, input);
+  // 2. inference & extract
+  auto extractor = net->create_extractor();
+  extractor.set_light_mode(false);  // default
+  extractor.set_num_threads(num_threads);
+  extractor.input("images", input);
+  // 3.rescale & exclude.
   std::vector<types::Boxf> bbox_collection;
-  this->generate_bboxes(scale_params, bbox_collection, pred_mat, score_threshold, img_height, img_width);
-  // 6. hard|blend|offset nms with topk.
+  this->generate_bboxes(scale_params, bbox_collection, extractor, score_threshold, img_height, img_width);
+  // 4. hard|blend|offset nms with topk.
   this->nms(bbox_collection, detected_boxes, iou_threshold, topk, nms_type);
 }
 
-void TNNYoloX::generate_anchors(const int target_height,
-                                const int target_width,
-                                std::vector<int> &strides,
-                                std::vector<YoloXAnchor> &anchors)
+void NCNNYoloX_V_0_1_1::generate_anchors(const int target_height,
+                                         const int target_width,
+                                         std::vector<int> &strides,
+                                         std::vector<YoloXAnchor> &anchors)
 {
   for (auto stride : strides)
   {
@@ -154,15 +133,17 @@ void TNNYoloX::generate_anchors(const int target_height,
   }
 }
 
-void TNNYoloX::generate_bboxes(const YoloXScaleParams &scale_params,
-                               std::vector<types::Boxf> &bbox_collection,
-                               const std::shared_ptr<tnn::Mat> &pred_mat,
-                               float score_threshold, int img_height,
-                               int img_width)
+void NCNNYoloX_V_0_1_1::generate_bboxes(const YoloXScaleParams &scale_params,
+                                        std::vector<types::Boxf> &bbox_collection,
+                                        ncnn::Extractor &extractor,
+                                        float score_threshold, int img_height,
+                                        int img_width)
 {
-  auto pred_dims = pred_mat->GetDims();
-  const unsigned int num_anchors = pred_dims.at(1); // n = ?
-  const unsigned int num_classes = pred_dims.at(2) - 5;
+  ncnn::Mat outputs;
+  extractor.extract("output", outputs); // (1,n=?,85=5+80=cxcy+cwch+obj_conf+cls_conf)
+
+  const unsigned int num_anchors = outputs.h;
+  const unsigned int num_classes = outputs.w - 5;
 
   std::vector<YoloXAnchor> anchors;
   std::vector<int> strides = {8, 16, 32}; // might have stride=64
@@ -174,10 +155,11 @@ void TNNYoloX::generate_bboxes(const YoloXScaleParams &scale_params,
 
   bbox_collection.clear();
   unsigned int count = 0;
+
   for (unsigned int i = 0; i < num_anchors; ++i)
   {
     const float *offset_obj_cls_ptr =
-        (float *) pred_mat->GetData() + (i * (num_classes + 5));
+        (float *) outputs.data + (i * (num_classes + 5)); // row ptr
     float obj_conf = offset_obj_cls_ptr[4];
     if (obj_conf < score_threshold) continue; // filter first.
 
@@ -229,15 +211,15 @@ void TNNYoloX::generate_bboxes(const YoloXScaleParams &scale_params,
     if (count > max_nms)
       break;
   }
-#if LITETNN_DEBUG
+#if LITENCNN_DEBUG
   std::cout << "detected num_anchors: " << num_anchors << "\n";
   std::cout << "generate_bboxes num: " << bbox_collection.size() << "\n";
 #endif
 }
 
-void TNNYoloX::nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
-                   float iou_threshold, unsigned int topk,
-                   unsigned int nms_type)
+void NCNNYoloX_V_0_1_1::nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
+                            float iou_threshold, unsigned int topk,
+                            unsigned int nms_type)
 {
   if (nms_type == NMS::BLEND) lite::utils::blending_nms(input, output, iou_threshold, topk);
   else if (nms_type == NMS::OFFSET) lite::utils::offset_nms(input, output, iou_threshold, topk);
@@ -245,13 +227,40 @@ void TNNYoloX::nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &ou
 }
 
 
+void NCNNYoloX_V_0_1_1::print_debug_string()
+{
+  std::cout << "LITENCNN_DEBUG LogId: " << log_id << "\n";
+  input_indexes = net->input_indexes();
+  output_indexes = net->output_indexes();
+#ifdef NCNN_STRING
+  input_names = net->input_names();
+  output_names = net->output_names();
+#endif
+  std::cout << "=============== Input-Dims ==============\n";
+  for (int i = 0; i < input_indexes.size(); ++i)
+  {
+    std::cout << "Input: ";
+    auto tmp_in_blob = net->blobs().at(input_indexes.at(i));
+#ifdef NCNN_STRING
+    std::cout << input_names.at(i) << ": ";
+#endif
+    std::cout << "shape: c=" << tmp_in_blob.shape.c
+              << " h=" << tmp_in_blob.shape.h << " w=" << tmp_in_blob.shape.w << "\n";
+  }
 
-
-
-
-
-
-
+  std::cout << "=============== Output-Dims ==============\n";
+  for (int i = 0; i < output_indexes.size(); ++i)
+  {
+    auto tmp_out_blob = net->blobs().at(output_indexes.at(i));
+    std::cout << "Output: ";
+#ifdef NCNN_STRING
+    std::cout << output_names.at(i) << ": ";
+#endif
+    std::cout << "shape: c=" << tmp_out_blob.shape.c
+              << " h=" << tmp_out_blob.shape.h << " w=" << tmp_out_blob.shape.w << "\n";
+  }
+  std::cout << "========================================\n";
+}
 
 
 

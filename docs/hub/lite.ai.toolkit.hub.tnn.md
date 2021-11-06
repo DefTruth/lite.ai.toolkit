@@ -32,6 +32,13 @@ You can download all the pretrained models files of TNN format from ([Baidu Driv
 | *lite::tnn::cv::detection::NanoDetEfficientNetLite* |    nanodet-EfficientNet-Lite0_320.opt.tnnproto&tnnmodel     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 12Mb  |
 | *lite::tnn::cv::detection::NanoDetEfficientNetLite* |    nanodet-EfficientNet-Lite1_416.opt.tnnproto&tnnmodel     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 15Mb  |
 | *lite::tnn::cv::detection::NanoDetEfficientNetLite* |    nanodet-EfficientNet-Lite2_512.opt.tnnproto&tnnmodel     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 18Mb  |
+|     *lite::tnn::cv::detection::YoloX_V_0_1_1*      |          yolox_x_v0.1.1.opt.tnnproto&tnnmodel           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 378Mb |
+|     *lite::tnn::cv::detection::YoloX_V_0_1_1*      |          yolox_l_v0.1.1.opt.tnnproto&tnnmodel           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 207Mb |
+|     *lite::tnn::cv::detection::YoloX_V_0_1_1*      |          yolox_m_v0.1.1.opt.tnnproto&tnnmodel           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 97Mb  |
+|     *lite::tnn::cv::detection::YoloX_V_0_1_1*      |          yolox_s_v0.1.1.opt.tnnproto&tnnmodel           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 34Mb  |
+|     *lite::tnn::cv::detection::YoloX_V_0_1_1*      |         yolox_tiny_v0.1.1.opt.tnnproto&tnnmodel         |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 19Mb  |
+|     *lite::tnn::cv::detection::YoloX_V_0_1_1*      |         yolox_nano_v0.1.1.opt.tnnproto&tnnmodel         |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 3.5Mb |
+
 
 ## Matting.
 

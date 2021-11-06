@@ -90,7 +90,7 @@ namespace ortcv
   class LITE_EXPORTS RobustVideoMatting;         // [75] * reference: https://github.com/PeterL1n/RobustVideoMatting
   class LITE_EXPORTS NanoDet;                    // [76] * reference: https://github.com/RangiLyu/nanodet
   class LITE_EXPORTS NanoDetEfficientNetLite;    // [77] * reference: https://github.com/RangiLyu/nanodet
-  class LITE_EXPORTS YoloXLatest;                // [78] * reference: https://github.com/Megvii-BaseDetection/YOLOX
+  class LITE_EXPORTS YoloX_V_0_1_1;              // [78] * reference: https://github.com/Megvii-BaseDetection/YOLOX
 
 }
 
