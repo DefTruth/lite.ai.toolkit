@@ -8,6 +8,10 @@ You can download all the pretrained models files of TNN format from ([Baidu Driv
 
 |                 Class                 |      Pretrained TNN Files      |              Rename or Converted From (Repo)              | Size  |
 | :-----------------------------------: | :-----------------------------: | :-------------------------------------------------------: | :---: |
+|     *lite::tnn::cv::detection::YoloV5*     |          yolov5l.opt.tnnproto&tnnmodel            |      [yolov5](https://github.com/ultralytics/yolov5)      | 188Mb |
+|     *lite::tnn::cv::detection::YoloV5*     |          yolov5m.opt.tnnproto&tnnmodel            |      [yolov5](https://github.com/ultralytics/yolov5)      | 85Mb  |
+|     *lite::tnn::cv::detection::YoloV5*     |          yolov5s.opt.tnnproto&tnnmodel            |      [yolov5](https://github.com/ultralytics/yolov5)      | 29Mb  |
+|     *lite::tnn::cv::detection::YoloV5*     |          yolov5x.opt.tnnproto&tnnmodel            |      [yolov5](https://github.com/ultralytics/yolov5)      | 351Mb |  
 |     *lite::tnn::cv::detection::YoloX*      |          yolox_x.opt.tnnproto&tnnmodel           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 378Mb |
 |     *lite::tnn::cv::detection::YoloX*      |          yolox_l.opt.tnnproto&tnnmodel           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 207Mb |
 |     *lite::tnn::cv::detection::YoloX*      |          yolox_m.opt.tnnproto&tnnmodel           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 97Mb  |

@@ -28,6 +28,10 @@ You can download all the pretrained models files of MNN format from ([Baidu Driv
 |     *lite::mnn::cv::detection::YOLOP*      |       yolop-320-320.mnn           |  [YOLOP](https://github.com/hustvl/YOLOP)   | 30Mb  |
 |     *lite::mnn::cv::detection::YOLOP*      |       yolop-640-640.mnn         |  [YOLOP](https://github.com/hustvl/YOLOP)   | 30Mb  |
 |     *lite::mnn::cv::detection::YOLOP*      |       yolop-1280-1280.mnn         |  [YOLOP](https://github.com/hustvl/YOLOP)   | 30Mb |
+|     *lite::mnn::cv::detection::YoloV5*     |          yolov5l.mnn            |      [yolov5](https://github.com/ultralytics/yolov5)      | 188Mb |
+|     *lite::mnn::cv::detection::YoloV5*     |          yolov5m.mnn            |      [yolov5](https://github.com/ultralytics/yolov5)      | 85Mb  |
+|     *lite::mnn::cv::detection::YoloV5*     |          yolov5s.mnn            |      [yolov5](https://github.com/ultralytics/yolov5)      | 29Mb  |
+|     *lite::mnn::cv::detection::YoloV5*     |          yolov5x.mnn            |      [yolov5](https://github.com/ultralytics/yolov5)      | 351Mb | 
 
 
 ## Matting.
