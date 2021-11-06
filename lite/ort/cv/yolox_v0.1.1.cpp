@@ -1,35 +1,28 @@
 //
-// Created by DefTruth on 2021/7/20.
+// Created by DefTruth on 2021/11/6.
 //
 
-#include "yolox.h"
+#include "yolox_v0.1.1.h"
 #include "lite/ort/core/ort_utils.h"
 #include "lite/utils.h"
 
-using ortcv::YoloX;
+using ortcv::YoloX_V_0_1_1;
 
-Ort::Value YoloX::transform(const cv::Mat &mat_rs)
+Ort::Value YoloX_V_0_1_1::transform(const cv::Mat &mat_rs)
 {
   cv::Mat canva;
   cv::cvtColor(mat_rs, canva, cv::COLOR_BGR2RGB);
-  // resize without padding, (Done): add padding as the official Python implementation.
-  // cv::resize(canva, canva, cv::Size(input_node_dims.at(3),
-  //                                  input_node_dims.at(2)));
-  // (1,3,640,640) 1xCXHXW
-  ortcv::utils::transform::normalize_inplace(canva, mean_vals, scale_vals); // float32
-  // Note !!!: Comment out this line if you use the newest YOLOX model.
-  // There is no normalization for the newest official C++ implementation
-  // using ncnn. Reference:
+  // There is no normalization for the latest official C++ implementation of
+  // v0.1.1 YOLOX model using ncnn. Reference:
   // [1] https://github.com/Megvii-BaseDetection/YOLOX/blob/main/demo/ncnn/cpp/yolox.cpp
-  // ortcv::utils::transform::normalize_inplace(canva, mean_vals, scale_vals); // float32
   return ortcv::utils::transform::create_tensor(
       canva, input_node_dims, memory_info_handler,
       input_values_handler, ortcv::utils::transform::CHW);
 }
 
-void YoloX::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
-                           int target_height, int target_width,
-                           YoloXScaleParams &scale_params)
+void YoloX_V_0_1_1::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
+                                   int target_height, int target_width,
+                                   YoloXScaleParams &scale_params)
 {
   if (mat.empty()) return;
   int img_height = static_cast<int>(mat.rows);
@@ -64,9 +57,9 @@ void YoloX::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
   scale_params.flag = true;
 }
 
-void YoloX::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
-                   float score_threshold, float iou_threshold,
-                   unsigned int topk, unsigned int nms_type)
+void YoloX_V_0_1_1::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
+                           float score_threshold, float iou_threshold,
+                           unsigned int topk, unsigned int nms_type)
 {
   if (mat.empty()) return;
   const int input_height = input_node_dims.at(2);
@@ -119,10 +112,10 @@ void YoloX::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
  * }
  */
 
-void YoloX::generate_anchors(const int target_height,
-                             const int target_width,
-                             std::vector<int> &strides,
-                             std::vector<YoloXAnchor> &anchors)
+void YoloX_V_0_1_1::generate_anchors(const int target_height,
+                                     const int target_width,
+                                     std::vector<int> &strides,
+                                     std::vector<YoloXAnchor> &anchors)
 {
   for (auto stride : strides)
   {
@@ -147,11 +140,11 @@ void YoloX::generate_anchors(const int target_height,
 }
 
 
-void YoloX::generate_bboxes(const YoloXScaleParams &scale_params,
-                            std::vector<types::Boxf> &bbox_collection,
-                            std::vector<Ort::Value> &output_tensors,
-                            float score_threshold, int img_height,
-                            int img_width)
+void YoloX_V_0_1_1::generate_bboxes(const YoloXScaleParams &scale_params,
+                                    std::vector<types::Boxf> &bbox_collection,
+                                    std::vector<Ort::Value> &output_tensors,
+                                    float score_threshold, int img_height,
+                                    int img_width)
 {
   Ort::Value &pred = output_tensors.at(0); // (1,n,85=5+80=cxcy+cwch+obj_conf+cls_conf)
   auto pred_dims = output_node_dims.at(0); // (1,n,85)
@@ -229,8 +222,8 @@ void YoloX::generate_bboxes(const YoloXScaleParams &scale_params,
 }
 
 
-void YoloX::nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
-                float iou_threshold, unsigned int topk, unsigned int nms_type)
+void YoloX_V_0_1_1::nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
+                        float iou_threshold, unsigned int topk, unsigned int nms_type)
 {
   if (nms_type == NMS::BLEND) lite::utils::blending_nms(input, output, iou_threshold, topk);
   else if (nms_type == NMS::OFFSET) lite::utils::offset_nms(input, output, iou_threshold, topk);

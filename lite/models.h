@@ -80,6 +80,7 @@
 #include "lite/ort/cv/rvm.h"
 #include "lite/ort/cv/nanodet.h"
 #include "lite/ort/cv/nanodet_efficientnet_lite.h"
+#include "lite/ort/cv/yolox_v0.1.1.h"
 
 #endif
 
@@ -201,6 +202,7 @@ namespace lite
     typedef ortcv::RobustVideoMatting _RobustVideoMatting;
     typedef ortcv::NanoDet _NanoDet;
     typedef ortcv::NanoDetEfficientNetLite _NanoDetEfficientNetLite;
+    typedef ortcv::YoloX_V_0_1_1 _YoloX_V_0_1_1;
 #endif
 
     // 1. classification
@@ -240,6 +242,7 @@ namespace lite
       typedef _YOLOP YOLOP;
       typedef _NanoDet NanoDet;
       typedef _NanoDetEfficientNetLite NanoDetEfficientNetLite;
+      typedef _YoloX_V_0_1_1 YoloX_V_0_1_1;
 #endif
     }
     // 3. face detection & facial attributes detection
@@ -536,6 +539,7 @@ namespace lite
       typedef ortcv::RobustVideoMatting _ONNXRobustVideoMatting;
       typedef ortcv::NanoDet _ONNXNanoDet;
       typedef ortcv::NanoDetEfficientNetLite _ONNXNanoDetEfficientNetLite;
+      typedef ortcv::YoloX_V_0_1_1 _ONNXYoloX_V_0_1_1;
 
 
       // 1. classification
@@ -572,6 +576,7 @@ namespace lite
         typedef _ONNXYOLOP YOLOP;
         typedef _ONNXNanoDet NanoDet;
         typedef _ONNXNanoDetEfficientNetLite NanoDetEfficientNetLite;
+        typedef _ONNXYoloX_V_0_1_1 YoloX_V_0_1_1;
       }
       // 3. face detection & facial attributes detection
       namespace face
