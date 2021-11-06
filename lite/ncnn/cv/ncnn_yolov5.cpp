@@ -1,17 +1,17 @@
 //
-// Created by DefTruth on 2021/10/18.
+// Created by DefTruth on 2021/11/6.
 //
 
-#include "ncnn_yolop.h"
+#include "ncnn_yolov5.h"
 #include "lite/utils.h"
 
-using ncnncv::NCNNYOLOP;
+using ncnncv::NCNNYoloV5;
 
-NCNNYOLOP::NCNNYOLOP(const std::string &_param_path,
-                     const std::string &_bin_path,
-                     unsigned int _num_threads,
-                     int _input_height,
-                     int _input_width) :
+NCNNYoloV5::NCNNYoloV5(const std::string &_param_path,
+                       const std::string &_bin_path,
+                       unsigned int _num_threads,
+                       int _input_height,
+                       int _input_width) :
     log_id(_param_path.data()), param_path(_param_path.data()),
     bin_path(_bin_path.data()), num_threads(_num_threads),
     input_height(_input_height), input_width(_input_width)
@@ -29,22 +29,22 @@ NCNNYOLOP::NCNNYOLOP(const std::string &_param_path,
 #endif
 }
 
-NCNNYOLOP::~NCNNYOLOP()
+NCNNYoloV5::~NCNNYoloV5()
 {
   if (net) delete net;
   net = nullptr;
 }
 
-void NCNNYOLOP::transform(const cv::Mat &mat_rs, ncnn::Mat &in)
+void NCNNYoloV5::transform(const cv::Mat &mat_rs, ncnn::Mat &in)
 {
   // BGR NHWC -> RGB NCHW
   in = ncnn::Mat::from_pixels(mat_rs.data, ncnn::Mat::PIXEL_BGR2RGB, input_width, input_height);
   in.substract_mean_normalize(mean_vals, norm_vals);
 }
 
-void NCNNYOLOP::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
-                               int target_height, int target_width,
-                               YOLOPScaleParams &scale_params)
+void NCNNYoloV5::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
+                                int target_height, int target_width,
+                                YoloV5ScaleParams &scale_params)
 {
   if (mat.empty()) return;
   int img_height = static_cast<int>(mat.rows);
@@ -79,12 +79,10 @@ void NCNNYOLOP::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
   scale_params.flag = true;
 }
 
-void NCNNYOLOP::detect(const cv::Mat &mat,
-                       std::vector<types::Boxf> &detected_boxes,
-                       types::SegmentContent &da_seg_content,
-                       types::SegmentContent &ll_seg_content,
-                       float score_threshold, float iou_threshold,
-                       unsigned int topk, unsigned int nms_type)
+void NCNNYoloV5::detect(const cv::Mat &mat,
+                        std::vector<types::Boxf> &detected_boxes,
+                        float score_threshold, float iou_threshold,
+                        unsigned int topk, unsigned int nms_type)
 {
   if (mat.empty()) return;
   int img_height = static_cast<int>(mat.rows);
@@ -103,14 +101,13 @@ void NCNNYOLOP::detect(const cv::Mat &mat,
   extractor.input("images", input);
   // 4. rescale & fetch da|ll seg.
   std::vector<types::Boxf> bbox_collection;
-  this->generate_bboxes_da_ll(scale_params, extractor, bbox_collection,
-                              da_seg_content, ll_seg_content, score_threshold,
-                              img_height, img_width);
+  this->generate_bboxes(scale_params, extractor, bbox_collection,
+                        score_threshold, img_height, img_width);
   // 5. hard|blend nms with topk.
   this->nms(bbox_collection, detected_boxes, iou_threshold, topk, nms_type);
 }
 
-void NCNNYOLOP::generate_anchors(unsigned int target_height, unsigned int target_width)
+void NCNNYoloV5::generate_anchors(unsigned int target_height, unsigned int target_width)
 {
   if (center_anchors_is_update) return;
 
@@ -118,7 +115,7 @@ void NCNNYOLOP::generate_anchors(unsigned int target_height, unsigned int target
   {
     unsigned int num_grid_w = target_width / stride;
     unsigned int num_grid_h = target_height / stride;
-    std::vector<YOLOPAnchor> anchors;
+    std::vector<YoloV5Anchor> anchors;
 
     if (stride == 8)
     {
@@ -127,12 +124,12 @@ void NCNNYOLOP::generate_anchors(unsigned int target_height, unsigned int target
       {
         for (unsigned int g0 = 0; g0 < num_grid_w; ++g0)
         {
-          YOLOPAnchor anchor;
+          YoloV5Anchor anchor;
           anchor.grid0 = g0;
           anchor.grid1 = g1;
           anchor.stride = stride;
-          anchor.width = 3.f;
-          anchor.height = 9.f;
+          anchor.width = 10.f;
+          anchor.height = 13.f;
           anchors.push_back(anchor);
         }
       }
@@ -141,12 +138,12 @@ void NCNNYOLOP::generate_anchors(unsigned int target_height, unsigned int target
       {
         for (unsigned int g0 = 0; g0 < num_grid_w; ++g0)
         {
-          YOLOPAnchor anchor;
+          YoloV5Anchor anchor;
           anchor.grid0 = g0;
           anchor.grid1 = g1;
           anchor.stride = stride;
-          anchor.width = 5.f;
-          anchor.height = 11.f;
+          anchor.width = 16.f;
+          anchor.height = 30.f;
           anchors.push_back(anchor);
         }
       }
@@ -155,12 +152,12 @@ void NCNNYOLOP::generate_anchors(unsigned int target_height, unsigned int target
       {
         for (unsigned int g0 = 0; g0 < num_grid_w; ++g0)
         {
-          YOLOPAnchor anchor;
+          YoloV5Anchor anchor;
           anchor.grid0 = g0;
           anchor.grid1 = g1;
           anchor.stride = stride;
-          anchor.width = 4.f;
-          anchor.height = 20.f;
+          anchor.width = 33.f;
+          anchor.height = 23.f;
           anchors.push_back(anchor);
         }
       }
@@ -172,12 +169,12 @@ void NCNNYOLOP::generate_anchors(unsigned int target_height, unsigned int target
       {
         for (unsigned int g0 = 0; g0 < num_grid_w; ++g0)
         {
-          YOLOPAnchor anchor;
+          YoloV5Anchor anchor;
           anchor.grid0 = g0;
           anchor.grid1 = g1;
           anchor.stride = stride;
-          anchor.width = 7.f;
-          anchor.height = 18.f;
+          anchor.width = 30.f;
+          anchor.height = 61.f;
           anchors.push_back(anchor);
         }
       }
@@ -186,12 +183,12 @@ void NCNNYOLOP::generate_anchors(unsigned int target_height, unsigned int target
       {
         for (unsigned int g0 = 0; g0 < num_grid_w; ++g0)
         {
-          YOLOPAnchor anchor;
+          YoloV5Anchor anchor;
           anchor.grid0 = g0;
           anchor.grid1 = g1;
           anchor.stride = stride;
-          anchor.width = 6.f;
-          anchor.height = 39.f;
+          anchor.width = 62.f;
+          anchor.height = 45.f;
           anchors.push_back(anchor);
         }
       }
@@ -200,12 +197,12 @@ void NCNNYOLOP::generate_anchors(unsigned int target_height, unsigned int target
       {
         for (unsigned int g0 = 0; g0 < num_grid_w; ++g0)
         {
-          YOLOPAnchor anchor;
+          YoloV5Anchor anchor;
           anchor.grid0 = g0;
           anchor.grid1 = g1;
           anchor.stride = stride;
-          anchor.width = 12.f;
-          anchor.height = 31.f;
+          anchor.width = 59.f;
+          anchor.height = 119.f;
           anchors.push_back(anchor);
         }
       }
@@ -217,12 +214,12 @@ void NCNNYOLOP::generate_anchors(unsigned int target_height, unsigned int target
       {
         for (unsigned int g0 = 0; g0 < num_grid_w; ++g0)
         {
-          YOLOPAnchor anchor;
+          YoloV5Anchor anchor;
           anchor.grid0 = g0;
           anchor.grid1 = g1;
           anchor.stride = stride;
-          anchor.width = 19.f;
-          anchor.height = 50.f;
+          anchor.width = 116.f;
+          anchor.height = 90.f;
           anchors.push_back(anchor);
         }
       }
@@ -231,12 +228,12 @@ void NCNNYOLOP::generate_anchors(unsigned int target_height, unsigned int target
       {
         for (unsigned int g0 = 0; g0 < num_grid_w; ++g0)
         {
-          YOLOPAnchor anchor;
+          YoloV5Anchor anchor;
           anchor.grid0 = g0;
           anchor.grid1 = g1;
           anchor.stride = stride;
-          anchor.width = 38.f;
-          anchor.height = 81.f;
+          anchor.width = 156.f;
+          anchor.height = 198.f;
           anchors.push_back(anchor);
         }
       }
@@ -245,12 +242,12 @@ void NCNNYOLOP::generate_anchors(unsigned int target_height, unsigned int target
       {
         for (unsigned int g0 = 0; g0 < num_grid_w; ++g0)
         {
-          YOLOPAnchor anchor;
+          YoloV5Anchor anchor;
           anchor.grid0 = g0;
           anchor.grid1 = g1;
           anchor.stride = stride;
-          anchor.width = 68.f;
-          anchor.height = 157.f;
+          anchor.width = 373.f;
+          anchor.height = 326.f;
           anchors.push_back(anchor);
         }
       }
@@ -261,21 +258,17 @@ void NCNNYOLOP::generate_anchors(unsigned int target_height, unsigned int target
   center_anchors_is_update = true;
 }
 
-void NCNNYOLOP::generate_bboxes_da_ll(const YOLOPScaleParams &scale_params,
-                                      ncnn::Extractor &extractor,
-                                      std::vector<types::Boxf> &bbox_collection,
-                                      types::SegmentContent &da_seg_content,
-                                      types::SegmentContent &ll_seg_content,
-                                      float score_threshold, float img_height,
-                                      float img_width)
+void NCNNYoloV5::generate_bboxes(const YoloV5ScaleParams &scale_params,
+                                 ncnn::Extractor &extractor,
+                                 std::vector<types::Boxf> &bbox_collection,
+                                 float score_threshold, float img_height,
+                                 float img_width)
 {
   // (1,n,6=5+1=cxcy+cwch+obj_conf+cls_conf) (1,2,640,640) (1,2,640,640)
-  ncnn::Mat det_stride_8, det_stride_16, det_stride_32, da_seg_out, ll_seg_out;
+  ncnn::Mat det_stride_8, det_stride_16, det_stride_32;
   extractor.extract("det_stride_8", det_stride_8);
   extractor.extract("det_stride_16", det_stride_16);
   extractor.extract("det_stride_32", det_stride_32);
-  extractor.extract("drive_area_seg", da_seg_out);
-  extractor.extract("lane_line_seg", ll_seg_out);
 
   this->generate_anchors(input_height, input_width);
 
@@ -290,86 +283,6 @@ void NCNNYOLOP::generate_bboxes_da_ll(const YOLOPScaleParams &scale_params,
 #if LITENCNN_DEBUG
   std::cout << "generate_bboxes num: " << bbox_collection.size() << "\n";
 #endif
-
-  int dw = scale_params.dw;
-  int dh = scale_params.dh;
-  int new_unpad_w = scale_params.new_unpad_w;
-  int new_unpad_h = scale_params.new_unpad_h;
-  // generate da && ll seg.
-  da_seg_content.names_map.clear();
-  da_seg_content.class_mat = cv::Mat(new_unpad_h, new_unpad_w, CV_8UC1, cv::Scalar(0));
-  da_seg_content.color_mat = cv::Mat(new_unpad_h, new_unpad_w, CV_8UC3, cv::Scalar(0, 0, 0));
-  ll_seg_content.names_map.clear();
-  ll_seg_content.class_mat = cv::Mat(new_unpad_h, new_unpad_w, CV_8UC1, cv::Scalar(0));
-  ll_seg_content.color_mat = cv::Mat(new_unpad_h, new_unpad_w, CV_8UC3, cv::Scalar(0, 0, 0));
-
-  const unsigned int channel_step = input_height * input_width;
-  const float *da_seg_bg_ptr = (float *) da_seg_out.data; // background
-  const float *da_seg_fg_ptr = (float *) da_seg_out.data + channel_step; // foreground
-  const float *ll_seg_bg_ptr = (float *) ll_seg_out.data; // background
-  const float *ll_seg_fg_ptr = (float *) ll_seg_out.data + channel_step; // foreground
-
-  for (int i = dh; i < dh + new_unpad_h; ++i)
-  {
-    // row ptr.
-    uchar *da_p_class = da_seg_content.class_mat.ptr<uchar>(i - dh);
-    uchar *ll_p_class = ll_seg_content.class_mat.ptr<uchar>(i - dh);
-    cv::Vec3b *da_p_color = da_seg_content.color_mat.ptr<cv::Vec3b>(i - dh);
-    cv::Vec3b *ll_p_color = ll_seg_content.color_mat.ptr<cv::Vec3b>(i - dh);
-
-    for (int j = dw; j < dw + new_unpad_w; ++j)
-    {
-      // argmax
-      float da_bg_prob = da_seg_bg_ptr[i * input_height + j];
-      float da_fg_prob = da_seg_fg_ptr[i * input_height + j];
-      float ll_bg_prob = ll_seg_bg_ptr[i * input_height + j];
-      float ll_fg_prob = ll_seg_fg_ptr[i * input_height + j];
-      unsigned int da_label = da_bg_prob < da_fg_prob ? 1 : 0;
-      unsigned int ll_label = ll_bg_prob < ll_fg_prob ? 1 : 0;
-
-      if (da_label == 1)
-      {
-        // assign label for pixel(i,j)
-        da_p_class[j - dw] = 1 * 255;  // 255 indicate drivable area, for post resize
-        // assign color for detected class at pixel(i,j).
-        da_p_color[j - dw][0] = 0;
-        da_p_color[j - dw][1] = 255;  // green
-        da_p_color[j - dw][2] = 0;
-        // assign names map
-        da_seg_content.names_map[255] = "drivable area";
-      }
-
-      if (ll_label == 1)
-      {
-        // assign label for pixel(i,j)
-        ll_p_class[j - dw] = 1 * 255;  // 255 indicate lane line, for post resize
-        // assign color for detected class at pixel(i,j).
-        ll_p_color[j - dw][0] = 0;
-        ll_p_color[j - dw][1] = 0;
-        ll_p_color[j - dw][2] = 255;  // red
-        // assign names map
-        ll_seg_content.names_map[255] = "lane line";
-      }
-
-    }
-  }
-  // resize to original size.
-  const unsigned int img_h = static_cast<unsigned int>(img_height);
-  const unsigned int img_w = static_cast<unsigned int>(img_width);
-  // da_seg_mask 255 or 0
-  cv::resize(da_seg_content.class_mat, da_seg_content.class_mat,
-             cv::Size(img_w, img_h), cv::INTER_LINEAR);
-  cv::resize(da_seg_content.color_mat, da_seg_content.color_mat,
-             cv::Size(img_w, img_h), cv::INTER_LINEAR);
-  // ll_seg_mask 255 or 0
-  cv::resize(ll_seg_content.class_mat, ll_seg_content.class_mat,
-             cv::Size(img_w, img_h), cv::INTER_LINEAR);
-  cv::resize(ll_seg_content.color_mat, ll_seg_content.color_mat,
-             cv::Size(img_w, img_h), cv::INTER_LINEAR);
-
-  da_seg_content.flag = true;
-  ll_seg_content.flag = true;
-
 }
 
 // inner function
@@ -378,14 +291,12 @@ static inline float sigmoid(float x)
   return static_cast<float>(1.f / (1.f + std::exp(-x)));
 }
 
-// reference: https://github.com/Tencent/ncnn/blob/master/examples/yolov5.cpp
-void NCNNYOLOP::generate_bboxes_single_stride(const YOLOPScaleParams &scale_params,
-                                              ncnn::Mat &det_pred,
-                                              unsigned int stride,
-                                              float score_threshold,
-                                              float img_height,
-                                              float img_width,
-                                              std::vector<types::Boxf> &bbox_collection)
+void NCNNYoloV5::generate_bboxes_single_stride(const YoloV5ScaleParams &scale_params,
+                                               ncnn::Mat &det_pred,
+                                               unsigned int stride,
+                                               float score_threshold,
+                                               float img_height, float img_width,
+                                               std::vector<types::Boxf> &bbox_collection)
 {
   unsigned int nms_pre_ = (stride / 8) * nms_pre; // 1 * 1000,2*1000,...
   nms_pre_ = nms_pre_ >= nms_pre ? nms_pre_ : nms_pre;
@@ -459,19 +370,18 @@ void NCNNYOLOP::generate_bboxes_single_stride(const YOLOPScaleParams &scale_para
     // trunc
     bbox_collection.resize(nms_pre_);
   }
-
 }
 
-void NCNNYOLOP::nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
-                    float iou_threshold, unsigned int topk,
-                    unsigned int nms_type)
+void NCNNYoloV5::nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
+                     float iou_threshold, unsigned int topk,
+                     unsigned int nms_type)
 {
   if (nms_type == NMS::BLEND) lite::utils::blending_nms(input, output, iou_threshold, topk);
   else if (nms_type == NMS::OFFSET) lite::utils::offset_nms(input, output, iou_threshold, topk);
   else lite::utils::hard_nms(input, output, iou_threshold, topk);
 }
 
-void NCNNYOLOP::print_debug_string()
+void NCNNYoloV5::print_debug_string()
 {
   std::cout << "LITENCNN_DEBUG LogId: " << log_id << "\n";
   input_indexes = net->input_indexes();

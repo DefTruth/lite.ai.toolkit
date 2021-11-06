@@ -19,6 +19,8 @@ namespace ncnncv
   class LITE_EXPORTS NCNNRobustVideoMatting;                     // [4] * reference: https://github.com/PeterL1n/RobustVideoMatting
   class LITE_EXPORTS NCNNYoloX;                                  // [5] * reference: https://github.com/Megvii-BaseDetection/YOLOX
   class LITE_EXPORTS NCNNYOLOP;                                  // [6] * reference: https://github.com/hustvl/YOLOP
+  class LITE_EXPORTS NCNNYoloV5;                                 // [7] * reference: https://github.com/ultralytics/yolov5
+  class LITE_EXPORTS NCNNYoloXLatest;                            // [8] * reference: https://github.com/Megvii-BaseDetection/YOLOX
 }
 
 namespace ncnncv

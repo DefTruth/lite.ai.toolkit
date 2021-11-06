@@ -45,7 +45,7 @@
 <br>
   <img src=https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social >
   <img src=https://img.shields.io/github/forks/DefTruth/lite.ai.toolkit.svg?style=social >
-  <img src=https://img.shields.io/github/watchers/DefTruth/lite.ai.toolkit.svg?style=social> 
+  <img src=https://img.shields.io/github/watchers/DefTruth/lite.ai.toolkit.svg?style=social > 
 
 </div> 
 
