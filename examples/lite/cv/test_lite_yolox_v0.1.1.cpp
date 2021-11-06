@@ -60,8 +60,8 @@ static void test_mnn()
 //  std::string save_img_path = "../../../logs/test_lite_yolox_v0.1.1_mnn_2.jpg";
 //
 //  // 3. Test Specific Engine MNN
-//  lite::mnn::cv::detection::YoloX *yolox =
-//      new lite::mnn::cv::detection::YoloX(mnn_path);
+//  lite::mnn::cv::detection::YoloX_V_0_1_1 *yolox =
+//      new lite::mnn::cv::detection::YoloX_V_0_1_1(mnn_path);
 //
 //  std::vector<lite::types::Boxf> detected_boxes;
 //  cv::Mat img_bgr = cv::imread(test_img_path);
@@ -86,8 +86,8 @@ static void test_ncnn()
 //  std::string save_img_path = "../../../logs/test_lite_yolox_v0.1.1_ncnn_2.jpg";
 //
 //  // 4. Test Specific Engine NCNN
-//  lite::ncnn::cv::detection::YoloX *yolox =
-//      new lite::ncnn::cv::detection::YoloX(param_path, bin_path);
+//  lite::ncnn::cv::detection::YoloX_V_0_1_1 *yolox =
+//      new lite::ncnn::cv::detection::YoloX_V_0_1_1(param_path, bin_path);
 //
 //  std::vector<lite::types::Boxf> detected_boxes;
 //  cv::Mat img_bgr = cv::imread(test_img_path);
@@ -112,8 +112,8 @@ static void test_tnn()
 //  std::string save_img_path = "../../../logs/test_lite_yolox_v0.1.1_tnn_2.jpg";
 //
 //  // 5. Test Specific Engine TNN
-//  lite::tnn::cv::detection::YoloX *yolox =
-//      new lite::tnn::cv::detection::YoloX(proto_path, model_path);
+//  lite::tnn::cv::detection::YoloX_V_0_1_1 *yolox =
+//      new lite::tnn::cv::detection::YoloX_V_0_1_1(proto_path, model_path);
 //
 //  std::vector<lite::types::Boxf> detected_boxes;
 //  cv::Mat img_bgr = cv::imread(test_img_path);
