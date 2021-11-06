@@ -12,10 +12,10 @@ namespace tnncv
   class LITE_EXPORTS TNNYoloX_V_0_1_1 : public BasicTNNHandler
 {
   public:
-  explicit TNNYoloX_V_0_1_1(const std::string &_proto_path,
+    explicit TNNYoloX_V_0_1_1(const std::string &_proto_path,
                     const std::string &_model_path,
                     unsigned int _num_threads = 1); //
-  ~TNNYoloX_V_0_1_1() override = default;
+    ~TNNYoloX_V_0_1_1() override = default;
 
   private:
   // nested classes
@@ -38,8 +38,8 @@ namespace tnncv
 
   private:
   // In TNN: x*scale + bias
-  std::vector<float> scale_vals = {0.0171247f, 0.0175070f, 0.0174291f};
-  std::vector<float> bias_vals = {-123.675f * 0.0171247f, -116.28f * 0.0175070f,-103.53f * 0.0174291f}; // RGB
+  std::vector<float> scale_vals = {1.f, 1.f, 1.f};
+  std::vector<float> bias_vals = {1.f, 1.f, 1.f}; // RGB
 
   const char *class_names[80] = {
       "person", "bicycle", "car", "motorcycle", "airplane", "bus", "train", "truck", "boat", "traffic light",
@@ -89,6 +89,5 @@ namespace tnncv
 };
 
 }
-
 
 #endif //LITE_AI_TOOLKIT_TNN_CV_TNN_YOLOX_V0_1_1_H

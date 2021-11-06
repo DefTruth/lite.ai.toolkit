@@ -17,8 +17,8 @@ TNNYoloX::TNNYoloX(const std::string &_proto_path,
 
 void TNNYoloX::transform(const cv::Mat &mat_rs)
 {
-  cv::Mat canvas = mat_rs.clone();
-  cv::cvtColor(canvas, canvas, cv::COLOR_BGR2RGB);
+  cv::Mat canvas;
+  cv::cvtColor(mat_rs, canvas, cv::COLOR_BGR2RGB);
   // push into input_mat
   input_mat = std::make_shared<tnn::Mat>(input_device_type, tnn::N8UC3,
                                          input_shape, (void *)canvas.data);
