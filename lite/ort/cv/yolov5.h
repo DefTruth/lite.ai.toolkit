@@ -9,16 +9,6 @@
 
 namespace ortcv
 {
-  typedef struct
-  {
-    float r;
-    int dw;
-    int dh;
-    int new_unpad_w;
-    int new_unpad_h;
-    bool flag;
-  } YoloV5ScaleParams;
-
   class LITE_EXPORTS YoloV5 : public BasicOrtHandler
   {
   public:
@@ -27,6 +17,18 @@ namespace ortcv
     {};
 
     ~YoloV5() override = default;
+
+  private:
+    // nested classes
+    typedef struct
+    {
+      float r;
+      int dw;
+      int dh;
+      int new_unpad_w;
+      int new_unpad_h;
+      bool flag;
+    } YoloV5ScaleParams;
 
   private:
     static constexpr const float mean_val = 0.f;

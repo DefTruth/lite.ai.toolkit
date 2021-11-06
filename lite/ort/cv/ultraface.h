@@ -9,10 +9,8 @@
 
 namespace ortcv
 {
-
   class LITE_EXPORTS UltraFace : public BasicOrtHandler
   {
-
   public:
     explicit UltraFace(const std::string &_onnx_path, unsigned int _num_threads = 1) :
         BasicOrtHandler(_onnx_path, _num_threads)

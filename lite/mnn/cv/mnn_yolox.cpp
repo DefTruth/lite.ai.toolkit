@@ -25,11 +25,10 @@ inline void MNNYoloX::initialize_pretreat()
   );
 }
 
-void MNNYoloX::transform(const cv::Mat &mat_rs)
+inline void MNNYoloX::transform(const cv::Mat &mat_rs)
 {
-  cv::Mat canvas = mat_rs.clone();
   // normalize & HWC -> CHW & BGR -> RGB
-  pretreat->convert(canvas.data, input_width, input_height, canvas.step[0], input_tensor);
+  pretreat->convert(mat_rs.data, input_width, input_height, mat_rs.step[0], input_tensor);
 }
 
 void MNNYoloX::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,

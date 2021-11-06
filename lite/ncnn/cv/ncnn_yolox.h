@@ -9,23 +9,6 @@
 
 namespace ncnncv
 {
-  typedef struct GridAndStride
-  {
-    int grid0;
-    int grid1;
-    int stride;
-  } YoloXAnchor;
-
-  typedef struct
-  {
-    float r;
-    int dw;
-    int dh;
-    int new_unpad_w;
-    int new_unpad_h;
-    bool flag;
-  } YoloXScaleParams;
-
   class LITE_EXPORTS NCNNYoloX
   {
   private:
@@ -45,6 +28,25 @@ namespace ncnncv
                        int _input_height = 640,
                        int _input_width = 640); //
     ~NCNNYoloX();
+
+  private:
+    // nested classes
+    typedef struct GridAndStride
+    {
+      int grid0;
+      int grid1;
+      int stride;
+    } YoloXAnchor;
+
+    typedef struct
+    {
+      float r;
+      int dw;
+      int dh;
+      int new_unpad_w;
+      int new_unpad_h;
+      bool flag;
+    } YoloXScaleParams;
 
   private:
     const unsigned int num_threads; // initialize at runtime.
