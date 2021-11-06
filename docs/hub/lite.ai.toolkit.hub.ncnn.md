@@ -8,6 +8,10 @@ You can download all the pretrained models files of NCNN format from ([Baidu Dri
 
 |                 Class                 |      Pretrained NCNN Files      |              Rename or Converted From (Repo)              | Size  |
 | :-----------------------------------: | :-----------------------------: | :-------------------------------------------------------: | :---: |
+|     *lite::ncnn::cv::detection::YoloV5*     |          yolov5l.opt.param&bin            |      [yolov5](https://github.com/ultralytics/yolov5)      | 188Mb |
+|     *lite::ncnn::cv::detection::YoloV5*     |          yolov5m.opt.param&bin            |      [yolov5](https://github.com/ultralytics/yolov5)      | 85Mb  |
+|     *lite::ncnn::cv::detection::YoloV5*     |          yolov5s.opt.param&bin            |      [yolov5](https://github.com/ultralytics/yolov5)      | 29Mb  |
+|     *lite::ncnn::cv::detection::YoloV5*     |          yolov5x.opt.param&bin            |      [yolov5](https://github.com/ultralytics/yolov5)      | 351Mb | 
 |     *lite::ncnn::cv::detection::YoloX*      |          yolox_x.opt.param&bin           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 378Mb |
 |     *lite::ncnn::cv::detection::YoloX*      |          yolox_l.opt.param&bin           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 207Mb |
 |     *lite::ncnn::cv::detection::YoloX*      |          yolox_m.opt.param&bin          |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 97Mb  |
