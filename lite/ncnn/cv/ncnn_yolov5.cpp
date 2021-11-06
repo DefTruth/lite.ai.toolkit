@@ -89,7 +89,7 @@ void NCNNYoloV5::detect(const cv::Mat &mat,
   int img_width = static_cast<int>(mat.cols);
   // resize & unscale
   cv::Mat mat_rs;
-  YOLOPScaleParams scale_params;
+  YoloV5ScaleParams scale_params;
   this->resize_unscale(mat, mat_rs, input_height, input_width, scale_params);
   // 1. make input tensor
   ncnn::Mat input;
@@ -264,7 +264,7 @@ void NCNNYoloV5::generate_bboxes(const YoloV5ScaleParams &scale_params,
                                  float score_threshold, float img_height,
                                  float img_width)
 {
-  // (1,n,6=5+1=cxcy+cwch+obj_conf+cls_conf) (1,2,640,640) (1,2,640,640)
+  // (1,n,85=5+80=cxcy+cwch+obj_conf+cls_conf) (1,2,640,640) (1,2,640,640)
   ncnn::Mat det_stride_8, det_stride_16, det_stride_32;
   extractor.extract("det_stride_8", det_stride_8);
   extractor.extract("det_stride_16", det_stride_16);
@@ -302,9 +302,10 @@ void NCNNYoloV5::generate_bboxes_single_stride(const YoloV5ScaleParams &scale_pa
   nms_pre_ = nms_pre_ >= nms_pre ? nms_pre_ : nms_pre;
 
   const unsigned int f_h = (unsigned int) input_height / stride;
-  const unsigned int f_w = (unsigned int) input_height / stride;
+  const unsigned int f_w = (unsigned int) input_width / stride;
   // e.g, 3*80*80 + 3*40*40 + 3*20*20 = 25200
   const unsigned int num_anchors = 3 * f_h * f_w;
+  const unsigned int num_classes = 80;
 
   float r_ = scale_params.r;
   int dw_ = scale_params.dw;
@@ -316,12 +317,22 @@ void NCNNYoloV5::generate_bboxes_single_stride(const YoloV5ScaleParams &scale_pa
 
   for (unsigned int i = 0; i < num_anchors; ++i)
   {
-    const float *offset_obj_cls_ptr = (float *) det_pred.data + (i * 6);
+    const float *offset_obj_cls_ptr = (float *) det_pred.data + (i * (num_classes + 5));
     float obj_conf = sigmoid(offset_obj_cls_ptr[4]);
     if (obj_conf < score_threshold) continue; // filter first.
 
-    unsigned int label = 1;  // 1 class only
     float cls_conf = sigmoid(offset_obj_cls_ptr[5]);
+    unsigned int label = 0;  // 80 class
+    for (unsigned int j = 0; j < num_classes; ++j)
+    {
+      float tmp_conf = sigmoid(offset_obj_cls_ptr[j + 5]);
+      if (tmp_conf > cls_conf)
+      {
+        cls_conf = tmp_conf;
+        label = j;
+      }
+    } // argmax
+
     float conf = obj_conf * cls_conf; // cls_conf (0.,1.)
     if (conf < score_threshold) continue; // filter
 
@@ -335,8 +346,8 @@ void NCNNYoloV5::generate_bboxes_single_stride(const YoloV5ScaleParams &scale_pa
     float dw = sigmoid(offset_obj_cls_ptr[2]);
     float dh = sigmoid(offset_obj_cls_ptr[3]);
 
-    float cx = (dx * 2.f - 0.5f + (float)grid0) * (float)stride;
-    float cy = (dy * 2.f - 0.5f + (float)grid1) * (float)stride;
+    float cx = (dx * 2.f - 0.5f + (float) grid0) * (float) stride;
+    float cy = (dy * 2.f - 0.5f + (float) grid1) * (float) stride;
     float w = std::pow(dw * 2.f, 2) * anchor_w;
     float h = std::pow(dh * 2.f, 2) * anchor_h;
 

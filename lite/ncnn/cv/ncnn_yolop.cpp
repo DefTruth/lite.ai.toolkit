@@ -391,7 +391,7 @@ void NCNNYOLOP::generate_bboxes_single_stride(const YOLOPScaleParams &scale_para
   nms_pre_ = nms_pre_ >= nms_pre ? nms_pre_ : nms_pre;
 
   const unsigned int f_h = (unsigned int) input_height / stride;
-  const unsigned int f_w = (unsigned int) input_height / stride;
+  const unsigned int f_w = (unsigned int) input_width / stride;
   // e.g, 3*80*80 + 3*40*40 + 3*20*20 = 25200
   const unsigned int num_anchors = 3 * f_h * f_w;
 
