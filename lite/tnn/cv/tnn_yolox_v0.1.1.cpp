@@ -7,9 +7,9 @@
 
 using tnncv::TNNYoloX_V_0_1_1;
 
-TNNYoloX::TNNYoloX_V_0_1_1(const std::string &_proto_path,
-                           const std::string &_model_path,
-                           unsigned int _num_threads) :
+TNNYoloX_V_0_1_1::TNNYoloX_V_0_1_1(const std::string &_proto_path,
+                                   const std::string &_model_path,
+                                   unsigned int _num_threads) :
     BasicTNNHandler(_proto_path, _model_path, _num_threads)
 {
 }
@@ -110,7 +110,7 @@ void TNNYoloX_V_0_1_1::detect(const cv::Mat &mat, std::vector<types::Boxf> &dete
   std::shared_ptr<tnn::Mat> pred_mat;
   tnn::MatConvertParam pred_cvt_param; // default
 
-  status = instance->GetOutputMat(pred_mat, pred_cvt_param, "outputs", output_device_type);
+  status = instance->GetOutputMat(pred_mat, pred_cvt_param, "output", output_device_type);
   if (status != tnn::TNN_OK)
   {
 #ifdef LITETNN_DEBUG

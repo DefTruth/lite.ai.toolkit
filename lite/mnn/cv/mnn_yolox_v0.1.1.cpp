@@ -127,7 +127,7 @@ void MNNYoloX_V_0_1_1::generate_bboxes(const YoloXScaleParams &scale_params,
                                        int img_width)
 {
   // device tensors
-  auto device_pred_ptr = output_tensors.at("outputs");
+  auto device_pred_ptr = output_tensors.at("output");
   // (1,n,85=5+80=cxcy+cwch+obj_conf+cls_conf)
   MNN::Tensor host_pred_tensor(device_pred_ptr, device_pred_ptr->getDimensionType()); // NCHW
   device_pred_ptr->copyToHostTensor(&host_pred_tensor);
