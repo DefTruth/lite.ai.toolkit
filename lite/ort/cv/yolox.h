@@ -9,24 +9,6 @@
 
 namespace ortcv
 {
-
-  typedef struct GridAndStride
-  {
-    int grid0;
-    int grid1;
-    int stride;
-  } YoloXAnchor;
-
-  typedef struct
-  {
-    float r;
-    int dw;
-    int dh;
-    int new_unpad_w;
-    int new_unpad_h;
-    bool flag;
-  } YoloXScaleParams;
-
   class LITE_EXPORTS YoloX : public BasicOrtHandler
   {
   public:
@@ -35,6 +17,25 @@ namespace ortcv
     {};
 
     ~YoloX() override = default;
+
+  private:
+    // nested classes
+    typedef struct GridAndStride
+    {
+      int grid0;
+      int grid1;
+      int stride;
+    } YoloXAnchor;
+
+    typedef struct
+    {
+      float r;
+      int dw;
+      int dh;
+      int new_unpad_w;
+      int new_unpad_h;
+      bool flag;
+    } YoloXScaleParams;
 
   private:
     const float mean_vals[3] = {255.f * 0.485f, 255.f * 0.456, 255.f * 0.406f};

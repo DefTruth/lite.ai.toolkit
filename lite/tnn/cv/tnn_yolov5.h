@@ -18,6 +18,7 @@ namespace tnncv
     ~TNNYoloV5() override = default;
 
   private:
+    // nested classes
     typedef struct
     {
       float r;

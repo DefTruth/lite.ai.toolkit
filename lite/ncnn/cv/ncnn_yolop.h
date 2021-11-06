@@ -9,25 +9,6 @@
 
 namespace ncnncv
 {
-  typedef struct
-  {
-    int grid0;
-    int grid1;
-    int stride;
-    float width;
-    float height;
-  } YOLOPAnchor;
-
-  typedef struct
-  {
-    float r;
-    int dw;
-    int dh;
-    int new_unpad_w;
-    int new_unpad_h;
-    bool flag;
-  } YOLOPScaleParams;
-
   class LITE_EXPORTS NCNNYOLOP
   {
   private:
@@ -47,6 +28,27 @@ namespace ncnncv
                        int _input_height = 640,
                        int _input_width = 640); //
     ~NCNNYOLOP();
+
+  private:
+    // nested classes
+    typedef struct
+    {
+      int grid0;
+      int grid1;
+      int stride;
+      float width;
+      float height;
+    } YOLOPAnchor;
+
+    typedef struct
+    {
+      float r;
+      int dw;
+      int dh;
+      int new_unpad_w;
+      int new_unpad_h;
+      bool flag;
+    } YOLOPScaleParams;
 
   private:
     const unsigned int num_threads; // initialize at runtime.

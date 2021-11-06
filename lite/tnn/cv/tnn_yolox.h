@@ -9,23 +9,6 @@
 
 namespace tnncv
 {
-  typedef struct GridAndStride
-  {
-    int grid0;
-    int grid1;
-    int stride;
-  } YoloXAnchor;
-
-  typedef struct
-  {
-    float r;
-    int dw;
-    int dh;
-    int new_unpad_w;
-    int new_unpad_h;
-    bool flag;
-  } YoloXScaleParams;
-
   class LITE_EXPORTS TNNYoloX : public BasicTNNHandler
   {
   public:
@@ -33,6 +16,25 @@ namespace tnncv
                       const std::string &_model_path,
                       unsigned int _num_threads = 1); //
     ~TNNYoloX() override = default;
+
+  private:
+    // nested classes
+    typedef struct GridAndStride
+    {
+      int grid0;
+      int grid1;
+      int stride;
+    } YoloXAnchor;
+
+    typedef struct
+    {
+      float r;
+      int dw;
+      int dh;
+      int new_unpad_w;
+      int new_unpad_h;
+      bool flag;
+    } YoloXScaleParams;
 
   private:
     // In TNN: x*scale + bias
