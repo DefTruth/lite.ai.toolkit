@@ -50,7 +50,7 @@ namespace ncnncv
 
   private:
     const unsigned int num_threads; // initialize at runtime.
-    // target image size after resize, might use 416 for small model(nano/tiny)
+    // target image size after resize
     const int input_height; // 640/320/1280
     const int input_width; // 640/320/1280
 

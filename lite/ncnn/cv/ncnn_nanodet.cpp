@@ -163,7 +163,7 @@ void NCNNNanoDet::generate_bboxes_single_stride(const NanoScaleParams &scale_par
   nms_pre_ = nms_pre_ >= nms_pre ? nms_pre_ : nms_pre;
 
   const unsigned int f_h = (unsigned int) input_height / stride;
-  const unsigned int f_w = (unsigned int) input_height / stride;
+  const unsigned int f_w = (unsigned int) input_width / stride;
   const unsigned int num_points = f_h * f_w;
   const unsigned int num_classes = 80;
 
