@@ -1,27 +1,39 @@
 //
-// Created by DefTruth on 2021/3/14.
+// Created by DefTruth on 2021/11/7.
 //
 
-#include "yolov5.h"
-#include "lite/ort/core/ort_utils.h"
+#include "mnn_yolor.h"
 #include "lite/utils.h"
 
-using ortcv::YoloV5;
+using mnncv::MNNYoloR;
 
-Ort::Value YoloV5::transform(const cv::Mat &mat_rs)
+MNNYoloR::MNNYoloR(const std::string &_mnn_path, unsigned int _num_threads) :
+    BasicMNNHandler(_mnn_path, _num_threads)
 {
-  cv::Mat canvas;
-  cv::cvtColor(mat_rs, canvas, cv::COLOR_BGR2RGB);
-  // (1,3,640,640) 1xCXHXW
-  ortcv::utils::transform::normalize_inplace(canvas, mean_val, scale_val); // float32
-  return ortcv::utils::transform::create_tensor(
-      canvas, input_node_dims, memory_info_handler,
-      input_values_handler, ortcv::utils::transform::CHW);
+  initialize_pretreat();
 }
 
-void YoloV5::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
-                            int target_height, int target_width,
-                            YoloV5ScaleParams &scale_params)
+void MNNYoloR::initialize_pretreat()
+{
+  pretreat = std::shared_ptr<MNN::CV::ImageProcess>(
+      MNN::CV::ImageProcess::create(
+          MNN::CV::BGR,
+          MNN::CV::RGB,
+          mean_vals, 3,
+          norm_vals, 3
+      )
+  );
+}
+
+inline void MNNYoloR::transform(const cv::Mat &mat_rs)
+{
+  // normalize & HWC -> CHW & BGR -> RGB
+  pretreat->convert(mat_rs.data, input_width, input_height, mat_rs.step[0], input_tensor);
+}
+
+void MNNYoloR::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
+                               int target_height, int target_width,
+                              YoloRScaleParams &scale_params)
 {
   if (mat.empty()) return;
   int img_height = static_cast<int>(mat.rows);
@@ -56,47 +68,46 @@ void YoloV5::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
   scale_params.flag = true;
 }
 
-void YoloV5::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
-                    float score_threshold, float iou_threshold, unsigned int topk,
-                    unsigned int nms_type)
+void MNNYoloR::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
+                       float score_threshold, float iou_threshold,
+                       unsigned int topk, unsigned int nms_type)
 {
   if (mat.empty()) return;
-  // this->transform(mat);
-  const int input_height = input_node_dims.at(2);
-  const int input_width = input_node_dims.at(3);
   int img_height = static_cast<int>(mat.rows);
   int img_width = static_cast<int>(mat.cols);
 
   // resize & unscale
   cv::Mat mat_rs;
-  YoloV5ScaleParams scale_params;
+  YoloRScaleParams scale_params;
   this->resize_unscale(mat, mat_rs, input_height, input_width, scale_params);
 
   // 1. make input tensor
-  Ort::Value input_tensor = this->transform(mat_rs);
+  this->transform(mat_rs);
   // 2. inference scores & boxes.
-  auto output_tensors = ort_session->Run(
-      Ort::RunOptions{nullptr}, input_node_names.data(),
-      &input_tensor, 1, output_node_names.data(), num_outputs
-  );
+  mnn_interpreter->runSession(mnn_session);
+  auto output_tensors = mnn_interpreter->getSessionOutputAll(mnn_session);
   // 3. rescale & exclude.
   std::vector<types::Boxf> bbox_collection;
   this->generate_bboxes(scale_params, bbox_collection, output_tensors, score_threshold, img_height, img_width);
-  // 4. hard|blend nms with topk.
+  // 4. hard|blend|offset nms with topk.
   this->nms(bbox_collection, detected_boxes, iou_threshold, topk, nms_type);
 }
 
-void YoloV5::generate_bboxes(const YoloV5ScaleParams &scale_params,
-                             std::vector<types::Boxf> &bbox_collection,
-                             std::vector<Ort::Value> &output_tensors,
-                             float score_threshold, int img_height,
-                             int img_width)
+void MNNYoloR::generate_bboxes(const YoloRScaleParams &scale_params,
+                                std::vector<types::Boxf> &bbox_collection,
+                                const std::map<std::string, MNN::Tensor *> &output_tensors,
+                                float score_threshold, int img_height,
+                                int img_width)
 {
+  // device tensors
+  auto device_pred_ptr = output_tensors.at("output");
+  // (1,n,85=5+80=cxcy+cwch+obj_conf+cls_conf)
+  MNN::Tensor host_pred_tensor(device_pred_ptr, device_pred_ptr->getDimensionType()); // NCHW
+  device_pred_ptr->copyToHostTensor(&host_pred_tensor);
 
-  Ort::Value &pred = output_tensors.at(0); // (1,n,85=5+80=cxcy+cwch+obj_conf+cls_conf)
-  auto pred_dims = output_node_dims.at(0); // (1,n,85)
+  auto pred_dims = host_pred_tensor.shape();
   const unsigned int num_anchors = pred_dims.at(1); // n = ?
-  const unsigned int num_classes = pred_dims.at(2) - 5;
+  const unsigned int num_classes = pred_dims.at(2) - 5; // 80
 
   float r_ = scale_params.r;
   int dw_ = scale_params.dw;
@@ -106,27 +117,30 @@ void YoloV5::generate_bboxes(const YoloV5ScaleParams &scale_params,
   unsigned int count = 0;
   for (unsigned int i = 0; i < num_anchors; ++i)
   {
-    float obj_conf = pred.At<float>({0, i, 4});
+    const float *offset_obj_cls_ptr =
+        host_pred_tensor.host<float>() + (i * (num_classes + 5)); // row ptr
+    float obj_conf = offset_obj_cls_ptr[4];
     if (obj_conf < score_threshold) continue; // filter first.
 
-    float cls_conf = pred.At<float>({0, i, 5});
+    float cls_conf = offset_obj_cls_ptr[5];
     unsigned int label = 0;
     for (unsigned int j = 0; j < num_classes; ++j)
     {
-      float tmp_conf = pred.At<float>({0, i, j + 5});
+      float tmp_conf = offset_obj_cls_ptr[j + 5];
       if (tmp_conf > cls_conf)
       {
         cls_conf = tmp_conf;
         label = j;
       }
-    }
+    } // argmax
+
     float conf = obj_conf * cls_conf; // cls_conf (0.,1.)
     if (conf < score_threshold) continue; // filter
 
-    float cx = pred.At<float>({0, i, 0});
-    float cy = pred.At<float>({0, i, 1});
-    float w = pred.At<float>({0, i, 2});
-    float h = pred.At<float>({0, i, 3});
+    float cx = offset_obj_cls_ptr[0];
+    float cy = offset_obj_cls_ptr[1];
+    float w = offset_obj_cls_ptr[2];
+    float h = offset_obj_cls_ptr[3];
     float x1 = ((cx - w / 2.f) - (float) dw_) / r_;
     float y1 = ((cy - h / 2.f) - (float) dh_) / r_;
     float x2 = ((cx + w / 2.f) - (float) dw_) / r_;
@@ -147,19 +161,18 @@ void YoloV5::generate_bboxes(const YoloV5ScaleParams &scale_params,
     if (count > max_nms)
       break;
   }
-#if LITEORT_DEBUG
+#if LITEMNN_DEBUG
   std::cout << "detected num_anchors: " << num_anchors << "\n";
   std::cout << "generate_bboxes num: " << bbox_collection.size() << "\n";
 #endif
 }
 
-void YoloV5::nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
-                 float iou_threshold, unsigned int topk, unsigned int nms_type)
+void MNNYoloR::nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
+                    float iou_threshold, unsigned int topk,
+                    unsigned int nms_type)
 {
   if (nms_type == NMS::BLEND) lite::utils::blending_nms(input, output, iou_threshold, topk);
   else if (nms_type == NMS::OFFSET) lite::utils::offset_nms(input, output, iou_threshold, topk);
   else lite::utils::hard_nms(input, output, iou_threshold, topk);
 }
-
-
 

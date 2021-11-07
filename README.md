@@ -197,8 +197,9 @@ and put the libs into *lite.ai.toolkit/lib* directory. Please reference the buil
     cd lite.ai.toolkit && sh ./build.sh  # On MacOS, you can use the built OpenCV, ONNXRuntime, MNN, NCNN and TNN libs in this repo.
 ```
 
-* GPU Compatibility: See [issue#10](https://github.com/DefTruth/lite.ai.toolkit/issues/10).  
-
+* GPU Compatibility for Windows: See [issue#10](https://github.com/DefTruth/lite.ai.toolkit/issues/10).  
+* GPU Compatibility for Linux: See [issue#97](https://github.com/DefTruth/lite.ai.toolkit/issues/97).
+  
 * To link Lite.AI.ToolKit, you can follow the CMakeLists.txt listed belows.  
 
 ```cmake
@@ -423,6 +424,7 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
 |[NanoDet](https://github.com/RangiLyu/nanodet)|1.1M| [nanodet](https://github.com/RangiLyu/nanodet) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/MNN-done-blue.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md#lite.ai.toolkit.hub.mnn-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp) |
 |[NanoDetEfficientNetLite](https://github.com/RangiLyu/nanodet)|12M| [nanodet](https://github.com/RangiLyu/nanodet) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/MNN-done-blue.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md#lite.ai.toolkit.hub.mnn-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet_efficientnet_lite.cpp) |
 |[YoloX_V_0_1_1](https://github.com/Megvii-BaseDetection/YOLOX)|3.5M| [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/MNN-done-blue.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md#lite.ai.toolkit.hub.mnn-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolox_v0.1.1.cpp) |
+|[YoloR](https://github.com/WongKinYiu/yolor)|39M| [yolor](https://github.com/WongKinYiu/yolor) | 🔥🔥↑ | [![](https://img.shields.io/badge/MNN-done-blue.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md#lite.ai.toolkit.hub.mnn-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolor.cpp) |
 
 
 |Class|Size|From|Awesome|File|Type|State|Usage|
@@ -435,6 +437,9 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
 |[NanoDetDepreciated](https://github.com/RangiLyu/nanodet)|1.1M| [nanodet](https://github.com/RangiLyu/nanodet) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/NCNN-done-yellow.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md#lite.ai.toolkit.hub.ncnn-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet_depreciated.cpp) |
 |[NanoDetEfficientNetLiteD...](https://github.com/RangiLyu/nanodet)|12M| [nanodet](https://github.com/RangiLyu/nanodet) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/NCNN-done-yellow.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md#lite.ai.toolkit.hub.ncnn-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet_efficientnet_lite_depreciated.cpp) |
 |[YoloX_V_0_1_1](https://github.com/Megvii-BaseDetection/YOLOX)|3.5M| [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/NCNN-done-yellow.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md#lite.ai.toolkit.hub.ncnn-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolox_v0.1.1.cpp) |
+|[YoloR](https://github.com/WongKinYiu/yolor)|39M| [yolor](https://github.com/WongKinYiu/yolor) | 🔥🔥↑ | [![](https://img.shields.io/badge/NCNN-done-yellow.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md#lite.ai.toolkit.hub.ncnn-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolor.cpp) |
+|[YoloRssss](https://github.com/WongKinYiu/yolor)|39M| [yolor](https://github.com/WongKinYiu/yolor) | 🔥🔥↑ | [![](https://img.shields.io/badge/NCNN-done-yellow.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md#lite.ai.toolkit.hub.ncnn-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolor.cpp) |
+
 
 |Class|Size|From|Awesome|File|Type|State|Usage|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|  
@@ -444,6 +449,7 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
 |[NanoDet](https://github.com/RangiLyu/nanodet)|1.1M| [nanodet](https://github.com/RangiLyu/nanodet) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/TNN-done-pink.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md#lite.ai.toolkit.hub.tnn-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp) |
 |[NanoDetEfficientNetLite](https://github.com/RangiLyu/nanodet)|12M| [nanodet](https://github.com/RangiLyu/nanodet) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/TNN-done-pink.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md#lite.ai.toolkit.hub.tnn-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet_efficientnet_lite.cpp) |
 |[YoloX_V_0_1_1](https://github.com/Megvii-BaseDetection/YOLOX)|3.5M| [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) | 🔥🔥🔥↑ | [![](https://img.shields.io/badge/TNN-done-pink.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md#lite.ai.toolkit.hub.tnn-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolox_v0.1.1.cpp) |
+|[YoloR](https://github.com/WongKinYiu/yolor)|39M| [yolor](https://github.com/WongKinYiu/yolor) | 🔥🔥↑ | [![](https://img.shields.io/badge/TNN-done-pink.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md#lite.ai.toolkit.hub.tnn-object-detection) | *detection* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolor.cpp) |
 
 
 * Face Recognition.  

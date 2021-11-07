@@ -1,17 +1,17 @@
 //
-// Created by DefTruth on 2021/11/6.
+// Created by DefTruth on 2021/11/7.
 //
 
-#include "ncnn_yolov5.h"
+#include "ncnn_yolor_ssss.h"
 #include "lite/utils.h"
 
-using ncnncv::NCNNYoloV5;
+using ncnncv::NCNNYoloRssss;
 
-NCNNYoloV5::NCNNYoloV5(const std::string &_param_path,
-                       const std::string &_bin_path,
-                       unsigned int _num_threads,
-                       int _input_height,
-                       int _input_width) :
+NCNNYoloRssss::NCNNYoloRssss(const std::string &_param_path,
+                             const std::string &_bin_path,
+                             unsigned int _num_threads,
+                             int _input_height,
+                             int _input_width) :
     log_id(_param_path.data()), param_path(_param_path.data()),
     bin_path(_bin_path.data()), num_threads(_num_threads),
     input_height(_input_height), input_width(_input_width)
@@ -29,22 +29,22 @@ NCNNYoloV5::NCNNYoloV5(const std::string &_param_path,
 #endif
 }
 
-NCNNYoloV5::~NCNNYoloV5()
+NCNNYoloRssss::~NCNNYoloRssss()
 {
   if (net) delete net;
   net = nullptr;
 }
 
-void NCNNYoloV5::transform(const cv::Mat &mat_rs, ncnn::Mat &in)
+void NCNNYoloRssss::transform(const cv::Mat &mat_rs, ncnn::Mat &in)
 {
   // BGR NHWC -> RGB NCHW
   in = ncnn::Mat::from_pixels(mat_rs.data, ncnn::Mat::PIXEL_BGR2RGB, input_width, input_height);
   in.substract_mean_normalize(mean_vals, norm_vals);
 }
 
-void NCNNYoloV5::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
-                                int target_height, int target_width,
-                                YoloV5ScaleParams &scale_params)
+void NCNNYoloRssss::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
+                                   int target_height, int target_width,
+                                   YoloRssssScaleParams &scale_params)
 {
   if (mat.empty()) return;
   int img_height = static_cast<int>(mat.rows);
@@ -79,17 +79,17 @@ void NCNNYoloV5::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
   scale_params.flag = true;
 }
 
-void NCNNYoloV5::detect(const cv::Mat &mat,
-                        std::vector<types::Boxf> &detected_boxes,
-                        float score_threshold, float iou_threshold,
-                        unsigned int topk, unsigned int nms_type)
+void NCNNYoloRssss::detect(const cv::Mat &mat,
+                           std::vector<types::Boxf> &detected_boxes,
+                           float score_threshold, float iou_threshold,
+                           unsigned int topk, unsigned int nms_type)
 {
   if (mat.empty()) return;
   int img_height = static_cast<int>(mat.rows);
   int img_width = static_cast<int>(mat.cols);
   // resize & unscale
   cv::Mat mat_rs;
-  YoloV5ScaleParams scale_params;
+  YoloRssssScaleParams scale_params;
   this->resize_unscale(mat, mat_rs, input_height, input_width, scale_params);
   // 1. make input tensor
   ncnn::Mat input;
@@ -107,7 +107,7 @@ void NCNNYoloV5::detect(const cv::Mat &mat,
   this->nms(bbox_collection, detected_boxes, iou_threshold, topk, nms_type);
 }
 
-void NCNNYoloV5::generate_anchors(unsigned int target_height, unsigned int target_width)
+void NCNNYoloRssss::generate_anchors(unsigned int target_height, unsigned int target_width)
 {
   if (center_anchors_is_update) return;
 
@@ -115,7 +115,7 @@ void NCNNYoloV5::generate_anchors(unsigned int target_height, unsigned int targe
   {
     unsigned int num_grid_w = target_width / stride;
     unsigned int num_grid_h = target_height / stride;
-    std::vector<YoloV5Anchor> anchors;
+    std::vector<YoloRssssAnchor> anchors;
 
     if (stride == 8)
     {
@@ -124,12 +124,12 @@ void NCNNYoloV5::generate_anchors(unsigned int target_height, unsigned int targe
       {
         for (unsigned int g0 = 0; g0 < num_grid_w; ++g0)
         {
-          YoloV5Anchor anchor;
+          YoloRssssAnchor anchor;
           anchor.grid0 = g0;
           anchor.grid1 = g1;
           anchor.stride = stride;
-          anchor.width = 10.f;
-          anchor.height = 13.f;
+          anchor.width = 12.f;
+          anchor.height = 16.f;
           anchors.push_back(anchor);
         }
       }
@@ -138,12 +138,12 @@ void NCNNYoloV5::generate_anchors(unsigned int target_height, unsigned int targe
       {
         for (unsigned int g0 = 0; g0 < num_grid_w; ++g0)
         {
-          YoloV5Anchor anchor;
+          YoloRssssAnchor anchor;
           anchor.grid0 = g0;
           anchor.grid1 = g1;
           anchor.stride = stride;
-          anchor.width = 16.f;
-          anchor.height = 30.f;
+          anchor.width = 19.f;
+          anchor.height = 36.f;
           anchors.push_back(anchor);
         }
       }
@@ -152,12 +152,12 @@ void NCNNYoloV5::generate_anchors(unsigned int target_height, unsigned int targe
       {
         for (unsigned int g0 = 0; g0 < num_grid_w; ++g0)
         {
-          YoloV5Anchor anchor;
+          YoloRssssAnchor anchor;
           anchor.grid0 = g0;
           anchor.grid1 = g1;
           anchor.stride = stride;
-          anchor.width = 33.f;
-          anchor.height = 23.f;
+          anchor.width = 40.f;
+          anchor.height = 28.f;
           anchors.push_back(anchor);
         }
       }
@@ -169,12 +169,12 @@ void NCNNYoloV5::generate_anchors(unsigned int target_height, unsigned int targe
       {
         for (unsigned int g0 = 0; g0 < num_grid_w; ++g0)
         {
-          YoloV5Anchor anchor;
+          YoloRssssAnchor anchor;
           anchor.grid0 = g0;
           anchor.grid1 = g1;
           anchor.stride = stride;
-          anchor.width = 30.f;
-          anchor.height = 61.f;
+          anchor.width = 36.f;
+          anchor.height = 75.f;
           anchors.push_back(anchor);
         }
       }
@@ -183,12 +183,12 @@ void NCNNYoloV5::generate_anchors(unsigned int target_height, unsigned int targe
       {
         for (unsigned int g0 = 0; g0 < num_grid_w; ++g0)
         {
-          YoloV5Anchor anchor;
+          YoloRssssAnchor anchor;
           anchor.grid0 = g0;
           anchor.grid1 = g1;
           anchor.stride = stride;
-          anchor.width = 62.f;
-          anchor.height = 45.f;
+          anchor.width = 76.f;
+          anchor.height = 55.f;
           anchors.push_back(anchor);
         }
       }
@@ -197,29 +197,29 @@ void NCNNYoloV5::generate_anchors(unsigned int target_height, unsigned int targe
       {
         for (unsigned int g0 = 0; g0 < num_grid_w; ++g0)
         {
-          YoloV5Anchor anchor;
+          YoloRssssAnchor anchor;
           anchor.grid0 = g0;
           anchor.grid1 = g1;
           anchor.stride = stride;
-          anchor.width = 59.f;
-          anchor.height = 119.f;
+          anchor.width = 72.f;
+          anchor.height = 146.f;
           anchors.push_back(anchor);
         }
       }
     } // 32
-    else
+    else if (stride == 32)
     {
       // 0 anchor
       for (unsigned int g1 = 0; g1 < num_grid_h; ++g1)
       {
         for (unsigned int g0 = 0; g0 < num_grid_w; ++g0)
         {
-          YoloV5Anchor anchor;
+          YoloRssssAnchor anchor;
           anchor.grid0 = g0;
           anchor.grid1 = g1;
           anchor.stride = stride;
-          anchor.width = 116.f;
-          anchor.height = 90.f;
+          anchor.width = 142.f;
+          anchor.height = 110.f;
           anchors.push_back(anchor);
         }
       }
@@ -228,12 +228,12 @@ void NCNNYoloV5::generate_anchors(unsigned int target_height, unsigned int targe
       {
         for (unsigned int g0 = 0; g0 < num_grid_w; ++g0)
         {
-          YoloV5Anchor anchor;
+          YoloRssssAnchor anchor;
           anchor.grid0 = g0;
           anchor.grid1 = g1;
           anchor.stride = stride;
-          anchor.width = 156.f;
-          anchor.height = 198.f;
+          anchor.width = 192.f;
+          anchor.height = 243.f;
           anchors.push_back(anchor);
         }
       }
@@ -242,12 +242,12 @@ void NCNNYoloV5::generate_anchors(unsigned int target_height, unsigned int targe
       {
         for (unsigned int g0 = 0; g0 < num_grid_w; ++g0)
         {
-          YoloV5Anchor anchor;
+          YoloRssssAnchor anchor;
           anchor.grid0 = g0;
           anchor.grid1 = g1;
           anchor.stride = stride;
-          anchor.width = 373.f;
-          anchor.height = 326.f;
+          anchor.width = 459.f;
+          anchor.height = 401.f;
           anchors.push_back(anchor);
         }
       }
@@ -258,11 +258,11 @@ void NCNNYoloV5::generate_anchors(unsigned int target_height, unsigned int targe
   center_anchors_is_update = true;
 }
 
-void NCNNYoloV5::generate_bboxes(const YoloV5ScaleParams &scale_params,
-                                 ncnn::Extractor &extractor,
-                                 std::vector<types::Boxf> &bbox_collection,
-                                 float score_threshold, float img_height,
-                                 float img_width)
+void NCNNYoloRssss::generate_bboxes(const YoloRssssScaleParams &scale_params,
+                                    ncnn::Extractor &extractor,
+                                    std::vector<types::Boxf> &bbox_collection,
+                                    float score_threshold, float img_height,
+                                    float img_width)
 {
   // (1,n,85=5+80=cxcy+cwch+obj_conf+cls_conf)
   ncnn::Mat det_stride_8, det_stride_16, det_stride_32;
@@ -291,12 +291,12 @@ static inline float sigmoid(float x)
   return static_cast<float>(1.f / (1.f + std::exp(-x)));
 }
 
-void NCNNYoloV5::generate_bboxes_single_stride(const YoloV5ScaleParams &scale_params,
-                                               ncnn::Mat &det_pred,
-                                               unsigned int stride,
-                                               float score_threshold,
-                                               float img_height, float img_width,
-                                               std::vector<types::Boxf> &bbox_collection)
+void NCNNYoloRssss::generate_bboxes_single_stride(const YoloRssssScaleParams &scale_params,
+                                                  ncnn::Mat &det_pred,
+                                                  unsigned int stride,
+                                                  float score_threshold,
+                                                  float img_height, float img_width,
+                                                  std::vector<types::Boxf> &bbox_collection)
 {
   unsigned int nms_pre_ = (stride / 8) * nms_pre; // 1 * 1000,2*1000,...
   nms_pre_ = nms_pre_ >= nms_pre ? nms_pre_ : nms_pre;
@@ -383,16 +383,16 @@ void NCNNYoloV5::generate_bboxes_single_stride(const YoloV5ScaleParams &scale_pa
   }
 }
 
-void NCNNYoloV5::nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
-                     float iou_threshold, unsigned int topk,
-                     unsigned int nms_type)
+void NCNNYoloRssss::nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
+                        float iou_threshold, unsigned int topk,
+                        unsigned int nms_type)
 {
   if (nms_type == NMS::BLEND) lite::utils::blending_nms(input, output, iou_threshold, topk);
   else if (nms_type == NMS::OFFSET) lite::utils::offset_nms(input, output, iou_threshold, topk);
   else lite::utils::hard_nms(input, output, iou_threshold, topk);
 }
 
-void NCNNYoloV5::print_debug_string()
+void NCNNYoloRssss::print_debug_string()
 {
   std::cout << "LITENCNN_DEBUG LogId: " << log_id << "\n";
   input_indexes = net->input_indexes();

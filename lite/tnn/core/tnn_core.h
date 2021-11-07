@@ -18,6 +18,7 @@ namespace tnncv
   class LITE_EXPORTS TNNYOLOP;                       // [4] * reference: https://github.com/hustvl/YOLOP
   class LITE_EXPORTS TNNYoloV5;                      // [5] * reference: https://github.com/ultralytics/yolov5
   class LITE_EXPORTS TNNYoloX_V_0_1_1;               // [6] * reference: https://github.com/Megvii-BaseDetection/YOLOX
+  class LITE_EXPORTS TNNYoloR;                       // [7] * reference: https://github.com/WongKinYiu/yolor
 }
 
 namespace tnncv

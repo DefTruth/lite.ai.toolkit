@@ -10,13 +10,13 @@ using ortcv::YoloX_V_0_1_1;
 
 Ort::Value YoloX_V_0_1_1::transform(const cv::Mat &mat_rs)
 {
-  cv::Mat canva;
-  cv::cvtColor(mat_rs, canva, cv::COLOR_BGR2RGB);
+  cv::Mat canvas;
+  cv::cvtColor(mat_rs, canvas, cv::COLOR_BGR2RGB);
   // There is no normalization for the latest official C++ implementation of
   // v0.1.1 YOLOX model using ncnn. Reference:
   // [1] https://github.com/Megvii-BaseDetection/YOLOX/blob/main/demo/ncnn/cpp/yolox.cpp
   return ortcv::utils::transform::create_tensor(
-      canva, input_node_dims, memory_info_handler,
+      canvas, input_node_dims, memory_info_handler,
       input_values_handler, ortcv::utils::transform::CHW);
 }
 

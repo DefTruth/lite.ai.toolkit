@@ -1,22 +1,19 @@
 //
-// Created by DefTruth on 2021/8/7.
+// Created by DefTruth on 2021/11/7.
 //
 
-#ifndef LITE_AI_ORT_CV_YOLOR_H
-#define LITE_AI_ORT_CV_YOLOR_H
+#ifndef LITE_AI_TOOLKIT_MNN_CV_MNN_YOLOR_H
+#define LITE_AI_TOOLKIT_MNN_CV_MNN_YOLOR_H
 
-#include "lite/ort/core/ort_core.h"
+#include "lite/mnn/core/mnn_core.h"
 
-namespace ortcv
+namespace mnncv
 {
-  class LITE_EXPORTS YoloR : public BasicOrtHandler
+  class LITE_EXPORTS MNNYoloR : public BasicMNNHandler
   {
   public:
-    explicit YoloR(const std::string &_onnx_path, unsigned int _num_threads = 1) :
-        BasicOrtHandler(_onnx_path, _num_threads)
-    {};
-
-    ~YoloR() override = default;
+    explicit MNNYoloR(const std::string &_mnn_path, unsigned int _num_threads = 1); //
+    ~MNNYoloR() override = default;
 
   private:
     // nested classes
@@ -31,8 +28,8 @@ namespace ortcv
     } YoloRScaleParams;
 
   private:
-    static constexpr const float mean_val = 0.f;
-    static constexpr const float scale_val = 1.0 / 255.f;
+    const float mean_vals[3] = {0.f, 0.f, 0.f}; // RGB
+    const float norm_vals[3] = {1.0 / 255.f, 1.0 / 255.f, 1.0 / 255.f};
     const char *class_names[80] = {
         "person", "bicycle", "car", "motorcycle", "airplane", "bus", "train", "truck", "boat", "traffic light",
         "fire hydrant", "stop sign", "parking meter", "bench", "bird", "cat", "dog", "horse", "sheep", "cow",
@@ -44,6 +41,7 @@ namespace ortcv
         "cell phone", "microwave", "oven", "toaster", "sink", "refrigerator", "book", "clock", "vase",
         "scissors", "teddy bear", "hair drier", "toothbrush"
     };
+
     enum NMS
     {
       HARD = 0, BLEND = 1, OFFSET = 2
@@ -51,7 +49,9 @@ namespace ortcv
     static constexpr const unsigned int max_nms = 30000;
 
   private:
-    Ort::Value transform(const cv::Mat &mat_rs) override; // without resize
+    void initialize_pretreat(); //
+
+    void transform(const cv::Mat &mat_rs) override; // without resize
 
     void resize_unscale(const cv::Mat &mat,
                         cv::Mat &mat_rs,
@@ -61,9 +61,9 @@ namespace ortcv
 
     void generate_bboxes(const YoloRScaleParams &scale_params,
                          std::vector<types::Boxf> &bbox_collection,
-                         std::vector<Ort::Value> &output_tensors,
-                         float score_threshold, float img_height,
-                         float img_width); // rescale & exclude
+                         const std::map<std::string, MNN::Tensor *> &output_tensors,
+                         float score_threshold, int img_height,
+                         int img_width); // rescale & exclude
 
     void nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
              float iou_threshold, unsigned int topk, unsigned int nms_type);
@@ -72,8 +72,7 @@ namespace ortcv
     void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
                 float score_threshold = 0.25f, float iou_threshold = 0.45f,
                 unsigned int topk = 100, unsigned int nms_type = NMS::OFFSET);
-
   };
 }
 
-#endif //LITE_AI_ORT_CV_YOLOR_H
+#endif //LITE_AI_TOOLKIT_MNN_CV_MNN_YOLOR_H
