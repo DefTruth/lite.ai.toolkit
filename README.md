@@ -197,8 +197,9 @@ and put the libs into *lite.ai.toolkit/lib* directory. Please reference the buil
     cd lite.ai.toolkit && sh ./build.sh  # On MacOS, you can use the built OpenCV, ONNXRuntime, MNN, NCNN and TNN libs in this repo.
 ```
 
-* GPU Compatibility: See [issue#10](https://github.com/DefTruth/lite.ai.toolkit/issues/10).  
-
+* GPU Compatibility for Windows: See [issue#10](https://github.com/DefTruth/lite.ai.toolkit/issues/10).  
+* GPU Compatibility for Linux: See [issue#97](https://github.com/DefTruth/lite.ai.toolkit/issues/97).
+  
 * To link Lite.AI.ToolKit, you can follow the CMakeLists.txt listed belows.  
 
 ```cmake

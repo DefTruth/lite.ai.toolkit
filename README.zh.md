@@ -197,7 +197,8 @@
     cd lite.ai.toolkit && sh ./build.sh  # 对于MacOS, 你可以直接利用本项目包含的OpenCV, ONNXRuntime, MNN, NCNN and TNN依赖库，无需重新编译
 ```
 
-* GPU兼容性: 详见[issue#10](https://github.com/DefTruth/lite.ai.toolkit/issues/10).
+* Windows GPU 兼容性: 详见[issue#10](https://github.com/DefTruth/lite.ai.toolkit/issues/10).
+* Linux GPU 兼容性: 详见[issue#97](https://github.com/DefTruth/lite.ai.toolkit/issues/97).
 
 * 你可参考以下的CMakeLists.txt设置来链接动态库.
 

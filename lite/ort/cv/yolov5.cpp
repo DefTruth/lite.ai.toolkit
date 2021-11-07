@@ -10,14 +10,12 @@ using ortcv::YoloV5;
 
 Ort::Value YoloV5::transform(const cv::Mat &mat_rs)
 {
-  cv::Mat canva = mat_rs.clone();
-  cv::cvtColor(canva, canva, cv::COLOR_BGR2RGB);
-  // cv::resize(canva, canva, cv::Size(input_node_dims.at(3),
-  //                                   input_node_dims.at(2)));
+  cv::Mat canvas;
+  cv::cvtColor(mat_rs, canvas, cv::COLOR_BGR2RGB);
   // (1,3,640,640) 1xCXHXW
-  ortcv::utils::transform::normalize_inplace(canva, mean_val, scale_val); // float32
+  ortcv::utils::transform::normalize_inplace(canvas, mean_val, scale_val); // float32
   return ortcv::utils::transform::create_tensor(
-      canva, input_node_dims, memory_info_handler,
+      canvas, input_node_dims, memory_info_handler,
       input_values_handler, ortcv::utils::transform::CHW);
 }
 
