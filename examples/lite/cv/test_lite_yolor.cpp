@@ -55,18 +55,99 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
+  std::string mnn_path = "../../../hub/mnn/cv/yolor-p6-640-640.mnn";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_detection_2.jpg";
+  std::string save_img_path = "../../../logs/test_lite_yolor_mnn_2.jpg";
+
+  // 3. Test Specific Engine MNN
+  lite::mnn::cv::detection::YoloR *yolor =
+      new lite::mnn::cv::detection::YoloR(mnn_path);
+
+  std::vector<lite::types::Boxf> detected_boxes;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  yolor->detect(img_bgr, detected_boxes);
+
+  lite::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+
+  cv::imwrite(save_img_path, img_bgr);
+
+  std::cout << "MNN Version Detected Boxes Num: " << detected_boxes.size() << std::endl;
+
+  delete yolor;
 #endif
 }
 
 static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
+  std::string param_path = "../../../hub/ncnn/cv/yolor-p6-640-640.opt.param";
+  std::string bin_path = "../../../hub/ncnn/cv/yolor-p6-640-640.opt.bin";
+  // std::string param_path = "../../../hub/ncnn/cv/yolor-ssss-s2d-640-640.opt.param";
+  // std::string bin_path = "../../../hub/ncnn/cv/yolor-ssss-s2d-640-640.opt.bin";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_detection_2.jpg";
+  std::string save_img_path = "../../../logs/test_lite_yolor_ncnn_2.jpg";
+
+  // 4. Test Specific Engine NCNN
+  if (param_path.find("ssss") != std::string::npos) // yolor-ssss-xxx
+  {
+    lite::ncnn::cv::detection::YoloRssss *yolor =
+        new lite::ncnn::cv::detection::YoloRssss(param_path, bin_path);
+
+    std::vector<lite::types::Boxf> detected_boxes;
+    cv::Mat img_bgr = cv::imread(test_img_path);
+    yolor->detect(img_bgr, detected_boxes);
+
+    lite::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+
+    cv::imwrite(save_img_path, img_bgr);
+
+    std::cout << "NCNN Version Detected Boxes Num: " << detected_boxes.size() << std::endl;
+
+    delete yolor;
+  } // yolor-px
+  else
+  {
+    lite::ncnn::cv::detection::YoloR *yolor =
+        new lite::ncnn::cv::detection::YoloR(param_path, bin_path);
+
+    std::vector<lite::types::Boxf> detected_boxes;
+    cv::Mat img_bgr = cv::imread(test_img_path);
+    yolor->detect(img_bgr, detected_boxes);
+
+    lite::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+
+    cv::imwrite(save_img_path, img_bgr);
+
+    std::cout << "NCNN Version Detected Boxes Num: " << detected_boxes.size() << std::endl;
+
+    delete yolor;
+  }
 #endif
 }
 
 static void test_tnn()
 {
 #ifdef ENABLE_TNN
+  std::string proto_path = "../../../hub/tnn/cv/yolor-p6-640-640.opt.tnnproto";
+  std::string model_path = "../../../hub/tnn/cv/yolor-p6-640-640.opt.tnnmodel";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_detection_2.jpg";
+  std::string save_img_path = "../../../logs/test_lite_yolor_tnn_2.jpg";
+
+  // 5. Test Specific Engine TNN
+  lite::tnn::cv::detection::YoloR *yolor =
+      new lite::tnn::cv::detection::YoloR(proto_path, model_path);
+
+  std::vector<lite::types::Boxf> detected_boxes;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  yolor->detect(img_bgr, detected_boxes);
+
+  lite::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+
+  cv::imwrite(save_img_path, img_bgr);
+
+  std::cout << "TNN Version Detected Boxes Num: " << detected_boxes.size() << std::endl;
+
+  delete yolor;
 #endif
 }
 

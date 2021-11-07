@@ -1,15 +1,15 @@
 //
-// Created by DefTruth on 2021/11/6.
+// Created by DefTruth on 2021/11/7.
 //
 
-#ifndef LITE_AI_TOOLKIT_NCNN_CV_NCNN_YOLOV5_H
-#define LITE_AI_TOOLKIT_NCNN_CV_NCNN_YOLOV5_H
+#ifndef LITE_AI_TOOLKIT_NCNN_CV_NCNN_YOLOR_H
+#define LITE_AI_TOOLKIT_NCNN_CV_NCNN_YOLOR_H
 
 #include "lite/ncnn/core/ncnn_core.h"
 
 namespace ncnncv
 {
-  class LITE_EXPORTS NCNNYoloV5
+  class LITE_EXPORTS NCNNYoloR
   {
   private:
     ncnn::Net *net = nullptr;
@@ -30,7 +30,7 @@ namespace ncnncv
       int stride;
       float width;
       float height;
-    } YoloV5Anchor;
+    } YoloRAnchor;
 
     typedef struct
     {
@@ -40,21 +40,21 @@ namespace ncnncv
       int new_unpad_w;
       int new_unpad_h;
       bool flag;
-    } YoloV5ScaleParams;
+    } YoloRScaleParams;
 
   public:
-    explicit NCNNYoloV5(const std::string &_param_path,
-                        const std::string &_bin_path,
-                        unsigned int _num_threads = 1,
-                        int _input_height = 640,
-                        int _input_width = 640); //
-    ~NCNNYoloV5();
+    explicit NCNNYoloR(const std::string &_param_path,
+                       const std::string &_bin_path,
+                       unsigned int _num_threads = 1,
+                       int _input_height = 640,
+                       int _input_width = 640); //
+    ~NCNNYoloR();
 
   private:
     const unsigned int num_threads; // initialize at runtime.
     // target image size after resize
-    const int input_height; // 640/320/1280
-    const int input_width; // 640/320/1280
+    const int input_height; // 640/320
+    const int input_width; // 640/320
 
     const float mean_vals[3] = {0.f, 0.f, 0.f}; // RGB
     const float norm_vals[3] = {1.0 / 255.f, 1.0 / 255.f, 1.0 / 255.f};
@@ -77,15 +77,15 @@ namespace ncnncv
     static constexpr const unsigned int nms_pre = 1000;
     static constexpr const unsigned int max_nms = 30000;
 
-    std::vector<unsigned int> strides = {8, 16, 32};
-    std::unordered_map<unsigned int, std::vector<YoloV5Anchor>> center_anchors;
+    std::vector<unsigned int> strides = {8, 16, 32, 64};
+    std::unordered_map<unsigned int, std::vector<YoloRAnchor>> center_anchors;
     bool center_anchors_is_update = false;
 
   protected:
-    NCNNYoloV5(const NCNNYoloV5 &) = delete; //
-    NCNNYoloV5(NCNNYoloV5 &&) = delete; //
-    NCNNYoloV5 &operator=(const NCNNYoloV5 &) = delete; //
-    NCNNYoloV5 &operator=(NCNNYoloV5 &&) = delete; //
+    NCNNYoloR(const NCNNYoloR &) = delete; //
+    NCNNYoloR(NCNNYoloR &&) = delete; //
+    NCNNYoloR &operator=(const NCNNYoloR &) = delete; //
+    NCNNYoloR &operator=(NCNNYoloR &&) = delete; //
 
   private:
     void print_debug_string();
@@ -96,12 +96,12 @@ namespace ncnncv
                         cv::Mat &mat_rs,
                         int target_height,
                         int target_width,
-                        YoloV5ScaleParams &scale_params);
+                        YoloRScaleParams &scale_params);
 
     // only generate once
     void generate_anchors(unsigned int target_height, unsigned int target_width);
 
-    void generate_bboxes_single_stride(const YoloV5ScaleParams &scale_params,
+    void generate_bboxes_single_stride(const YoloRScaleParams &scale_params,
                                        ncnn::Mat &det_pred,
                                        unsigned int stride,
                                        float score_threshold,
@@ -109,7 +109,7 @@ namespace ncnncv
                                        float img_width,
                                        std::vector<types::Boxf> &bbox_collection);
 
-    void generate_bboxes(const YoloV5ScaleParams &scale_params,
+    void generate_bboxes(const YoloRScaleParams &scale_params,
                          ncnn::Extractor &extractor,
                          std::vector<types::Boxf> &bbox_collection,
                          float score_threshold, float img_height,
@@ -128,4 +128,4 @@ namespace ncnncv
 
 }
 
-#endif //LITE_AI_TOOLKIT_NCNN_CV_NCNN_YOLOV5_H
+#endif //LITE_AI_TOOLKIT_NCNN_CV_NCNN_YOLOR_H
