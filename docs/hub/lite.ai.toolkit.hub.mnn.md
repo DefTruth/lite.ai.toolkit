@@ -38,6 +38,9 @@ You can download all the pretrained models files of MNN format from ([Baidu Driv
 |     *lite::mnn::cv::detection::YoloX_V_0_1_1*      |          yolox_s_v0.1.1.mnn           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 34Mb  |
 |     *lite::mnn::cv::detection::YoloX_V_0_1_1*      |         yolox_tiny_v0.1.1.mnn         |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 19Mb  |
 |     *lite::mnn::cv::detection::YoloX_V_0_1_1*      |         yolox_nano_v0.1.1.mnn         |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 3.5Mb |
+|     *lite::mnn::cv::detection::YoloR*     |          yolor-p6-320-320.mnn            |      [yolor](https://github.com/WongKinYiu/yolor)      | 157Mb |
+|     *lite::mnn::cv::detection::YoloR*     |          yolor-p6-640-640.mnn            |      [yolor](https://github.com/WongKinYiu/yolor)      | 157Mb  |
+|     *lite::mnn::cv::detection::YoloR*     |          yolor-ssss-s2d-640-640.mnn            |      [yolor](https://github.com/WongKinYiu/yolor)      | 50Mb  |
 
 
 ## Matting.
