@@ -44,10 +44,10 @@ namespace ncnncv
 
   public:
     explicit NCNNYoloRssss(const std::string &_param_path,
-                       const std::string &_bin_path,
-                       unsigned int _num_threads = 1,
-                       int _input_height = 640,
-                       int _input_width = 640); //
+                           const std::string &_bin_path,
+                           unsigned int _num_threads = 1,
+                           int _input_height = 640,
+                           int _input_width = 640); //
     ~NCNNYoloRssss();
 
   private:
