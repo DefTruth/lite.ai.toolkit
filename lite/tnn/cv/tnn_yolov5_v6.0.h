@@ -1,0 +1,8 @@
+//
+// Created by DefTruth on 2021/11/10.
+//
+
+#ifndef LITE_AI_TOOLKIT_TNN_CV_TNN_YOLOV5_V6_0_H
+#define LITE_AI_TOOLKIT_TNN_CV_TNN_YOLOV5_V6_0_H
+
+#endif //LITE_AI_TOOLKIT_TNN_CV_TNN_YOLOV5_V6_0_H
