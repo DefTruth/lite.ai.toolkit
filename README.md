@@ -61,7 +61,7 @@
 
 * ❤️ *Simply and User friendly.* Simply and Consistent syntax like *lite::cv::Type::Class*, see [examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
 * ⚡ *Minimum Dependencies.* Only *OpenCV* and *ONNXRuntime* are required by default, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit).
-* ❤️ *Lots of Algorithm Modules.* Contains 10+ modules and *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* famous models with *[300+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained *.onnx/.mnn/.param&bin(ncnn)/.tnnmodel&tnnproto* files now, such as [object detection](#lite.ai.toolkit-object-detection), [face detection](#lite.ai.toolkit-face-detection), [face recognition](#lite.ai.toolkit-face-recognition), [segmentation](#lite.ai.toolkit-segmentation), [matting](#lite.ai.toolkit-matting), etc. See [Model Zoo](#lite.ai.toolkit-Model-Zoo) and [lite.ai.toolkit.hub.onnx.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md).
+* ❤️ *Lots of Algorithm Modules.* Contains 10+ modules and *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* famous models with *[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained *.onnx/.mnn/.param&bin(ncnn)/.tnnmodel&tnnproto* files now, such as [object detection](#lite.ai.toolkit-object-detection), [face detection](#lite.ai.toolkit-face-detection), [face recognition](#lite.ai.toolkit-face-recognition), [segmentation](#lite.ai.toolkit-segmentation), [matting](#lite.ai.toolkit-matting), etc. See [Model Zoo](#lite.ai.toolkit-Model-Zoo) and [lite.ai.toolkit.hub.onnx.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md).
 
 <p align="center"> ❤️ Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀 </p>
  
@@ -325,7 +325,7 @@ A minimum example to show you how to link the shared lib of Lite.AI.ToolKit corr
 
 <div id="lite.ai.toolkit-Model-Zoo"></div>
 
-*Lite.AI.ToolKit* contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* AI models with *[300+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained *.onnx/.mnn/.param&bin(ncnn)/.tnnmodel&tnnproto* files now. Most of the files are converted by myself. You can use it through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)*. More details can be found at [Examples for Lite.AI.ToolKit](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).  
+*Lite.AI.ToolKit* contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* AI models with *[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained *.onnx/.mnn/.param&bin(ncnn)/.tnnmodel&tnnproto* files now. Most of the files are converted by myself. You can use it through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)*. More details can be found at [Examples for Lite.AI.ToolKit](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).  
 
 <details>
 <summary> Expand Details for Namespace and Lite.AI.ToolKit modules.</summary>  

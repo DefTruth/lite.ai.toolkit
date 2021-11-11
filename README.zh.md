@@ -61,7 +61,7 @@
 
 * ❤️ *用户友好，开箱即用。* 使用简单一致的调用语法，如*lite::cv::Type::Class*，详见[examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
 * ⚡ *少量依赖，构建容易。* 目前, 默认只依赖 *OpenCV* 和 *ONNXRuntime*，详见[build](#lite.ai.toolkit-Build-Lite.AI.ToolKit)。
-* ❤️ *众多的算法模块，且持续更新。* 目前，包括 10+ 算法模块、*[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* 流行的开源模型以及 *[300+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)*  *.onnx/.mnn/.param&bin(ncnn)/.tnnmodel&tnnproto* 权重文件., 涵盖[目标检测](#lite.ai.toolkit-object-detection)、[人脸检测](#lite.ai.toolkit-face-detection)、[人脸识别](#lite.ai.toolkit-face-recognition)、[语义分割](#lite.ai.toolkit-segmentation)、[抠图](#lite.ai.toolkit-matting)等领域。详见 [Model Zoo](#lite.ai.toolkit-Model-Zoo) 和 [lite.ai.toolkit.hub.onnx.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md) 。更多的新模型将会不断地加入进来 ~ 😎
+* ❤️ *众多的算法模块，且持续更新。* 目前，包括 10+ 算法模块、*[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* 流行的开源模型以及 *[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)*  *.onnx/.mnn/.param&bin(ncnn)/.tnnmodel&tnnproto* 权重文件., 涵盖[目标检测](#lite.ai.toolkit-object-detection)、[人脸检测](#lite.ai.toolkit-face-detection)、[人脸识别](#lite.ai.toolkit-face-recognition)、[语义分割](#lite.ai.toolkit-segmentation)、[抠图](#lite.ai.toolkit-matting)等领域。详见 [Model Zoo](#lite.ai.toolkit-Model-Zoo) 和 [lite.ai.toolkit.hub.onnx.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md) 。更多的新模型将会不断地加入进来 ~ 😎
 
 <p align="center"> 若是有用，❤️不妨给个⭐️🌟支持一下吧~ 🙃🤪🍀 </p>
 
@@ -326,7 +326,7 @@ target_link_libraries(lite_rvm
 
 <div id="lite.ai.toolkit-Model-Zoo"></div>
 
-*Lite.AI.ToolKit* 目前包括 *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* 流行的开源模型以及 *[300+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* .onnx/.mnn/.param&bin(ncnn)/.tnnmodel&tnnproto 文件，大部分文件是我自己转换的。你可以通过*lite::cv::Type::Class* 语法进行调用，如 *[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)*。更多的细节见[Examples for Lite.AI.ToolKit](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit)。
+*Lite.AI.ToolKit* 目前包括 *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* 流行的开源模型以及 *[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* .onnx/.mnn/.param&bin(ncnn)/.tnnmodel&tnnproto 文件，大部分文件是我自己转换的。你可以通过*lite::cv::Type::Class* 语法进行调用，如 *[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)*。更多的细节见[Examples for Lite.AI.ToolKit](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit)。
 
 <details>
 <summary> 命名空间和Lite.AI.ToolKit算法模块的对应关系 </summary>  
