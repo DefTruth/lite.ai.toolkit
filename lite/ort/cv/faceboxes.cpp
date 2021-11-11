@@ -90,7 +90,7 @@ void FaceBoxes::generate_anchors(const int target_height,
                 // (x or y + offset) * step / w or h normalized loc mapping to input size.
                 float cx = ((float) j + offset_x) * (float) steps.at(k) / (float) target_width;
                 float cy = ((float) i + offset_y) * (float) steps.at(k) / (float) target_height;
-                anchors.push_back((FaceBoxesAnchor) {cx, cy, s_kx, s_ky}); // without clip
+                anchors.push_back(FaceBoxesAnchor{cx, cy, s_kx, s_ky}); // without clip
               }
             }
 
@@ -104,7 +104,7 @@ void FaceBoxes::generate_anchors(const int target_height,
               {
                 float cx = ((float) j + offset_x) * (float) steps.at(k) / (float) target_width;
                 float cy = ((float) i + offset_y) * (float) steps.at(k) / (float) target_height;
-                anchors.push_back((FaceBoxesAnchor) {cx, cy, s_kx, s_ky}); // without clip
+                anchors.push_back(FaceBoxesAnchor{cx, cy, s_kx, s_ky}); // without clip
               }
             }
 
@@ -113,7 +113,7 @@ void FaceBoxes::generate_anchors(const int target_height,
           {
             float cx = ((float) j + 0.5f) * (float) steps.at(k) / (float) target_width;
             float cy = ((float) i + 0.5f) * (float) steps.at(k) / (float) target_height;
-            anchors.push_back((FaceBoxesAnchor) {cx, cy, s_kx, s_ky}); // without clip
+            anchors.push_back(FaceBoxesAnchor{cx, cy, s_kx, s_ky}); // without clip
           }
         }
       }
