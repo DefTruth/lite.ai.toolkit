@@ -116,6 +116,21 @@ You can download all the pretrained models files of ONNX format from ([Baidu Dri
 |     *lite::cv::detection::YoloX_V_0_1_1*      |          yolox_s_v0.1.1.onnx           |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 34Mb  |
 |     *lite::cv::detection::YoloX_V_0_1_1*      |         yolox_tiny_v0.1.1.onnx         |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 19Mb  |
 |     *lite::cv::detection::YoloX_V_0_1_1*      |         yolox_nano_v0.1.1.onnx         |  [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)   | 3.5Mb |
+|     *lite::cv::detection::YoloV5_V_6_0*     |          yolov5l.640-640.v.6.0.onnx           |      [yolov5](https://github.com/ultralytics/yolov5)      | 178Mb |
+|     *lite::cv::detection::YoloV5_V_6_0*     |          yolov5m.640-640.v.6.0.onnx           |      [yolov5](https://github.com/ultralytics/yolov5)      | 81Mb  |
+|     *lite::cv::detection::YoloV5_V_6_0*     |          yolov5s.640-640.v.6.0.onnx           |      [yolov5](https://github.com/ultralytics/yolov5)      | 28Mb  |
+|     *lite::cv::detection::YoloV5_V_6_0*     |          yolov5x.640-640.v.6.0.onnx           |      [yolov5](https://github.com/ultralytics/yolov5)      | 331Mb |
+|     *lite::cv::detection::YoloV5_V_6_0*     |          yolov5n.640-640.v.6.0.onnx           |      [yolov5](https://github.com/ultralytics/yolov5)      | 7.5Mb |
+|     *lite::cv::detection::YoloV5_V_6_0*     |          yolov5l6.640-640.v.6.0.onnx           |      [yolov5](https://github.com/ultralytics/yolov5)      | 294Mb |
+|     *lite::cv::detection::YoloV5_V_6_0*     |          yolov5m6.640-640.v.6.0.onnx           |      [yolov5](https://github.com/ultralytics/yolov5)      | 128Mb  |
+|     *lite::cv::detection::YoloV5_V_6_0*     |          yolov5s6.640-640.v.6.0.onnx           |      [yolov5](https://github.com/ultralytics/yolov5)      | 50Mb  |
+|     *lite::cv::detection::YoloV5_V_6_0*     |          yolov5x6.640-640.v.6.0.onnx           |      [yolov5](https://github.com/ultralytics/yolov5)      | 538Mb |
+|     *lite::cv::detection::YoloV5_V_6_0*     |          yolov5n6.640-640.v.6.0.onnx           |      [yolov5](https://github.com/ultralytics/yolov5)      | 14Mb |
+|     *lite::cv::detection::YoloV5_V_6_0*     |          yolov5l6.1280-1280.v.6.0.onnx           |      [yolov5](https://github.com/ultralytics/yolov5)      | 294Mb |
+|     *lite::cv::detection::YoloV5_V_6_0*     |          yolov5m6.1280-1280.v.6.0.onnx           |      [yolov5](https://github.com/ultralytics/yolov5)      | 128Mb  |
+|     *lite::cv::detection::YoloV5_V_6_0*     |          yolov5s6.1280-1280.v.6.0.onnx           |      [yolov5](https://github.com/ultralytics/yolov5)      | 50Mb  |
+|     *lite::cv::detection::YoloV5_V_6_0*     |          yolov5x6.1280-1280.v.6.0.onnx           |      [yolov5](https://github.com/ultralytics/yolov5)      | 538Mb |
+|     *lite::cv::detection::YoloV5_V_6_0*     |          yolov5n6.1280-1280.v.6.0.onnx           |      [yolov5](https://github.com/ultralytics/yolov5)      | 14Mb |
 
 
 ## Classification.  
