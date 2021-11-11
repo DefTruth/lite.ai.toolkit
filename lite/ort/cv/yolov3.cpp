@@ -4,6 +4,7 @@
 
 #include "yolov3.h"
 #include "lite/ort/core/ort_utils.h"
+#include "lite/utils.h"
 
 using ortcv::YoloV3;
 
