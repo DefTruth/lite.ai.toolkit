@@ -1,15 +1,15 @@
 //
-// Created by DefTruth on 2021/11/10.
+// Created by DefTruth on 2021/11/11.
 //
 
-#ifndef LITE_AI_TOOLKIT_NCNN_CV_NCNN_YOLOV5_V6_0_H
-#define LITE_AI_TOOLKIT_NCNN_CV_NCNN_YOLOV5_V6_0_H
+#ifndef LITE_AI_TOOLKIT_NCNN_CV_NCNN_YOLOV5_V6_0_P6_H
+#define LITE_AI_TOOLKIT_NCNN_CV_NCNN_YOLOV5_V6_0_P6_H
 
 #include "lite/ncnn/core/ncnn_core.h"
 
 namespace ncnncv
 {
-  class LITE_EXPORTS NCNNYoloV5_V_6_0
+  class LITE_EXPORTS NCNNYoloV5_V_6_0_P6
   {
   private:
     ncnn::Net *net = nullptr;
@@ -43,18 +43,18 @@ namespace ncnncv
     } YoloV5ScaleParams;
 
   public:
-    explicit NCNNYoloV5_V_6_0(const std::string &_param_path,
-                              const std::string &_bin_path,
-                              unsigned int _num_threads = 1,
-                              int _input_height = 640,
-                              int _input_width = 640); //
-    ~NCNNYoloV5_V_6_0();
+    explicit NCNNYoloV5_V_6_0_P6(const std::string &_param_path,
+                                 const std::string &_bin_path,
+                                 unsigned int _num_threads = 1,
+                                 int _input_height = 640,
+                                 int _input_width = 640); //
+    ~NCNNYoloV5_V_6_0_P6();
 
   private:
     const unsigned int num_threads; // initialize at runtime.
     // target image size after resize
-    const int input_height; // 640/320/1280
-    const int input_width; // 640/320/1280
+    const int input_height; // 640/1280
+    const int input_width; // 640/1280
 
     const float mean_vals[3] = {0.f, 0.f, 0.f}; // RGB
     const float norm_vals[3] = {1.0 / 255.f, 1.0 / 255.f, 1.0 / 255.f};
@@ -77,15 +77,15 @@ namespace ncnncv
     static constexpr const unsigned int nms_pre = 1000;
     static constexpr const unsigned int max_nms = 30000;
 
-    std::vector<unsigned int> strides = {8, 16, 32};
+    std::vector<unsigned int> strides = {8, 16, 32, 64}; // p6 have 4 detection heads
     std::unordered_map<unsigned int, std::vector<YoloV5Anchor>> center_anchors;
     bool center_anchors_is_update = false;
 
   protected:
-    NCNNYoloV5_V_6_0(const NCNNYoloV5_V_6_0 &) = delete; //
-    NCNNYoloV5_V_6_0(NCNNYoloV5_V_6_0 &&) = delete; //
-    NCNNYoloV5_V_6_0 &operator=(const NCNNYoloV5_V_6_0 &) = delete; //
-    NCNNYoloV5_V_6_0 &operator=(NCNNYoloV5_V_6_0 &&) = delete; //
+    NCNNYoloV5_V_6_0_P6(const NCNNYoloV5_V_6_0_P6 &) = delete; //
+    NCNNYoloV5_V_6_0_P6(NCNNYoloV5_V_6_0_P6 &&) = delete; //
+    NCNNYoloV5_V_6_0_P6 &operator=(const NCNNYoloV5_V_6_0_P6 &) = delete; //
+    NCNNYoloV5_V_6_0_P6 &operator=(NCNNYoloV5_V_6_0_P6 &&) = delete; //
 
   private:
     void print_debug_string();
@@ -128,4 +128,4 @@ namespace ncnncv
 
 }
 
-#endif //LITE_AI_TOOLKIT_NCNN_CV_NCNN_YOLOV5_V6_0_H
+#endif //LITE_AI_TOOLKIT_NCNN_CV_NCNN_YOLOV5_V6_0_P6_H
