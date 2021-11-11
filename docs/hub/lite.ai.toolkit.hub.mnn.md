@@ -41,6 +41,18 @@ You can download all the pretrained models files of MNN format from ([Baidu Driv
 |     *lite::mnn::cv::detection::YoloR*     |          yolor-p6-320-320.mnn            |      [yolor](https://github.com/WongKinYiu/yolor)      | 157Mb |
 |     *lite::mnn::cv::detection::YoloR*     |          yolor-p6-640-640.mnn            |      [yolor](https://github.com/WongKinYiu/yolor)      | 157Mb  |
 |     *lite::mnn::cv::detection::YoloR*     |          yolor-ssss-s2d-640-640.mnn            |      [yolor](https://github.com/WongKinYiu/yolor)      | 50Mb  |
+|     *lite::mnn::cv::detection::YoloV5_V_6_0*     |          yolov5l.640-640.v.6.0.mnn           |      [yolov5](https://github.com/ultralytics/yolov5)      | 178Mb |
+|     *lite::mnn::cv::detection::YoloV5_V_6_0*     |          yolov5m.640-640.v.6.0.mnn           |      [yolov5](https://github.com/ultralytics/yolov5)      | 81Mb  |
+|     *lite::mnn::cv::detection::YoloV5_V_6_0*     |          yolov5s.640-640.v.6.0.mnn           |      [yolov5](https://github.com/ultralytics/yolov5)      | 28Mb  |
+|     *lite::mnn::cv::detection::YoloV5_V_6_0*     |          yolov5n.640-640.v.6.0.mnn           |      [yolov5](https://github.com/ultralytics/yolov5)      | 7.5Mb |
+|     *lite::mnn::cv::detection::YoloV5_V_6_0*     |          yolov5l6.640-640.v.6.0.mnn           |      [yolov5](https://github.com/ultralytics/yolov5)      | 294Mb |
+|     *lite::mnn::cv::detection::YoloV5_V_6_0*     |          yolov5m6.640-640.v.6.0.mnn           |      [yolov5](https://github.com/ultralytics/yolov5)      | 128Mb  |
+|     *lite::mnn::cv::detection::YoloV5_V_6_0*     |          yolov5s6.640-640.v.6.0.mnn           |      [yolov5](https://github.com/ultralytics/yolov5)      | 50Mb  |
+|     *lite::mnn::cv::detection::YoloV5_V_6_0*     |          yolov5n6.640-640.v.6.0.mnn           |      [yolov5](https://github.com/ultralytics/yolov5)      | 14Mb |
+|     *lite::mnn::cv::detection::YoloV5_V_6_0*     |          yolov5l6.1280-1280.v.6.0.mnn           |      [yolov5](https://github.com/ultralytics/yolov5)      | 294Mb |
+|     *lite::mnn::cv::detection::YoloV5_V_6_0*     |          yolov5m6.1280-1280.v.6.0.mnn           |      [yolov5](https://github.com/ultralytics/yolov5)      | 128Mb  |
+|     *lite::mnn::cv::detection::YoloV5_V_6_0*     |          yolov5s6.1280-1280.v.6.0.mnn           |      [yolov5](https://github.com/ultralytics/yolov5)      | 50Mb  |
+|     *lite::mnn::cv::detection::YoloV5_V_6_0*     |          yolov5n6.1280-1280.v.6.0.mnn           |      [yolov5](https://github.com/ultralytics/yolov5)      | 14Mb |
 
 
 ## Matting.

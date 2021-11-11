@@ -23,6 +23,8 @@ namespace ncnncv
   class LITE_EXPORTS NCNNYoloX_V_0_1_1;                          // [8] * reference: https://github.com/Megvii-BaseDetection/YOLOX
   class LITE_EXPORTS NCNNYoloR;                                  // [9] * reference: https://github.com/WongKinYiu/yolor
   class LITE_EXPORTS NCNNYoloRssss;                              // [10] * reference: https://github.com/WongKinYiu/yolor
+  class LITE_EXPORTS NCNNYoloV5_V_6_0;                           // [11] * reference: https://github.com/ultralytics/yolov5
+  class LITE_EXPORTS NCNNYoloV5_V_6_0_P6;                        // [12] * reference: https://github.com/ultralytics/yolov5
 }
 
 namespace ncnncv

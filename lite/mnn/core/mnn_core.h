@@ -19,6 +19,7 @@ namespace mnncv
   class LITE_EXPORTS MNNYoloV5;                      // [5] * reference: https://github.com/ultralytics/yolov5
   class LITE_EXPORTS MNNYoloX_V_0_1_1;               // [6] * reference: https://github.com/Megvii-BaseDetection/YOLOX
   class LITE_EXPORTS MNNYoloR;                       // [7] * reference: https://github.com/WongKinYiu/yolor
+  class LITE_EXPORTS MNNYoloV5_V_6_0;                // [8] * reference: https://github.com/ultralytics/yolov5
 }
 
 namespace mnncv
