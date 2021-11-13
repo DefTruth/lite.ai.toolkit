@@ -9,15 +9,15 @@ using ortcv::SSRNet;
 
 Ort::Value SSRNet::transform(const cv::Mat &mat)
 {
-  cv::Mat canva = mat.clone();
-  cv::resize(canva, canva, cv::Size(input_node_dims.at(3),
-                                    input_node_dims.at(2))); // 64x64x3
-  canva.convertTo(canva, CV_32FC3, 1.0f / 255.0f, 0.f);  // 64x64x3 (0.,1.0)
+  cv::Mat canvas;
+  cv::resize(mat, canvas, cv::Size(input_node_dims.at(3),
+                                   input_node_dims.at(2))); // 64x64x3
+  canvas.convertTo(canvas, CV_32FC3, 1.0f / 255.0f, 0.f);  // 64x64x3 (0.,1.0)
   // (1,3,64,64)
-  ortcv::utils::transform::normalize_inplace(canva, mean_val, scale_val); // float32
+  ortcv::utils::transform::normalize_inplace(canvas, mean_val, scale_val); // float32
 
   return ortcv::utils::transform::create_tensor(
-      canva, input_node_dims, memory_info_handler,
+      canvas, input_node_dims, memory_info_handler,
       input_values_handler, ortcv::utils::transform::CHW);
 }
 

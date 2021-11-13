@@ -90,15 +90,15 @@ void PoseRobustFace::print_debug_string()
 
 Ort::Value PoseRobustFace::transform(const cv::Mat &mat)
 {
-  cv::Mat canva = mat.clone();
+  cv::Mat canvas;
   const unsigned int height = input_node_dims.at(0).at(2);
   const unsigned int width = input_node_dims.at(0).at(3);
-  cv::resize(canva, canva, cv::Size(width, height));
-  cv::cvtColor(canva, canva, cv::COLOR_BGR2RGB);
+  cv::resize(mat, canvas, cv::Size(width, height));
+  cv::cvtColor(canvas, canvas, cv::COLOR_BGR2RGB);
   // (1,3,224,224)
-  ortcv::utils::transform::normalize_inplace(canva, mean_val, scale_val); // (0.,1.)
+  ortcv::utils::transform::normalize_inplace(canvas, mean_val, scale_val); // (0.,1.)
   return ortcv::utils::transform::create_tensor(
-      canva, input_node_dims.at(0), memory_info_handler,
+      canvas, input_node_dims.at(0), memory_info_handler,
       input_values_handler, ortcv::utils::transform::CHW);
 }
 
