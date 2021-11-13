@@ -71,7 +71,7 @@ void FCNResNet101::print_debug_string()
 
 Ort::Value FCNResNet101::transform(const cv::Mat &mat)
 {
-  cv::Mat canvas = mat.clone();
+  cv::Mat canvas;
   const unsigned int img_height = mat.rows;
   const unsigned int img_width = mat.cols;
 
@@ -83,7 +83,7 @@ Ort::Value FCNResNet101::transform(const cv::Mat &mat)
   dynamic_input_tensor_size = 1 * 3 * dynamic_input_height * dynamic_input_width;
   dynamic_input_values_handler.resize(dynamic_input_tensor_size);
 
-  cv::cvtColor(canvas, canvas, cv::COLOR_BGR2RGB);
+  cv::cvtColor(mat, canvas, cv::COLOR_BGR2RGB);
   canvas.convertTo(canvas, CV_32FC3, 1.f / 255.f, 0.f); // (0.,1.)
 
   ortcv::utils::transform::normalize_inplace(canvas, mean_vals, scale_vals);

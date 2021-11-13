@@ -75,7 +75,7 @@ std::vector<Ort::Value> RobustVideoMatting::transform(const cv::Mat &mat)
 
   // normalize & RGB
   cv::cvtColor(src, src, cv::COLOR_BGR2RGB); // (h,w,3)
-  src.convertTo(src, CV_32FC3, 1.0f/255.0f, 0.f); // 0.~1.
+  src.convertTo(src, CV_32FC3, 1.0f / 255.0f, 0.f); // 0.~1.
 
   // convert to tensor.
   std::vector<Ort::Value> input_tensors;

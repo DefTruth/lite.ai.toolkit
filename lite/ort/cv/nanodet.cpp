@@ -45,11 +45,11 @@ void NanoDet::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
 
 Ort::Value NanoDet::transform(const cv::Mat &mat_rs)
 {
-  cv::Mat canva = mat_rs.clone();
+  cv::Mat canvas = mat_rs.clone();
   // e.g (1,3,320,320) 1xCXHXW
-  ortcv::utils::transform::normalize_inplace(canva, mean_vals, scale_vals); // float32
+  ortcv::utils::transform::normalize_inplace(canvas, mean_vals, scale_vals); // float32
   return ortcv::utils::transform::create_tensor(
-      canva, input_node_dims, memory_info_handler,
+      canvas, input_node_dims, memory_info_handler,
       input_values_handler, ortcv::utils::transform::CHW);
 }
 

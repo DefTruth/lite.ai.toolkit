@@ -9,7 +9,7 @@ using ortcv::FSANet;
 
 Ort::Value FSANet::transform(const cv::Mat &mat)
 {
-  cv::Mat canva;
+  cv::Mat canvas;
   // 0. padding
   const int h = mat.rows;
   const int w = mat.cols;
@@ -19,14 +19,14 @@ Ort::Value FSANet::transform(const cv::Mat &mat)
   const int nx1 = std::max(0, static_cast<int>((nw - w) / 2));
   const int ny1 = std::max(0, static_cast<int>((nh - h) / 2));
 
-  canva = cv::Mat(nh, nw, CV_8UC3, cv::Scalar(0, 0, 0));
-  mat.copyTo(canva(cv::Rect(nx1, ny1, w, h)));
+  canvas = cv::Mat(nh, nw, CV_8UC3, cv::Scalar(0, 0, 0));
+  mat.copyTo(canvas(cv::Rect(nx1, ny1, w, h)));
 
-  cv::resize(canva, canva, cv::Size(input_width, input_height));
-  ortcv::utils::transform::normalize_inplace(canva, 127.5, 1.f / 127.5f);
+  cv::resize(canvas, canvas, cv::Size(input_width, input_height));
+  ortcv::utils::transform::normalize_inplace(canvas, 127.5, 1.f / 127.5f);
 
   return ortcv::utils::transform::create_tensor(
-      canva, input_node_dims, memory_info_handler,
+      canvas, input_node_dims, memory_info_handler,
       input_values_handler, ortcv::utils::transform::CHW);
 }
 

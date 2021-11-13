@@ -70,8 +70,8 @@ void SSDMobileNetV1::print_debug_string()
 
 Ort::Value SSDMobileNetV1::transform(const cv::Mat &mat)
 {
-  cv::Mat canvas = mat.clone();
-  cv::resize(canvas, canvas, cv::Size(input_width, input_height));
+  cv::Mat canvas;
+  cv::resize(mat, canvas, cv::Size(input_width, input_height));
   cv::cvtColor(canvas, canvas, cv::COLOR_BGR2RGB); // uint8 hwc
 
   // HWC

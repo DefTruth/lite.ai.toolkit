@@ -10,16 +10,16 @@ using ortcv::EfficientDetD7;
 
 Ort::Value EfficientDetD7::transform(const cv::Mat &mat)
 {
-  cv::Mat canva = mat.clone();
-  cv::cvtColor(canva, canva, cv::COLOR_BGR2RGB);
+  cv::Mat canvas;
+  cv::cvtColor(mat, canvas, cv::COLOR_BGR2RGB);
   // resize without padding, todo: add padding as the official Python implementation.
-  cv::resize(canva, canva, cv::Size(input_node_dims.at(3),
-                                    input_node_dims.at(2)));
+  cv::resize(canvas, canvas, cv::Size(input_node_dims.at(3),
+                                      input_node_dims.at(2)));
   // (1,3,1536,1536) 1xCXHXW
-  canva.convertTo(canva, CV_32FC3, 1.0f / 255.f, 0.f);
-  ortcv::utils::transform::normalize_inplace(canva, mean_vals, scale_vals); // float32
+  canvas.convertTo(canvas, CV_32FC3, 1.0f / 255.f, 0.f);
+  ortcv::utils::transform::normalize_inplace(canvas, mean_vals, scale_vals); // float32
   return ortcv::utils::transform::create_tensor(
-      canva, input_node_dims, memory_info_handler,
+      canvas, input_node_dims, memory_info_handler,
       input_values_handler, ortcv::utils::transform::CHW);
 }
 

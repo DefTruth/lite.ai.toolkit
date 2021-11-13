@@ -10,15 +10,15 @@ using ortcv::SSD;
 
 Ort::Value SSD::transform(const cv::Mat &mat)
 {
-  cv::Mat canva = mat.clone();
-  cv::cvtColor(canva, canva, cv::COLOR_BGR2RGB);
-  cv::resize(canva, canva, cv::Size(input_node_dims.at(3),
-                                    input_node_dims.at(2))); // (1200,1200,3)
+  cv::Mat canvas;
+  cv::cvtColor(mat, canvas, cv::COLOR_BGR2RGB);
+  cv::resize(canvas, canvas, cv::Size(input_node_dims.at(3),
+                                      input_node_dims.at(2))); // (1200,1200,3)
 
-  canva.convertTo(canva, CV_32FC3, 1.0f / 255.0f, 0.f); // (0.,1.)
-  ortcv::utils::transform::normalize_inplace(canva, mean_vals, scale_vals); // float32
+  canvas.convertTo(canvas, CV_32FC3, 1.0f / 255.0f, 0.f); // (0.,1.)
+  ortcv::utils::transform::normalize_inplace(canvas, mean_vals, scale_vals); // float32
   return ortcv::utils::transform::create_tensor(
-      canva, input_node_dims, memory_info_handler,
+      canvas, input_node_dims, memory_info_handler,
       input_values_handler, ortcv::utils::transform::CHW);
 }
 
