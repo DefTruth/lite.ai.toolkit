@@ -25,6 +25,20 @@ namespace ncnncv
   class LITE_EXPORTS NCNNYoloRssss;                              // [10] * reference: https://github.com/WongKinYiu/yolor
   class LITE_EXPORTS NCNNYoloV5_V_6_0;                           // [11] * reference: https://github.com/ultralytics/yolov5
   class LITE_EXPORTS NCNNYoloV5_V_6_0_P6;                        // [12] * reference: https://github.com/ultralytics/yolov5
+  class LITE_EXPORTS NCNNGlintArcFace;                           // [13] * reference: https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch
+  class LITE_EXPORTS NCNNGlintCosFace;                           // [14] * reference: https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch
+  class LITE_EXPORTS NCNNGlintPartialFC;                         // [15] * reference: https://github.com/deepinsight/insightface/tree/master/recognition/partial_fc
+  class LITE_EXPORTS NCNNFaceNet;                                // [16] * reference: https://github.com/timesler/facenet-pytorch
+  class LITE_EXPORTS NCNNFocalArcFace;                           // [17] * reference: https://github.com/ZhaoJ9014/face.evoLVe.PyTorch
+  class LITE_EXPORTS NCNNFocalAsiaArcFace;                       // [18] * reference: https://github.com/ZhaoJ9014/face.evoLVe.PyTorch
+  class LITE_EXPORTS NCNNTencentCurricularFace;                  // [19] * reference: https://github.com/Tencent/TFace/tree/master/tasks/distfc
+  class LITE_EXPORTS NCNNTencentCifpFace;                        // [20] * reference: https://github.com/Tencent/TFace/tree/master/tasks/cifp
+  class LITE_EXPORTS NCNNCenterLossFace;                         // [21] * reference: https://github.com/louis-she/center-loss.pytorch
+  class LITE_EXPORTS NCNNSphereFace;                             // [22] * reference: https://github.com/clcarwin/sphereface_pytorch
+  class LITE_EXPORTS NCNNMobileFaceNet;                          // [23] * reference: https://github.com/Xiaoccer/MobileFaceNet_Pytorch
+  class LITE_EXPORTS NCNNCavaGhostArcFace;                       // [24] * reference: https://github.com/cavalleria/cavaface.pytorch
+  class LITE_EXPORTS NCNNCavaCombinedFace;                       // [25] * reference: https://github.com/cavalleria/cavaface.pytorch
+  class LITE_EXPORTS NCNNMobileSEFocalFace;                      // [26] * reference: https://github.com/grib0ed0v/face_recognition.pytorch
 }
 
 namespace ncnncv
