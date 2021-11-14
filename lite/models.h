@@ -120,6 +120,9 @@
 #include "lite/ncnn/cv/ncnn_yolor_ssss.h"
 #include "lite/ncnn/cv/ncnn_yolov5_v6.0.h"
 #include "lite/ncnn/cv/ncnn_yolov5_v6.0_p6.h"
+#include "lite/ncnn/cv/ncnn_glint_arcface.h"
+#include "lite/ncnn/cv/ncnn_glint_cosface.h"
+#include "lite/ncnn/cv/ncnn_glint_partial_fc.h"
 
 #endif
 
@@ -841,6 +844,9 @@ namespace lite
       // face recognition
       namespace faceid
       {
+        typedef ncnncv::NCNNGlintArcFace GlintArcFace;
+        typedef ncnncv::NCNNGlintCosFace GlintCosFace;
+        typedef ncnncv::NCNNGlintPartialFC GlintPartialFC;
       }
       // segmentation
       namespace segmentation
