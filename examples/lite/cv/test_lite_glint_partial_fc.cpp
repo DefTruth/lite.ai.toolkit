@@ -58,6 +58,27 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
+  std::string mnn_path = "../../../hub/mnn/cv/partial_fc_glint360k_r50.mnn";
+  std::string test_img_path0 = "../../../examples/lite/resources/test_lite_glint_partial_fc_0.png";
+  std::string test_img_path1 = "../../../examples/lite/resources/test_lite_glint_partial_fc_2.png";
+
+  lite::mnn::cv::faceid::GlintPartialFC *glint_partial_fc =
+      new lite::mnn::cv::faceid::GlintPartialFC(mnn_path);
+
+  lite::types::FaceContent face_content0, face_content1;
+  cv::Mat img_bgr0 = cv::imread(test_img_path0);
+  cv::Mat img_bgr1 = cv::imread(test_img_path1);
+  glint_partial_fc->detect(img_bgr0, face_content0);
+  glint_partial_fc->detect(img_bgr1, face_content1);
+
+  if (face_content0.flag && face_content1.flag)
+  {
+    float sim = lite::utils::math::cosine_similarity<float>(
+        face_content0.embedding, face_content1.embedding);
+    std::cout << "MNN Version Detected Sim: " << sim << std::endl;
+  }
+
+  delete glint_partial_fc;
 #endif
 }
 
