@@ -1,23 +1,22 @@
 //
-// Created by DefTruth on 2021/11/13.
+// Created by DefTruth on 2021/11/14.
 //
 
-#include "tnn_glint_arcface.h"
+#include "tnn_sphere_face.h"
 
-using tnncv::TNNGlintArcFace;
+using tnncv::TNNSphereFace;
 
-TNNGlintArcFace::TNNGlintArcFace(const std::string &_proto_path,
-                                 const std::string &_model_path,
-                                 unsigned int _num_threads) :
+TNNSphereFace::TNNSphereFace(const std::string &_proto_path,
+                             const std::string &_model_path,
+                             unsigned int _num_threads) :
     BasicTNNHandler(_proto_path, _model_path, _num_threads)
 {
 }
 
-void TNNGlintArcFace::transform(const cv::Mat &mat)
+void TNNSphereFace::transform(const cv::Mat &mat)
 {
   cv::Mat canvas;
   cv::resize(mat, canvas, cv::Size(input_width, input_height));
-  cv::cvtColor(canvas, canvas, cv::COLOR_BGR2RGB);
   // push into input_mat
   input_mat = std::make_shared<tnn::Mat>(input_device_type, tnn::N8UC3,
                                          input_shape, (void *) canvas.data);
@@ -29,7 +28,7 @@ void TNNGlintArcFace::transform(const cv::Mat &mat)
   }
 }
 
-void TNNGlintArcFace::detect(const cv::Mat &mat, types::FaceContent &face_content)
+void TNNSphereFace::detect(const cv::Mat &mat, types::FaceContent &face_content)
 {
   if (mat.empty()) return;
   // 1. make input tensor
@@ -84,28 +83,4 @@ void TNNGlintArcFace::detect(const cv::Mat &mat, types::FaceContent &face_conten
   face_content.dim = hidden_dim;
   face_content.flag = true;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

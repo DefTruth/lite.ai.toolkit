@@ -113,6 +113,28 @@ static void test_ncnn()
 static void test_tnn()
 {
 #ifdef ENABLE_TNN
+  std::string proto_path = "../../../hub/tnn/cv/facenet_casia-webface_resnet.tnnproto";
+  std::string model_path = "../../../hub/tnn/cv/facenet_casia-webface_resnet.tnnmodel";
+  std::string test_img_path0 = "../../../examples/lite/resources/test_lite_facenet_0.png";
+  std::string test_img_path1 = "../../../examples/lite/resources/test_lite_facenet_2.png";
+
+  lite::tnn::cv::faceid::FaceNet *facenet =
+      new lite::tnn::cv::faceid::FaceNet(proto_path, model_path);
+
+  lite::types::FaceContent face_content0, face_content1;
+  cv::Mat img_bgr0 = cv::imread(test_img_path0);
+  cv::Mat img_bgr1 = cv::imread(test_img_path1);
+  facenet->detect(img_bgr0, face_content0);
+  facenet->detect(img_bgr1, face_content1);
+
+  if (face_content0.flag && face_content1.flag)
+  {
+    float sim = lite::utils::math::cosine_similarity<float>(
+        face_content0.embedding, face_content1.embedding);
+    std::cout << "TNN Version Detected Sim: " << sim << std::endl;
+  }
+
+  delete facenet;
 #endif
 }
 

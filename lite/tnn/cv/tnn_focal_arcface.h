@@ -1,21 +1,21 @@
 //
-// Created by DefTruth on 2021/11/13.
+// Created by DefTruth on 2021/11/14.
 //
 
-#ifndef LITE_AI_TOOLKIT_TNN_CV_TNN_GLINT_ARCFACE_H
-#define LITE_AI_TOOLKIT_TNN_CV_TNN_GLINT_ARCFACE_H
+#ifndef LITE_AI_TOOLKIT_TNN_CV_TNN_FOCAL_ARCFACE_H
+#define LITE_AI_TOOLKIT_TNN_CV_TNN_FOCAL_ARCFACE_H
 
 #include "lite/tnn/core/tnn_core.h"
 
 namespace tnncv
 {
-  class LITE_EXPORTS TNNGlintArcFace : public BasicTNNHandler
+  class LITE_EXPORTS TNNFocalArcFace : public BasicTNNHandler
   {
   public:
-    explicit TNNGlintArcFace(const std::string &_proto_path,
+    explicit TNNFocalArcFace(const std::string &_proto_path,
                              const std::string &_model_path,
                              unsigned int _num_threads = 1); //
-    ~TNNGlintArcFace() override = default;
+    ~TNNFocalArcFace() override = default;
 
   private:
     // In TNN: x*scale + bias
@@ -31,4 +31,4 @@ namespace tnncv
   };
 }
 
-#endif //LITE_AI_TOOLKIT_TNN_CV_TNN_GLINT_ARCFACE_H
+#endif //LITE_AI_TOOLKIT_TNN_CV_TNN_FOCAL_ARCFACE_H

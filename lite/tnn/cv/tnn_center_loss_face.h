@@ -1,21 +1,21 @@
 //
-// Created by DefTruth on 2021/11/13.
+// Created by DefTruth on 2021/11/14.
 //
 
-#ifndef LITE_AI_TOOLKIT_TNN_CV_TNN_GLINT_PARTIAL_FC_H
-#define LITE_AI_TOOLKIT_TNN_CV_TNN_GLINT_PARTIAL_FC_H
+#ifndef LITE_AI_TOOLKIT_TNN_CV_TNN_CENTER_LOSS_FACE_H
+#define LITE_AI_TOOLKIT_TNN_CV_TNN_CENTER_LOSS_FACE_H
 
 #include "lite/tnn/core/tnn_core.h"
 
 namespace tnncv
 {
-  class LITE_EXPORTS TNNGlintPartialFC : public BasicTNNHandler
+  class LITE_EXPORTS TNNCenterLossFace : public BasicTNNHandler
   {
   public:
-    explicit TNNGlintPartialFC(const std::string &_proto_path,
+    explicit TNNCenterLossFace(const std::string &_proto_path,
                                const std::string &_model_path,
                                unsigned int _num_threads = 1); //
-    ~TNNGlintPartialFC() override = default;
+    ~TNNCenterLossFace() override = default;
 
   private:
     // In TNN: x*scale + bias
@@ -31,4 +31,4 @@ namespace tnncv
   };
 }
 
-#endif //LITE_AI_TOOLKIT_TNN_CV_TNN_GLINT_PARTIAL_FC_H
+#endif //LITE_AI_TOOLKIT_TNN_CV_TNN_CENTER_LOSS_FACE_H
