@@ -12,7 +12,7 @@ void NCNNSphereFace::transform(const cv::Mat &mat, ncnn::Mat &in)
   int h = mat.rows;
   int w = mat.cols;
   in = ncnn::Mat::from_pixels_resize(
-      mat.data, ncnn::Mat::PIXEL_BGR2RGB,
+      mat.data, ncnn::Mat::PIXEL_BGR,
       w, h, input_width, input_height
   );
   in.substract_mean_normalize(mean_vals, norm_vals);

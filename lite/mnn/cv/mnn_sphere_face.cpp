@@ -18,7 +18,7 @@ inline void MNNSphereFace::initialize_pretreat()
   pretreat = std::shared_ptr<MNN::CV::ImageProcess>(
       MNN::CV::ImageProcess::create(
           MNN::CV::BGR,
-          MNN::CV::RGB,
+          MNN::CV::BGR,
           mean_vals, 3,
           norm_vals, 3
       )
