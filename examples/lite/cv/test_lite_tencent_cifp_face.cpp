@@ -64,6 +64,28 @@ static void test_mnn()
 static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
+  std::string param_path = "../../../hub/ncnn/cv/Tencent_Cifp_BUPT_Balancedface_IR_34.opt.param";
+  std::string bin_path = "../../../hub/ncnn/cv/Tencent_Cifp_BUPT_Balancedface_IR_34.opt.bin";
+  std::string test_img_path0 = "../../../examples/lite/resources/test_lite_faceid_0.png";
+  std::string test_img_path1 = "../../../examples/lite/resources/test_lite_faceid_2.png";
+
+  lite::ncnn::cv::faceid::TencentCifpFace *tencent_cifp_face =
+      new lite::ncnn::cv::faceid::TencentCifpFace(param_path, bin_path);
+
+  lite::types::FaceContent face_content0, face_content1;
+  cv::Mat img_bgr0 = cv::imread(test_img_path0);
+  cv::Mat img_bgr1 = cv::imread(test_img_path1);
+  tencent_cifp_face->detect(img_bgr0, face_content0);
+  tencent_cifp_face->detect(img_bgr1, face_content1);
+
+  if (face_content0.flag && face_content1.flag)
+  {
+    float sim = lite::utils::math::cosine_similarity<float>(
+        face_content0.embedding, face_content1.embedding);
+    std::cout << "NCNN Version Detected Sim: " << sim << std::endl;
+  }
+
+  delete tencent_cifp_face;
 #endif
 }
 
