@@ -123,6 +123,17 @@
 #include "lite/ncnn/cv/ncnn_glint_arcface.h"
 #include "lite/ncnn/cv/ncnn_glint_cosface.h"
 #include "lite/ncnn/cv/ncnn_glint_partial_fc.h"
+#include "lite/ncnn/cv/ncnn_facenet.h"
+#include "lite/ncnn/cv/ncnn_focal_arcface.h"
+#include "lite/ncnn/cv/ncnn_focal_asia_arcface.h"
+#include "lite/ncnn/cv/ncnn_tencent_curricular_face.h"
+#include "lite/ncnn/cv/ncnn_tencent_cifp_face.h"
+#include "lite/ncnn/cv/ncnn_center_loss_face.h"
+#include "lite/ncnn/cv/ncnn_sphere_face.h"
+#include "lite/ncnn/cv/ncnn_mobile_facenet.h"
+#include "lite/ncnn/cv/ncnn_cava_ghost_arcface.h"
+#include "lite/ncnn/cv/ncnn_cava_combined_face.h"
+#include "lite/ncnn/cv/ncnn_mobilese_focal_face.h"
 
 #endif
 
@@ -847,6 +858,17 @@ namespace lite
         typedef ncnncv::NCNNGlintArcFace GlintArcFace;
         typedef ncnncv::NCNNGlintCosFace GlintCosFace;
         typedef ncnncv::NCNNGlintPartialFC GlintPartialFC;
+        typedef ncnncv::NCNNFaceNet FaceNet;
+        typedef ncnncv::NCNNFocalArcFace FocalArcFace;
+        typedef ncnncv::NCNNFocalAsiaArcFace FocalAsiaArcFace;
+        typedef ncnncv::NCNNTencentCurricularFace TencentCurricularFace;
+        typedef ncnncv::NCNNTencentCifpFace TencentCifpFace;
+        typedef ncnncv::NCNNCenterLossFace CenterLossFace;
+        typedef ncnncv::NCNNSphereFace SphereFace;
+        typedef ncnncv::NCNNMobileFaceNet MobileFaceNet;
+        typedef ncnncv::NCNNCavaGhostArcFace CavaGhostArcFace;
+        typedef ncnncv::NCNNCavaCombinedFace CavaCombinedFace;
+        typedef ncnncv::NCNNMobileSEFocalFace MobileSEFocalFace;
       }
       // segmentation
       namespace segmentation
