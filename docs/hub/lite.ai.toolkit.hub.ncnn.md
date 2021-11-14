@@ -78,4 +78,35 @@ You can download all the pretrained models files of NCNN format from ([Baidu Dri
 | *lite::ncnn::cv::matting::RobustVideoMatting* |   rvm_resnet50_fp32-640-480-opt.param&bin   | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 50Mb |
 | *lite::ncnn::cv::matting::RobustVideoMatting* |   rvm_resnet50_fp32-1080-1920-opt.param&bin   | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 50Mb |
 
+## Face Recognition. 
+
+<div id="lite.ai.toolkit.hub.ncnn-face-recognition"></div>  
+
+
+|                   Class                   |            Pretrained NCNN Files             |               Rename or Converted From (Repo)                | Size  |
+| :---------------------------------------: | :------------------------------------------: | :----------------------------------------------------------: | :---: |
+|     *lite::ncnn::cv::faceid::GlintArcFace*      |           ms1mv3_arcface_r100.opt.param&bin           |  [insightface](https://github.com/deepinsight/insightface)   | 248Mb |
+|     *lite::ncnn::cv::faceid::GlintArcFace*      |           ms1mv3_arcface_r50.opt.param&bin            |  [insightface](https://github.com/deepinsight/insightface)   | 166Mb |
+|     *lite::ncnn::cv::faceid::GlintArcFace*      |           ms1mv3_arcface_r34.opt.param&bin            |  [insightface](https://github.com/deepinsight/insightface)   | 130Mb |
+|     *lite::ncnn::cv::faceid::GlintArcFace*      |           ms1mv3_arcface_r18.opt.param&bin            |  [insightface](https://github.com/deepinsight/insightface)   | 91Mb  |
+|     *lite::ncnn::cv::faceid::GlintCosFace*      |         glint360k_cosface_r100.opt.param&bin          |  [insightface](https://github.com/deepinsight/insightface)   | 248Mb |
+|     *lite::ncnn::cv::faceid::GlintCosFace*      |          glint360k_cosface_r50.opt.param&bin          |  [insightface](https://github.com/deepinsight/insightface)   | 166Mb |
+|     *lite::ncnn::cv::faceid::GlintCosFace*      |          glint360k_cosface_r34.opt.param&bin          |  [insightface](https://github.com/deepinsight/insightface)   | 130Mb |
+|     *lite::ncnn::cv::faceid::GlintCosFace*      |          glint360k_cosface_r18.opt.param&bin          |  [insightface](https://github.com/deepinsight/insightface)   | 91Mb  |
+|    *lite::ncnn::cv::faceid::GlintPartialFC*     |        partial_fc_glint360k_r100.opt.param&bin        |  [insightface](https://github.com/deepinsight/insightface)   | 248Mb |
+|    *lite::ncnn::cv::faceid::GlintPartialFC*     |        partial_fc_glint360k_r50.opt.param&bin         |  [insightface](https://github.com/deepinsight/insightface)   | 91Mb  |
+|        *lite::ncnn::cv::faceid::FaceNet*        |         facenet_vggface2_resnet.opt.param&bin         |  [facenet...](https://github.com/timesler/facenet-pytorch)   | 89Mb  |
+|        *lite::ncnn::cv::faceid::FaceNet*        |      facenet_casia-webface_resnet.opt.param&bin       |  [facenet...](https://github.com/timesler/facenet-pytorch)   | 89Mb  |
+|     *lite::ncnn::cv::faceid::FocalArcFace*      |        focal-arcface-ms1m-ir152.opt.param&bin         | [face.evoLVe...](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) | 269Mb |
+|     *lite::ncnn::cv::faceid::FocalArcFace*      |    focal-arcface-ms1m-ir50-epoch120.opt.param&bin     | [face.evoLVe...](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) | 166Mb |
+|     *lite::ncnn::cv::faceid::FocalArcFace*      |     focal-arcface-ms1m-ir50-epoch63.opt.param&bin     | [face.evoLVe...](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) | 166Mb |
+|   *lite::ncnn::cv::faceid::FocalAsiaArcFace*    |       focal-arcface-bh-ir50-asia.opt.param&bin        | [face.evoLVe...](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) | 166Mb |
+| *lite::ncnn::cv::faceid::TencentCurricularFace* |     Tencent_CurricularFace_Backbone.opt.param&bin     |          [TFace](https://github.com/Tencent/TFace)           | 249Mb |
+|    *lite::ncnn::cv::faceid::TencentCifpFace*    |  Tencent_Cifp_BUPT_Balancedface_IR_34.opt.param&bin   |          [TFace](https://github.com/Tencent/TFace)           | 130Mb |
+|    *lite::ncnn::cv::faceid::CenterLossFace*     |        CenterLossFace_epoch_100.opt.param&bin         | [center-loss...](https://github.com/louis-she/center-loss.pytorch) | 280Mb |
+|      *lite::ncnn::cv::faceid::SphereFace*       |           sphere20a_20171020.opt.param&bin            | [sphere...](https://github.com/clcarwin/sphereface_pytorch)  | 86Mb  |
+|     *lite::ncnn::cv::faceid:MobileFaceNet*      |        MobileFaceNet_Pytorch_068.opt.param&bin        | [MobileFace...](https://github.com/Xiaoccer/MobileFaceNet_Pytorch) | 3.8Mb |
+|    *lite::ncnn::cv::faceid:CavaGhostArcFace*    | cavaface_GhostNet_x1.3_Arcface_Epoch_24.opt.param&bin | [cavaface...](https://github.com/cavalleria/cavaface.pytorch) | 15Mb  |
+|    *lite::ncnn::cv::faceid:CavaCombinedFace*    |  cavaface_IR_SE_100_Combined_Epoch_24.opt.param&bin   | [cavaface...](https://github.com/cavalleria/cavaface.pytorch) | 250Mb |
+|    *lite::ncnn::cv::faceid:MobileSEFocalFace*   | face_recognition.pytorch_Mobilenet_se_focal_121000.opt.param&bin | [face_recog...](https://github.com/grib0ed0v/face_recognition.pytorch) | 4.5Mb |
 

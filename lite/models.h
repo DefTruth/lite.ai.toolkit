@@ -99,6 +99,20 @@
 #include "lite/mnn/cv/mnn_yolox_v0.1.1.h"
 #include "lite/mnn/cv/mnn_yolor.h"
 #include "lite/mnn/cv/mnn_yolov5_v6.0.h"
+#include "lite/mnn/cv/mnn_glint_arcface.h"
+#include "lite/mnn/cv/mnn_glint_cosface.h"
+#include "lite/mnn/cv/mnn_glint_partial_fc.h"
+#include "lite/mnn/cv/mnn_facenet.h"
+#include "lite/mnn/cv/mnn_focal_arcface.h"
+#include "lite/mnn/cv/mnn_focal_asia_arcface.h"
+#include "lite/mnn/cv/mnn_tencent_curricular_face.h"
+#include "lite/mnn/cv/mnn_tencent_cifp_face.h"
+#include "lite/mnn/cv/mnn_center_loss_face.h"
+#include "lite/mnn/cv/mnn_sphere_face.h"
+#include "lite/mnn/cv/mnn_mobile_facenet.h"
+#include "lite/mnn/cv/mnn_cava_ghost_arcface.h"
+#include "lite/mnn/cv/mnn_cava_combined_face.h"
+#include "lite/mnn/cv/mnn_mobilese_focal_face.h"
 
 #endif
 
@@ -120,6 +134,20 @@
 #include "lite/ncnn/cv/ncnn_yolor_ssss.h"
 #include "lite/ncnn/cv/ncnn_yolov5_v6.0.h"
 #include "lite/ncnn/cv/ncnn_yolov5_v6.0_p6.h"
+#include "lite/ncnn/cv/ncnn_glint_arcface.h"
+#include "lite/ncnn/cv/ncnn_glint_cosface.h"
+#include "lite/ncnn/cv/ncnn_glint_partial_fc.h"
+#include "lite/ncnn/cv/ncnn_facenet.h"
+#include "lite/ncnn/cv/ncnn_focal_arcface.h"
+#include "lite/ncnn/cv/ncnn_focal_asia_arcface.h"
+#include "lite/ncnn/cv/ncnn_tencent_curricular_face.h"
+#include "lite/ncnn/cv/ncnn_tencent_cifp_face.h"
+#include "lite/ncnn/cv/ncnn_center_loss_face.h"
+#include "lite/ncnn/cv/ncnn_sphere_face.h"
+#include "lite/ncnn/cv/ncnn_mobile_facenet.h"
+#include "lite/ncnn/cv/ncnn_cava_ghost_arcface.h"
+#include "lite/ncnn/cv/ncnn_cava_combined_face.h"
+#include "lite/ncnn/cv/ncnn_mobilese_focal_face.h"
 
 #endif
 
@@ -137,6 +165,20 @@
 #include "lite/tnn/cv/tnn_yolox_v0.1.1.h"
 #include "lite/tnn/cv/tnn_yolor.h"
 #include "lite/tnn/cv/tnn_yolov5_v6.0.h"
+#include "lite/tnn/cv/tnn_glint_arcface.h"
+#include "lite/tnn/cv/tnn_glint_cosface.h"
+#include "lite/tnn/cv/tnn_glint_partial_fc.h"
+#include "lite/tnn/cv/tnn_facenet.h"
+#include "lite/tnn/cv/tnn_focal_arcface.h"
+#include "lite/tnn/cv/tnn_focal_asia_arcface.h"
+#include "lite/tnn/cv/tnn_tencent_curricular_face.h"
+#include "lite/tnn/cv/tnn_tencent_cifp_face.h"
+#include "lite/tnn/cv/tnn_center_loss_face.h"
+#include "lite/tnn/cv/tnn_sphere_face.h"
+#include "lite/tnn/cv/tnn_mobile_facenet.h"
+#include "lite/tnn/cv/tnn_cava_ghost_arcface.h"
+#include "lite/tnn/cv/tnn_cava_combined_face.h"
+#include "lite/tnn/cv/tnn_mobilese_focal_face.h"
 
 #endif
 
@@ -769,6 +811,20 @@ namespace lite
       // face recognition
       namespace faceid
       {
+        typedef mnncv::MNNGlintArcFace GlintArcFace;
+        typedef mnncv::MNNGlintCosFace GlintCosFace;
+        typedef mnncv::MNNGlintPartialFC GlintPartialFC;
+        typedef mnncv::MNNFaceNet FaceNet;
+        typedef mnncv::MNNFocalArcFace FocalArcFace;
+        typedef mnncv::MNNFocalAsiaArcFace FocalAsiaArcFace;
+        typedef mnncv::MNNTencentCurricularFace TencentCurricularFace;
+        typedef mnncv::MNNTencentCifpFace TencentCifpFace;
+        typedef mnncv::MNNCenterLossFace CenterLossFace;
+        typedef mnncv::MNNSphereFace SphereFace;
+        typedef mnncv::MNNMobileFaceNet MobileFaceNet;
+        typedef mnncv::MNNCavaGhostArcFace CavaGhostArcFace;
+        typedef mnncv::MNNCavaCombinedFace CavaCombinedFace;
+        typedef mnncv::MNNMobileSEFocalFace MobileSEFocalFace;
       }
       // segmentation
       namespace segmentation
@@ -841,6 +897,20 @@ namespace lite
       // face recognition
       namespace faceid
       {
+        typedef ncnncv::NCNNGlintArcFace GlintArcFace;
+        typedef ncnncv::NCNNGlintCosFace GlintCosFace;
+        typedef ncnncv::NCNNGlintPartialFC GlintPartialFC;
+        typedef ncnncv::NCNNFaceNet FaceNet;
+        typedef ncnncv::NCNNFocalArcFace FocalArcFace;
+        typedef ncnncv::NCNNFocalAsiaArcFace FocalAsiaArcFace;
+        typedef ncnncv::NCNNTencentCurricularFace TencentCurricularFace;
+        typedef ncnncv::NCNNTencentCifpFace TencentCifpFace;
+        typedef ncnncv::NCNNCenterLossFace CenterLossFace;
+        typedef ncnncv::NCNNSphereFace SphereFace;
+        typedef ncnncv::NCNNMobileFaceNet MobileFaceNet;
+        typedef ncnncv::NCNNCavaGhostArcFace CavaGhostArcFace;
+        typedef ncnncv::NCNNCavaCombinedFace CavaCombinedFace;
+        typedef ncnncv::NCNNMobileSEFocalFace MobileSEFocalFace;
       }
       // segmentation
       namespace segmentation
@@ -909,6 +979,20 @@ namespace lite
       // face recognition
       namespace faceid
       {
+        typedef tnncv::TNNGlintArcFace GlintArcFace;
+        typedef tnncv::TNNGlintCosFace GlintCosFace;
+        typedef tnncv::TNNGlintPartialFC GlintPartialFC;
+        typedef tnncv::TNNFaceNet FaceNet;
+        typedef tnncv::TNNFocalArcFace FocalArcFace;
+        typedef tnncv::TNNFocalAsiaArcFace FocalAsiaArcFace;
+        typedef tnncv::TNNTencentCurricularFace TencentCurricularFace;
+        typedef tnncv::TNNTencentCifpFace TencentCifpFace;
+        typedef tnncv::TNNCenterLossFace CenterLossFace;
+        typedef tnncv::TNNSphereFace SphereFace;
+        typedef tnncv::TNNMobileFaceNet MobileFaceNet;
+        typedef tnncv::TNNCavaGhostArcFace CavaGhostArcFace;
+        typedef tnncv::TNNCavaCombinedFace CavaCombinedFace;
+        typedef tnncv::TNNMobileSEFocalFace MobileSEFocalFace;
       }
       // segmentation
       namespace segmentation

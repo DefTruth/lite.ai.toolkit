@@ -59,18 +59,83 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
+  std::string mnn_path = "../../../hub/mnn/cv/cavaface_IR_SE_100_Combined_Epoch_24.mnn";
+  std::string test_img_path0 = "../../../examples/lite/resources/test_lite_faceid_0.png";
+  std::string test_img_path1 = "../../../examples/lite/resources/test_lite_faceid_2.png";
+
+  lite::mnn::cv::faceid::CavaCombinedFace *cava_combined_face =
+      new lite::mnn::cv::faceid::CavaCombinedFace(mnn_path);
+
+  lite::types::FaceContent face_content0, face_content1;
+  cv::Mat img_bgr0 = cv::imread(test_img_path0);
+  cv::Mat img_bgr1 = cv::imread(test_img_path1);
+  cava_combined_face->detect(img_bgr0, face_content0);
+  cava_combined_face->detect(img_bgr1, face_content1);
+
+  if (face_content0.flag && face_content1.flag)
+  {
+    float sim = lite::utils::math::cosine_similarity<float>(
+        face_content0.embedding, face_content1.embedding);
+    std::cout << "MNN Version Detected Sim: " << sim << std::endl;
+  }
+
+  delete cava_combined_face;
 #endif
 }
 
 static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
+  std::string param_path = "../../../hub/ncnn/cv/cavaface_IR_SE_100_Combined_Epoch_24.opt.param";
+  std::string bin_path = "../../../hub/ncnn/cv/cavaface_IR_SE_100_Combined_Epoch_24.opt.bin";
+  std::string test_img_path0 = "../../../examples/lite/resources/test_lite_faceid_0.png";
+  std::string test_img_path1 = "../../../examples/lite/resources/test_lite_faceid_2.png";
+
+  lite::ncnn::cv::faceid::CavaCombinedFace *cava_combined_face =
+      new lite::ncnn::cv::faceid::CavaCombinedFace(param_path, bin_path);
+
+  lite::types::FaceContent face_content0, face_content1;
+  cv::Mat img_bgr0 = cv::imread(test_img_path0);
+  cv::Mat img_bgr1 = cv::imread(test_img_path1);
+  cava_combined_face->detect(img_bgr0, face_content0);
+  cava_combined_face->detect(img_bgr1, face_content1);
+
+  if (face_content0.flag && face_content1.flag)
+  {
+    float sim = lite::utils::math::cosine_similarity<float>(
+        face_content0.embedding, face_content1.embedding);
+    std::cout << "NCNN Version Detected Sim: " << sim << std::endl;
+  }
+
+  delete cava_combined_face;
 #endif
 }
 
 static void test_tnn()
 {
 #ifdef ENABLE_TNN
+  std::string proto_path = "../../../hub/tnn/cv/cavaface_IR_SE_100_Combined_Epoch_24.opt.tnnproto";
+  std::string model_path = "../../../hub/tnn/cv/cavaface_IR_SE_100_Combined_Epoch_24.opt.tnnmodel";
+  std::string test_img_path0 = "../../../examples/lite/resources/test_lite_faceid_0.png";
+  std::string test_img_path1 = "../../../examples/lite/resources/test_lite_faceid_2.png";
+
+  lite::tnn::cv::faceid::CavaCombinedFace *cava_combined_face =
+      new lite::tnn::cv::faceid::CavaCombinedFace(proto_path, model_path);
+
+  lite::types::FaceContent face_content0, face_content1;
+  cv::Mat img_bgr0 = cv::imread(test_img_path0);
+  cv::Mat img_bgr1 = cv::imread(test_img_path1);
+  cava_combined_face->detect(img_bgr0, face_content0);
+  cava_combined_face->detect(img_bgr1, face_content1);
+
+  if (face_content0.flag && face_content1.flag)
+  {
+    float sim = lite::utils::math::cosine_similarity<float>(
+        face_content0.embedding, face_content1.embedding);
+    std::cout << "TNN Version Detected Sim: " << sim << std::endl;
+  }
+
+  delete cava_combined_face;
 #endif
 }
 

@@ -13,7 +13,7 @@ Ort::Value FaceNet::transform(const cv::Mat &mat)
   cv::resize(mat, canvas, cv::Size(input_node_dims.at(3),
                                    input_node_dims.at(2)));
   cv::cvtColor(canvas, canvas, cv::COLOR_BGR2RGB);
-  // (1,3,112,112)
+  // (1,3,160,160)
   ortcv::utils::transform::normalize_inplace(canvas, mean_val, scale_val);
   return ortcv::utils::transform::create_tensor(
       canvas, input_node_dims, memory_info_handler,
