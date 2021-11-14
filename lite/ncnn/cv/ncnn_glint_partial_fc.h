@@ -13,8 +13,8 @@ namespace ncnncv
   {
   public:
     explicit NCNNGlintPartialFC(const std::string &_param_path,
-                              const std::string &_bin_path,
-                              unsigned int _num_threads = 1) :
+                                const std::string &_bin_path,
+                                unsigned int _num_threads = 1) :
         BasicNCNNHandler(_param_path, _bin_path, _num_threads)
     {};
 
