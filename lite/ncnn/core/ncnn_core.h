@@ -39,6 +39,9 @@ namespace ncnncv
   class LITE_EXPORTS NCNNCavaGhostArcFace;                       // [24] * reference: https://github.com/cavalleria/cavaface.pytorch
   class LITE_EXPORTS NCNNCavaCombinedFace;                       // [25] * reference: https://github.com/cavalleria/cavaface.pytorch
   class LITE_EXPORTS NCNNMobileSEFocalFace;                      // [26] * reference: https://github.com/grib0ed0v/face_recognition.pytorch
+  class LITE_EXPORTS NCNNUltraFace;                              // [27] * reference: https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB
+  class LITE_EXPORTS NCNNRetinaFace;                             // [28] * reference: https://github.com/biubug6/Pytorch_Retinaface
+  class LITE_EXPORTS NCNNFaceBoxes;                              // [29] * reference: https://github.com/zisianw/FaceBoxes.PyTorch
 }
 
 namespace ncnncv

@@ -58,6 +58,7 @@ void UltraFace::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
   const unsigned int num_anchors = scores_dims.at(1); // n = 17640 (640x480)
 
   bbox_collection.clear();
+  unsigned int count = 0;
   for (unsigned int i = 0; i < num_anchors; ++i)
   {
     float confidence = scores.At<float>({0, i, 1});
@@ -72,6 +73,10 @@ void UltraFace::generate_bboxes(std::vector<types::Boxf> &bbox_collection,
     box.label = 1;
     box.flag = true;
     bbox_collection.push_back(box);
+
+    count += 1; // limit boxes for nms.
+    if (count > max_nms)
+      break;
   }
 #if LITEORT_DEBUG
   std::cout << "detected num_anchors: " << num_anchors << "\n";
