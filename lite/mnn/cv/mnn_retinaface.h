@@ -66,4 +66,5 @@ namespace mnncv
 
   };
 }
+
 #endif //LITE_AI_TOOLKIT_MNN_CV_MNN_RETINAFACE_H
