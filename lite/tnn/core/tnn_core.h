@@ -37,6 +37,12 @@ namespace tnncv
   class LITE_EXPORTS TNNUltraFace;                   // [23] * reference: https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB
   class LITE_EXPORTS TNNRetinaFace;                  // [24] * reference: https://github.com/biubug6/Pytorch_Retinaface
   class LITE_EXPORTS TNNFaceBoxes;                   // [25] * reference: https://github.com/zisianw/FaceBoxes.PyTorch
+  class LITE_EXPORTS TNNPFLD;                        // [26] * reference: https://github.com/Hsintao/pfld_106_face_landmarks
+  class LITE_EXPORTS TNNPFLD98;                      // [27] * reference: https://github.com/polarisZhao/PFLD-pytorch
+  class LITE_EXPORTS TNNMobileNetV268;               // [28] * reference: https://github.com/cunjian/pytorch_face_landmark
+  class LITE_EXPORTS TNNMobileNetV2SE68;             // [29] * reference: https://github.com/cunjian/pytorch_face_landmark
+  class LITE_EXPORTS TNNPFLD68;                      // [30] * reference: https://github.com/cunjian/pytorch_face_landmark
+  class LITE_EXPORTS TNNFaceLandmark1000;            // [31] * reference: https://github.com/Single430/FaceLandmark1000
 
 }
 
