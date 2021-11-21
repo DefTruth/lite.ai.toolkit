@@ -18,8 +18,8 @@ namespace ncnncv
     explicit NCNNUltraFace(const std::string &_param_path,
                            const std::string &_bin_path,
                            unsigned int _num_threads = 1,
-                           int _input_height = 640,
-                           int _input_width = 640);
+                           int _input_height = 320,
+                           int _input_width = 240);
 
     ~NCNNUltraFace() override = default;
 
