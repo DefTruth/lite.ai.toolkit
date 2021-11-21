@@ -35,7 +35,11 @@ namespace ortcv
     const float scale_vals[3] = {1.f, 1.f, 1.f};
     const float variance[2] = {0.1f, 0.2f};
     std::vector<int> steps = {32, 64, 128};
-    std::vector<std::vector<int>> min_sizes = {{32, 64, 128}, {256}, {512}};
+    std::vector<std::vector<int>> min_sizes = {
+        {32, 64, 128},
+        {256},
+        {512}
+    };
 
     enum NMS
     {
