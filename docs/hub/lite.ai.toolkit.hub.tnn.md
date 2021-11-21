@@ -100,3 +100,21 @@ You can download all the pretrained models files of TNN format from ([Baidu Driv
 |    *lite::tnn::cv::faceid:CavaCombinedFace*    |  cavaface_IR_SE_100_Combined_Epoch_24.opt.tnnproto&tnnmodel   | [cavaface...](https://github.com/cavalleria/cavaface.pytorch) | 250Mb |
 |    *lite::tnn::cv::faceid:MobileSEFocalFace*   | face_recognition.pytorch_Mobilenet_se_focal_121000.opt.tnnproto&tnnmodel | [face_recog...](https://github.com/grib0ed0v/face_recognition.pytorch) | 4.5Mb |
 
+## Face Detection.
+
+<div id="lite.ai.toolkit.hub.tnn-face-detection"></div>  
+
+|                Class                | Pretrained TNN Files  |               Rename or Converted From (Repo)                | Size  |
+| :---------------------------------: | :--------------------: | :----------------------------------------------------------: | :---: |
+| *lite::tnn::cv::face::detect::UltraFace* | ultraface-rfb-320.opt.tnnproto&tnnmodel | [Ultra-Light...](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) | 1.5Mb |
+| *lite::tnn::cv::face::detect::UltraFace* | ultraface-rfb-640.opt.tnnproto&tnnmodel | [Ultra-Light...](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) | 1.5Mb |
+| *lite::tnn::cv::face::detect::UltraFace* | ultraface-slim-320.opt.tnnproto&tnnmodel | [Ultra-Light...](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) | 1.2Mb |
+| *lite::tnn::cv::face::detect::UltraFace* | ultraface-slim-640.opt.tnnproto&tnnmodel | [Ultra-Light...](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) | 1.2Mb |
+| *lite::tnn::cv::face::detect::RetinaFace* | Pytorch_RetinaFace_mobile0.25.opt.tnnproto&tnnmodel | [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface) | 1.6Mb |
+| *lite::tnn::cv::face::detect::RetinaFace* | Pytorch_RetinaFace_mobile0.25-640-640.opt.tnnproto&tnnmodel | [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface) | 1.6Mb |
+| *lite::tnn::cv::face::detect::RetinaFace* | Pytorch_RetinaFace_mobile0.25-320-320.opt.tnnproto&tnnmodel | [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface) | 1.6Mb |
+| *lite::tnn::cv::face::detect::RetinaFace* | Pytorch_RetinaFace_mobile0.25-720-1080.opt.tnnproto&tnnmodel | [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface) | 1.6Mb |
+| *lite::tnn::cv::face::detect::FaceBoxes* | FaceBoxes.opt.tnnproto&tnnmodel | [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)  | 3.8Mb |
+| *lite::tnn::cv::face::detect::FaceBoxes* | FaceBoxes-640-640.opt.tnnproto&tnnmodel | [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)  | 3.8Mb |
+| *lite::tnn::cv::face::detect::FaceBoxes* | FaceBoxes-320-320.opt.tnnproto&tnnmodel | [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)  | 3.8Mb |
+| *lite::tnn::cv::face::detect::FaceBoxes* | FaceBoxes-720-1080.opt.tnnproto&tnnmodel | [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)  | 3.8Mb |

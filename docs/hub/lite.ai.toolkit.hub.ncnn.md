@@ -110,3 +110,19 @@ You can download all the pretrained models files of NCNN format from ([Baidu Dri
 |    *lite::ncnn::cv::faceid:CavaCombinedFace*    |  cavaface_IR_SE_100_Combined_Epoch_24.opt.param&bin   | [cavaface...](https://github.com/cavalleria/cavaface.pytorch) | 250Mb |
 |    *lite::ncnn::cv::faceid:MobileSEFocalFace*   | face_recognition.pytorch_Mobilenet_se_focal_121000.opt.param&bin | [face_recog...](https://github.com/grib0ed0v/face_recognition.pytorch) | 4.5Mb |
 
+## Face Detection.
+
+<div id="lite.ai.toolkit.hub.ncnn-face-detection"></div>  
+
+|                Class                | Pretrained NCNN Files  |               Rename or Converted From (Repo)                | Size  |
+| :---------------------------------: | :--------------------: | :----------------------------------------------------------: | :---: |
+| *lite::ncnn::cv::face::detect::UltraFace* | ultraface-rfb-320.param&bin | [Ultra-Light...](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) | 1.5Mb |
+| *lite::ncnn::cv::face::detect::UltraFace* | ultraface-slim-320.param&bin | [Ultra-Light...](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) | 1.2Mb |
+| *lite::ncnn::cv::face::detect::RetinaFace* | Pytorch_RetinaFace_mobile0.25.opt.param&bin | [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface) | 1.6Mb |
+| *lite::ncnn::cv::face::detect::RetinaFace* | Pytorch_RetinaFace_mobile0.25-640-640.opt.param&bin | [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface) | 1.6Mb |
+| *lite::ncnn::cv::face::detect::RetinaFace* | Pytorch_RetinaFace_mobile0.25-320-320.opt.param&bin | [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface) | 1.6Mb |
+| *lite::ncnn::cv::face::detect::RetinaFace* | Pytorch_RetinaFace_mobile0.25-720-1080.opt.param&bin | [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface) | 1.6Mb |
+| *lite::ncnn::cv::face::detect::FaceBoxes* | FaceBoxes.opt.param&bin | [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)  | 3.8Mb |
+| *lite::ncnn::cv::face::detect::FaceBoxes* | FaceBoxes-640-640.opt.param&bin | [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)  | 3.8Mb |
+| *lite::ncnn::cv::face::detect::FaceBoxes* | FaceBoxes-320-320.opt.param&bin | [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)  | 3.8Mb |
+| *lite::ncnn::cv::face::detect::FaceBoxes* | FaceBoxes-720-1080.opt.param&bin | [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)  | 3.8Mb |
