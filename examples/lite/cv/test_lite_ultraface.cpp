@@ -30,7 +30,7 @@ static void test_onnxruntime()
 #ifdef ENABLE_ONNXRUNTIME
   std::string onnx_path = "../../../hub/onnx/cv/ultraface-rfb-640.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_ultraface.jpg";
-  std::string save_img_path = "../../../logs/test_onnx_ultraface.jpg";
+  std::string save_img_path = "../../../logs/test_ultraface_onnx.jpg";
 
   lite::onnxruntime::cv::face::detect::UltraFace *ultraface =
       new lite::onnxruntime::cv::face::detect::UltraFace(onnx_path);
@@ -52,18 +52,74 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
+  std::string mnn_path = "../../../hub/mnn/cv/ultraface-rfb-640.mnn";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_ultraface.jpg";
+  std::string save_img_path = "../../../logs/test_ultraface_mnn.jpg";
+
+  lite::mnn::cv::face::detect::UltraFace *ultraface =
+      new lite::mnn::cv::face::detect::UltraFace(mnn_path);
+
+  std::vector<lite::types::Boxf> detected_boxes;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  ultraface->detect(img_bgr, detected_boxes);
+
+  lite::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+
+  cv::imwrite(save_img_path, img_bgr);
+
+  std::cout << "MNN Version Done! Detected Face Num: " << detected_boxes.size() << std::endl;
+
+  delete ultraface;
 #endif
 }
 
 static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
+  std::string param_path = "../../../hub/ncnn/cv/ultraface-rfb-320.param";
+  std::string bin_path = "../../../hub/ncnn/cv/ultraface-rfb-320.bin";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_ultraface.jpg";
+  std::string save_img_path = "../../../logs/test_ultraface_ncnn.jpg";
+
+  lite::ncnn::cv::face::detect::UltraFace *ultraface =
+      new lite::ncnn::cv::face::detect::UltraFace(param_path, bin_path, 1, 320, 240);
+
+  std::vector<lite::types::Boxf> detected_boxes;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  ultraface->detect(img_bgr, detected_boxes);
+
+  lite::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+
+  cv::imwrite(save_img_path, img_bgr);
+
+  std::cout << "NCNN Version Done! Detected Face Num: " << detected_boxes.size() << std::endl;
+
+  delete ultraface;
 #endif
 }
 
 static void test_tnn()
 {
 #ifdef ENABLE_TNN
+  std::string proto_path = "../../../hub/tnn/cv/ultraface-rfb-640.opt.tnnproto";
+  std::string model_path = "../../../hub/tnn/cv/ultraface-rfb-640.opt.tnnmodel";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_ultraface.jpg";
+  std::string save_img_path = "../../../logs/test_ultraface_tnn.jpg";
+
+  lite::tnn::cv::face::detect::UltraFace *ultraface =
+      new lite::tnn::cv::face::detect::UltraFace(proto_path, model_path);
+
+  std::vector<lite::types::Boxf> detected_boxes;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  ultraface->detect(img_bgr, detected_boxes);
+
+  lite::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+
+  cv::imwrite(save_img_path, img_bgr);
+
+  std::cout << "TNN Version Done! Detected Face Num: " << detected_boxes.size() << std::endl;
+
+  delete ultraface;
 #endif
 }
 

@@ -1,26 +1,23 @@
 //
-// Created by DefTruth on 2021/3/14.
+// Created by DefTruth on 2021/11/20.
 //
 
-#ifndef LITE_AI_ORT_CV_ULTRAFACE_H
-#define LITE_AI_ORT_CV_ULTRAFACE_H
+#ifndef LITE_AI_TOOLKIT_MNN_CV_MNN_ULTRAFACE_H
+#define LITE_AI_TOOLKIT_MNN_CV_MNN_ULTRAFACE_H
 
-#include "lite/ort/core/ort_core.h"
+#include "lite/mnn/core/mnn_core.h"
 
-namespace ortcv
+namespace mnncv
 {
-  class LITE_EXPORTS UltraFace : public BasicOrtHandler
+  class LITE_EXPORTS MNNUltraFace : public BasicMNNHandler
   {
   public:
-    explicit UltraFace(const std::string &_onnx_path, unsigned int _num_threads = 1) :
-        BasicOrtHandler(_onnx_path, _num_threads)
-    {};
-
-    ~UltraFace() override = default; // override
+    explicit MNNUltraFace(const std::string &_mnn_path, unsigned int _num_threads = 1); //
+    ~MNNUltraFace() override = default;
 
   private:
-    static constexpr const float mean_val = 127.0f;
-    static constexpr const float scale_val = 1.0f / 128.0f;
+    const float mean_vals[3] = {127.0f, 127.0f, 127.0f};
+    const float norm_vals[3] = {1.0f / 128.0f, 1.0f / 128.0f, 1.0f / 128.0f};
     enum NMS
     {
       HARD = 0, BLEND = 1, OFFSET = 2
@@ -28,12 +25,15 @@ namespace ortcv
     static constexpr const unsigned int max_nms = 30000;
 
   private:
-    Ort::Value transform(const cv::Mat &mat) override;
+    void initialize_pretreat(); //
+
+    void transform(const cv::Mat &mat) override; //
 
     void generate_bboxes(std::vector<types::Boxf> &bbox_collection,
-                         std::vector<Ort::Value> &output_tensors,
+                         const std::map<std::string, MNN::Tensor *> &output_tensors,
                          float score_threshold, float img_height,
                          float img_width); // rescale & exclude
+
     void nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
              float iou_threshold, unsigned int topk, unsigned int nms_type);
 
@@ -41,8 +41,8 @@ namespace ortcv
     void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
                 float score_threshold = 0.7f, float iou_threshold = 0.3f,
                 unsigned int topk = 300, unsigned int nms_type = 0);
-  };
 
+  };
 }
 
-#endif //LITE_AI_ORT_CV_ULTRAFACE_H
+#endif //LITE_AI_TOOLKIT_MNN_CV_MNN_ULTRAFACE_H

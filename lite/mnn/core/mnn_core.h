@@ -34,7 +34,9 @@ namespace mnncv
   class LITE_EXPORTS MNNCavaGhostArcFace;            // [20] * reference: https://github.com/cavalleria/cavaface.pytorch
   class LITE_EXPORTS MNNCavaCombinedFace;            // [21] * reference: https://github.com/cavalleria/cavaface.pytorch
   class LITE_EXPORTS MNNMobileSEFocalFace;           // [22] * reference: https://github.com/grib0ed0v/face_recognition.pytorch
-
+  class LITE_EXPORTS MNNUltraFace;                   // [23] * reference: https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB
+  class LITE_EXPORTS MNNRetinaFace;                  // [24] * reference: https://github.com/biubug6/Pytorch_Retinaface
+  class LITE_EXPORTS MNNFaceBoxes;                   // [25] * reference: https://github.com/zisianw/FaceBoxes.PyTorch
 }
 
 namespace mnncv

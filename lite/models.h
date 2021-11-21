@@ -113,6 +113,9 @@
 #include "lite/mnn/cv/mnn_cava_ghost_arcface.h"
 #include "lite/mnn/cv/mnn_cava_combined_face.h"
 #include "lite/mnn/cv/mnn_mobilese_focal_face.h"
+#include "lite/mnn/cv/mnn_ultraface.h"
+#include "lite/mnn/cv/mnn_retinaface.h"
+#include "lite/mnn/cv/mnn_faceboxes.h"
 
 #endif
 
@@ -148,6 +151,9 @@
 #include "lite/ncnn/cv/ncnn_cava_ghost_arcface.h"
 #include "lite/ncnn/cv/ncnn_cava_combined_face.h"
 #include "lite/ncnn/cv/ncnn_mobilese_focal_face.h"
+#include "lite/ncnn/cv/ncnn_ultraface.h"
+#include "lite/ncnn/cv/ncnn_retinaface.h"
+#include "lite/ncnn/cv/ncnn_faceboxes.h"
 
 #endif
 
@@ -179,6 +185,9 @@
 #include "lite/tnn/cv/tnn_cava_ghost_arcface.h"
 #include "lite/tnn/cv/tnn_cava_combined_face.h"
 #include "lite/tnn/cv/tnn_mobilese_focal_face.h"
+#include "lite/tnn/cv/tnn_ultraface.h"
+#include "lite/tnn/cv/tnn_retinaface.h"
+#include "lite/tnn/cv/tnn_faceboxes.h"
 
 #endif
 
@@ -797,6 +806,9 @@ namespace lite
       {
         namespace detect
         {
+          typedef mnncv::MNNUltraFace UltraFace;
+          typedef mnncv::MNNRetinaFace RetinaFace;
+          typedef mnncv::MNNFaceBoxes FaceBoxes;
         }
         namespace align
         {
@@ -883,6 +895,9 @@ namespace lite
       {
         namespace detect
         {
+          typedef ncnncv::NCNNUltraFace UltraFace;
+          typedef ncnncv::NCNNRetinaFace RetinaFace;
+          typedef ncnncv::NCNNFaceBoxes FaceBoxes;
         }
         namespace align
         {
@@ -965,6 +980,9 @@ namespace lite
       {
         namespace detect
         {
+          typedef tnncv::TNNUltraFace UltraFace;
+          typedef tnncv::TNNRetinaFace RetinaFace;
+          typedef tnncv::TNNFaceBoxes FaceBoxes;
         }
         namespace align
         {

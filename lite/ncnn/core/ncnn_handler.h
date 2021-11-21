@@ -46,6 +46,9 @@ namespace ncnncore
 
     void print_debug_string();
 
+  public:
+    static void print_shape(const ncnn::Mat &mat, const std::string name = "");
+
   };
 }
 

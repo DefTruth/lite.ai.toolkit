@@ -104,3 +104,21 @@ You can download all the pretrained models files of MNN format from ([Baidu Driv
 |    *lite::mnn::cv::faceid:CavaCombinedFace*    |  cavaface_IR_SE_100_Combined_Epoch_24.mnn   | [cavaface...](https://github.com/cavalleria/cavaface.pytorch) | 250Mb |
 |    *lite::mnn::cv::faceid:MobileSEFocalFace*   | face_recognition.pytorch_Mobilenet_se_focal_121000.mnn | [face_recog...](https://github.com/grib0ed0v/face_recognition.pytorch) | 4.5Mb |
 
+## Face Detection.
+
+<div id="lite.ai.toolkit.hub.mnn-face-detection"></div>  
+
+|                Class                | Pretrained MNN Files  |               Rename or Converted From (Repo)                | Size  |
+| :---------------------------------: | :--------------------: | :----------------------------------------------------------: | :---: |
+| *lite::mnn::cv::face::detect::UltraFace* | ultraface-rfb-320.mnn | [Ultra-Light...](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) | 1.5Mb |
+| *lite::mnn::cv::face::detect::UltraFace* | ultraface-rfb-640.mnn | [Ultra-Light...](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) | 1.5Mb |
+| *lite::mnn::cv::face::detect::UltraFace* | ultraface-slim-320.mnn | [Ultra-Light...](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) | 1.2Mb |
+| *lite::mnn::cv::face::detect::UltraFace* | ultraface-slim-640.mnn | [Ultra-Light...](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) | 1.2Mb |
+| *lite::mnn::cv::face::detect::RetinaFace* | Pytorch_RetinaFace_mobile0.25.mnn | [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface) | 1.6Mb |
+| *lite::mnn::cv::face::detect::RetinaFace* | Pytorch_RetinaFace_mobile0.25-640-640.mnn | [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface) | 1.6Mb |
+| *lite::mnn::cv::face::detect::RetinaFace* | Pytorch_RetinaFace_mobile0.25-320-320.mnn | [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface) | 1.6Mb |
+| *lite::mnn::cv::face::detect::RetinaFace* | Pytorch_RetinaFace_mobile0.25-720-1080.mnn | [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface) | 1.6Mb |
+| *lite::mnn::cv::face::detect::FaceBoxes* | FaceBoxes.mnn | [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)  | 3.8Mb |
+| *lite::mnn::cv::face::detect::FaceBoxes* | FaceBoxes-640-640.mnn | [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)  | 3.8Mb |
+| *lite::mnn::cv::face::detect::FaceBoxes* | FaceBoxes-320-320.mnn | [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)  | 3.8Mb |
+| *lite::mnn::cv::face::detect::FaceBoxes* | FaceBoxes-720-1080.mnn | [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)  | 3.8Mb |

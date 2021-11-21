@@ -1,24 +1,21 @@
 //
-// Created by DefTruth on 2021/8/1.
+// Created by DefTruth on 2021/11/20.
 //
 
-#ifndef LITE_AI_ORT_CV_FACEBOXES_H
-#define LITE_AI_ORT_CV_FACEBOXES_H
+#ifndef LITE_AI_TOOLKIT_TNN_CV_TNN_FACEBOXES_H
+#define LITE_AI_TOOLKIT_TNN_CV_TNN_FACEBOXES_H
 
-#include "lite/ort/core/ort_core.h"
+#include "lite/tnn/core/tnn_core.h"
 
-namespace ortcv
+namespace tnncv
 {
-  // reference: FaceBoxes.PyTorch python implementation.
-  // https://github.com/zisianw/FaceBoxes.PyTorch/blob/master/layers/functions/prior_box.py
-  class LITE_EXPORTS FaceBoxes : public BasicOrtHandler
+  class LITE_EXPORTS TNNFaceBoxes : public BasicTNNHandler
   {
   public:
-    explicit FaceBoxes(const std::string &_onnx_path, unsigned int _num_threads = 1) :
-        BasicOrtHandler(_onnx_path, _num_threads)
-    {};
-
-    ~FaceBoxes() override = default;
+    explicit TNNFaceBoxes(const std::string &_proto_path,
+                          const std::string &_model_path,
+                          unsigned int _num_threads = 1); //
+    ~TNNFaceBoxes() override = default;
 
   private:
     // nested classes
@@ -31,8 +28,13 @@ namespace ortcv
     };
 
   private:
-    const float mean_vals[3] = {104.f, 117.f, 123.f}; // bgr order
-    const float scale_vals[3] = {1.f, 1.f, 1.f};
+    // In TNN: x*scale + bias
+    std::vector<float> scale_vals = {1.f, 1.f, 1.f};
+    std::vector<float> bias_vals = {
+        -104.f * 1.0f,
+        -117.f * 1.0f,
+        -123.f * 1.0f
+    }; // bgr order
     const float variance[2] = {0.1f, 0.2f};
     std::vector<int> steps = {32, 64, 128};
     std::vector<std::vector<int>> min_sizes = {
@@ -48,14 +50,14 @@ namespace ortcv
     static constexpr const unsigned int max_nms = 30000;
 
   private:
-    Ort::Value transform(const cv::Mat &mat) override; //
+    void transform(const cv::Mat &mat) override; //
 
     void generate_anchors(const int target_height,
                           const int target_width,
                           std::vector<FaceBoxesAnchor> &anchors);
 
     void generate_bboxes(std::vector<types::Boxf> &bbox_collection,
-                         std::vector<Ort::Value> &output_tensors,
+                         std::shared_ptr<tnn::Instance> &_instance,
                          float score_threshold, float img_height,
                          float img_width); // rescale & exclude
 
@@ -64,11 +66,10 @@ namespace ortcv
 
   public:
     void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
-                float score_threshold = 0.7f, float iou_threshold = 0.45f,
-                unsigned int topk = 400, unsigned int nms_type = NMS::HARD);
+                float score_threshold = 0.7f, float iou_threshold = 0.3f,
+                unsigned int topk = 300, unsigned int nms_type = 0);
 
   };
 }
 
-
-#endif //LITE_AI_ORT_CV_FACEBOXES_H
+#endif //LITE_AI_TOOLKIT_TNN_CV_TNN_FACEBOXES_H
