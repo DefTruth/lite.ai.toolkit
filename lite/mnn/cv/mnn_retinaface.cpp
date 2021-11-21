@@ -38,7 +38,6 @@ void MNNRetinaFace::detect(const cv::Mat &mat, std::vector<types::Boxf> &detecte
                            unsigned int topk, unsigned int nms_type)
 {
   if (mat.empty()) return;
-  // this->transform(mat);
   float img_height = static_cast<float>(mat.rows);
   float img_width = static_cast<float>(mat.cols);
 

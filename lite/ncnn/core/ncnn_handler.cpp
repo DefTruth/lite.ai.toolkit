@@ -68,3 +68,9 @@ void BasicNCNNHandler::print_debug_string()
   }
   std::cout << "========================================\n";
 }
+
+// static method
+inline void BasicNCNNHandler::print_shape(const ncnn::Mat &mat, const std::string name)
+{
+  std::cout << name <<  ": " << "c=" << mat.c << ",h=" << mat.h << ",w=" << mat.w << "\n";
+}
