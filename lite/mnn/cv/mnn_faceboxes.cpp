@@ -29,7 +29,7 @@ void MNNFaceBoxes::transform(const cv::Mat &mat)
 {
   cv::Mat mat_rs;
   cv::resize(mat, mat_rs, cv::Size(input_width, input_height));
-  // normalize & HWC -> CHW & BGR -> RGB
+  // normalize & HWC -> CHW & BGR -> BGR
   pretreat->convert(mat_rs.data, input_width, input_height, mat_rs.step[0], input_tensor);
 }
 
