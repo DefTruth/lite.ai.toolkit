@@ -40,7 +40,7 @@ void MNNPFLD::detect(const cv::Mat &mat, types::Landmarks &landmarks)
 
   // 1. make input tensor
   this->transform(mat);
-  // 2. inference scores & boxes.
+  // 2. inference
   mnn_interpreter->runSession(mnn_session);
   auto output_tensors = mnn_interpreter->getSessionOutputAll(mnn_session);
   // 3. fetch landmarks.
