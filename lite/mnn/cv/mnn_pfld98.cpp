@@ -49,7 +49,7 @@ void MNNPFLD98::detect(const cv::Mat &mat, types::Landmarks &landmarks)
   device_landmarks_ptr->copyToHostTensor(&host_landmarks_tensor);
   auto landmark_dims = host_landmarks_tensor.shape();
 
-  const unsigned int num_landmarks = landmark_dims.at(1); // 106*2=212
+  const unsigned int num_landmarks = landmark_dims.at(1); // (1,98*2)
   const float *landmarks_ptr = host_landmarks_tensor.host<float>();
 
   for (unsigned int i = 0; i < num_landmarks; i += 2)

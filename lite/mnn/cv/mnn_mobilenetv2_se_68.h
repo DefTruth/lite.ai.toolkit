@@ -17,7 +17,7 @@ namespace mnncv
 
   private:
     const float mean_vals[3] = {255.f * 0.485f, 255.f * 0.456, 255.f * 0.406f};
-    const float norm_vals[3] = {1 / (255.f * 0.229f), 1 / (255.f * 0.224f), 1 / (255.f * 0.225f)};
+    const float norm_vals[3] = {1.0f / (255.f * 0.229f), 1.0f / (255.f * 0.224f), 1.0f / (255.f * 0.225f)};
 
   private:
     void initialize_pretreat(); //
