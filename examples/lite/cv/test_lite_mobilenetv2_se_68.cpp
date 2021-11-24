@@ -32,7 +32,7 @@ static void test_onnxruntime()
 #ifdef ENABLE_ONNXRUNTIME
   std::string onnx_path = "../../../hub/onnx/cv/pytorch_face_landmarks_landmark_detection_56_se_external.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_face_landmarks.png";
-  std::string save_img_path = "../../../logs/test_onnx_mobilenetv2_se_68.jpg";
+  std::string save_img_path = "../../../logs/test_mobilenetv2_se_68_onnx.jpg";
 
   lite::onnxruntime::cv::face::align::MobileNetV2SE68 *mobilenetv2_se_68 =
       new lite::onnxruntime::cv::face::align::MobileNetV2SE68(onnx_path);
@@ -55,18 +55,77 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
+  std::string mnn_path = "../../../hub/mnn/cv/pytorch_face_landmarks_landmark_detection_56_se_external.mnn";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_face_landmarks.png";
+  std::string save_img_path = "../../../logs/test_mobilenetv2_se_68_mnn.jpg";
+
+  lite::mnn::cv::face::align::MobileNetV2SE68 *mobilenetv2_se_68 =
+      new lite::mnn::cv::face::align::MobileNetV2SE68(mnn_path);
+
+  lite::types::Landmarks landmarks;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  mobilenetv2_se_68->detect(img_bgr, landmarks);
+
+  lite::utils::draw_landmarks_inplace(img_bgr, landmarks);
+
+  cv::imwrite(save_img_path, img_bgr);
+
+  std::cout << "MNN Version Done! Detected Landmarks Num: "
+            << landmarks.points.size() << std::endl;
+
+  delete mobilenetv2_se_68;
 #endif
 }
 
 static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
+  std::string param_path = "../../../hub/ncnn/cv/pytorch_face_landmarks_landmark_detection_56_se_external.opt.param";
+  std::string bin_path = "../../../hub/ncnn/cv/pytorch_face_landmarks_landmark_detection_56_se_external.opt.bin";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_face_landmarks.png";
+  std::string save_img_path = "../../../logs/test_mobilenetv2_se_68_ncnn.jpg";
+
+  lite::ncnn::cv::face::align::MobileNetV2SE68 *mobilenetv2_se_68 =
+      new lite::ncnn::cv::face::align::MobileNetV2SE68(param_path, bin_path);
+
+  lite::types::Landmarks landmarks;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  mobilenetv2_se_68->detect(img_bgr, landmarks);
+
+  lite::utils::draw_landmarks_inplace(img_bgr, landmarks);
+
+  cv::imwrite(save_img_path, img_bgr);
+
+  std::cout << "NCNN Version Done! Detected Landmarks Num: "
+            << landmarks.points.size() << std::endl;
+
+  delete mobilenetv2_se_68;
 #endif
 }
 
 static void test_tnn()
 {
 #ifdef ENABLE_TNN
+  std::string proto_path = "../../../hub/tnn/cv/pytorch_face_landmarks_landmark_detection_56_se_external.opt.tnnproto";
+  std::string model_path = "../../../hub/tnn/cv/pytorch_face_landmarks_landmark_detection_56_se_external.opt.tnnmodel";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_face_landmarks.png";
+  std::string save_img_path = "../../../logs/test_mobilenetv2_68_tnn.jpg";
+
+  lite::tnn::cv::face::align::MobileNetV2SE68 *mobilenetv2_se_68 =
+      new lite::tnn::cv::face::align::MobileNetV2SE68(proto_path, model_path);
+
+  lite::types::Landmarks landmarks;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  mobilenetv2_se_68->detect(img_bgr, landmarks);
+
+  lite::utils::draw_landmarks_inplace(img_bgr, landmarks);
+
+  cv::imwrite(save_img_path, img_bgr);
+
+  std::cout << "TNN Version Done! Detected Landmarks Num: "
+            << landmarks.points.size() << std::endl;
+
+  delete mobilenetv2_se_68;
 #endif
 }
 

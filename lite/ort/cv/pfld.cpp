@@ -23,7 +23,6 @@ Ort::Value PFLD::transform(const cv::Mat &mat)
 void PFLD::detect(const cv::Mat &mat, types::Landmarks &landmarks)
 {
   if (mat.empty()) return;
-  // this->transform(mat);
   float img_height = static_cast<float>(mat.rows);
   float img_width = static_cast<float>(mat.cols);
 

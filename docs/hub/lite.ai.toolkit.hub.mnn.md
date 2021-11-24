@@ -122,3 +122,19 @@ You can download all the pretrained models files of MNN format from ([Baidu Driv
 | *lite::mnn::cv::face::detect::FaceBoxes* | FaceBoxes-640-640.mnn | [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)  | 3.8Mb |
 | *lite::mnn::cv::face::detect::FaceBoxes* | FaceBoxes-320-320.mnn | [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)  | 3.8Mb |
 | *lite::mnn::cv::face::detect::FaceBoxes* | FaceBoxes-720-1080.mnn | [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)  | 3.8Mb |
+
+## Face Alignment.
+
+<div id="lite.ai.toolkit.hub.mnn-face-alignment"></div>  
+
+
+|             Class             | Pretrained MNN Files |               Rename or Converted From (Repo)                | Size  |
+| :---------------------------: | :-------------------: | :----------------------------------------------------------: | :---: |
+| *lite::mnn::cv::face::align::PFLD* |  pfld-106-lite.mnn   | [pfld_106_...](https://github.com/Hsintao/pfld_106_face_landmarks) | 1.0Mb |
+| *lite::mnn::cv::face::align::PFLD* |   pfld-106-v3.mnn    | [pfld_106_...](https://github.com/Hsintao/pfld_106_face_landmarks) | 5.5Mb |
+| *lite::mnn::cv::face::align::PFLD* |   pfld-106-v2.mnn    | [pfld_106_...](https://github.com/Hsintao/pfld_106_face_landmarks) | 5.0Mb |
+| *lite::mnn::cv::face::align::PFLD98* |   PFLD-pytorch-pfld.mnn  | [PFLD...](https://github.com/polarisZhao/PFLD-pytorch) | 4.8Mb |
+| *lite::mnn::cv::face::align::MobileNetV268* |   pytorch_face_landmarks_landmark_detection_56.mnn  | [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 9.4Mb |
+| *lite::mnn::cv::face::align::MobileNetV2SE68* |   pytorch_face_landmarks_landmark_detection_56_se_external.mnn  | [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 11Mb |
+| *lite::mnn::cv::face::align::PFLD68* |   pytorch_face_landmarks_pfld.mnn | [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 2.8Mb |
+| *lite::mnn::cv::face::align::FaceLandmarks1000* |   FaceLandmark1000.mnn  | [FaceLandm...](https://github.com/Single430/FaceLandmark1000) | 2.0Mb |
