@@ -116,6 +116,12 @@
 #include "lite/mnn/cv/mnn_ultraface.h"
 #include "lite/mnn/cv/mnn_retinaface.h"
 #include "lite/mnn/cv/mnn_faceboxes.h"
+#include "lite/mnn/cv/mnn_face_landmarks_1000.h"
+#include "lite/mnn/cv/mnn_pfld.h"
+#include "lite/mnn/cv/mnn_pfld68.h"
+#include "lite/mnn/cv/mnn_pfld98.h"
+#include "lite/mnn/cv/mnn_mobilenetv2_68.h"
+#include "lite/mnn/cv/mnn_mobilenetv2_se_68.h"
 
 #endif
 
@@ -154,6 +160,12 @@
 #include "lite/ncnn/cv/ncnn_ultraface.h"
 #include "lite/ncnn/cv/ncnn_retinaface.h"
 #include "lite/ncnn/cv/ncnn_faceboxes.h"
+#include "lite/ncnn/cv/ncnn_face_landmarks_1000.h"
+#include "lite/ncnn/cv/ncnn_pfld.h"
+#include "lite/ncnn/cv/ncnn_pfld68.h"
+#include "lite/ncnn/cv/ncnn_pfld98.h"
+#include "lite/ncnn/cv/ncnn_mobilenetv2_68.h"
+#include "lite/ncnn/cv/ncnn_mobilenetv2_se_68.h"
 
 #endif
 
@@ -188,6 +200,12 @@
 #include "lite/tnn/cv/tnn_ultraface.h"
 #include "lite/tnn/cv/tnn_retinaface.h"
 #include "lite/tnn/cv/tnn_faceboxes.h"
+#include "lite/tnn/cv/tnn_face_landmarks_1000.h"
+#include "lite/tnn/cv/tnn_pfld.h"
+#include "lite/tnn/cv/tnn_pfld68.h"
+#include "lite/tnn/cv/tnn_pfld98.h"
+#include "lite/tnn/cv/tnn_mobilenetv2_68.h"
+#include "lite/tnn/cv/tnn_mobilenetv2_se_68.h"
 
 #endif
 
@@ -812,6 +830,12 @@ namespace lite
         }
         namespace align
         {
+          typedef mnncv::MNNFaceLandmark1000 FaceLandmark1000;
+          typedef mnncv::MNNPFLD PFLD;
+          typedef mnncv::MNNPFLD68 PFLD68;
+          typedef mnncv::MNNPFLD98 PFLD98;
+          typedef mnncv::MNNMobileNetV268 MobileNetV268;
+          typedef mnncv::MNNMobileNetV2SE68 MobileNetV2SE68;
         }
         namespace pose
         {
@@ -901,6 +925,12 @@ namespace lite
         }
         namespace align
         {
+          typedef ncnncv::NCNNFaceLandmark1000 FaceLandmark1000;
+          typedef ncnncv::NCNNPFLD PFLD;
+          typedef ncnncv::NCNNPFLD68 PFLD68;
+          typedef ncnncv::NCNNPFLD98 PFLD98;
+          typedef ncnncv::NCNNMobileNetV268 MobileNetV268;
+          typedef ncnncv::NCNNMobileNetV2SE68 MobileNetV2SE68;
         }
         namespace pose
         {
@@ -986,6 +1016,12 @@ namespace lite
         }
         namespace align
         {
+          typedef tnncv::TNNFaceLandmark1000 FaceLandmark1000;
+          typedef tnncv::TNNPFLD PFLD;
+          typedef tnncv::TNNPFLD68 PFLD68;
+          typedef tnncv::TNNPFLD98 PFLD98;
+          typedef tnncv::TNNMobileNetV268 MobileNetV268;
+          typedef tnncv::TNNMobileNetV2SE68 MobileNetV2SE68;
         }
         namespace pose
         {

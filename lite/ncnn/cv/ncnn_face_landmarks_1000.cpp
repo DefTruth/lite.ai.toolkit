@@ -37,11 +37,11 @@ void NCNNFaceLandmark1000::detect(const cv::Mat &mat, types::Landmarks &landmark
   extractor.input("input0", input);
   // 3. fetch landmarks.
   ncnn::Mat landmarks_norm;
-  extractor.extract("output0", landmarks_norm); // c=1,h=1953,1
+  extractor.extract("output0", landmarks_norm); // c=1,h=1,w=1953
 #ifdef LITENCNN_DEBUG
   BasicNCNNHandler::print_shape(landmarks_norm, "output0");
 #endif
-  unsigned int num_landmarks = landmarks_norm.h;
+  unsigned int num_landmarks = landmarks_norm.w;
   if (num_landmarks > 1946) num_landmarks = 1946;
 
   const float *landmarks_ptr = (float *) landmarks_norm.data;

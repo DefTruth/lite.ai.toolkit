@@ -37,11 +37,11 @@ void NCNNPFLD68::detect(const cv::Mat &mat, types::Landmarks &landmarks)
   extractor.input("input", input);
   // 3. fetch landmarks.
   ncnn::Mat landmarks_norm;
-  extractor.extract("output", landmarks_norm); // c=1,h=68*2,1
+  extractor.extract("output", landmarks_norm); // c=1,w=68*2,h=1
 #ifdef LITENCNN_DEBUG
   BasicNCNNHandler::print_shape(landmarks_norm, "output");
 #endif
-  const unsigned int num_landmarks = landmarks_norm.h;
+  const unsigned int num_landmarks = landmarks_norm.w;
   const float *landmarks_ptr = (float *) landmarks_norm.data;
 
   for (unsigned int i = 0; i < num_landmarks; i += 2)
