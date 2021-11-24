@@ -126,3 +126,20 @@ You can download all the pretrained models files of NCNN format from ([Baidu Dri
 | *lite::ncnn::cv::face::detect::FaceBoxes* | FaceBoxes-640-640.opt.param&bin | [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)  | 3.8Mb |
 | *lite::ncnn::cv::face::detect::FaceBoxes* | FaceBoxes-320-320.opt.param&bin | [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)  | 3.8Mb |
 | *lite::ncnn::cv::face::detect::FaceBoxes* | FaceBoxes-720-1080.opt.param&bin | [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)  | 3.8Mb |
+
+
+## Face Alignment.
+
+<div id="lite.ai.toolkit.hub.ncnn-face-alignment"></div>  
+
+
+|             Class             | Pretrained NCNN Files |               Rename or Converted From (Repo)                | Size  |
+| :---------------------------: | :-------------------: | :----------------------------------------------------------: | :---: |
+| *lite::ncnn::cv::face::align::PFLD* |  pfld-106-lite.opt.param&bin   | [pfld_106_...](https://github.com/Hsintao/pfld_106_face_landmarks) | 1.0Mb |
+| *lite::ncnn::cv::face::align::PFLD* |   pfld-106-v3.opt.param&bin    | [pfld_106_...](https://github.com/Hsintao/pfld_106_face_landmarks) | 5.5Mb |
+| *lite::ncnn::cv::face::align::PFLD* |   pfld-106-v2.opt.param&bin    | [pfld_106_...](https://github.com/Hsintao/pfld_106_face_landmarks) | 5.0Mb |
+| *lite::ncnn::cv::face::align::PFLD98* |   PFLD-pytorch-pfld.opt.param&bin  | [PFLD...](https://github.com/polarisZhao/PFLD-pytorch) | 4.8Mb |
+| *lite::ncnn::cv::face::align::MobileNetV268* |   pytorch_face_landmarks_landmark_detection_56.opt.param&bin  | [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 9.4Mb |
+| *lite::ncnn::cv::face::align::MobileNetV2SE68* |   pytorch_face_landmarks_landmark_detection_56_se_external.opt.param&bin  | [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 11Mb |
+| *lite::ncnn::cv::face::align::PFLD68* |   pytorch_face_landmarks_pfld.opt.param&bin  | [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 2.8Mb |
+| *lite::ncnn::cv::face::align::FaceLandmarks1000* |   FaceLandmark1000.opt.param&bin  | [FaceLandm...](https://github.com/Single430/FaceLandmark1000) | 2.0Mb |

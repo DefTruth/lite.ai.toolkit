@@ -118,3 +118,19 @@ You can download all the pretrained models files of TNN format from ([Baidu Driv
 | *lite::tnn::cv::face::detect::FaceBoxes* | FaceBoxes-640-640.opt.tnnproto&tnnmodel | [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)  | 3.8Mb |
 | *lite::tnn::cv::face::detect::FaceBoxes* | FaceBoxes-320-320.opt.tnnproto&tnnmodel | [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)  | 3.8Mb |
 | *lite::tnn::cv::face::detect::FaceBoxes* | FaceBoxes-720-1080.opt.tnnproto&tnnmodel | [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)  | 3.8Mb |
+
+## Face Alignment.
+
+<div id="lite.ai.toolkit.hub.tnn-face-alignment"></div>  
+
+
+|             Class             | Pretrained TNN Files |               Rename or Converted From (Repo)                | Size  |
+| :---------------------------: | :-------------------: | :----------------------------------------------------------: | :---: |
+| *lite::tnn::cv::face::align::PFLD* |  pfld-106-lite.opt.tnnproto&tnnmodel   | [pfld_106_...](https://github.com/Hsintao/pfld_106_face_landmarks) | 1.0Mb |
+| *lite::tnn::cv::face::align::PFLD* |   pfld-106-v3.opt.tnnproto&tnnmodel    | [pfld_106_...](https://github.com/Hsintao/pfld_106_face_landmarks) | 5.5Mb |
+| *lite::tnn::cv::face::align::PFLD* |   pfld-106-v2.opt.tnnproto&tnnmodel    | [pfld_106_...](https://github.com/Hsintao/pfld_106_face_landmarks) | 5.0Mb |
+| *lite::tnn::cv::face::align::PFLD98* |   PFLD-pytorch-pfld.opt.tnnproto&tnnmodel  | [PFLD...](https://github.com/polarisZhao/PFLD-pytorch) | 4.8Mb |
+| *lite::tnn::cv::face::align::MobileNetV268* |   pytorch_face_landmarks_landmark_detection_56.opt.tnnproto&tnnmodel  | [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 9.4Mb |
+| *lite::tnn::cv::face::align::MobileNetV2SE68* |   pytorch_face_landmarks_landmark_detection_56_se_external.opt.tnnproto&tnnmodel  | [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 11Mb |
+| *lite::tnn::cv::face::align::PFLD68* |   pytorch_face_landmarks_pfld.opt.tnnproto&tnnmodel  | [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 2.8Mb |
+| *lite::tnn::cv::face::align::FaceLandmarks1000* |   FaceLandmark1000.opt.tnnproto&tnnmodel  | [FaceLandm...](https://github.com/Single430/FaceLandmark1000) | 2.0Mb |
