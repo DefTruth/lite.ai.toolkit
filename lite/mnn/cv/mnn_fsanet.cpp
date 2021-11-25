@@ -57,10 +57,10 @@ void MNNFSANet::detect(const cv::Mat &mat, types::EulerAngles &euler_angles)
   MNN::Tensor host_angles_tensor(device_angles_ptr, device_angles_ptr->getDimensionType());
   device_angles_ptr->copyToHostTensor(&host_angles_tensor);
 
-  const float *angles = host_angles_tensor.host<float>();
+  const float *angles_ptr = host_angles_tensor.host<float>();
 
-  euler_angles.yaw = angles[0];
-  euler_angles.pitch = angles[1];
-  euler_angles.roll = angles[2];
+  euler_angles.yaw = angles_ptr[0];
+  euler_angles.pitch = angles_ptr[1];
+  euler_angles.roll = angles_ptr[2];
   euler_angles.flag = true;
 }

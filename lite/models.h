@@ -122,6 +122,7 @@
 #include "lite/mnn/cv/mnn_pfld98.h"
 #include "lite/mnn/cv/mnn_mobilenetv2_68.h"
 #include "lite/mnn/cv/mnn_mobilenetv2_se_68.h"
+#include "lite/mnn/cv/mnn_fsanet.h"
 
 #endif
 
@@ -206,6 +207,7 @@
 #include "lite/tnn/cv/tnn_pfld98.h"
 #include "lite/tnn/cv/tnn_mobilenetv2_68.h"
 #include "lite/tnn/cv/tnn_mobilenetv2_se_68.h"
+#include "lite/tnn/cv/tnn_fsanet.h"
 
 #endif
 
@@ -839,6 +841,7 @@ namespace lite
         }
         namespace pose
         {
+          typedef mnncv::MNNFSANet FSANet;
         }
         namespace attr
         {
@@ -1025,6 +1028,7 @@ namespace lite
         }
         namespace pose
         {
+          typedef tnncv::TNNFSANet FSANet;
         }
         namespace attr
         {
