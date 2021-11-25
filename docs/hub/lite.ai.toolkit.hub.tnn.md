@@ -134,3 +134,14 @@ You can download all the pretrained models files of TNN format from ([Baidu Driv
 | *lite::tnn::cv::face::align::MobileNetV2SE68* |   pytorch_face_landmarks_landmark_detection_56_se_external.opt.tnnproto&tnnmodel  | [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 11Mb |
 | *lite::tnn::cv::face::align::PFLD68* |   pytorch_face_landmarks_pfld.opt.tnnproto&tnnmodel  | [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 2.8Mb |
 | *lite::tnn::cv::face::align::FaceLandmarks1000* |   FaceLandmark1000.opt.tnnproto&tnnmodel  | [FaceLandm...](https://github.com/Single430/FaceLandmark1000) | 2.0Mb |
+
+## Head Pose Estimation.
+
+<div id="lite.ai.toolkit.hub.tnn-head-pose-estimation"></div>  
+
+
+|             Class              | Pretrained TNN Files |               Rename or Converted From (Repo)                | Size  |
+| :----------------------------: | :-------------------: | :----------------------------------------------------------: | :---: |
+| *lite::tnn::cv::face::pose::FSANet* |    fsanet-var.opt.tnnproto&tnnmodel    | [...fsanet...](https://github.com/omasaht/headpose-fsanet-pytorch) | 1.2Mb |
+| *lite::tnn::cv::face::pose::FSANet* |    fsanet-1x1.opt.tnnproto&tnnmodel    | [...fsanet...](https://github.com/omasaht/headpose-fsanet-pytorch) | 1.2Mb |
+

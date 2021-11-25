@@ -43,7 +43,7 @@ namespace mnncv
   class LITE_EXPORTS MNNMobileNetV2SE68;             // [29] * reference: https://github.com/cunjian/pytorch_face_landmark
   class LITE_EXPORTS MNNPFLD68;                      // [30] * reference: https://github.com/cunjian/pytorch_face_landmark
   class LITE_EXPORTS MNNFaceLandmark1000;            // [31] * reference: https://github.com/Single430/FaceLandmark1000
-
+  class LITE_EXPORTS MNNFSANet;                      // [32] * reference: https://github.com/omasaht/headpose-fsanet-pytorch
 }
 
 namespace mnncv

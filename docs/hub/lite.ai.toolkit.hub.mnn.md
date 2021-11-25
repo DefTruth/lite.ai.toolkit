@@ -138,3 +138,14 @@ You can download all the pretrained models files of MNN format from ([Baidu Driv
 | *lite::mnn::cv::face::align::MobileNetV2SE68* |   pytorch_face_landmarks_landmark_detection_56_se_external.mnn  | [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 11Mb |
 | *lite::mnn::cv::face::align::PFLD68* |   pytorch_face_landmarks_pfld.mnn | [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 2.8Mb |
 | *lite::mnn::cv::face::align::FaceLandmarks1000* |   FaceLandmark1000.mnn  | [FaceLandm...](https://github.com/Single430/FaceLandmark1000) | 2.0Mb |
+
+## Head Pose Estimation.
+
+<div id="lite.ai.toolkit.hub.mnn-head-pose-estimation"></div>  
+
+
+|             Class              | Pretrained MNN Files |               Rename or Converted From (Repo)                | Size  |
+| :----------------------------: | :-------------------: | :----------------------------------------------------------: | :---: |
+| *lite::mnn::cv::face::pose::FSANet* |    fsanet-var.mnn    | [...fsanet...](https://github.com/omasaht/headpose-fsanet-pytorch) | 1.2Mb |
+| *lite::mnn::cv::face::pose::FSANet* |    fsanet-1x1.mnn   | [...fsanet...](https://github.com/omasaht/headpose-fsanet-pytorch) | 1.2Mb |
+

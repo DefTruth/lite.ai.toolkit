@@ -43,7 +43,7 @@ namespace tnncv
   class LITE_EXPORTS TNNMobileNetV2SE68;             // [29] * reference: https://github.com/cunjian/pytorch_face_landmark
   class LITE_EXPORTS TNNPFLD68;                      // [30] * reference: https://github.com/cunjian/pytorch_face_landmark
   class LITE_EXPORTS TNNFaceLandmark1000;            // [31] * reference: https://github.com/Single430/FaceLandmark1000
-
+  class LITE_EXPORTS TNNFSANet;                      // [32] * reference: https://github.com/omasaht/headpose-fsanet-pytorch
 }
 
 namespace tnncv
