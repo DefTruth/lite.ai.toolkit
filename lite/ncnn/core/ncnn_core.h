@@ -48,6 +48,12 @@ namespace ncnncv
   class LITE_EXPORTS NCNNMobileNetV2SE68;                        // [33] * reference: https://github.com/cunjian/pytorch_face_landmark
   class LITE_EXPORTS NCNNPFLD68;                                 // [34] * reference: https://github.com/cunjian/pytorch_face_landmark
   class LITE_EXPORTS NCNNFaceLandmark1000;                       // [35] * reference: https://github.com/Single430/FaceLandmark1000
+  class LITE_EXPORTS NCNNAgeGoogleNet;                           // [36] * reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
+  class LITE_EXPORTS NCNNGenderGoogleNet;                        // [37] * reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
+  class LITE_EXPORTS NCNNEmotionFerPlus;                         // [38] * reference: https://github.com/onnx/models/blob/master/vision/body_analysis/emotion_ferplus
+  class LITE_EXPORTS NCNNEfficientEmotion7;                      // [39] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
+  class LITE_EXPORTS NCNNEfficientEmotion8;                      // [40] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
+  class LITE_EXPORTS NCNNMobileEmotion7;                         // [41] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
 
 }
 
