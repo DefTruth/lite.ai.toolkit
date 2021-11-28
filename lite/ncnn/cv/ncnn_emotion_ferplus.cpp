@@ -33,7 +33,7 @@ void NCNNEmotionFerPlus::detect(const cv::Mat &mat, types::Emotions &emotions)
   auto extractor = net->create_extractor();
   extractor.set_light_mode(false);  // default
   extractor.set_num_threads(num_threads);
-  extractor.input("input3", input);
+  extractor.input("Input3", input);
   // 3. fetch.
   ncnn::Mat emotion_logits;
   extractor.extract("Plus692_Output_0", emotion_logits); // c=1,h=1,w=8

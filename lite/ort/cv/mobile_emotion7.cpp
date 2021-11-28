@@ -13,7 +13,7 @@ Ort::Value MobileEmotion7::transform(const cv::Mat &mat)
   cv::resize(mat, canvas, cv::Size(input_node_dims.at(3),
                                    input_node_dims.at(2)));
   cv::cvtColor(canvas, canvas, cv::COLOR_BGR2RGB);
-  // (1,3,224,224)
+  // (1,224,224,3)
   ortcv::utils::transform::normalize_inplace(canvas, mean_vals, scale_vals);
   return ortcv::utils::transform::create_tensor(
       canvas, input_node_dims, memory_info_handler,

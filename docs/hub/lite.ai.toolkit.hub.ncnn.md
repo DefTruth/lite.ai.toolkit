@@ -143,3 +143,20 @@ You can download all the pretrained models files of NCNN format from ([Baidu Dri
 | *lite::ncnn::cv::face::align::MobileNetV2SE68* |   pytorch_face_landmarks_landmark_detection_56_se_external.opt.param&bin  | [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 11Mb |
 | *lite::ncnn::cv::face::align::PFLD68* |   pytorch_face_landmarks_pfld.opt.param&bin  | [...landmark](https://github.com/cunjian/pytorch_face_landmark) | 2.8Mb |
 | *lite::ncnn::cv::face::align::FaceLandmarks1000* |   FaceLandmark1000.opt.param&bin  | [FaceLandm...](https://github.com/Single430/FaceLandmark1000) | 2.0Mb |
+
+## Face Attributes.
+
+<div id="lite.ai.toolkit.hub.ncnn-face-attributes"></div>  
+
+
+|                  Class                  |          Pretrained NCNN Files           |             Rename or Converted From (Repo)              | Size  |
+| :-------------------------------------: | :--------------------------------------: | :------------------------------------------------------: | :---: |
+|  *lite::ncnn::cv::face::attr::AgeGoogleNet*   |            age_googlenet.opt.param&bin           |      [onnx-models](https://github.com/onnx/models)       | 23Mb  |
+| *lite::ncnn::cv::face::attr::GenderGoogleNet* |          gender_googlenet.opt.param&bin            |      [onnx-models](https://github.com/onnx/models)       | 23Mb  |
+| *lite::ncnn::cv::face::attr::EmotionFerPlus*  |          emotion-ferplus-7.opt.param&bin          |      [onnx-models](https://github.com/onnx/models)       | 33Mb  |
+| *lite::ncnn::cv::face::attr::EmotionFerPlus*  |          emotion-ferplus-8.opt.param&bin          |      [onnx-models](https://github.com/onnx/models)       | 33Mb  |
+|     *lite::ncnn::cv::face::attr::EfficientEmotion7*      |  face-emotion-recognition-enet_b0_7.opt.param&bin   | [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 15Mb |
+|     *lite::ncnn::cv::face::attr::EfficientEmotion8*      |  face-emotion-recognition-enet_b0_8_best_afew.opt.param&bin  | [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 15Mb |
+|     *lite::ncnn::cv::face::attr::EfficientEmotion8*      |  face-emotion-recognition-enet_b0_8_best_vgaf.opt.param&bin  | [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 15Mb |
+|     *lite::ncnn::cv::face::attr::MobileEmotion7*      |   face-emotion-recognition-mobilenet_7.opt.param&bin   | [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition)| 13Mb |
+

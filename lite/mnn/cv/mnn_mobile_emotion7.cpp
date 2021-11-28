@@ -9,6 +9,17 @@ using mnncv::MNNMobileEmotion7;
 MNNMobileEmotion7::MNNMobileEmotion7(const std::string &_mnn_path, unsigned int _num_threads)
     : BasicMNNHandler(_mnn_path, _num_threads)
 {
+  // re-init with fixed input shape, due to the error of input
+  // shape auto-detection while using MNN with NHWC input.
+  dimension_type = MNN::Tensor::TENSORFLOW;
+  input_batch = 1;
+  input_channel = 3;
+  input_width = 224;
+  input_height = 224;
+  mnn_interpreter->resizeTensor(
+      input_tensor, {input_batch, input_height, input_width, input_channel});
+  mnn_interpreter->resizeSession(mnn_session);
+
   initialize_pretreat();
 }
 
@@ -28,7 +39,7 @@ void MNNMobileEmotion7::transform(const cv::Mat &mat)
 {
   cv::Mat canvas;
   cv::resize(mat, canvas, cv::Size(input_width, input_height));
-  // (1,3,224,224)
+  // (1,224,224,3)
   pretreat->convert(canvas.data, input_width, input_height, canvas.step[0], input_tensor);
 }
 
