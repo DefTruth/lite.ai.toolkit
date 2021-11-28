@@ -53,18 +53,74 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
+  std::string mnn_path = "../../../hub/mnn/cv/gender_googlenet.mnn";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_gender_googlenet.jpg";
+  std::string save_img_path = "../../../logs/test_gender_googlenet_mnn.jpg";
+
+  lite::mnn::cv::face::attr::GenderGoogleNet *gender_googlenet =
+      new lite::mnn::cv::face::attr::GenderGoogleNet(mnn_path);
+
+  lite::types::Gender gender;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  gender_googlenet->detect(img_bgr, gender);
+
+  lite::utils::draw_gender_inplace(img_bgr, gender);
+
+  cv::imwrite(save_img_path, img_bgr);
+
+  std::cout << "MNN Version Done! Detected Gender: " << gender.label << std::endl;
+
+  delete gender_googlenet;
 #endif
 }
 
 static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
+  std::string param_path = "../../../hub/ncnn/cv/gender_googlenet.opt.param";
+  std::string bin_path = "../../../hub/ncnn/cv/gender_googlenet.opt.bin";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_gender_googlenet.jpg";
+  std::string save_img_path = "../../../logs/test_gender_googlenet_ncnn.jpg";
+
+  lite::ncnn::cv::face::attr::GenderGoogleNet *gender_googlenet =
+      new lite::ncnn::cv::face::attr::GenderGoogleNet(param_path, bin_path);
+
+  lite::types::Gender gender;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  gender_googlenet->detect(img_bgr, gender);
+
+  lite::utils::draw_gender_inplace(img_bgr, gender);
+
+  cv::imwrite(save_img_path, img_bgr);
+
+  std::cout << "NCNN Version Done! Detected Gender: " << gender.label << std::endl;
+
+  delete gender_googlenet;
 #endif
 }
 
 static void test_tnn()
 {
 #ifdef ENABLE_TNN
+  std::string proto_path = "../../../hub/tnn/cv/gender_googlenet.opt.tnnproto";
+  std::string model_path = "../../../hub/tnn/cv/gender_googlenet.opt.tnnmodel";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_gender_googlenet.jpg";
+  std::string save_img_path = "../../../logs/test_gender_googlenet_tnn.jpg";
+
+  lite::tnn::cv::face::attr::GenderGoogleNet *gender_googlenet =
+      new lite::tnn::cv::face::attr::GenderGoogleNet(proto_path, model_path);
+
+  lite::types::Gender gender;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  gender_googlenet->detect(img_bgr, gender);
+
+  lite::utils::draw_gender_inplace(img_bgr, gender);
+
+  cv::imwrite(save_img_path, img_bgr);
+
+  std::cout << "TNN Version Done! Detected Gender: " << gender.label << std::endl;
+
+  delete gender_googlenet;
 #endif
 }
 

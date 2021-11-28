@@ -54,18 +54,74 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
+  std::string mnn_path = "../../../hub/mnn/cv/emotion-ferplus-8.mnn";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_emotion_ferplus.jpg";
+  std::string save_img_path = "../../../logs/test_lite_emotion_ferplus_mnn.jpg";
+
+  lite::mnn::cv::face::attr::EmotionFerPlus *emotion_ferplus =
+      new lite::mnn::cv::face::attr::EmotionFerPlus(mnn_path);
+
+  lite::types::Emotions emotions;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  emotion_ferplus->detect(img_bgr, emotions);
+
+  lite::utils::draw_emotion_inplace(img_bgr, emotions);
+
+  cv::imwrite(save_img_path, img_bgr);
+
+  std::cout << "MNN Version Detected Emotion: " << emotions.text << std::endl;
+
+  delete emotion_ferplus;
 #endif
 }
 
 static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
+  std::string param_path = "../../../hub/ncnn/cv/emotion-ferplus-8.opt.param";
+  std::string bin_path = "../../../hub/ncnn/cv/emotion-ferplus-8.opt.bin";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_emotion_ferplus.jpg";
+  std::string save_img_path = "../../../logs/test_lite_emotion_ferplus_ncnn.jpg";
+
+  lite::ncnn::cv::face::attr::EmotionFerPlus *emotion_ferplus =
+      new lite::ncnn::cv::face::attr::EmotionFerPlus(param_path, bin_path);
+
+  lite::types::Emotions emotions;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  emotion_ferplus->detect(img_bgr, emotions);
+
+  lite::utils::draw_emotion_inplace(img_bgr, emotions);
+
+  cv::imwrite(save_img_path, img_bgr);
+
+  std::cout << "NCNN Version Detected Emotion: " << emotions.text << std::endl;
+
+  delete emotion_ferplus;
 #endif
 }
 
 static void test_tnn()
 {
 #ifdef ENABLE_TNN
+  std::string proto_path = "../../../hub/tnn/cv/emotion-ferplus-8.opt.tnnproto";
+  std::string model_path = "../../../hub/tnn/cv/emotion-ferplus-8.opt.tnnmodel";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_emotion_ferplus.jpg";
+  std::string save_img_path = "../../../logs/test_lite_emotion_ferplus_tnn.jpg";
+
+  lite::tnn::cv::face::attr::EmotionFerPlus *emotion_ferplus =
+      new lite::tnn::cv::face::attr::EmotionFerPlus(proto_path, model_path);
+
+  lite::types::Emotions emotions;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  emotion_ferplus->detect(img_bgr, emotions);
+
+  lite::utils::draw_emotion_inplace(img_bgr, emotions);
+
+  cv::imwrite(save_img_path, img_bgr);
+
+  std::cout << "TNN Version Detected Emotion: " << emotions.text << std::endl;
+
+  delete emotion_ferplus;
 #endif
 }
 
