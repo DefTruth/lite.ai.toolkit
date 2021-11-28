@@ -44,6 +44,15 @@ namespace tnncv
   class LITE_EXPORTS TNNPFLD68;                      // [30] * reference: https://github.com/cunjian/pytorch_face_landmark
   class LITE_EXPORTS TNNFaceLandmark1000;            // [31] * reference: https://github.com/Single430/FaceLandmark1000
   class LITE_EXPORTS TNNFSANet;                      // [32] * reference: https://github.com/omasaht/headpose-fsanet-pytorch
+  class LITE_EXPORTS TNNAgeGoogleNet;                // [33] * reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
+  class LITE_EXPORTS TNNGenderGoogleNet;             // [34] * reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
+  class LITE_EXPORTS TNNEmotionFerPlus;              // [35] * reference: https://github.com/onnx/models/blob/master/vision/body_analysis/emotion_ferplus
+  class LITE_EXPORTS TNNSSRNet;                      // [36] * reference: https://github.com/oukohou/SSR_Net_Pytorch
+  class LITE_EXPORTS TNNEfficientEmotion7;           // [37] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
+  class LITE_EXPORTS TNNEfficientEmotion8;           // [38] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
+  class LITE_EXPORTS TNNMobileEmotion7;              // [39] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
+  class LITE_EXPORTS TNNReXNetEmotion7;              // [40] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
+
 }
 
 namespace tnncv

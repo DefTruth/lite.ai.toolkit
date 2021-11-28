@@ -52,6 +52,24 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
+  std::string mnn_path = "../../../hub/mnn/cv/ssrnet.mnn";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_ssrnet.jpg";
+  std::string save_img_path = "../../../logs/test_ssrnet_mnn.jpg";
+
+  lite::mnn::cv::face::attr::SSRNet *ssrnet =
+      new lite::mnn::cv::face::attr::SSRNet(mnn_path);
+
+  lite::types::Age age;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  ssrnet->detect(img_bgr, age);
+
+  lite::utils::draw_age_inplace(img_bgr, age);
+
+  cv::imwrite(save_img_path, img_bgr);
+
+  std::cout << "MNN Version Done! Detected SSRNet Age: " << age.age << std::endl;
+
+  delete ssrnet;
 #endif
 }
 
@@ -64,6 +82,25 @@ static void test_ncnn()
 static void test_tnn()
 {
 #ifdef ENABLE_TNN
+  std::string proto_path = "../../../hub/tnn/cv/ssrnet.opt.tnnproto";
+  std::string model_path = "../../../hub/tnn/cv/ssrnet.opt.tnnmodel";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_ssrnet.jpg";
+  std::string save_img_path = "../../../logs/test_ssrnet_tnn.jpg";
+
+  lite::tnn::cv::face::attr::SSRNet *ssrnet =
+      new lite::tnn::cv::face::attr::SSRNet(proto_path, model_path);
+
+  lite::types::Age age;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  ssrnet->detect(img_bgr, age);
+
+  lite::utils::draw_age_inplace(img_bgr, age);
+
+  cv::imwrite(save_img_path, img_bgr);
+
+  std::cout << "TNN Version Done! Detected SSRNet Age: " << age.age << std::endl;
+
+  delete ssrnet;
 #endif
 }
 

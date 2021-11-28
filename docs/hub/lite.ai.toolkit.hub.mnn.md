@@ -149,3 +149,21 @@ You can download all the pretrained models files of MNN format from ([Baidu Driv
 | *lite::mnn::cv::face::pose::FSANet* |    fsanet-var.mnn    | [...fsanet...](https://github.com/omasaht/headpose-fsanet-pytorch) | 1.2Mb |
 | *lite::mnn::cv::face::pose::FSANet* |    fsanet-1x1.mnn   | [...fsanet...](https://github.com/omasaht/headpose-fsanet-pytorch) | 1.2Mb |
 
+## Face Attributes.
+
+<div id="lite.ai.toolkit.hub.mnn-face-attributes"></div>  
+
+
+|                  Class                  |          Pretrained MNN Files           |             Rename or Converted From (Repo)              | Size  |
+| :-------------------------------------: | :--------------------------------------: | :------------------------------------------------------: | :---: |
+|  *lite::mnn::cv::face::attr::AgeGoogleNet*   |            age_googlenet.mnn            |      [onnx-models](https://github.com/onnx/models)       | 23Mb  |
+| *lite::mnn::cv::face::attr::GenderGoogleNet* |          gender_googlenet.mnn           |      [onnx-models](https://github.com/onnx/models)       | 23Mb  |
+| *lite::mnn::cv::face::attr::EmotionFerPlus*  |          emotion-ferplus-7.mnn          |      [onnx-models](https://github.com/onnx/models)       | 33Mb  |
+| *lite::mnn::cv::face::attr::EmotionFerPlus*  |          emotion-ferplus-8.mnn          |      [onnx-models](https://github.com/onnx/models)       | 33Mb  |
+|     *lite::mnn::cv::face::attr::SSRNet*      |               ssrnet.mnn                | [SSR_Net...](https://github.com/oukohou/SSR_Net_Pytorch) | 190Kb |
+|     *lite::mnn::cv::face::attr::EfficientEmotion7*      |  face-emotion-recognition-enet_b0_7.mnn  | [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 15Mb |
+|     *lite::mnn::cv::face::attr::EfficientEmotion8*      |  face-emotion-recognition-enet_b0_8_best_afew.mnn | [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 15Mb |
+|     *lite::mnn::cv::face::attr::EfficientEmotion8*      |  face-emotion-recognition-enet_b0_8_best_vgaf.mnn | [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 15Mb |
+|     *lite::mnn::cv::face::attr::MobileEmotion7*      |   face-emotion-recognition-mobilenet_7.mnn  | [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition)| 13Mb |
+|     *lite::mnn::cv::face::attr::ReXNetEmotion7*      | face-emotion-recognition-affectnet_7_vggface2_rexnet150.mnn | [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 30Mb |
+

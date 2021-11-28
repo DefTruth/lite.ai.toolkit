@@ -123,6 +123,14 @@
 #include "lite/mnn/cv/mnn_mobilenetv2_68.h"
 #include "lite/mnn/cv/mnn_mobilenetv2_se_68.h"
 #include "lite/mnn/cv/mnn_fsanet.h"
+#include "lite/mnn/cv/mnn_age_googlenet.h"
+#include "lite/mnn/cv/mnn_gender_googlenet.h"
+#include "lite/mnn/cv/mnn_emotion_ferplus.h"
+#include "lite/mnn/cv/mnn_efficient_emotion7.h"
+#include "lite/mnn/cv/mnn_efficient_emotion8.h"
+#include "lite/mnn/cv/mnn_ssrnet.h"
+#include "lite/mnn/cv/mnn_mobile_emotion7.h"
+#include "lite/mnn/cv/mnn_rexnet_emotion7.h"
 
 #endif
 
@@ -167,6 +175,12 @@
 #include "lite/ncnn/cv/ncnn_pfld98.h"
 #include "lite/ncnn/cv/ncnn_mobilenetv2_68.h"
 #include "lite/ncnn/cv/ncnn_mobilenetv2_se_68.h"
+#include "lite/ncnn/cv/ncnn_age_googlenet.h"
+#include "lite/ncnn/cv/ncnn_gender_googlenet.h"
+#include "lite/ncnn/cv/ncnn_emotion_ferplus.h"
+#include "lite/ncnn/cv/ncnn_efficient_emotion7.h"
+#include "lite/ncnn/cv/ncnn_efficient_emotion8.h"
+#include "lite/ncnn/cv/ncnn_mobile_emotion7.h"
 
 #endif
 
@@ -208,6 +222,14 @@
 #include "lite/tnn/cv/tnn_mobilenetv2_68.h"
 #include "lite/tnn/cv/tnn_mobilenetv2_se_68.h"
 #include "lite/tnn/cv/tnn_fsanet.h"
+#include "lite/tnn/cv/tnn_age_googlenet.h"
+#include "lite/tnn/cv/tnn_gender_googlenet.h"
+#include "lite/tnn/cv/tnn_emotion_ferplus.h"
+#include "lite/tnn/cv/tnn_efficient_emotion7.h"
+#include "lite/tnn/cv/tnn_efficient_emotion8.h"
+#include "lite/tnn/cv/tnn_ssrnet.h"
+#include "lite/tnn/cv/tnn_mobile_emotion7.h"
+#include "lite/tnn/cv/tnn_rexnet_emotion7.h"
 
 #endif
 
@@ -845,6 +867,14 @@ namespace lite
         }
         namespace attr
         {
+          typedef mnncv::MNNAgeGoogleNet AgeGoogleNet;
+          typedef mnncv::MNNGenderGoogleNet GenderGoogleNet;
+          typedef mnncv::MNNEmotionFerPlus EmotionFerPlus;
+          typedef mnncv::MNNSSRNet SSRNet;
+          typedef mnncv::MNNEfficientEmotion7 EfficientEmotion7;
+          typedef mnncv::MNNEfficientEmotion8 EfficientEmotion8;
+          typedef mnncv::MNNMobileEmotion7 MobileEmotion7;
+          typedef mnncv::MNNReXNetEmotion7 ReXNetEmotion7;
         }
       }
       // face recognition
@@ -940,6 +970,12 @@ namespace lite
         }
         namespace attr
         {
+          typedef ncnncv::NCNNAgeGoogleNet AgeGoogleNet;
+          typedef ncnncv::NCNNGenderGoogleNet GenderGoogleNet;
+          typedef ncnncv::NCNNEmotionFerPlus EmotionFerPlus;
+          typedef ncnncv::NCNNEfficientEmotion7 EfficientEmotion7;
+          typedef ncnncv::NCNNEfficientEmotion8 EfficientEmotion8;
+          typedef ncnncv::NCNNMobileEmotion7 MobileEmotion7;
         }
       }
       // face recognition
@@ -1032,6 +1068,14 @@ namespace lite
         }
         namespace attr
         {
+          typedef tnncv::TNNAgeGoogleNet AgeGoogleNet;
+          typedef tnncv::TNNGenderGoogleNet GenderGoogleNet;
+          typedef tnncv::TNNEmotionFerPlus EmotionFerPlus;
+          typedef tnncv::TNNSSRNet SSRNet;
+          typedef tnncv::TNNEfficientEmotion7 EfficientEmotion7;
+          typedef tnncv::TNNEfficientEmotion8 EfficientEmotion8;
+          typedef tnncv::TNNMobileEmotion7 MobileEmotion7;
+          typedef tnncv::TNNReXNetEmotion7 ReXNetEmotion7;
         }
       }
       // face recognition

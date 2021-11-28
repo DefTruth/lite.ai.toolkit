@@ -145,3 +145,21 @@ You can download all the pretrained models files of TNN format from ([Baidu Driv
 | *lite::tnn::cv::face::pose::FSANet* |    fsanet-var.opt.tnnproto&tnnmodel    | [...fsanet...](https://github.com/omasaht/headpose-fsanet-pytorch) | 1.2Mb |
 | *lite::tnn::cv::face::pose::FSANet* |    fsanet-1x1.opt.tnnproto&tnnmodel    | [...fsanet...](https://github.com/omasaht/headpose-fsanet-pytorch) | 1.2Mb |
 
+## Face Attributes.
+
+<div id="lite.ai.toolkit.hub.tnn-face-attributes"></div>  
+
+
+|                  Class                  |          Pretrained TNN Files           |             Rename or Converted From (Repo)              | Size  |
+| :-------------------------------------: | :--------------------------------------: | :------------------------------------------------------: | :---: |
+|  *lite::tnn::cv::face::attr::AgeGoogleNet*   |            age_googlenet.opt.tnnproto&tnnmodel            |      [onnx-models](https://github.com/onnx/models)       | 23Mb  |
+| *lite::tnn::cv::face::attr::GenderGoogleNet* |          gender_googlenet.opt.tnnproto&tnnmodel           |      [onnx-models](https://github.com/onnx/models)       | 23Mb  |
+| *lite::tnn::cv::face::attr::EmotionFerPlus*  |          emotion-ferplus-7.opt.tnnproto&tnnmodel          |      [onnx-models](https://github.com/onnx/models)       | 33Mb  |
+| *lite::tnn::cv::face::attr::EmotionFerPlus*  |          emotion-ferplus-8.opt.tnnproto&tnnmodel          |      [onnx-models](https://github.com/onnx/models)       | 33Mb  |
+|     *lite::tnn::cv::face::attr::SSRNet*      |               ssrnet.opt.tnnproto&tnnmodel                | [SSR_Net...](https://github.com/oukohou/SSR_Net_Pytorch) | 190Kb |
+|     *lite::tnn::cv::face::attr::EfficientEmotion7*      |  face-emotion-recognition-enet_b0_7.opt.tnnproto&tnnmodel  | [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 15Mb |
+|     *lite::tnn::cv::face::attr::EfficientEmotion8*      |  face-emotion-recognition-enet_b0_8_best_afew.opt.tnnproto&tnnmodel | [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 15Mb |
+|     *lite::tnn::cv::face::attr::EfficientEmotion8*      |  face-emotion-recognition-enet_b0_8_best_vgaf.opt.tnnproto&tnnmodel | [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 15Mb |
+|     *lite::tnn::cv::face::attr::MobileEmotion7*      |   face-emotion-recognition-mobilenet_7.opt.tnnproto&tnnmodel  | [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition)| 13Mb |
+|     *lite::tnn::cv::face::attr::ReXNetEmotion7*      | face-emotion-recognition-affectnet_7_vggface2_rexnet150.opt.tnnproto&tnnmodel | [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 30Mb |
+
