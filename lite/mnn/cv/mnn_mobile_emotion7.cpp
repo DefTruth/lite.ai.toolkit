@@ -3,7 +3,6 @@
 //
 
 #include "mnn_mobile_emotion7.h"
-#include "lite/utils.h"
 
 using mnncv::MNNMobileEmotion7;
 

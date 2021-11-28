@@ -61,7 +61,7 @@ void TNNEfficientEmotion8::detect(const cv::Mat &mat, types::Emotions &emotions)
   }
   // 4. fetch.
   tnn::MatConvertParam cvt_param;
-  std::shared_ptr<tnn::Mat> emotion_logits; // (1,7)
+  std::shared_ptr<tnn::Mat> emotion_logits; // (1,8)
   status = instance->GetOutputMat(emotion_logits, cvt_param, "logits", output_device_type);
 
   if (status != tnn::TNN_OK)
@@ -73,7 +73,7 @@ void TNNEfficientEmotion8::detect(const cv::Mat &mat, types::Emotions &emotions)
   }
 
   auto emotion_dims = emotion_logits->GetDims();
-  const unsigned int num_emotions = emotion_dims.at(1); // 7
+  const unsigned int num_emotions = emotion_dims.at(1); // 8
 
   unsigned int pred_label = 0;
   const float *pred_logits_ptr = (float *) emotion_logits->GetData();
