@@ -11,6 +11,7 @@ TNNMobileEmotion7::TNNMobileEmotion7(const std::string &_proto_path,
                                      unsigned int _num_threads) :
     BasicTNNHandler(_proto_path, _model_path, _num_threads)
 {
+  // TODO: pre-process bug fix
   input_width = 224;
   input_height = 224;
 }
