@@ -61,6 +61,11 @@ namespace mnncv
   class LITE_EXPORTS MNNMobileNetV2;                 // [47] * reference: https://pytorch.org/hub/pytorch_vision_mobilenet_v2/
   class LITE_EXPORTS MNNResNet;                      // [48] * reference: https://pytorch.org/hub/pytorch_vision_resnet/
   class LITE_EXPORTS MNNResNeXt;                     // [49] * reference: https://pytorch.org/hub/pytorch_vision_resnext/
+  class LITE_EXPORTS MNNFastStyleTransfer;           // [50] * reference: https://github.com/onnx/models/blob/master/vision/style_transfer/fast_neural_style
+  class LITE_EXPORTS MNNColorizer;                   // [51] * reference: https://github.com/richzhang/colorization
+  class LITE_EXPORTS MNNSubPixelCNN;                 // [52] * reference: https://github.com/niazwazir/SUB_PIXEL_CNN
+  class LITE_EXPORTS MNNDeepLabV3ResNet101;          // [53] * reference: https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/
+  class LITE_EXPORTS MNNFCNResNet101;                // [54] * reference: https://pytorch.org/hub/pytorch_vision_fcn_resnet101/
 
 }
 

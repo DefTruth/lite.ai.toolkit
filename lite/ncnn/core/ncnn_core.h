@@ -63,6 +63,11 @@ namespace ncnncv
   class LITE_EXPORTS NCNNMobileNetV2;                            // [48] * reference: https://pytorch.org/hub/pytorch_vision_mobilenet_v2/
   class LITE_EXPORTS NCNNResNet;                                 // [49] * reference: https://pytorch.org/hub/pytorch_vision_resnet/
   class LITE_EXPORTS NCNNResNeXt;                                // [50] * reference: https://pytorch.org/hub/pytorch_vision_resnext/
+  class LITE_EXPORTS NCNNFastStyleTransfer;                      // [51] * reference: https://github.com/onnx/models/blob/master/vision/style_transfer/fast_neural_style
+  class LITE_EXPORTS NCNNColorizer;                              // [52] * reference: https://github.com/richzhang/colorization
+  class LITE_EXPORTS NCNNSubPixelCNN;                            // [53] * reference: https://github.com/niazwazir/SUB_PIXEL_CNN
+  class LITE_EXPORTS NCNNDeepLabV3ResNet101;                     // [54] * reference: https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/
+  class LITE_EXPORTS NCNNFCNResNet101;                           // [55] * reference: https://pytorch.org/hub/pytorch_vision_fcn_resnet101/
 
 }
 
