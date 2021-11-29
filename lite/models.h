@@ -131,6 +131,15 @@
 #include "lite/mnn/cv/mnn_ssrnet.h"
 #include "lite/mnn/cv/mnn_mobile_emotion7.h"
 #include "lite/mnn/cv/mnn_rexnet_emotion7.h"
+#include "lite/mnn/cv/mnn_efficientnet_lite4.h"
+#include "lite/mnn/cv/mnn_shufflenetv2.h"
+#include "lite/mnn/cv/mnn_densenet.h"
+#include "lite/mnn/cv/mnn_ghostnet.h"
+#include "lite/mnn/cv/mnn_hdrdnet.h"
+#include "lite/mnn/cv/mnn_ibnnet.h"
+#include "lite/mnn/cv/mnn_mobilenetv2.h"
+#include "lite/mnn/cv/mnn_resnet.h"
+#include "lite/mnn/cv/mnn_resnext.h"
 
 #endif
 
@@ -181,6 +190,15 @@
 #include "lite/ncnn/cv/ncnn_efficient_emotion7.h"
 #include "lite/ncnn/cv/ncnn_efficient_emotion8.h"
 #include "lite/ncnn/cv/ncnn_mobile_emotion7.h"
+#include "lite/ncnn/cv/ncnn_efficientnet_lite4.h"
+#include "lite/ncnn/cv/ncnn_shufflenetv2.h"
+#include "lite/ncnn/cv/ncnn_densenet.h"
+#include "lite/ncnn/cv/ncnn_ghostnet.h"
+#include "lite/ncnn/cv/ncnn_hdrdnet.h"
+#include "lite/ncnn/cv/ncnn_ibnnet.h"
+#include "lite/ncnn/cv/ncnn_mobilenetv2.h"
+#include "lite/ncnn/cv/ncnn_resnet.h"
+#include "lite/ncnn/cv/ncnn_resnext.h"
 
 #endif
 
@@ -230,6 +248,15 @@
 #include "lite/tnn/cv/tnn_ssrnet.h"
 #include "lite/tnn/cv/tnn_mobile_emotion7.h"
 #include "lite/tnn/cv/tnn_rexnet_emotion7.h"
+#include "lite/tnn/cv/tnn_efficientnet_lite4.h"
+#include "lite/tnn/cv/tnn_shufflenetv2.h"
+#include "lite/tnn/cv/tnn_densenet.h"
+#include "lite/tnn/cv/tnn_ghostnet.h"
+#include "lite/tnn/cv/tnn_hdrdnet.h"
+#include "lite/tnn/cv/tnn_ibnnet.h"
+#include "lite/tnn/cv/tnn_mobilenetv2.h"
+#include "lite/tnn/cv/tnn_resnet.h"
+#include "lite/tnn/cv/tnn_resnext.h"
 
 #endif
 
@@ -830,6 +857,15 @@ namespace lite
       // classification
       namespace classification
       {
+        typedef mnncv::MNNEfficientNetLite4 EfficientNetLite4;
+        typedef mnncv::MNNShuffleNetV2 ShuffleNetV2;
+        typedef mnncv::MNNDenseNet DenseNet;
+        typedef mnncv::MNNGhostNet GhostNet;
+        typedef mnncv::MNNHdrDNet HdrDNet;
+        typedef mnncv::MNNIBNNet IBNNet;
+        typedef mnncv::MNNMobileNetV2 MobileNetV2;
+        typedef mnncv::MNNResNet ResNet;
+        typedef mnncv::MNNResNeXt ResNeXt;
       }
       // object detection
       namespace detection
@@ -930,6 +966,15 @@ namespace lite
       // classification
       namespace classification
       {
+        typedef ncnncv::NCNNEfficientNetLite4 EfficientNetLite4;
+        typedef ncnncv::NCNNShuffleNetV2 ShuffleNetV2;
+        typedef ncnncv::NCNNDenseNet DenseNet;
+        typedef ncnncv::NCNNGhostNet GhostNet;
+        typedef ncnncv::NCNNHdrDNet HdrDNet;
+        typedef ncnncv::NCNNIBNNet IBNNet;
+        typedef ncnncv::NCNNMobileNetV2 MobileNetV2;
+        typedef ncnncv::NCNNResNet ResNet;
+        typedef ncnncv::NCNNResNeXt ResNeXt;
       }
       // object detection
       namespace detection
@@ -1031,6 +1076,15 @@ namespace lite
       // classification
       namespace classification
       {
+        typedef tnncv::TNNEfficientNetLite4 EfficientNetLite4;
+        typedef tnncv::TNNShuffleNetV2 ShuffleNetV2;
+        typedef tnncv::TNNDenseNet DenseNet;
+        typedef tnncv::TNNGhostNet GhostNet;
+        typedef tnncv::TNNHdrDNet HdrDNet;
+        typedef tnncv::TNNIBNNet IBNNet;
+        typedef tnncv::TNNMobileNetV2 MobileNetV2;
+        typedef tnncv::TNNResNet ResNet;
+        typedef tnncv::TNNResNeXt ResNeXt;
       }
       // object detection
       namespace detection
