@@ -160,3 +160,19 @@ You can download all the pretrained models files of NCNN format from ([Baidu Dri
 |     *lite::ncnn::cv::face::attr::EfficientEmotion8*      |  face-emotion-recognition-enet_b0_8_best_vgaf.opt.param&bin  | [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 15Mb |
 |     *lite::ncnn::cv::face::attr::MobileEmotion7*      |   face-emotion-recognition-mobilenet_7.opt.param&bin   | [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition)| 13Mb |
 
+
+## Classification.
+
+<div id="lite.ai.toolkit.hub.ncnn-classification"></div>
+
+
+|                    Class                     |   Pretrained NCNN Files    |         Rename or Converted From (Repo)          | Size  |
+| :------------------------------------------: | :------------------------: | :----------------------------------------------: | :---: |
+|   *lite::ncnn::cv::classification::ShuffleNetV2*   |   shufflenet-v2-10.opt.param&bin    |  [onnx-models](https://github.com/onnx/models)   | 8.7Mb |
+|   *lite::ncnn::cv::classification::DenseNet121*    |      densenet121.opt.param&bin      | [torchvision](https://github.com/pytorch/vision) | 30Mb  |
+|     *lite::ncnn::cv::classification::GhostNet*     |       ghostnet.opt.param&bin        | [torchvision](https://github.com/pytorch/vision) | 20Mb  |
+|     *lite::ncnn::cv::classification::HdrDNet*      |        hardnet.opt.param&bin        | [torchvision](https://github.com/pytorch/vision) | 13Mb  |
+|      *lite::ncnn::cv::classification::IBNNet*      |       ibnnet18.opt.param&bin        | [torchvision](https://github.com/pytorch/vision) | 97Mb  |
+|   *lite::ncnn::cv::classification::MobileNetV2*    |      mobilenetv2.opt.param&bin      | [torchvision](https://github.com/pytorch/vision) | 13Mb  |
+|      *lite::ncnn::cv::classification::ResNet*      |       resnet18.opt.param&bin        | [torchvision](https://github.com/pytorch/vision) | 44Mb  |
+|     *lite::ncnn::cv::classification::ResNeXt*      |        resnext.opt.param&bin        | [torchvision](https://github.com/pytorch/vision) | 95Mb  |

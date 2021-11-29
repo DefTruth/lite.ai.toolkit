@@ -167,3 +167,19 @@ You can download all the pretrained models files of MNN format from ([Baidu Driv
 |     *lite::mnn::cv::face::attr::MobileEmotion7*      |   face-emotion-recognition-mobilenet_7.mnn  | [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition)| 13Mb |
 |     *lite::mnn::cv::face::attr::ReXNetEmotion7*      | face-emotion-recognition-affectnet_7_vggface2_rexnet150.mnn | [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 30Mb |
 
+## Classification.
+
+<div id="lite.ai.toolkit.hub.mnn-classification"></div>
+
+
+|                    Class                     |   Pretrained MNN Files    |         Rename or Converted From (Repo)          | Size  |
+| :------------------------------------------: | :------------------------: | :----------------------------------------------: | :---: |
+| *lite::mnn::cv::classification:EfficientNetLite4* | efficientnet-lite4-11.mnn |  [onnx-models](https://github.com/onnx/models)   | 49Mb  |
+|   *lite::mnn::cv::classification::ShuffleNetV2*   |   shufflenet-v2-10.mnn    |  [onnx-models](https://github.com/onnx/models)   | 8.7Mb |
+|   *lite::mnn::cv::classification::DenseNet121*    |      densenet121.mnn      | [torchvision](https://github.com/pytorch/vision) | 30Mb  |
+|     *lite::mnn::cv::classification::GhostNet*     |       ghostnet.mnn        | [torchvision](https://github.com/pytorch/vision) | 20Mb  |
+|     *lite::mnn::cv::classification::HdrDNet*      |        hardnet.mnn        | [torchvision](https://github.com/pytorch/vision) | 13Mb  |
+|      *lite::mnn::cv::classification::IBNNet*      |       ibnnet18.mnn        | [torchvision](https://github.com/pytorch/vision) | 97Mb  |
+|   *lite::mnn::cv::classification::MobileNetV2*    |      mobilenetv2.mnn      | [torchvision](https://github.com/pytorch/vision) | 13Mb  |
+|      *lite::mnn::cv::classification::ResNet*      |       resnet18.mnn        | [torchvision](https://github.com/pytorch/vision) | 44Mb  |
+|     *lite::mnn::cv::classification::ResNeXt*      |        resnext.mnn        | [torchvision](https://github.com/pytorch/vision) | 95Mb  |
