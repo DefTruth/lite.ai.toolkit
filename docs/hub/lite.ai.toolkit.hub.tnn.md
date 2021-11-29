@@ -163,3 +163,19 @@ You can download all the pretrained models files of TNN format from ([Baidu Driv
 |     *lite::tnn::cv::face::attr::MobileEmotion7*      |   face-emotion-recognition-mobilenet_7.opt.tnnproto&tnnmodel  | [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition)| 13Mb |
 |     *lite::tnn::cv::face::attr::ReXNetEmotion7*      | face-emotion-recognition-affectnet_7_vggface2_rexnet150.opt.tnnproto&tnnmodel | [face-emo...](https://github.com/HSE-asavchenko/face-emotion-recognition) | 30Mb |
 
+## Classification.
+
+<div id="lite.ai.toolkit.hub.tnn-classification"></div>
+
+
+|                    Class                     |   Pretrained TNN Files    |         Rename or Converted From (Repo)          | Size  |
+| :------------------------------------------: | :------------------------: | :----------------------------------------------: | :---: |
+| *lite::tnn::cv::classification:EfficientNetLite4* | efficientnet-lite4-11.opt.tnnproto&tnnmodel |  [onnx-models](https://github.com/onnx/models)   | 49Mb  |
+|   *lite::tnn::cv::classification::ShuffleNetV2*   |   shufflenet-v2-10.opt.tnnproto&tnnmodel    |  [onnx-models](https://github.com/onnx/models)   | 8.7Mb |
+|   *lite::tnn::cv::classification::DenseNet121*    |      densenet121.opt.tnnproto&tnnmodel      | [torchvision](https://github.com/pytorch/vision) | 30Mb  |
+|     *lite::tnn::cv::classification::GhostNet*     |       ghostnet.opt.tnnproto&tnnmodel        | [torchvision](https://github.com/pytorch/vision) | 20Mb  |
+|     *lite::tnn::cv::classification::HdrDNet*      |        hardnet.opt.tnnproto&tnnmodel        | [torchvision](https://github.com/pytorch/vision) | 13Mb  |
+|      *lite::tnn::cv::classification::IBNNet*      |       ibnnet18.opt.tnnproto&tnnmodel        | [torchvision](https://github.com/pytorch/vision) | 97Mb  |
+|   *lite::tnn::cv::classification::MobileNetV2*    |      mobilenetv2.opt.tnnproto&tnnmodel      | [torchvision](https://github.com/pytorch/vision) | 13Mb  |
+|      *lite::tnn::cv::classification::ResNet*      |       resnet18.opt.tnnproto&tnnmodel        | [torchvision](https://github.com/pytorch/vision) | 44Mb  |
+|     *lite::tnn::cv::classification::ResNeXt*      |        resnext.opt.tnnproto&tnnmodel        | [torchvision](https://github.com/pytorch/vision) | 95Mb  |

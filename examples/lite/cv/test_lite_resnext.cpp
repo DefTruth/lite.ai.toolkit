@@ -68,18 +68,98 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
+  std::string mnn_path = "../../../hub/mnn/cv/resnext50.mnn";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_resnext.jpg";
+
+  lite::mnn::cv::classification::ResNeXt *resnext =
+      new lite::mnn::cv::classification::ResNeXt(mnn_path);
+
+  lite::types::ImageNetContent content;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  resnext->detect(img_bgr, content);
+
+  if (content.flag)
+  {
+    const unsigned int top_k = content.scores.size();
+    if (top_k > 0)
+    {
+      for (unsigned int i = 0; i < top_k; ++i)
+        std::cout << i + 1
+                  << ": " << content.labels.at(i)
+                  << ": " << content.texts.at(i)
+                  << ": " << content.scores.at(i)
+                  << std::endl;
+    }
+    std::cout << "MNN Version Done!" << std::endl;
+  }
+
+  delete resnext;
 #endif
 }
 
 static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
+  std::string param_path = "../../../hub/ncnn/cv/resnext50.opt.param";
+  std::string bin_path = "../../../hub/ncnn/cv/resnext50.opt.bin";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_resnext.jpg";
+
+  lite::ncnn::cv::classification::ResNeXt *resnext =
+      new lite::ncnn::cv::classification::ResNeXt(param_path, bin_path);
+
+  lite::types::ImageNetContent content;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  resnext->detect(img_bgr, content);
+
+  if (content.flag)
+  {
+    const unsigned int top_k = content.scores.size();
+    if (top_k > 0)
+    {
+      for (unsigned int i = 0; i < top_k; ++i)
+        std::cout << i + 1
+                  << ": " << content.labels.at(i)
+                  << ": " << content.texts.at(i)
+                  << ": " << content.scores.at(i)
+                  << std::endl;
+    }
+    std::cout << "NCNN Version Done!" << std::endl;
+  }
+
+  delete resnext;
 #endif
 }
 
 static void test_tnn()
 {
 #ifdef ENABLE_TNN
+  std::string proto_path = "../../../hub/tnn/cv/resnext50.opt.tnnproto";
+  std::string model_path = "../../../hub/tnn/cv/resnext50.opt.tnnmodel";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_resnext.jpg";
+
+  lite::tnn::cv::classification::ResNeXt *resnext =
+      new lite::tnn::cv::classification::ResNeXt(proto_path, model_path);
+
+  lite::types::ImageNetContent content;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  resnext->detect(img_bgr, content);
+
+  if (content.flag)
+  {
+    const unsigned int top_k = content.scores.size();
+    if (top_k > 0)
+    {
+      for (unsigned int i = 0; i < top_k; ++i)
+        std::cout << i + 1
+                  << ": " << content.labels.at(i)
+                  << ": " << content.texts.at(i)
+                  << ": " << content.scores.at(i)
+                  << std::endl;
+    }
+    std::cout << "TNN Version Done!" << std::endl;
+  }
+
+  delete resnext;
 #endif
 }
 

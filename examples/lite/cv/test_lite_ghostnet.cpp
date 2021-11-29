@@ -68,18 +68,98 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
+  std::string mnn_path = "../../../hub/mnn/cv/ghostnet.mnn";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_ghostnet.jpg";
+
+  lite::mnn::cv::classification::GhostNet *ghostnet =
+      new lite::mnn::cv::classification::GhostNet(mnn_path);
+
+  lite::types::ImageNetContent content;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  ghostnet->detect(img_bgr, content);
+
+  if (content.flag)
+  {
+    const unsigned int top_k = content.scores.size();
+    if (top_k > 0)
+    {
+      for (unsigned int i = 0; i < top_k; ++i)
+        std::cout << i + 1
+                  << ": " << content.labels.at(i)
+                  << ": " << content.texts.at(i)
+                  << ": " << content.scores.at(i)
+                  << std::endl;
+    }
+    std::cout << "MNN Version Done!" << std::endl;
+  }
+
+  delete ghostnet;
 #endif
 }
 
 static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
+  std::string param_path = "../../../hub/ncnn/cv/ghostnet.opt.param";
+  std::string bin_path = "../../../hub/ncnn/cv/ghostnet.opt.bin";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_ghostnet.jpg";
+
+  lite::ncnn::cv::classification::GhostNet *ghostnet =
+      new lite::ncnn::cv::classification::GhostNet(param_path, bin_path);
+
+  lite::types::ImageNetContent content;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  ghostnet->detect(img_bgr, content);
+
+  if (content.flag)
+  {
+    const unsigned int top_k = content.scores.size();
+    if (top_k > 0)
+    {
+      for (unsigned int i = 0; i < top_k; ++i)
+        std::cout << i + 1
+                  << ": " << content.labels.at(i)
+                  << ": " << content.texts.at(i)
+                  << ": " << content.scores.at(i)
+                  << std::endl;
+    }
+    std::cout << "NCNN Version Done!" << std::endl;
+  }
+
+  delete ghostnet;
 #endif
 }
 
 static void test_tnn()
 {
 #ifdef ENABLE_TNN
+  std::string proto_path = "../../../hub/tnn/cv/ghostnet.opt.tnnproto";
+  std::string model_path = "../../../hub/tnn/cv/ghostnet.opt.tnnmodel";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_ghostnet.jpg";
+
+  lite::tnn::cv::classification::GhostNet *ghostnet =
+      new lite::tnn::cv::classification::GhostNet(proto_path, model_path);
+
+  lite::types::ImageNetContent content;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  ghostnet->detect(img_bgr, content);
+
+  if (content.flag)
+  {
+    const unsigned int top_k = content.scores.size();
+    if (top_k > 0)
+    {
+      for (unsigned int i = 0; i < top_k; ++i)
+        std::cout << i + 1
+                  << ": " << content.labels.at(i)
+                  << ": " << content.texts.at(i)
+                  << ": " << content.scores.at(i)
+                  << std::endl;
+    }
+    std::cout << "TNN Version Done!" << std::endl;
+  }
+
+  delete ghostnet;
 #endif
 }
 

@@ -11,6 +11,7 @@ MNNMobileEmotion7::MNNMobileEmotion7(const std::string &_mnn_path, unsigned int 
 {
   // re-init with fixed input shape, due to the error of input
   // shape auto-detection while using MNN with NHWC input.
+  // TODO: pre-process bug fix
   dimension_type = MNN::Tensor::TENSORFLOW;
   input_batch = 1;
   input_channel = 3;

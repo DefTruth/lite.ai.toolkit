@@ -52,6 +52,15 @@ namespace tnncv
   class LITE_EXPORTS TNNEfficientEmotion8;           // [38] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
   class LITE_EXPORTS TNNMobileEmotion7;              // [39] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
   class LITE_EXPORTS TNNReXNetEmotion7;              // [40] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
+  class LITE_EXPORTS TNNEfficientNetLite4;           // [41] * reference: https://github.com/onnx/models/blob/master/vision/classification/efficientnet-lite4
+  class LITE_EXPORTS TNNShuffleNetV2;                // [42] * reference: https://github.com/onnx/models/blob/master/vision/classification/shufflenet
+  class LITE_EXPORTS TNNDenseNet;                    // [43] * reference: https://pytorch.org/hub/pytorch_vision_densenet/
+  class LITE_EXPORTS TNNGhostNet;                    // [44] * reference：https://pytorch.org/hub/pytorch_vision_ghostnet/
+  class LITE_EXPORTS TNNHdrDNet;                     // [45] * reference: https://pytorch.org/hub/pytorch_vision_hardnet/
+  class LITE_EXPORTS TNNIBNNet;                      // [46] * reference: https://pytorch.org/hub/pytorch_vision_ibnnet/
+  class LITE_EXPORTS TNNMobileNetV2;                 // [47] * reference: https://pytorch.org/hub/pytorch_vision_mobilenet_v2/
+  class LITE_EXPORTS TNNResNet;                      // [48] * reference: https://pytorch.org/hub/pytorch_vision_resnet/
+  class LITE_EXPORTS TNNResNeXt;                     // [49] * reference: https://pytorch.org/hub/pytorch_vision_resnext/
 
 }
 
