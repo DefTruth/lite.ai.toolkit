@@ -3,7 +3,6 @@
 //
 
 #include "mnn_fast_style_transfer.h"
-#include "lite/utils.h"
 
 using mnncv::MNNFastStyleTransfer;
 

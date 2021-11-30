@@ -3,7 +3,6 @@
 //
 
 #include "mnn_colorizer.h"
-#include "lite/utils.h"
 
 using mnncv::MNNColorizer;
 

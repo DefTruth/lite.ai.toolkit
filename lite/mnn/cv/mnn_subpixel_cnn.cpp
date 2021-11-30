@@ -3,7 +3,6 @@
 //
 
 #include "mnn_subpixel_cnn.h"
-#include "lite/utils.h"
 
 using mnncv::MNNSubPixelCNN;
 
@@ -47,7 +46,7 @@ void MNNSubPixelCNN::detect(const cv::Mat &mat, types::SuperResolutionContent &s
   mat_cb = split_mats.at(2);
 
   // 1. make input tensor
-  this->transform(mat_y); // (1,1,256,256)
+  this->transform(mat_y); // (1,1,224,224)
   // 2. inference
   mnn_interpreter->runSession(mnn_session);
   auto output_tensors = mnn_interpreter->getSessionOutputAll(mnn_session);
