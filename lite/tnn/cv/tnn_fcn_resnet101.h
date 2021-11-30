@@ -11,6 +11,7 @@ namespace tnncv
 {
   class LITE_EXPORTS TNNFCNResNet101
   {
+  public:
     explicit TNNFCNResNet101(const std::string &_proto_path,
                              const std::string &_model_path,
                              unsigned int _num_threads = 1);
