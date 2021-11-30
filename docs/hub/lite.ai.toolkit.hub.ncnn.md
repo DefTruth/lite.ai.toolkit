@@ -176,3 +176,32 @@ You can download all the pretrained models files of NCNN format from ([Baidu Dri
 |   *lite::ncnn::cv::classification::MobileNetV2*    |      mobilenetv2.opt.param&bin      | [torchvision](https://github.com/pytorch/vision) | 13Mb  |
 |      *lite::ncnn::cv::classification::ResNet*      |       resnet18.opt.param&bin        | [torchvision](https://github.com/pytorch/vision) | 44Mb  |
 |     *lite::ncnn::cv::classification::ResNeXt*      |        resnext.opt.param&bin        | [torchvision](https://github.com/pytorch/vision) | 95Mb  |
+
+## Segmentation.
+
+<div id="lite.ai.toolkit.hub.ncnn-segmentation"></div>  
+
+
+|                    Class                     |     Pretrained NCNN Files     |         Rename or Converted From (Repo)          | Size  |
+| :------------------------------------------: | :---------------------------: | :----------------------------------------------: | :---: |
+| *lite::ncnn::cv::segmentation::DeepLabV3ResNet101* | deeplabv3_resnet101_coco.opt.param&bin | [torchvision](https://github.com/pytorch/vision) | 232Mb |
+|    *lite::ncnn::cv::segmentation::FCNResNet101*    |      fcn_resnet101.opt.param&bin       | [torchvision](https://github.com/pytorch/vision) | 207Mb |
+
+
+## Style Transfer.
+
+<div id="lite.ai.toolkit.hub.ncnn-style-transfer"></div>  
+
+|                Class                 |   Pretrained NCNN Files    |        Rename or Converted From (Repo)        | Size  |
+| :----------------------------------: | :------------------------: | :-------------------------------------------: | :---: |
+| *lite::ncnn::cv::style::FastStyleTransfer* |    style-mosaic-8.opt.param&bin     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::ncnn::cv::style::FastStyleTransfer* |     style-candy-9.opt.param&bin     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::ncnn::cv::style::FastStyleTransfer* |     style-udnie-8.opt.param&bin     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::ncnn::cv::style::FastStyleTransfer* |     style-udnie-9.opt.param&bin     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::ncnn::cv::style::FastStyleTransfer* |  style-pointilism-8.opt.param&bin   | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::ncnn::cv::style::FastStyleTransfer* |  style-pointilism-9.opt.param&bin   | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::ncnn::cv::style::FastStyleTransfer* | style-rain-princess-9.opt.param&bin | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::ncnn::cv::style::FastStyleTransfer* | style-rain-princess-8.opt.param&bin | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::ncnn::cv::style::FastStyleTransfer* |     style-candy-8.opt.param&bin     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::ncnn::cv::style::FastStyleTransfer* |    style-mosaic-9.opt.param&bin     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+

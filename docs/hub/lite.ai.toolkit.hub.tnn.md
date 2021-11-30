@@ -179,3 +179,54 @@ You can download all the pretrained models files of TNN format from ([Baidu Driv
 |   *lite::tnn::cv::classification::MobileNetV2*    |      mobilenetv2.opt.tnnproto&tnnmodel      | [torchvision](https://github.com/pytorch/vision) | 13Mb  |
 |      *lite::tnn::cv::classification::ResNet*      |       resnet18.opt.tnnproto&tnnmodel        | [torchvision](https://github.com/pytorch/vision) | 44Mb  |
 |     *lite::tnn::cv::classification::ResNeXt*      |        resnext.opt.tnnproto&tnnmodel        | [torchvision](https://github.com/pytorch/vision) | 95Mb  |
+
+
+## Segmentation.
+
+<div id="lite.ai.toolkit.hub.onnx-segmentation"></div>  
+
+
+|                    Class                     |     Pretrained TNN Files     |         Rename or Converted From (Repo)          | Size  |
+| :------------------------------------------: | :---------------------------: | :----------------------------------------------: | :---: |
+| *lite::cv::segmentation::DeepLabV3ResNet101* | deeplabv3_resnet101_coco.opt.tnnproto&tnnmodel | [torchvision](https://github.com/pytorch/vision) | 232Mb |
+|    *lite::cv::segmentation::FCNResNet101*    |      fcn_resnet101.opt.tnnproto&tnnmodel       | [torchvision](https://github.com/pytorch/vision) | 207Mb |
+
+
+## Style Transfer.
+
+<div id="lite.ai.toolkit.hub.tnn-style-transfer"></div>  
+
+|                Class                 |   Pretrained TNN Files    |        Rename or Converted From (Repo)        | Size  |
+| :----------------------------------: | :------------------------: | :-------------------------------------------: | :---: |
+| *lite::tnn::cv::style::FastStyleTransfer* |    style-mosaic-8.opt.tnnproto&tnnmodel     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::tnn::cv::style::FastStyleTransfer* |     style-candy-9.opt.tnnproto&tnnmodel     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::tnn::cv::style::FastStyleTransfer* |     style-udnie-8.opt.tnnproto&tnnmodel     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::tnn::cv::style::FastStyleTransfer* |     style-udnie-9.opt.tnnproto&tnnmodel     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::tnn::cv::style::FastStyleTransfer* |  style-pointilism-8.opt.tnnproto&tnnmodel   | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::tnn::cv::style::FastStyleTransfer* |  style-pointilism-9.opt.tnnproto&tnnmodel   | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::tnn::cv::style::FastStyleTransfer* | style-rain-princess-9.opt.tnnproto&tnnmodel | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::tnn::cv::style::FastStyleTransfer* | style-rain-princess-8.opt.tnnproto&tnnmodel | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::tnn::cv::style::FastStyleTransfer* |     style-candy-8.opt.tnnproto&tnnmodel     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::tnn::cv::style::FastStyleTransfer* |    style-mosaic-9.opt.tnnproto&tnnmodel     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+
+
+## Colorization.
+
+<div id="lite.ai.toolkit.hub.tnn-colorization"></div>
+
+|                Class                |   Pretrained TNN Files   |              Rename or Converted From (Repo)              | Size  |
+| :---------------------------------: | :-----------------------: | :-------------------------------------------------------: | :---: |
+| *lite::tnn::cv::colorization::Colorizer* |   eccv16-colorizer.opt.tnnproto&tnnmodel   | [colorization](https://github.com/richzhang/colorization) | 123Mb |
+| *lite::tnn::cv::colorization::Colorizer* | siggraph17-colorizer.opt.tnnproto&tnnmodel | [colorization](https://github.com/richzhang/colorization) | 129Mb |
+
+
+## Super Resolution.
+
+<div id="lite.ai.toolkit.hub.tnn-super-resolution"></div>
+
+|                Class                | Pretrained TNN Files |              Rename or Converted From (Repo)              | Size  |
+| :---------------------------------: | :-------------------: | :-------------------------------------------------------: | :---: |
+| *lite::tnn::cv::resolution::SubPixelCNN* |   subpixel-cnn.opt.tnnproto&tnnmodel   | [...PIXEL...](https://github.com/niazwazir/SUB_PIXEL_CNN) | 234Kb |
+
+
+#
