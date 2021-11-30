@@ -183,3 +183,52 @@ You can download all the pretrained models files of MNN format from ([Baidu Driv
 |   *lite::mnn::cv::classification::MobileNetV2*    |      mobilenetv2.mnn      | [torchvision](https://github.com/pytorch/vision) | 13Mb  |
 |      *lite::mnn::cv::classification::ResNet*      |       resnet18.mnn        | [torchvision](https://github.com/pytorch/vision) | 44Mb  |
 |     *lite::mnn::cv::classification::ResNeXt*      |        resnext.mnn        | [torchvision](https://github.com/pytorch/vision) | 95Mb  |
+
+
+## Segmentation.
+
+<div id="lite.ai.toolkit.hub.mnn-segmentation"></div>  
+
+
+|                    Class                     |     Pretrained MNN Files     |         Rename or Converted From (Repo)          | Size  |
+| :------------------------------------------: | :---------------------------: | :----------------------------------------------: | :---: |
+| *lite::mnn::cv::segmentation::DeepLabV3ResNet101* | deeplabv3_resnet101_coco.mnn | [torchvision](https://github.com/pytorch/vision) | 232Mb |
+|    *lite::mnn::cv::segmentation::FCNResNet101*    |      fcn_resnet101.mnn       | [torchvision](https://github.com/pytorch/vision) | 207Mb |
+
+
+## Style Transfer.
+
+<div id="lite.ai.toolkit.hub.mnn-style-transfer"></div>  
+
+|                Class                 |   Pretrained MNN Files    |        Rename or Converted From (Repo)        | Size  |
+| :----------------------------------: | :------------------------: | :-------------------------------------------: | :---: |
+| *lite::mnn::cv::style::FastStyleTransfer* |    style-mosaic-8.mnn     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::mnn::cv::style::FastStyleTransfer* |     style-candy-9.mnn     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::mnn::cv::style::FastStyleTransfer* |     style-udnie-8.mnn     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::mnn::cv::style::FastStyleTransfer* |     style-udnie-9.mnn     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::mnn::cv::style::FastStyleTransfer* |  style-pointilism-8.mnn   | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::mnn::cv::style::FastStyleTransfer* |  style-pointilism-9.mnn   | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::mnn::cv::style::FastStyleTransfer* | style-rain-princess-9.mnn | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::mnn::cv::style::FastStyleTransfer* | style-rain-princess-8.mnn | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::mnn::cv::style::FastStyleTransfer* |     style-candy-8.mnn     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::mnn::cv::style::FastStyleTransfer* |    style-mosaic-9.mnn     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+
+
+## Colorization.
+
+<div id="lite.ai.toolkit.hub.mnn-colorization"></div>
+
+|                Class                |   Pretrained MNN Files   |              Rename or Converted From (Repo)              | Size  |
+| :---------------------------------: | :-----------------------: | :-------------------------------------------------------: | :---: |
+| *lite::mnn::cv::colorization::Colorizer* |   eccv16-colorizer.mnn   | [colorization](https://github.com/richzhang/colorization) | 123Mb |
+| *lite::mnn::cv::colorization::Colorizer* | siggraph17-colorizer.mnn | [colorization](https://github.com/richzhang/colorization) | 129Mb |
+
+
+## Super Resolution.
+
+<div id="lite.ai.toolkit.hub.mnn-super-resolution"></div>
+
+|                Class                | Pretrained MNN Files |              Rename or Converted From (Repo)              | Size  |
+| :---------------------------------: | :-------------------: | :-------------------------------------------------------: | :---: |
+| *lite::mnn::cv::resolution::SubPixelCNN* |   subpixel-cnn.mnn   | [...PIXEL...](https://github.com/niazwazir/SUB_PIXEL_CNN) | 234Kb |
+

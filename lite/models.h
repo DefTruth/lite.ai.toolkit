@@ -140,6 +140,11 @@
 #include "lite/mnn/cv/mnn_mobilenetv2.h"
 #include "lite/mnn/cv/mnn_resnet.h"
 #include "lite/mnn/cv/mnn_resnext.h"
+#include "lite/mnn/cv/mnn_deeplabv3_resnet101.h"
+#include "lite/mnn/cv/mnn_fcn_resnet101.h"
+#include "lite/mnn/cv/mnn_colorizer.h"
+#include "lite/mnn/cv/mnn_fast_style_transfer.h"
+#include "lite/mnn/cv/mnn_subpixel_cnn.h"
 
 #endif
 
@@ -199,6 +204,11 @@
 #include "lite/ncnn/cv/ncnn_mobilenetv2.h"
 #include "lite/ncnn/cv/ncnn_resnet.h"
 #include "lite/ncnn/cv/ncnn_resnext.h"
+#include "lite/ncnn/cv/ncnn_deeplabv3_resnet101.h"
+#include "lite/ncnn/cv/ncnn_fcn_resnet101.h"
+#include "lite/ncnn/cv/ncnn_colorizer.h"
+#include "lite/ncnn/cv/ncnn_fast_style_transfer.h"
+#include "lite/ncnn/cv/ncnn_subpixel_cnn.h"
 
 #endif
 
@@ -257,6 +267,11 @@
 #include "lite/tnn/cv/tnn_mobilenetv2.h"
 #include "lite/tnn/cv/tnn_resnet.h"
 #include "lite/tnn/cv/tnn_resnext.h"
+#include "lite/tnn/cv/tnn_deeplabv3_resnet101.h"
+#include "lite/tnn/cv/tnn_fcn_resnet101.h"
+#include "lite/tnn/cv/tnn_colorizer.h"
+#include "lite/tnn/cv/tnn_fast_style_transfer.h"
+#include "lite/tnn/cv/tnn_subpixel_cnn.h"
 
 #endif
 
@@ -934,6 +949,8 @@ namespace lite
       // segmentation
       namespace segmentation
       {
+        typedef mnncv::MNNDeepLabV3ResNet101 DeepLabV3ResNet101;
+        typedef mnncv::MNNFCNResNet101 FCNResNet101;
       }
       // reid
       namespace reid
@@ -947,6 +964,23 @@ namespace lite
       namespace matting
       {
         typedef mnncv::MNNRobustVideoMatting RobustVideoMatting;
+      }
+
+      // style transfer
+      namespace style
+      {
+        typedef mnncv::MNNFastStyleTransfer FastStyleTransfer;
+      }
+
+      // colorization
+      namespace colorization
+      {
+        typedef mnncv::MNNColorizer Colorizer;
+      }
+      // super resolution
+      namespace resolution
+      {
+        typedef mnncv::MNNSubPixelCNN SubPixelCNN;
       }
 
     } // namespace cv
@@ -1044,6 +1078,8 @@ namespace lite
       // segmentation
       namespace segmentation
       {
+        typedef ncnncv::NCNNDeepLabV3ResNet101 DeepLabV3ResNet101;
+        typedef ncnncv::NCNNFCNResNet101 FCNResNet101;
       }
       // reid
       namespace reid
@@ -1057,6 +1093,22 @@ namespace lite
       namespace matting
       {
         typedef ncnncv::NCNNRobustVideoMatting RobustVideoMatting;
+      }
+      // style transfer
+      namespace style
+      {
+        typedef ncnncv::NCNNFastStyleTransfer FastStyleTransfer;
+      }
+
+      // colorization
+      namespace colorization
+      {
+        typedef ncnncv::NCNNColorizer Colorizer;
+      }
+      // super resolution
+      namespace resolution
+      {
+        typedef ncnncv::NCNNSubPixelCNN SubPixelCNN;
       }
 
     } // namespace cv
@@ -1153,6 +1205,8 @@ namespace lite
       // segmentation
       namespace segmentation
       {
+        typedef tnncv::TNNDeepLabV3ResNet101 DeepLabV3ResNet101;
+        typedef tnncv::TNNFCNResNet101 FCNResNet101;
       }
       // reid
       namespace reid
@@ -1166,6 +1220,22 @@ namespace lite
       namespace matting
       {
         typedef tnncv::TNNRobustVideoMatting RobustVideoMatting;
+      }
+      // style transfer
+      namespace style
+      {
+        typedef tnncv::TNNFastStyleTransfer FastStyleTransfer;
+      }
+
+      // colorization
+      namespace colorization
+      {
+        typedef tnncv::TNNColorizer Colorizer;
+      }
+      // super resolution
+      namespace resolution
+      {
+        typedef tnncv::TNNSubPixelCNN SubPixelCNN;
       }
 
     } // namespace cv

@@ -35,6 +35,7 @@ void FastStyleTransfer::detect(const cv::Mat &mat, types::StyleContent &style_co
 
   style_content.mat.create(rows, cols, CV_8UC3); // release & create
 
+  // time cost!
   for (unsigned int i = 0; i < rows; ++i)
   {
     cv::Vec3b *p = style_content.mat.ptr<cv::Vec3b>(i);

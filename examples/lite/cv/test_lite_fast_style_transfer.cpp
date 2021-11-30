@@ -118,18 +118,78 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
+  std::string mnn_path = "../../../hub/mnn/cv/style-candy-8.mnn";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_fast_style_transfer.jpg";
+  std::string save_path = "../../../logs/test_fast_style_transfer_candy_mnn.jpg";
+
+  lite::mnn::cv::style::FastStyleTransfer *candy_fast_style_transfer =
+      new lite::mnn::cv::style::FastStyleTransfer(mnn_path);
+
+  lite::types::StyleContent candy_style_content;
+
+  cv::Mat img_bgr = cv::imread(test_img_path);
+
+  candy_fast_style_transfer->detect(img_bgr, candy_style_content);
+
+  if (candy_style_content.flag) cv::imwrite(save_path, candy_style_content.mat);
+
+  std::cout << "MNN Version Style Transfer Done." << std::endl;
+
+  delete candy_fast_style_transfer;
+
 #endif
 }
 
 static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
+  std::string param_path = "../../../hub/ncnn/cv/style-candy-8.opt.param";
+  std::string bin_path = "../../../hub/ncnn/cv/style-candy-8.opt.bin";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_fast_style_transfer.jpg";
+  std::string save_path = "../../../logs/test_fast_style_transfer_candy_ncnn.jpg";
+
+  lite::ncnn::cv::style::FastStyleTransfer *candy_fast_style_transfer =
+      new lite::ncnn::cv::style::FastStyleTransfer(param_path, bin_path);
+
+  lite::types::StyleContent candy_style_content;
+
+  cv::Mat img_bgr = cv::imread(test_img_path);
+
+  candy_fast_style_transfer->detect(img_bgr, candy_style_content);
+
+
+  if (candy_style_content.flag) cv::imwrite(save_path, candy_style_content.mat);
+
+  std::cout << "NCNN Version Style Transfer Done." << std::endl;
+
+  delete candy_fast_style_transfer;
+
 #endif
 }
 
 static void test_tnn()
 {
 #ifdef ENABLE_TNN
+  std::string proto_path = "../../../hub/tnn/cv/style-candy-8.opt.tnnproto";
+  std::string model_path = "../../../hub/tnn/cv/style-candy-8.opt.tnnmodel";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_fast_style_transfer.jpg";
+  std::string save_path = "../../../logs/test_fast_style_transfer_candy_tnn.jpg";
+
+  lite::tnn::cv::style::FastStyleTransfer *candy_fast_style_transfer =
+      new lite::tnn::cv::style::FastStyleTransfer(proto_path, model_path);
+
+  lite::types::StyleContent candy_style_content;
+
+  cv::Mat img_bgr = cv::imread(test_img_path);
+
+  candy_fast_style_transfer->detect(img_bgr, candy_style_content);
+
+
+  if (candy_style_content.flag) cv::imwrite(save_path, candy_style_content.mat);
+
+  std::cout << "TNN Version Style Transfer Done." << std::endl;
+
+  delete candy_fast_style_transfer;
 #endif
 }
 

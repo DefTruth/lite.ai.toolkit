@@ -135,18 +135,75 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
+  std::string mnn_path = "../../../hub/mnn/cv/eccv16-colorizer.mnn";
+  // std::string mnn_path = "../../../hub/mnn/cv/eccv16-colorizer.opt.mnn";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_colorizer_1.jpg";
+  std::string save_img_path = "../../../logs/test_lite_colorizer_1_mnn.jpg";
+
+  lite::mnn::cv::colorization::Colorizer *eccv16_colorizer =
+      new lite::mnn::cv::colorization::Colorizer(mnn_path, 8);
+
+  cv::Mat img_bgr = cv::imread(test_img_path);
+
+  lite::types::ColorizeContent eccv16_colorize_content;
+
+  eccv16_colorizer->detect(img_bgr, eccv16_colorize_content);
+
+  if (eccv16_colorize_content.flag) cv::imwrite(save_img_path, eccv16_colorize_content.mat);
+
+  std::cout << "MNN Version Colorization Done." << std::endl;
+
+  delete eccv16_colorizer;
 #endif
 }
 
 static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
+  std::string param_path = "../../../hub/ncnn/cv/eccv16-colorizer.opt.param";
+  std::string bin_path = "../../../hub/ncnn/cv/eccv16-colorizer.opt.bin";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_colorizer_1.jpg";
+  std::string save_img_path = "../../../logs/test_lite_colorizer_1_ncnn.jpg";
+
+  lite::ncnn::cv::colorization::Colorizer *eccv16_colorizer =
+      new lite::ncnn::cv::colorization::Colorizer(param_path, bin_path, 1);
+
+  cv::Mat img_bgr = cv::imread(test_img_path);
+
+  lite::types::ColorizeContent eccv16_colorize_content;
+
+  eccv16_colorizer->detect(img_bgr, eccv16_colorize_content);
+
+  if (eccv16_colorize_content.flag) cv::imwrite(save_img_path, eccv16_colorize_content.mat);
+
+  std::cout << "NCNN Version Colorization Done." << std::endl;
+
+  delete eccv16_colorizer;
 #endif
 }
 
 static void test_tnn()
 {
 #ifdef ENABLE_TNN
+  std::string proto_path = "../../../hub/tnn/cv/eccv16-colorizer.opt.tnnproto";
+  std::string model_path = "../../../hub/tnn/cv/eccv16-colorizer.opt.tnnmodel";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_colorizer_1.jpg";
+  std::string save_img_path = "../../../logs/test_lite_colorizer_1_tnn.jpg";
+
+  lite::tnn::cv::colorization::Colorizer *eccv16_colorizer =
+      new lite::tnn::cv::colorization::Colorizer(proto_path, model_path, 1);
+
+  cv::Mat img_bgr = cv::imread(test_img_path);
+
+  lite::types::ColorizeContent eccv16_colorize_content;
+
+  eccv16_colorizer->detect(img_bgr, eccv16_colorize_content);
+
+  if (eccv16_colorize_content.flag) cv::imwrite(save_img_path, eccv16_colorize_content.mat);
+
+  std::cout << "TNN Version Colorization Done." << std::endl;
+
+  delete eccv16_colorizer;
 #endif
 }
 
@@ -155,7 +212,7 @@ static void test_lite()
   test_default();
   test_onnxruntime();
   test_mnn();
-  test_ncnn();
+  // test_ncnn();
   test_tnn();
 }
 
