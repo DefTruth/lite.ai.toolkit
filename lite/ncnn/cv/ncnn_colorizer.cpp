@@ -50,6 +50,7 @@ void NCNNColorizer::detect(const cv::Mat &mat, types::ColorizeContent &colorize_
   // 1. make input tensor
   ncnn::Mat input;
   this->transform(mat_rs_l, input); // (1,1,256,256)
+
   // 2. inference & extract
   auto extractor = net->create_extractor();
   extractor.set_light_mode(false);  // default

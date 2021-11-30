@@ -28,3 +28,6 @@ test_lite_yolop_det_tnn.jpg
 test_lite_yolop_merge_tnn.jpg
 test_lite_yolox_v0.1.1*
 test_lite_yolov5_v6.0*
+test_lite_emotion8*
+test_lite_emotion7*
+test_lite_mobile_emotion7*

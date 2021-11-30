@@ -24,8 +24,8 @@ namespace ncnncv
     const float mean_vals[3] = {0.485f * 255.f, 0.456f * 255.f, 0.406f * 255.f}; // RGB
 
   private:
-    int dynamic_input_height = 512; // init only, will change according to input mat.
-    int dynamic_input_width = 512; // init only, will change according to input mat.
+    int input_height = 512; // init only, will change according to input mat.
+    int input_width = 512; // init only, will change according to input mat.
 
     const char *class_names[20] = {
         "aeroplane", "bicycle", "bird", "boat", "bottle", "bus", "car", "cat", "chair", "cow",

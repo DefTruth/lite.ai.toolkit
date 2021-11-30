@@ -118,7 +118,7 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
-  std::string mnn_path = "../../../hub/onnx/cv/style-candy-8.mnn";
+  std::string mnn_path = "../../../hub/mnn/cv/style-candy-8.mnn";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_fast_style_transfer.jpg";
   std::string save_path = "../../../logs/test_fast_style_transfer_candy_mnn.jpg";
 

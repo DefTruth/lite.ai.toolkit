@@ -128,37 +128,42 @@ void TNNDeepLabV3ResNet101::print_debug_string()
 
 void TNNDeepLabV3ResNet101::transform(const cv::Mat &mat)
 {
-  const int img_width = mat.cols;
-  const int img_height = mat.rows;
-  // update dynamic input dims
-  dynamic_input_height = img_height;
-  dynamic_input_width = img_width;
-  if (input_data_format == tnn::DATA_FORMAT_NCHW)
-  {
-    input_shape.at(2) = dynamic_input_height;
-    input_shape.at(3) = dynamic_input_width;
-  } // NHWC
-  else if (input_data_format == tnn::DATA_FORMAT_NHWC)
-  {
-    input_shape.at(1) = dynamic_input_height;
-    input_shape.at(2) = dynamic_input_width;
-  }
-
-  // update input mat and reshape instance
-  // reference: https://github.com/Tencent/TNN/blob/master/examples/base/ocr_text_recognizer.cc#L120
-  tnn::InputShapesMap input_shape_map;
-  input_shape_map.insert({"input", input_shape});
-
-  auto status = instance->Reshape(input_shape_map);
-  if (status != tnn::TNN_OK)
-  {
-#ifdef LITETNN_DEBUG
-    std::cout << "instance Reshape failed in TNNDeepLabV3ResNet101\n";
-#endif
-  }
+//  const int img_width = mat.cols;
+//  const int img_height = mat.rows;
+//  // update dynamic input dims
+//  dynamic_input_height = img_height;
+//  dynamic_input_width = img_width;
+//  if (input_data_format == tnn::DATA_FORMAT_NCHW)
+//  {
+//    input_shape.at(2) = dynamic_input_height;
+//    input_shape.at(3) = dynamic_input_width;
+//  } // NHWC
+//  else if (input_data_format == tnn::DATA_FORMAT_NHWC)
+//  {
+//    input_shape.at(1) = dynamic_input_height;
+//    input_shape.at(2) = dynamic_input_width;
+//  }
+//
+//  // update input mat and reshape instance
+//  // reference: https://github.com/Tencent/TNN/blob/master/examples/base/ocr_text_recognizer.cc#L120
+//  tnn::InputShapesMap input_shape_map;
+//  input_shape_map.insert({"input", input_shape});
+//
+//  auto status = instance->Reshape(input_shape_map);
+//  if (status != tnn::TNN_OK)
+//  {
+//#ifdef LITETNN_DEBUG
+//    std::cout << "instance Reshape failed in TNNDeepLabV3ResNet101\n";
+//#endif
+//  }
+//
+//  cv::Mat canvas;
+//  cv::cvtColor(mat, canvas, cv::COLOR_BGR2RGB);
 
   cv::Mat canvas;
-  cv::cvtColor(mat, canvas, cv::COLOR_BGR2RGB);
+  cv::resize(mat, canvas, cv::Size(dynamic_input_width, dynamic_input_height));
+  cv::cvtColor(canvas, canvas, cv::COLOR_BGR2RGB);
+
   // push into input_mat
   input_mat = std::make_shared<tnn::Mat>(
       input_device_type,
@@ -177,6 +182,8 @@ void TNNDeepLabV3ResNet101::transform(const cv::Mat &mat)
 void TNNDeepLabV3ResNet101::detect(const cv::Mat &mat, types::SegmentContent &content)
 {
   if (mat.empty()) return;
+  const int img_width = mat.cols;
+  const int img_height = mat.rows;
 
   // 1. make input mat
   this->transform(mat);
@@ -230,7 +237,7 @@ void TNNDeepLabV3ResNet101::detect(const cv::Mat &mat, types::SegmentContent &co
   // time cost!
   content.names_map.clear();
   content.class_mat = cv::Mat(output_height, output_width, CV_8UC1, cv::Scalar(0));
-  content.color_mat = mat.clone();
+  cv::resize(mat, content.color_mat, cv::Size(output_width, output_height)); // init color mat
 
   const unsigned int scores_step = output_height * output_width; // h x w
 
@@ -269,6 +276,9 @@ void TNNDeepLabV3ResNet101::detect(const cv::Mat &mat, types::SegmentContent &co
     }
 
   }
+
+  cv::resize(content.class_mat, content.class_mat, cv::Size(img_width, img_height));
+  cv::resize(content.color_mat, content.color_mat, cv::Size(img_width, img_height));
 
   content.flag = true;
 

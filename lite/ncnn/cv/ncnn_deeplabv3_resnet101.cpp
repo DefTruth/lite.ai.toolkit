@@ -18,14 +18,12 @@ void NCNNDeepLabV3ResNet101::transform(const cv::Mat &mat, ncnn::Mat &in)
 {
   const int img_width = mat.cols;
   const int img_height = mat.rows;
-  // update dynamic input dims
-  dynamic_input_height = img_height;
-  dynamic_input_width = img_width;
-
-  in = ncnn::Mat::from_pixels(mat.data,
-                              ncnn::Mat::PIXEL_BGR2RGB,
-                              dynamic_input_width,
-                              dynamic_input_height);
+  in = ncnn::Mat::from_pixels_resize(mat.data,
+                                     ncnn::Mat::PIXEL_BGR2RGB,
+                                     img_width,
+                                     img_height,
+                                     input_width,
+                                     input_height);
 
   in.substract_mean_normalize(mean_vals, norm_vals);
 }
@@ -33,6 +31,9 @@ void NCNNDeepLabV3ResNet101::transform(const cv::Mat &mat, ncnn::Mat &in)
 void NCNNDeepLabV3ResNet101::detect(const cv::Mat &mat, types::SegmentContent &content)
 {
   if (mat.empty()) return;
+  const int img_width = mat.cols;
+  const int img_height = mat.rows;
+
   // 1. make input tensor
   ncnn::Mat input;
   this->transform(mat, input);
@@ -58,7 +59,7 @@ void NCNNDeepLabV3ResNet101::detect(const cv::Mat &mat, types::SegmentContent &c
   // time cost!
   content.names_map.clear();
   content.class_mat = cv::Mat(output_height, output_width, CV_8UC1, cv::Scalar(0));
-  content.color_mat = mat.clone();
+  cv::resize(mat, content.color_mat, cv::Size(output_width, output_height)); // init color mat
 
   const unsigned int scores_step = output_height * output_width; // h x w
 
@@ -97,6 +98,9 @@ void NCNNDeepLabV3ResNet101::detect(const cv::Mat &mat, types::SegmentContent &c
     }
 
   }
+
+  cv::resize(content.class_mat, content.class_mat, cv::Size(img_width, img_height));
+  cv::resize(content.color_mat, content.color_mat, cv::Size(img_width, img_height));
 
   content.flag = true;
 }
