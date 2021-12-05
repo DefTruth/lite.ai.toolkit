@@ -62,8 +62,8 @@ void MGMatting::print_debug_string()
 
 std::vector<Ort::Value> MGMatting::transform(const cv::Mat &mat, const cv::Mat &mask)
 {
-  auto padded_mat = this->padding(mat); // 0-255 int8
-  auto padded_mask = this->padding(mask); // 0-1.0 float32
+  auto padded_mat = this->padding(mat); // 0-255 int8 h+2*pad_val w+2*pad_val
+  auto padded_mask = this->padding(mask); // 0-1.0 float32 h+2*pad_val w+2*pad_val
 
   cv::Mat canvas;
   cv::cvtColor(padded_mat, canvas, cv::COLOR_BGR2RGB);
@@ -92,29 +92,30 @@ cv::Mat MGMatting::padding(const cv::Mat &unpad_mat)
   const unsigned int w = unpad_mat.cols;
 
   // aligned
-  if (h % 32 == 0 && w % 32 == 0)
+  if (h % pad_val == 0 && w % pad_val == 0)
   {
-    unsigned int target_h = h + 2 * 32;
-    unsigned int target_w = w + 2 * 32;
+    unsigned int target_h = h + 2 * pad_val;
+    unsigned int target_w = w + 2 * pad_val;
     cv::Mat pad_mat(target_h, target_w, unpad_mat.type());
 
-    cv::copyMakeBorder(unpad_mat, pad_mat, 32, 32,
-                       32, 32, cv::BORDER_REFLECT);
+    cv::copyMakeBorder(unpad_mat, pad_mat, pad_val, pad_val,
+                       pad_val, pad_val, cv::BORDER_REFLECT);
     return pad_mat;
   } // un-aligned
   else
   {
-    unsigned int align_h = 32 * ((h - 1) / 32 + 1);
-    unsigned int align_w = 32 * ((w - 1) / 32 + 1);
+    // align & padding
+    unsigned int align_h = pad_val * ((h - 1) / pad_val + 1);
+    unsigned int align_w = pad_val * ((w - 1) / pad_val + 1);
     unsigned int pad_h = align_h - h; // >= 0
     unsigned int pad_w = align_w - w; // >= 0
-    unsigned int target_h = h + 32 + (pad_h + 32);
-    unsigned int target_w = w + 32 + (pad_w + 32);
+    unsigned int target_h = h + pad_val + (pad_h + pad_val);
+    unsigned int target_w = w + pad_val + (pad_w + pad_val);
 
     cv::Mat pad_mat(target_h, target_w, unpad_mat.type());
 
-    cv::copyMakeBorder(unpad_mat, pad_mat, 32, pad_h + 32,
-                       32, pad_w + 32, cv::BORDER_REFLECT);
+    cv::copyMakeBorder(unpad_mat, pad_mat, pad_val, pad_h + pad_val,
+                       pad_val, pad_w + pad_val, cv::BORDER_REFLECT);
     return pad_mat;
   }
 }
@@ -125,9 +126,11 @@ void MGMatting::update_guidance_mask(cv::Mat &mask, unsigned int guidance_thresh
   if (mask.type() != CV_32FC1) mask.convertTo(mask, CV_32FC1);
   if (mask.isContinuous())
   {
+    const unsigned int h = mask.rows;
+    const unsigned int w = mask.cols;
+    const unsigned int data_size = h * w * 1;
     float *mutable_data_ptr = (float *) mask.data;
     float guidance_threshold_ = (float) guidance_threshold;
-    const unsigned int data_size = dynamic_input_mask_size;
     for (unsigned int i = 0; i < data_size; ++i)
     {
       if (mutable_data_ptr[i] >= guidance_threshold_)
@@ -180,19 +183,20 @@ void MGMatting::generate_matting(std::vector<Ort::Value> &output_tensors,
   Ort::Value &alpha_os1 = output_tensors.at(0); // (1,1,h+?,w+?)
   Ort::Value &alpha_os4 = output_tensors.at(1); // (1,1,h+?,w+?)
   Ort::Value &alpha_os8 = output_tensors.at(2); // (1,1,h+?,w+?)
-  const unsigned int h = dynamic_input_height;
-  const unsigned int w = dynamic_input_width;
+  const unsigned int h = mat.rows;
+  const unsigned int w = mat.cols;
 
   // TODO: add post-process as official python implementation.
+  // https://github.com/yucornetto/MGMatting/blob/main/code-base/infer.py
   auto output_dims = alpha_os1.GetTypeInfo().GetTensorTypeAndShapeInfo().GetShape();
   const unsigned int out_h = output_dims.at(2);
   const unsigned int out_w = output_dims.at(3);
   float *alpha_os1_ptr = alpha_os1.GetTensorMutableData<float>();
 
   cv::Mat pred_alpha_mat(out_h, out_w, CV_32FC1, alpha_os1_ptr);
-  content.pha_mat = pred_alpha_mat(cv::Rect(32, 32, w, h)).clone();
+  content.pha_mat = pred_alpha_mat(cv::Rect(pad_val, pad_val, w, h)).clone();
   content.fgr_mat = mat.mul(content.pha_mat);
-  cv::Mat bgmat(h, w, CV_32FC3, cv::Scalar(153.f, 255.f, 120.f));
+  cv::Mat bgmat(h, w, CV_32FC3, cv::Scalar(153.f, 255.f, 120.f)); // background mat
   cv::Mat rest = 1. - content.pha_mat;
   content.merge_mat = content.fgr_mat + bgmat.mul(rest);
 
@@ -204,9 +208,28 @@ void MGMatting::generate_matting(std::vector<Ort::Value> &output_tensors,
 
 void MGMatting::update_dynamic_shape(unsigned int img_height, unsigned int img_width)
 {
+  unsigned int h = img_height;
+  unsigned int w = img_width;
   // update dynamic input dims
-  dynamic_input_height = img_height;
-  dynamic_input_width = img_width;
+  if (h % pad_val == 0 && w % pad_val == 0)
+  {
+    // aligned
+    dynamic_input_height = h + 2 * pad_val;
+    dynamic_input_width = w + 2 * pad_val;
+
+  } // un-aligned
+  else
+  {
+    // align first
+    unsigned int align_h = pad_val * ((h - 1) / pad_val + 1);
+    unsigned int align_w = pad_val * ((w - 1) / pad_val + 1);
+    unsigned int pad_h = align_h - h; // >= 0
+    unsigned int pad_w = align_w - w; // >= 0
+    dynamic_input_height = h + pad_val + (pad_h + pad_val);
+    dynamic_input_width = w + pad_val + (pad_w + pad_val);
+  }
+
+  // update dims info
   dynamic_input_image_dims.at(2) = dynamic_input_height;
   dynamic_input_image_dims.at(3) = dynamic_input_width;
   dynamic_input_mask_dims.at(2) = dynamic_input_height;

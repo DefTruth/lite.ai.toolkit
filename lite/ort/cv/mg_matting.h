@@ -43,6 +43,7 @@ namespace ortcv
     const unsigned int num_threads; // initialize at runtime.
     const float mean_vals[3] = {0.485f, 0.456f, 0.406f};
     const float scale_vals[3] = {1.f / 0.229f, 1.f / 0.224f, 1.f / 0.225f}; // RGB
+    static constexpr const unsigned int pad_val = 32;
 
   public:
     explicit MGMatting(const std::string &_onnx_path, unsigned int _num_threads = 1);
