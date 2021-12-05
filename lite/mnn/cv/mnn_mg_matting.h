@@ -38,7 +38,7 @@ namespace mnncv
     unsigned int dynamic_input_image_size = 1 * 3 * 512 * 512; // init only, will change according to input mat.
     unsigned int dynamic_input_mask_size = 1 * 1 * 512 * 512; // init only, will change according to input mat.
     int dimension_type; // hint only
-    static constexpr const unsigned int pad_val = 32;
+    static constexpr const unsigned int align_val = 32;
 
 
     // un-copyable

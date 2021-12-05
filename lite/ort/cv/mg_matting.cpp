@@ -62,8 +62,8 @@ void MGMatting::print_debug_string()
 
 std::vector<Ort::Value> MGMatting::transform(const cv::Mat &mat, const cv::Mat &mask)
 {
-  auto padded_mat = this->padding(mat); // 0-255 int8 h+2*pad_val w+2*pad_val
-  auto padded_mask = this->padding(mask); // 0-1.0 float32 h+2*pad_val w+2*pad_val
+  auto padded_mat = this->padding(mat); // 0-255 int8 h+2*align_val w+2*align_val
+  auto padded_mask = this->padding(mask); // 0-1.0 float32 h+2*align_val w+2*align_val
 
   cv::Mat canvas;
   cv::cvtColor(padded_mat, canvas, cv::COLOR_BGR2RGB);
@@ -92,30 +92,30 @@ cv::Mat MGMatting::padding(const cv::Mat &unpad_mat)
   const unsigned int w = unpad_mat.cols;
 
   // aligned
-  if (h % pad_val == 0 && w % pad_val == 0)
+  if (h % align_val == 0 && w % align_val == 0)
   {
-    unsigned int target_h = h + 2 * pad_val;
-    unsigned int target_w = w + 2 * pad_val;
+    unsigned int target_h = h + 2 * align_val;
+    unsigned int target_w = w + 2 * align_val;
     cv::Mat pad_mat(target_h, target_w, unpad_mat.type());
 
-    cv::copyMakeBorder(unpad_mat, pad_mat, pad_val, pad_val,
-                       pad_val, pad_val, cv::BORDER_REFLECT);
+    cv::copyMakeBorder(unpad_mat, pad_mat, align_val, align_val,
+                       align_val, align_val, cv::BORDER_REFLECT);
     return pad_mat;
   } // un-aligned
   else
   {
     // align & padding
-    unsigned int align_h = pad_val * ((h - 1) / pad_val + 1);
-    unsigned int align_w = pad_val * ((w - 1) / pad_val + 1);
+    unsigned int align_h = align_val * ((h - 1) / align_val + 1);
+    unsigned int align_w = align_val * ((w - 1) / align_val + 1);
     unsigned int pad_h = align_h - h; // >= 0
     unsigned int pad_w = align_w - w; // >= 0
-    unsigned int target_h = h + pad_val + (pad_h + pad_val);
-    unsigned int target_w = w + pad_val + (pad_w + pad_val);
+    unsigned int target_h = h + align_val + (pad_h + align_val);
+    unsigned int target_w = w + align_val + (pad_w + align_val);
 
     cv::Mat pad_mat(target_h, target_w, unpad_mat.type());
 
-    cv::copyMakeBorder(unpad_mat, pad_mat, pad_val, pad_h + pad_val,
-                       pad_val, pad_w + pad_val, cv::BORDER_REFLECT);
+    cv::copyMakeBorder(unpad_mat, pad_mat, align_val, pad_h + align_val,
+                       align_val, pad_w + align_val, cv::BORDER_REFLECT);
     return pad_mat;
   }
 }
@@ -194,7 +194,7 @@ void MGMatting::generate_matting(std::vector<Ort::Value> &output_tensors,
   float *alpha_os1_ptr = alpha_os1.GetTensorMutableData<float>();
 
   cv::Mat pred_alpha_mat(out_h, out_w, CV_32FC1, alpha_os1_ptr);
-  content.pha_mat = pred_alpha_mat(cv::Rect(pad_val, pad_val, w, h)).clone();
+  content.pha_mat = pred_alpha_mat(cv::Rect(align_val, align_val, w, h)).clone();
   content.fgr_mat = mat.mul(content.pha_mat);
   cv::Mat bgmat(h, w, CV_32FC3, cv::Scalar(153.f, 255.f, 120.f)); // background mat
   cv::Mat rest = 1. - content.pha_mat;
@@ -211,22 +211,22 @@ void MGMatting::update_dynamic_shape(unsigned int img_height, unsigned int img_w
   unsigned int h = img_height;
   unsigned int w = img_width;
   // update dynamic input dims
-  if (h % pad_val == 0 && w % pad_val == 0)
+  if (h % align_val == 0 && w % align_val == 0)
   {
     // aligned
-    dynamic_input_height = h + 2 * pad_val;
-    dynamic_input_width = w + 2 * pad_val;
+    dynamic_input_height = h + 2 * align_val;
+    dynamic_input_width = w + 2 * align_val;
 
   } // un-aligned
   else
   {
     // align first
-    unsigned int align_h = pad_val * ((h - 1) / pad_val + 1);
-    unsigned int align_w = pad_val * ((w - 1) / pad_val + 1);
+    unsigned int align_h = align_val * ((h - 1) / align_val + 1);
+    unsigned int align_w = align_val * ((w - 1) / align_val + 1);
     unsigned int pad_h = align_h - h; // >= 0
     unsigned int pad_w = align_w - w; // >= 0
-    dynamic_input_height = h + pad_val + (pad_h + pad_val);
-    dynamic_input_width = w + pad_val + (pad_w + pad_val);
+    dynamic_input_height = h + align_val + (pad_h + align_val);
+    dynamic_input_width = w + align_val + (pad_w + align_val);
   }
 
   // update dims info
