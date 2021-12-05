@@ -1,0 +1,8 @@
+//
+// Created by DefTruth on 2021/12/5.
+//
+
+#ifndef LITE_AI_TOOLKIT_ORT_CV_MG_MATTING_H
+#define LITE_AI_TOOLKIT_ORT_CV_MG_MATTING_H
+
+#endif //LITE_AI_TOOLKIT_ORT_CV_MG_MATTING_H
