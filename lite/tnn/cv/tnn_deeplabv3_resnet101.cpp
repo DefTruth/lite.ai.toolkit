@@ -3,7 +3,6 @@
 //
 
 #include "tnn_deeplabv3_resnet101.h"
-#include "lite/utils.h"
 
 using tnncv::TNNDeepLabV3ResNet101;
 

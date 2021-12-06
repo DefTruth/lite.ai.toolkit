@@ -40,7 +40,6 @@ namespace mnncv
     int dimension_type; // hint only
     static constexpr const unsigned int align_val = 32;
 
-
     // un-copyable
   protected:
     MNNMGMatting(const MNNMGMatting &) = delete; //
