@@ -79,8 +79,7 @@ namespace ortcv
      * @param guidance_threshold: int, guidance threshold..
      * @param content: types::MattingContent to catch the detected results.
      */
-    void detect(const cv::Mat &mat, cv::Mat &mask,
-                types::MattingContent &content,
+    void detect(const cv::Mat &mat, cv::Mat &mask, types::MattingContent &content,
                 unsigned int guidance_threshold = 128);
   };
 }

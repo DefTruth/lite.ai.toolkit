@@ -87,8 +87,8 @@ void TNNMGMatting::initialize_instance()
     return;
 #endif
   }
-  input_mat_type = BasicTNNHandler::get_input_mat_type(instance, "input");
-  input_data_format = BasicTNNHandler::get_input_data_format(instance, "input");
+  input_mat_type = BasicTNNHandler::get_input_mat_type(instance, "image");
+  input_data_format = BasicTNNHandler::get_input_data_format(instance, "image");
   if (input_data_format == tnn::DATA_FORMAT_NCHW)
   {
     dynamic_input_height = image_shape.at(2);
@@ -134,30 +134,33 @@ void TNNMGMatting::print_debug_string()
 
 void TNNMGMatting::transform(const cv::Mat &mat, const cv::Mat &mask)
 {
-  auto padded_mat = this->padding(mat); // 0-255 int8
-  auto padded_mask = this->padding(mask); // 0-1.0 float32
-  // update input mat and reshape instance
-  // reference: https://github.com/Tencent/TNN/blob/master/examples/base/ocr_text_recognizer.cc#L120
-  tnn::InputShapesMap input_shape_map;
-  input_shape_map.insert({"image", image_shape});
-  input_shape_map.insert({"mask", mask_shape});
+//  auto padded_mat = this->padding(mat); // 0-255 int8
+//  auto padded_mask = this->padding(mask); // 0-1.0 float32
+//  // update input mat and reshape instance
+//  // reference: https://github.com/Tencent/TNN/blob/master/examples/base/ocr_text_recognizer.cc#L120
+//  tnn::InputShapesMap input_shape_map;
+//  input_shape_map.insert({"image", image_shape});
+//  input_shape_map.insert({"mask", mask_shape});
+//
+//  auto status = instance->Reshape(input_shape_map);
+//  if (status != tnn::TNN_OK)
+//  {
+//#ifdef LITETNN_DEBUG
+//    std::cout << "instance Reshape failed in TNNMGMatting\n";
+//#endif
+//  }
 
-  auto status = instance->Reshape(input_shape_map);
-  if (status != tnn::TNN_OK)
-  {
-#ifdef LITETNN_DEBUG
-    std::cout << "instance Reshape failed in TNNMGMatting\n";
-#endif
-  }
-
-  cv::cvtColor(padded_mat, padded_mat, cv::COLOR_BGR2RGB);
+  cv::Mat image_canvas, mask_canvas;
+  cv::cvtColor(mat, image_canvas, cv::COLOR_BGR2RGB);
+  cv::resize(image_canvas, image_canvas, cv::Size(dynamic_input_width, dynamic_input_height));
+  cv::resize(mask, mask_canvas, cv::Size(dynamic_input_width, dynamic_input_height));
 
   // push into image_mat
   image_mat = std::make_shared<tnn::Mat>(
       input_device_type,
       tnn::N8UC3,
       image_shape,
-      (void *) padded_mat.data
+      (void *) image_canvas.data
   );
   if (!image_mat->GetData())
   {
@@ -171,7 +174,7 @@ void TNNMGMatting::transform(const cv::Mat &mat, const cv::Mat &mask)
       input_device_type,
       tnn::NCHW_FLOAT,
       mask_shape,
-      (void *) padded_mask.data
+      (void *) mask_canvas.data
   );
   if (!mask_mat->GetData())
   {
@@ -256,7 +259,7 @@ void TNNMGMatting::detect(const cv::Mat &mat, cv::Mat &mask, types::MattingConte
   if (mat.empty() || mask.empty()) return;
   const unsigned int img_height = mat.rows;
   const unsigned int img_width = mat.cols;
-  this->update_dynamic_shape(img_height, img_width);
+  // this->update_dynamic_shape(img_height, img_width);
   this->update_guidance_mask(mask, guidance_threshold); // -> float32 hw1 0~1.0
 
   // 1. make input tensors, image, mask
@@ -330,15 +333,39 @@ void TNNMGMatting::generate_matting(
   auto output_dims = alpha_os1_mat->GetDims();
   const unsigned int out_h = output_dims.at(2);
   const unsigned int out_w = output_dims.at(3);
-  float *alpha_os1_ptr = (float *)alpha_os1_mat->GetData();
+  float *alpha_os1_ptr = (float *) alpha_os1_mat->GetData();
 
-  cv::Mat pred_alpha_mat(out_h, out_w, CV_32FC1, alpha_os1_ptr);
-  content.pha_mat = pred_alpha_mat(cv::Rect(align_val, align_val, w, h)).clone();
-  content.fgr_mat = mat.mul(content.pha_mat);
-  cv::Mat bgmat(h, w, CV_32FC3, cv::Scalar(153.f, 255.f, 120.f)); // background mat
-  cv::Mat rest = 1. - content.pha_mat;
-  content.merge_mat = content.fgr_mat + bgmat.mul(rest);
+  cv::Mat mat_copy;
+  mat.convertTo(mat_copy, CV_32FC3);
+//  cv::Mat pred_alpha_mat(out_h, out_w, CV_32FC1, alpha_os1_ptr);
+//  cv::Mat pmat = pred_alpha_mat(cv::Rect(align_val, align_val, w, h)).clone();
+  cv::Mat pmat(out_h, out_w, CV_32FC1, alpha_os1_ptr);
 
+  if (out_h != h || out_w != w) cv::resize(pmat, pmat, cv::Size(w, h));
+
+  std::vector<cv::Mat> mat_channels;
+  cv::split(mat_copy, mat_channels);
+  cv::Mat bmat = mat_channels.at(0);
+  cv::Mat gmat = mat_channels.at(1);
+  cv::Mat rmat = mat_channels.at(2); // ref only, zero-copy.
+  bmat = bmat.mul(pmat);
+  gmat = gmat.mul(pmat);
+  rmat = rmat.mul(pmat);
+  cv::Mat rest = 1.f - pmat;
+  cv::Mat mbmat = bmat.mul(pmat) + rest * 153.f;
+  cv::Mat mgmat = gmat.mul(pmat) + rest * 255.f;
+  cv::Mat mrmat = rmat.mul(pmat) + rest * 120.f;
+  std::vector<cv::Mat> fgr_channel_mats, merge_channel_mats;
+  fgr_channel_mats.push_back(bmat);
+  fgr_channel_mats.push_back(gmat);
+  fgr_channel_mats.push_back(rmat);
+  merge_channel_mats.push_back(mbmat);
+  merge_channel_mats.push_back(mgmat);
+  merge_channel_mats.push_back(mrmat);
+
+  content.pha_mat = pmat;
+  cv::merge(fgr_channel_mats, content.fgr_mat);
+  cv::merge(merge_channel_mats, content.merge_mat);
   content.fgr_mat.convertTo(content.fgr_mat, CV_8UC3);
   content.merge_mat.convertTo(content.merge_mat, CV_8UC3);
 

@@ -319,4 +319,5 @@ You can download all the pretrained models files of ONNX format from ([Baidu Dri
 | *lite::cv::matting::RobustVideoMatting* |   rvm_mobilenetv3_fp16.onnx   | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 7.2Mb |
 | *lite::cv::matting::RobustVideoMatting* |   rvm_resnet50_fp32.onnx   | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 50Mb |
 | *lite::cv::matting::RobustVideoMatting* |   rvm_resnet50_fp16.onnx   | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 100Mb |
-
+| *lite::cv::matting::MGMatting* |   MGMatting-DIM-100k.onnx   | [MGMatting](https://github.com/yucornetto/MGMatting) | 113Mb |
+| *lite::cv::matting::MGMatting* |   MGMatting-RWP-100k.onnx   | [MGMatting](https://github.com/yucornetto/MGMatting) | 113Mb |

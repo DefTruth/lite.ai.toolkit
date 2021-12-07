@@ -1,6 +1,6 @@
 
 
-## <p align="center"> Lite.AI.ToolKit 🚀🚀🌟: 一个开箱即用的C++ AI模型工具箱</p>
+## <p align="center"> 🍅🍅Lite.AI.ToolKit: 一个开箱即用的C++ AI模型工具箱</p>
 
 <div id="lite.ai.toolkit-Introduction"></div>  
 
@@ -55,9 +55,9 @@
 </div>   
 ---->
 
-*Lite.AI.ToolKit* 🚀🚀🌟: 一个轻量级的`C++` AI模型工具箱，用户友好（还行吧），开箱即用。已经包括 *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* 流行的开源模型，如最新的RVM, YOLOX, YOLOP, YOLOR, YoloV5, DeepLabV3, ArcFace等模型，还会继续增加😎。这是一个根据个人兴趣整理的C++工具箱，emmm😞 ... 其实还不是很完善，编个lib来用还是可以的。`关于规划，其实没什么很明确的规划，看到一些有意思的算法可能会把它捏进来，随缘吧。` 个人的兴趣目前主要集中在`检测、分割、抠图、识别和目标跟踪`等领域。 *Lite.AI.ToolKit* 默认是基于 *[ONNXRuntime C++](https://github.com/microsoft/onnxruntime)* 推理引擎的，后期会陆续加入对 *[NCNN](https://github.com/Tencent/ncnn)*, *[MNN](https://github.com/alibaba/MNN)* 和 *[TNN](https://github.com/Tencent/TNN)* 的支持，已经支持部分模型的MNN、NCNN和TNN推理。目前主要考虑易用性。需要更高性能支持的小伙伴可以基于本项目提供的`C++`实现和`ONNX`文件进行优化~ 有问题欢迎提`issue`，会尽量回答 ~👏👋 
+🍅🍅*Lite.AI.ToolKit*: 一个轻量级的`C++` AI模型工具箱，用户友好（还行吧），开箱即用。已经包括 *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* 流行的开源模型，如最新的RVM, YOLOX, YOLOP, YOLOR, YoloV5, DeepLabV3, ArcFace等模型，还会继续增加😎。这是一个根据个人兴趣整理的C++工具箱，emmm😞 ... 其实还不是很完善，编个lib来用还是可以的。`关于规划，其实没什么很明确的规划，看到一些有意思的算法可能会把它捏进来，随缘吧。` 个人的兴趣目前主要集中在`检测、分割、抠图、识别和目标跟踪`等领域。 *Lite.AI.ToolKit* 默认是基于 *[ONNXRuntime C++](https://github.com/microsoft/onnxruntime)* 推理引擎的，后期会陆续加入对 *[NCNN](https://github.com/Tencent/ncnn)*, *[MNN](https://github.com/alibaba/MNN)* 和 *[TNN](https://github.com/Tencent/TNN)* 的支持，已经支持部分模型的MNN、NCNN和TNN推理。目前主要考虑易用性。需要更高性能支持的小伙伴可以基于本项目提供的`C++`实现和`ONNX`文件进行优化~ 有问题欢迎提`issue`，会尽量回答 ~👏👋 
 
-<p align="center">核心特征 🚀🚀🌟</p>
+<p align="center">核心特征 🍅🍅</p>
 
 * ❤️ *用户友好，开箱即用。* 使用简单一致的调用语法，如*lite::cv::Type::Class*，详见[examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
 * ⚡ *少量依赖，构建容易。* 目前, 默认只依赖 *OpenCV* 和 *ONNXRuntime*，详见[build](#lite.ai.toolkit-Build-Lite.AI.ToolKit)。
@@ -77,6 +77,7 @@
 ---->
 
 ## 重要更新 !!!  
+* ✅ (20211208) 增加 TNN/MNN/ONNXRuntime C++ [MGMatting](https://github.com/yucornetto/MGMatting) for Human Matting(CVPR2021) . See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mg_matting.cpp). 
 * 🔥 (20211111) 增加 NCNN/TNN/MNN/ONNXRuntime C++ [YoloV5_V_6_0](https://github.com/RangiLyu/nanodet) 支持 [YOLOv5 v6.0](https://github.com/ultralytics/yolov5/releases/tag/v6.0) . 详见 [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolov5_v6.0.cpp). 
 * 🔥 (20211026) 增加 NCNN/TNN/MNN/ONNXRuntime C++ [YoloX_V_0_1_1](https://github.com/RangiLyu/nanodet) 支持 [YOLOX v0.1.1](https://github.com/Megvii-BaseDetection/YOLOX/releases/tag/0.1.1rc0) . 详见 [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolox_v0.1.1.cpp).
 * 🔥 (20211002) 增加[NanoDet](https://github.com/RangiLyu/nanodet) 目标检测. ⚡ 超高性能! 只有1.1Mb! 详见[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp).  
@@ -141,7 +142,7 @@
 * [引用参考](#lite.ai.toolkit-References)
 
 
-## 1. 编译Lite.AI.ToolKit 🚀🚀🌟
+## 1. 编译Lite.AI.ToolKit 🍅🍅
 <div id="lite.ai.toolkit-Build-MacOS"></div>
 <div id="lite.ai.toolkit-Build-Lite.AI.ToolKit"></div>
 
@@ -540,10 +541,13 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
 |Class|Size|From|Awesome|File|Type|State|Usage|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |[RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)|14M| [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)  |   🔥🔥🔥↑   | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-matting) | *matting* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_rvm.cpp) |
+|[MGMatting](https://github.com/yucornetto/MGMatting)|113M| [MGMatting](https://github.com/yucornetto/MGMatting)  |   🔥🔥↑   | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-matting) | *matting* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mg_matting.cpp) |
 
 |Class|Size|From|Awesome|File|Type|State|Usage|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |[RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)|14M| [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)  |   🔥🔥🔥↑   | [![](https://img.shields.io/badge/MNN-done-blue.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md#lite.ai.toolkit.hub.mnn-matting) | *matting* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_rvm.cpp) |
+|[MGMatting](https://github.com/yucornetto/MGMatting)|113M| [MGMatting](https://github.com/yucornetto/MGMatting)  |   🔥🔥↑   | [![](https://img.shields.io/badge/MNN-done-blue.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md#lite.ai.toolkit.hub.mnn-matting) | *matting* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mg_matting.cpp) |
+
 
 <!-----
 |Class|Size|From|Awesome|File|Type|State|Usage|
@@ -554,6 +558,7 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
 Class|Size|From|Awesome|File|Type|State|Usage|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |[RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)|14M| [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)  |   🔥🔥🔥↑   | [![](https://img.shields.io/badge/TNN-done-pink.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md#lite.ai.toolkit.hub.tnn-matting) | *matting* | ✅️ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_rvm.cpp) |
+|[MGMatting](https://github.com/yucornetto/MGMatting)|113M| [MGMatting](https://github.com/yucornetto/MGMatting)  |   🔥🔥↑   | [![](https://img.shields.io/badge/TNN-done-pink.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md#lite.ai.toolkit.hub.tnn-matting) | *matting* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mg_matting.cpp) |
 
 <!-----
 <details>
@@ -1779,7 +1784,7 @@ void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
 
 ## 9. 告知
 
-如果有你感兴趣的模型希望被Lite.AI.ToolKit🚀🚀🌟支持，你可以fork这个repo并修改[TODOLIST.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/TODOLIST.md) ，然后提交PR~ 我会review这个PR，并在未来尝试支持这个模型，但不确保能完成。另外，未来会增加一些模型的[MNN](https://github.com/alibaba/MNN) 、[NCNN](https://github.com/Tencent/ncnn) 和 [TNN](https://github.com/Tencent/TNN) 支持，但由于算子兼容等原因，也无法确保所有被[ONNXRuntime C++](https://github.com/microsoft/onnxruntime) 支持的模型能够在[MNN](https://github.com/alibaba/MNN) 、[NCNN](https://github.com/Tencent/ncnn) 和 [TNN](https://github.com/Tencent/TNN) 下跑通。所以，如果您想使用本项目支持的所有模型，并且不在意*1~2ms*的性能差距的话，请使用ONNXRuntime版本的实现。[ONNXRuntime](https://github.com/microsoft/onnxruntime) 是本仓库默认的推理引擎。但是如果你确实希望编译支持[MNN](https://github.com/alibaba/MNN) 、[NCNN](https://github.com/Tencent/ncnn) 和 [TNN](https://github.com/Tencent/TNN) 支持的Lite.AI.ToolKit🚀🚀🌟动态库，你可以按照以下的步骤进行设置（⚠️目前不稳定，只支持少数模型，不推荐开启MNN、NCNN或TNN选项！🤦‍️） 
+如果有你感兴趣的模型希望被Lite.AI.ToolKit🍅🍅支持，你可以fork这个repo并修改[TODOLIST.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/TODOLIST.md) ，然后提交PR~ 我会review这个PR，并在未来尝试支持这个模型，但不确保能完成。另外，未来会增加一些模型的[MNN](https://github.com/alibaba/MNN) 、[NCNN](https://github.com/Tencent/ncnn) 和 [TNN](https://github.com/Tencent/TNN) 支持，但由于算子兼容等原因，也无法确保所有被[ONNXRuntime C++](https://github.com/microsoft/onnxruntime) 支持的模型能够在[MNN](https://github.com/alibaba/MNN) 、[NCNN](https://github.com/Tencent/ncnn) 和 [TNN](https://github.com/Tencent/TNN) 下跑通。所以，如果您想使用本项目支持的所有模型，并且不在意*1~2ms*的性能差距的话，请使用ONNXRuntime版本的实现。[ONNXRuntime](https://github.com/microsoft/onnxruntime) 是本仓库默认的推理引擎。但是如果你确实希望编译支持[MNN](https://github.com/alibaba/MNN) 、[NCNN](https://github.com/Tencent/ncnn) 和 [TNN](https://github.com/Tencent/TNN) 支持的Lite.AI.ToolKit🚀🚀🌟动态库，你可以按照以下的步骤进行设置（⚠️目前不稳定，只支持少数模型，不推荐开启MNN、NCNN或TNN选项！🤦‍️） 
 
 * 在`build.sh`中添加`DENABLE_MNN=ON` 、`DENABLE_NCNN=ON` 或 `DENABLE_TNN=ON`，比如
 ```shell
@@ -1798,9 +1803,8 @@ auto *nanodet = new lite::tnn::cv::detection::NanoDet(proto_path, model_path);
 auto *nanodet = new lite::ncnn::cv::detection::NanoDet(param_path, bin_path);
 ```
 
-## 10. 关联项目  
-* [NanoDet.lite.ai.toolkit 🚀🚀🌟](https://github.com/DefTruth/nanodet.lite.ai.toolkit)
-* [RobustVideoMatting.lite.ai.toolkit 🚀🚀🌟](https://github.com/DefTruth/RobustVideoMatting.lite.ai.toolkit)
-* [YOLOX.lite.ai.toolkit 🚀🚀🌟](https://github.com/DefTruth/yolox.lite.ai.toolkit)
-* [YOLOP.lite.ai.toolkit 🚀🚀🌟](https://github.com/DefTruth/yolop.lite.ai.toolkit)
-
+## 10. 关联项目   
+* [NanoDet-ncnn-mnn-tnn-onnxruntime 🍅🍅](https://github.com/DefTruth/NanoDet-ncnn-mnn-tnn-onnxruntime)
+* [RobustVideoMatting-ncnn-mnn-tnn-onnxruntime 🍅🍅](https://github.com/DefTruth/RobustVideoMatting-ncnn-mnn-tnn-onnxruntime)
+* [YOLOX-ncnn-mnn-tnn-onnxruntime 🍅🍅](https://github.com/DefTruth/YOLOX-ncnn-mnn-tnn-onnxruntime)
+* [YOLOP-ncnn-mnn-tnn-onnxruntime 🍅🍅](https://github.com/DefTruth/YOLOP-ncnn-mnn-tnn-onnxruntime)

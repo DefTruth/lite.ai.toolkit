@@ -67,6 +67,8 @@ You can download all the pretrained models files of TNN format from ([Baidu Driv
 | *lite::tnn::cv::matting::RobustVideoMatting* |   rvm_resnet50_fp32-480-640-sim.opt.tnnproto&tnnmodel   | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 50Mb |
 | *lite::tnn::cv::matting::RobustVideoMatting* |   rvm_resnet50_fp32-640-480-sim.opt.tnnproto&tnnmodel   | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 50Mb |
 | *lite::tnn::cv::matting::RobustVideoMatting* |   rvm_resnet50_fp32-1080-1920-sim.opt.tnnproto&tnnmodel   | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 50Mb |
+| *lite::tnn::cv::matting::MGMatting* |   MGMatting-DIM-100k.opt.tnnproto&tnnmodel   | [MGMatting](https://github.com/yucornetto/MGMatting) | 113Mb |
+| *lite::tnn::cv::matting::MGMatting* |   MGMatting-RWP-100k.opt.tnnproto&tnnmodel   | [MGMatting](https://github.com/yucornetto/MGMatting) | 113Mb |
 
 ## Face Recognition.
 

@@ -193,12 +193,34 @@ void MGMatting::generate_matting(std::vector<Ort::Value> &output_tensors,
   const unsigned int out_w = output_dims.at(3);
   float *alpha_os1_ptr = alpha_os1.GetTensorMutableData<float>();
 
+  cv::Mat mat_copy;
+  mat.convertTo(mat_copy, CV_32FC3);
   cv::Mat pred_alpha_mat(out_h, out_w, CV_32FC1, alpha_os1_ptr);
-  content.pha_mat = pred_alpha_mat(cv::Rect(align_val, align_val, w, h)).clone();
-  content.fgr_mat = mat.mul(content.pha_mat);
-  cv::Mat bgmat(h, w, CV_32FC3, cv::Scalar(153.f, 255.f, 120.f)); // background mat
-  cv::Mat rest = 1. - content.pha_mat;
-  content.merge_mat = content.fgr_mat + bgmat.mul(rest);
+  cv::Mat pmat = pred_alpha_mat(cv::Rect(align_val, align_val, w, h)).clone();
+
+  std::vector<cv::Mat> mat_channels;
+  cv::split(mat_copy, mat_channels);
+  cv::Mat bmat = mat_channels.at(0);
+  cv::Mat gmat = mat_channels.at(1);
+  cv::Mat rmat = mat_channels.at(2); // ref only, zero-copy.
+  bmat = bmat.mul(pmat);
+  gmat = gmat.mul(pmat);
+  rmat = rmat.mul(pmat);
+  cv::Mat rest = 1.f - pmat;
+  cv::Mat mbmat = bmat.mul(pmat) + rest * 153.f;
+  cv::Mat mgmat = gmat.mul(pmat) + rest * 255.f;
+  cv::Mat mrmat = rmat.mul(pmat) + rest * 120.f;
+  std::vector<cv::Mat> fgr_channel_mats, merge_channel_mats;
+  fgr_channel_mats.push_back(bmat);
+  fgr_channel_mats.push_back(gmat);
+  fgr_channel_mats.push_back(rmat);
+  merge_channel_mats.push_back(mbmat);
+  merge_channel_mats.push_back(mgmat);
+  merge_channel_mats.push_back(mrmat);
+
+  content.pha_mat = pmat;
+  cv::merge(fgr_channel_mats, content.fgr_mat);
+  cv::merge(merge_channel_mats, content.merge_mat);
 
   content.fgr_mat.convertTo(content.fgr_mat, CV_8UC3);
   content.merge_mat.convertTo(content.merge_mat, CV_8UC3);
