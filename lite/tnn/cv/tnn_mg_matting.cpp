@@ -150,15 +150,14 @@ void TNNMGMatting::transform(const cv::Mat &mat, const cv::Mat &mask)
 #endif
   }
 
-  cv::Mat canvas;
-  cv::cvtColor(mat, canvas, cv::COLOR_BGR2RGB);
+  cv::cvtColor(padded_mat, padded_mat, cv::COLOR_BGR2RGB);
 
   // push into image_mat
   image_mat = std::make_shared<tnn::Mat>(
       input_device_type,
       tnn::N8UC3,
       image_shape,
-      (void *) canvas.data
+      (void *) padded_mat.data
   );
   if (!image_mat->GetData())
   {
@@ -172,7 +171,7 @@ void TNNMGMatting::transform(const cv::Mat &mat, const cv::Mat &mask)
       input_device_type,
       tnn::NCHW_FLOAT,
       mask_shape,
-      (void *) canvas.data
+      (void *) padded_mask.data
   );
   if (!mask_mat->GetData())
   {
@@ -219,10 +218,10 @@ cv::Mat TNNMGMatting::padding(const cv::Mat &unpad_mat)
 void TNNMGMatting::update_guidance_mask(cv::Mat &mask, unsigned int guidance_threshold)
 {
   if (mask.type() != CV_32FC1) mask.convertTo(mask, CV_32FC1);
+  const unsigned int h = mask.rows;
+  const unsigned int w = mask.cols;
   if (mask.isContinuous())
   {
-    const unsigned int h = mask.rows;
-    const unsigned int w = mask.cols;
     const unsigned int data_size = h * w * 1;
     float *mutable_data_ptr = (float *) mask.data;
     float guidance_threshold_ = (float) guidance_threshold;
@@ -237,10 +236,10 @@ void TNNMGMatting::update_guidance_mask(cv::Mat &mask, unsigned int guidance_thr
   else
   {
     float guidance_threshold_ = (float) guidance_threshold;
-    for (unsigned int i = 0; i < mask.rows; ++i)
+    for (unsigned int i = 0; i < h; ++i)
     {
       float *p = mask.ptr<float>(i);
-      for (unsigned int j = 0; j < mask.cols; ++j)
+      for (unsigned int j = 0; j < w; ++j)
       {
         if (p[j] >= guidance_threshold_)
           p[j] = 1.0;

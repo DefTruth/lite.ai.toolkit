@@ -124,10 +124,10 @@ cv::Mat MGMatting::padding(const cv::Mat &unpad_mat)
 void MGMatting::update_guidance_mask(cv::Mat &mask, unsigned int guidance_threshold)
 {
   if (mask.type() != CV_32FC1) mask.convertTo(mask, CV_32FC1);
+  const unsigned int h = mask.rows;
+  const unsigned int w = mask.cols;
   if (mask.isContinuous())
   {
-    const unsigned int h = mask.rows;
-    const unsigned int w = mask.cols;
     const unsigned int data_size = h * w * 1;
     float *mutable_data_ptr = (float *) mask.data;
     float guidance_threshold_ = (float) guidance_threshold;
@@ -142,10 +142,10 @@ void MGMatting::update_guidance_mask(cv::Mat &mask, unsigned int guidance_thresh
   else
   {
     float guidance_threshold_ = (float) guidance_threshold;
-    for (unsigned int i = 0; i < mask.rows; ++i)
+    for (unsigned int i = 0; i < h; ++i)
     {
       float *p = mask.ptr<float>(i);
-      for (unsigned int j = 0; j < mask.cols; ++j)
+      for (unsigned int j = 0; j < w; ++j)
       {
         if (p[j] >= guidance_threshold_)
           p[j] = 1.0;

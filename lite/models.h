@@ -82,6 +82,7 @@
 #include "lite/ort/cv/nanodet_efficientnet_lite.h"
 #include "lite/ort/cv/yolox_v0.1.1.h"
 #include "lite/ort/cv/yolov5_v6.0.h"
+#include "lite/ort/cv/mg_matting.h"
 
 #endif
 
@@ -145,6 +146,7 @@
 #include "lite/mnn/cv/mnn_colorizer.h"
 #include "lite/mnn/cv/mnn_fast_style_transfer.h"
 #include "lite/mnn/cv/mnn_subpixel_cnn.h"
+#include "lite/mnn/cv/mnn_mg_matting.h"
 
 #endif
 
@@ -272,6 +274,7 @@
 #include "lite/tnn/cv/tnn_colorizer.h"
 #include "lite/tnn/cv/tnn_fast_style_transfer.h"
 #include "lite/tnn/cv/tnn_subpixel_cnn.h"
+#include "lite/tnn/cv/tnn_mg_matting.h"
 
 #endif
 
@@ -351,6 +354,7 @@ namespace lite
     typedef ortcv::NanoDetEfficientNetLite _NanoDetEfficientNetLite;
     typedef ortcv::YoloX_V_0_1_1 _YoloX_V_0_1_1;
     typedef ortcv::YoloV5_V_6_0 _YoloV5_V_6_0;
+    typedef ortcv::MGMatting _MGMatting;
 #endif
 
     // 1. classification
@@ -542,6 +546,7 @@ namespace lite
     {
 #ifdef BACKEND_ONNXRUNTIME
       typedef _RobustVideoMatting RobustVideoMatting;
+      typedef _MGMatting MGMatting;
 #endif
     }
   }
@@ -690,6 +695,7 @@ namespace lite
       typedef ortcv::NanoDetEfficientNetLite _ONNXNanoDetEfficientNetLite;
       typedef ortcv::YoloX_V_0_1_1 _ONNXYoloX_V_0_1_1;
       typedef ortcv::YoloV5_V_6_0 _ONNXYoloV5_V_6_0;
+      typedef ortcv::MGMatting _ONNXMGMatting;
 
 
       // 1. classification
@@ -853,6 +859,7 @@ namespace lite
       namespace matting
       {
         typedef _ONNXRobustVideoMatting RobustVideoMatting;
+        typedef _ONNXMGMatting MGMatting;
       }
 
     }
@@ -964,6 +971,7 @@ namespace lite
       namespace matting
       {
         typedef mnncv::MNNRobustVideoMatting RobustVideoMatting;
+        typedef mnncv::MNNMGMatting MGMatting;
       }
 
       // style transfer
@@ -1220,6 +1228,7 @@ namespace lite
       namespace matting
       {
         typedef tnncv::TNNRobustVideoMatting RobustVideoMatting;
+        typedef tnncv::TNNMGMatting MGMatting;
       }
       // style transfer
       namespace style
