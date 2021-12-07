@@ -1,6 +1,6 @@
 
 
-##  <p align="center"> Lite.AI.ToolKit 🚀🚀🌟: A lite C++ toolkit of awesome AI models. </p>  
+##  <p align="center"> 🍅🍅Lite.AI.ToolKit: A lite C++ toolkit of awesome AI models. </p>  
 
 <div id="lite.ai.toolkit-Introduction"></div>  
 
@@ -55,7 +55,7 @@
 </div>   
 ----->
 
-*Lite.AI.ToolKit* 🚀🚀🌟: A lite `C++` toolkit of awesome AI models which contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* models now. It's a collection of personal interests. Such as RVM, YOLOX, YOLOP, YOLOR, YoloV5, DeepLabV3, ArcFace, etc. emmm😞 ... it's not perfect yet. For now, let's regard it as a large collection of application cases for inference engines. *Lite.AI.ToolKit* based on *[ONNXRuntime C++](https://github.com/microsoft/onnxruntime)* by default. I do have plans to reimplement it with *[NCNN](https://github.com/Tencent/ncnn)*, *[MNN](https://github.com/alibaba/MNN)* and *[TNN](https://github.com/Tencent/TNN)*, some models are already supported. Currently, I mainly consider its ease of use. Developers who need higher performance can make new optimizations based on the `C++` implementation and `ONNX` files provided by this repo~ 👏👋  
+🍅🍅*Lite.AI.ToolKit*: A lite `C++` toolkit of awesome AI models which contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* models now. It's a collection of personal interests. Such as RVM, YOLOX, YOLOP, YOLOR, YoloV5, DeepLabV3, ArcFace, etc. emmm😞 ... it's not perfect yet. For now, let's regard it as a large collection of application cases for inference engines. *Lite.AI.ToolKit* based on *[ONNXRuntime C++](https://github.com/microsoft/onnxruntime)* by default. I do have plans to reimplement it with *[NCNN](https://github.com/Tencent/ncnn)*, *[MNN](https://github.com/alibaba/MNN)* and *[TNN](https://github.com/Tencent/TNN)*, some models are already supported. Currently, I mainly consider its ease of use. Developers who need higher performance can make new optimizations based on the `C++` implementation and `ONNX` files provided by this repo~ 👏👋  
 
 <p align="center">Core Features 🚀🚀🌟</p>
 
@@ -78,6 +78,7 @@
 ---->
 
 ## Important Notes !!!  
+* ✅ (20211208) Added TNN/MNN/ONNXRuntime C++ [MGMatting](https://github.com/yucornetto/MGMatting) for Human Matting(CVPR2021) . See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mg_matting.cpp).
 * 🔥 (20211111) Added NCNN/TNN/MNN/ONNXRuntime C++ [YoloV5_V_6_0](https://github.com/RangiLyu/nanodet) for [YOLOv5 v6.0](https://github.com/ultralytics/yolov5/releases/tag/v6.0) . See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolov5_v6.0.cpp).
 * 🔥 (20211026) Added NCNN/TNN/MNN/ONNXRuntime C++ [YoloX_V_0_1_1](https://github.com/RangiLyu/nanodet) for [YOLOX v0.1.1](https://github.com/Megvii-BaseDetection/YOLOX/releases/tag/0.1.1rc0) . See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolox_v0.1.1.cpp).
 * 🔥 (20211002) Added [NanoDet](https://github.com/RangiLyu/nanodet) for object detection. ⚡ Super fast and tiny! 1.1Mb only! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp).  
@@ -140,7 +141,7 @@
 * [References](#lite.ai.toolkit-References)
 
 
-## 1. Build Lite.AI.ToolKit 🚀🚀🌟
+## 1. Build Lite.AI.ToolKit 🍅🍅
 <div id="lite.ai.toolkit-Build-MacOS"></div>
 <div id="lite.ai.toolkit-Build-Lite.AI.ToolKit"></div>
 
@@ -538,10 +539,12 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
 |Class|Size|From|Awesome|File|Type|State|Usage|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |[RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)|14M| [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)  |   🔥🔥🔥↑   | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-matting) | *matting* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_rvm.cpp) |
+|[MGMatting](https://github.com/yucornetto/MGMatting)|113M| [MGMatting](https://github.com/yucornetto/MGMatting)  |   🔥🔥↑   | [![](https://img.shields.io/badge/onnx-done-brightgreen.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md#lite.ai.toolkit.hub.onnx-matting) | *matting* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mg_matting.cpp) |
 
 |Class|Size|From|Awesome|File|Type|State|Usage|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |[RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)|14M| [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)  |   🔥🔥🔥↑   | [![](https://img.shields.io/badge/MNN-done-blue.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md#lite.ai.toolkit.hub.mnn-matting) | *matting* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_rvm.cpp) |
+|[MGMatting](https://github.com/yucornetto/MGMatting)|113M| [MGMatting](https://github.com/yucornetto/MGMatting)  |   🔥🔥↑   | [![](https://img.shields.io/badge/MNN-done-blue.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md#lite.ai.toolkit.hub.mnn-matting) | *matting* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mg_matting.cpp) |
 
 <!-----
 |Class|Size|From|Awesome|File|Type|State|Usage|
@@ -552,6 +555,7 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
 Class|Size|From|Awesome|File|Type|State|Usage|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |[RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)|14M| [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)  |   🔥🔥🔥↑   | [![](https://img.shields.io/badge/TNN-done-pink.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md#lite.ai.toolkit.hub.tnn-matting) | *matting* | ✅️ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_rvm.cpp) |
+|[MGMatting](https://github.com/yucornetto/MGMatting)|113M| [MGMatting](https://github.com/yucornetto/MGMatting)  |   🔥🔥↑   | [![](https://img.shields.io/badge/TNN-done-pink.svg)](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md#lite.ai.toolkit.hub.tnn-matting) | *matting* | ✅ | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mg_matting.cpp) |
 
 <!-----
 <details>
@@ -1787,7 +1791,7 @@ Cite it as follows if you use *Lite.AI.ToolKit*.
 
 ## 9. Notification.
 
-If there is a model you are interested in and want to be supported by Lite.AI.ToolKit🚀🚀🌟, you can fork this repo and modify [TODOLIST.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/TODOLIST.md), then submit a PR~ I will review this PR and try to support this model in the future, but I don’t make sure this can be done. In addition, [MNN](https://github.com/alibaba/MNN), [NCNN](https://github.com/Tencent/ncnn) and [TNN](https://github.com/Tencent/TNN) support for some models will be added in the future, but due to operator compatibility and some other reasons, it is impossible to ensure that all models supported by [ONNXRuntime C++](https://github.com/microsoft/onnxruntime) can run through [MNN](https://github.com/alibaba/MNN), [NCNN](https://github.com/Tencent/ncnn) and [TNN](https://github.com/Tencent/TNN). So, if you want to use all the models supported by this repo and don't care about the performance gap of *1~2ms*, please use the implementation of ONNXRuntime version. [ONNXRuntime](https://github.com/microsoft/onnxruntime) is the default inference engine for this repo. However, you can follow the steps below if you want to build Lite.AI.ToolKit🚀🚀🌟 with [MNN](https://github.com/alibaba/MNN), [NCNN](https://github.com/Tencent/ncnn) or [TNN](https://github.com/Tencent/TNN) support (⚠️ NOT STABLE NOW! NOT RECOMMENDED!!!🤦)  
+If there is a model you are interested in and want to be supported by Lite.AI.ToolKit🍅🍅, you can fork this repo and modify [TODOLIST.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/TODOLIST.md), then submit a PR~ I will review this PR and try to support this model in the future, but I don’t make sure this can be done. In addition, [MNN](https://github.com/alibaba/MNN), [NCNN](https://github.com/Tencent/ncnn) and [TNN](https://github.com/Tencent/TNN) support for some models will be added in the future, but due to operator compatibility and some other reasons, it is impossible to ensure that all models supported by [ONNXRuntime C++](https://github.com/microsoft/onnxruntime) can run through [MNN](https://github.com/alibaba/MNN), [NCNN](https://github.com/Tencent/ncnn) and [TNN](https://github.com/Tencent/TNN). So, if you want to use all the models supported by this repo and don't care about the performance gap of *1~2ms*, please use the implementation of ONNXRuntime version. [ONNXRuntime](https://github.com/microsoft/onnxruntime) is the default inference engine for this repo. However, you can follow the steps below if you want to build Lite.AI.ToolKi🍅🍅with [MNN](https://github.com/alibaba/MNN), [NCNN](https://github.com/Tencent/ncnn) or [TNN](https://github.com/Tencent/TNN) support (⚠️ NOT STABLE NOW! NOT RECOMMENDED!!!🤦)  
 
 * change the `build.sh` with `DENABLE_MNN=ON`,`DENABLE_NCNN=ON` or `DENABLE_TNN=ON`, such as  
 ```shell
@@ -1807,7 +1811,7 @@ auto *nanodet = new lite::ncnn::cv::detection::NanoDet(param_path, bin_path);
 ```
 
 ## 10. Related projects.
-* [NanoDet.lite.ai.toolkit 🚀🚀🌟](https://github.com/DefTruth/nanodet.lite.ai.toolkit)
-* [RobustVideoMatting.lite.ai.toolkit 🚀🚀🌟](https://github.com/DefTruth/RobustVideoMatting.lite.ai.toolkit)
-* [YOLOX.lite.ai.toolkit 🚀🚀🌟](https://github.com/DefTruth/yolox.lite.ai.toolkit)  
-* [YOLOP.lite.ai.toolkit 🚀🚀🌟](https://github.com/DefTruth/yolop.lite.ai.toolkit)
+* [NanoDet-ncnn-mnn-tnn-onnxruntime 🍅🍅](https://github.com/DefTruth/NanoDet-ncnn-mnn-tnn-onnxruntime)
+* [RobustVideoMatting-ncnn-mnn-tnn-onnxruntime 🍅🍅](https://github.com/DefTruth/RobustVideoMatting-ncnn-mnn-tnn-onnxruntime)
+* [YOLOX-ncnn-mnn-tnn-onnxruntime 🍅🍅](https://github.com/DefTruth/YOLOX-ncnn-mnn-tnn-onnxruntime)  
+* [YOLOP-ncnn-mnn-tnn-onnxruntime 🍅🍅](https://github.com/DefTruth/YOLOP-ncnn-mnn-tnn-onnxruntime)

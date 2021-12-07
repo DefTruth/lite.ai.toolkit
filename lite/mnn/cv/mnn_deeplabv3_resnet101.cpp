@@ -3,7 +3,6 @@
 //
 
 #include "mnn_deeplabv3_resnet101.h"
-#include "lite/utils.h"
 
 using mnncv::MNNDeepLabV3ResNet101;
 

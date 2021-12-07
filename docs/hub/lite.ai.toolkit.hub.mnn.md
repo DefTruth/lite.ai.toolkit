@@ -71,6 +71,8 @@ You can download all the pretrained models files of MNN format from ([Baidu Driv
 | *lite::mnn::cv::matting::RobustVideoMatting* |   rvm_resnet50_fp32-480-640.mnn   | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 50Mb |
 | *lite::mnn::cv::matting::RobustVideoMatting* |   rvm_resnet50_fp32-640-480.mnn   | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 50Mb |
 | *lite::mnn::cv::matting::RobustVideoMatting* |   rvm_resnet50_fp32-1080-1920.mnn   | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 50Mb |
+| *lite::mnn::cv::matting::MGMatting* |   MGMatting-DIM-100k.mnn   | [MGMatting](https://github.com/yucornetto/MGMatting) | 113Mb |
+| *lite::mnn::cv::matting::MGMatting* |   MGMatting-RWP-100k.mnn   | [MGMatting](https://github.com/yucornetto/MGMatting) | 113Mb |
 
 ## Face Recognition.
 
