@@ -139,9 +139,9 @@ static void test_tnn()
 
 static void test_lite()
 {
-  // test_default();
-  // test_onnxruntime();
-  // test_mnn();
+  test_default();
+  test_onnxruntime();
+  test_mnn();
   // test_ncnn();
   test_tnn();
 }
