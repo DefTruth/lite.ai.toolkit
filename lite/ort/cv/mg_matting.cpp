@@ -228,6 +228,24 @@ void MGMatting::generate_matting(std::vector<Ort::Value> &output_tensors,
   content.flag = true;
 }
 
+cv::Mat MGMatting::get_unknown_tensor_from_pred(const cv::Mat &alpha_pred, unsigned int rand_width)
+{
+  // https://github.com/yucornetto/MGMatting/blob/main/code-base/utils/util.py#L225
+  return alpha_pred;
+}
+
+cv::Mat MGMatting::post_process(const cv::Mat &alpha_pred)
+{
+  // 1. set alpha < 0.05 as 0
+  // 2. 求最大连通区域 或 去除面积较小的连通区域
+  //   2.1 用opencv findContours 求出所有的contours，并且用 contourArea 求每个contour的面积
+  //   2.2 contour面积小于某个指定阈值(占图像的比例或像素值，如5x5) 则将对应 ROI(Rect)区域设置为0
+  // reference:
+  // [1] https://blog.csdn.net/xuyangcao123/article/details/81023732
+  // [2] https://www.jb51.net/article/188059.htm
+  return alpha_pred;
+}
+
 void MGMatting::update_dynamic_shape(unsigned int img_height, unsigned int img_width)
 {
   unsigned int h = img_height;

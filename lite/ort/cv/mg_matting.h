@@ -68,6 +68,10 @@ namespace ortcv
 
     void update_dynamic_shape(unsigned int img_height, unsigned int img_width);
 
+    cv::Mat get_unknown_tensor_from_pred(const cv::Mat &alpha_pred, unsigned int rand_width = 30);
+
+    cv::Mat post_process(const cv::Mat &alpha_pred);
+
     void generate_matting(std::vector<Ort::Value> &output_tensors,
                           const cv::Mat &mat, types::MattingContent &content);
 
