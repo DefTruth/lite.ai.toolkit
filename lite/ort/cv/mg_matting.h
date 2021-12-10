@@ -68,6 +68,8 @@ namespace ortcv
 
     void update_dynamic_shape(unsigned int img_height, unsigned int img_width);
 
+    void update_alpha_pred(cv::Mat &alpha_pred, const cv::Mat &weight, const cv::Mat &other_alpha_pred);
+
     cv::Mat get_unknown_tensor_from_pred(const cv::Mat &alpha_pred, unsigned int rand_width = 30);
 
     cv::Mat post_process(const cv::Mat &alpha_pred);

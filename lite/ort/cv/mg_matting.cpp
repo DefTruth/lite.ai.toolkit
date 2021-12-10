@@ -192,11 +192,23 @@ void MGMatting::generate_matting(std::vector<Ort::Value> &output_tensors,
   const unsigned int out_h = output_dims.at(2);
   const unsigned int out_w = output_dims.at(3);
   float *alpha_os1_ptr = alpha_os1.GetTensorMutableData<float>();
+  float *alpha_os4_ptr = alpha_os4.GetTensorMutableData<float>();
+  float *alpha_os8_ptr = alpha_os8.GetTensorMutableData<float>();
+
+  cv::Mat alpha_os1_pred(out_h, out_w, CV_32FC1, alpha_os1_ptr);
+  cv::Mat alpha_os4_pred(out_h, out_w, CV_32FC1, alpha_os4_ptr);
+  cv::Mat alpha_os8_pred(out_h, out_w, CV_32FC1, alpha_os8_ptr);
+
+  cv::Mat alpha_pred(out_h, out_w, CV_32FC1, alpha_os8_ptr);
+  cv::Mat weight_os4 = this->get_unknown_tensor_from_pred(alpha_pred, 30);
+  this->update_alpha_pred(alpha_pred, weight_os4, alpha_os4_pred);
+  cv::Mat weight_os1 = this->get_unknown_tensor_from_pred(alpha_pred, 15);
+  this->update_alpha_pred(alpha_pred, weight_os1, alpha_os1_pred);
 
   cv::Mat mat_copy;
   mat.convertTo(mat_copy, CV_32FC3);
-  cv::Mat pred_alpha_mat(out_h, out_w, CV_32FC1, alpha_os1_ptr);
-  cv::Mat pmat = pred_alpha_mat(cv::Rect(align_val, align_val, w, h)).clone();
+  // cv::Mat pred_alpha_mat(out_h, out_w, CV_32FC1, alpha_os1_ptr);
+  cv::Mat pmat = alpha_pred(cv::Rect(align_val, align_val, w, h)).clone();
 
   std::vector<cv::Mat> mat_channels;
   cv::split(mat_copy, mat_channels);
@@ -231,7 +243,85 @@ void MGMatting::generate_matting(std::vector<Ort::Value> &output_tensors,
 cv::Mat MGMatting::get_unknown_tensor_from_pred(const cv::Mat &alpha_pred, unsigned int rand_width)
 {
   // https://github.com/yucornetto/MGMatting/blob/main/code-base/utils/util.py#L225
-  return alpha_pred;
+  // https://github.com/yucornetto/MGMatting/issues/11
+  const unsigned int h = alpha_pred.rows;
+  const unsigned int w = alpha_pred.cols;
+  const unsigned int data_size = h * w;
+  cv::Mat uncertain_area(h, w, CV_32FC1, cv::Scalar(1.0f)); // continuous
+  const float *pred_ptr = (float *) alpha_pred.data;
+  float *uncertain_ptr = (float *) uncertain_area.data;
+  // threshold
+  if (alpha_pred.isContinuous() && uncertain_area.isContinuous())
+  {
+    for (unsigned int i = 0; i < data_size; ++i)
+      if ((pred_ptr[i] < 1.0f / 255.0f) || (pred_ptr[i] > 1.0f - 1.0f / 255.0f))
+        uncertain_ptr[i] = 0.f;
+  } //
+  else
+  {
+    for (unsigned int i = 0; i < h; ++i)
+    {
+      const float *pred_row_ptr = alpha_pred.ptr<float>(i);
+      float *uncertain_row_ptr = uncertain_area.ptr<float>(i);
+      for (unsigned int j = 0; j < w; ++j)
+      {
+        if ((pred_row_ptr[j] < 1.0f / 255.0f) || (pred_row_ptr[j] > 1.0f - 1.0f / 255.0f))
+          uncertain_row_ptr[j] = 0.f;
+      }
+    }
+  }
+  // dilate
+  unsigned int size = rand_width / 2;
+  auto kernel = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(size, size));
+  cv::dilate(uncertain_area, uncertain_area, kernel);
+
+  // weight
+  cv::Mat weight(h, w, CV_32FC1, uncertain_area.data); // ref only, zero copy.
+  float *weight_ptr = (float *) weight.data;
+  if (weight.isContinuous())
+  {
+    for (unsigned int i = 0; i < data_size; ++i)
+      if (weight_ptr[i] != 1.0f) weight_ptr[i] = 0;
+  } //
+  else
+  {
+    for (unsigned int i = 0; i < h; ++i)
+    {
+      float *weight_row_ptr = weight.ptr<float>(i);
+      for (unsigned int j = 0; j < w; ++j)
+        if (weight_row_ptr[j] != 1.0f) weight_row_ptr[j] = 0.f;
+
+    }
+  }
+
+  return weight;
+}
+
+void MGMatting::update_alpha_pred(cv::Mat &alpha_pred, const cv::Mat &weight, const cv::Mat &other_alpha_pred)
+{
+  const unsigned int h = alpha_pred.rows;
+  const unsigned int w = alpha_pred.cols;
+  const unsigned int data_size = h * w;
+  const float *weight_ptr = (float *) weight.data;
+  float *mutable_alpha_ptr = (float *) alpha_pred.data;
+  const float *other_alpha_ptr = (float *) other_alpha_pred.data;
+
+  if (alpha_pred.isContinuous() && weight.isContinuous() && other_alpha_pred.isContinuous())
+  {
+    for (unsigned int i = 0; i < data_size; ++i)
+      if (weight_ptr[i] > 0.f) mutable_alpha_ptr[i] = other_alpha_ptr[i];
+  } //
+  else
+  {
+    for (unsigned int i = 0; i < h; ++i)
+    {
+      const float *weight_row_ptr = weight.ptr<float>(i);
+      float *mutable_alpha_row_ptr = alpha_pred.ptr<float>(i);
+      const float *other_alpha_row_ptr = other_alpha_pred.ptr<float>(i);
+      for (unsigned int j = 0; j < w; ++j)
+        if (weight_row_ptr[j] > 0.f) mutable_alpha_row_ptr[j] = other_alpha_row_ptr[j];
+    }
+  }
 }
 
 cv::Mat MGMatting::post_process(const cv::Mat &alpha_pred)

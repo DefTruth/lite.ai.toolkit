@@ -139,6 +139,11 @@ void TNNMGMatting::transform(const cv::Mat &mat, const cv::Mat &mask)
 //  // update input mat and reshape instance
 //  // reference: https://github.com/Tencent/TNN/blob/master/examples/base/ocr_text_recognizer.cc#L120
 //  tnn::InputShapesMap input_shape_map;
+//  BasicTNNHandler::print_name_shape("image", image_shape);
+//  BasicTNNHandler::print_name_shape("mask", mask_shape);
+//  std::cout << padded_mask.rows << "," << padded_mask.cols << std::endl;
+//  std::cout << padded_mat.rows << "," << padded_mat.cols << std::endl;
+//
 //  input_shape_map.insert({"image", image_shape});
 //  input_shape_map.insert({"mask", mask_shape});
 //
@@ -149,6 +154,13 @@ void TNNMGMatting::transform(const cv::Mat &mat, const cv::Mat &mask)
 //    std::cout << "instance Reshape failed in TNNMGMatting\n";
 //#endif
 //  }
+//  std::cout << "Reshape done!" << std::endl;
+//  auto new_image_shape = BasicTNNHandler::get_input_shape(instance, "image");
+//  auto new_mask_shape = BasicTNNHandler::get_input_shape(instance, "mask");
+//  BasicTNNHandler::print_name_shape("image", new_image_shape);
+//  BasicTNNHandler::print_name_shape("mask", new_mask_shape);
+//
+//  cv::cvtColor(padded_mat, padded_mat, cv::COLOR_BGR2RGB);
 
   cv::Mat image_canvas, mask_canvas;
   cv::cvtColor(mat, image_canvas, cv::COLOR_BGR2RGB);
@@ -257,9 +269,9 @@ void TNNMGMatting::detect(const cv::Mat &mat, cv::Mat &mask, types::MattingConte
                           unsigned int guidance_threshold)
 {
   if (mat.empty() || mask.empty()) return;
-  const unsigned int img_height = mat.rows;
-  const unsigned int img_width = mat.cols;
-  // this->update_dynamic_shape(img_height, img_width);
+//  const unsigned int img_height = mat.rows;
+//  const unsigned int img_width = mat.cols;
+// this->update_dynamic_shape(img_height, img_width);
   this->update_guidance_mask(mask, guidance_threshold); // -> float32 hw1 0~1.0
 
   // 1. make input tensors, image, mask
