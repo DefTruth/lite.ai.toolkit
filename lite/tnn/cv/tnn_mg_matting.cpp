@@ -139,6 +139,11 @@ void TNNMGMatting::transform(const cv::Mat &mat, const cv::Mat &mask)
 //  // update input mat and reshape instance
 //  // reference: https://github.com/Tencent/TNN/blob/master/examples/base/ocr_text_recognizer.cc#L120
 //  tnn::InputShapesMap input_shape_map;
+//  BasicTNNHandler::print_name_shape("image", image_shape);
+//  BasicTNNHandler::print_name_shape("mask", mask_shape);
+//  std::cout << padded_mask.rows << "," << padded_mask.cols << std::endl;
+//  std::cout << padded_mat.rows << "," << padded_mat.cols << std::endl;
+//
 //  input_shape_map.insert({"image", image_shape});
 //  input_shape_map.insert({"mask", mask_shape});
 //
@@ -149,6 +154,13 @@ void TNNMGMatting::transform(const cv::Mat &mat, const cv::Mat &mask)
 //    std::cout << "instance Reshape failed in TNNMGMatting\n";
 //#endif
 //  }
+//  std::cout << "Reshape done!" << std::endl;
+//  auto new_image_shape = BasicTNNHandler::get_input_shape(instance, "image");
+//  auto new_mask_shape = BasicTNNHandler::get_input_shape(instance, "mask");
+//  BasicTNNHandler::print_name_shape("image", new_image_shape);
+//  BasicTNNHandler::print_name_shape("mask", new_mask_shape);
+//
+//  cv::cvtColor(padded_mat, padded_mat, cv::COLOR_BGR2RGB);
 
   cv::Mat image_canvas, mask_canvas;
   cv::cvtColor(mat, image_canvas, cv::COLOR_BGR2RGB);
@@ -254,11 +266,11 @@ void TNNMGMatting::update_guidance_mask(cv::Mat &mask, unsigned int guidance_thr
 }
 
 void TNNMGMatting::detect(const cv::Mat &mat, cv::Mat &mask, types::MattingContent &content,
-                          unsigned int guidance_threshold)
+                          bool remove_noise, unsigned int guidance_threshold)
 {
   if (mat.empty() || mask.empty()) return;
-  const unsigned int img_height = mat.rows;
-  const unsigned int img_width = mat.cols;
+  // const unsigned int img_height = mat.rows;
+  // const unsigned int img_width = mat.cols;
   // this->update_dynamic_shape(img_height, img_width);
   this->update_guidance_mask(mask, guidance_threshold); // -> float32 hw1 0~1.0
 
@@ -297,12 +309,13 @@ void TNNMGMatting::detect(const cv::Mat &mat, cv::Mat &mask, types::MattingConte
     return;
   }
   // 4. generate matting
-  this->generate_matting(instance, mat, content);
+  this->generate_matting(instance, mat, content, remove_noise);
 }
 
 void TNNMGMatting::generate_matting(
     std::shared_ptr<tnn::Instance> &_instance,
-    const cv::Mat &mat, types::MattingContent &content)
+    const cv::Mat &mat, types::MattingContent &content,
+    bool remove_noise)
 {
   std::shared_ptr<tnn::Mat> alpha_os1_mat;
   std::shared_ptr<tnn::Mat> alpha_os4_mat;
@@ -310,7 +323,6 @@ void TNNMGMatting::generate_matting(
   tnn::MatConvertParam cvt_param;
   tnn::Status status_os1, status_os4, status_os8;
 
-  // TODO: add post-process as official python implementation.
   // https://github.com/yucornetto/MGMatting/blob/main/code-base/infer.py
   // e.g (1,1,h+2*pad_val,w+2*pad_val)
   status_os1 = _instance->GetOutputMat(alpha_os1_mat, cvt_param, "alpha_os1", output_device_type);
@@ -334,12 +346,24 @@ void TNNMGMatting::generate_matting(
   const unsigned int out_h = output_dims.at(2);
   const unsigned int out_w = output_dims.at(3);
   float *alpha_os1_ptr = (float *) alpha_os1_mat->GetData();
+  float *alpha_os4_ptr = (float *) alpha_os4_mat->GetData();
+  float *alpha_os8_ptr = (float *) alpha_os8_mat->GetData();
+
+  cv::Mat alpha_os1_pred(out_h, out_w, CV_32FC1, alpha_os1_ptr);
+  cv::Mat alpha_os4_pred(out_h, out_w, CV_32FC1, alpha_os4_ptr);
+  cv::Mat alpha_os8_pred(out_h, out_w, CV_32FC1, alpha_os8_ptr);
+
+  cv::Mat alpha_pred(out_h, out_w, CV_32FC1, alpha_os8_ptr);
+  cv::Mat weight_os4 = this->get_unknown_tensor_from_pred(alpha_pred, 30);
+  this->update_alpha_pred(alpha_pred, weight_os4, alpha_os4_pred);
+  cv::Mat weight_os1 = this->get_unknown_tensor_from_pred(alpha_pred, 15);
+  this->update_alpha_pred(alpha_pred, weight_os1, alpha_os1_pred);
+  // post process
+  if (remove_noise) this->remove_small_connected_area(alpha_pred);
 
   cv::Mat mat_copy;
   mat.convertTo(mat_copy, CV_32FC3);
-//  cv::Mat pred_alpha_mat(out_h, out_w, CV_32FC1, alpha_os1_ptr);
-//  cv::Mat pmat = pred_alpha_mat(cv::Rect(align_val, align_val, w, h)).clone();
-  cv::Mat pmat(out_h, out_w, CV_32FC1, alpha_os1_ptr);
+  cv::Mat pmat = alpha_pred;
 
   if (out_h != h || out_w != w) cv::resize(pmat, pmat, cv::Size(w, h));
 
@@ -370,6 +394,133 @@ void TNNMGMatting::generate_matting(
   content.merge_mat.convertTo(content.merge_mat, CV_8UC3);
 
   content.flag = true;
+}
+
+// https://github.com/yucornetto/MGMatting/issues/11
+// https://github.com/yucornetto/MGMatting/blob/main/code-base/utils/util.py#L225
+cv::Mat TNNMGMatting::get_unknown_tensor_from_pred(const cv::Mat &alpha_pred, unsigned int rand_width)
+{
+  const unsigned int h = alpha_pred.rows;
+  const unsigned int w = alpha_pred.cols;
+  const unsigned int data_size = h * w;
+  cv::Mat uncertain_area(h, w, CV_32FC1, cv::Scalar(1.0f)); // continuous
+  const float *pred_ptr = (float *) alpha_pred.data;
+  float *uncertain_ptr = (float *) uncertain_area.data;
+  // threshold
+  if (alpha_pred.isContinuous() && uncertain_area.isContinuous())
+  {
+    for (unsigned int i = 0; i < data_size; ++i)
+      if ((pred_ptr[i] < 1.0f / 255.0f) || (pred_ptr[i] > 1.0f - 1.0f / 255.0f))
+        uncertain_ptr[i] = 0.f;
+  } //
+  else
+  {
+    for (unsigned int i = 0; i < h; ++i)
+    {
+      const float *pred_row_ptr = alpha_pred.ptr<float>(i);
+      float *uncertain_row_ptr = uncertain_area.ptr<float>(i);
+      for (unsigned int j = 0; j < w; ++j)
+      {
+        if ((pred_row_ptr[j] < 1.0f / 255.0f) || (pred_row_ptr[j] > 1.0f - 1.0f / 255.0f))
+          uncertain_row_ptr[j] = 0.f;
+      }
+    }
+  }
+  // dilate
+  unsigned int size = rand_width / 2;
+  auto kernel = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(size, size));
+  cv::dilate(uncertain_area, uncertain_area, kernel);
+
+  // weight
+  cv::Mat weight(h, w, CV_32FC1, uncertain_area.data); // ref only, zero copy.
+  float *weight_ptr = (float *) weight.data;
+  if (weight.isContinuous())
+  {
+    for (unsigned int i = 0; i < data_size; ++i)
+      if (weight_ptr[i] != 1.0f) weight_ptr[i] = 0;
+  } //
+  else
+  {
+    for (unsigned int i = 0; i < h; ++i)
+    {
+      float *weight_row_ptr = weight.ptr<float>(i);
+      for (unsigned int j = 0; j < w; ++j)
+        if (weight_row_ptr[j] != 1.0f) weight_row_ptr[j] = 0.f;
+
+    }
+  }
+
+  return weight;
+}
+
+void TNNMGMatting::update_alpha_pred(cv::Mat &alpha_pred, const cv::Mat &weight, const cv::Mat &other_alpha_pred)
+{
+  const unsigned int h = alpha_pred.rows;
+  const unsigned int w = alpha_pred.cols;
+  const unsigned int data_size = h * w;
+  const float *weight_ptr = (float *) weight.data;
+  float *mutable_alpha_ptr = (float *) alpha_pred.data;
+  const float *other_alpha_ptr = (float *) other_alpha_pred.data;
+
+  if (alpha_pred.isContinuous() && weight.isContinuous() && other_alpha_pred.isContinuous())
+  {
+    for (unsigned int i = 0; i < data_size; ++i)
+      if (weight_ptr[i] > 0.f) mutable_alpha_ptr[i] = other_alpha_ptr[i];
+  } //
+  else
+  {
+    for (unsigned int i = 0; i < h; ++i)
+    {
+      const float *weight_row_ptr = weight.ptr<float>(i);
+      float *mutable_alpha_row_ptr = alpha_pred.ptr<float>(i);
+      const float *other_alpha_row_ptr = other_alpha_pred.ptr<float>(i);
+      for (unsigned int j = 0; j < w; ++j)
+        if (weight_row_ptr[j] > 0.f) mutable_alpha_row_ptr[j] = other_alpha_row_ptr[j];
+    }
+  }
+}
+
+// https://github.com/yucornetto/MGMatting/blob/main/code-base/utils/util.py#L208
+void TNNMGMatting::remove_small_connected_area(cv::Mat &alpha_pred)
+{
+  cv::Mat gray, binary;
+  alpha_pred.convertTo(gray, CV_8UC1, 255.f);
+  // 255 * 0.05 ~ 13
+  // https://github.com/yucornetto/MGMatting/blob/main/code-base/utils/util.py#L209
+  cv::threshold(gray, binary, 13, 255, cv::THRESH_BINARY);
+  // morphologyEx with OPEN operation to remove noise first.
+  auto kernel = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(3, 3), cv::Point(-1, -1));
+  cv::morphologyEx(binary, binary, cv::MORPH_OPEN, kernel);
+  // Computationally connected domain
+  cv::Mat labels = cv::Mat::zeros(alpha_pred.size(), CV_32S);
+  cv::Mat stats, centroids;
+  int num_labels = cv::connectedComponentsWithStats(binary, labels, stats, centroids, 8, 4);
+  if (num_labels <= 1) return; // no noise, skip.
+  // find max connected area, 0 is background
+  int max_connected_id = 1; // 1,2,...
+  int max_connected_area = stats.at<int>(max_connected_id, cv::CC_STAT_AREA);
+  for (int i = 1; i < num_labels; ++i)
+  {
+    int tmp_connected_area = stats.at<int>(i, cv::CC_STAT_AREA);
+    if (tmp_connected_area > max_connected_area)
+    {
+      max_connected_area = tmp_connected_area;
+      max_connected_id = i;
+    }
+  }
+  const int h = alpha_pred.rows;
+  const int w = alpha_pred.cols;
+  // remove small connected area.
+  for (int i = 0; i < h; ++i)
+  {
+    int *label_row_ptr = labels.ptr<int>(i);
+    float *alpha_row_ptr = alpha_pred.ptr<float>(i);
+    for (int j = 0; j < w; ++j)
+    {
+      if (label_row_ptr[j] != max_connected_id)
+        alpha_row_ptr[j] = 0.f;
+    }
+  }
 }
 
 void TNNMGMatting::update_dynamic_shape(unsigned int img_height, unsigned int img_width)

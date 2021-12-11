@@ -63,8 +63,15 @@ namespace mnncv
 
     void update_dynamic_shape(unsigned int img_height, unsigned int img_width);
 
+    void update_alpha_pred(cv::Mat &alpha_pred, const cv::Mat &weight, const cv::Mat &other_alpha_pred);
+
+    cv::Mat get_unknown_tensor_from_pred(const cv::Mat &alpha_pred, unsigned int rand_width = 30);
+
+    void remove_small_connected_area(cv::Mat &alpha_pred);
+
     void generate_matting(const std::map<std::string, MNN::Tensor *> &output_tensors,
-                          const cv::Mat &mat, types::MattingContent &content);
+                          const cv::Mat &mat, types::MattingContent &content,
+                          bool remove_noise = false);
 
   public:
     /**
@@ -74,9 +81,8 @@ namespace mnncv
      * @param guidance_threshold: int, guidance threshold..
      * @param content: types::MattingContent to catch the detected results.
      */
-    void detect(const cv::Mat &mat, cv::Mat &mask,
-                types::MattingContent &content,
-                unsigned int guidance_threshold = 128);
+    void detect(const cv::Mat &mat, cv::Mat &mask, types::MattingContent &content,
+                bool remove_noise = false, unsigned int guidance_threshold = 128);
 
   };
 }

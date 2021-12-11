@@ -57,7 +57,7 @@
 
 🍅🍅*Lite.AI.ToolKit*: A lite `C++` toolkit of awesome AI models which contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* models now. It's a collection of personal interests. Such as RVM, YOLOX, YOLOP, YOLOR, YoloV5, DeepLabV3, ArcFace, etc. emmm😞 ... it's not perfect yet. For now, let's regard it as a large collection of application cases for inference engines. *Lite.AI.ToolKit* based on *[ONNXRuntime C++](https://github.com/microsoft/onnxruntime)* by default. I do have plans to reimplement it with *[NCNN](https://github.com/Tencent/ncnn)*, *[MNN](https://github.com/alibaba/MNN)* and *[TNN](https://github.com/Tencent/TNN)*, some models are already supported. Currently, I mainly consider its ease of use. Developers who need higher performance can make new optimizations based on the `C++` implementation and `ONNX` files provided by this repo~ 👏👋  
 
-<p align="center">Core Features 🚀🚀🌟</p>
+<p align="center">Core Features 🍅🍅</p>
 
 * ❤️ *Simply and User friendly.* Simply and Consistent syntax like *lite::cv::Type::Class*, see [examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
 * ⚡ *Minimum Dependencies.* Only *OpenCV* and *ONNXRuntime* are required by default, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit).
@@ -79,6 +79,14 @@
 
 ## Important Notes !!!  
 * ✅ (20211208) Added TNN/MNN/ONNXRuntime C++ [MGMatting](https://github.com/yucornetto/MGMatting) for Human Matting(CVPR2021) . See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mg_matting.cpp).
+
+<div align='center'>
+  <img src='examples/lite/resources/test_lite_mg_matting_input.jpg' height="160px" width="160px">
+  <img src='logs/test_lite_mg_matting_pha.jpg' height="160px" width="160px">
+  <img src='logs/test_lite_mg_matting_fgr.jpg' height="160px" width="160px">
+  <img src='logs/test_lite_mg_matting_merge.jpg' height="160px" width="160px">
+</div>
+
 * 🔥 (20211111) Added NCNN/TNN/MNN/ONNXRuntime C++ [YoloV5_V_6_0](https://github.com/RangiLyu/nanodet) for [YOLOv5 v6.0](https://github.com/ultralytics/yolov5/releases/tag/v6.0) . See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolov5_v6.0.cpp).
 * 🔥 (20211026) Added NCNN/TNN/MNN/ONNXRuntime C++ [YoloX_V_0_1_1](https://github.com/RangiLyu/nanodet) for [YOLOX v0.1.1](https://github.com/Megvii-BaseDetection/YOLOX/releases/tag/0.1.1rc0) . See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolox_v0.1.1.cpp).
 * 🔥 (20211002) Added [NanoDet](https://github.com/RangiLyu/nanodet) for object detection. ⚡ Super fast and tiny! 1.1Mb only! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp).  
