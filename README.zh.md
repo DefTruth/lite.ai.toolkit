@@ -77,7 +77,15 @@
 ---->
 
 ## 重要更新 !!!  
-* ✅ (20211208) 增加 TNN/MNN/ONNXRuntime C++ [MGMatting](https://github.com/yucornetto/MGMatting) for Human Matting(CVPR2021) . See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mg_matting.cpp). 
+* ✅ (20211208) 增加 TNN/MNN/ONNXRuntime C++ [MGMatting](https://github.com/yucornetto/MGMatting) for Human Matting(CVPR2021) . See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mg_matting.cpp).   
+
+<div align='center'>
+  <img src='examples/lite/resources/test_lite_mg_matting_input.jpg' height="160px" width="160px">
+  <img src='logs/test_lite_mg_matting_pha.jpg' height="160px" width="160px">
+  <img src='logs/test_lite_mg_matting_fgr.jpg' height="160px" width="160px">
+  <img src='logs/test_lite_mg_matting_merge.jpg' height="160px" width="160px">
+</div>
+ 
 * 🔥 (20211111) 增加 NCNN/TNN/MNN/ONNXRuntime C++ [YoloV5_V_6_0](https://github.com/RangiLyu/nanodet) 支持 [YOLOv5 v6.0](https://github.com/ultralytics/yolov5/releases/tag/v6.0) . 详见 [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolov5_v6.0.cpp). 
 * 🔥 (20211026) 增加 NCNN/TNN/MNN/ONNXRuntime C++ [YoloX_V_0_1_1](https://github.com/RangiLyu/nanodet) 支持 [YOLOX v0.1.1](https://github.com/Megvii-BaseDetection/YOLOX/releases/tag/0.1.1rc0) . 详见 [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolox_v0.1.1.cpp).
 * 🔥 (20211002) 增加[NanoDet](https://github.com/RangiLyu/nanodet) 目标检测. ⚡ 超高性能! 只有1.1Mb! 详见[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp).  
@@ -95,7 +103,6 @@
 </div>
 
 
-
 * 🔥 (20210915) 增加[YOLOP](https://github.com/hustvl/YOLOP) 全景🚗感知! 通过[*lite::cv::detection::YOLOP*](#lite.ai.toolkit-object-detection)调用! 详见[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolop.cpp).
 
 <div align='center'>
@@ -105,8 +112,6 @@
   <img src='docs/resources/yolop2.gif' height="80px" width="160px">
 
 </div>   
-
-
 
 * ✅ (20210807) 增加[YoloR](https://github.com/WongKinYiu/yolor) ! 通过[*lite::cv::detection::YoloR*](#lite.ai.toolkit-object-detection)调用! 详见[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolor.cpp).
 * ✅ (20210731) 增加[RetinaFace-CVPR2020](https://github.com/biubug6/Pytorch_Retinaface) 超轻量级人脸检测, 仅1.6Mb! 详见[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_retinaface.cpp).

@@ -187,7 +187,6 @@ void MGMatting::generate_matting(std::vector<Ort::Value> &output_tensors,
   const unsigned int h = mat.rows;
   const unsigned int w = mat.cols;
 
-  // TODO: add post-process as official python implementation.
   // https://github.com/yucornetto/MGMatting/blob/main/code-base/infer.py
   auto output_dims = alpha_os1.GetTypeInfo().GetTensorTypeAndShapeInfo().GetShape();
   const unsigned int out_h = output_dims.at(2);
@@ -210,8 +209,7 @@ void MGMatting::generate_matting(std::vector<Ort::Value> &output_tensors,
 
   cv::Mat mat_copy;
   mat.convertTo(mat_copy, CV_32FC3);
-  // cv::Mat pred_alpha_mat(out_h, out_w, CV_32FC1, alpha_os1_ptr);
-  cv::Mat pmat = alpha_pred(cv::Rect(align_val, align_val, w, h)).clone();
+  cv::Mat pmat = alpha_pred(cv::Rect(align_val, align_val, w, h));
 
   std::vector<cv::Mat> mat_channels;
   cv::split(mat_copy, mat_channels);
@@ -333,6 +331,7 @@ void MGMatting::remove_small_connected_area(cv::Mat &alpha_pred)
   cv::Mat gray, binary;
   alpha_pred.convertTo(gray, CV_8UC1, 255.f);
   // 255 * 0.05 ~ 13
+  // https://github.com/yucornetto/MGMatting/blob/main/code-base/utils/util.py#L209
   cv::threshold(gray, binary, 13, 255, cv::THRESH_BINARY);
   // morphologyEx with OPEN operation to remove noise first.
   auto kernel = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(3, 3), cv::Point(-1, -1));
@@ -354,8 +353,6 @@ void MGMatting::remove_small_connected_area(cv::Mat &alpha_pred)
       max_connected_id = i;
     }
   }
-  std::cout << max_connected_id << std::endl;
-  std::cout << num_labels << std::endl;
   const int h = alpha_pred.rows;
   const int w = alpha_pred.cols;
   // remove small connected area.
