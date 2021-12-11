@@ -72,10 +72,11 @@ namespace ortcv
 
     cv::Mat get_unknown_tensor_from_pred(const cv::Mat &alpha_pred, unsigned int rand_width = 30);
 
-    cv::Mat post_process(const cv::Mat &alpha_pred);
+    void remove_small_connected_area(cv::Mat &alpha_pred);
 
     void generate_matting(std::vector<Ort::Value> &output_tensors,
-                          const cv::Mat &mat, types::MattingContent &content);
+                          const cv::Mat &mat, types::MattingContent &content,
+                          bool remove_noise = false);
 
   public:
     /**
@@ -86,7 +87,7 @@ namespace ortcv
      * @param content: types::MattingContent to catch the detected results.
      */
     void detect(const cv::Mat &mat, cv::Mat &mask, types::MattingContent &content,
-                unsigned int guidance_threshold = 128);
+                bool remove_noise = false, unsigned int guidance_threshold = 128);
   };
 }
 

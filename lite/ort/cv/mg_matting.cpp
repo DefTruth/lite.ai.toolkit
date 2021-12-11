@@ -157,7 +157,7 @@ void MGMatting::update_guidance_mask(cv::Mat &mask, unsigned int guidance_thresh
 }
 
 void MGMatting::detect(const cv::Mat &mat, cv::Mat &mask, types::MattingContent &content,
-                       unsigned int guidance_threshold)
+                       bool remove_noise, unsigned int guidance_threshold)
 {
   if (mat.empty() || mask.empty()) return;
   const unsigned int img_height = mat.rows;
@@ -174,11 +174,12 @@ void MGMatting::detect(const cv::Mat &mat, cv::Mat &mask, types::MattingContent 
       num_outputs
   );
   // 3. generate matting
-  this->generate_matting(output_tensors, mat, content);
+  this->generate_matting(output_tensors, mat, content, remove_noise);
 }
 
 void MGMatting::generate_matting(std::vector<Ort::Value> &output_tensors,
-                                 const cv::Mat &mat, types::MattingContent &content)
+                                 const cv::Mat &mat, types::MattingContent &content,
+                                 bool remove_noise)
 {
   Ort::Value &alpha_os1 = output_tensors.at(0); // (1,1,h+?,w+?)
   Ort::Value &alpha_os4 = output_tensors.at(1); // (1,1,h+?,w+?)
@@ -204,6 +205,8 @@ void MGMatting::generate_matting(std::vector<Ort::Value> &output_tensors,
   this->update_alpha_pred(alpha_pred, weight_os4, alpha_os4_pred);
   cv::Mat weight_os1 = this->get_unknown_tensor_from_pred(alpha_pred, 15);
   this->update_alpha_pred(alpha_pred, weight_os1, alpha_os1_pred);
+  // post process
+  if (remove_noise) this->remove_small_connected_area(alpha_pred);
 
   cv::Mat mat_copy;
   mat.convertTo(mat_copy, CV_32FC3);
@@ -240,10 +243,10 @@ void MGMatting::generate_matting(std::vector<Ort::Value> &output_tensors,
   content.flag = true;
 }
 
+// https://github.com/yucornetto/MGMatting/issues/11
+// https://github.com/yucornetto/MGMatting/blob/main/code-base/utils/util.py#L225
 cv::Mat MGMatting::get_unknown_tensor_from_pred(const cv::Mat &alpha_pred, unsigned int rand_width)
 {
-  // https://github.com/yucornetto/MGMatting/blob/main/code-base/utils/util.py#L225
-  // https://github.com/yucornetto/MGMatting/issues/11
   const unsigned int h = alpha_pred.rows;
   const unsigned int w = alpha_pred.cols;
   const unsigned int data_size = h * w;
@@ -324,16 +327,48 @@ void MGMatting::update_alpha_pred(cv::Mat &alpha_pred, const cv::Mat &weight, co
   }
 }
 
-cv::Mat MGMatting::post_process(const cv::Mat &alpha_pred)
+// https://github.com/yucornetto/MGMatting/blob/main/code-base/utils/util.py#L208
+void MGMatting::remove_small_connected_area(cv::Mat &alpha_pred)
 {
-  // 1. set alpha < 0.05 as 0
-  // 2. 求最大连通区域 或 去除面积较小的连通区域
-  //   2.1 用opencv findContours 求出所有的contours，并且用 contourArea 求每个contour的面积
-  //   2.2 contour面积小于某个指定阈值(占图像的比例或像素值，如5x5) 则将对应 ROI(Rect)区域设置为0
-  // reference:
-  // [1] https://blog.csdn.net/xuyangcao123/article/details/81023732
-  // [2] https://www.jb51.net/article/188059.htm
-  return alpha_pred;
+  cv::Mat gray, binary;
+  alpha_pred.convertTo(gray, CV_8UC1, 255.f);
+  // 255 * 0.05 ~ 13
+  cv::threshold(gray, binary, 13, 255, cv::THRESH_BINARY);
+  // morphologyEx with OPEN operation to remove noise first.
+  auto kernel = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(3, 3), cv::Point(-1, -1));
+  cv::morphologyEx(binary, binary, cv::MORPH_OPEN, kernel);
+  // Computationally connected domain
+  cv::Mat labels = cv::Mat::zeros(alpha_pred.size(), CV_32S);
+  cv::Mat stats, centroids;
+  int num_labels = cv::connectedComponentsWithStats(binary, labels, stats, centroids, 8, 4);
+  if (num_labels <= 1) return; // no noise, skip.
+  // find max connected area, 0 is background
+  int max_connected_id = 1; // 1,2,...
+  int max_connected_area = stats.at<int>(max_connected_id, cv::CC_STAT_AREA);
+  for (int i = 1; i < num_labels; ++i)
+  {
+    int tmp_connected_area = stats.at<int>(i, cv::CC_STAT_AREA);
+    if (tmp_connected_area > max_connected_area)
+    {
+      max_connected_area = tmp_connected_area;
+      max_connected_id = i;
+    }
+  }
+  std::cout << max_connected_id << std::endl;
+  std::cout << num_labels << std::endl;
+  const int h = alpha_pred.rows;
+  const int w = alpha_pred.cols;
+  // remove small connected area.
+  for (int i = 0; i < h; ++i)
+  {
+    int *label_row_ptr = labels.ptr<int>(i);
+    float *alpha_row_ptr = alpha_pred.ptr<float>(i);
+    for (int j = 0; j < w; ++j)
+    {
+      if (label_row_ptr[j] != max_connected_id)
+        alpha_row_ptr[j] = 0.f;
+    }
+  }
 }
 
 void MGMatting::update_dynamic_shape(unsigned int img_height, unsigned int img_width)

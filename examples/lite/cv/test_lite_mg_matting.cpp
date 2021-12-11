@@ -21,7 +21,7 @@ static void test_default()
   cv::Mat mask = cv::imread(test_mask_path, cv::IMREAD_GRAYSCALE);
 
   // 1. image matting.
-  mgmatting->detect(img_bgr, mask, content);
+  mgmatting->detect(img_bgr, mask, content, true);
 
   if (content.flag)
   {
@@ -140,10 +140,10 @@ static void test_tnn()
 static void test_lite()
 {
   test_default();
-  test_onnxruntime();
-  test_mnn();
+  // test_onnxruntime();
+  // test_mnn();
   // test_ncnn();
-  test_tnn();
+  // test_tnn();
 }
 
 int main(__unused int argc, __unused char *argv[])
