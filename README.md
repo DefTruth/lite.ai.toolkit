@@ -48,13 +48,13 @@
   <img src=https://img.shields.io/github/watchers/DefTruth/lite.ai.toolkit.svg?style=social > 
 </div>    
 
-🍅🍅*Lite.AI.ToolKit*: A lite `C++` toolkit of awesome AI models which contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* models now. It's a collection of personal interests. Such as RVM, YOLOX, YOLOP, YOLOR, YoloV5, DeepLabV3, ArcFace, etc. emmm😞 ... it's not perfect yet. For now, let's regard it as a large collection of application cases for inference engines. *Lite.AI.ToolKit* based on *[ONNXRuntime C++](https://github.com/microsoft/onnxruntime)* by default. I do have plans to reimplement it with *[NCNN](https://github.com/Tencent/ncnn)*, *[MNN](https://github.com/alibaba/MNN)* and *[TNN](https://github.com/Tencent/TNN)*, some models are already supported. Currently, I mainly consider its ease of use. Developers who need higher performance can make new optimizations based on the `C++` implementation and `ONNX` files provided by this repo~ 👏👋
+🍅🍅*Lite.AI.ToolKit*: A lite `C++` toolkit of awesome AI models which contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* models now. It's a collection of personal interests. Such as RVM, YOLOX, YOLOP, YOLOR, YoloV5, DeepLabV3, ArcFace, etc. emmm😞 ... it's not perfect yet. For now, let's regard it as a large collection of application cases for inference engines. *Lite.AI.ToolKit* based on *[ONNXRuntime C++](https://github.com/microsoft/onnxruntime)* by default. I do have plans to reimplement it with *[NCNN](https://github.com/Tencent/ncnn)*, *[MNN](https://github.com/alibaba/MNN)* and *[TNN](https://github.com/Tencent/TNN)*, some models are already supported. 
 
-## Core Features
+## Core Features👏👋
 
 * ❤️ *Simply and User friendly.* Simply and Consistent syntax like *lite::cv::Type::Class*, see [examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
 * ⚡ *Minimum Dependencies.* Only *OpenCV* and *ONNXRuntime* are required by default, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit).
-* ❤️ *Lots of Algorithm Modules.* Contains 10+ modules and *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* famous models with *[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained *.onnx/.mnn/.param&bin(ncnn)/.tnnmodel&tnnproto* files now, such as [object detection](#lite.ai.toolkit-object-detection), [face detection](#lite.ai.toolkit-face-detection), [face recognition](#lite.ai.toolkit-face-recognition), [segmentation](#lite.ai.toolkit-segmentation), [matting](#lite.ai.toolkit-matting), etc. See [Model Zoo](#lite.ai.toolkit-Model-Zoo) and [lite.ai.toolkit.hub.onnx.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md).
+* ❤️ *Lots of Algorithm Modules.* Contains 10+ modules and *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* famous models with *[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained files now, such as [object detection](#lite.ai.toolkit-object-detection), [face detection](#lite.ai.toolkit-face-detection), [face recognition](#lite.ai.toolkit-face-recognition), [segmentation](#lite.ai.toolkit-segmentation), [matting](#lite.ai.toolkit-matting), etc. See [Model Zoo](#lite.ai.toolkit-Model-Zoo) and [ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md).
 
 ## Supported Models Matrix
 
@@ -138,45 +138,16 @@
 |[SubPixelCNN](https://github.com/niazwazir/SUB_PIXEL_CNN)|234K|*resolution*|[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_subpixel_cnn.cpp)|✅| ✅ | / | ✅ | ✅ |✔️|✔️|❔|
 
 
-<p align="center"> ❤️ Star 🌟👆🏻 this repo if it does any helps to you ~  </p>
+<p align="center"> ❤️ Star 🌟👆🏻 this repo if it does any helps to you, many thanks ~  </p>
 
 
-## Important Notes !!!
-* ✅ (20211208) Added TNN/MNN/ONNXRuntime C++ [MGMatting](https://github.com/yucornetto/MGMatting) for Human Matting(CVPR2021) . See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mg_matting.cpp).
-
-<div align='center'>
-  <img src='examples/lite/resources/test_lite_mg_matting_input.jpg' height="160px" width="160px">
-  <img src='logs/test_lite_mg_matting_pha.jpg' height="160px" width="160px">
-  <img src='logs/test_lite_mg_matting_fgr.jpg' height="160px" width="160px">
-  <img src='logs/test_lite_mg_matting_merge.jpg' height="160px" width="160px">
-</div>
-
-* 🔥 (20211111) Added NCNN/TNN/MNN/ONNXRuntime C++ [YoloV5_V_6_0](https://github.com/RangiLyu/nanodet) for [YOLOv5 v6.0](https://github.com/ultralytics/yolov5/releases/tag/v6.0) . See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolov5_v6.0.cpp).
-* 🔥 (20211026) Added NCNN/TNN/MNN/ONNXRuntime C++ [YoloX_V_0_1_1](https://github.com/RangiLyu/nanodet) for [YOLOX v0.1.1](https://github.com/Megvii-BaseDetection/YOLOX/releases/tag/0.1.1rc0) . See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolox_v0.1.1.cpp).
-* ✅ (20211002) Added [NanoDet](https://github.com/RangiLyu/nanodet) for object detection. ⚡ Super fast and tiny! 1.1Mb only! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp).
-* 🔥 (20210920) Added [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) for Image and Video Matting! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_rvm.cpp).
-
-<div align='center'>
-  <img src='docs/resources/interviewi.gif' height="80px" width="80px">
-  <img src='docs/resources/interview.gif' height="80px" width="80px">  
-  <img src='docs/resources/dance3i.gif' height="80px" width="80px">
-  <img src='docs/resources/dance3.gif' height="80px" width="80px">
-  <img src='docs/resources/teslai.gif' height="80px" width="80px">
-  <img src='docs/resources/tesla.gif' height="80px" width="80px">  
-  <img src='docs/resources/b5i.gif' height="80px" width="80px">
-  <img src='docs/resources/b5.gif' height="80px" width="80px">
-</div>
-
-
-* 🔥 (20210915) Added [YOLOP](https://github.com/hustvl/YOLOP) Panoptic 🚗 Perception as [*lite::cv::detection::YOLOP*](#lite.ai.toolkit-object-detection) ! See [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolop.cpp).
-
-<div align='center'>
-  <img src='docs/resources/yolop1.png' height="80px" width="160px">
-  <img src='docs/resources/yolop1.gif' height="80px" width="160px">
-  <img src='docs/resources/yolop2.png' height="80px" width="160px">
-  <img src='docs/resources/yolop2.gif' height="80px" width="160px">
-</div>   
-
+## Updates!!
+*【2021/12/08】Added [MGMatting](https://github.com/yucornetto/MGMatting) for Human Matting(CVPR2021). [[c++ demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mg_matting.cpp)][[arXiv 2021](https://arxiv.org/abs/2012.06722)][[code](https://github.com/yucornetto/MGMatting)].  
+*【2021/11/11】Added [YoloV5_V_6_0](https://github.com/ultralytics/yolov5/releases/tag/v6.0) for object detection. See [[c++ demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolov5_v6.0.cpp)][[doi](https://zenodo.org/record/5563715#.YbXffH1Bzfs)][[code](https://github.com/ultralytics/yolov5/releases/tag/v6.0)].  
+*【2021/10/26】Added [YoloX_V_0_1_1](https://github.com/Megvii-BaseDetection/YOLOX/releases/tag/0.1.1rc0) for object detection See [[c++ demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolox_v0.1.1.cpp)][[arXiv 2021](https://arxiv.org/abs/2107.08430)][[code](https://github.com/Megvii-BaseDetection/YOLOX)].  
+*【2021/10/02】Added [NanoDet](https://github.com/RangiLyu/nanodet) ⚡ super fast and  1.1Mb only! See [[c++ demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp)][[blog](https://zhuanlan.zhihu.com/p/306530300)][[code](https://github.com/RangiLyu/nanodet)].  
+*【2021/09/20】Added [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) for Image and Video Matting! See [[c++ demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_rvm.cpp)][[arXiv 2021](https://arxiv.org/abs/2108.11515)][[code](https://github.com/PeterL1n/RobustVideoMatting)].  
+*【2021/09/02】Added [YOLOP](https://github.com/hustvl/YOLOP) for Panoptic 🚗 ! See [[c++ demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolop.cpp)][[arXiv 2021](https://arxiv.org/abs/2108.11250)][[code](https://github.com/hustvl/YOLOP)].
 
 <details>
 <summary> Expand for More Notes.</summary>  
@@ -208,17 +179,22 @@
 * [References](#lite.ai.toolkit-References)
 
 
-## 1. Build Lite.AI.ToolKit 🍅🍅
+## 1. Build.
 <div id="lite.ai.toolkit-Build-MacOS"></div>
 <div id="lite.ai.toolkit-Build-Lite.AI.ToolKit"></div>
 
-Build the shared lib of *Lite.AI.ToolKit* for *MacOS* from sources. Note that Lite.AI.ToolKit uses `onnxruntime` as default backend, for the reason that onnxruntime supports the most of onnx's operators.  Click ▶️ will show you the docs how to build *Lite.AI.ToolKit* 🚀🚀🌟 for Linux and Windows.
+* MacOS: Build the shared lib of *Lite.AI.ToolKit* for *MacOS* from sources. Note that Lite.AI.ToolKit uses `onnxruntime` as default backend, for the reason that onnxruntime supports the most of onnx's operators. 
+
+```shell
+    git clone --depth=1 https://github.com/DefTruth/lite.ai.toolkit.git  # latest
+    cd lite.ai.toolkit && sh ./build.sh  # On MacOS, you can use the built OpenCV, ONNXRuntime, MNN, NCNN and TNN libs in this repo.
+```
 
 <div id="lite.ai.toolkit-Build-Linux"></div>
 <div id="lite.ai.toolkit-Build-Windows"></div>
 
 <details>
-<summary> ⚠️ Linux and Windows. </summary>  
+<summary>💡 Linux and Windows. </summary>  
 
 ### Linux and Windows.
 
@@ -259,16 +235,14 @@ and put the libs into *lite.ai.toolkit/lib* directory. Please reference the buil
 * Linux: The Docs and Docker image for Linux will be coming soon ~ [issue#2](https://github.com/DefTruth/lite.ai.toolkit/issues/2)
 * Happy News !!! : 🚀 You can download the latest *ONNXRuntime* official built libs of Windows, Linux, MacOS and Arm !!! Both CPU and GPU versions are available. No more attentions needed pay to build it from source. Download the official built libs from [v1.8.1](https://github.com/microsoft/onnxruntime/releases). I have used version 1.7.0 for Lite.AI.ToolKit now, you can downlod it from [v1.7.0](https://github.com/microsoft/onnxruntime/releases/tag/v1.7.0), but version 1.8.1 should also work, I guess ~  🙃🤪🍀. For *OpenCV*, try to build from source(Linux) or down load the official built(Windows) from [OpenCV 4.5.3](https://github.com/opencv/opencv/releases). Then put the includes and libs into specific directory of Lite.AI.ToolKit.
 
-</details>  
-
-```shell
-    git clone --depth=1 https://github.com/DefTruth/lite.ai.toolkit.git  # latest
-    cd lite.ai.toolkit && sh ./build.sh  # On MacOS, you can use the built OpenCV, ONNXRuntime, MNN, NCNN and TNN libs in this repo.
-```
-
 * GPU Compatibility for Windows: See [issue#10](https://github.com/DefTruth/lite.ai.toolkit/issues/10).
 * GPU Compatibility for Linux: See [issue#97](https://github.com/DefTruth/lite.ai.toolkit/issues/97).
 
+</details>  
+
+
+<details>
+<summary>🔑️ How to link Lite.AI.ToolKit?</summary>  
 * To link Lite.AI.ToolKit, you can follow the CMakeLists.txt listed belows.
 
 ```cmake
@@ -304,9 +278,6 @@ target_link_libraries(lite_rvm
         TNN  # need, if built lite.ai.toolkit with ENABLE_TNN=ON,  default OFF 
         ${OpenCV_LIBS})  # link lite.ai.toolkit & other libs.
 ```
-
-<details>
-<summary> Expand for more details of How to link the shared lib of Lite.AI.ToolKit?</summary>  
 
 ```shell
 cd ./build/lite.ai.toolkit/lib && otool -L liblite.ai.toolkit.0.0.1.dylib 
@@ -350,41 +321,7 @@ generate_bboxes num: 66
 Default Version Detected Boxes Num: 5
 ```
 
-* To link `lite.ai.toolkit` shared lib. You need to make sure that `OpenCV` and `onnxruntime` are linked correctly. Just like:
-
-```cmake
-cmake_minimum_required(VERSION 3.17)
-project(lite.ai.toolkit.demo)
-
-set(CMAKE_CXX_STANDARD 11)
-
-# setting up lite.ai.toolkit
-set(LITE_AI_DIR ${CMAKE_SOURCE_DIR}/lite.ai.toolkit)
-set(LITE_AI_INCLUDE_DIR ${LITE_AI_DIR}/include)
-set(LITE_AI_LIBRARY_DIR ${LITE_AI_DIR}/lib)
-include_directories(${LITE_AI_INCLUDE_DIR})
-link_directories(${LITE_AI_LIBRARY_DIR})
-
-set(OpenCV_LIBS
-        opencv_highgui
-        opencv_core
-        opencv_imgcodecs
-        opencv_imgproc
-        opencv_video
-        opencv_videoio
-        )
-# add your executable
-set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/examples/build)
-
-add_executable(lite_rvm examples/test_lite_rvm.cpp)
-target_link_libraries(lite_rvm
-        lite.ai.toolkit
-        onnxruntime
-        MNN
-        ncnn
-        ${OpenCV_LIBS})  # link lite.ai.toolkit & other libs.
-```
-A minimum example to show you how to link the shared lib of Lite.AI.ToolKit correctly for your own project can be found at [lite.ai.toolkit.demo](https://github.com/DefTruth/lite.ai.toolkit.demo).
+To link `lite.ai.toolkit` shared lib. You need to make sure that `OpenCV` and `onnxruntime` are linked correctly. A minimum example to show you how to link the shared lib of Lite.AI.ToolKit correctly for your own project can be found at [CMakeLists.txt](https://github.com/DefTruth/RobustVideoMatting-ncnn-mnn-tnn-onnxruntime/blob/main/CMakeLists.txt).
 
 </details>
 
@@ -392,11 +329,20 @@ A minimum example to show you how to link the shared lib of Lite.AI.ToolKit corr
 ## 2. Model Zoo.
 
 <div id="lite.ai.toolkit-Model-Zoo"></div>
+<div id="lite.ai.toolkit-2"></div>
 
-*Lite.AI.ToolKit* contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* AI models with *[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained *.onnx/.mnn/.param&bin(ncnn)/.tnnmodel&tnnproto* files now. Most of the files are converted by myself. You can use it through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)*. More details can be found at [Examples for Lite.AI.ToolKit](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
+*Lite.AI.ToolKit* contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* AI models with *[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained  files now. Most of the files are converted by myself. You can use it through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)*. More details can be found at [Examples for Lite.AI.ToolKit](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit). Note, for Google Drive, I can not upload all the *.onnx files because of the storage limitation (15G).
+
+|File|Baidu Drive|Google Drive|Hub|  
+|:---:|:---:|:---:|:---:|
+|ONNX|[Baidu Drive](https://pan.baidu.com/s/1elUGcx7CZkkjEoYhTMwTRQ) code: 8gin|[Google Drive](https://drive.google.com/drive/folders/1p6uBcxGeyS1exc-T61vL8YRhwjYL4iD2?usp=sharing)|[ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)|    
+|MNN|[Baidu Drive](https://pan.baidu.com/s/1KyO-bCYUv6qPq2M8BH_Okg) code: 9v63 |❔|[MNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md)|  
+|NCNN|[Baidu Drive](https://pan.baidu.com/s/1hlnqyNsFbMseGFWscgVhgQ) code: sc7f |❔|[NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md)|
+|TNN|[Baidu Drive](https://pan.baidu.com/s/1lvM2YKyUbEc5HKVtqITpcw) code: 6o6k|❔|[TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md)|
+
 
 <details>
-<summary> Expand Details for Namespace and Lite.AI.ToolKit modules.</summary>  
+<summary> Lite.AI.ToolKit modules.</summary>  
 
 ### Namespace and Lite.AI.ToolKit modules.
 
@@ -452,19 +398,11 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
 
 </details>
 
-###  Downloads: <div id="lite.ai.toolkit-2"></div>
-
-Note, for Google Drive, I can not upload all the *.onnx files because of the storage limitation (15G).
-* ONNX files 👉 [Baidu Drive](https://pan.baidu.com/s/1elUGcx7CZkkjEoYhTMwTRQ) code: 8gin && [Google Drive](https://drive.google.com/drive/folders/1p6uBcxGeyS1exc-T61vL8YRhwjYL4iD2?usp=sharing). See [lite.ai.toolkit.hub.onnx.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)
-* MNN files 👉 [Baidu Drive](https://pan.baidu.com/s/1KyO-bCYUv6qPq2M8BH_Okg) code: 9v63 && Google Drive(Wait). See [lite.ai.toolkit.hub.mnn.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md)
-* NCNN files 👉 [Baidu Drive](https://pan.baidu.com/s/1hlnqyNsFbMseGFWscgVhgQ) code: sc7f && Google Drive(Wait). See [lite.ai.toolkit.hub.ncnn.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md)
-* TNN files 👉 [Baidu Drive](https://pan.baidu.com/s/1lvM2YKyUbEc5HKVtqITpcw) code: 6o6k && Google Drive(Wait). See [lite.ai.toolkit.hub.tnn.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md)
-
-## 3. Examples for Lite.AI.ToolKit.
+## 3. Examples.
 
 <div id="lite.ai.toolkit-Examples-for-Lite.AI.ToolKit"></div>
 
-More examples can be found at [lite.ai.toolkit.examples](https://github.com/DefTruth/lite.ai.toolkit/tree/main/examples/lite/cv). Click ▶️ will show you more examples for the specific topic you are interested in.
+More examples can be found at [examples](https://github.com/DefTruth/lite.ai.toolkit/tree/main/examples/lite/cv). 
 
 <div id="lite.ai.toolkit-object-detection"></div>
 
@@ -1300,7 +1238,7 @@ Many thanks to these following projects. All the Lite.AI.ToolKit's models are so
 
 ## 6. Compilation Options.
 
-If there is a model you are interested in and want to be supported by Lite.AI.ToolKit🍅🍅, you can fork this repo and modify [TODOLIST.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/TODOLIST.md), then submit a PR~ I will review this PR and try to support this model in the future, but I don’t make sure this can be done. In addition, [MNN](https://github.com/alibaba/MNN), [NCNN](https://github.com/Tencent/ncnn) and [TNN](https://github.com/Tencent/TNN) support for some models will be added in the future, but due to operator compatibility and some other reasons, it is impossible to ensure that all models supported by [ONNXRuntime C++](https://github.com/microsoft/onnxruntime) can run through [MNN](https://github.com/alibaba/MNN), [NCNN](https://github.com/Tencent/ncnn) and [TNN](https://github.com/Tencent/TNN). So, if you want to use all the models supported by this repo and don't care about the performance gap of *1~2ms*, please use the implementation of ONNXRuntime version. [ONNXRuntime](https://github.com/microsoft/onnxruntime) is the default inference engine for this repo. However, you can follow the steps below if you want to build Lite.AI.ToolKi🍅🍅with [MNN](https://github.com/alibaba/MNN), [NCNN](https://github.com/Tencent/ncnn) or [TNN](https://github.com/Tencent/TNN) support (⚠️ NOT STABLE NOW! NOT RECOMMENDED!!!🤦)
+In addition, [MNN](https://github.com/alibaba/MNN), [NCNN](https://github.com/Tencent/ncnn) and [TNN](https://github.com/Tencent/TNN) support for some models will be added in the future, but due to operator compatibility and some other reasons, it is impossible to ensure that all models supported by [ONNXRuntime C++](https://github.com/microsoft/onnxruntime) can run through [MNN](https://github.com/alibaba/MNN), [NCNN](https://github.com/Tencent/ncnn) and [TNN](https://github.com/Tencent/TNN). So, if you want to use all the models supported by this repo and don't care about the performance gap of *1~2ms*, just let [ONNXRuntime](https://github.com/microsoft/onnxruntime) as default inference engine for this repo. However, you can follow the steps below if you want to build with [MNN](https://github.com/alibaba/MNN), [NCNN](https://github.com/Tencent/ncnn) or [TNN](https://github.com/Tencent/TNN) support.
 
 * change the `build.sh` with `DENABLE_MNN=ON`,`DENABLE_NCNN=ON` or `DENABLE_TNN=ON`, such as
 ```shell
@@ -1332,4 +1270,4 @@ Cite it as follows if you use *Lite.AI.ToolKit*.
 }
 ```
 
-<p align="center"> ❤️ Star 🌟👆🏻 this repo if it does any helps to you ~ </p>
+<p align="center"> ❤️ Star 🌟👆🏻 this repo if it does any helps to you, many thanks ~ </p>
