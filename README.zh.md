@@ -141,7 +141,7 @@
 |[SubPixelCNN](https://github.com/niazwazir/SUB_PIXEL_CNN)|234K|*resolution*|[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_subpixel_cnn.cpp)|✅| ✅ | / | ✅ | ✅ |✔️|✔️|❔|
 
 
-<p align="center"> 若是有用，❤️不妨给个⭐️🌟支持一下吧~ 🙃🤪🍀 </p>
+<p align="center"> 若是有用，❤️不妨给个⭐️🌟支持一下吧~  </p>
 
 
 ## 重要更新 !!!
@@ -1338,4 +1338,4 @@ auto *nanodet = new lite::ncnn::cv::detection::NanoDet(param_path, bin_path);
 }
 ```  
 
-<p align="center"> 若是有用，❤️不妨给个⭐️🌟支持一下吧~ 🙃🤪🍀 </p>
+<p align="center"> 若是有用，❤️不妨给个⭐️🌟支持一下吧~  </p>

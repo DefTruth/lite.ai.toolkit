@@ -138,7 +138,7 @@
 |[SubPixelCNN](https://github.com/niazwazir/SUB_PIXEL_CNN)|234K|*resolution*|[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_subpixel_cnn.cpp)|✅| ✅ | / | ✅ | ✅ |✔️|✔️|❔|
 
 
-<p align="center"> ❤️ Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀 </p>
+<p align="center"> ❤️ Star 🌟👆🏻 this repo if it does any helps to you ~  </p>
 
 
 ## Important Notes !!!
@@ -1332,4 +1332,4 @@ Cite it as follows if you use *Lite.AI.ToolKit*.
 }
 ```
 
-<p align="center"> ❤️ Star 🌟👆🏻 this repo if it does any helps to you ~ 🙃🤪🍀 </p>
+<p align="center"> ❤️ Star 🌟👆🏻 this repo if it does any helps to you ~ </p>
