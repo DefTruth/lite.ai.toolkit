@@ -39,9 +39,9 @@
 
 <div align='center'> 
   <img src=https://img.shields.io/badge/ONNXRuntime-support-brightgreen.svg >
-  <img src=https://img.shields.io/badge/MNN-unofficial-blue.svg >
-  <img src=https://img.shields.io/badge/NCNN-unofficial-blue.svg >
-  <img src=https://img.shields.io/badge/TNN-unofficial-blue.svg >
+  <img src=https://img.shields.io/badge/MNN-support-brightgreen.svg >
+  <img src=https://img.shields.io/badge/NCNN-support-brightgreen.svg >
+  <img src=https://img.shields.io/badge/TNN-support-brightgreen.svg >
 <br>
   <img src=https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social >
   <img src=https://img.shields.io/github/forks/DefTruth/lite.ai.toolkit.svg?style=social >
@@ -142,7 +142,7 @@
 
 
 ## Updates!!
-*【2021/12/08】Added [MGMatting](https://github.com/yucornetto/MGMatting) for Human Matting(CVPR2021). [[c++ demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mg_matting.cpp)][[arXiv 2021](https://arxiv.org/abs/2012.06722)][[code](https://github.com/yucornetto/MGMatting)].  
+*【2021/12/08】Added [MGMatting](https://github.com/yucornetto/MGMatting) for Human Matting(CVPR2021). See [[c++ demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mg_matting.cpp)][[arXiv 2021](https://arxiv.org/abs/2012.06722)][[code](https://github.com/yucornetto/MGMatting)].  
 *【2021/11/11】Added [YoloV5_V_6_0](https://github.com/ultralytics/yolov5/releases/tag/v6.0) for object detection. See [[c++ demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolov5_v6.0.cpp)][[doi](https://zenodo.org/record/5563715#.YbXffH1Bzfs)][[code](https://github.com/ultralytics/yolov5/releases/tag/v6.0)].  
 *【2021/10/26】Added [YoloX_V_0_1_1](https://github.com/Megvii-BaseDetection/YOLOX/releases/tag/0.1.1rc0) for object detection See [[c++ demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolox_v0.1.1.cpp)][[arXiv 2021](https://arxiv.org/abs/2107.08430)][[code](https://github.com/Megvii-BaseDetection/YOLOX)].  
 *【2021/10/02】Added [NanoDet](https://github.com/RangiLyu/nanodet) ⚡ super fast and  1.1Mb only! See [[c++ demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp)][[blog](https://zhuanlan.zhihu.com/p/306530300)][[code](https://github.com/RangiLyu/nanodet)].  
@@ -337,8 +337,8 @@ To link `lite.ai.toolkit` shared lib. You need to make sure that `OpenCV` and `o
 |:---:|:---:|:---:|:---:|
 |ONNX|[Baidu Drive](https://pan.baidu.com/s/1elUGcx7CZkkjEoYhTMwTRQ) code: 8gin|[Google Drive](https://drive.google.com/drive/folders/1p6uBcxGeyS1exc-T61vL8YRhwjYL4iD2?usp=sharing)|[ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)|    
 |MNN|[Baidu Drive](https://pan.baidu.com/s/1KyO-bCYUv6qPq2M8BH_Okg) code: 9v63 |❔|[MNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md)|  
-|NCNN|[Baidu Drive](https://pan.baidu.com/s/1hlnqyNsFbMseGFWscgVhgQ) code: sc7f |❔|[NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md)|
-|TNN|[Baidu Drive](https://pan.baidu.com/s/1lvM2YKyUbEc5HKVtqITpcw) code: 6o6k|❔|[TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md)|
+|NCNN|[Baidu Drive](https://pan.baidu.com/s/1hlnqyNsFbMseGFWscgVhgQ) code: sc7f |❔|[NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md)|
+|TNN|[Baidu Drive](https://pan.baidu.com/s/1lvM2YKyUbEc5HKVtqITpcw) code: 6o6k|❔|[TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md)|
 
 
 <details>
