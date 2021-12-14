@@ -56,6 +56,8 @@
 * ⚡ *Minimum Dependencies.* Only *OpenCV* and *ONNXRuntime* are required by default, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit).
 * ❤️ *Lots of Algorithm Modules.* Contains 10+ modules and *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* famous models with *[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained files now, such as [object detection](#lite.ai.toolkit-object-detection), [face detection](#lite.ai.toolkit-face-detection), [face recognition](#lite.ai.toolkit-face-recognition), [segmentation](#lite.ai.toolkit-segmentation), [matting](#lite.ai.toolkit-matting), etc. See [Model Zoo](#lite.ai.toolkit-Model-Zoo) and [ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md).
 
+<p align="center"> ❤️ Star 🌟👆🏻 this repo if it does any helps to you, many thanks ~  </p>
+
 ## Supported Models Matrix
 
 * / = not supported now.
@@ -136,9 +138,6 @@
 |[FastStyleTransfer](https://github.com/onnx/models/blob/master/vision/style_transfer/fast_neural_style)|6.4M|*style*|[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_fast_style_transfer.cpp)|✅| ✅ | ✅ | ✅ | ✅ |✔️|✔️|❔|
 |[Colorizer](https://github.com/richzhang/colorization)|123M|*colorization*|[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_colorizer.cpp)|✅| ✅ | / | ✅ | ✅ |✔️|✔️|/|
 |[SubPixelCNN](https://github.com/niazwazir/SUB_PIXEL_CNN)|234K|*resolution*|[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_subpixel_cnn.cpp)|✅| ✅ | / | ✅ | ✅ |✔️|✔️|❔|
-
-
-<p align="center"> ❤️ Star 🌟👆🏻 this repo if it does any helps to you, many thanks ~  </p>
 
 
 ## Updates!!

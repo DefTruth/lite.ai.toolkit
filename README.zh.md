@@ -58,6 +58,8 @@
 * ⚡ *少量依赖，构建容易。* 目前, 默认只依赖 *OpenCV* 和 *ONNXRuntime*，详见[build](#lite.ai.toolkit-Build-Lite.AI.ToolKit)。
 * ❤️ *众多的算法模块，且持续更新。* 目前，包括 10+ 算法模块、*[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* 流行的开源模型以及 *[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* 权重文件, 涵盖[目标检测](#lite.ai.toolkit-object-detection)、[人脸检测](#lite.ai.toolkit-face-detection)、[人脸识别](#lite.ai.toolkit-face-recognition)、[语义分割](#lite.ai.toolkit-segmentation)、[抠图](#lite.ai.toolkit-matting)等领域。详见 [Model Zoo](#lite.ai.toolkit-Model-Zoo) 和 [ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md) 。
 
+<p align="center"> 若是有用，❤️不妨给个⭐️🌟支持一下吧，感谢支持~  </p>
+
 
 ## 模型支持矩阵
 
@@ -139,9 +141,6 @@
 |[FastStyleTransfer](https://github.com/onnx/models/blob/master/vision/style_transfer/fast_neural_style)|6.4M|*style*|[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_fast_style_transfer.cpp)|✅| ✅ | ✅ | ✅ | ✅ |✔️|✔️|❔|
 |[Colorizer](https://github.com/richzhang/colorization)|123M|*colorization*|[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_colorizer.cpp)|✅| ✅ | / | ✅ | ✅ |✔️|✔️|/|
 |[SubPixelCNN](https://github.com/niazwazir/SUB_PIXEL_CNN)|234K|*resolution*|[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_subpixel_cnn.cpp)|✅| ✅ | / | ✅ | ✅ |✔️|✔️|❔|
-
-
-<p align="center"> 若是有用，❤️不妨给个⭐️🌟支持一下吧，感谢支持~  </p>
 
 
 ## 更新 !!
