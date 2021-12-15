@@ -47,12 +47,12 @@ MGMatting::~MGMatting()
 
 void MGMatting::print_debug_string()
 {
-  std::cout << "LITEORT_DEBUG LogId: " << onnx_path << "\n";
+  std::cout << "LITEORT_DEBUG LogId: " << log_id << "\n";
   std::cout << "=============== Inputs ==============\n";
-  std::cout << "Dynamic Input: " << "image" << "Init ["
+  std::cout << "Dynamic Input: " << "image" << " Init ["
             << 1 << "," << 3 << "," << dynamic_input_height
             << "," << dynamic_input_width << "]\n";
-  std::cout << "Dynamic Input: " << "mask" << "Init ["
+  std::cout << "Dynamic Input: " << "mask" << " Init ["
             << 1 << "," << 1 << "," << dynamic_input_height
             << "," << dynamic_input_width << "]\n";
   std::cout << "=============== Outputs ==============\n";
