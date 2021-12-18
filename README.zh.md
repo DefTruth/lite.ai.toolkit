@@ -436,6 +436,26 @@ static void test_default()
 
 或者你可以使用最新的 🔥🔥 ! YOLO 系列检测器[YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) 或 [YoloR](https://github.com/WongKinYiu/yolor) ，它们会获得接近的结果。
 
+更多可用的通用目标检测器（80类、COCO）:  
+```c++
+auto *detector = new lite::cv::detection::YoloX(onnx_path);  // Newest YOLO detector !!! 2021-07
+auto *detector = new lite::cv::detection::YoloV4(onnx_path); 
+auto *detector = new lite::cv::detection::YoloV3(onnx_path); 
+auto *detector = new lite::cv::detection::TinyYoloV3(onnx_path); 
+auto *detector = new lite::cv::detection::SSD(onnx_path); 
+auto *detector = new lite::cv::detection::YoloV5(onnx_path); 
+auto *detector = new lite::cv::detection::YoloR(onnx_path);  // Newest YOLO detector !!! 2021-05
+auto *detector = new lite::cv::detection::TinyYoloV4VOC(onnx_path); 
+auto *detector = new lite::cv::detection::TinyYoloV4COCO(onnx_path); 
+auto *detector = new lite::cv::detection::ScaledYoloV4(onnx_path); 
+auto *detector = new lite::cv::detection::EfficientDet(onnx_path); 
+auto *detector = new lite::cv::detection::EfficientDetD7(onnx_path); 
+auto *detector = new lite::cv::detection::EfficientDetD8(onnx_path); 
+auto *detector = new lite::cv::detection::YOLOP(onnx_path);
+auto *detector = new lite::cv::detection::NanoDet(onnx_path); // Super fast and tiny!
+auto *detector = new lite::cv::detection::NanoDetEfficientNetLite(onnx_path); // Super fast and tiny!
+```
+
 ****
 
 <div id="lite.ai.toolkit-matting"></div>  
@@ -474,6 +494,12 @@ static void test_default()
   <img src='docs/resources/b5.gif' height="80px" width="150px">
 </div>
 
+更多可用的抠图模型（图片抠图、视频抠图、trimap/mask-free、trimap/mask-based）:
+```c++
+auto *detector = new lite::cv::matting::RobustVideoMatting:(onnx_path);  //  WACV 2022.
+auto *detector = new lite::cv::matting::MGMatting(onnx_path); // CVPR 2021
+```
+
 ****
 
 <div id="lite.ai.toolkit-face-alignment"></div>
@@ -505,6 +531,16 @@ static void test_default()
   <img src='logs/test_lite_face_landmarks_1000_2.jpg' height="224px" width="224px">
   <img src='logs/test_lite_face_landmarks_1000_0.jpg' height="224px" width="224px">
 </div>    
+
+更多可用的人脸关键点检测器（68点、98点、106点、1000点）:
+```c++
+auto *align = new lite::cv::face::align::PFLD(onnx_path);  // 106 landmarks, 1.0Mb only!
+auto *align = new lite::cv::face::align::PFLD98(onnx_path);  // 98 landmarks, 4.8Mb only!
+auto *align = new lite::cv::face::align::PFLD68(onnx_path);  // 68 landmarks, 2.8Mb only!
+auto *align = new lite::cv::face::align::MobileNetV268(onnx_path);  // 68 landmarks, 9.4Mb only!
+auto *align = new lite::cv::face::align::MobileNetV2SE68(onnx_path);  // 68 landmarks, 11Mb only!
+auto *align = new lite::cv::face::align::FaceLandmark1000(onnx_path);  // 1000 landmarks, 2.0Mb only!
+```
 
 ****  
 
@@ -541,6 +577,11 @@ static void test_default()
   <img src='logs/test_lite_siggraph17_colorizer_2.jpg' height="224px" width="224px">
   <img src='logs/test_lite_siggraph17_colorizer_3.jpg' height="224px" width="224px">
 </div>    
+
+更多可用的着色器模型（灰度图转彩色图）:
+```c++
+auto *colorizer = new lite::cv::colorization::Colorizer(onnx_path);
+```
 
 ****
 
@@ -590,6 +631,26 @@ static void test_default()
 
 > Detected Sim01: 0.721159  Sim02: -0.0626267
 
+更多可用的人脸识别模型（人脸特征提取）:
+```c++
+auto *recognition = new lite::cv::faceid::GlintCosFace(onnx_path);  // DeepGlint(insightface)
+auto *recognition = new lite::cv::faceid::GlintArcFace(onnx_path);  // DeepGlint(insightface)
+auto *recognition = new lite::cv::faceid::GlintPartialFC(onnx_path); // DeepGlint(insightface)
+auto *recognition = new lite::cv::faceid::FaceNet(onnx_path);
+auto *recognition = new lite::cv::faceid::FocalArcFace(onnx_path);
+auto *recognition = new lite::cv::faceid::FocalAsiaArcFace(onnx_path);
+auto *recognition = new lite::cv::faceid::TencentCurricularFace(onnx_path); // Tencent(TFace)
+auto *recognition = new lite::cv::faceid::TencentCifpFace(onnx_path); // Tencent(TFace)
+auto *recognition = new lite::cv::faceid::CenterLossFace(onnx_path);
+auto *recognition = new lite::cv::faceid::SphereFace(onnx_path);
+auto *recognition = new lite::cv::faceid::PoseRobustFace(onnx_path);
+auto *recognition = new lite::cv::faceid::NaivePoseRobustFace(onnx_path);
+auto *recognition = new lite::cv::faceid::MobileFaceNet(onnx_path); // 3.8Mb only !
+auto *recognition = new lite::cv::faceid::CavaGhostArcFace(onnx_path);
+auto *recognition = new lite::cv::faceid::CavaCombinedFace(onnx_path);
+auto *recognition = new lite::cv::faceid::MobileSEFocalFace(onnx_path); // 4.5Mb only !
+```
+
 ****
 
 <div id="lite.ai.toolkit-face-detection"></div>
@@ -622,12 +683,238 @@ static void test_default()
   <img src='logs/test_lite_ultraface_3.jpg' height="224px" width="224px">
 </div>  
 
+更多可用的人脸检测器（轻量级人脸检测器）:
+```c++
+auto *detector = new lite::face::detect::UltraFace(onnx_path);  // 1.1Mb only !
+auto *detector = new lite::face::detect::FaceBoxes(onnx_path);  // 3.8Mb only ! 
+auto *detector = new lite::face::detect::RetinaFace(onnx_path);  // 1.6Mb only ! CVPR2020
+```
 
 <div id="lite.ai.toolkit-segmentation"></div>  
-<div id="lite.ai.toolkit-face-attributes-analysis"></div>  
-<div id="lite.ai.toolkit-image-classification"></div>  
-<div id="lite.ai.toolkit-head-pose-estimation"></div>
-<div id="lite.ai.toolkit-style-transfer"></div>
+
+#### 案例6: 使用 [DeepLabV3ResNet101](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/) 进行语义分割. 请从Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2) 下载模型文件。
+```c++
+#include "lite/lite.h"
+
+static void test_default()
+{
+  std::string onnx_path = "../../../hub/onnx/cv/deeplabv3_resnet101_coco.onnx";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_deeplabv3_resnet101.png";
+  std::string save_img_path = "../../../logs/test_lite_deeplabv3_resnet101.jpg";
+
+  auto *deeplabv3_resnet101 = new lite::cv::segmentation::DeepLabV3ResNet101(onnx_path, 16); // 16 threads
+
+  lite::types::SegmentContent content;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  deeplabv3_resnet101->detect(img_bgr, content);
+
+  if (content.flag)
+  {
+    cv::Mat out_img;
+    cv::addWeighted(img_bgr, 0.2, content.color_mat, 0.8, 0., out_img);
+    cv::imwrite(save_img_path, out_img);
+    if (!content.names_map.empty())
+    {
+      for (auto it = content.names_map.begin(); it != content.names_map.end(); ++it)
+      {
+        std::cout << it->first << " Name: " << it->second << std::endl;
+      }
+    }
+  }
+  delete deeplabv3_resnet101;
+}
+```
+
+输出的结果是:  
+<div align='center'>
+  <img src='examples/lite/resources/test_lite_deeplabv3_resnet101.png' height="256px">
+  <img src='logs/test_lite_deeplabv3_resnet101.jpg' height="256px">
+</div> 
+
+更多可用的语义分割模型（人像分割、实例分割）:
+```c++
+auto *segment = new lite::cv::segmentation::FCNResNet101(onnx_path);
+auto *segment = new lite::cv::segmentation::DeepLabV3ResNet101(onnx_path);
+```
+
+<div id="lite.ai.toolkit-face-attributes-analysis"></div>    
+
+#### 案例7: 使用 [SSRNet](https://github.com/oukohou/SSR_Net_Pytorch) 进行年龄估计. 请从Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2) 下载模型文件。
+```c++
+#include "lite/lite.h"
+
+static void test_default()
+{
+  std::string onnx_path = "../../../hub/onnx/cv/ssrnet.onnx";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_ssrnet.jpg";
+  std::string save_img_path = "../../../logs/test_lite_ssrnet.jpg";
+
+  lite::cv::face::attr::SSRNet *ssrnet = new lite::cv::face::attr::SSRNet(onnx_path);
+
+  lite::types::Age age;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  ssrnet->detect(img_bgr, age);
+  lite::utils::draw_age_inplace(img_bgr, age);
+  cv::imwrite(save_img_path, img_bgr);
+  std::cout << "Default Version Done! Detected SSRNet Age: " << age.age << std::endl;
+
+  delete ssrnet;
+}
+```
+输出的结果是:  
+<div align='center'>
+  <img src='logs/test_lite_ssrnet.jpg' height="224px" width="224px">
+  <img src='logs/test_lite_gender_googlenet.jpg' height="224px" width="224px">
+  <img src='logs/test_lite_emotion_ferplus.jpg' height="224px" width="224px">
+</div>    
+
+更多可用的人脸属性识别模型（性别、年龄、情绪）:
+```c++
+auto *attribute = new lite::cv::face::attr::AgeGoogleNet(onnx_path);  
+auto *attribute = new lite::cv::face::attr::GenderGoogleNet(onnx_path); 
+auto *attribute = new lite::cv::face::attr::EmotionFerPlus(onnx_path);
+auto *attribute = new lite::cv::face::attr::VGG16Age(onnx_path);
+auto *attribute = new lite::cv::face::attr::VGG16Gender(onnx_path);
+auto *attribute = new lite::cv::face::attr::EfficientEmotion7(onnx_path); // 7 emotions, 15Mb only!
+auto *attribute = new lite::cv::face::attr::EfficientEmotion8(onnx_path); // 8 emotions, 15Mb only!
+auto *attribute = new lite::cv::face::attr::MobileEmotion7(onnx_path); // 7 emotions, 13Mb only!
+auto *attribute = new lite::cv::face::attr::ReXNetEmotion7(onnx_path); // 7 emotions
+auto *attribute = new lite::cv::face::attr::SSRNet(onnx_path); // age estimation, 190kb only!!!
+```
+
+
+<div id="lite.ai.toolkit-image-classification"></div>   
+
+#### 案例8: 使用 [DenseNet](https://pytorch.org/hub/pytorch_vision_densenet/) 进行图片1000分类. 请从Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2) 下载模型文件。
+```c++
+#include "lite/lite.h"
+
+static void test_default()
+{
+  std::string onnx_path = "../../../hub/onnx/cv/densenet121.onnx";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_densenet.jpg";
+
+  auto *densenet = new lite::cv::classification::DenseNet(onnx_path);
+
+  lite::types::ImageNetContent content;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  densenet->detect(img_bgr, content);
+  if (content.flag)
+  {
+    const unsigned int top_k = content.scores.size();
+    if (top_k > 0)
+    {
+      for (unsigned int i = 0; i < top_k; ++i)
+        std::cout << i + 1
+                  << ": " << content.labels.at(i)
+                  << ": " << content.texts.at(i)
+                  << ": " << content.scores.at(i)
+                  << std::endl;
+    }
+  }
+  delete densenet;
+}
+```
+
+输出的结果是:  
+<div align='center'>
+  <img src='examples/lite/resources/test_lite_densenet.jpg' height="224px" width="224px">
+  <img src='logs/test_lite_densenet.png' height="224px" width="500px">
+</div>  
+
+更多可用的图像分类模型（1000类）:
+```c++
+auto *classifier = new lite::cv::classification::EfficientNetLite4(onnx_path);  
+auto *classifier = new lite::cv::classification::ShuffleNetV2(onnx_path); // 8.7Mb only!
+auto *classifier = new lite::cv::classification::GhostNet(onnx_path);
+auto *classifier = new lite::cv::classification::HdrDNet(onnx_path);
+auto *classifier = new lite::cv::classification::IBNNet(onnx_path);
+auto *classifier = new lite::cv::classification::MobileNetV2(onnx_path); // 13Mb only!
+auto *classifier = new lite::cv::classification::ResNet(onnx_path); 
+auto *classifier = new lite::cv::classification::ResNeXt(onnx_path);
+```
+
+
+<div id="lite.ai.toolkit-head-pose-estimation"></div>   
+
+#### 案例9: 使用 [FSANet](https://github.com/omasaht/headpose-fsanet-pytorch) 进行头部姿态识别. 请从Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2) 下载模型文件。
+
+```c++
+#include "lite/lite.h"
+
+static void test_default()
+{
+  std::string onnx_path = "../../../hub/onnx/cv/fsanet-var.onnx";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_fsanet.jpg";
+  std::string save_img_path = "../../../logs/test_lite_fsanet.jpg";
+
+  auto *fsanet = new lite::cv::face::pose::FSANet(onnx_path);
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  lite::types::EulerAngles euler_angles;
+  fsanet->detect(img_bgr, euler_angles);
+  
+  if (euler_angles.flag)
+  {
+    lite::utils::draw_axis_inplace(img_bgr, euler_angles);
+    cv::imwrite(save_img_path, img_bgr);
+    std::cout << "yaw:" << euler_angles.yaw << " pitch:" << euler_angles.pitch << " row:" << euler_angles.roll << std::endl;
+  }
+  delete fsanet;
+}
+```
+
+输出的结果是:  
+<div align='center'>
+  <img src='logs/test_lite_fsanet.jpg' height="224px" width="224px">
+  <img src='logs/test_lite_fsanet_2.jpg' height="224px" width="224px">
+  <img src='logs/test_lite_fsanet_3.jpg' height="224px" width="224px">
+</div>  
+
+更多可用的头部姿态识别模型（欧拉角、yaw、pitch、roll）:
+```c++
+auto *pose = new lite::cv::face::pose::FSANet(onnx_path); // 1.2Mb only!
+```
+
+<div id="lite.ai.toolkit-style-transfer"></div>  
+
+#### 案例10: 使用 [FastStyleTransfer](https://github.com/onnx/models/tree/master/vision/style_transfer/fast_neural_style) 进行风格迁移. 请从Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2) 下载模型文件。
+```c++
+#include "lite/lite.h"
+
+static void test_default()
+{
+  std::string onnx_path = "../../../hub/onnx/cv/style-candy-8.onnx";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_fast_style_transfer.jpg";
+  std::string save_img_path = "../../../logs/test_lite_fast_style_transfer_candy.jpg";
+  
+  auto *fast_style_transfer = new lite::cv::style::FastStyleTransfer(onnx_path);
+ 
+  lite::types::StyleContent style_content;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  fast_style_transfer->detect(img_bgr, style_content);
+
+  if (style_content.flag) cv::imwrite(save_img_path, style_content.mat);
+  delete fast_style_transfer;
+}
+```
+输出的结果是:  
+
+<div align='center'>
+  <img src='examples/lite/resources/test_lite_fast_style_transfer.jpg' height="224px">
+  <img src='logs/test_lite_fast_style_transfer_candy.jpg' height="224px">
+  <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="224px">  
+  <br> 
+  <img src='logs/test_lite_fast_style_transfer_pointilism.jpg' height="224px">
+  <img src='logs/test_lite_fast_style_transfer_rain_princes.jpg' height="224px">
+  <img src='logs/test_lite_fast_style_transfer_udnie.jpg' height="224px">
+</div>
+
+更多可用的风格迁移模型（自然风格迁移、其他）:
+```c++
+auto *transfer = new lite::cv::style::FastStyleTransfer(onnx_path); // 6.4Mb only
+```
+
+<!-----
 
 <details>
 <summary> ⚠️ 展开Lite.AI.ToolKit所有算法模块的应用案例 </summary>  
@@ -1178,7 +1465,9 @@ static void test_default()
 
 </details>
 
-</details>
+</details>  
+
+------>
 
 ## 4. 开源协议
 
