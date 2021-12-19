@@ -496,8 +496,8 @@ static void test_default()
 
 更多可用的抠图模型（图片抠图、视频抠图、trimap/mask-free、trimap/mask-based）:
 ```c++
-auto *detector = new lite::cv::matting::RobustVideoMatting:(onnx_path);  //  WACV 2022.
-auto *detector = new lite::cv::matting::MGMatting(onnx_path); // CVPR 2021
+auto *matting = new lite::cv::matting::RobustVideoMatting:(onnx_path);  //  WACV 2022.
+auto *matting = new lite::cv::matting::MGMatting(onnx_path); // CVPR 2021
 ```
 
 ****

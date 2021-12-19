@@ -496,8 +496,8 @@ The output is:
 
 More classes for matting (image matting, video matting, trimap/mask-free, trimap/mask-based)
 ```c++
-auto *detector = new lite::cv::matting::RobustVideoMatting:(onnx_path);  //  WACV 2022.
-auto *detector = new lite::cv::matting::MGMatting(onnx_path); // CVPR 2021
+auto *matting = new lite::cv::matting::RobustVideoMatting:(onnx_path);  //  WACV 2022.
+auto *matting = new lite::cv::matting::MGMatting(onnx_path); // CVPR 2021
 ```
 
 
