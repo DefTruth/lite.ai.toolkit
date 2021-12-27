@@ -67,6 +67,8 @@ namespace mnncv
   class LITE_EXPORTS MNNDeepLabV3ResNet101;          // [53] * reference: https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/
   class LITE_EXPORTS MNNFCNResNet101;                // [54] * reference: https://pytorch.org/hub/pytorch_vision_fcn_resnet101/
   class LITE_EXPORTS MNNMGMatting;                   // [55] * reference: https://github.com/yucornetto/MGMatting
+  class LITE_EXPORTS MNNNanoDetPlus;                 // [56] * reference: https://github.com/RangiLyu/nanodet
+
 
 }
 

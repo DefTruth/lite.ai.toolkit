@@ -68,6 +68,8 @@ namespace ncnncv
   class LITE_EXPORTS NCNNSubPixelCNN;                            // [53] * reference: https://github.com/niazwazir/SUB_PIXEL_CNN
   class LITE_EXPORTS NCNNDeepLabV3ResNet101;                     // [54] * reference: https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/
   class LITE_EXPORTS NCNNFCNResNet101;                           // [55] * reference: https://pytorch.org/hub/pytorch_vision_fcn_resnet101/
+  class LITE_EXPORTS NCNNNanoDetPlus;                            // [56] * reference: https://github.com/RangiLyu/nanodet
+
 
 }
 

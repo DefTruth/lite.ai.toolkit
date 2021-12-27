@@ -67,6 +67,8 @@ namespace tnncv
   class LITE_EXPORTS TNNDeepLabV3ResNet101;          // [53] * reference: https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/
   class LITE_EXPORTS TNNFCNResNet101;                // [54] * reference: https://pytorch.org/hub/pytorch_vision_fcn_resnet101/
   class LITE_EXPORTS TNNMGMatting;                   // [55] * reference: https://github.com/yucornetto/MGMatting
+  class LITE_EXPORTS TNNNanoDetPlus;                 // [56] * reference: https://github.com/RangiLyu/nanodet
+
 }
 
 namespace tnncv
