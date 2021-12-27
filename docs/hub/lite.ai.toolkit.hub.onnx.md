@@ -131,7 +131,10 @@ You can download all the pretrained models files of ONNX format from ([Baidu Dri
 |     *lite::cv::detection::YoloV5_V_6_0*     |          yolov5s6.1280-1280.v.6.0.onnx           |      [yolov5](https://github.com/ultralytics/yolov5)      | 50Mb  |
 |     *lite::cv::detection::YoloV5_V_6_0*     |          yolov5x6.1280-1280.v.6.0.onnx           |      [yolov5](https://github.com/ultralytics/yolov5)      | 538Mb |
 |     *lite::cv::detection::YoloV5_V_6_0*     |          yolov5n6.1280-1280.v.6.0.onnx           |      [yolov5](https://github.com/ultralytics/yolov5)      | 14Mb |
-
+| *lite::cv::detection::NanoDetPlus* |    nanodet-plus-m_320.onnx     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 4.5Mb  |
+| *lite::cv::detection::NanoDetPlus* |    nanodet-plus-m_416.onnx     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 4.5Mb  |
+| *lite::cv::detection::NanoDetPlus* |    nanodet-plus-m-1.5x_320.onnx     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 9.4Mb  |
+| *lite::cv::detection::NanoDetPlus* |    nanodet-plus-m-1.5x_416.onnx     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 9.4Mb  |
 
 ## Classification.  
 

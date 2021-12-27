@@ -148,7 +148,7 @@ void MNNNanoDetPlus::generate_bboxes(const NanoPlusScaleParams &scale_params,
 
   unsigned int count = 0;
 
-
+  bbox_collection.clear();
   for (unsigned int i = 0; i < num_points; ++i)
   {
     const float *scores = output_pred_ptr + i * num_cls_reg; // row ptr
@@ -207,8 +207,6 @@ void MNNNanoDetPlus::generate_bboxes(const NanoPlusScaleParams &scale_params,
     if (count > max_nms)
       break;
   }
-
-  bbox_collection.clear();
 
 #if LITEMNN_DEBUG
   std::cout << "generate_bboxes num: " << bbox_collection.size() << "\n";

@@ -134,7 +134,6 @@ void NCNNNanoDetPlus::generate_bboxes(const NanoPlusScaleParams &scale_params,
 #endif
   this->generate_points(input_height, input_width);
 
-  bbox_collection.clear();
   // level 8, 16, 32, 64
   const unsigned int num_classes = 80;
   const unsigned int num_cls_reg = output_pred.w; // 112
@@ -147,6 +146,7 @@ void NCNNNanoDetPlus::generate_bboxes(const NanoPlusScaleParams &scale_params,
 
   unsigned int count = 0;
 
+  bbox_collection.clear();
   for (unsigned int i = 0; i < num_points; ++i)
   {
     const float *scores = output_pred.row(i); // row ptr

@@ -138,7 +138,7 @@ void NanoDetPlus::generate_bboxes(const NanoPlusScaleParams &scale_params,
 
   unsigned int count = 0;
 
-
+  bbox_collection.clear();
   for (unsigned int i = 0; i < num_points; ++i)
   {
     const float *scores = output_pred_ptr + i * num_cls_reg; // row ptr
