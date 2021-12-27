@@ -1,22 +1,22 @@
 //
-// Created by DefTruth on 2021/10/2.
+// Created by DefTruth on 2021/12/27.
 //
 
-#ifndef LITE_AI_TOOLKIT_ORT_CV_NANODET_H
-#define LITE_AI_TOOLKIT_ORT_CV_NANODET_H
+#ifndef LITE_AI_TOOLKIT_ORT_CV_NANODET_PLUS_H
+#define LITE_AI_TOOLKIT_ORT_CV_NANODET_PLUS_H
 
 #include "lite/ort/core/ort_core.h"
 
 namespace ortcv
 {
-  class LITE_EXPORTS NanoDet : public BasicOrtHandler
+  class LITE_EXPORTS NanoDetPlus : public BasicOrtHandler
   {
   public:
-    explicit NanoDet(const std::string &_onnx_path, unsigned int _num_threads = 1) :
+    explicit NanoDetPlus(const std::string &_onnx_path, unsigned int _num_threads = 1) :
         BasicOrtHandler(_onnx_path, _num_threads)
     {};
 
-    ~NanoDet() override = default;
+    ~NanoDetPlus() override = default;
 
   private:
     // nested classes
@@ -25,7 +25,7 @@ namespace ortcv
       float grid0;
       float grid1;
       float stride;
-    } NanoCenterPoint;
+    } NanoPlusCenterPoint;
 
     typedef struct
     {
@@ -33,7 +33,7 @@ namespace ortcv
       int dw;
       int dh;
       bool flag;
-    } NanoScaleParams;
+    } NanoPlusScaleParams;
 
   private:
     const float mean_vals[3] = {103.53f, 116.28f, 123.675f}; // BGR
@@ -54,12 +54,11 @@ namespace ortcv
     {
       HARD = 0, BLEND = 1, OFFSET = 2
     };
-    static constexpr const unsigned int nms_pre = 1000;
     static constexpr const unsigned int max_nms = 30000;
 
     // multi-levels center points
-    std::vector<unsigned int> strides = {8, 16, 32};
-    std::unordered_map<unsigned int, std::vector<NanoCenterPoint>> center_points;
+    std::vector<unsigned int> strides = {8, 16, 32, 64};
+    std::vector<NanoPlusCenterPoint> center_points;
     bool center_points_is_update = false;
 
   private:
@@ -69,21 +68,13 @@ namespace ortcv
                         cv::Mat &mat_rs,
                         int target_height,
                         int target_width,
-                        NanoScaleParams &scale_params);
+                        NanoPlusScaleParams &scale_params);
 
     // only generate once
     void generate_points(unsigned int target_height, unsigned int target_width);
 
-    void generate_bboxes_single_stride(const NanoScaleParams &scale_params,
-                                       Ort::Value &cls_pred,
-                                       Ort::Value &dis_pred,
-                                       unsigned int stride,
-                                       float score_threshold,
-                                       float img_height,
-                                       float img_width,
-                                       std::vector<types::Boxf> &bbox_collection);
 
-    void generate_bboxes(const NanoScaleParams &scale_params,
+    void generate_bboxes(const NanoPlusScaleParams &scale_params,
                          std::vector<types::Boxf> &bbox_collection,
                          std::vector<Ort::Value> &output_tensors,
                          float score_threshold, float img_height,
@@ -109,4 +100,4 @@ namespace ortcv
 
 }
 
-#endif //LITE_AI_TOOLKIT_ORT_CV_NANODET_H
+#endif //LITE_AI_TOOLKIT_ORT_CV_NANODET_PLUS_H

@@ -10,7 +10,8 @@ using ncnncv::NCNNNanoDetDepreciated;
 NCNNNanoDetDepreciated::NCNNNanoDetDepreciated(const std::string &_param_path,
                                                const std::string &_bin_path,
                                                unsigned int _num_threads,
-                                               int _input_height, int _input_width) :
+                                               int _input_height,
+                                               int _input_width) :
     BasicNCNNHandler(_param_path, _bin_path, _num_threads)
 {
   input_height = _input_height;
@@ -124,7 +125,8 @@ void NCNNNanoDetDepreciated::generate_bboxes(const NanoDepreciatedScaleParams &s
                                              std::vector<types::Boxf> &bbox_collection,
                                              ncnn::Extractor &extractor,
                                              float score_threshold,
-                                             float img_height, float img_width)
+                                             float img_height,
+                                             float img_width)
 {
   ncnn::Mat cls_pred_stride_8;
   ncnn::Mat cls_pred_stride_16;
