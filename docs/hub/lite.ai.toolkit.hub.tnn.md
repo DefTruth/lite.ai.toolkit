@@ -50,6 +50,10 @@ You can download all the pretrained models files of TNN format from ([Baidu Driv
 |     *lite::tnn::cv::detection::YoloV5_V_6_0*     |          yolov5m6.1280-1280.v.6.0.opt.tnnproto&tnnmodel           |      [yolov5](https://github.com/ultralytics/yolov5)      | 128Mb  |
 |     *lite::tnn::cv::detection::YoloV5_V_6_0*     |          yolov5s6.1280-1280.v.6.0.opt.tnnproto&tnnmodel           |      [yolov5](https://github.com/ultralytics/yolov5)      | 50Mb  |
 |     *lite::tnn::cv::detection::YoloV5_V_6_0*     |          yolov5n6.1280-1280.v.6.0.opt.tnnproto&tnnmodel           |      [yolov5](https://github.com/ultralytics/yolov5)      | 14Mb |
+| *lite::mnn::cv::detection::NanoDetPlus* |    nanodet-plus-m_320.opt.tnnproto&tnnmodel     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 4.5Mb  |
+| *lite::mnn::cv::detection::NanoDetPlus* |    nanodet-plus-m_416.opt.tnnproto&tnnmodel     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 4.5Mb  |
+| *lite::mnn::cv::detection::NanoDetPlus* |    nanodet-plus-m-1.5x_320.opt.tnnproto&tnnmodel     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 9.4Mb  |
+| *lite::mnn::cv::detection::NanoDetPlus* |    nanodet-plus-m-1.5x_416.opt.tnnproto&tnnmodel     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 9.4Mb  |
 
 
 ## Matting.

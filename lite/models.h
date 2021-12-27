@@ -83,6 +83,7 @@
 #include "lite/ort/cv/yolox_v0.1.1.h"
 #include "lite/ort/cv/yolov5_v6.0.h"
 #include "lite/ort/cv/mg_matting.h"
+#include "lite/ort/cv/nanodet_plus.h"
 
 #endif
 
@@ -147,6 +148,7 @@
 #include "lite/mnn/cv/mnn_fast_style_transfer.h"
 #include "lite/mnn/cv/mnn_subpixel_cnn.h"
 #include "lite/mnn/cv/mnn_mg_matting.h"
+#include "lite/mnn/cv/mnn_nanodet_plus.h"
 
 #endif
 
@@ -211,6 +213,7 @@
 #include "lite/ncnn/cv/ncnn_colorizer.h"
 #include "lite/ncnn/cv/ncnn_fast_style_transfer.h"
 #include "lite/ncnn/cv/ncnn_subpixel_cnn.h"
+#include "lite/ncnn/cv/ncnn_nanodet_plus.h"
 
 #endif
 
@@ -275,6 +278,7 @@
 #include "lite/tnn/cv/tnn_fast_style_transfer.h"
 #include "lite/tnn/cv/tnn_subpixel_cnn.h"
 #include "lite/tnn/cv/tnn_mg_matting.h"
+#include "lite/tnn/cv/tnn_nanodet_plus.h"
 
 #endif
 
@@ -355,6 +359,7 @@ namespace lite
     typedef ortcv::YoloX_V_0_1_1 _YoloX_V_0_1_1;
     typedef ortcv::YoloV5_V_6_0 _YoloV5_V_6_0;
     typedef ortcv::MGMatting _MGMatting;
+    typedef ortcv::NanoDetPlus _NanoDetPlus;
 #endif
 
     // 1. classification
@@ -396,6 +401,7 @@ namespace lite
       typedef _NanoDetEfficientNetLite NanoDetEfficientNetLite;
       typedef _YoloX_V_0_1_1 YoloX_V_0_1_1;
       typedef _YoloV5_V_6_0 YoloV5_V_6_0;
+      typedef _NanoDetPlus NanoDetPlus;
 #endif
     }
     // 3. face detection & facial attributes detection
@@ -696,6 +702,7 @@ namespace lite
       typedef ortcv::YoloX_V_0_1_1 _ONNXYoloX_V_0_1_1;
       typedef ortcv::YoloV5_V_6_0 _ONNXYoloV5_V_6_0;
       typedef ortcv::MGMatting _ONNXMGMatting;
+      typedef ortcv::NanoDetPlus _ONNXNanoDetPlus;
 
 
       // 1. classification
@@ -734,6 +741,7 @@ namespace lite
         typedef _ONNXNanoDetEfficientNetLite NanoDetEfficientNetLite;
         typedef _ONNXYoloX_V_0_1_1 YoloX_V_0_1_1;
         typedef _ONNXYoloV5_V_6_0 YoloV5_V_6_0;
+        typedef _ONNXNanoDetPlus NanoDetPlus;
       }
       // 3. face detection & facial attributes detection
       namespace face
@@ -900,6 +908,7 @@ namespace lite
         typedef mnncv::MNNYoloX_V_0_1_1 YoloX_V_0_1_1;
         typedef mnncv::MNNYoloR YoloR;
         typedef mnncv::MNNYoloV5_V_6_0 YoloV5_V_6_0;
+        typedef mnncv::MNNNanoDetPlus NanoDetPlus;
       }
       // face etc.
       namespace face
@@ -1033,6 +1042,7 @@ namespace lite
         typedef ncnncv::NCNNYoloRssss YoloRssss;
         typedef ncnncv::NCNNYoloV5_V_6_0 YoloV5_V_6_0;
         typedef ncnncv::NCNNYoloV5_V_6_0_P6 YoloV5_V_6_0_P6;
+        typedef ncnncv::NCNNNanoDetPlus NanoDetPlus;
       }
       // face etc.
       namespace face
@@ -1157,6 +1167,7 @@ namespace lite
         typedef tnncv::TNNYoloX_V_0_1_1 YoloX_V_0_1_1;
         typedef tnncv::TNNYoloR YoloR;
         typedef tnncv::TNNYoloV5_V_6_0 YoloV5_V_6_0;
+        typedef tnncv::TNNNanoDetPlus NanoDetPlus;
       }
       // face etc.
       namespace face

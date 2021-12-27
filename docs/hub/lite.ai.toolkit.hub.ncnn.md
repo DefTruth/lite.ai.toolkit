@@ -59,6 +59,11 @@ You can download all the pretrained models files of NCNN format from ([Baidu Dri
 |     *lite::ncnn::cv::detection::YoloV5_V_6_0_P6*     |          yolov5m6.1280-1280.v.6.0.opt.param&bin           |      [yolov5](https://github.com/ultralytics/yolov5)      | 128Mb  |
 |     *lite::ncnn::cv::detection::YoloV5_V_6_0_P6*     |          yolov5s6.1280-1280.v.6.0.opt.param&bin           |      [yolov5](https://github.com/ultralytics/yolov5)      | 50Mb  |
 |     *lite::ncnn::cv::detection::YoloV5_V_6_0_P6*     |          yolov5n6.1280-1280.v.6.0.opt.param&bin           |      [yolov5](https://github.com/ultralytics/yolov5)      | 14Mb |
+| *lite::ncnn::cv::detection::NanoDetPlus* |    nanodet-plus-m_320.opt.param&bin      |       [nanodet](https://github.com/RangiLyu/nanodet)       | 4.5Mb  |
+| *lite::ncnn::cv::detection::NanoDetPlus* |    nanodet-plus-m_416.opt.param&bin      |       [nanodet](https://github.com/RangiLyu/nanodet)       | 4.5Mb  |
+| *lite::ncnn::cv::detection::NanoDetPlus* |    nanodet-plus-m-1.5x_320.opt.param&bin      |       [nanodet](https://github.com/RangiLyu/nanodet)       | 9.4Mb  |
+| *lite::ncnn::cv::detection::NanoDetPlus* |    nanodet-plus-m-1.5x_416.opt.param&bin      |       [nanodet](https://github.com/RangiLyu/nanodet)       | 9.4Mb  |
+
 
 
 ## Matting.

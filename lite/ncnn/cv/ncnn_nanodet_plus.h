@@ -1,22 +1,23 @@
 //
-// Created by DefTruth on 2021/10/2.
+// Created by DefTruth on 2021/12/27.
 //
 
-#ifndef LITE_AI_TOOLKIT_ORT_CV_NANODET_H
-#define LITE_AI_TOOLKIT_ORT_CV_NANODET_H
+#ifndef LITE_AI_TOOLKIT_NCNN_CV_NCNN_NANODET_PLUS_H
+#define LITE_AI_TOOLKIT_NCNN_CV_NCNN_NANODET_PLUS_H
 
-#include "lite/ort/core/ort_core.h"
+#include "lite/ncnn/core/ncnn_core.h"
 
-namespace ortcv
+namespace ncnncv
 {
-  class LITE_EXPORTS NanoDet : public BasicOrtHandler
+  class LITE_EXPORTS NCNNNanoDetPlus : public BasicNCNNHandler
   {
   public:
-    explicit NanoDet(const std::string &_onnx_path, unsigned int _num_threads = 1) :
-        BasicOrtHandler(_onnx_path, _num_threads)
-    {};
-
-    ~NanoDet() override = default;
+    explicit NCNNNanoDetPlus(const std::string &_param_path,
+                             const std::string &_bin_path,
+                             unsigned int _num_threads = 1,
+                             int _input_height = 320,
+                             int _input_width = 320); //
+    ~NCNNNanoDetPlus() override = default;
 
   private:
     // nested classes
@@ -25,7 +26,7 @@ namespace ortcv
       float grid0;
       float grid1;
       float stride;
-    } NanoCenterPoint;
+    } NanoPlusCenterPoint;
 
     typedef struct
     {
@@ -33,11 +34,11 @@ namespace ortcv
       int dw;
       int dh;
       bool flag;
-    } NanoScaleParams;
+    } NanoPlusScaleParams;
 
   private:
     const float mean_vals[3] = {103.53f, 116.28f, 123.675f}; // BGR
-    const float scale_vals[3] = {0.017429f, 0.017507f, 0.017125f};
+    const float norm_vals[3] = {0.017429f, 0.017507f, 0.017125f};
 
     const char *class_names[80] = {
         "person", "bicycle", "car", "motorcycle", "airplane", "bus", "train", "truck", "boat", "traffic light",
@@ -54,38 +55,31 @@ namespace ortcv
     {
       HARD = 0, BLEND = 1, OFFSET = 2
     };
-    static constexpr const unsigned int nms_pre = 1000;
     static constexpr const unsigned int max_nms = 30000;
 
     // multi-levels center points
-    std::vector<unsigned int> strides = {8, 16, 32};
-    std::unordered_map<unsigned int, std::vector<NanoCenterPoint>> center_points;
+    int input_height = 320;
+    int input_width = 320;
+    std::vector<unsigned int> strides = {8, 16, 32, 64};
+    std::vector<NanoPlusCenterPoint> center_points;
     bool center_points_is_update = false;
 
   private:
-    Ort::Value transform(const cv::Mat &mat_rs) override; // without resize
+
+    void transform(const cv::Mat &mat_rs, ncnn::Mat &in) override;
 
     void resize_unscale(const cv::Mat &mat,
                         cv::Mat &mat_rs,
                         int target_height,
                         int target_width,
-                        NanoScaleParams &scale_params);
+                        NanoPlusScaleParams &scale_params);
 
     // only generate once
     void generate_points(unsigned int target_height, unsigned int target_width);
 
-    void generate_bboxes_single_stride(const NanoScaleParams &scale_params,
-                                       Ort::Value &cls_pred,
-                                       Ort::Value &dis_pred,
-                                       unsigned int stride,
-                                       float score_threshold,
-                                       float img_height,
-                                       float img_width,
-                                       std::vector<types::Boxf> &bbox_collection);
-
-    void generate_bboxes(const NanoScaleParams &scale_params,
+    void generate_bboxes(const NanoPlusScaleParams &scale_params,
                          std::vector<types::Boxf> &bbox_collection,
-                         std::vector<Ort::Value> &output_tensors,
+                         ncnn::Extractor &extractor,
                          float score_threshold, float img_height,
                          float img_width); // rescale & exclude
 
@@ -104,9 +98,7 @@ namespace ortcv
     void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
                 float score_threshold = 0.45f, float iou_threshold = 0.3f,
                 unsigned int topk = 100, unsigned int nms_type = NMS::OFFSET);
-
   };
-
 }
 
-#endif //LITE_AI_TOOLKIT_ORT_CV_NANODET_H
+#endif //LITE_AI_TOOLKIT_NCNN_CV_NCNN_NANODET_PLUS_H
