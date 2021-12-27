@@ -135,6 +135,79 @@ void MNNNanoDetPlus::generate_bboxes(const NanoPlusScaleParams &scale_params,
   device_output_pred->copyToHostTensor(&host_output_pred);
   this->generate_points(input_height, input_width); // e.g 320 320
 
+  auto output_pred_dims = host_output_pred.shape(); // e.g [1,2125,112]
+  const unsigned int num_classes = 80;
+  const unsigned int num_cls_reg = output_pred_dims.at(2); // 112
+  const unsigned int reg_max = (num_cls_reg - num_classes) / 4; // e.g 8=7+1
+  const unsigned int num_points = center_points.size();
+  const float *output_pred_ptr = host_output_pred.host<float>();
+
+  float ratio = scale_params.ratio;
+  int dw = scale_params.dw;
+  int dh = scale_params.dh;
+
+  unsigned int count = 0;
+
+
+  for (unsigned int i = 0; i < num_points; ++i)
+  {
+    const float *scores = output_pred_ptr + i * num_cls_reg; // row ptr
+    float cls_conf = scores[0];
+    unsigned int label = 0;
+    for (unsigned int j = 0; j < num_classes; ++j)
+    {
+      float tmp_conf = scores[j];
+      if (tmp_conf > cls_conf)
+      {
+        cls_conf = tmp_conf;
+        label = j;
+      }
+    } // argmax
+    if (cls_conf < score_threshold) continue; // filter
+
+    auto &point = center_points.at(i);
+    const float cx = point.grid0; // cx
+    const float cy = point.grid1; // cy
+    const float s = point.stride; // stride
+
+    const float *logits = output_pred_ptr + i * num_cls_reg + num_classes;  // 32|44...
+    std::vector<float> offsets(4);
+    for (unsigned int k = 0; k < 4; ++k)
+    {
+      float offset = 0.f;
+      unsigned int max_id;
+      auto probs = lite::utils::math::softmax<float>(
+          logits + (k * reg_max), reg_max, max_id);
+      for (unsigned int l = 0; l < reg_max; ++l)
+        offset += (float) l * probs[l];
+      offsets[k] = offset;
+    }
+
+    float l = offsets[0]; // left
+    float t = offsets[1]; // top
+    float r = offsets[2]; // right
+    float b = offsets[3]; // bottom
+
+    types::Boxf box;
+    float x1 = ((cx - l) * s - (float) dw) / ratio;  // cx - l x1
+    float y1 = ((cy - t) * s - (float) dh) / ratio;  // cy - t y1
+    float x2 = ((cx + r) * s - (float) dw) / ratio;  // cx + r x2
+    float y2 = ((cy + b) * s - (float) dh) / ratio;  // cy + b y2
+    box.x1 = std::max(0.f, x1);
+    box.y1 = std::max(0.f, y1);
+    box.x2 = std::min(img_width, x2);
+    box.y2 = std::min(img_height, y2);
+    box.score = cls_conf;
+    box.label = label;
+    box.label_text = class_names[label];
+    box.flag = true;
+    bbox_collection.push_back(box);
+
+    count += 1; // limit boxes for nms.
+    if (count > max_nms)
+      break;
+  }
+
   bbox_collection.clear();
 
 #if LITEMNN_DEBUG
