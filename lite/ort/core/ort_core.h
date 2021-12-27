@@ -93,6 +93,7 @@ namespace ortcv
   class LITE_EXPORTS YoloX_V_0_1_1;              // [78] * reference: https://github.com/Megvii-BaseDetection/YOLOX
   class LITE_EXPORTS YoloV5_V_6_0;               // [79] * reference: https://github.com/ultralytics/yolov5
   class LITE_EXPORTS MGMatting;                  // [80] * reference: https://github.com/yucornetto/MGMatting
+  class LITE_EXPORTS NanoDetPlus;                // [81] * reference: https://github.com/RangiLyu/nanodet
 
 }
 

@@ -168,7 +168,7 @@ void NCNNNanoDetDepreciated::generate_bboxes_single_stride(const NanoDepreciated
   const unsigned int num_classes = 80;
 
   const unsigned int dis_pred_w = dis_pred.w;
-  const unsigned int reg_max = dis_pred_w / 4; // e.g 8
+  const unsigned int reg_max = dis_pred_w / 4; // e.g 8=7+1
 
   float ratio = scale_params.ratio;
   int dw = scale_params.dw;

@@ -28,21 +28,15 @@
 <p align="center">English | <a href="README.zh.md">中文文档</a> | <a href=#lite.ai.toolkit-Build-MacOS>MacOS</a> | <a href=#lite.ai.toolkit-Build-Linux>Linux</a> | <a href=#lite.ai.toolkit-Build-Windows>Windows</a> </p>
 
 <div align='center'>
-  <img src=https://img.shields.io/badge/MacOS-pass-brightgreen.svg >
-  <img src=https://img.shields.io/badge/Linux-unofficial-blue.svg >
-  <img src=https://img.shields.io/badge/Windows-unofficial-blue.svg >
-  <img src=https://img.shields.io/badge/Version-0.1.0-green.svg >
-  <img src=https://img.shields.io/badge/Language-C%2B%2B-orange.svg >
-  <img src=https://img.shields.io/badge/Device-GPU/CPU-yellow.svg >
-  <img src=https://img.shields.io/badge/License-GPLv3-blue.svg >
+  <img src=https://img.shields.io/badge/mac|linux|win-pass-brightgreen.svg >
+  <img src=https://img.shields.io/badge/device-GPU/CPU-yellow.svg >
+  <img src=https://img.shields.io/badge/license-GPLv3-blue.svg >
+  <img src=https://img.shields.io/badge/onnxruntime-1.7.1-turquoise.svg >
+  <img src=https://img.shields.io/badge/mnn-1.2.0-hotpink.svg >
+  <img src=https://img.shields.io/badge/ncnn-1.0.21-orange.svg >
+  <img src=https://img.shields.io/badge/tnn-0.3.0-blue.svg >
 </div>   
 
-<div align='center'> 
-  <img src=https://img.shields.io/badge/ONNXRuntime-support-brightgreen.svg >
-  <img src=https://img.shields.io/badge/MNN-support-brightgreen.svg >
-  <img src=https://img.shields.io/badge/NCNN-support-brightgreen.svg >
-  <img src=https://img.shields.io/badge/TNN-support-brightgreen.svg >
-</div>    
 
 <!-----
 <div align='center'> 
