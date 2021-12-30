@@ -69,8 +69,7 @@ namespace ncnncv
   class LITE_EXPORTS NCNNDeepLabV3ResNet101;                     // [54] * reference: https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/
   class LITE_EXPORTS NCNNFCNResNet101;                           // [55] * reference: https://pytorch.org/hub/pytorch_vision_fcn_resnet101/
   class LITE_EXPORTS NCNNNanoDetPlus;                            // [56] * reference: https://github.com/RangiLyu/nanodet
-
-
+  class LITE_EXPORTS NCNNSCRFD;                                  // [57] * reference: https://github.com/deepinsight/insightface/tree/master/detection/scrfd
 }
 
 namespace ncnncv
