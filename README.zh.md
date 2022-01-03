@@ -73,7 +73,7 @@
 |【2021/11/11】|[YoloV5_V_6_0](https://github.com/ultralytics/yolov5/releases/tag/v6.0)|[[link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolov5_v6.0.cpp)]|[[doi](https://zenodo.org/record/5563715#.YbXffH1Bzfs)]|[[code](https://github.com/ultralytics/yolov5/releases/tag/v6.0)]|![](https://img.shields.io/github/stars/ultralytics/yolov5.svg?style=social)| detection |
 |【2021/10/26】|[YoloX_V_0_1_1](https://github.com/Megvii-BaseDetection/YOLOX/releases/tag/0.1.1rc0)|[[link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolox_v0.1.1.cpp)]|[[arXiv 2021](https://arxiv.org/abs/2107.08430)]|[[code](https://github.com/Megvii-BaseDetection/YOLOX)]|![](https://img.shields.io/github/stars/Megvii-BaseDetection/YOLOX.svg?style=social)| detection |
 |【2021/10/02】|[NanoDet](https://github.com/RangiLyu/nanodet)|[[link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp)]|[[blog](https://zhuanlan.zhihu.com/p/306530300)]|[[code](https://github.com/RangiLyu/nanodet)]|![](https://img.shields.io/github/stars/RangiLyu/nanodet.svg?style=social)| detection |
-|【2021/09/20】|[RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)|[[link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_rvm.cpp)]|[[WACV 2021](https://arxiv.org/abs/2108.11515)]|[[code](https://github.com/PeterL1n/RobustVideoMatting)]|![](https://img.shields.io/github/stars/PeterL1n/RobustVideoMatting.svg?style=social)| matting |
+|【2021/09/20】|[RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)|[[link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_rvm.cpp)]|[[WACV 2022](https://arxiv.org/abs/2108.11515)]|[[code](https://github.com/PeterL1n/RobustVideoMatting)]|![](https://img.shields.io/github/stars/PeterL1n/RobustVideoMatting.svg?style=social)| matting |
 |【2021/09/02】|[YOLOP](https://github.com/hustvl/YOLOP)|[[link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolop.cpp)]|[[arXiv 2021](https://arxiv.org/abs/2108.11250)]|[[code](https://github.com/hustvl/YOLOP)]|![](https://img.shields.io/github/stars/hustvl/YOLOP.svg?style=social)| detection |
 
 
@@ -439,6 +439,7 @@ auto *detector = new lite::cv::detection::EfficientDetD7(onnx_path);
 auto *detector = new lite::cv::detection::EfficientDetD8(onnx_path); 
 auto *detector = new lite::cv::detection::YOLOP(onnx_path);
 auto *detector = new lite::cv::detection::NanoDet(onnx_path); // Super fast and tiny!
+auto *detector = new lite::cv::detection::NanoDetPlus(onnx_path); // Super fast and tiny! 2021/12/25
 auto *detector = new lite::cv::detection::NanoDetEfficientNetLite(onnx_path); // Super fast and tiny!
 ```
 
