@@ -249,9 +249,11 @@ void SCRFD::generate_bboxes_single_stride(
 
   if (bbox_kps_collection.size() > nms_pre_)
   {
-    std::sort(bbox_kps_collection.begin(), bbox_kps_collection.end(),
-              [](const types::Boxf &a, const types::Boxf &b)
-              { return a.score > b.score; }); // sort inplace
+    std::sort(
+        bbox_kps_collection.begin(), bbox_kps_collection.end(),
+        [](const types::BoxfWithLandmarks &a, const types::BoxfWithLandmarks &b)
+        { return a.box.score > b.box.score; }
+    ); // sort inplace
     // trunc
     bbox_kps_collection.resize(nms_pre_);
   }
@@ -334,9 +336,11 @@ void SCRFD::generate_bboxes_kps_single_stride(
 
   if (bbox_kps_collection.size() > nms_pre_)
   {
-    std::sort(bbox_kps_collection.begin(), bbox_kps_collection.end(),
-              [](const types::Boxf &a, const types::Boxf &b)
-              { return a.score > b.score; }); // sort inplace
+    std::sort(
+        bbox_kps_collection.begin(), bbox_kps_collection.end(),
+        [](const types::BoxfWithLandmarks &a, const types::BoxfWithLandmarks &b)
+        { return a.box.score > b.box.score; }
+    ); // sort inplace
     // trunc
     bbox_kps_collection.resize(nms_pre_);
   }
