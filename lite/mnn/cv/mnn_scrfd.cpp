@@ -11,6 +11,7 @@ MNNSCRFD::MNNSCRFD(const std::string &_mnn_path, unsigned int _num_threads) :
     BasicMNNHandler(_mnn_path, _num_threads)
 {
   initialize_pretreat();
+  initial_context();
 }
 
 inline void MNNSCRFD::initialize_pretreat()
@@ -18,7 +19,7 @@ inline void MNNSCRFD::initialize_pretreat()
   pretreat = std::shared_ptr<MNN::CV::ImageProcess>(
       MNN::CV::ImageProcess::create(
           MNN::CV::BGR,
-          MNN::CV::BGR,
+          MNN::CV::RGB,
           mean_vals, 3,
           norm_vals, 3
       )
@@ -186,22 +187,22 @@ void MNNSCRFD::generate_bboxes_kps(const SCRFDScaleParams &scale_params,
     device_kps_32->copyToHostTensor(&host_kps_32);
 
     // level 8 & 16 & 32 with kps
-    this->generate_bboxes_kps_single_stride(scale_params, score_8, bbox_8, kps_8, 8, score_threshold,
+    this->generate_bboxes_kps_single_stride(scale_params, host_score_8, host_bbox_8, host_kps_8, 8, score_threshold,
                                             img_height, img_width, bbox_kps_collection);
-    this->generate_bboxes_kps_single_stride(scale_params, score_16, bbox_16, kps_16, 16, score_threshold,
+    this->generate_bboxes_kps_single_stride(scale_params, host_score_16, host_bbox_16, host_kps_16, 16, score_threshold,
                                             img_height, img_width, bbox_kps_collection);
-    this->generate_bboxes_kps_single_stride(scale_params, score_32, bbox_32, kps_32, 32, score_threshold,
+    this->generate_bboxes_kps_single_stride(scale_params, host_score_32, host_bbox_32, host_kps_32, 32, score_threshold,
                                             img_height, img_width, bbox_kps_collection);
 
   } // no kps
   else
   {
     // level 8 & 16 & 32
-    this->generate_bboxes_single_stride(scale_params, score_8, bbox_8, 8, score_threshold,
+    this->generate_bboxes_single_stride(scale_params, host_score_8, host_bbox_8, 8, score_threshold,
                                         img_height, img_width, bbox_kps_collection);
-    this->generate_bboxes_single_stride(scale_params, score_16, bbox_16, 16, score_threshold,
+    this->generate_bboxes_single_stride(scale_params, host_score_16, host_bbox_16, 16, score_threshold,
                                         img_height, img_width, bbox_kps_collection);
-    this->generate_bboxes_single_stride(scale_params, score_32, bbox_32, 32, score_threshold,
+    this->generate_bboxes_single_stride(scale_params, host_score_32, host_bbox_32, 32, score_threshold,
                                         img_height, img_width, bbox_kps_collection);
   }
 
@@ -215,6 +216,70 @@ void MNNSCRFD::generate_bboxes_single_stride(
     unsigned int stride, float score_threshold, float img_height, float img_width,
     std::vector<types::BoxfWithLandmarks> &bbox_kps_collection)
 {
+  unsigned int nms_pre_ = (stride / 8) * nms_pre; // 1 * 1000,2*1000,...
+  nms_pre_ = nms_pre_ >= nms_pre ? nms_pre_ : nms_pre;
+
+  auto stride_dims = score_pred.shape();
+  const unsigned int num_points = stride_dims.at(1);  // 12800
+  const float *score_ptr = score_pred.host<float>();  // [1,12800,1]
+  const float *bbox_ptr = bbox_pred.host<float>();    // [1,12800,4]
+
+  float ratio = scale_params.ratio;
+  int dw = scale_params.dw;
+  int dh = scale_params.dh;
+
+  unsigned int count = 0;
+  auto &stride_points = center_points[stride];
+
+  for (unsigned int i = 0; i < num_points; ++i)
+  {
+    const float cls_conf = score_ptr[i];
+    if (cls_conf < score_threshold) continue; // filter
+    auto &point = stride_points.at(i);
+    const float cx = point.cx; // cx
+    const float cy = point.cy; // cy
+    const float s = point.stride; // stride
+
+    // bbox
+    const float *offsets = bbox_ptr + i * 4;
+    float l = offsets[0]; // left
+    float t = offsets[1]; // top
+    float r = offsets[2]; // right
+    float b = offsets[3]; // bottom
+
+    types::BoxfWithLandmarks box_kps;
+    float x1 = ((cx - l) * s - (float) dw) / ratio;  // cx - l x1
+    float y1 = ((cy - t) * s - (float) dh) / ratio;  // cy - t y1
+    float x2 = ((cx + r) * s - (float) dw) / ratio;  // cx + r x2
+    float y2 = ((cy + b) * s - (float) dh) / ratio;  // cy + b y2
+    box_kps.box.x1 = std::max(0.f, x1);
+    box_kps.box.y1 = std::max(0.f, y1);
+    box_kps.box.x2 = std::min(img_width, x2);
+    box_kps.box.y2 = std::min(img_height, y2);
+    box_kps.box.score = cls_conf;
+    box_kps.box.label = 1;
+    box_kps.box.label_text = "face";
+    box_kps.box.flag = true;
+    box_kps.flag = true;
+
+    bbox_kps_collection.push_back(box_kps);
+
+    count += 1; // limit boxes for nms.
+    if (count > max_nms)
+      break;
+  }
+
+  if (bbox_kps_collection.size() > nms_pre_)
+  {
+    std::sort(
+        bbox_kps_collection.begin(), bbox_kps_collection.end(),
+        [](const types::BoxfWithLandmarks &a, const types::BoxfWithLandmarks &b)
+        { return a.box.score > b.box.score; }
+    ); // sort inplace
+    // trunc
+    bbox_kps_collection.resize(nms_pre_);
+  }
+
 
 }
 
@@ -223,6 +288,85 @@ void MNNSCRFD::generate_bboxes_kps_single_stride(
     MNN::Tensor &kps_pred, unsigned int stride, float score_threshold, float img_height,
     float img_width, std::vector<types::BoxfWithLandmarks> &bbox_kps_collection)
 {
+  unsigned int nms_pre_ = (stride / 8) * nms_pre; // 1 * 1000,2*1000,...
+  nms_pre_ = nms_pre_ >= nms_pre ? nms_pre_ : nms_pre;
+
+  auto stride_dims = score_pred.shape();
+  const unsigned int num_points = stride_dims.at(1);  // 12800
+  const float *score_ptr = score_pred.host<float>();  // [1,12800,1]
+  const float *bbox_ptr = bbox_pred.host<float>();    // [1,12800,4]
+  const float *kps_ptr = kps_pred.host<float>();      // [1,12800,10]
+
+  float ratio = scale_params.ratio;
+  int dw = scale_params.dw;
+  int dh = scale_params.dh;
+
+  unsigned int count = 0;
+  auto &stride_points = center_points[stride];
+
+  for (unsigned int i = 0; i < num_points; ++i)
+  {
+    const float cls_conf = score_ptr[i];
+    if (cls_conf < score_threshold) continue; // filter
+    auto &point = stride_points.at(i);
+    const float cx = point.cx; // cx
+    const float cy = point.cy; // cy
+    const float s = point.stride; // stride
+
+    // bbox
+    const float *offsets = bbox_ptr + i * 4;
+    float l = offsets[0]; // left
+    float t = offsets[1]; // top
+    float r = offsets[2]; // right
+    float b = offsets[3]; // bottom
+
+    types::BoxfWithLandmarks box_kps;
+    float x1 = ((cx - l) * s - (float) dw) / ratio;  // cx - l x1
+    float y1 = ((cy - t) * s - (float) dh) / ratio;  // cy - t y1
+    float x2 = ((cx + r) * s - (float) dw) / ratio;  // cx + r x2
+    float y2 = ((cy + b) * s - (float) dh) / ratio;  // cy + b y2
+    box_kps.box.x1 = std::max(0.f, x1);
+    box_kps.box.y1 = std::max(0.f, y1);
+    box_kps.box.x2 = std::min(img_width, x2);
+    box_kps.box.y2 = std::min(img_height, y2);
+    box_kps.box.score = cls_conf;
+    box_kps.box.label = 1;
+    box_kps.box.label_text = "face";
+    box_kps.box.flag = true;
+
+    // landmarks
+    const float *kps_offsets = kps_ptr + i * 10;
+    for (unsigned int j = 0; j < 10; j += 2)
+    {
+      cv::Point2f kps;
+      float kps_l = kps_offsets[j];
+      float kps_t = kps_offsets[j + 1];
+      float kps_x = ((cx - kps_l) * s - (float) dw) / ratio;  // cx - l x
+      float kps_y = ((cy - kps_t) * s - (float) dh) / ratio;  // cy - t y
+      kps.x = std::min(std::max(0.f, kps_x), img_width);
+      kps.y = std::min(std::max(0.f, kps_y), img_height);
+      box_kps.landmarks.points.push_back(kps);
+    }
+    box_kps.landmarks.flag = true;
+    box_kps.flag = true;
+
+    bbox_kps_collection.push_back(box_kps);
+
+    count += 1; // limit boxes for nms.
+    if (count > max_nms)
+      break;
+  }
+
+  if (bbox_kps_collection.size() > nms_pre_)
+  {
+    std::sort(
+        bbox_kps_collection.begin(), bbox_kps_collection.end(),
+        [](const types::BoxfWithLandmarks &a, const types::BoxfWithLandmarks &b)
+        { return a.box.score > b.box.score; }
+    ); // sort inplace
+    // trunc
+    bbox_kps_collection.resize(nms_pre_);
+  }
 
 }
 
@@ -269,28 +413,3 @@ void MNNSCRFD::nms_bboxes_kps(std::vector<types::BoxfWithLandmarks> &input,
       break;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
