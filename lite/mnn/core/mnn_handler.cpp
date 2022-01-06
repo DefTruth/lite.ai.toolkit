@@ -53,7 +53,8 @@ void BasicMNNHandler::initialize_handler()
     std::cout << "Dimension Type is CAFFE_C4, skip resizeTensor & resizeSession!\n";
 #endif
   }
-
+  // output count
+  num_outputs = mnn_interpreter->getSessionOutputAll(mnn_session).size();
 #ifdef LITEMNN_DEBUG
   this->print_debug_string();
 #endif

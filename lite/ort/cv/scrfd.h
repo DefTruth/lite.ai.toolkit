@@ -20,12 +20,12 @@ namespace ortcv
 
   private:
     // nested classes
-    struct SCRFDPoint
+    typedef struct
     {
       float cx;
       float cy;
       float stride;
-    };
+    } SCRFDPoint;
     typedef struct
     {
       float ratio;

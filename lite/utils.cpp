@@ -163,6 +163,68 @@ cv::Mat lite::utils::draw_boxes(const cv::Mat &mat, const std::vector<types::Box
   return canva;
 }
 
+void lite::utils::draw_boxes_with_landmarks_inplace(cv::Mat &mat_inplace, const std::vector<types::BoxfWithLandmarks> &boxes_kps)
+{
+  if (boxes_kps.empty()) return;
+  for (const auto &box_kps: boxes_kps)
+  {
+    if (box_kps.flag)
+    {
+      // box
+      if (box_kps.box.flag)
+      {
+        cv::rectangle(mat_inplace, box_kps.box.rect(), cv::Scalar(255, 255, 0), 2);
+        if (box_kps.box.label_text)
+        {
+          std::string label_text(box_kps.box.label_text);
+          label_text = label_text + ":" + std::to_string(box_kps.box.score).substr(0, 4);
+          cv::putText(mat_inplace, label_text, box_kps.box.tl(), cv::FONT_HERSHEY_SIMPLEX,
+                      0.6f, cv::Scalar(0, 255, 0), 2);
+
+        }
+      }
+      // landmarks
+      if (box_kps.landmarks.flag && !box_kps.landmarks.points.empty())
+      {
+        for (const auto &point: box_kps.landmarks.points)
+          cv::circle(mat_inplace, point, 2, cv::Scalar(0, 255, 0), -1);
+      }
+    }
+  }
+}
+
+cv::Mat lite::utils::draw_boxes_with_landmarks(const cv::Mat &mat, const std::vector<types::BoxfWithLandmarks> &boxes_kps)
+{
+  if (boxes_kps.empty()) return mat;
+  cv::Mat canva = mat.clone();
+  for (const auto &box_kps: boxes_kps)
+  {
+    if (box_kps.flag)
+    {
+      // box
+      if (box_kps.box.flag)
+      {
+        cv::rectangle(canva, box_kps.box.rect(), cv::Scalar(255, 255, 0), 2);
+        if (box_kps.box.label_text)
+        {
+          std::string label_text(box_kps.box.label_text);
+          label_text = label_text + ":" + std::to_string(box_kps.box.score).substr(0, 4);
+          cv::putText(canva, label_text, box_kps.box.tl(), cv::FONT_HERSHEY_SIMPLEX,
+                      0.6f, cv::Scalar(0, 255, 0), 2);
+
+        }
+      }
+      // landmarks
+      if (box_kps.landmarks.flag && !box_kps.landmarks.points.empty())
+      {
+        for (const auto &point: box_kps.landmarks.points)
+          cv::circle(canva, point, 2, cv::Scalar(0, 255, 0), -1);
+      }
+    }
+  }
+  return canva;
+}
+
 cv::Mat lite::utils::draw_age(const cv::Mat &mat, types::Age &age)
 {
   if (!age.flag) return mat;
