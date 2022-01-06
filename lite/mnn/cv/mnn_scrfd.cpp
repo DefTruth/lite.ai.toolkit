@@ -158,7 +158,56 @@ void MNNSCRFD::generate_bboxes_kps(const SCRFDScaleParams &scale_params,
   MNN::Tensor host_score_8(device_score_8, device_score_8->getDimensionType());
   MNN::Tensor host_score_16(device_score_16, device_score_16->getDimensionType());
   MNN::Tensor host_score_32(device_score_32, device_score_32->getDimensionType());
+  MNN::Tensor host_bbox_8(device_bbox_8, device_bbox_8->getDimensionType());
+  MNN::Tensor host_bbox_16(device_bbox_16, device_bbox_16->getDimensionType());
+  MNN::Tensor host_bbox_32(device_bbox_32, device_bbox_32->getDimensionType());
 
+  device_score_8->copyToHostTensor(&host_score_8);
+  device_score_16->copyToHostTensor(&host_score_16);
+  device_score_32->copyToHostTensor(&host_score_32);
+  device_bbox_8->copyToHostTensor(&host_bbox_8);
+  device_bbox_16->copyToHostTensor(&host_bbox_16);
+  device_bbox_32->copyToHostTensor(&host_bbox_32);
+
+  bbox_kps_collection.clear();
+
+  if (use_kps)
+  {
+    auto device_kps_8 = output_tensors.at("kps_8");
+    auto device_kps_16 = output_tensors.at("kps_16");
+    auto device_kps_32 = output_tensors.at("kps_32");
+
+    MNN::Tensor host_kps_8(device_kps_8, device_kps_8->getDimensionType());
+    MNN::Tensor host_kps_16(device_kps_16, device_kps_16->getDimensionType());
+    MNN::Tensor host_kps_32(device_kps_32, device_kps_32->getDimensionType());
+
+    device_kps_8->copyToHostTensor(&host_kps_8);
+    device_kps_16->copyToHostTensor(&host_kps_16);
+    device_kps_32->copyToHostTensor(&host_kps_32);
+
+    // level 8 & 16 & 32 with kps
+    this->generate_bboxes_kps_single_stride(scale_params, score_8, bbox_8, kps_8, 8, score_threshold,
+                                            img_height, img_width, bbox_kps_collection);
+    this->generate_bboxes_kps_single_stride(scale_params, score_16, bbox_16, kps_16, 16, score_threshold,
+                                            img_height, img_width, bbox_kps_collection);
+    this->generate_bboxes_kps_single_stride(scale_params, score_32, bbox_32, kps_32, 32, score_threshold,
+                                            img_height, img_width, bbox_kps_collection);
+
+  } // no kps
+  else
+  {
+    // level 8 & 16 & 32
+    this->generate_bboxes_single_stride(scale_params, score_8, bbox_8, 8, score_threshold,
+                                        img_height, img_width, bbox_kps_collection);
+    this->generate_bboxes_single_stride(scale_params, score_16, bbox_16, 16, score_threshold,
+                                        img_height, img_width, bbox_kps_collection);
+    this->generate_bboxes_single_stride(scale_params, score_32, bbox_32, 32, score_threshold,
+                                        img_height, img_width, bbox_kps_collection);
+  }
+
+#if LITEMNN_DEBUG
+  std::cout << "generate_bboxes_kps num: " << bbox_kps_collection.size() << "\n";
+#endif
 }
 
 void MNNSCRFD::generate_bboxes_single_stride(

@@ -185,7 +185,7 @@ void SCRFD::generate_bboxes_kps(const SCRFDScaleParams &scale_params,
   }
 
 #if LITEORT_DEBUG
-  std::cout << "generate_bboxes num: " << bbox_kps_collection.size() << "\n";
+  std::cout << "generate_bboxes_kps num: " << bbox_kps_collection.size() << "\n";
 #endif
 }
 
