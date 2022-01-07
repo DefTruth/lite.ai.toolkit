@@ -86,6 +86,16 @@ namespace lite {
       {};
     } Landmarks;
 
+    typedef struct LITE_EXPORTS BoxfWithLandmarksType
+    {
+      Boxf box;
+      Landmarks landmarks;
+      bool flag;
+
+      BoxfWithLandmarksType() : flag(false)
+      {};
+    } BoxfWithLandmarks;
+
     typedef struct LITE_EXPORTS EulerAnglesType
     {
       float yaw;

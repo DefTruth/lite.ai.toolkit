@@ -68,6 +68,7 @@ namespace tnncv
   class LITE_EXPORTS TNNFCNResNet101;                // [54] * reference: https://pytorch.org/hub/pytorch_vision_fcn_resnet101/
   class LITE_EXPORTS TNNMGMatting;                   // [55] * reference: https://github.com/yucornetto/MGMatting
   class LITE_EXPORTS TNNNanoDetPlus;                 // [56] * reference: https://github.com/RangiLyu/nanodet
+  class LITE_EXPORTS TNNSCRFD;                       // [57] * reference: https://github.com/deepinsight/insightface/tree/master/detection/scrfd
 
 }
 

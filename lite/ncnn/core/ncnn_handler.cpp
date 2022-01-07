@@ -22,6 +22,13 @@ void BasicNCNNHandler::initialize_handler()
   net->opt.use_fp16_arithmetic = false;
   net->load_param(param_path);
   net->load_model(bin_path);
+  input_indexes = net->input_indexes();
+  output_indexes = net->output_indexes();
+#ifdef NCNN_STRING
+  input_names = net->input_names();
+  output_names = net->output_names();
+#endif
+  num_outputs = output_indexes.size();
 #ifdef LITENCNN_DEBUG
   this->print_debug_string();
 #endif
@@ -35,14 +42,7 @@ BasicNCNNHandler::~BasicNCNNHandler()
 
 void BasicNCNNHandler::print_debug_string()
 {
-
   std::cout << "LITENCNN_DEBUG LogId: " << log_id << "\n";
-  input_indexes = net->input_indexes();
-  output_indexes = net->output_indexes();
-#ifdef NCNN_STRING
-  input_names = net->input_names();
-  output_names = net->output_names();
-#endif
   std::cout << "=============== Input-Dims ==============\n";
   for (int i = 0; i < input_indexes.size(); ++i)
   {

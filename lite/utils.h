@@ -29,10 +29,11 @@ namespace lite
 
     LITE_EXPORTS cv::Mat draw_emotion(const cv::Mat &mat, types::Emotions &emotions);
 
+    LITE_EXPORTS cv::Mat draw_boxes_with_landmarks(const cv::Mat &mat, const std::vector<types::BoxfWithLandmarks> &boxes_kps);
+
     LITE_EXPORTS void draw_boxes_inplace(cv::Mat &mat_inplace, const std::vector<types::Boxf> &boxes);
 
-    LITE_EXPORTS void
-    draw_axis_inplace(cv::Mat &mat_inplace, const types::EulerAngles &euler_angles, float size = 50.f, int thickness = 2);
+    LITE_EXPORTS void draw_axis_inplace(cv::Mat &mat_inplace, const types::EulerAngles &euler_angles, float size = 50.f, int thickness = 2);
 
     LITE_EXPORTS void draw_landmarks_inplace(cv::Mat &mat, types::Landmarks &landmarks);
 
@@ -42,14 +43,13 @@ namespace lite
 
     LITE_EXPORTS void draw_emotion_inplace(cv::Mat &mat_inplace, types::Emotions &emotions);
 
-    LITE_EXPORTS void
-    hard_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output, float iou_threshold, unsigned int topk);
+    LITE_EXPORTS void draw_boxes_with_landmarks_inplace(cv::Mat &mat_inplace, const std::vector<types::BoxfWithLandmarks> &boxes_kps);
 
-    LITE_EXPORTS void
-    blending_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output, float iou_threshold, unsigned int topk);
+    LITE_EXPORTS void hard_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output, float iou_threshold, unsigned int topk);
 
-    LITE_EXPORTS void
-    offset_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output, float iou_threshold, unsigned int topk);
+    LITE_EXPORTS void blending_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output, float iou_threshold, unsigned int topk);
+
+    LITE_EXPORTS void offset_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output, float iou_threshold, unsigned int topk);
 
     namespace math
     {

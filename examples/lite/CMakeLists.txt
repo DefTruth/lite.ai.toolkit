@@ -72,4 +72,5 @@ add_lite_executable(lite_yolox_v0.1.1 cv)
 add_lite_executable(lite_yolov5_v6.0 cv)
 add_lite_executable(lite_mg_matting cv)
 add_lite_executable(lite_nanodet_plus cv)
+add_lite_executable(lite_scrfd cv)
 
