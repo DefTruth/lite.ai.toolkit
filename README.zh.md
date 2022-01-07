@@ -141,6 +141,7 @@
 |[UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB)|1.1M|*face::detect*|[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_ultraface.cpp)|✅| ✅ | ✅ | ✅ | ✅ |✔️|✔️|❔|
 |[RetinaFace](https://github.com/biubug6/Pytorch_Retinaface)|1.6M|*face::detect*|[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_retinaface.cpp)|✅| ✅ | ✅ | ✅ | ✅ |✔️|✔️|❔|
 |[FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)|3.8M|*face::detect*|[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_faceboxes.cpp)|✅| ✅ | ✅ | ✅ | ✅ |✔️|✔️|❔|
+|[SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd/)|2.5M|*face::detect*|[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_scrfd.cpp)|✅| ✅ | ✅ | ✅ | ✅ |✔️|✔️|❔|
 |[PFLD](https://github.com/Hsintao/pfld_106_face_landmarks)|1.0M|*face::align*|[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_pfld.cpp)|✅| ✅ | ✅ | ✅ | ✅ |✔️|✔️|❔|
 |[PFLD98](https://github.com/polarisZhao/PFLD-pytorch)|4.8M|*face::align*|[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_pfld98.cpp)|✅| ✅ | ✅ | ✅ | ✅ |✔️|✔️|❔|
 |[MobileNetV268](https://github.com/cunjian/pytorch_face_landmark)|9.4M|*face::align*|[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mobilenetv2_68.cpp)|✅| ✅ | ✅ | ✅ | ✅ |✔️|✔️|❔|
