@@ -119,11 +119,11 @@ void SCRFD::generate_points(const int target_height, const int target_width)
     // y
     for (unsigned int i = 0; i < num_grid_h; ++i)
     {
-      // x
-      for (unsigned int j = 0; j < num_grid_w; ++j)
+      // num_anchors, col major
+      for (unsigned int k = 0; k < num_anchors; ++k)
       {
-        // num_anchors, col major
-        for (unsigned int k = 0; k < num_anchors; ++k)
+        // x
+        for (unsigned int j = 0; j < num_grid_w; ++j)
         {
           SCRFDPoint point;
           point.cx = (float) j;

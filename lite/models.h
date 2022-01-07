@@ -84,6 +84,7 @@
 #include "lite/ort/cv/yolov5_v6.0.h"
 #include "lite/ort/cv/mg_matting.h"
 #include "lite/ort/cv/nanodet_plus.h"
+#include "lite/ort/cv/scrfd.h"
 
 #endif
 
@@ -149,6 +150,7 @@
 #include "lite/mnn/cv/mnn_subpixel_cnn.h"
 #include "lite/mnn/cv/mnn_mg_matting.h"
 #include "lite/mnn/cv/mnn_nanodet_plus.h"
+#include "lite/mnn/cv/mnn_scrfd.h"
 
 #endif
 
@@ -214,6 +216,7 @@
 #include "lite/ncnn/cv/ncnn_fast_style_transfer.h"
 #include "lite/ncnn/cv/ncnn_subpixel_cnn.h"
 #include "lite/ncnn/cv/ncnn_nanodet_plus.h"
+#include "lite/ncnn/cv/ncnn_scrfd.h"
 
 #endif
 
@@ -279,6 +282,7 @@
 #include "lite/tnn/cv/tnn_subpixel_cnn.h"
 #include "lite/tnn/cv/tnn_mg_matting.h"
 #include "lite/tnn/cv/tnn_nanodet_plus.h"
+#include "lite/tnn/cv/tnn_scrfd.h"
 
 #endif
 
@@ -360,6 +364,7 @@ namespace lite
     typedef ortcv::YoloV5_V_6_0 _YoloV5_V_6_0;
     typedef ortcv::MGMatting _MGMatting;
     typedef ortcv::NanoDetPlus _NanoDetPlus;
+    typedef ortcv::SCRFD _SCRFD;
 #endif
 
     // 1. classification
@@ -435,6 +440,7 @@ namespace lite
         typedef _UltraFace UltraFace;  // face detection.
         typedef _RetinaFace RetinaFace;
         typedef _FaceBoxes FaceBoxes;
+        typedef _SCRFD SCRFD;
 #endif
       }
 
@@ -703,7 +709,7 @@ namespace lite
       typedef ortcv::YoloV5_V_6_0 _ONNXYoloV5_V_6_0;
       typedef ortcv::MGMatting _ONNXMGMatting;
       typedef ortcv::NanoDetPlus _ONNXNanoDetPlus;
-
+      typedef ortcv::SCRFD _ONNXSCRFD;
 
       // 1. classification
       namespace classification
@@ -772,6 +778,7 @@ namespace lite
           typedef _ONNXUltraFace UltraFace;  // face detection.
           typedef _ONNXRetinaFace RetinaFace;
           typedef _ONNXFaceBoxes FaceBoxes;
+          typedef _ONNXSCRFD SCRFD;
         }
 
         namespace align
@@ -918,6 +925,7 @@ namespace lite
           typedef mnncv::MNNUltraFace UltraFace;
           typedef mnncv::MNNRetinaFace RetinaFace;
           typedef mnncv::MNNFaceBoxes FaceBoxes;
+          typedef mnncv::MNNSCRFD SCRFD;
         }
         namespace align
         {
@@ -1052,6 +1060,7 @@ namespace lite
           typedef ncnncv::NCNNUltraFace UltraFace;
           typedef ncnncv::NCNNRetinaFace RetinaFace;
           typedef ncnncv::NCNNFaceBoxes FaceBoxes;
+          typedef ncnncv::NCNNSCRFD SCRFD;
         }
         namespace align
         {
@@ -1177,6 +1186,7 @@ namespace lite
           typedef tnncv::TNNUltraFace UltraFace;
           typedef tnncv::TNNRetinaFace RetinaFace;
           typedef tnncv::TNNFaceBoxes FaceBoxes;
+          typedef tnncv::TNNSCRFD SCRFD;
         }
         namespace align
         {

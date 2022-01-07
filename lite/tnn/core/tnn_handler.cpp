@@ -112,6 +112,7 @@ void BasicTNNHandler::initialize_handler()
   input_value_size = input_batch * input_channel * input_height * input_width;
   // 7. init output information, debug only.
   output_names = this->get_output_names();
+  num_outputs = output_names.size();
   for (auto &name: output_names)
     output_shapes[name] = this->get_output_shape(name);
 #ifdef LITETNN_DEBUG
