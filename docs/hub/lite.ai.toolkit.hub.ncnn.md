@@ -131,6 +131,25 @@ You can download all the pretrained models files of NCNN format from ([Baidu Dri
 | *lite::ncnn::cv::face::detect::FaceBoxes* | FaceBoxes-640-640.opt.param&bin | [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)  | 3.8Mb |
 | *lite::ncnn::cv::face::detect::FaceBoxes* | FaceBoxes-320-320.opt.param&bin | [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)  | 3.8Mb |
 | *lite::ncnn::cv::face::detect::FaceBoxes* | FaceBoxes-720-1080.opt.param&bin | [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)  | 3.8Mb |
+| *lite::ncnn::cv::face::detect::SCRFD* | scrfd_500m_shape160x160.opt.param&bin | [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)  | 2.5Mb |
+| *lite::ncnn::cv::face::detect::SCRFD* | scrfd_500m_shape320x320.opt.param&bin | [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)  | 2.5Mb |
+| *lite::ncnn::cv::face::detect::SCRFD* | scrfd_500m_shape640x640.opt.param&bin | [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)  | 2.5Mb |
+| *lite::ncnn::cv::face::detect::SCRFD* | scrfd_500m_bnkps_shape160x160.opt.param&bin | [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)  | 2.5Mb |  
+| *lite::ncnn::cv::face::detect::SCRFD* | scrfd_500m_bnkps_shape320x320.opt.param&bin | [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)  | 2.5Mb |  
+| *lite::ncnn::cv::face::detect::SCRFD* | scrfd_500m_bnkps_shape640x640.opt.param&bin | [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)  | 2.5Mb |  
+| *lite::ncnn::cv::face::detect::SCRFD* | scrfd_1g_shape160x160.opt.param&bin | [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)  | 2.7Mb |
+| *lite::ncnn::cv::face::detect::SCRFD* | scrfd_1g_shape320x320.opt.param&bin | [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)  | 2.7Mb |
+| *lite::ncnn::cv::face::detect::SCRFD* | scrfd_1g_shape640x640.opt.param&bin | [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)  | 2.7Mb |
+| *lite::ncnn::cv::face::detect::SCRFD* | scrfd_2.5g_shape160x160.opt.param&bin | [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)  | 3.3Mb |
+| *lite::ncnn::cv::face::detect::SCRFD* | scrfd_2.5g_shape320x320.opt.param&bin | [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)  | 3.3Mb |
+| *lite::ncnn::cv::face::detect::SCRFD* | scrfd_2.5g_shape640x640.opt.param&bin | [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)  | 3.3Mb |
+| *lite::ncnn::cv::face::detect::SCRFD* | scrfd_2.5g_bnkps_shape160x160.opt.param&bin | [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)  | 3.3Mb |  
+| *lite::ncnn::cv::face::detect::SCRFD* | scrfd_2.5g_bnkps_shape320x320.opt.param&bin | [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)  | 3.3Mb |  
+| *lite::ncnn::cv::face::detect::SCRFD* | scrfd_2.5g_bnkps_shape640x640.opt.param&bin | [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)  | 3.3Mb |  
+| *lite::ncnn::cv::face::detect::SCRFD* | scrfd_10g_shape640x640.opt.param&bin | [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)  | 16.9Mb |
+| *lite::ncnn::cv::face::detect::SCRFD* | scrfd_10g_shape1280x1280.opt.param&bin | [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)  | 16.9Mb |
+| *lite::ncnn::cv::face::detect::SCRFD* | scrfd_10g_bnkps_shape640x640.opt.param&bin | [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)  | 16.9Mb |  
+| *lite::ncnn::cv::face::detect::SCRFD* | scrfd_10g_bnkps_shape1280x1280.opt.param&bin | [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)  | 16.9Mb |  
 
 
 ## Face Alignment.

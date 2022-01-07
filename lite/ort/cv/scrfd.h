@@ -96,7 +96,7 @@ namespace ortcv
 
   public:
     void detect(const cv::Mat &mat, std::vector<types::BoxfWithLandmarks> &detected_boxes_kps,
-                float score_threshold = 0.25f, float iou_threshold = 0.45f,
+                float score_threshold = 0.3f, float iou_threshold = 0.45f,
                 unsigned int topk = 400);
 
   };

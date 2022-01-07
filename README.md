@@ -5,23 +5,23 @@
 <div id="lite.ai.toolkit-Introduction"></div>  
 
 <div align='center'>
-  <img src='logs/test_lite_yolov5_1.jpg' height="80px" width="80px">
-  <img src='docs/resources/efficientdet_d0.jpg' height="80px" width="80px">
-  <img src='docs/resources/street.jpg' height="80px" width="80px">
-  <img src='logs/test_lite_ultraface.jpg' height="80px" width="80px">
-  <img src='logs/test_lite_face_landmarks_1000.jpg' height="80px" width="80px">
-  <img src='logs/test_lite_fsanet.jpg' height="80px" width="80px">
-  <img src='logs/test_lite_deeplabv3_resnet101.jpg' height="80px" width="80px">
-  <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="80px" width="80px"> 
+  <img src='logs/test_lite_yolov5_1.jpg' height="90px" width="90px">
+  <img src='docs/resources/efficientdet_d0.jpg' height="90px" width="90px">
+  <img src='docs/resources/street.jpg' height="90px" width="90px">
+  <img src='logs/test_lite_ultraface.jpg' height="90px" width="90px">
+  <img src='logs/test_lite_face_landmarks_1000.jpg' height="90px" width="90px">
+  <img src='logs/test_lite_fsanet.jpg' height="90px" width="90px">
+  <img src='logs/test_lite_deeplabv3_resnet101.jpg' height="90px" width="90px">
+  <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="90px" width="90px"> 
   <br>
-  <img src='docs/resources/teslai.gif' height="80px" width="80px">
-  <img src='docs/resources/tesla.gif' height="80px" width="80px">
-  <img src='docs/resources/dance3i.gif' height="80px" width="80px">
-  <img src='docs/resources/dance3.gif' height="80px" width="80px">  
-  <img src='docs/resources/yolop1.png' height="80px" width="80px">
-  <img src='docs/resources/yolop1.gif' height="80px" width="80px">
-  <img src='docs/resources/yolop2.png' height="80px" width="80px">
-  <img src='docs/resources/yolop2.gif' height="80px" width="80px">
+  <img src='docs/resources/teslai.gif' height="90px" width="90px">
+  <img src='docs/resources/tesla.gif' height="90px" width="90px">
+  <img src='docs/resources/dance3i.gif' height="90px" width="90px">
+  <img src='docs/resources/dance3.gif' height="90px" width="90px">  
+  <img src='docs/resources/yolop1.png' height="90px" width="90px">
+  <img src='docs/resources/yolop1.gif' height="90px" width="90px">
+  <img src='docs/resources/yolop2.png' height="90px" width="90px">
+  <img src='docs/resources/yolop2.gif' height="90px" width="90px">
 
 </div>    
 
@@ -68,6 +68,7 @@
 
 |Date|Model|C++|Paper|Code|Awesome|Type|
 |:----:|:----:|:----:|:----:|:----:|:----:|:----:| 
+|【2022/01/07】|[SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd/)|[[link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_scrfd.cpp)]|[[CVPR 2021](https://arxiv.org/abs/2105.04714)]|[[code](https://github.com/deepinsight/insightface/blob/master/detection/scrfd/)]|![](https://img.shields.io/github/stars/deepinsight/insightface.svg?style=social)| face::detect |
 |【2021/12/27】|[NanoDetPlus](https://github.com/RangiLyu/nanodet)|[[link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet_plus.cpp)]|[[blog](https://zhuanlan.zhihu.com/p/449912627)]|[[code](https://github.com/RangiLyu/nanodet)]|![](https://img.shields.io/github/stars/RangiLyu/nanodet.svg?style=social)| detection |
 |【2021/12/08】|[MGMatting](https://github.com/yucornetto/MGMatting)|[[link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mg_matting.cpp)]|[[CVPR 2021](https://arxiv.org/abs/2012.06722)]|[[code](https://github.com/yucornetto/MGMatting)]|![](https://img.shields.io/github/stars/yucornetto/MGMatting.svg?style=social)| matting |
 |【2021/11/11】|[YoloV5_V_6_0](https://github.com/ultralytics/yolov5/releases/tag/v6.0)|[[link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolov5_v6.0.cpp)]|[[doi](https://zenodo.org/record/5563715#.YbXffH1Bzfs)]|[[code](https://github.com/ultralytics/yolov5/releases/tag/v6.0)]|![](https://img.shields.io/github/stars/ultralytics/yolov5.svg?style=social)| detection |
@@ -76,6 +77,21 @@
 |【2021/09/20】|[RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)|[[link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_rvm.cpp)]|[[WACV 2022](https://arxiv.org/abs/2108.11515)]|[[code](https://github.com/PeterL1n/RobustVideoMatting)]|![](https://img.shields.io/github/stars/PeterL1n/RobustVideoMatting.svg?style=social)| matting |
 |【2021/09/02】|[YOLOP](https://github.com/hustvl/YOLOP)|[[link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolop.cpp)]|[[arXiv 2021](https://arxiv.org/abs/2108.11250)]|[[code](https://github.com/hustvl/YOLOP)]|![](https://img.shields.io/github/stars/hustvl/YOLOP.svg?style=social)| detection |
 
+<div align='left'>
+  <img src='docs/resources/scrfd.jpg' height="224px" width="224px">
+  <img src='docs/resources/scrfd_2.jpg' height="224px" width="224px">
+  <img src='docs/resources/scrfd_3.jpg' height="224px" width="224px">
+<br>
+  <img src='docs/resources/nanodet_plus_3.jpg' height="170px" width="165px">
+  <img src='docs/resources/nanodet_plus_6.jpg' height="170px" width="165px">
+  <img src='docs/resources/nanodet_plus_7.jpg' height="170px" width="165px">
+  <img src='docs/resources/nanodet_plus_9.jpg' height="170px" width="172px">
+<br>
+  <img src='examples/lite/resources/test_lite_mg_matting_input.jpg' height="170px" width="165px">
+  <img src='logs/test_lite_mg_matting_pha.jpg' height="170px" width="165px">
+  <img src='logs/test_lite_mg_matting_fgr.jpg' height="170px" width="165px">
+  <img src='logs/test_lite_mg_matting_merge.jpg' height="170px" width="172px">
+</div>  
 
 ## Supported Models Matrix
 
@@ -648,32 +664,35 @@ auto *recognition = new lite::cv::faceid::MobileSEFocalFace(onnx_path); // 4.5Mb
 
 <div id="lite.ai.toolkit-face-detection"></div>
 
-#### Example5: Face Detection using [UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
+#### Example5: Face Detection using [SCRFD 2021](https://github.com/deepinsight/insightface/blob/master/detection/scrfd/). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
 ```c++
 #include "lite/lite.h"
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/ultraface-rfb-640.onnx";
-  std::string test_img_path = "../../../examples/lite/resources/test_lite_ultraface.jpg";
-  std::string save_img_path = "../../../logs/test_lite_ultraface.jpg";
-
-  auto *ultraface = new lite::cv::face::detect::UltraFace(onnx_path);
-
-  std::vector<lite::types::Boxf> detected_boxes;
+  std::string onnx_path = "../../../hub/onnx/cv/scrfd_2.5g_bnkps_shape640x640.onnx";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_face_detector.jpg";
+  std::string save_img_path = "../../../logs/test_lite_scrfd.jpg";
+  
+  auto *scrfd = new lite::cv::face::detect::SCRFD(onnx_path);
+  
+  std::vector<lite::types::BoxfWithLandmarks> detected_boxes;
   cv::Mat img_bgr = cv::imread(test_img_path);
-  ultraface->detect(img_bgr, detected_boxes);
-  lite::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+  scrfd->detect(img_bgr, detected_boxes);
+  
+  lite::utils::draw_boxes_with_landmarks_inplace(img_bgr, detected_boxes);
   cv::imwrite(save_img_path, img_bgr);
-
-  delete ultraface;
+  
+  std::cout << "Default Version Done! Detected Face Num: " << detected_boxes.size() << std::endl;
+  
+  delete scrfd;
 }
 ```
 The output is:
 <div align='center'>
-  <img src='logs/test_lite_ultraface.jpg' height="224px" width="224px">
-  <img src='logs/test_lite_ultraface_2.jpg' height="224px" width="224px">
-  <img src='logs/test_lite_ultraface_3.jpg' height="224px" width="224px">
+  <img src='docs/resources/scrfd.jpg' height="224px" width="224px">
+  <img src='docs/resources/scrfd_2.jpg' height="224px" width="224px">
+  <img src='docs/resources/scrfd_3.jpg' height="224px" width="224px">
 </div>  
 
 More classes for face detection (super fast face detection)
@@ -681,6 +700,7 @@ More classes for face detection (super fast face detection)
 auto *detector = new lite::face::detect::UltraFace(onnx_path);  // 1.1Mb only !
 auto *detector = new lite::face::detect::FaceBoxes(onnx_path);  // 3.8Mb only ! 
 auto *detector = new lite::face::detect::RetinaFace(onnx_path);  // 1.6Mb only ! CVPR2020
+auto *detector = new lite::face::detect::SCRFD(onnx_path);  // 2.5Mb only ! CVPR2021, Super fast and accurate!!
 ```
 
 <div id="lite.ai.toolkit-segmentation"></div>   

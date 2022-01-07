@@ -119,11 +119,11 @@ void SCRFD::generate_points(const int target_height, const int target_width)
     // y
     for (unsigned int i = 0; i < num_grid_h; ++i)
     {
-      // num_anchors, col major
-      for (unsigned int k = 0; k < num_anchors; ++k)
+      // x
+      for (unsigned int j = 0; j < num_grid_w; ++j)
       {
-        // x
-        for (unsigned int j = 0; j < num_grid_w; ++j)
+        // num_anchors, col major
+        for (unsigned int k = 0; k < num_anchors; ++k)
         {
           SCRFDPoint point;
           point.cx = (float) j;
@@ -131,6 +131,7 @@ void SCRFD::generate_points(const int target_height, const int target_width)
           point.stride = (float) stride;
           center_points[stride].push_back(point);
         }
+
       }
     }
   }
@@ -318,8 +319,8 @@ void SCRFD::generate_bboxes_kps_single_stride(
       cv::Point2f kps;
       float kps_l = kps_offsets[j];
       float kps_t = kps_offsets[j + 1];
-      float kps_x = ((cx - kps_l) * s - (float) dw) / ratio;  // cx - l x
-      float kps_y = ((cy - kps_t) * s - (float) dh) / ratio;  // cy - t y
+      float kps_x = ((cx + kps_l) * s - (float) dw) / ratio;  // cx + l x
+      float kps_y = ((cy + kps_t) * s - (float) dh) / ratio;  // cy + t y
       kps.x = std::min(std::max(0.f, kps_x), img_width);
       kps.y = std::min(std::max(0.f, kps_y), img_height);
       box_kps.landmarks.points.push_back(kps);
