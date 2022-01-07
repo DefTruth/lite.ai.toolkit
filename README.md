@@ -78,7 +78,7 @@
 |【2021/09/02】|[YOLOP](https://github.com/hustvl/YOLOP)|[[link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolop.cpp)]|[[arXiv 2021](https://arxiv.org/abs/2108.11250)]|[[code](https://github.com/hustvl/YOLOP)]|![](https://img.shields.io/github/stars/hustvl/YOLOP.svg?style=social)| detection |
 
 <div align='center'>
-  <img src='docs/resources/scrfd_2.jpg' height="600px" width="800px">
+  <img src='docs/resources/scrfd_2.jpg' height="450px" width="800px">
 <br>
   <img src='docs/resources/nanodet_plus_3.jpg' height="170px" width="200px">
   <img src='docs/resources/nanodet_plus_6.jpg' height="170px" width="200px">
