@@ -78,20 +78,17 @@
 |【2021/09/02】|[YOLOP](https://github.com/hustvl/YOLOP)|[[link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolop.cpp)]|[[arXiv 2021](https://arxiv.org/abs/2108.11250)]|[[code](https://github.com/hustvl/YOLOP)]|![](https://img.shields.io/github/stars/hustvl/YOLOP.svg?style=social)| detection |
 
 <div align='center'>
-  <img src='docs/resources/scrfd.jpg' height="250px" width="340px">
-  <img src='docs/resources/scrfd_3.jpg' height="250px" width="340px">
+  <img src='docs/resources/scrfd_2.jpg' height="600px" width="800px">
 <br>
-  <img src='docs/resources/scrfd_2.jpg' height="300px" width="680px">
+  <img src='docs/resources/nanodet_plus_3.jpg' height="170px" width="200px">
+  <img src='docs/resources/nanodet_plus_6.jpg' height="170px" width="200px">
+  <img src='docs/resources/nanodet_plus_7.jpg' height="170px" width="200px">
+  <img src='docs/resources/nanodet_plus_9.jpg' height="170px" width="200px">
 <br>
-  <img src='docs/resources/nanodet_plus_3.jpg' height="170px" width="170px">
-  <img src='docs/resources/nanodet_plus_6.jpg' height="170px" width="170px">
-  <img src='docs/resources/nanodet_plus_7.jpg' height="170px" width="170px">
-  <img src='docs/resources/nanodet_plus_9.jpg' height="170px" width="170px">
-<br>
-  <img src='examples/lite/resources/test_lite_mg_matting_input.jpg' height="170px" width="170px">
-  <img src='logs/test_lite_mg_matting_pha.jpg' height="170px" width="170px">
-  <img src='logs/test_lite_mg_matting_fgr.jpg' height="170px" width="170px">
-  <img src='logs/test_lite_mg_matting_merge.jpg' height="170px" width="170px">
+  <img src='examples/lite/resources/test_lite_mg_matting_input.jpg' height="170px" width="200px">
+  <img src='logs/test_lite_mg_matting_pha.jpg' height="170px" width="200px">
+  <img src='logs/test_lite_mg_matting_fgr.jpg' height="170px" width="200px">
+  <img src='logs/test_lite_mg_matting_merge.jpg' height="170px" width="200px">
 </div>  
 
 ## Supported Models Matrix
