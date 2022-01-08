@@ -57,11 +57,13 @@
 
 🍅🍅*Lite.AI.ToolKit*: A lite C++ toolkit of awesome AI models, such as [Object Detection](#lite.ai.toolkit-object-detection), [Face Detection](#lite.ai.toolkit-face-detection), [Face Recognition](#lite.ai.toolkit-face-recognition), [Segmentation](#lite.ai.toolkit-segmentation), [Matting](#lite.ai.toolkit-matting), etc. See [Model Zoo](#lite.ai.toolkit-Model-Zoo) and [ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md), [MNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md), [TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md), [NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md). [❤️ Star 🌟👆🏻 this repo if it does any helps to you, thanks ~ ]
 
-## Core Features👏👋
+## Core Features and RoadMap👏👋
+
+![](docs/resources/lite.ai.toolkit-roadmap-v0.1.png)
 
 * *Simply and User friendly.* Simply and Consistent syntax like *lite::cv::Type::Class*, see [examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
 * *Minimum Dependencies.* Only *OpenCV* and *ONNXRuntime* are required by default, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit).
-* *Lots of Algorithm Modules.* Contains 10+ modules with *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* famous models and *[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* pretrained files
+* *Lots of Algorithm Modules.* Contains 10+ modules with *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* AI models and *[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* weights now.
 
 
 ## Important Updates!!
@@ -77,6 +79,8 @@
 |【2021/09/20】|[RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)|[[link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_rvm.cpp)]|[[WACV 2022](https://arxiv.org/abs/2108.11515)]|[[code](https://github.com/PeterL1n/RobustVideoMatting)]|![](https://img.shields.io/github/stars/PeterL1n/RobustVideoMatting.svg?style=social)| matting |
 |【2021/09/02】|[YOLOP](https://github.com/hustvl/YOLOP)|[[link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolop.cpp)]|[[arXiv 2021](https://arxiv.org/abs/2108.11250)]|[[code](https://github.com/hustvl/YOLOP)]|![](https://img.shields.io/github/stars/hustvl/YOLOP.svg?style=social)| detection |
 
+<!-----
+
 <div align='left'>
   <img src='docs/resources/scrfd_2.jpg' height="450px" width="800px">
 <br>
@@ -90,6 +94,15 @@
   <img src='logs/test_lite_mg_matting_fgr.jpg' height="170px" width="200px">
   <img src='logs/test_lite_mg_matting_merge.jpg' height="170px" width="200px">
 </div>  
+
+<div align='left'>
+  <img src='docs/resources/scrfd-mgmatting-nanodetplus.jpg' height="500px" width="820px">
+</div>  
+
+----->
+
+![](docs/resources/scrfd-mgmatting-nanodetplus.jpg)
+
 
 ## Supported Models Matrix
 
@@ -337,16 +350,15 @@ To link `lite.ai.toolkit` shared lib. You need to make sure that `OpenCV` and `o
 
 *Lite.AI.ToolKit* contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* AI models with *[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained  files now. Most of the files are converted by myself. You can use it through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)*. More details can be found at [Examples for Lite.AI.ToolKit](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit). Note, for Google Drive, I can not upload all the *.onnx files because of the storage limitation (15G).
 
-|File|Baidu Drive|Google Drive|Hub|  
-|:---:|:---:|:---:|:---:|
-|ONNX|[Baidu Drive](https://pan.baidu.com/s/1elUGcx7CZkkjEoYhTMwTRQ) code: 8gin|[Google Drive](https://drive.google.com/drive/folders/1p6uBcxGeyS1exc-T61vL8YRhwjYL4iD2?usp=sharing)|[ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)|    
-|MNN|[Baidu Drive](https://pan.baidu.com/s/1KyO-bCYUv6qPq2M8BH_Okg) code: 9v63 |❔|[MNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md)|  
-|NCNN|[Baidu Drive](https://pan.baidu.com/s/1hlnqyNsFbMseGFWscgVhgQ) code: sc7f |❔|[NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md)|
-|TNN|[Baidu Drive](https://pan.baidu.com/s/1lvM2YKyUbEc5HKVtqITpcw) code: 6o6k|❔|[TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md)|
-
+|File|Baidu Drive|Google Drive|Docker Hub|Hub (Docs)|  
+|:---:|:---:|:---:|:---:|:---:|
+|ONNX|[Baidu Drive](https://pan.baidu.com/s/1elUGcx7CZkkjEoYhTMwTRQ) code: 8gin|[Google Drive](https://drive.google.com/drive/folders/1p6uBcxGeyS1exc-T61vL8YRhwjYL4iD2?usp=sharing)|[ONNX Docker v0.1.22.01.08 ❔](https://hub.docker.com/repository/docker/qyjdefdocker/lite.ai.toolkit-onnx-hub)|[ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)|    
+|MNN|[Baidu Drive](https://pan.baidu.com/s/1KyO-bCYUv6qPq2M8BH_Okg) code: 9v63 |❔|[MNN Docker v0.1.22.01.08 (11G)](https://hub.docker.com/repository/docker/qyjdefdocker/lite.ai.toolkit-mnn-hub)|[MNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md)|  
+|NCNN|[Baidu Drive](https://pan.baidu.com/s/1hlnqyNsFbMseGFWscgVhgQ) code: sc7f |❔|[NCNN Docker v0.1.22.01.08 (9G)](https://hub.docker.com/repository/docker/qyjdefdocker/lite.ai.toolkit-ncnn-hub)|[NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md)|
+|TNN|[Baidu Drive](https://pan.baidu.com/s/1lvM2YKyUbEc5HKVtqITpcw) code: 6o6k|❔|[TNN Docker v0.1.22.01.08 (11G)](https://hub.docker.com/repository/docker/qyjdefdocker/lite.ai.toolkit-tnn-hub)|[TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md)|
 
 <details>
-<summary> Lite.AI.ToolKit modules.</summary>  
+<summary>  ❇️ Lite.AI.ToolKit modules.</summary>  
 
 ### Namespace and Lite.AI.ToolKit modules.
 
@@ -401,6 +413,43 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
 ```
 
 </details>
+
+<details>
+<summary> 🔑️ How to download Model Zoo from Docker Hub?</summary>    
+
+* Firstly, pull the image from docker hub.  
+  ```shell
+  docker push qyjdefdocker/lite.ai.toolkit-mnn-hub:v0.1.22.01.08 # (8.9G)
+  ```
+* Secondly, run the container with local `share` dir using `docker run -idt xxx`. A minimum example will show you as follows.  
+  * make a `share` dir in your local device.
+  ```shell
+  mkdir share # any name is ok.
+  ```
+  * write `run_mnn_docker_hub.sh` script like:
+  ```shell
+  #!/bin/bash  
+  PORT1=6072
+  PORT2=6084
+  SERVICE_DIR=/Users/xxx/Desktop/your-path-to/share
+  CONRAINER_DIR=/home/hub/share
+  CONRAINER_NAME=mnn_docker_hub_d
+  
+  docker run -idt -p ${PORT2}:${PORT1} -v ${SERVICE_DIR}:${CONRAINER_DIR} --shm-size=16gb --name ${CONRAINER_NAME} qyjdefdocker/lite.ai.toolkit-mnn-hub:v0.1.22.01.08
+
+  ```
+* Finally, copy the model weights from `/home/hub/mnn/cv` to your local `share` dir. 
+  ```shell
+  # activate mnn docker.
+  sh ./run_mnn_docker_hub.sh
+  docker exec -it mnn_docker_hub_d /bin/bash
+  # copy the models to the share dir.
+  cd /home/hub 
+  cp -rf mnn/cv share/
+  ```
+
+</details>
+
 
 ## 3. Examples.
 

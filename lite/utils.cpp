@@ -163,7 +163,7 @@ cv::Mat lite::utils::draw_boxes(const cv::Mat &mat, const std::vector<types::Box
   return canva;
 }
 
-void lite::utils::draw_boxes_with_landmarks_inplace(cv::Mat &mat_inplace, const std::vector<types::BoxfWithLandmarks> &boxes_kps)
+void lite::utils::draw_boxes_with_landmarks_inplace(cv::Mat &mat_inplace, const std::vector<types::BoxfWithLandmarks> &boxes_kps, bool text)
 {
   if (boxes_kps.empty()) return;
   for (const auto &box_kps: boxes_kps)
@@ -174,7 +174,7 @@ void lite::utils::draw_boxes_with_landmarks_inplace(cv::Mat &mat_inplace, const 
       if (box_kps.box.flag)
       {
         cv::rectangle(mat_inplace, box_kps.box.rect(), cv::Scalar(255, 255, 0), 2);
-        if (box_kps.box.label_text)
+        if (box_kps.box.label_text && text)
         {
           std::string label_text(box_kps.box.label_text);
           label_text = label_text + ":" + std::to_string(box_kps.box.score).substr(0, 4);
@@ -193,7 +193,7 @@ void lite::utils::draw_boxes_with_landmarks_inplace(cv::Mat &mat_inplace, const 
   }
 }
 
-cv::Mat lite::utils::draw_boxes_with_landmarks(const cv::Mat &mat, const std::vector<types::BoxfWithLandmarks> &boxes_kps)
+cv::Mat lite::utils::draw_boxes_with_landmarks(const cv::Mat &mat, const std::vector<types::BoxfWithLandmarks> &boxes_kps, bool text)
 {
   if (boxes_kps.empty()) return mat;
   cv::Mat canva = mat.clone();
@@ -205,7 +205,7 @@ cv::Mat lite::utils::draw_boxes_with_landmarks(const cv::Mat &mat, const std::ve
       if (box_kps.box.flag)
       {
         cv::rectangle(canva, box_kps.box.rect(), cv::Scalar(255, 255, 0), 2);
-        if (box_kps.box.label_text)
+        if (box_kps.box.label_text && text)
         {
           std::string label_text(box_kps.box.label_text);
           label_text = label_text + ":" + std::to_string(box_kps.box.score).substr(0, 4);
