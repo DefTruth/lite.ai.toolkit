@@ -419,7 +419,7 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
 
 * Firstly, pull the image from docker hub.  
   ```shell
-  docker push qyjdefdocker/lite.ai.toolkit-mnn-hub:v0.1.22.01.08 # (11G)
+  docker pull qyjdefdocker/lite.ai.toolkit-mnn-hub:v0.1.22.01.08 # (11G)
   ```
 * Secondly, run the container with local `share` dir using `docker run -idt xxx`. A minimum example will show you as follows.  
   * make a `share` dir in your local device.
