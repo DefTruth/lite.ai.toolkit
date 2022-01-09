@@ -14,7 +14,6 @@
 #ifndef TNN_INCLUDE_TNN_VERSION_H_
 #define TNN_INCLUDE_TNN_VERSION_H_
 
-
 static char *branch_name_tnn = "feature_demo_stream";
 static char *commit_date_tnn = "2021-08-26";
 static char *commit_hash_tnn = "e91abce";
