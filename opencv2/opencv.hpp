@@ -47,6 +47,7 @@
 // These are purely the defines of the correct HAVE_OPENCV_modulename values
 #include "opencv2/opencv_modules.hpp"
 
+
 // Then the list of defines is checked to include the correct headers
 // Core library is always included --> without no OpenCV functionality available
 #include "opencv2/core.hpp"
