@@ -359,6 +359,13 @@ To link `lite.ai.toolkit` shared lib. You need to make sure that `OpenCV` and `o
 |NCNN|[Baidu Drive](https://pan.baidu.com/s/1hlnqyNsFbMseGFWscgVhgQ) code: sc7f |❔|[NCNN Docker v0.1.22.01.08 (9G)](https://hub.docker.com/repository/docker/qyjdefdocker/lite.ai.toolkit-ncnn-hub)|[NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md)|
 |TNN|[Baidu Drive](https://pan.baidu.com/s/1lvM2YKyUbEc5HKVtqITpcw) code: 6o6k|❔|[TNN Docker v0.1.22.01.08 (11G)](https://hub.docker.com/repository/docker/qyjdefdocker/lite.ai.toolkit-tnn-hub)|[TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md)|
 
+```shell
+  docker pull qyjdefdocker/lite.ai.toolkit-onnx-hub:v0.1.22.01.08 # (28G)
+  docker pull qyjdefdocker/lite.ai.toolkit-mnn-hub:v0.1.22.01.08 # (11G)
+  docker pull qyjdefdocker/lite.ai.toolkit-ncnn-hub:v0.1.22.01.08 # (9G)
+  docker pull qyjdefdocker/lite.ai.toolkit-tnn-hub:v0.1.22.01.08 # (11G)
+```
+
 <details>
 <summary>  ❇️ Lite.AI.ToolKit modules.</summary>  
 
