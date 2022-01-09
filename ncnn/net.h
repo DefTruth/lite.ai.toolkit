@@ -15,7 +15,6 @@
 #ifndef NCNN_NET_H
 #define NCNN_NET_H
 
-
 #include "blob.h"
 #include "layer.h"
 #include "mat.h"
