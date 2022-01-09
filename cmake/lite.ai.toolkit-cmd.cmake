@@ -130,7 +130,7 @@ endfunction()
 function(add_lite_ai_toolkit_engines_libs_command)
     # copy opencv libs
     if (INCLUDE_OPENCV)
-        message("Installing OpenCV libs       ->  INCLUDE_OPENCV:      ${INCLUDE_OPENCV} ...")
+        message("Installing OpenCV libs        ->  INCLUDE_OPENCV:      ${INCLUDE_OPENCV} ...")
         file(GLOB ALL_OpenCV_LIBS ${LITE_AI_ROOT_DIR}/lib/*opencv*)
         file(INSTALL ${ALL_OpenCV_LIBS} DESTINATION ${LIBRARY_OUTPUT_PATH})
     endif()
