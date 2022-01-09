@@ -354,7 +354,7 @@ To link `lite.ai.toolkit` shared lib. You need to make sure that `OpenCV` and `o
 
 |File|Baidu Drive|Google Drive|Docker Hub|Hub (Docs)|  
 |:---:|:---:|:---:|:---:|:---:|
-|ONNX|[Baidu Drive](https://pan.baidu.com/s/1elUGcx7CZkkjEoYhTMwTRQ) code: 8gin|[Google Drive](https://drive.google.com/drive/folders/1p6uBcxGeyS1exc-T61vL8YRhwjYL4iD2?usp=sharing)|[ONNX Docker v0.1.22.01.08 ❔](https://hub.docker.com/repository/docker/qyjdefdocker/lite.ai.toolkit-onnx-hub)|[ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)|    
+|ONNX|[Baidu Drive](https://pan.baidu.com/s/1elUGcx7CZkkjEoYhTMwTRQ) code: 8gin|[Google Drive](https://drive.google.com/drive/folders/1p6uBcxGeyS1exc-T61vL8YRhwjYL4iD2?usp=sharing)|[ONNX Docker v0.1.22.01.08 (28G)](https://hub.docker.com/repository/docker/qyjdefdocker/lite.ai.toolkit-onnx-hub)|[ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)|    
 |MNN|[Baidu Drive](https://pan.baidu.com/s/1KyO-bCYUv6qPq2M8BH_Okg) code: 9v63 |❔|[MNN Docker v0.1.22.01.08 (11G)](https://hub.docker.com/repository/docker/qyjdefdocker/lite.ai.toolkit-mnn-hub)|[MNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md)|  
 |NCNN|[Baidu Drive](https://pan.baidu.com/s/1hlnqyNsFbMseGFWscgVhgQ) code: sc7f |❔|[NCNN Docker v0.1.22.01.08 (9G)](https://hub.docker.com/repository/docker/qyjdefdocker/lite.ai.toolkit-ncnn-hub)|[NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md)|
 |TNN|[Baidu Drive](https://pan.baidu.com/s/1lvM2YKyUbEc5HKVtqITpcw) code: 6o6k|❔|[TNN Docker v0.1.22.01.08 (11G)](https://hub.docker.com/repository/docker/qyjdefdocker/lite.ai.toolkit-tnn-hub)|[TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md)|
@@ -374,9 +374,9 @@ To link `lite.ai.toolkit` shared lib. You need to make sure that `OpenCV` and `o
 | *lite::cv::face::align*    | Face Alignment. PFLD(106), FaceLandmark1000(1000 landmarks), PRNet, etc. ❇️ |
 | *lite::cv::face::pose*     | Head Pose Estimation.  FSANet, etc. ❇️                        |
 | *lite::cv::face::attr*     | Face Attributes. Emotion, Age, Gender. EmotionFerPlus, VGG16Age, etc. ❇️ |
-| *lite::cv::segmentation*   | Object Segmentation. Such as FCN, DeepLabV3, etc. ⚠️          |
+| *lite::cv::segmentation*   | Object Segmentation. Such as FCN, DeepLabV3, etc.  ❇️ ️          |
 | *lite::cv::style*          | Style Transfer. Contains neural style transfer now, such as FastStyleTransfer.  ⚠️ |
-| *lite::cv::matting*        | Image Matting. Object and Human matting.  ⚠️                  |
+| *lite::cv::matting*        | Image Matting. Object and Human matting.   ❇️ ️                  |
 | *lite::cv::colorization*   | Colorization. Make Gray image become RGB. ⚠️                  |
 | *lite::cv::resolution*     | Super Resolution.  ⚠️                                         |
 
@@ -461,7 +461,7 @@ More examples can be found at [examples](https://github.com/DefTruth/lite.ai.too
 
 <div id="lite.ai.toolkit-object-detection"></div>
 
-#### Example0: Object Detection using [YoloV5](https://github.com/ultralytics/yolov5). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
+#### Example0: Object Detection using [YOLOv5](https://github.com/ultralytics/yolov5). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
 ```c++
 #include "lite/lite.h"
 
