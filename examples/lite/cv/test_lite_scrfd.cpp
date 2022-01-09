@@ -29,8 +29,8 @@ static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
   std::string onnx_path = "../../../hub/onnx/cv/scrfd_2.5g_bnkps_shape640x640.onnx";
-  std::string test_img_path = "../../../examples/lite/resources/test_lite_face_detector_3.jpg";
-  std::string save_img_path = "../../../logs/test_lite_scrfd_onnx_3.jpg";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_face_detector_2.jpg";
+  std::string save_img_path = "../../../logs/test_lite_scrfd_onnx_2.jpg";
 
   lite::onnxruntime::cv::face::detect::SCRFD *scrfd =
       new lite::onnxruntime::cv::face::detect::SCRFD(onnx_path);

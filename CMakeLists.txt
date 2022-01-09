@@ -6,7 +6,7 @@ set(VERSION_STRING 0.1.0)
 set(SOVERSION_STRING 0.1.0)
 include(cmake/lite.ai.toolkit-platform.cmake)  # checking platform
 
-message("==================================== Lite.AI.ToolKit ${VERSION_STRING} =============================")
+message("====================================  Lite.AI.ToolKit  ${VERSION_STRING} =============================")
 message("Project: lite.ai.toolkit")
 message("Version: ${VERSION_STRING}")
 message("SO Version: ${SOVERSION_STRING}")
@@ -36,7 +36,7 @@ option(BACKEND_MNN "whether to set MNN as the main backend of lite.ai.toolkit" O
 option(BACKEND_NCNN "whether to set NCNN as the main backend of lite.ai.toolkit" OFF)  # now, OFF only
 option(BACKEND_TNN "whether to set TNN as the main backend of lite.ai.toolkit" OFF)  # now, OFF only
 
-message("################################### Engines Enable Details ... #######################################")
+message("###################################  Engines Enable Details ...  #######################################")
 message(STATUS "INCLUDE_OPENCV: ${INCLUDE_OPENCV}")
 message(STATUS "ENABLE_ONNXRUNTIME: ${ENABLE_ONNXRUNTIME}")
 message(STATUS "ENABLE_MNN: ${ENABLE_MNN}")
