@@ -69,6 +69,7 @@ namespace tnncv
   class LITE_EXPORTS TNNMGMatting;                   // [55] * reference: https://github.com/yucornetto/MGMatting
   class LITE_EXPORTS TNNNanoDetPlus;                 // [56] * reference: https://github.com/RangiLyu/nanodet
   class LITE_EXPORTS TNNSCRFD;                       // [57] * reference: https://github.com/deepinsight/insightface/tree/master/detection/scrfd
+  class LITE_EXPORTS TNNYOLO5Face;                   // [58] * reference: https://github.com/deepcam-cn/yolov5-face
 
 }
 
