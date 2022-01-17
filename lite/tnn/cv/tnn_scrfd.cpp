@@ -3,7 +3,6 @@
 //
 
 #include "tnn_scrfd.h"
-#include "lite/utils.h"
 
 using tnncv::TNNSCRFD;
 

@@ -3,7 +3,6 @@
 //
 
 #include "mnn_scrfd.h"
-#include "lite/utils.h"
 
 using mnncv::MNNSCRFD;
 
