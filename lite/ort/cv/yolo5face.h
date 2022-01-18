@@ -27,7 +27,7 @@ namespace ortcv
     } YOLO5FaceScaleParams;
 
   private:
-    static constexpr const float mean_val = 0.f; // BGR
+    static constexpr const float mean_val = 0.f; // RGB
     static constexpr const float scale_val = 1.0 / 255.f;
     static constexpr const unsigned int max_nms = 30000;
 

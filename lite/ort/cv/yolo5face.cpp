@@ -14,7 +14,8 @@ YOLO5Face::YOLO5Face(const std::string &_onnx_path, unsigned int _num_threads) :
 
 Ort::Value YOLO5Face::transform(const cv::Mat &mat_rs)
 {
-  cv::Mat canvas = mat_rs.clone();
+  cv::Mat canvas;
+  cv::cvtColor(mat_rs, canvas, cv::COLOR_BGR2RGB);
   // (1,3,640,640) 1xCXHXW
   ortcv::utils::transform::normalize_inplace(canvas, mean_val, scale_val); // float32
   return ortcv::utils::transform::create_tensor(
@@ -138,7 +139,7 @@ void YOLO5Face::generate_bboxes_kps(const YOLO5FaceScaleParams &scale_params,
     {
       cv::Point2f kps;
       float kps_x = (kps_offsets[j] - (float) dw_) / r_;
-      float kps_y = (kps_offsets[j] - (float) dh_) / r_;
+      float kps_y = (kps_offsets[j + 1] - (float) dh_) / r_;
       kps.x = std::min(std::max(0.f, kps_x), img_width);
       kps.y = std::min(std::max(0.f, kps_y), img_height);
       box_kps.landmarks.points.push_back(kps);
