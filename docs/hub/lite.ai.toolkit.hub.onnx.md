@@ -201,9 +201,6 @@ You can download all the pretrained models files of ONNX format from ([Baidu Dri
 | *lite::cv::face::detect::YOLO5Face* | yolov5face-n-640x640.onnx | [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)  | 9.5Mb |
 | *lite::cv::face::detect::YOLO5Face* | yolov5face-s-640x640.onnx | [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)  | 30Mb |
 
-
-
-
 ## Face Alignment.  
 
 <div id="lite.ai.toolkit.hub.onnx-face-alignment"></div>  

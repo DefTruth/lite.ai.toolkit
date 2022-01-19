@@ -19,8 +19,7 @@ NCNNYOLO5Face::NCNNYOLO5Face(const std::string &_param_path,
   // init net, change this setting for better performance.
   net->opt.use_fp16_arithmetic = false;
   net->opt.use_vulkan_compute = false; // default
-  // setup Focus in yolo5face --> no Focus layer in yolo5face
-  // net->register_custom_layer("YoloV5Focus", YoloV5Focus_layer_creator);
+  // yolo5face --> no Focus layer in yolo5face
   net->load_param(param_path);
   net->load_model(bin_path);
 #ifdef LITENCNN_DEBUG
