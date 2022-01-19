@@ -69,6 +69,7 @@ namespace mnncv
   class LITE_EXPORTS MNNMGMatting;                   // [55] * reference: https://github.com/yucornetto/MGMatting
   class LITE_EXPORTS MNNNanoDetPlus;                 // [56] * reference: https://github.com/RangiLyu/nanodet
   class LITE_EXPORTS MNNSCRFD;                       // [57] * reference: https://github.com/deepinsight/insightface/tree/master/detection/scrfd
+  class LITE_EXPORTS MNNYOLO5Face;                   // [58] * reference: https://github.com/deepcam-cn/yolov5-face
 
 }
 

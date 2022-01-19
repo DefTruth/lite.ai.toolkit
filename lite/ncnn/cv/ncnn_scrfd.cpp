@@ -3,7 +3,6 @@
 //
 
 #include "ncnn_scrfd.h"
-#include "lite/utils.h"
 
 using ncnncv::NCNNSCRFD;
 

@@ -95,6 +95,7 @@ namespace ortcv
   class LITE_EXPORTS MGMatting;                  // [80] * reference: https://github.com/yucornetto/MGMatting
   class LITE_EXPORTS NanoDetPlus;                // [81] * reference: https://github.com/RangiLyu/nanodet
   class LITE_EXPORTS SCRFD;                      // [82] * reference: https://github.com/deepinsight/insightface/tree/master/detection/scrfd
+  class LITE_EXPORTS YOLO5Face;                  // [83] * reference: https://github.com/deepcam-cn/yolov5-face
 
 }
 

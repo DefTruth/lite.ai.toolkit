@@ -193,7 +193,13 @@ You can download all the pretrained models files of ONNX format from ([Baidu Dri
 | *lite::cv::face::detect::SCRFD* | scrfd_10g_shape1280x1280.onnx | [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)  | 16.9Mb |
 | *lite::cv::face::detect::SCRFD* | scrfd_10g_bnkps_shape640x640.onnx | [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)  | 16.9Mb |  
 | *lite::cv::face::detect::SCRFD* | scrfd_10g_bnkps_shape1280x1280.onnx | [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)  | 16.9Mb |  
-
+| *lite::cv::face::detect::YOLO5Face* | yolov5face-blazeface-640x640.onnx | [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)  | 3.4Mb |
+| *lite::cv::face::detect::YOLO5Face* | yolov5face-l-640x640.onnx | [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)  | 181Mb |
+| *lite::cv::face::detect::YOLO5Face* | yolov5face-m-640x640.onnx | [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)  | 83Mb |
+| *lite::cv::face::detect::YOLO5Face* | yolov5face-n-0.5-320x320.onnx | [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)  | 2.5Mb |
+| *lite::cv::face::detect::YOLO5Face* | yolov5face-n-0.5-640x640.onnx | [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)  | 4.6Mb |
+| *lite::cv::face::detect::YOLO5Face* | yolov5face-n-640x640.onnx | [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)  | 9.5Mb |
+| *lite::cv::face::detect::YOLO5Face* | yolov5face-s-640x640.onnx | [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)  | 30Mb |
 
 
 

@@ -72,6 +72,7 @@
 
 |Date|Model|C++|Paper|Code|Awesome|Type|
 |:----:|:----:|:----:|:----:|:----:|:----:|:----:| 
+|【2022/01/19】|[YOLO5Face](https://github.com/deepcam-cn/yolov5-face)|[[link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolo5face.cpp)]|[[arXiv 2021](https://arxiv.org/abs/2105.12931)]|[[code](https://github.com/deepcam-cn/yolov5-face)]|![](https://img.shields.io/github/stars/deepcam-cn/yolov5-face.svg?style=social)| face::detect |
 |【2022/01/07】|[SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd/)|[[link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_scrfd.cpp)]|[[CVPR 2021](https://arxiv.org/abs/2105.04714)]|[[code](https://github.com/deepinsight/insightface/blob/master/detection/scrfd/)]|![](https://img.shields.io/github/stars/deepinsight/insightface.svg?style=social)| face::detect |
 |【2021/12/27】|[NanoDetPlus](https://github.com/RangiLyu/nanodet)|[[link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet_plus.cpp)]|[[blog](https://zhuanlan.zhihu.com/p/449912627)]|[[code](https://github.com/RangiLyu/nanodet)]|![](https://img.shields.io/github/stars/RangiLyu/nanodet.svg?style=social)| detection |
 |【2021/12/08】|[MGMatting](https://github.com/yucornetto/MGMatting)|[[link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mg_matting.cpp)]|[[CVPR 2021](https://arxiv.org/abs/2012.06722)]|[[code](https://github.com/yucornetto/MGMatting)]|![](https://img.shields.io/github/stars/yucornetto/MGMatting.svg?style=social)| matting |
@@ -157,6 +158,7 @@
 |[RetinaFace](https://github.com/biubug6/Pytorch_Retinaface)|1.6M|*face::detect*|[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_retinaface.cpp)|✅| ✅ | ✅ | ✅ | ✅ |✔️|✔️|❔|
 |[FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)|3.8M|*face::detect*|[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_faceboxes.cpp)|✅| ✅ | ✅ | ✅ | ✅ |✔️|✔️|❔|
 |[SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd/)|2.5M|*face::detect*|[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_scrfd.cpp)|✅| ✅ | ✅ | ✅ | ✅ |✔️|✔️|❔|  
+|[YOLO5Face](https://github.com/deepcam-cn/yolov5-face)|4.8M|*face::detect*|[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolo5face.cpp)|✅| ✅ | ✅ | ✅ | ✅ |✔️|✔️|❔|  
 |[PFLD](https://github.com/Hsintao/pfld_106_face_landmarks)|1.0M|*face::align*|[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_pfld.cpp)|✅| ✅ | ✅ | ✅ | ✅ |✔️|✔️|❔|
 |[PFLD98](https://github.com/polarisZhao/PFLD-pytorch)|4.8M|*face::align*|[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_pfld98.cpp)|✅| ✅ | ✅ | ✅ | ✅ |✔️|✔️|❔|
 |[MobileNetV268](https://github.com/cunjian/pytorch_face_landmark)|9.4M|*face::align*|[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mobilenetv2_68.cpp)|✅| ✅ | ✅ | ✅ | ✅ |✔️|✔️|❔|
@@ -761,6 +763,7 @@ auto *detector = new lite::face::detect::UltraFace(onnx_path);  // 1.1Mb only !
 auto *detector = new lite::face::detect::FaceBoxes(onnx_path);  // 3.8Mb only ! 
 auto *detector = new lite::face::detect::RetinaFace(onnx_path);  // 1.6Mb only ! CVPR2020
 auto *detector = new lite::face::detect::SCRFD(onnx_path);  // 2.5Mb only ! CVPR2021, Super fast and accurate!!
+auto *detector = new lite::face::detect::YOLO5Face(onnx_path);  // 2021, Super fast and accurate!!
 ```
 
 <div id="lite.ai.toolkit-segmentation"></div>   

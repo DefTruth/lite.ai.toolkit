@@ -85,6 +85,7 @@
 #include "lite/ort/cv/mg_matting.h"
 #include "lite/ort/cv/nanodet_plus.h"
 #include "lite/ort/cv/scrfd.h"
+#include "lite/ort/cv/yolo5face.h"
 
 #endif
 
@@ -151,6 +152,7 @@
 #include "lite/mnn/cv/mnn_mg_matting.h"
 #include "lite/mnn/cv/mnn_nanodet_plus.h"
 #include "lite/mnn/cv/mnn_scrfd.h"
+#include "lite/mnn/cv/mnn_yolo5face.h"
 
 #endif
 
@@ -217,6 +219,7 @@
 #include "lite/ncnn/cv/ncnn_subpixel_cnn.h"
 #include "lite/ncnn/cv/ncnn_nanodet_plus.h"
 #include "lite/ncnn/cv/ncnn_scrfd.h"
+#include "lite/ncnn/cv/ncnn_yolo5face.h"
 
 #endif
 
@@ -283,6 +286,7 @@
 #include "lite/tnn/cv/tnn_mg_matting.h"
 #include "lite/tnn/cv/tnn_nanodet_plus.h"
 #include "lite/tnn/cv/tnn_scrfd.h"
+#include "lite/tnn/cv/tnn_yolo5face.h"
 
 #endif
 
@@ -365,6 +369,7 @@ namespace lite
     typedef ortcv::MGMatting _MGMatting;
     typedef ortcv::NanoDetPlus _NanoDetPlus;
     typedef ortcv::SCRFD _SCRFD;
+    typedef ortcv::YOLO5Face _YOLO5Face;
 #endif
 
     // 1. classification
@@ -412,28 +417,6 @@ namespace lite
     // 3. face detection & facial attributes detection
     namespace face
     {
-#ifdef BACKEND_ONNXRUNTIME
-      typedef _FSANet FSANet; // head pose estimation.
-      typedef _UltraFace UltraFace;  // face detection.
-      typedef _PFLD PFLD; // facial landmarks detection.
-      typedef _AgeGoogleNet AgeGoogleNet; // age estimation
-      typedef _GenderGoogleNet GenderGoogleNet; // gender estimation
-      typedef _VGG16Age VGG16Age; // age estimation
-      typedef _VGG16Gender VGG16Gender; // gender estimation
-      typedef _EmotionFerPlus EmotionFerPlus; // emotion detection
-      typedef _SSRNet SSRNet; // age estimation
-      typedef _EfficientEmotion7 EfficientEmotion7;
-      typedef _EfficientEmotion8 EfficientEmotion8;
-      typedef _MobileEmotion7 MobileEmotion7;
-      typedef _ReXNetEmotion7 ReXNetEmotion7;
-      typedef _PFLD98 PFLD98;
-      typedef _PFLD68 PFLD68;
-      typedef _MobileNetV268 MobileNetV268;
-      typedef _MobileNetV2SE68 MobileNetV2SE68;
-      typedef _FaceLandmark1000 FaceLandmark1000;
-      typedef _RetinaFace RetinaFace;
-      typedef _FaceBoxes FaceBoxes;
-#endif
       namespace detect
       {
 #ifdef BACKEND_ONNXRUNTIME
@@ -441,6 +424,7 @@ namespace lite
         typedef _RetinaFace RetinaFace;
         typedef _FaceBoxes FaceBoxes;
         typedef _SCRFD SCRFD;
+        typedef _YOLO5Face YOLO5Face;
 #endif
       }
 
@@ -710,6 +694,7 @@ namespace lite
       typedef ortcv::MGMatting _ONNXMGMatting;
       typedef ortcv::NanoDetPlus _ONNXNanoDetPlus;
       typedef ortcv::SCRFD _ONNXSCRFD;
+      typedef ortcv::YOLO5Face _ONNXYOLO5Face;
 
       // 1. classification
       namespace classification
@@ -752,33 +737,13 @@ namespace lite
       // 3. face detection & facial attributes detection
       namespace face
       {
-        typedef _ONNXFSANet FSANet; // head pose estimation.
-        typedef _ONNXUltraFace UltraFace;  // face detection.
-        typedef _ONNXPFLD PFLD; // facial landmarks detection.
-        typedef _ONNXAgeGoogleNet AgeGoogleNet; // age estimation
-        typedef _ONNXGenderGoogleNet GenderGoogleNet; // gender estimation
-        typedef _ONNXVGG16Age VGG16Age; // age estimation
-        typedef _ONNXVGG16Gender VGG16Gender; // gender estimation
-        typedef _ONNXEmotionFerPlus EmotionFerPlus; // emotion detection
-        typedef _ONNXSSRNet SSRNet; // age estimation
-        typedef _ONNXEfficientEmotion7 EfficientEmotion7;
-        typedef _ONNXEfficientEmotion8 EfficientEmotion8;
-        typedef _ONNXMobileEmotion7 MobileEmotion7;
-        typedef _ONNXReXNetEmotion7 ReXNetEmotion7;
-        typedef _ONNXPFLD98 PFLD98;
-        typedef _ONNXPFLD68 PFLD68;
-        typedef _ONNXMobileNetV268 MobileNetV268;
-        typedef _ONNXMobileNetV2SE68 MobileNetV2SE68;
-        typedef _ONNXFaceLandmark1000 FaceLandmark1000;
-        typedef _ONNXRetinaFace RetinaFace;
-        typedef _ONNXFaceBoxes FaceBoxes;
-
         namespace detect
         {
           typedef _ONNXUltraFace UltraFace;  // face detection.
           typedef _ONNXRetinaFace RetinaFace;
           typedef _ONNXFaceBoxes FaceBoxes;
           typedef _ONNXSCRFD SCRFD;
+          typedef _ONNXYOLO5Face YOLO5Face;
         }
 
         namespace align
@@ -926,6 +891,7 @@ namespace lite
           typedef mnncv::MNNRetinaFace RetinaFace;
           typedef mnncv::MNNFaceBoxes FaceBoxes;
           typedef mnncv::MNNSCRFD SCRFD;
+          typedef mnncv::MNNYOLO5Face YOLO5Face;
         }
         namespace align
         {
@@ -1061,6 +1027,7 @@ namespace lite
           typedef ncnncv::NCNNRetinaFace RetinaFace;
           typedef ncnncv::NCNNFaceBoxes FaceBoxes;
           typedef ncnncv::NCNNSCRFD SCRFD;
+          typedef ncnncv::NCNNYOLO5Face YOLO5Face;
         }
         namespace align
         {
@@ -1187,6 +1154,7 @@ namespace lite
           typedef tnncv::TNNRetinaFace RetinaFace;
           typedef tnncv::TNNFaceBoxes FaceBoxes;
           typedef tnncv::TNNSCRFD SCRFD;
+          typedef tnncv::TNNYOLO5Face YOLO5Face;
         }
         namespace align
         {
