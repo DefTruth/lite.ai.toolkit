@@ -28,7 +28,7 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string onnx_path = "../../../hub/onnx/cv/yolov5face-s-640x640.onnx";
+  std::string onnx_path = "../../../hub/onnx/cv/yolov5face-s-640x640.onnx"; // yolov5s-face
   std::string test_img_path = "../../../examples/lite/resources/test_lite_face_detector_2.jpg";
   std::string save_img_path = "../../../logs/test_lite_yolov5face_onnx_2.jpg";
 
@@ -52,7 +52,7 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
-  std::string mnn_path = "../../../hub/mnn/cv/yolov5face-s-640x640.mnn";
+  std::string mnn_path = "../../../hub/mnn/cv/yolov5face-s-640x640.mnn"; // yolov5s-face
   std::string test_img_path = "../../../examples/lite/resources/test_lite_face_detector_2.jpg";
   std::string save_img_path = "../../../logs/test_lite_yolov5face_mnn_2.jpg";
 
@@ -76,7 +76,7 @@ static void test_mnn()
 static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
-  std::string param_path = "../../../hub/ncnn/cv/yolov5face-s-640x640.opt.param";
+  std::string param_path = "../../../hub/ncnn/cv/yolov5face-s-640x640.opt.param"; // yolov5s-face
   std::string bin_path = "../../../hub/ncnn/cv/yolov5face-s-640x640.opt.bin";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_face_detector_2.jpg";
   std::string save_img_path = "../../../logs/test_lite_yolov5face_ncnn_2.jpg";
@@ -101,7 +101,7 @@ static void test_ncnn()
 static void test_tnn()
 {
 #ifdef ENABLE_TNN
-  std::string proto_path = "../../../hub/tnn/cv/yolov5face-s-640x640.opt.tnnproto";
+  std::string proto_path = "../../../hub/tnn/cv/yolov5face-s-640x640.opt.tnnproto"; // yolov5s-face
   std::string model_path = "../../../hub/tnn/cv/yolov5face-s-640x640.opt.tnnmodel";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_face_detector_2.jpg";
   std::string save_img_path = "../../../logs/test_lite_yolov5face_tnn_2.jpg";
