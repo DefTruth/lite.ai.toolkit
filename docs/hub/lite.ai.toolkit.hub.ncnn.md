@@ -150,6 +150,12 @@ You can download all the pretrained models files of NCNN format from ([Baidu Dri
 | *lite::ncnn::cv::face::detect::SCRFD* | scrfd_10g_shape1280x1280.opt.param&bin | [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)  | 16.9Mb |
 | *lite::ncnn::cv::face::detect::SCRFD* | scrfd_10g_bnkps_shape640x640.opt.param&bin | [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)  | 16.9Mb |  
 | *lite::ncnn::cv::face::detect::SCRFD* | scrfd_10g_bnkps_shape1280x1280.opt.param&bin | [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)  | 16.9Mb |  
+| *lite::ncnn::cv::face::detect::YOLO5Face* | yolov5face-l-640x640.opt.param&bin | [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)  | 181Mb |
+| *lite::ncnn::cv::face::detect::YOLO5Face* | yolov5face-m-640x640.opt.param&bin | [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)  | 83Mb |
+| *lite::ncnn::cv::face::detect::YOLO5Face* | yolov5face-n-0.5-320x320.opt.param&bin | [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)  | 2.5Mb |
+| *lite::ncnn::cv::face::detect::YOLO5Face* | yolov5face-n-0.5-640x640.opt.param&bin | [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)  | 4.6Mb |
+| *lite::ncnn::cv::face::detect::YOLO5Face* | yolov5face-n-640x640.opt.param&bin | [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)  | 9.5Mb |
+| *lite::ncnn::cv::face::detect::YOLO5Face* | yolov5face-s-640x640.opt.param&bin | [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)  | 30Mb |
 
 
 ## Face Alignment.
