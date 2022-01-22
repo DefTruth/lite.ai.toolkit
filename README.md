@@ -1071,6 +1071,20 @@ Cite it as follows if you use *Lite.AI.ToolKit*.
   author={Yan Jun},
   year={2021}
 }
-```
+``` 
+
+## 8. Demo Projects.  
+
+|Project|Describe|Operation System|Stars|Status|
+|:---:|:---:|:---:|:---:|:---:|
+|[RobustVideoMatting.lite.ai.toolkit](https://github.com/DefTruth/RobustVideoMatting.lite.ai.toolkit)| Video/Image Matting | MacOS | ![](https://img.shields.io/github/stars/DefTruth/RobustVideoMatting.lite.ai.toolkit.svg?style=social)|✅|
+|[nanodet.lite.ai.toolkit](https://github.com/DefTruth/nanodet.lite.ai.toolkit)| Object Detection | MacOS | ![](https://img.shields.io/github/stars/DefTruth/nanodet.lite.ai.toolkit.svg?style=social)|✅|
+|[YOLOX.lite.ai.toolkit](https://github.com/DefTruth/YOLOX.lite.ai.toolkit)| Object Detection | MacOS | ![](https://img.shields.io/github/stars/DefTruth/YOLOX.lite.ai.toolkit.svg?style=social)|✅|
+|[YOLOP.lite.ai.toolkit](https://github.com/DefTruth/YOLOP.lite.ai.toolkit)|  Panoptic Perception | MacOS | ![](https://img.shields.io/github/stars/DefTruth/YOLOP.lite.ai.toolkit.svg?style=social)|✅|
+|[scrfd.lite.ai.toolkit](https://github.com/DefTruth/scrfd.lite.ai.toolkit)| Face Detection | MacOS | ![](https://img.shields.io/github/stars/DefTruth/scrfd.lite.ai.toolkit.svg?style=social)|✅|
+|[YOLO5Face.lite.ai.toolkit](https://github.com/DefTruth/scrfd.lite.ai.toolkit)| Face Detection | MacOS | ![](https://img.shields.io/github/stars/DefTruth/YOLO5Face.lite.ai.toolkit.svg?style=social)|✅|
+|[MGMatting.lite.ai.toolkit](https://github.com/DefTruth/MGMatting.lite.ai.toolkit)| Image Matting | MacOS | ![](https://img.shields.io/github/stars/DefTruth/MGMatting.lite.ai.toolkit.svg?style=social)|❔|
+|[fsanet.lite.ai.toolkit](https://github.com/DefTruth/fsanet.lite.ai.toolkit)| Head Pose Estimation | MacOS | ![](https://img.shields.io/github/stars/DefTruth/fsanet.lite.ai.toolkit.svg?style=social)|❔|
+|[ssrnet.lite.ai.toolkit](https://github.com/DefTruth/ssrnet.lite.ai.toolkit)| Age Estimation | MacOS | ![](https://img.shields.io/github/stars/DefTruth/ssrnet.lite.ai.toolkit.svg?style=social)|❔|
 
 <p align="center"> ❤️ Star 🌟👆🏻 this repo if it does any helps to you, many thanks ~ </p>
