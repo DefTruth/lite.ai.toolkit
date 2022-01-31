@@ -57,13 +57,16 @@
 
 🍅🍅*Lite.AI.ToolKit*: A lite C++ toolkit of awesome AI models, such as [Object Detection](#lite.ai.toolkit-object-detection), [Face Detection](#lite.ai.toolkit-face-detection), [Face Recognition](#lite.ai.toolkit-face-recognition), [Segmentation](#lite.ai.toolkit-segmentation), [Matting](#lite.ai.toolkit-matting), etc. See [Model Zoo](#lite.ai.toolkit-Model-Zoo) and [ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md), [MNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md), [TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md), [NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md). [❤️ Star 🌟👆🏻 this repo if it does any helps to you, thanks ~ ]
 
+## Happy Chinese New Year 🌟🌟
+Happy Chinese New Year to everyone who comes to this Lite.AI.ToolKit, wish you all the best 🎉🎉🎉 ~
+
 ## Core Features and RoadMap👏👋
 
 ![](docs/resources/lite.ai.toolkit-roadmap-v0.1.png)
 
 * *Simply and User friendly.* Simply and Consistent syntax like *lite::cv::Type::Class*, see [examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
 * *Minimum Dependencies.* Only *OpenCV* and *ONNXRuntime* are required by default, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit).
-* *Lots of Algorithm Modules.* Contains 10+ modules with *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* AI models and *[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* weights now.
+* *Lots of Algorithm Modules.* Contains 10+ modules with *[80+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* AI models and *[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* weights now.
 
 ## Important Updates!!
 
@@ -349,7 +352,7 @@ To link `lite.ai.toolkit` shared lib. You need to make sure that `OpenCV` and `o
 <div id="lite.ai.toolkit-Model-Zoo"></div>
 <div id="lite.ai.toolkit-2"></div>
 
-*Lite.AI.ToolKit* contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* AI models with *[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained  files now. Most of the files are converted by myself. You can use it through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)*. More details can be found at [Examples for Lite.AI.ToolKit](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit). Note, for Google Drive, I can not upload all the *.onnx files because of the storage limitation (15G).
+*Lite.AI.ToolKit* contains *[80+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* AI models with *[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained  files now. Most of the files are converted by myself. You can use it through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)*. More details can be found at [Examples for Lite.AI.ToolKit](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit). Note, for Google Drive, I can not upload all the *.onnx files because of the storage limitation (15G).
 
 |File|Baidu Drive|Google Drive|Docker Hub|Hub (Docs)|  
 |:---:|:---:|:---:|:---:|:---:|
