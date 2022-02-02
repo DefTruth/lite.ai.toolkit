@@ -5,5 +5,5 @@ cmake-build-release
 .idea
 build-debug.sh
 python
-jni
-andriod
+command
+
