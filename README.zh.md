@@ -7,25 +7,6 @@
 <div align='center'>
   <img src='docs/resources/logo-v2.png'>
 </div>    
-<div align='center'>
-  <img src='logs/test_lite_yolov5_1.jpg' height="90px" width="90px">
-  <img src='docs/resources/efficientdet_d0.jpg' height="90px" width="90px">
-  <img src='docs/resources/street.jpg' height="90px" width="90px">
-  <img src='logs/test_lite_ultraface.jpg' height="90px" width="90px">
-  <img src='logs/test_lite_face_landmarks_1000.jpg' height="90px" width="90px">
-  <img src='logs/test_lite_fsanet.jpg' height="90px" width="90px">
-  <img src='logs/test_lite_deeplabv3_resnet101.jpg' height="90px" width="90px">
-  <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="90px" width="90px"> 
-  <br>
-  <img src='docs/resources/teslai.gif' height="90px" width="90px">
-  <img src='docs/resources/tesla.gif' height="90px" width="90px">
-  <img src='docs/resources/dance3i.gif' height="90px" width="90px">
-  <img src='docs/resources/dance3.gif' height="90px" width="90px">  
-  <img src='docs/resources/yolop1.png' height="90px" width="90px">
-  <img src='docs/resources/yolop1.gif' height="90px" width="90px">
-  <img src='docs/resources/yolop2.png' height="90px" width="90px">
-  <img src='docs/resources/yolop2.gif' height="90px" width="90px">
-</div>    
 
 <p align="center"><a href="README.md">English</a> | 中文文档 | <a href=#lite.ai.toolkit-Build-MacOS>MacOS</a> | <a href=#lite.ai.toolkit-Build-Linux>Linux</a> | <a href=#lite.ai.toolkit-Build-Windows>Windows</a> </p>
 
