@@ -20,6 +20,9 @@
   <img src=https://img.shields.io/badge/tnn-0.3.0-blue.svg >
 </div>   
 
+
+🍅🍅*Lite.AI.ToolKit*: A lite C++ toolkit of awesome AI models, such as [Object Detection](#lite.ai.toolkit-object-detection), [Face Detection](#lite.ai.toolkit-face-detection), [Face Recognition](#lite.ai.toolkit-face-recognition), [Segmentation](#lite.ai.toolkit-segmentation), [Matting](#lite.ai.toolkit-matting), etc. See [Model Zoo](#lite.ai.toolkit-Model-Zoo) and [ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md), [MNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md), [TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md), [NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md). [❤️ Star 🌟👆🏻 this repo if it does any helps to you, thanks ~ ]
+
 <div align='center'>
   <img src='logs/test_lite_yolov5_1.jpg' height="90px" width="90px">
   <img src='docs/resources/efficientdet_d0.jpg' height="90px" width="90px">
@@ -38,11 +41,8 @@
   <img src='docs/resources/yolop1.gif' height="90px" width="90px">
   <img src='docs/resources/yolop2.png' height="90px" width="90px">
   <img src='docs/resources/yolop2.gif' height="90px" width="90px">
-
 </div>    
 
-
-🍅🍅*Lite.AI.ToolKit*: A lite C++ toolkit of awesome AI models, such as [Object Detection](#lite.ai.toolkit-object-detection), [Face Detection](#lite.ai.toolkit-face-detection), [Face Recognition](#lite.ai.toolkit-face-recognition), [Segmentation](#lite.ai.toolkit-segmentation), [Matting](#lite.ai.toolkit-matting), etc. See [Model Zoo](#lite.ai.toolkit-Model-Zoo) and [ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md), [MNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md), [TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md), [NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md). [❤️ Star 🌟👆🏻 this repo if it does any helps to you, thanks ~ ]
 
 ## Core Features and RoadMap👏👋
 
@@ -1078,4 +1078,4 @@ Cite it as follows if you use *Lite.AI.ToolKit*.
 |[fsanet.lite.ai.toolkit](https://github.com/DefTruth/fsanet.lite.ai.toolkit)| Head Pose Estimation | MacOS | ![](https://img.shields.io/github/stars/DefTruth/fsanet.lite.ai.toolkit.svg?style=social)|❔|
 |[ssrnet.lite.ai.toolkit](https://github.com/DefTruth/ssrnet.lite.ai.toolkit)| Age Estimation | MacOS | ![](https://img.shields.io/github/stars/DefTruth/ssrnet.lite.ai.toolkit.svg?style=social)|❔|
 
-<p align="center"> ❤️ Star 🌟👆🏻 this repo if it does any helps to you, many thanks ~ </p>
+<p align="center"> ❤️ Star 🌟👆🏻 this repo to support me if it does any helps to you, many thanks ~ </p>
