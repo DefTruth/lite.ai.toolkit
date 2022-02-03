@@ -18,35 +18,15 @@
   <img src=https://img.shields.io/badge/mnn-1.2.0-hotpink.svg >
   <img src=https://img.shields.io/badge/ncnn-1.0.21-orange.svg >
   <img src=https://img.shields.io/badge/tnn-0.3.0-blue.svg >
-</div>   
-
-
+</div>
 
 🍅🍅*Lite.AI.ToolKit*: 一个轻量级的`C++` AI模型工具箱，用户友好（还行吧），开箱即用。已经包括 *[80+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* 流行的开源模型。这是一个根据个人兴趣整理的C++工具箱，, 涵盖[目标检测](#lite.ai.toolkit-object-detection)、[人脸检测](#lite.ai.toolkit-face-detection)、[人脸识别](#lite.ai.toolkit-face-recognition)、[语义分割](#lite.ai.toolkit-segmentation)、[抠图](#lite.ai.toolkit-matting)等领域。详见 [Model Zoo](#lite.ai.toolkit-Model-Zoo) 和 [ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md) 、[MNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md) 、[TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md) 、[NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md). [若是有用，❤️不妨给个⭐️🌟支持一下吧，感谢支持~]
 
+
 ## 核心特征及规划👏👋
 
-<div align='center'>
-  <img src='logs/test_lite_yolov5_1.jpg' height="90px" width="90px">
-  <img src='docs/resources/efficientdet_d0.jpg' height="90px" width="90px">
-  <img src='docs/resources/street.jpg' height="90px" width="90px">
-  <img src='logs/test_lite_ultraface.jpg' height="90px" width="90px">
-  <img src='logs/test_lite_face_landmarks_1000.jpg' height="90px" width="90px">
-  <img src='logs/test_lite_fsanet.jpg' height="90px" width="90px">
-  <img src='logs/test_lite_deeplabv3_resnet101.jpg' height="90px" width="90px">
-  <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="90px" width="90px"> 
-  <br>
-  <img src='docs/resources/teslai.gif' height="90px" width="90px">
-  <img src='docs/resources/tesla.gif' height="90px" width="90px">
-  <img src='docs/resources/dance3i.gif' height="90px" width="90px">
-  <img src='docs/resources/dance3.gif' height="90px" width="90px">  
-  <img src='docs/resources/yolop1.png' height="90px" width="90px">
-  <img src='docs/resources/yolop1.gif' height="90px" width="90px">
-  <img src='docs/resources/yolop2.png' height="90px" width="90px">
-  <img src='docs/resources/yolop2.gif' height="90px" width="90px">
-  <br>
-  <img src='docs/resources/lite.ai.toolkit-roadmap-v0.1.png' height="360" width="745px">  
-</div>    
+![](docs/resources/lite.ai.toolkit-roadmap-v0.1.png)
+
 
 * *用户友好，开箱即用。* 使用简单一致的调用语法，如*lite::cv::Type::Class*，详见[examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
 * *少量依赖，构建容易。* 目前, 默认只依赖 *OpenCV* 和 *ONNXRuntime*，详见[build](#lite.ai.toolkit-Build-Lite.AI.ToolKit)。
