@@ -8,7 +8,7 @@
   <img src='docs/resources/logo.png'>
 </div>    
 
-<p align="center">English | <a href="README.zh.md">中文文档</a> | <a href=#lite.ai.toolkit-Build-MacOS>MacOS</a> | <a href=#lite.ai.toolkit-Build-Linux>Linux</a> | <a href=#lite.ai.toolkit-Build-Windows>Windows</a> </p>
+<p align="center"><a href="README.md">English</a> | 中文文档 | <a href=#lite.ai.toolkit-Build-MacOS>MacOS</a> | <a href=#lite.ai.toolkit-Build-Linux>Linux</a> | <a href=#lite.ai.toolkit-Build-Windows>Windows</a> </p>
 
 <div align='center'>
   <img src=https://img.shields.io/badge/mac|linux|win-pass-brightgreen.svg >
@@ -22,6 +22,25 @@
 
 🍅🍅*Lite.AI.ToolKit*: 一个轻量级的`C++` AI模型工具箱，用户友好（还行吧），开箱即用。已经包括 *[80+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* 流行的开源模型。这是一个根据个人兴趣整理的C++工具箱，, 涵盖[目标检测](#lite.ai.toolkit-object-detection)、[人脸检测](#lite.ai.toolkit-face-detection)、[人脸识别](#lite.ai.toolkit-face-recognition)、[语义分割](#lite.ai.toolkit-segmentation)、[抠图](#lite.ai.toolkit-matting)等领域。详见 [Model Zoo](#lite.ai.toolkit-Model-Zoo) 和 [ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md) 、[MNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md) 、[TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md) 、[NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md). [若是有用，❤️不妨给个⭐️🌟支持一下吧，感谢支持~]
 
+<div align='center'>
+  <img src='logs/test_lite_yolov5_1.jpg' height="90px" width="90px">
+  <img src='docs/resources/efficientdet_d0.jpg' height="90px" width="90px">
+  <img src='docs/resources/street.jpg' height="90px" width="90px">
+  <img src='logs/test_lite_ultraface.jpg' height="90px" width="90px">
+  <img src='logs/test_lite_face_landmarks_1000.jpg' height="90px" width="90px">
+  <img src='logs/test_lite_fsanet.jpg' height="90px" width="90px">
+  <img src='logs/test_lite_deeplabv3_resnet101.jpg' height="90px" width="90px">
+  <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="90px" width="90px"> 
+  <br>
+  <img src='docs/resources/teslai.gif' height="90px" width="90px">
+  <img src='docs/resources/tesla.gif' height="90px" width="90px">
+  <img src='docs/resources/dance3i.gif' height="90px" width="90px">
+  <img src='docs/resources/dance3.gif' height="90px" width="90px">  
+  <img src='docs/resources/yolop1.png' height="90px" width="90px">
+  <img src='docs/resources/yolop1.gif' height="90px" width="90px">
+  <img src='docs/resources/yolop2.png' height="90px" width="90px">
+  <img src='docs/resources/yolop2.gif' height="90px" width="90px">
+</div>    
 
 ## 核心特征及规划👏👋
 

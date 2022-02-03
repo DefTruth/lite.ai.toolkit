@@ -1078,4 +1078,4 @@ Cite it as follows if you use *Lite.AI.ToolKit*.
 |[fsanet.lite.ai.toolkit](https://github.com/DefTruth/fsanet.lite.ai.toolkit)| Head Pose Estimation | MacOS | ![](https://img.shields.io/github/stars/DefTruth/fsanet.lite.ai.toolkit.svg?style=social)|❔|
 |[ssrnet.lite.ai.toolkit](https://github.com/DefTruth/ssrnet.lite.ai.toolkit)| Age Estimation | MacOS | ![](https://img.shields.io/github/stars/DefTruth/ssrnet.lite.ai.toolkit.svg?style=social)|❔|
 
-<p align="center"> ❤️ Star 🌟👆🏻 this repo if it does any helps to you, many thanks ~ </p>
+<p align="center"> ❤️ Star 🌟👆🏻 this repo to support me if it does any helps to you, many thanks ~ </p>
