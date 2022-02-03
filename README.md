@@ -25,11 +25,7 @@
 
 ## Core Features and RoadMap👏👋
 
-![](docs/resources/lite.ai.toolkit-roadmap-v0.1.png)
-
 <div align='center'>
-  <img src='docs/resources/lite.ai.toolkit-roadmap-v0.1.png'>
-  <br>
   <img src='logs/test_lite_yolov5_1.jpg' height="90px" width="90px">
   <img src='docs/resources/efficientdet_d0.jpg' height="90px" width="90px">
   <img src='docs/resources/street.jpg' height="90px" width="90px">
@@ -47,7 +43,8 @@
   <img src='docs/resources/yolop1.gif' height="90px" width="90px">
   <img src='docs/resources/yolop2.png' height="90px" width="90px">
   <img src='docs/resources/yolop2.gif' height="90px" width="90px">
-
+  <br>
+  <img src='docs/resources/lite.ai.toolkit-roadmap-v0.1.png' height="360" width="745px">
 </div>    
 
 
