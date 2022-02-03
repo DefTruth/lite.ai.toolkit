@@ -5,6 +5,22 @@
 <div id="lite.ai.toolkit-Introduction"></div>  
 
 <div align='center'>
+  <img src='docs/resources/logo.png'>
+</div>    
+
+<p align="center">English | <a href="README.zh.md">中文文档</a> | <a href=#lite.ai.toolkit-Build-MacOS>MacOS</a> | <a href=#lite.ai.toolkit-Build-Linux>Linux</a> | <a href=#lite.ai.toolkit-Build-Windows>Windows</a> </p>
+
+<div align='center'>
+  <img src=https://img.shields.io/badge/mac|linux|win-pass-brightgreen.svg >
+  <img src=https://img.shields.io/badge/device-GPU/CPU-yellow.svg >
+  <img src=https://img.shields.io/badge/license-GPLv3-blue.svg >
+  <img src=https://img.shields.io/badge/onnxruntime-1.7.1-turquoise.svg >
+  <img src=https://img.shields.io/badge/mnn-1.2.0-hotpink.svg >
+  <img src=https://img.shields.io/badge/ncnn-1.0.21-orange.svg >
+  <img src=https://img.shields.io/badge/tnn-0.3.0-blue.svg >
+</div>   
+
+<div align='center'>
   <img src='logs/test_lite_yolov5_1.jpg' height="90px" width="90px">
   <img src='docs/resources/efficientdet_d0.jpg' height="90px" width="90px">
   <img src='docs/resources/street.jpg' height="90px" width="90px">
@@ -25,42 +41,8 @@
 
 </div>    
 
-<p align="center">English | <a href="README.zh.md">中文文档</a> | <a href=#lite.ai.toolkit-Build-MacOS>MacOS</a> | <a href=#lite.ai.toolkit-Build-Linux>Linux</a> | <a href=#lite.ai.toolkit-Build-Windows>Windows</a> </p>
-
-<div align='center'>
-  <img src=https://img.shields.io/badge/mac|linux|win-pass-brightgreen.svg >
-  <img src=https://img.shields.io/badge/device-GPU/CPU-yellow.svg >
-  <img src=https://img.shields.io/badge/license-GPLv3-blue.svg >
-  <img src=https://img.shields.io/badge/onnxruntime-1.7.1-turquoise.svg >
-  <img src=https://img.shields.io/badge/mnn-1.2.0-hotpink.svg >
-  <img src=https://img.shields.io/badge/ncnn-1.0.21-orange.svg >
-  <img src=https://img.shields.io/badge/tnn-0.3.0-blue.svg >
-</div>   
-
-
-<!-----
-<div align='center'> 
-  <img src=https://img.shields.io/badge/ONNXRuntime-support-brightgreen.svg >
-  <img src=https://img.shields.io/badge/MNN-support-brightgreen.svg >
-  <img src=https://img.shields.io/badge/NCNN-support-brightgreen.svg >
-  <img src=https://img.shields.io/badge/TNN-support-brightgreen.svg >
-<br>
-  <img src=https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social >
-  <img src=https://img.shields.io/github/forks/DefTruth/lite.ai.toolkit.svg?style=social >
-  <img src=https://img.shields.io/github/watchers/DefTruth/lite.ai.toolkit.svg?style=social > 
-</div>    
-
-
-🍅🍅*Lite.AI.ToolKit*: A lite `C++` toolkit of awesome AI models which contains *[70+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* models now. It's a collection of personal interests. Such as RVM, YOLOX, YOLOP, YOLOR, YoloV5, DeepLabV3, ArcFace, etc. emmm😞 ... it's not perfect yet. For now, let's regard it as a large collection of application cases for inference engines. *Lite.AI.ToolKit* based on *[ONNXRuntime C++](https://github.com/microsoft/onnxruntime)* by default. I do have plans to reimplement it with *[NCNN](https://github.com/Tencent/ncnn)*, *[MNN](https://github.com/alibaba/MNN)* and *[TNN](https://github.com/Tencent/TNN)*, some models are already supported. 
-
------>
 
 🍅🍅*Lite.AI.ToolKit*: A lite C++ toolkit of awesome AI models, such as [Object Detection](#lite.ai.toolkit-object-detection), [Face Detection](#lite.ai.toolkit-face-detection), [Face Recognition](#lite.ai.toolkit-face-recognition), [Segmentation](#lite.ai.toolkit-segmentation), [Matting](#lite.ai.toolkit-matting), etc. See [Model Zoo](#lite.ai.toolkit-Model-Zoo) and [ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md), [MNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md), [TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md), [NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md). [❤️ Star 🌟👆🏻 this repo if it does any helps to you, thanks ~ ]
-
-<!---
-## Happy Chinese New Year 🌟🌟
-Happy Chinese New Year to everyone who comes to this Lite.AI.ToolKit, wish you all the best 🎉🎉🎉 ~
---->
 
 ## Core Features and RoadMap👏👋
 
