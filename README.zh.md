@@ -5,7 +5,7 @@
 <div id="lite.ai.toolkit-Introduction"></div>  
 
 <div align='center'>
-  <img src='docs/resources/logo.png'>
+  <img src='docs/resources/logo-v2.png'>
 </div>    
 
 <p align="center"><a href="README.md">English</a> | 中文文档 | <a href=#lite.ai.toolkit-Build-MacOS>MacOS</a> | <a href=#lite.ai.toolkit-Build-Linux>Linux</a> | <a href=#lite.ai.toolkit-Build-Windows>Windows</a> </p>
