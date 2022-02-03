@@ -5,24 +5,7 @@
 <div id="lite.ai.toolkit-Introduction"></div>  
 
 <div align='center'>
-  <img src='logs/test_lite_yolov5_1.jpg' height="90px" width="90px">
-  <img src='docs/resources/efficientdet_d0.jpg' height="90px" width="90px">
-  <img src='docs/resources/street.jpg' height="90px" width="90px">
-  <img src='logs/test_lite_ultraface.jpg' height="90px" width="90px">
-  <img src='logs/test_lite_face_landmarks_1000.jpg' height="90px" width="90px">
-  <img src='logs/test_lite_fsanet.jpg' height="90px" width="90px">
-  <img src='logs/test_lite_deeplabv3_resnet101.jpg' height="90px" width="90px">
-  <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="90px" width="90px"> 
-  <br>
-  <img src='docs/resources/teslai.gif' height="90px" width="90px">
-  <img src='docs/resources/tesla.gif' height="90px" width="90px">
-  <img src='docs/resources/dance3i.gif' height="90px" width="90px">
-  <img src='docs/resources/dance3.gif' height="90px" width="90px">  
-  <img src='docs/resources/yolop1.png' height="90px" width="90px">
-  <img src='docs/resources/yolop1.gif' height="90px" width="90px">
-  <img src='docs/resources/yolop2.png' height="90px" width="90px">
-  <img src='docs/resources/yolop2.gif' height="90px" width="90px">
-
+  <img src='docs/resources/logo.png'>
 </div>    
 
 <p align="center">English | <a href="README.zh.md">中文文档</a> | <a href=#lite.ai.toolkit-Build-MacOS>MacOS</a> | <a href=#lite.ai.toolkit-Build-Linux>Linux</a> | <a href=#lite.ai.toolkit-Build-Windows>Windows</a> </p>
@@ -36,7 +19,6 @@
   <img src=https://img.shields.io/badge/ncnn-1.0.21-orange.svg >
   <img src=https://img.shields.io/badge/tnn-0.3.0-blue.svg >
 </div>   
-
 
 <!-----
 <div align='center'> 
@@ -64,7 +46,27 @@ Happy Chinese New Year to everyone who comes to this Lite.AI.ToolKit, wish you a
 
 ## Core Features and RoadMap👏👋
 
-![](docs/resources/lite.ai.toolkit-roadmap-v0.1.png)
+![](docs/resources/lite.ai.toolkit-roadmap-v0.1.png) 
+<div align='center'>
+  <img src='logs/test_lite_yolov5_1.jpg' height="90px" width="90px">
+  <img src='docs/resources/efficientdet_d0.jpg' height="90px" width="90px">
+  <img src='docs/resources/street.jpg' height="90px" width="90px">
+  <img src='logs/test_lite_ultraface.jpg' height="90px" width="90px">
+  <img src='logs/test_lite_face_landmarks_1000.jpg' height="90px" width="90px">
+  <img src='logs/test_lite_fsanet.jpg' height="90px" width="90px">
+  <img src='logs/test_lite_deeplabv3_resnet101.jpg' height="90px" width="90px">
+  <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="90px" width="90px"> 
+  <br>
+  <img src='docs/resources/teslai.gif' height="90px" width="90px">
+  <img src='docs/resources/tesla.gif' height="90px" width="90px">
+  <img src='docs/resources/dance3i.gif' height="90px" width="90px">
+  <img src='docs/resources/dance3.gif' height="90px" width="90px">  
+  <img src='docs/resources/yolop1.png' height="90px" width="90px">
+  <img src='docs/resources/yolop1.gif' height="90px" width="90px">
+  <img src='docs/resources/yolop2.png' height="90px" width="90px">
+  <img src='docs/resources/yolop2.gif' height="90px" width="90px">
+
+</div>    
 
 * *Simply and User friendly.* Simply and Consistent syntax like *lite::cv::Type::Class*, see [examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
 * *Minimum Dependencies.* Only *OpenCV* and *ONNXRuntime* are required by default, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit).
