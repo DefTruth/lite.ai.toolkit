@@ -20,7 +20,7 @@
   <img src=https://img.shields.io/badge/tnn-0.3.0-blue.svg >
 </div>   
 
-🍅🍅*Lite.AI.ToolKit*: A lite C++ toolkit of awesome AI models, such as [Object Detection](#lite.ai.toolkit-object-detection), [Face Detection](#lite.ai.toolkit-face-detection), [Face Recognition](#lite.ai.toolkit-face-recognition), [Segmentation](#lite.ai.toolkit-segmentation), [Matting](#lite.ai.toolkit-matting), etc. See [Model Zoo](#lite.ai.toolkit-Model-Zoo) and [ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md), [MNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md), [TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md), [NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md). [❤️ Star 🌟👆🏻 this repo to support me if it does any helps to you, thanks ~ ]
+🍅🍅**Lite.AI.ToolKit**: A lite C++ toolkit of awesome AI models, such as [Object Detection](#lite.ai.toolkit-object-detection), [Face Detection](#lite.ai.toolkit-face-detection), [Face Recognition](#lite.ai.toolkit-face-recognition), [Segmentation](#lite.ai.toolkit-segmentation), [Matting](#lite.ai.toolkit-matting), etc. See [Model Zoo](#lite.ai.toolkit-Model-Zoo) and [ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md), [MNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md), [TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md), [NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md). [❤️ Star 🌟👆🏻 this repo to support me if it does any helps to you, thanks ~ ]
 
 <div align='center'>
   <img src='logs/test_lite_yolov5_1.jpg' height="90px" width="90px">
@@ -51,7 +51,7 @@
 
 ## Citations 🎉🎉
 
-Cite it as follows if you use **Lite.AI.ToolKit**.
+Consider to cite it as follows if you use **Lite.AI.ToolKit** in your projects.
 ```BibTeX
 @misc{lite.ai.toolkit2021,
   title={lite.ai.toolkit: A lite C++ toolkit of awesome AI models.},
@@ -62,7 +62,7 @@ Cite it as follows if you use **Lite.AI.ToolKit**.
 }
 ```
 
-## Contents 💡
+## Contents 📖💡
 * [Core Features](#lite.ai.toolkit-Core-Features)
 * [Quick Start](#lite.ai.toolkit-Quick-Start)
 * [RoadMap](#lite.ai.toolkit-RoadMap) 
@@ -74,7 +74,7 @@ Cite it as follows if you use **Lite.AI.ToolKit**.
 * [License](#lite.ai.toolkit-License)
 * [References](#lite.ai.toolkit-References)
 
-## 1. Quick Start 🌟
+## 1. Quick Start 🌟🌟
 <div id="lite.ai.toolkit-Quick-Start"></div>
 
 #### Example0: Object Detection using [YOLOv5](https://github.com/ultralytics/yolov5). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
@@ -105,7 +105,7 @@ The output is:
   <img src='logs/test_lite_yolov5_2.jpg' height="256px">
 </div>  
 
-## 2. RoadMap👏👋
+## 2. RoadMap 👏👋
 <div id="lite.ai.toolkit-RoadMap"></div>
 
 ![](docs/resources/lite.ai.toolkit-roadmap-v0.1.png)
@@ -1120,4 +1120,5 @@ auto *nanodet = new lite::ncnn::cv::detection::NanoDet(param_path, bin_path);
 |[fsanet.lite.ai.toolkit](https://github.com/DefTruth/fsanet.lite.ai.toolkit)| Head Pose Estimation | MacOS | ![](https://img.shields.io/github/stars/DefTruth/fsanet.lite.ai.toolkit.svg?style=social)|❔|
 |[ssrnet.lite.ai.toolkit](https://github.com/DefTruth/ssrnet.lite.ai.toolkit)| Age Estimation | MacOS | ![](https://img.shields.io/github/stars/DefTruth/ssrnet.lite.ai.toolkit.svg?style=social)|❔|
 ---->
+
 <p align="center"> ❤️ Star 🌟👆🏻 this repo to support me if it does any helps to you, many thanks ~ </p>
