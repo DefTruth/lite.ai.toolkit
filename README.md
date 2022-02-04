@@ -43,7 +43,7 @@
 </div>  
 
 ## Core Features 👏👋
-<div id="lite.ai.toolkit-Quick-Start"></div>
+<div id="lite.ai.toolkit-Core-Features"></div>
 
 * **Simply and User friendly.** Simply and Consistent syntax like **lite::cv::Type::Class**, see [examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
 * **Minimum Dependencies.** Only **OpenCV** and **ONNXRuntime** are required by default, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit).
@@ -63,14 +63,14 @@ Cite it as follows if you use **Lite.AI.ToolKit**.
 ```
 
 ## Contents 💡
-* [Core Features]()
-* [Quick Start]()
-* [Important Updates]()
-* [Supported Models Matrix]()
+* [Core Features](#lite.ai.toolkit-Core-Features)
+* [Quick Start](#lite.ai.toolkit-Quick-Start)
+* [RoadMap](#lite.ai.toolkit-RoadMap) 
+* [Important Updates](#lite.ai.toolkit-Important-Updates)
+* [Supported Models Matrix](#lite.ai.toolkit-Supported-Models-Matrix)
 * [Build Docs](#lite.ai.toolkit-Build-Lite.AI.ToolKit)
 * [Model Zoo](#lite.ai.toolkit-Model-Zoo)
 * [Examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit)
-* [RoadMap]()
 * [License](#lite.ai.toolkit-License)
 * [References](#lite.ai.toolkit-References)
 
