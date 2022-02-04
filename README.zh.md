@@ -20,7 +20,7 @@
   <img src=https://img.shields.io/badge/tnn-0.3.0-blue.svg >
 </div>
 
-🍅🍅*Lite.AI.ToolKit*: 一个轻量级的`C++` AI模型工具箱，用户友好（还行吧），开箱即用。已经包括 *[80+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* 流行的开源模型。这是一个根据个人兴趣整理的C++工具箱，, 涵盖[目标检测](#lite.ai.toolkit-object-detection)、[人脸检测](#lite.ai.toolkit-face-detection)、[人脸识别](#lite.ai.toolkit-face-recognition)、[语义分割](#lite.ai.toolkit-segmentation)、[抠图](#lite.ai.toolkit-matting)等领域。详见 [Model Zoo](#lite.ai.toolkit-Model-Zoo) 和 [ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md) 、[MNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md) 、[TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md) 、[NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md). [若是有用，❤️不妨给个⭐️🌟支持一下吧，感谢支持~]
+🍅🍅**Lite.AI.ToolKit**: 一个轻量级的`C++` AI模型工具箱，用户友好（还行吧），开箱即用。已经包括 **[80+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** 流行的开源模型。这是一个根据个人兴趣整理的C++工具箱，, 涵盖[目标检测](#lite.ai.toolkit-object-detection)、[人脸检测](#lite.ai.toolkit-face-detection)、[人脸识别](#lite.ai.toolkit-face-recognition)、[语义分割](#lite.ai.toolkit-segmentation)、[抠图](#lite.ai.toolkit-matting)等领域。详见 [Model Zoo](#lite.ai.toolkit-Model-Zoo) 和 [ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md) 、[MNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md) 、[TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md) 、[NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md). [若是有用，❤️不妨给个⭐️🌟支持一下吧，感谢支持~]
 
 <div align='center'>
   <img src='logs/test_lite_yolov5_1.jpg' height="90px" width="90px">
@@ -43,17 +43,75 @@
 </div>    
 
 
-## 核心特征及规划👏👋
+## 核心特征👏👋
+<div id="lite.ai.toolkit-Core-Features"></div>
 
+* **用户友好，开箱即用。** 使用简单一致的调用语法，如**lite::cv::Type::Class**，详见[examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
+* **少量依赖，构建容易。** 目前, 默认只依赖 **OpenCV** 和 **ONNXRuntime**，详见[build](#lite.ai.toolkit-Build-Lite.AI.ToolKit)。
+* **众多的算法模块，且持续更新。** 目前，包括 10+ 算法模块、**[80+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** 流行的开源模型以及 **[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** 权重文件
+
+## 引用 🎉🎉
+
+如果您在自己的项目中使用了**Lite.AI.ToolKit**，可考虑按以下方式进行引用。
+```BibTeX
+@misc{lite.ai.toolkit2021,
+  title={lite.ai.toolkit: A lite C++ toolkit of awesome AI models.},
+  url={https://github.com/DefTruth/lite.ai.toolkit},
+  note={Open-source software available at https://github.com/DefTruth/lite.ai.toolkit},
+  author={Yan Jun},
+  year={2021}
+}
+```  
+
+## 目录 📖💡
+* [核心特征](#lite.ai.toolkit-Core-Features)
+* [快速开始](#lite.ai.toolkit-Quick-Start)
+* [技术规划](#lite.ai.toolkit-RoadMap)
+* [重要更新](#lite.ai.toolkit-Important-Updates)
+* [模型支持矩阵](#lite.ai.toolkit-Supported-Models-Matrix)
+* [编译文档](#lite.ai.toolkit-Build-Lite.AI.ToolKit)
+* [模型下载](#lite.ai.toolkit-Model-Zoo)
+* [应用案例](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit)
+* [开源协议](#lite.ai.toolkit-License)
+* [引用参考](#lite.ai.toolkit-References)
+
+## 1. 快速开始 🌟🌟
+<div id="lite.ai.toolkit-Quick-Start"></div>
+
+#### 案例0: 使用[YOLOv5](https://github.com/ultralytics/yolov5) 进行目标检测。请从Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2) 下载模型文件。
+```c++
+#include "lite/lite.h"
+
+static void test_default()
+{
+  std::string onnx_path = "../../../hub/onnx/cv/yolov5s.onnx";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_yolov5_1.jpg";
+  std::string save_img_path = "../../../logs/test_lite_yolov5_1.jpg";
+
+  auto *yolov5 = new lite::cv::detection::YoloV5(onnx_path); 
+  std::vector<lite::types::Boxf> detected_boxes;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  yolov5->detect(img_bgr, detected_boxes);
+  
+  lite::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+  cv::imwrite(save_img_path, img_bgr);  
+  
+  delete yolov5;
+}
+```
+
+输出的结果是:
+<div align='center'>
+  <img src='logs/test_lite_yolov5_1.jpg' height="256px">
+  <img src='logs/test_lite_yolov5_2.jpg' height="256px">
+</div>
+
+## 2. 技术规划 👏👋
 ![](docs/resources/lite.ai.toolkit-roadmap-v0.1.png)
 
 
-* *用户友好，开箱即用。* 使用简单一致的调用语法，如*lite::cv::Type::Class*，详见[examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
-* *少量依赖，构建容易。* 目前, 默认只依赖 *OpenCV* 和 *ONNXRuntime*，详见[build](#lite.ai.toolkit-Build-Lite.AI.ToolKit)。
-* *众多的算法模块，且持续更新。* 目前，包括 10+ 算法模块、*[80+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* 流行的开源模型以及 *[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* 权重文件
-
-
-## 重要更新 !!
+## 3. 重要更新 !!
+<div id="lite.ai.toolkit-Important-Updates"></div>
 
 |Date|Model|C++|Paper|Code|Awesome|Type|
 |:----:|:----:|:----:|:----:|:----:|:----:|:----:| 
@@ -92,7 +150,8 @@
 ![](docs/resources/scrfd-mgmatting-nanodetplus.jpg)
 
 
-## 模型支持矩阵
+## 4. 模型支持矩阵
+<div id="lite.ai.toolkit-Supported-Models-Matrix"></div>
 
 * / = 暂不支持.
 * ✅ = 可以运行，且官方支持.
@@ -177,15 +236,8 @@
 |[SubPixelCNN](https://github.com/niazwazir/SUB_PIXEL_CNN)|234K|*resolution*|[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_subpixel_cnn.cpp)|✅| ✅ | / | ✅ | ✅ |✔️|✔️|❔|
 
 
-## 目录
-* [编译](#lite.ai.toolkit-Build-Lite.AI.ToolKit)
-* [模型下载](#lite.ai.toolkit-Model-Zoo)
-* [应用案例](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit)
-* [开源协议](#lite.ai.toolkit-License)
-* [引用参考](#lite.ai.toolkit-References)
 
-
-## 1. 编译
+## 5. 编译文档
 <div id="lite.ai.toolkit-Build-MacOS"></div>
 <div id="lite.ai.toolkit-Build-Lite.AI.ToolKit"></div>
 
@@ -331,7 +383,7 @@ Default Version Detected Boxes Num: 5
 </details>
 
 
-## 2. 模型下载  
+## 6. 模型下载  
 <div id="lite.ai.toolkit-2"></div>
 <div id="lite.ai.toolkit-Model-Zoo"></div>
 
@@ -451,7 +503,7 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
 </details>
 
 
-## 3. 应用案例
+## 7. 应用案例
 
 <div id="lite.ai.toolkit-Examples-for-Lite.AI.ToolKit"></div>
 
@@ -973,14 +1025,14 @@ static void test_default()
 auto *transfer = new lite::cv::style::FastStyleTransfer(onnx_path); // 6.4Mb only
 ```
 
-## 4. 开源协议
+## 8. 开源协议
 
 <div id="lite.ai.toolkit-License"></div>
 
 [Lite.AI.ToolKit](#lite.ai.toolkit-Introduction) 的代码采用GPL-3.0协议。
 
 
-## 5. 引用参考
+## 9. 引用参考
 
 <div id="lite.ai.toolkit-References"></div>
 
@@ -1027,7 +1079,7 @@ auto *transfer = new lite::cv::style::FastStyleTransfer(onnx_path); // 6.4Mb onl
 </details>    
 
 
-## 6. 编译选项
+## 10. 编译选项
 未来会增加一些模型的[MNN](https://github.com/alibaba/MNN) 、[NCNN](https://github.com/Tencent/ncnn) 和 [TNN](https://github.com/Tencent/TNN) 支持，但由于算子兼容等原因，也无法确保所有被[ONNXRuntime C++](https://github.com/microsoft/onnxruntime) 支持的模型能够在[MNN](https://github.com/alibaba/MNN) 、[NCNN](https://github.com/Tencent/ncnn) 和 [TNN](https://github.com/Tencent/TNN) 下跑通。所以，如果您想使用本项目支持的所有模型，并且不在意*1~2ms*的性能差距的话，请使用ONNXRuntime版本的实现。[ONNXRuntime](https://github.com/microsoft/onnxruntime) 是本仓库默认的推理引擎。但是如果你确实希望编译支持[MNN](https://github.com/alibaba/MNN) 、[NCNN](https://github.com/Tencent/ncnn) 和 [TNN](https://github.com/Tencent/TNN) 支持的Lite.AI.ToolKit🍅🍅动态库，你可以按照以下的步骤进行设置。
 
 * 在`build.sh`中添加`DENABLE_MNN=ON` 、`DENABLE_NCNN=ON` 或 `DENABLE_TNN=ON`，比如
@@ -1047,19 +1099,8 @@ auto *nanodet = new lite::tnn::cv::detection::NanoDet(proto_path, model_path);
 auto *nanodet = new lite::ncnn::cv::detection::NanoDet(param_path, bin_path);
 ```
 
-## 7. 引用
 
-如果您在自己的项目中使用了*Lite.AI.ToolKit*，可考虑按以下方式进行引用。
-```BibTeX
-@misc{lite.ai.toolkit2021,
-  title={lite.ai.toolkit: A lite C++ toolkit of awesome AI models.},
-  url={https://github.com/DefTruth/lite.ai.toolkit},
-  note={Open-source software available at https://github.com/DefTruth/lite.ai.toolkit},
-  author={Yan Jun},
-  year={2021}
-}
-```  
-
+<!---
 ## 8. 示例工程
 
 |Project|Describe|Operation System|Stars|Status|
@@ -1073,5 +1114,6 @@ auto *nanodet = new lite::ncnn::cv::detection::NanoDet(param_path, bin_path);
 |[MGMatting.lite.ai.toolkit](https://github.com/DefTruth/MGMatting.lite.ai.toolkit)| Image Matting | MacOS | ![](https://img.shields.io/github/stars/DefTruth/MGMatting.lite.ai.toolkit.svg?style=social)|❔|
 |[fsanet.lite.ai.toolkit](https://github.com/DefTruth/fsanet.lite.ai.toolkit)| Head Pose Estimation | MacOS | ![](https://img.shields.io/github/stars/DefTruth/fsanet.lite.ai.toolkit.svg?style=social)|❔|
 |[ssrnet.lite.ai.toolkit](https://github.com/DefTruth/ssrnet.lite.ai.toolkit)| Age Estimation | MacOS | ![](https://img.shields.io/github/stars/DefTruth/ssrnet.lite.ai.toolkit.svg?style=social)|❔|
+--->
 
 <p align="center"> 若是有用，❤️不妨给个⭐️🌟支持一下吧，感谢支持~  </p>
