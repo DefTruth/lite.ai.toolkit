@@ -1029,14 +1029,14 @@ More classes for style transfer (neural style transfer, others)
 auto *transfer = new lite::cv::style::FastStyleTransfer(onnx_path); // 6.4Mb only
 ```
 
-## 4. License.
+## 8. License.
 
 <div id="lite.ai.toolkit-License"></div>
 
 The code of [Lite.AI.ToolKit](#lite.ai.toolkit-Introduction) is released under the GPL-3.0 License.
 
 
-## 5. References.
+## 9. References.
 
 <div id="lite.ai.toolkit-References"></div>
 
@@ -1083,7 +1083,7 @@ Many thanks to these following projects. All the Lite.AI.ToolKit's models are so
 </details>  
 
 
-## 8. Compilation Options.
+## 10. Compilation Options.
 
 In addition, [MNN](https://github.com/alibaba/MNN), [NCNN](https://github.com/Tencent/ncnn) and [TNN](https://github.com/Tencent/TNN) support for some models will be added in the future, but due to operator compatibility and some other reasons, it is impossible to ensure that all models supported by [ONNXRuntime C++](https://github.com/microsoft/onnxruntime) can run through [MNN](https://github.com/alibaba/MNN), [NCNN](https://github.com/Tencent/ncnn) and [TNN](https://github.com/Tencent/TNN). So, if you want to use all the models supported by this repo and don't care about the performance gap of *1~2ms*, just let [ONNXRuntime](https://github.com/microsoft/onnxruntime) as default inference engine for this repo. However, you can follow the steps below if you want to build with [MNN](https://github.com/alibaba/MNN), [NCNN](https://github.com/Tencent/ncnn) or [TNN](https://github.com/Tencent/TNN) support.
 
