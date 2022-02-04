@@ -40,18 +40,79 @@
   <img src='docs/resources/yolop1.gif' height="90px" width="90px">
   <img src='docs/resources/yolop2.png' height="90px" width="90px">
   <img src='docs/resources/yolop2.gif' height="90px" width="90px">
-</div>    
+</div>  
 
+## Core Features 👏👋
+<div id="lite.ai.toolkit-Quick-Start"></div>
 
-## Core Features and RoadMap👏👋
+* **Simply and User friendly.** Simply and Consistent syntax like **lite::cv::Type::Class**, see [examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
+* **Minimum Dependencies.** Only **OpenCV** and **ONNXRuntime** are required by default, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit).
+* **Lots of Algorithm Modules.** Contains 10+ modules with **[80+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** AI models and **[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** weights now.
+
+## Citations 🎉🎉
+
+Cite it as follows if you use **Lite.AI.ToolKit**.
+```BibTeX
+@misc{lite.ai.toolkit2021,
+  title={lite.ai.toolkit: A lite C++ toolkit of awesome AI models.},
+  url={https://github.com/DefTruth/lite.ai.toolkit},
+  note={Open-source software available at https://github.com/DefTruth/lite.ai.toolkit},
+  author={Yan Jun},
+  year={2021}
+}
+```
+
+## Contents 💡
+* [Core Features]()
+* [Quick Start]()
+* [Important Updates]()
+* [Supported Models Matrix]()
+* [Build Docs](#lite.ai.toolkit-Build-Lite.AI.ToolKit)
+* [Model Zoo](#lite.ai.toolkit-Model-Zoo)
+* [Examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit)
+* [RoadMap]()
+* [License](#lite.ai.toolkit-License)
+* [References](#lite.ai.toolkit-References)
+
+## 1. Quick Start 🌟
+<div id="lite.ai.toolkit-Quick-Start"></div>
+
+#### Example0: Object Detection using [YOLOv5](https://github.com/ultralytics/yolov5). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
+```c++
+#include "lite/lite.h"
+
+static void test_default()
+{
+  std::string onnx_path = "../../../hub/onnx/cv/yolov5s.onnx";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_yolov5_1.jpg";
+  std::string save_img_path = "../../../logs/test_lite_yolov5_1.jpg";
+
+  auto *yolov5 = new lite::cv::detection::YoloV5(onnx_path); 
+  std::vector<lite::types::Boxf> detected_boxes;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  yolov5->detect(img_bgr, detected_boxes);
+  
+  lite::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+  cv::imwrite(save_img_path, img_bgr);  
+  
+  delete yolov5;
+}
+```
+
+The output is:
+<div align='center'>
+  <img src='logs/test_lite_yolov5_1.jpg' height="256px">
+  <img src='logs/test_lite_yolov5_2.jpg' height="256px">
+</div>  
+
+## 2. RoadMap👏👋
+<div id="lite.ai.toolkit-RoadMap"></div>
 
 ![](docs/resources/lite.ai.toolkit-roadmap-v0.1.png)
 
-* *Simply and User friendly.* Simply and Consistent syntax like *lite::cv::Type::Class*, see [examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
-* *Minimum Dependencies.* Only *OpenCV* and *ONNXRuntime* are required by default, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit).
-* *Lots of Algorithm Modules.* Contains 10+ modules with *[80+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* AI models and *[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* weights now.
 
-## Important Updates!!
+## 3. Important Updates!!
+<div id="lite.ai.toolkit-Important-Updates"></div>
 
 |Date|Model|C++|Paper|Code|Awesome|Type|
 |:----:|:----:|:----:|:----:|:----:|:----:|:----:| 
@@ -90,7 +151,8 @@
 ![](docs/resources/scrfd-mgmatting-nanodetplus.jpg)
 
 
-## Supported Models Matrix
+## 4. Supported Models Matrix
+<div id="lite.ai.toolkit-Supported-Models-Matrix"></div>
 
 * / = not supported now.
 * ✅ = known work and official supported now.
@@ -175,15 +237,7 @@
 |[SubPixelCNN](https://github.com/niazwazir/SUB_PIXEL_CNN)|234K|*resolution*|[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_subpixel_cnn.cpp)|✅| ✅ | / | ✅ | ✅ |✔️|✔️|❔|
 
 
-## Contents.
-* [Build](#lite.ai.toolkit-Build-Lite.AI.ToolKit)
-* [Model Zoo](#lite.ai.toolkit-Model-Zoo)
-* [Examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit)
-* [License](#lite.ai.toolkit-License)
-* [References](#lite.ai.toolkit-References)
-
-
-## 1. Build.
+## 5. Build Docs.
 <div id="lite.ai.toolkit-Build-MacOS"></div>
 <div id="lite.ai.toolkit-Build-Lite.AI.ToolKit"></div>
 
@@ -330,7 +384,7 @@ To link `lite.ai.toolkit` shared lib. You need to make sure that `OpenCV` and `o
 </details>
 
 
-## 2. Model Zoo.
+## 6. Model Zoo.
 
 <div id="lite.ai.toolkit-Model-Zoo"></div>
 <div id="lite.ai.toolkit-2"></div>
@@ -452,7 +506,7 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
 </details>
 
 
-## 3. Examples.
+## 7. Examples.
 
 <div id="lite.ai.toolkit-Examples-for-Lite.AI.ToolKit"></div>
 
@@ -1029,7 +1083,7 @@ Many thanks to these following projects. All the Lite.AI.ToolKit's models are so
 </details>  
 
 
-## 6. Compilation Options.
+## 8. Compilation Options.
 
 In addition, [MNN](https://github.com/alibaba/MNN), [NCNN](https://github.com/Tencent/ncnn) and [TNN](https://github.com/Tencent/TNN) support for some models will be added in the future, but due to operator compatibility and some other reasons, it is impossible to ensure that all models supported by [ONNXRuntime C++](https://github.com/microsoft/onnxruntime) can run through [MNN](https://github.com/alibaba/MNN), [NCNN](https://github.com/Tencent/ncnn) and [TNN](https://github.com/Tencent/TNN). So, if you want to use all the models supported by this repo and don't care about the performance gap of *1~2ms*, just let [ONNXRuntime](https://github.com/microsoft/onnxruntime) as default inference engine for this repo. However, you can follow the steps below if you want to build with [MNN](https://github.com/alibaba/MNN), [NCNN](https://github.com/Tencent/ncnn) or [TNN](https://github.com/Tencent/TNN) support.
 
@@ -1050,19 +1104,8 @@ auto *nanodet = new lite::tnn::cv::detection::NanoDet(proto_path, model_path);
 auto *nanodet = new lite::ncnn::cv::detection::NanoDet(param_path, bin_path);
 ```
 
-## 7. Citations.
 
-Cite it as follows if you use *Lite.AI.ToolKit*.
-```BibTeX
-@misc{lite.ai.toolkit2021,
-  title={lite.ai.toolkit: A lite C++ toolkit of awesome AI models.},
-  url={https://github.com/DefTruth/lite.ai.toolkit},
-  note={Open-source software available at https://github.com/DefTruth/lite.ai.toolkit},
-  author={Yan Jun},
-  year={2021}
-}
-``` 
-
+<!---
 ## 8. Demo Projects.  
 
 |Project|Describe|Operation System|Stars|Status|
@@ -1076,5 +1119,5 @@ Cite it as follows if you use *Lite.AI.ToolKit*.
 |[MGMatting.lite.ai.toolkit](https://github.com/DefTruth/MGMatting.lite.ai.toolkit)| Image Matting | MacOS | ![](https://img.shields.io/github/stars/DefTruth/MGMatting.lite.ai.toolkit.svg?style=social)|❔|
 |[fsanet.lite.ai.toolkit](https://github.com/DefTruth/fsanet.lite.ai.toolkit)| Head Pose Estimation | MacOS | ![](https://img.shields.io/github/stars/DefTruth/fsanet.lite.ai.toolkit.svg?style=social)|❔|
 |[ssrnet.lite.ai.toolkit](https://github.com/DefTruth/ssrnet.lite.ai.toolkit)| Age Estimation | MacOS | ![](https://img.shields.io/github/stars/DefTruth/ssrnet.lite.ai.toolkit.svg?style=social)|❔|
-
+---->
 <p align="center"> ❤️ Star 🌟👆🏻 this repo to support me if it does any helps to you, many thanks ~ </p>
