@@ -108,7 +108,7 @@ std::vector<Ort::Value> RobustVideoMatting::transform(const cv::Mat &mat)
 }
 
 void RobustVideoMatting::detect(const cv::Mat &mat, types::MattingContent &content,
-                                float downsample_ratio)
+                                float downsample_ratio, bool video_mode)
 {
   if (mat.empty()) return;
   // 0. set dsr at runtime.
@@ -125,8 +125,12 @@ void RobustVideoMatting::detect(const cv::Mat &mat, types::MattingContent &conte
   // 3. generate matting
   this->generate_matting(output_tensors, content);
   // 4. update context (needed for video detection.)
-  context_is_update = false; // init state.
-  this->update_context(output_tensors);
+  if (video_mode)
+  {
+    context_is_update = false; // init state.
+    this->update_context(output_tensors);
+  }
+
 }
 
 
@@ -162,7 +166,7 @@ void RobustVideoMatting::detect_video(const std::string &video_path,
   {
     i += 1;
     types::MattingContent content;
-    this->detect(mat, content, downsample_ratio);
+    this->detect(mat, content, downsample_ratio, true); // video_mode true
     // 3. save contents and writing out.
     if (content.flag)
     {

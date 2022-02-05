@@ -198,7 +198,7 @@ void TNNRobustVideoMatting::transform(const cv::Mat &mat)
   }
 }
 
-void TNNRobustVideoMatting::detect(const cv::Mat &mat, types::MattingContent &content)
+void TNNRobustVideoMatting::detect(const cv::Mat &mat, types::MattingContent &content, bool video_mode)
 {
   if (mat.empty()) return;
   int img_h = mat.rows;
@@ -245,8 +245,12 @@ void TNNRobustVideoMatting::detect(const cv::Mat &mat, types::MattingContent &co
   // 4. generate matting
   this->generate_matting(instance, content, img_h, img_w);
   // 5. update context (needed for video matting)
-  context_is_update = false; // init state.
-  this->update_context(instance);
+  if (video_mode)
+  {
+    context_is_update = false; // init state.
+    this->update_context(instance);
+  }
+
 }
 
 void TNNRobustVideoMatting::detect_video(
@@ -280,7 +284,7 @@ void TNNRobustVideoMatting::detect_video(
   {
     i += 1;
     types::MattingContent content;
-    this->detect(mat, content);
+    this->detect(mat, content, true); // video_mode true
     // 3. save contents and writing out.
     if (content.flag)
     {

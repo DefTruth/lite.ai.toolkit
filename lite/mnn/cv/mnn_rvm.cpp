@@ -163,7 +163,7 @@ inline void MNNRobustVideoMatting::transform(const cv::Mat &mat_rs)
   pretreat->convert(mat_rs.data, input_width, input_height, mat_rs.step[0], src_tensor);
 }
 
-void MNNRobustVideoMatting::detect(const cv::Mat &mat, types::MattingContent &content)
+void MNNRobustVideoMatting::detect(const cv::Mat &mat, types::MattingContent &content, bool video_mode)
 {
   if (mat.empty()) return;
   int img_h = mat.rows;
@@ -182,8 +182,11 @@ void MNNRobustVideoMatting::detect(const cv::Mat &mat, types::MattingContent &co
   // 3. generate matting
   this->generate_matting(output_tensors, content, img_h, img_w);
   // 4.  update context (needed for video matting)
-  context_is_update = false; // init state.
-  this->update_context(output_tensors);
+  if (video_mode)
+  {
+    context_is_update = false; // init state.
+    this->update_context(output_tensors);
+  }
 }
 
 void MNNRobustVideoMatting::detect_video(
@@ -217,7 +220,7 @@ void MNNRobustVideoMatting::detect_video(
   {
     i += 1;
     types::MattingContent content;
-    this->detect(mat, content);
+    this->detect(mat, content, true); // video_mode true
     // 3. save contents and writing out.
     if (content.flag)
     {
