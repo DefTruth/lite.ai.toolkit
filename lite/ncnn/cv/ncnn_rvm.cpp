@@ -76,7 +76,7 @@ void NCNNRobustVideoMatting::transform(const cv::Mat &mat, ncnn::Mat &in)
   in.substract_mean_normalize(mean_vals, norm_vals);
 }
 
-void NCNNRobustVideoMatting::detect(const cv::Mat &mat, types::MattingContent &content)
+void NCNNRobustVideoMatting::detect(const cv::Mat &mat, types::MattingContent &content, bool video_mode)
 {
   if (mat.empty()) return;
   int img_h = mat.rows;
@@ -101,8 +101,11 @@ void NCNNRobustVideoMatting::detect(const cv::Mat &mat, types::MattingContent &c
   this->generate_matting(extractor, content, img_h, img_w);
 
   // 4. update context (needed for video detection.)
-  context_is_update = false; // init state.
-  this->update_context(extractor);
+  if (video_mode)
+  {
+    context_is_update = false; // init state.
+    this->update_context(extractor);
+  }
 }
 
 void NCNNRobustVideoMatting::detect_video(const std::string &video_path,
