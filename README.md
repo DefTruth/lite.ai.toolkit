@@ -4,9 +4,13 @@
 
 <div id="lite.ai.toolkit-Introduction"></div>  
 
+<!---
 <div align='center'>
   <img src='docs/resources/logo-v3.png'>
 </div>
+--->
+
+![logo-v3](https://user-images.githubusercontent.com/31974251/153538973-b1553943-0222-4ff7-9610-213623543e8d.png)
 
 <div align='center'>
   <img src=https://img.shields.io/badge/mac|linux|win-pass-brightgreen.svg >
