@@ -5,10 +5,8 @@
 <div id="lite.ai.toolkit-Introduction"></div>  
 
 <div align='center'>
-  <img src='docs/resources/logo.png'>
+  <img src='docs/resources/logo-v3.png'>
 </div>
-
-<p align="center">English | <a href="README.zh.md">中文文档</a> | <a href=#lite.ai.toolkit-Build-MacOS>MacOS</a> | <a href=#lite.ai.toolkit-Build-Linux>Linux</a> | <a href=#lite.ai.toolkit-Build-Windows>Windows</a> </p>
 
 <div align='center'>
   <img src=https://img.shields.io/badge/mac|linux|win-pass-brightgreen.svg >
@@ -19,6 +17,9 @@
   <img src=https://img.shields.io/badge/ncnn-1.0.21-orange.svg >
   <img src=https://img.shields.io/badge/tnn-0.3.0-blue.svg >
 </div>   
+
+<p align="center">English | <a href="README.zh.md">中文文档</a> | <a href=#lite.ai.toolkit-Build-MacOS>MacOS</a> | <a href=#lite.ai.toolkit-Build-Linux>Linux</a> | <a href=#lite.ai.toolkit-Build-Windows>Windows</a> </p>
+
 
 🍅🍅**Lite.AI.ToolKit**: A lite C++ toolkit of awesome AI models, such as [Object Detection](#lite.ai.toolkit-object-detection), [Face Detection](#lite.ai.toolkit-face-detection), [Face Recognition](#lite.ai.toolkit-face-recognition), [Segmentation](#lite.ai.toolkit-segmentation), [Matting](#lite.ai.toolkit-matting), etc. See [Model Zoo](#lite.ai.toolkit-Model-Zoo) and [ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md), [MNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md), [TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md), [NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md). [❤️ Star 🌟👆🏻 this repo to support me if it does any helps to you, thanks ~ ]
 
