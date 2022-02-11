@@ -5,10 +5,8 @@
 <div id="lite.ai.toolkit-Introduction"></div>  
 
 <div align='center'>
-  <img src='docs/resources/logo.png'>
+  <img src='docs/resources/logo-v3.png'>
 </div>    
-
-<p align="center"><a href="README.md">English</a> | 中文文档 | <a href=#lite.ai.toolkit-Build-MacOS>MacOS</a> | <a href=#lite.ai.toolkit-Build-Linux>Linux</a> | <a href=#lite.ai.toolkit-Build-Windows>Windows</a> </p>
 
 <div align='center'>
   <img src=https://img.shields.io/badge/mac|linux|win-pass-brightgreen.svg >
@@ -41,6 +39,8 @@
   <img src='docs/resources/yolop2.png' height="90px" width="90px">
   <img src='docs/resources/yolop2.gif' height="90px" width="90px">
 </div>    
+
+<p align="center"><a href="README.md">English</a> | 中文文档 | <a href=#lite.ai.toolkit-Build-MacOS>MacOS</a> | <a href=#lite.ai.toolkit-Build-Linux>Linux</a> | <a href=#lite.ai.toolkit-Build-Windows>Windows</a> </p>
 
 
 ## 核心特征👏👋
