@@ -1,14 +1,9 @@
 
-
+<!---
 ##  <p align="center"> 🍅🍅Lite.AI.ToolKit: A lite C++ toolkit of awesome AI models. </p>
+--->
 
 <div id="lite.ai.toolkit-Introduction"></div>  
-
-<!---
-<div align='center'>
-  <img src='docs/resources/logo-v3.png'>
-</div>
---->
 
 ![logo-v3](docs/resources/logo-v3.png)
 
@@ -22,7 +17,7 @@
   <img src=https://img.shields.io/badge/tnn-0.3.0-blue.svg >
 </div>   
 
-🍅🍅**Lite.AI.ToolKit**: A lite C++ toolkit of awesome AI models, such as [Object Detection](#lite.ai.toolkit-object-detection), [Face Detection](#lite.ai.toolkit-face-detection), [Face Recognition](#lite.ai.toolkit-face-recognition), [Segmentation](#lite.ai.toolkit-segmentation), [Matting](#lite.ai.toolkit-matting), etc. See [Model Zoo](#lite.ai.toolkit-Model-Zoo) and [ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md), [MNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md), [TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md), [NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md). [❤️ Star 🌟👆🏻 this repo to support me if it does any helps to you, thanks ~ ]
+🛠**Lite.Ai.ToolKit**: A lite C++ toolkit of awesome AI models, such as [Object Detection](#lite.ai.toolkit-object-detection), [Face Detection](#lite.ai.toolkit-face-detection), [Face Recognition](#lite.ai.toolkit-face-recognition), [Segmentation](#lite.ai.toolkit-segmentation), [Matting](#lite.ai.toolkit-matting), etc. See [Model Zoo](#lite.ai.toolkit-Model-Zoo) and [ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md), [MNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md), [TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md), [NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md). [❤️ Star 🌟👆🏻 this repo to support me if it does any helps to you, thanks ~ ]
 
 <div align='center'>
   <img src='logs/test_lite_yolov5_1.jpg' height="90px" width="90px">
@@ -55,7 +50,7 @@
 
 ## Citations 🎉🎉
 
-Consider to cite it as follows if you use **Lite.AI.ToolKit** in your projects.
+Consider to cite it as follows if you use **Lite.Ai.ToolKit** in your projects.
 ```BibTeX
 @misc{lite.ai.toolkit2021,
   title={lite.ai.toolkit: A lite C++ toolkit of awesome AI models.},
@@ -223,7 +218,7 @@ The output is:
 <div id="lite.ai.toolkit-Build-MacOS"></div>
 <div id="lite.ai.toolkit-Build-Lite.AI.ToolKit"></div>
 
-* MacOS: Build the shared lib of *Lite.AI.ToolKit* for *MacOS* from sources. Note that Lite.AI.ToolKit uses `onnxruntime` as default backend, for the reason that onnxruntime supports the most of onnx's operators. 
+* MacOS: Build the shared lib of **Lite.Ai.ToolKit** for **MacOS** from sources. Note that Lite.Ai.ToolKit uses **onnxruntime** as default backend, for the reason that onnxruntime supports the most of onnx's operators. 
 
 ```shell
     git clone --depth=1 https://github.com/DefTruth/lite.ai.toolkit.git  # latest
@@ -238,30 +233,30 @@ The output is:
 
 ### Linux and Windows.
 
-⚠️ *Lite.AI.ToolKit* is not directly support Linux and Windows now. For Linux and Windows, you need to build or download(if have official builts) the shared libs of *OpenCV*、*ONNXRuntime* and any other Engines(like MNN, NCNN, TNN) firstly, then put the headers into the specific directories or just let these directories unchange(use the headers offer by this repo, the header file of the dependent library of this project is directly copied from the corresponding official library). However, the dynamic libraries under different operating systems need to be recompiled or downloaded. MacOS users can directly use the dynamic libraries of each dependent library provided by this project:
-* *lite.ai.toolkit/opencv2*
+⚠️ **Lite.Ai.ToolKit** is not directly support Linux and Windows now. For Linux and Windows, you need to build or download(if have official builts) the shared libs of **OpenCV**、**ONNXRuntime** and any other Engines(like MNN, NCNN, TNN) firstly, then put the headers into the specific directories or just let these directories unchange(use the headers offer by this repo, the header file of the dependent library of this project is directly copied from the corresponding official library). However, the dynamic libraries under different operating systems need to be recompiled or downloaded. MacOS users can directly use the dynamic libraries of each dependent library provided by this project:
+* **lite.ai.toolkit/opencv2**
   ```shell
     cp -r you-path-to-downloaded-or-built-opencv/include/opencv4/opencv2 lite.ai.toolkit/opencv2
   ```
-* *lite.ai.toolkit/onnxruntime*
+* **lite.ai.toolkit/onnxruntime**
   ```shell
     cp -r you-path-to-downloaded-or-built-onnxruntime/include/onnxruntime lite.ai.toolkit/onnxruntime
   ```
-* *lite.ai.toolkit/MNN*
+* **lite.ai.toolkit/MNN**
   ```shell
     cp -r you-path-to-downloaded-or-built-MNN/include/MNN lite.ai.toolkit/MNN
   ```
-* *lite.ai.toolkit/ncnn*
+* **lite.ai.toolkit/ncnn**
   ```shell
     cp -r you-path-to-downloaded-or-built-ncnn/include/ncnn lite.ai.toolkit/ncnn
   ```
-* *lite.ai.toolkit/tnn*
+* **lite.ai.toolkit/tnn**
   ```shell
     cp -r you-path-to-downloaded-or-built-TNN/include/tnn lite.ai.toolkit/tnn
   ```
 
-and put the libs into *lite.ai.toolkit/lib* directory. Please reference the build-docs[<sup>1</sup>](#lite.ai.toolkit-1) for *third_party*.
-* *lite.ai.toolkit/lib*
+and put the libs into **lite.ai.toolkit/lib** directory. Please reference the build-docs[<sup>1</sup>](#lite.ai.toolkit-1) for **third_party**.
+* **lite.ai.toolkit/lib**
   ```shell
     cp you-path-to-downloaded-or-built-opencv/lib/*opencv* lite.ai.toolkit/lib
     cp you-path-to-downloaded-or-built-onnxruntime/lib/*onnxruntime* lite.ai.toolkit/lib
@@ -273,7 +268,7 @@ and put the libs into *lite.ai.toolkit/lib* directory. Please reference the buil
 
 * Windows: You can reference to [issue#6](https://github.com/DefTruth/lite.ai.toolkit/issues/6)
 * Linux: The Docs and Docker image for Linux will be coming soon ~ [issue#2](https://github.com/DefTruth/lite.ai.toolkit/issues/2)
-* Happy News !!! : 🚀 You can download the latest *ONNXRuntime* official built libs of Windows, Linux, MacOS and Arm !!! Both CPU and GPU versions are available. No more attentions needed pay to build it from source. Download the official built libs from [v1.8.1](https://github.com/microsoft/onnxruntime/releases). I have used version 1.7.0 for Lite.AI.ToolKit now, you can downlod it from [v1.7.0](https://github.com/microsoft/onnxruntime/releases/tag/v1.7.0), but version 1.8.1 should also work, I guess ~  🙃🤪🍀. For *OpenCV*, try to build from source(Linux) or down load the official built(Windows) from [OpenCV 4.5.3](https://github.com/opencv/opencv/releases). Then put the includes and libs into specific directory of Lite.AI.ToolKit.
+* Happy News !!! : 🚀 You can download the latest **ONNXRuntime** official built libs of Windows, Linux, MacOS and Arm !!! Both CPU and GPU versions are available. No more attentions needed pay to build it from source. Download the official built libs from [v1.8.1](https://github.com/microsoft/onnxruntime/releases). I have used version 1.7.0 for Lite.Ai.ToolKit now, you can download it from [v1.7.0](https://github.com/microsoft/onnxruntime/releases/tag/v1.7.0), but version 1.8.1 should also work, I guess ~  🙃🤪🍀. For **OpenCV**, try to build from source(Linux) or down load the official built(Windows) from [OpenCV 4.5.3](https://github.com/opencv/opencv/releases). Then put the includes and libs into specific directory of Lite.Ai.ToolKit.
 
 * GPU Compatibility for Windows: See [issue#10](https://github.com/DefTruth/lite.ai.toolkit/issues/10).
 * GPU Compatibility for Linux: See [issue#97](https://github.com/DefTruth/lite.ai.toolkit/issues/97).
@@ -282,8 +277,8 @@ and put the libs into *lite.ai.toolkit/lib* directory. Please reference the buil
 
 
 <details>
-<summary>🔑️ How to link Lite.AI.ToolKit?</summary>  
-* To link Lite.AI.ToolKit, you can follow the CMakeLists.txt listed belows.
+<summary>🔑️ How to link Lite.Ai.ToolKit?</summary>  
+* To link Lite.Ai.ToolKit, you can follow the CMakeLists.txt listed belows.
 
 ```cmake
 cmake_minimum_required(VERSION 3.17)
@@ -371,7 +366,7 @@ To link `lite.ai.toolkit` shared lib. You need to make sure that `OpenCV` and `o
 <div id="lite.ai.toolkit-Model-Zoo"></div>
 <div id="lite.ai.toolkit-2"></div>
 
-*Lite.AI.ToolKit* contains *[80+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* AI models with *[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* frozen pretrained  files now. Most of the files are converted by myself. You can use it through *lite::cv::Type::Class* syntax, such as *[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)*. More details can be found at [Examples for Lite.AI.ToolKit](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit). Note, for Google Drive, I can not upload all the *.onnx files because of the storage limitation (15G).
+**Lite.Ai.ToolKit** contains **[80+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** AI models with **[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** frozen pretrained  files now. Most of the files are converted by myself. You can use it through **lite::cv::Type::Class** syntax, such as **[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)**. More details can be found at [Examples for Lite.Ai.ToolKit](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit). Note, for Google Drive, I can not upload all the *.onnx files because of the storage limitation (15G).
 
 |File|Baidu Drive|Google Drive|Docker Hub|Hub (Docs)|  
 |:---:|:---:|:---:|:---:|:---:|
@@ -392,9 +387,9 @@ To link `lite.ai.toolkit` shared lib. You need to make sure that `OpenCV` and `o
 ```
 
 <details>
-<summary>  ❇️ Lite.AI.ToolKit modules.</summary>  
+<summary>  ❇️ Lite.Ai.ToolKit modules.</summary>  
 
-### Namespace and Lite.AI.ToolKit modules.
+### Namespace and Lite.Ai.ToolKit modules.
 
 | Namepace                   | Details                                                      |
 | :------------------------- | :----------------------------------------------------------- |
@@ -413,9 +408,9 @@ To link `lite.ai.toolkit` shared lib. You need to make sure that `OpenCV` and `o
 | *lite::cv::resolution*     | Super Resolution.  ⚠️                                         |
 
 
-### Lite.AI.ToolKit's Classes and Pretrained Files.
+### Lite.Ai.ToolKit's Classes and Pretrained Files.
 
-Correspondence between the classes in *Lite.AI.ToolKit* and pretrained model files can be found at [lite.ai.toolkit.hub.onnx.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md). For examples, the pretrained model files for *lite::cv::detection::YoloV5* and *lite::cv::detection::YoloX* are listed as follows.
+Correspondence between the classes in **Lite.AI.ToolKit** and pretrained model files can be found at [lite.ai.toolkit.hub.onnx.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md). For examples, the pretrained model files for *lite::cv::detection::YoloV5* and *lite::cv::detection::YoloX* are listed as follows.
 
 
 |             Class             | Pretrained ONNX Files |                   Rename or Converted From (Repo)                   | Size  |
@@ -1015,7 +1010,7 @@ auto *transfer = new lite::cv::style::FastStyleTransfer(onnx_path); // 6.4Mb onl
 
 <div id="lite.ai.toolkit-License"></div>
 
-The code of [Lite.AI.ToolKit](#lite.ai.toolkit-Introduction) is released under the GPL-3.0 License.
+The code of [Lite.Ai.ToolKit](#lite.ai.toolkit-Introduction) is released under the GPL-3.0 License.
 
 
 ## 9. References.
@@ -1085,7 +1080,6 @@ auto *nanodet = new lite::mnn::cv::detection::NanoDet(mnn_path);
 auto *nanodet = new lite::tnn::cv::detection::NanoDet(proto_path, model_path);
 auto *nanodet = new lite::ncnn::cv::detection::NanoDet(param_path, bin_path);
 ```
-
 
 <!---
 ## 8. Demo Projects.  
