@@ -1,14 +1,10 @@
 
-
+<!---
 ## <p align="center"> 🍅🍅Lite.AI.ToolKit: 一个开箱即用的C++ AI模型工具箱</p>
+--->
 
 <div id="lite.ai.toolkit-Introduction"></div>  
 
-<!---
-<div align='center'>
-  <img src='docs/resources/logo-v3.png'>
-</div>
---->
 
 ![logo-v3](docs/resources/logo-v3.png)
 
@@ -22,7 +18,7 @@
   <img src=https://img.shields.io/badge/tnn-0.3.0-blue.svg >
 </div>
 
-🍅🍅**Lite.AI.ToolKit**: 一个轻量级的`C++` AI模型工具箱，用户友好（还行吧），开箱即用。已经包括 **[80+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** 流行的开源模型。这是一个根据个人兴趣整理的C++工具箱，, 涵盖[目标检测](#lite.ai.toolkit-object-detection)、[人脸检测](#lite.ai.toolkit-face-detection)、[人脸识别](#lite.ai.toolkit-face-recognition)、[语义分割](#lite.ai.toolkit-segmentation)、[抠图](#lite.ai.toolkit-matting)等领域。详见 [Model Zoo](#lite.ai.toolkit-Model-Zoo) 和 [ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md) 、[MNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md) 、[TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md) 、[NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md). [若是有用，❤️不妨给个⭐️🌟支持一下吧，感谢支持~]
+🛠**Lite.Ai.ToolKit**: 一个轻量级的`C++` AI模型工具箱，用户友好（还行吧），开箱即用。已经包括 **[80+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** 流行的开源模型。这是一个根据个人兴趣整理的C++工具箱，, 涵盖[目标检测](#lite.ai.toolkit-object-detection)、[人脸检测](#lite.ai.toolkit-face-detection)、[人脸识别](#lite.ai.toolkit-face-recognition)、[语义分割](#lite.ai.toolkit-segmentation)、[抠图](#lite.ai.toolkit-matting)等领域。详见 [Model Zoo](#lite.ai.toolkit-Model-Zoo) 和 [ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md) 、[MNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md) 、[TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md) 、[NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md). [若是有用，❤️不妨给个⭐️🌟支持一下吧，感谢支持~]
 
 <div align='center'>
   <img src='logs/test_lite_yolov5_1.jpg' height="90px" width="90px">
@@ -56,7 +52,7 @@
 
 ## 引用 🎉🎉
 
-如果您在自己的项目中使用了**Lite.AI.ToolKit**，可考虑按以下方式进行引用。
+如果您在自己的项目中使用了**Lite.Ai.ToolKit**，可考虑按以下方式进行引用。
 ```BibTeX
 @misc{lite.ai.toolkit2021,
   title={lite.ai.toolkit: A lite C++ toolkit of awesome AI models.},
@@ -129,27 +125,6 @@ static void test_default()
 |【2021/09/20】|[RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)|[[link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_rvm.cpp)]|[[WACV 2022](https://arxiv.org/abs/2108.11515)]|[[code](https://github.com/PeterL1n/RobustVideoMatting)]|![](https://img.shields.io/github/stars/PeterL1n/RobustVideoMatting.svg?style=social)| matting |
 |【2021/09/02】|[YOLOP](https://github.com/hustvl/YOLOP)|[[link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolop.cpp)]|[[arXiv 2021](https://arxiv.org/abs/2108.11250)]|[[code](https://github.com/hustvl/YOLOP)]|![](https://img.shields.io/github/stars/hustvl/YOLOP.svg?style=social)| detection |
 
-<!-----
-
-<div align='left'>
-  <img src='docs/resources/scrfd_2.jpg' height="450px" width="800px">
-<br>
-  <img src='docs/resources/nanodet_plus_3.jpg' height="170px" width="200px">
-  <img src='docs/resources/nanodet_plus_6.jpg' height="170px" width="200px">
-  <img src='docs/resources/nanodet_plus_7.jpg' height="170px" width="200px">
-  <img src='docs/resources/nanodet_plus_9.jpg' height="170px" width="200px">
-<br>
-  <img src='examples/lite/resources/test_lite_mg_matting_input.jpg' height="170px" width="200px">
-  <img src='logs/test_lite_mg_matting_pha.jpg' height="170px" width="200px">
-  <img src='logs/test_lite_mg_matting_fgr.jpg' height="170px" width="200px">
-  <img src='logs/test_lite_mg_matting_merge.jpg' height="170px" width="200px">
-</div>  
-
-<div align='left'>
-  <img src='docs/resources/scrfd-mgmatting-nanodetplus.jpg' height="500px" width="820px">
-</div>  
-
------>
 
 ![](docs/resources/scrfd-mgmatting-nanodetplus.jpg)
 
@@ -245,7 +220,7 @@ static void test_default()
 <div id="lite.ai.toolkit-Build-MacOS"></div>
 <div id="lite.ai.toolkit-Build-Lite.AI.ToolKit"></div>
 
-* MacOS: 从*Lite.AI.ToolKit* 源码编译*MacOS*下的动态库。需要注意的是*Lite.AI.ToolKit* 使用`onnxruntime`作为默认的后端，因为onnxruntime支持大部分onnx的原生算子，具有更高的易用性。如何编译Linux和Windows版本？点击 ▶️ 查看。
+* MacOS: 从**Lite.Ai.ToolKit** 源码编译**MacOS**下的动态库。需要注意的是**Lite.Ai.ToolKit** 使用**onnxruntime**作为默认的后端，因为onnxruntime支持大部分onnx的原生算子，具有更高的易用性。如何编译Linux和Windows版本？点击 ▶️ 查看。
 ```shell
     git clone --depth=1 https://github.com/DefTruth/lite.ai.toolkit.git  # 最新源码
     cd lite.ai.toolkit && sh ./build.sh  # 对于MacOS, 你可以直接利用本项目包含的OpenCV, ONNXRuntime, MNN, NCNN and TNN依赖库，无需重新编译
@@ -259,30 +234,30 @@ static void test_default()
 
 ### Linux 和 Windows
 
-⚠️ *Lite.AI.ToolKit* 的发行版本目前不直接支持Linux和Windows，你需要从下载*Lite.AI.ToolKit*的源码进行构建。首先，你需要下载(如果有官方编译好的发行版本的话)或编译*OpenCV* 、*ONNXRuntime* 和其他你需要的推理引擎，如MNN、NCNN、TNN，然后把它们的头文件分别放入各自对应的文件夹，或者直接使用本项目提供的头文件。本项目的依赖库头文件是直接从相应的官方库拷贝而来的，但不同操作系统下的动态库需要重新编译或下载，MacOS用户可以直接使用本项目提供的各个依赖库的动态库。
-* *lite.ai.toolkit/opencv2*
+⚠️ **Lite.Ai.ToolKit** 的发行版本目前不直接支持Linux和Windows，你需要从下载**Lite.Ai.ToolKit**的源码进行构建。首先，你需要下载(如果有官方编译好的发行版本的话)或编译**OpenCV** 、**ONNXRuntime** 和其他你需要的推理引擎，如MNN、NCNN、TNN，然后把它们的头文件分别放入各自对应的文件夹，或者直接使用本项目提供的头文件。本项目的依赖库头文件是直接从相应的官方库拷贝而来的，但不同操作系统下的动态库需要重新编译或下载，MacOS用户可以直接使用本项目提供的各个依赖库的动态库。
+* **lite.ai.toolkit/opencv2**
   ```shell
     cp -r you-path-to-downloaded-or-built-opencv/include/opencv4/opencv2 lite.ai.toolkit/opencv2
   ```
-* *lite.ai.toolkit/onnxruntime*
+* **lite.ai.toolkit/onnxruntime**
   ```shell
     cp -r you-path-to-downloaded-or-built-onnxruntime/include/onnxruntime lite.ai.toolkit/onnxruntime
   ```
-* *lite.ai.toolkit/MNN*
+* **lite.ai.toolkit/MNN**
   ```shell
     cp -r you-path-to-downloaded-or-built-MNN/include/MNN lite.ai.toolkit/MNN
   ```
-* *lite.ai.toolkit/ncnn*
+* **lite.ai.toolkit/ncnn**
   ```shell
     cp -r you-path-to-downloaded-or-built-ncnn/include/ncnn lite.ai.toolkit/ncnn
   ```
-* *lite.ai.toolkit/tnn*
+* **lite.ai.toolkit/tnn**
   ```shell
     cp -r you-path-to-downloaded-or-built-TNN/include/tnn lite.ai.toolkit/tnn
   ```
 
-然后把各个依赖库拷贝到*lite.ai.toolkit/lib* 文件夹。 请参考依赖库的编译文档[<sup>1</sup>](#lite.ai.toolkit-1)。
-* *lite.ai.toolkit/lib*
+然后把各个依赖库拷贝到**lite.ai.toolkit/lib** 文件夹。 请参考依赖库的编译文档[<sup>1</sup>](#lite.ai.toolkit-1)。
+* **lite.ai.toolkit/lib**
   ```shell
     cp you-path-to-downloaded-or-built-opencv/lib/*opencv* lite.ai.toolkit/lib
     cp you-path-to-downloaded-or-built-onnxruntime/lib/*onnxruntime* lite.ai.toolkit/lib
@@ -294,7 +269,7 @@ static void test_default()
 
 * Windows: 你可以参考[issue#6](https://github.com/DefTruth/lite.ai.toolkit/issues/6) ，讨论了常见的编译问题。
 * Linux: 参考MacOS下的编译，替换Linux版本的依赖库即可。Linux下的发行版本将会在近期添加 ~ [issue#2](https://github.com/DefTruth/lite.ai.toolkit/issues/2)
-* 令人开心的消息!!! : 🚀 你可以直接下载最新的*ONNXRuntime*官方构建的动态库，包含Windows, Linux, MacOS and Arm的版本!!! CPU和GPU的版本均可获得。不需要再从源码进行编译了，nice。可以从[v1.8.1](https://github.com/microsoft/onnxruntime/releases) 下载最新的动态库. 我目前在*Lite.AI.ToolKit*中用的是1.7.0，你可以从[v1.7.0](https://github.com/microsoft/onnxruntime/releases/tag/v1.7.0) 下载, 但1.8.1应该也是可行的。对于*OpenCV*，请尝试从源码构建(Linux) 或者 直接从[OpenCV 4.5.3](https://github.com/opencv/opencv/releases) 下载官方编译好的动态库(Windows). 然后把头文件和依赖库放入上述的文件夹中.
+* 令人开心的消息!!! : 🚀 你可以直接下载最新的**ONNXRuntime**官方构建的动态库，包含Windows, Linux, MacOS and Arm的版本!!! CPU和GPU的版本均可获得。不需要再从源码进行编译了，nice。可以从[v1.8.1](https://github.com/microsoft/onnxruntime/releases) 下载最新的动态库. 我目前在**Lite.Ai.ToolKit**中用的是1.7.0，你可以从[v1.7.0](https://github.com/microsoft/onnxruntime/releases/tag/v1.7.0) 下载, 但1.8.1应该也是可行的。对于**OpenCV**，请尝试从源码构建(Linux) 或者 直接从[OpenCV 4.5.3](https://github.com/opencv/opencv/releases) 下载官方编译好的动态库(Windows). 然后把头文件和依赖库放入上述的文件夹中.
 
 * Windows GPU 兼容性: 详见[issue#10](https://github.com/DefTruth/lite.ai.toolkit/issues/10).
 * Linux GPU 兼容性: 详见[issue#97](https://github.com/DefTruth/lite.ai.toolkit/issues/97).
@@ -302,7 +277,7 @@ static void test_default()
 </details>  
 
 <details>
-<summary>🔑️ 如何链接Lite.AI.ToolKit动态库?</summary>  
+<summary>🔑️ 如何链接Lite.Ai.ToolKit动态库?</summary>  
 
 * 你可参考以下的CMakeLists.txt设置来链接动态库.
 
@@ -391,7 +366,7 @@ Default Version Detected Boxes Num: 5
 <div id="lite.ai.toolkit-2"></div>
 <div id="lite.ai.toolkit-Model-Zoo"></div>
 
-*Lite.AI.ToolKit* 目前包括 *[80+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* 流行的开源模型以及 *[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)* 文件，大部分文件是我自己转换的。你可以通过*lite::cv::Type::Class* 语法进行调用，如 *[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)*。更多的细节见[Examples for Lite.AI.ToolKit](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit)。注意，由于Google Driver(15G)的存储限制，我无法上传所有的模型文件，国内的小伙伴请使用百度云盘。
+**Lite.Ai.ToolKit** 目前包括 **[80+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** 流行的开源模型以及 **[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** 文件，大部分文件是我自己转换的。你可以通过**lite::cv::Type::Class** 语法进行调用，如 **[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)**。更多的细节见[Examples for Lite.Ai.ToolKit](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit)。注意，由于Google Driver(15G)的存储限制，我无法上传所有的模型文件，国内的小伙伴请使用百度云盘。
 
 |File|Baidu Drive|Google Drive|Docker Hub|Hub (Docs)|  
 |:---:|:---:|:---:|:---:|:---:|
@@ -411,9 +386,9 @@ Default Version Detected Boxes Num: 5
   docker pull qyjdefdocker/lite.ai.toolkit-tnn-hub:v0.1.22.02.02   # (217M) + YOLO5Face
 ```
 <details>
-<summary> ❇️ 命名空间和Lite.AI.ToolKit算法模块的对应关系 </summary>  
+<summary> ❇️ 命名空间和Lite.Ai.ToolKit算法模块的对应关系 </summary>  
 
-### 命名空间和Lite.AI.ToolKit算法模块的对应关系
+### 命名空间和Lite.Ai.ToolKit算法模块的对应关系
 
 | Namepace                   | Details                                                      |
 | :------------------------- | :----------------------------------------------------------- |
@@ -432,7 +407,7 @@ Default Version Detected Boxes Num: 5
 | *lite::cv::resolution*     | Super Resolution.  ⚠️                                         |
 
 
-### Lite.AI.ToolKit的类与权重文件对应关系说明
+### Lite.Ai.ToolKit的类与权重文件对应关系说明
 
 Lite.AI.ToolKit的类与权重文件对应关系说明，可以在[lite.ai.toolkit.hub.onnx.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md) 中找到。比如, *lite::cv::detection::YoloV5* 和 *lite::cv::detection::YoloX* 的权重文件为：
 
@@ -450,7 +425,7 @@ Lite.AI.ToolKit的类与权重文件对应关系说明，可以在[lite.ai.toolk
 | *lite::cv::detection::YoloX* |     yolox_tiny.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 19Mb |
 | *lite::cv::detection::YoloX* |     yolox_nano.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 3.5Mb |
 
-这意味着，你可以通过Lite.AI.ToolKit中的同一个类，根据你的使用情况，加载任意一个`yolov5*.onnx`或`yolox_*.onnx`，如 *YoloV5*, *YoloX*等.
+这意味着，你可以通过Lite.Ai.ToolKit中的同一个类，根据你的使用情况，加载任意一个`yolov5*.onnx`或`yolox_*.onnx`，如 *YoloV5*, *YoloX*等.
 
 ```c++
 auto *yolov5 = new lite::cv::detection::YoloV5("yolov5x.onnx");  // for server
@@ -1033,7 +1008,7 @@ auto *transfer = new lite::cv::style::FastStyleTransfer(onnx_path); // 6.4Mb onl
 
 <div id="lite.ai.toolkit-License"></div>
 
-[Lite.AI.ToolKit](#lite.ai.toolkit-Introduction) 的代码采用GPL-3.0协议。
+[Lite.Ai.ToolKit](#lite.ai.toolkit-Introduction) 的代码采用GPL-3.0协议。
 
 
 ## 9. 引用参考
@@ -1084,7 +1059,7 @@ auto *transfer = new lite::cv::style::FastStyleTransfer(onnx_path); // 6.4Mb onl
 
 
 ## 10. 编译选项
-未来会增加一些模型的[MNN](https://github.com/alibaba/MNN) 、[NCNN](https://github.com/Tencent/ncnn) 和 [TNN](https://github.com/Tencent/TNN) 支持，但由于算子兼容等原因，也无法确保所有被[ONNXRuntime C++](https://github.com/microsoft/onnxruntime) 支持的模型能够在[MNN](https://github.com/alibaba/MNN) 、[NCNN](https://github.com/Tencent/ncnn) 和 [TNN](https://github.com/Tencent/TNN) 下跑通。所以，如果您想使用本项目支持的所有模型，并且不在意*1~2ms*的性能差距的话，请使用ONNXRuntime版本的实现。[ONNXRuntime](https://github.com/microsoft/onnxruntime) 是本仓库默认的推理引擎。但是如果你确实希望编译支持[MNN](https://github.com/alibaba/MNN) 、[NCNN](https://github.com/Tencent/ncnn) 和 [TNN](https://github.com/Tencent/TNN) 支持的Lite.AI.ToolKit🍅🍅动态库，你可以按照以下的步骤进行设置。
+未来会增加一些模型的[MNN](https://github.com/alibaba/MNN) 、[NCNN](https://github.com/Tencent/ncnn) 和 [TNN](https://github.com/Tencent/TNN) 支持，但由于算子兼容等原因，也无法确保所有被[ONNXRuntime C++](https://github.com/microsoft/onnxruntime) 支持的模型能够在[MNN](https://github.com/alibaba/MNN) 、[NCNN](https://github.com/Tencent/ncnn) 和 [TNN](https://github.com/Tencent/TNN) 下跑通。所以，如果您想使用本项目支持的所有模型，并且不在意*1~2ms*的性能差距的话，请使用ONNXRuntime版本的实现。[ONNXRuntime](https://github.com/microsoft/onnxruntime) 是本仓库默认的推理引擎。但是如果你确实希望编译支持[MNN](https://github.com/alibaba/MNN) 、[NCNN](https://github.com/Tencent/ncnn) 和 [TNN](https://github.com/Tencent/TNN) 支持的Lite.Ai.ToolKit动态库，你可以按照以下的步骤进行设置。
 
 * 在`build.sh`中添加`DENABLE_MNN=ON` 、`DENABLE_NCNN=ON` 或 `DENABLE_TNN=ON`，比如
 ```shell
