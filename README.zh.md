@@ -74,6 +74,7 @@
 * [应用案例](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit)
 * [开源协议](#lite.ai.toolkit-License)
 * [引用参考](#lite.ai.toolkit-References)
+* [如何添加您的模型](#lite.ai.toolkit-Contribute)
 
 ## 1. 快速开始 🌟🌟
 <div id="lite.ai.toolkit-Quick-Start"></div>
@@ -1078,21 +1079,8 @@ auto *nanodet = new lite::tnn::cv::detection::NanoDet(proto_path, model_path);
 auto *nanodet = new lite::ncnn::cv::detection::NanoDet(param_path, bin_path);
 ```
 
+## 11. 如何添加您的模型
+<div id="lite.ai.toolkit-Contribute"></div>  
 
-<!---
-## 8. 示例工程
+如何添加您自己的模型以及成为贡献者？具体步骤请参考 [CONTRIBUTING.zh.md](docs/contrib/CONTRIBUTING.zh.md) ，或者，❤️不妨给个⭐️🌟star，这应该是最简单的支持方式了。
 
-|Project|Describe|Operation System|Stars|Status|
-|:---:|:---:|:---:|:---:|:---:|
-|[RobustVideoMatting.lite.ai.toolkit](https://github.com/DefTruth/RobustVideoMatting.lite.ai.toolkit)| Video/Image Matting | MacOS | ![](https://img.shields.io/github/stars/DefTruth/RobustVideoMatting.lite.ai.toolkit.svg?style=social)|✅|
-|[nanodet.lite.ai.toolkit](https://github.com/DefTruth/nanodet.lite.ai.toolkit)| Object Detection | MacOS | ![](https://img.shields.io/github/stars/DefTruth/nanodet.lite.ai.toolkit.svg?style=social)|✅|
-|[YOLOX.lite.ai.toolkit](https://github.com/DefTruth/YOLOX.lite.ai.toolkit)| Object Detection | MacOS | ![](https://img.shields.io/github/stars/DefTruth/YOLOX.lite.ai.toolkit.svg?style=social)|✅|
-|[YOLOP.lite.ai.toolkit](https://github.com/DefTruth/YOLOP.lite.ai.toolkit)|  Panoptic Perception | MacOS | ![](https://img.shields.io/github/stars/DefTruth/YOLOP.lite.ai.toolkit.svg?style=social)|✅|
-|[scrfd.lite.ai.toolkit](https://github.com/DefTruth/scrfd.lite.ai.toolkit)| Face Detection | MacOS | ![](https://img.shields.io/github/stars/DefTruth/scrfd.lite.ai.toolkit.svg?style=social)|✅|
-|[YOLO5Face.lite.ai.toolkit](https://github.com/DefTruth/YOLO5Face.lite.ai.toolkit)| Face Detection | MacOS | ![](https://img.shields.io/github/stars/DefTruth/YOLO5Face.lite.ai.toolkit.svg?style=social)|✅|
-|[MGMatting.lite.ai.toolkit](https://github.com/DefTruth/MGMatting.lite.ai.toolkit)| Image Matting | MacOS | ![](https://img.shields.io/github/stars/DefTruth/MGMatting.lite.ai.toolkit.svg?style=social)|❔|
-|[fsanet.lite.ai.toolkit](https://github.com/DefTruth/fsanet.lite.ai.toolkit)| Head Pose Estimation | MacOS | ![](https://img.shields.io/github/stars/DefTruth/fsanet.lite.ai.toolkit.svg?style=social)|❔|
-|[ssrnet.lite.ai.toolkit](https://github.com/DefTruth/ssrnet.lite.ai.toolkit)| Age Estimation | MacOS | ![](https://img.shields.io/github/stars/DefTruth/ssrnet.lite.ai.toolkit.svg?style=social)|❔|
---->
-
-<p align="center"> 若是有用，❤️不妨给个⭐️🌟支持一下吧，感谢支持~  </p>
