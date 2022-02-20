@@ -1,0 +1,9 @@
+# pylitex
+opencv-python>=4.5.2
+numpy>=1.14.4
+torch>=1.6.0
+onnxruntime>=1.7.0
+onnx>=1.8.0
+
+# test
+torchlm>=0.1.5
