@@ -1,0 +1,1 @@
+recursive-include pylitex/hub/ *.onnx

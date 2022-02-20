@@ -1082,5 +1082,5 @@ auto *nanodet = new lite::ncnn::cv::detection::NanoDet(param_path, bin_path);
 ## 11. 如何添加您的模型
 <div id="lite.ai.toolkit-Contribute"></div>  
 
-如何添加您自己的模型以及成为贡献者？具体步骤请参考 [CONTRIBUTING.zh.md](docs/contrib/CONTRIBUTING.zh.md) ，或者，❤️不妨给个⭐️🌟star，这应该是最简单的支持方式了。
+如何添加您自己的模型以及成为贡献者？具体步骤请参考 [CONTRIBUTING.zh.md](https://github.com/DefTruth/lite.ai.toolkit/issues/191) ，或者，❤️不妨给个⭐️🌟star，这应该是最简单的支持方式了。
 
