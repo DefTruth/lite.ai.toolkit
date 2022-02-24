@@ -46,7 +46,7 @@ message("#######################################################################
 
 # setup include dir and lib dir
 include_directories(${LITE_AI_ROOT_DIR})
-link_directories(${LITE_AI_ROOT_DIR}/lib)
+link_directories(${LITE_AI_ROOT_DIR}/lib/${PLATFORM_NAME})
 
 # include custom cmake files.
 include(cmake/setup_opencv_libs.cmake)

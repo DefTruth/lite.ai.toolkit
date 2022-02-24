@@ -5,7 +5,7 @@ set(OpenCV_LIBS
         opencv_imgproc
         opencv_imgcodecs
         opencv_video
-        opencv_videoio
+        opencv_videoio  # need ffmpeg for mp4 io
         ) # need only
 message("###########################################################################################")
 

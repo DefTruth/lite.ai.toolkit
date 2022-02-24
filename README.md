@@ -256,16 +256,48 @@ The output is:
     cp -r you-path-to-downloaded-or-built-TNN/include/tnn lite.ai.toolkit/tnn
   ```
 
-and put the libs into **lite.ai.toolkit/lib** directory. Please reference the build-docs[<sup>1</sup>](#lite.ai.toolkit-1) for **third_party**.
-* **lite.ai.toolkit/lib**
+and put the libs into **lite.ai.toolkit/lib/(linux|windows)** directory. Please reference the build-docs[<sup>1</sup>](#lite.ai.toolkit-1) for **third_party**.
+* **lite.ai.toolkit/lib/(linux|windows)**
   ```shell
-    cp you-path-to-downloaded-or-built-opencv/lib/*opencv* lite.ai.toolkit/lib
-    cp you-path-to-downloaded-or-built-onnxruntime/lib/*onnxruntime* lite.ai.toolkit/lib
-    cp you-path-to-downloaded-or-built-MNN/lib/*MNN* lite.ai.toolkit/lib
-    cp you-path-to-downloaded-or-built-ncnn/lib/*ncnn* lite.ai.toolkit/lib
-    cp you-path-to-downloaded-or-built-TNN/lib/*TNN* lite.ai.toolkit/lib
+    cp you-path-to-downloaded-or-built-opencv/lib/(linux|windows)/*opencv* lite.ai.toolkit/lib
+    cp you-path-to-downloaded-or-built-onnxruntime/lib/(linux|windows)/*onnxruntime* lite.ai.toolkit/lib
+    cp you-path-to-downloaded-or-built-MNN/lib/(linux|windows)/*MNN* lite.ai.toolkit/lib
+    cp you-path-to-downloaded-or-built-ncnn/lib/(linux|windows)/*ncnn* lite.ai.toolkit/lib
+    cp you-path-to-downloaded-or-built-TNN/lib/(linux|windows)/*TNN* lite.ai.toolkit/lib
   ```
 
+Note, your also need to install ffmpeg(<=4.2.2) in Linux to support the opencv videoio module. See [issue#203](https://github.com/DefTruth/lite.ai.toolkit/issues/6). In MacOS, ffmpeg4.2.2 was been package into lite.ai.toolkit, thus, no installation need in OSX. In Windows, ffmpeg was been package into opencv dll prebuilt by the team of opencv. Please make sure -DWITH_FFMPEG=ON and check the configuration info when building opencv.
+* first, build ffmpeg(<=4.2.2) from source.
+```shell
+git clone --depth=1 https://git.ffmpeg.org/ffmpeg.git -b n4.2.2
+cd ffmpeg
+./configure --enable-shared --disable-x86asm --prefix=/usr/local/opt/ffmpeg --disable-static
+make -j8
+make install
+```
+* then, build opencv with -DWITH_FFMPEG=ON, just like
+```shell
+#!/bin/bash
+
+mkdir build
+cd build
+
+cmake .. \
+  -D CMAKE_BUILD_TYPE=Release \
+  -D CMAKE_INSTALL_PREFIX=your-path-to-custom-dir \
+  -D BUILD_TESTS=OFF \
+  -D BUILD_PERF_TESTS=OFF \
+  -D BUILD_opencv_python3=OFF \
+  -D BUILD_opencv_python2=OFF \
+  -D BUILD_SHARED_LIBS=ON \
+  -D BUILD_opencv_apps=OFF \
+  -D WITH_FFMPEG=ON 
+  
+make -j8
+make install
+cd ..
+```
+after built opencv, you can follow the steps to build lite.ai.toolkit.
 
 * Windows: You can reference to [issue#6](https://github.com/DefTruth/lite.ai.toolkit/issues/6)
 * Linux: The Docs and Docker image for Linux will be coming soon ~ [issue#2](https://github.com/DefTruth/lite.ai.toolkit/issues/2)
