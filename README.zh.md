@@ -257,16 +257,47 @@ static void test_default()
     cp -r you-path-to-downloaded-or-built-TNN/include/tnn lite.ai.toolkit/tnn
   ```
 
-然后把各个依赖库拷贝到**lite.ai.toolkit/lib** 文件夹。 请参考依赖库的编译文档[<sup>1</sup>](#lite.ai.toolkit-1)。
-* **lite.ai.toolkit/lib**
+然后把各个依赖库拷贝到**lite.ai.toolkit/lib/(linux|windows)** 文件夹。 请参考依赖库的编译文档[<sup>1</sup>](#lite.ai.toolkit-1)。
+* **lite.ai.toolkit/lib/(linux|windows)**
   ```shell
-    cp you-path-to-downloaded-or-built-opencv/lib/*opencv* lite.ai.toolkit/lib
-    cp you-path-to-downloaded-or-built-onnxruntime/lib/*onnxruntime* lite.ai.toolkit/lib
-    cp you-path-to-downloaded-or-built-MNN/lib/*MNN* lite.ai.toolkit/lib
-    cp you-path-to-downloaded-or-built-ncnn/lib/*ncnn* lite.ai.toolkit/lib
-    cp you-path-to-downloaded-or-built-TNN/lib/*TNN* lite.ai.toolkit/lib
+    cp you-path-to-downloaded-or-built-opencv/lib/(linux|windows)/*opencv* lite.ai.toolkit/lib
+    cp you-path-to-downloaded-or-built-onnxruntime/lib/(linux|windows)/*onnxruntime* lite.ai.toolkit/lib
+    cp you-path-to-downloaded-or-built-MNN/lib/(linux|windows)/*MNN* lite.ai.toolkit/lib
+    cp you-path-to-downloaded-or-built-ncnn/lib/(linux|windows)/*ncnn* lite.ai.toolkit/lib
+    cp you-path-to-downloaded-or-built-TNN/lib/(linux|windows)/*TNN* lite.ai.toolkit/lib
   ```
+注意，你还需要安装ffmpeg(<=4.2.2)，因为opencv的videoio模块依赖ffmpeg进行mp4的编解码。参考[issue#203](https://github.com/DefTruth/lite.ai.toolkit/issues/6) . 在MacOS下，ffmpeg4.2.2已经作为一个自定义依赖库被我打包进lite.ai.toolkit，不需要再从HomeBrew安装为系统库，因此lite.ai.toolkit是单体的，你可以把它移植到app里面，不用心另一台运行app的机器没有ffmpeg，MacOS版本的lite.ai.toolkit已经包含ffmpeg. 在Windows下，opencv官方团队已经提供了用于opencv的ffmpeg预编译库。在Linux下编译opencv时，请确保-DWITH_FFMPEG=ON，并检查是否链接到ffmpeg. 
+* 先编译ffmpeg，注意必须是低版本的，高于4.4的，opencv会不兼容。
+```shell
+git clone --depth=1 https://git.ffmpeg.org/ffmpeg.git -b n4.2.2
+cd ffmpeg
+./configure --enable-shared --disable-x86asm --prefix=/usr/local/opt/ffmpeg --disable-static
+make -j8
+make install
+```
+* 然后，编译带ffmpeg支持的OpenCV，指定-DWITH_FFMPEG=ON
+```shell
+#!/bin/bash
 
+mkdir build
+cd build
+
+cmake .. \
+  -D CMAKE_BUILD_TYPE=Release \
+  -D CMAKE_INSTALL_PREFIX=your-path-to-custom-dir \
+  -D BUILD_TESTS=OFF \
+  -D BUILD_PERF_TESTS=OFF \
+  -D BUILD_opencv_python3=OFF \
+  -D BUILD_opencv_python2=OFF \
+  -D BUILD_SHARED_LIBS=ON \
+  -D BUILD_opencv_apps=OFF \
+  -D WITH_FFMPEG=ON 
+  
+make -j8
+make install
+cd ..
+```
+编译完opencv后，你就可以按照上述的步骤，继续编译lite.ai.toolkit.
 
 * Windows: 你可以参考[issue#6](https://github.com/DefTruth/lite.ai.toolkit/issues/6) ，讨论了常见的编译问题。
 * Linux: 参考MacOS下的编译，替换Linux版本的依赖库即可。Linux下的发行版本将会在近期添加 ~ [issue#2](https://github.com/DefTruth/lite.ai.toolkit/issues/2)
