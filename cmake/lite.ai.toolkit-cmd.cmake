@@ -42,7 +42,7 @@ function(add_lite_ai_toolkit_shared_library version soversion)
     set_target_properties(lite.ai.toolkit PROPERTIES VERSION ${version} SOVERSION ${soversion})
 
     message("Installing Lite.AI.ToolKit Headers ...")
-    file(INSTALL ${LITE_HEAD} DESTINATION ${CMAKE_SOURCE_DIR}/build/lite.ai.toolkit/include/lite)
+    file(INSTALL ${LITE_HEAD} DESTINATION ${BUILD_LITE_AI_DIR}/include/lite)
 
     message(">>>> Added Shared Library: lite.ai.toolkit !")
 
@@ -108,7 +108,7 @@ function(add_lite_ai_toolkit_engines_headers_command)
         add_custom_command(TARGET lite.ai.toolkit
                 PRE_BUILD
                 COMMAND ${CMAKE_COMMAND} -E copy_directory ${LITE_AI_ROOT_DIR}/ncnn ${BUILD_LITE_AI_DIR}/include/ncnn
-                COMMAND ${CMAKE_COMMAND} -E echo "Installing NCNN headers to ${BUILD_LITE_AI_DIR}/ncnn ... done!"
+                COMMAND ${CMAKE_COMMAND} -E echo "Installing NCNN headers to ${BUILD_LITE_AI_DIR}/include/ncnn ... done!"
                 )
     endif()
 

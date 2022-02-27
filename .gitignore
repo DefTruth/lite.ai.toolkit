@@ -5,3 +5,5 @@ cmake-build-release
 .idea
 build-debug.sh
 __pycache__
+scripts
+prebuilt

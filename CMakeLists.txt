@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.17)
 project(lite.ai.toolkit)
 
 set(CMAKE_CXX_STANDARD 11)
-set(VERSION_STRING 0.1.0)
-set(SOVERSION_STRING 0.1.0)
+set(VERSION_STRING 0.1.1)
+set(SOVERSION_STRING 0.1.1)
 include(cmake/lite.ai.toolkit-platform.cmake)  # checking platform
 
 message("====================================  Lite.AI.ToolKit  ${VERSION_STRING} =============================")
@@ -15,16 +15,19 @@ message("Platform Name: ${PLATFORM_NAME}")
 message("Root Path: ${CMAKE_SOURCE_DIR}")
 message("================================================================================")
 
+
 # root dir
 set(LITE_AI_ROOT_DIR ${CMAKE_SOURCE_DIR})
-# dir for built files.
-set(BUILD_LITE_AI_DIR ${LITE_AI_ROOT_DIR}/build/lite.ai.toolkit)
+# set default build dir for lite.ai.toolkit
+if (NOT DEFINED BUILD_LITE_AI_DIR)
+    set(BUILD_LITE_AI_DIR ${LITE_AI_ROOT_DIR}/build/lite.ai.toolkit)
+endif()
 set(LIBRARY_OUTPUT_PATH ${BUILD_LITE_AI_DIR}/lib)
 set(EXECUTABLE_OUTPUT_PATH ${BUILD_LITE_AI_DIR}/bin)
 
 # options
 option(LITE_AI_BUILD_LIB "whether to build shared libraries." ON) # now, ON only
-option(LITE_AI_BUILD_TEST "whether to build shared libraries." ON) # now, ON only
+option(LITE_AI_BUILD_TEST "whether to build test examples." ON)
 option(INCLUDE_OPENCV "whether to include OpenCV into lite.ai.toolkit." ON)
 # engine backend: config.h.in -> config.h
 option(ENABLE_ONNXRUNTIME "whether to enable ONNXRuntime engine" ON)
