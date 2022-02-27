@@ -20,7 +20,7 @@ set(TNN_SRCS
 message("Installing Lite.AI.ToolKit Headers for TNN Backend ...")
 # "INSTALL" can copy all files from the list to the specified path.
 # "COPY" only copies one file to a specified path
-file(INSTALL ${TNN_CORE_HEAD} DESTINATION ${CMAKE_SOURCE_DIR}/build/lite.ai.toolkit/include/lite/tnn/core)
-file(INSTALL ${TNN_CV_HEAD} DESTINATION ${CMAKE_SOURCE_DIR}/build/lite.ai.toolkit/include/lite/tnn/cv)
-file(INSTALL ${TNN_ASR_HEAD} DESTINATION ${CMAKE_SOURCE_DIR}/build/lite.ai.toolkit/include/lite/tnn/asr)
-file(INSTALL ${TNN_NLP_HEAD} DESTINATION ${CMAKE_SOURCE_DIR}/build/lite.ai.toolkit/include/lite/tnn/nlp)
+file(INSTALL ${TNN_CORE_HEAD} DESTINATION ${BUILD_LITE_AI_DIR}/include/lite/tnn/core)
+file(INSTALL ${TNN_CV_HEAD} DESTINATION ${BUILD_LITE_AI_DIR}/include/lite/tnn/cv)
+file(INSTALL ${TNN_ASR_HEAD} DESTINATION ${BUILD_LITE_AI_DIR}/include/lite/tnn/asr)
+file(INSTALL ${TNN_NLP_HEAD} DESTINATION ${BUILD_LITE_AI_DIR}/include/lite/tnn/nlp)
