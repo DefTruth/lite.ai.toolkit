@@ -1,15 +1,18 @@
 #!/bin/bash
-if [ ! -d ./build ]; then
-  mkdir build
+
+BUILD_DIR=build
+
+if [ ! -d "${BUILD_DIR}" ]; then
+  mkdir "${BUILD_DIR}"
+  echo "creating build dir: ${BUILD_DIR} ..."
 else
-  echo "build directory exist! clearing ... "
-  rm -rf ./build/* && echo "clear built files done ! & rebuilding ... "
+  echo "build dir: {BUILD_DIR} directory exist! ..."
 fi
 
-cd build && cmake \
+cd "${BUILD_DIR}" && pwd && cmake .. \
   -DCMAKE_BUILD_TYPE=MinSizeRel \
   -DINCLUDE_OPENCV=ON \
   -DENABLE_MNN=OFF \
   -DENABLE_NCNN=OFF \
-  -DENABLE_TNN=OFF \
-  .. && make -j8
+  -DENABLE_TNN=OFF &&
+  make -j8
