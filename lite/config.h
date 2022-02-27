@@ -2,9 +2,9 @@
 #define LITE_AI_CONFIG_H
 
 #define ENABLE_ONNXRUNTIME
-#define ENABLE_MNN
-#define ENABLE_NCNN
-#define ENABLE_TNN
+/* #undef ENABLE_MNN */
+/* #undef ENABLE_NCNN */
+/* #undef ENABLE_TNN */
 #define BACKEND_ONNXRUNTIME
 /* #undef BACKEND_MNN */
 /* #undef BACKEND_NCNN */
