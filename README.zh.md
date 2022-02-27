@@ -63,6 +63,12 @@
 }
 ```  
 
+## 下载预编译库 ✅
+目前，有一些预编译的MacOS下的lite.ai.toolkit动态库，可以直接从以下链接进行下载。Linux、Windows和Android下的预编译库，也会在最近发布出来。更多详情请参考[issues#48](https://github.com/DefTruth/lite.ai.toolkit/issues/48) .
+
+* [x]  [lite0.1.1-osx10.15.x-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.7.0.zip](https://github.com/DefTruth/lite.ai.toolkit/releases/download/v0.1.1/lite0.1.1-osx10.15.x-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.7.0.zip)
+* [x]  [lite0.1.1-osx10.15.x-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.7.0-mnn1.2.0-ncnn1.0.21-tnn0.3.0.zip](https://github.com/DefTruth/lite.ai.toolkit/releases/download/v0.1.1/lite0.1.1-osx10.15.x-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.7.0-mnn1.2.0-ncnn1.0.21-tnn0.3.0.zip)
+
 ## 目录 📖💡
 * [核心特征](#lite.ai.toolkit-Core-Features)
 * [快速开始](#lite.ai.toolkit-Quick-Start)

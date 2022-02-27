@@ -61,6 +61,13 @@ Consider to cite it as follows if you use **Lite.Ai.ToolKit** in your projects.
 }
 ```
 
+## Downloads ✅
+Some prebuilt lite.ai.toolkit libs for MacOS are available, you can download the libs from the release links. Further, prebuilt libs for Linux、Windows and Android will be coming soon ~ See [issues#48](https://github.com/DefTruth/lite.ai.toolkit/issues/48) for more details.
+
+* [x]  [lite0.1.1-osx10.15.x-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.7.0.zip](https://github.com/DefTruth/lite.ai.toolkit/releases/download/v0.1.1/lite0.1.1-osx10.15.x-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.7.0.zip)
+* [x]  [lite0.1.1-osx10.15.x-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.7.0-mnn1.2.0-ncnn1.0.21-tnn0.3.0.zip](https://github.com/DefTruth/lite.ai.toolkit/releases/download/v0.1.1/lite0.1.1-osx10.15.x-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.7.0-mnn1.2.0-ncnn1.0.21-tnn0.3.0.zip)
+
+
 ## Contents 📖💡
 * [Core Features](#lite.ai.toolkit-Core-Features)
 * [Quick Start](#lite.ai.toolkit-Quick-Start)
