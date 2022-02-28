@@ -62,10 +62,16 @@ Consider to cite it as follows if you use **Lite.Ai.ToolKit** in your projects.
 ```
 
 ## Downloads ✅
-Some prebuilt lite.ai.toolkit libs for MacOS are available, you can download the libs from the release links. Further, prebuilt libs for Linux、Windows and Android will be coming soon ~ See [issues#48](https://github.com/DefTruth/lite.ai.toolkit/issues/48) for more details.
+Some prebuilt lite.ai.toolkit libs for MacOS(x64) and Linux(x64) are available, you can download the libs from the release links. Further, prebuilt libs for Windows(x64) and Android will be coming soon ~ See [issues#48](https://github.com/DefTruth/lite.ai.toolkit/issues/48) for more details.
 
 * [x]  [lite0.1.1-osx10.15.x-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.7.0.zip](https://github.com/DefTruth/lite.ai.toolkit/releases/download/v0.1.1/lite0.1.1-osx10.15.x-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.7.0.zip)
 * [x]  [lite0.1.1-osx10.15.x-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.7.0-mnn1.2.0-ncnn1.0.21-tnn0.3.0.zip](https://github.com/DefTruth/lite.ai.toolkit/releases/download/v0.1.1/lite0.1.1-osx10.15.x-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.7.0-mnn1.2.0-ncnn1.0.21-tnn0.3.0.zip)
+* [x]  [lite0.1.1-ubuntu18.04-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.7.0.zip](https://github.com/DefTruth/lite.ai.toolkit/releases/download/v0.1.1/lite0.1.1-ubuntu18.04-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.7.0.zip)  
+
+In Linux, in order to link the prebuilt libs, you need to export `lite.ai.toolkit/lib` to LD_LIBRARY_PATH first.  
+```shell
+export LD_LIBRARY_PATH=YOUR-PATH-TO/lite.ai.toolkit/lib:$LD_LIBRARY_PATH
+```
 
 
 ## Contents 📖💡
