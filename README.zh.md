@@ -12,7 +12,7 @@
   <img src=https://img.shields.io/badge/mac|linux|win-pass-brightgreen.svg >
   <img src=https://img.shields.io/badge/device-GPU/CPU-yellow.svg >
   <img src=https://img.shields.io/badge/license-GPLv3-blue.svg >
-  <img src=https://img.shields.io/badge/onnxruntime-1.7.1-turquoise.svg >
+  <img src=https://img.shields.io/badge/onnxruntime-1.10.0-turquoise.svg >
   <img src=https://img.shields.io/badge/mnn-1.2.0-hotpink.svg >
   <img src=https://img.shields.io/badge/ncnn-1.0.21-orange.svg >
   <img src=https://img.shields.io/badge/tnn-0.3.0-blue.svg >
@@ -67,12 +67,33 @@
 目前，有一些预编译的MacOS(x64)和Linux(x64)下的lite.ai.toolkit动态库，可以直接从以下链接进行下载。Windows(x64)和Android下的预编译库，也会在最近发布出来。更多详情请参考[issues#48](https://github.com/DefTruth/lite.ai.toolkit/issues/48) .
 
 * [x]  [lite0.1.1-osx10.15.x-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.7.0.zip](https://github.com/DefTruth/lite.ai.toolkit/releases/download/v0.1.1/lite0.1.1-osx10.15.x-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.7.0.zip)
+* [x]  [lite0.1.1-osx10.15.x-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.8.1.zip](https://github.com/DefTruth/lite.ai.toolkit/releases/download/v0.1.1/lite0.1.1-osx10.15.x-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.8.1.zip)
+* [x]  [lite0.1.1-osx10.15.x-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.9.0.zip](https://github.com/DefTruth/lite.ai.toolkit/releases/download/v0.1.1/lite0.1.1-osx10.15.x-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.9.0.zip)
+* [x]  [lite0.1.1-osx10.15.x-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.10.0.zip](https://github.com/DefTruth/lite.ai.toolkit/releases/download/v0.1.1/lite0.1.1-osx10.15.x-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.10.0.zip)
 * [x]  [lite0.1.1-osx10.15.x-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.7.0-mnn1.2.0-ncnn1.0.21-tnn0.3.0.zip](https://github.com/DefTruth/lite.ai.toolkit/releases/download/v0.1.1/lite0.1.1-osx10.15.x-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.7.0-mnn1.2.0-ncnn1.0.21-tnn0.3.0.zip)
 * [x]  [lite0.1.1-ubuntu18.04-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.7.0.zip](https://github.com/DefTruth/lite.ai.toolkit/releases/download/v0.1.1/lite0.1.1-ubuntu18.04-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.7.0.zip)
+* [x]  [lite0.1.1-ubuntu18.04-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.8.1.zip](https://github.com/DefTruth/lite.ai.toolkit/releases/download/v0.1.1/lite0.1.1-ubuntu18.04-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.8.1.zip)
+* [x]  [lite0.1.1-ubuntu18.04-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.9.0.zip](https://github.com/DefTruth/lite.ai.toolkit/releases/download/v0.1.1/lite0.1.1-ubuntu18.04-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.9.0.zip)
+* [x]  [lite0.1.1-ubuntu18.04-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.10.0.zip](https://github.com/DefTruth/lite.ai.toolkit/releases/download/v0.1.1/lite0.1.1-ubuntu18.04-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.10.0.zip)
 
 在Linux下，为了链接到预编译库，使用前，需要先将`lite.ai.toolkit/lib`的路径添加到LD_LIBRARY_PATH.
 ```shell
 export LD_LIBRARY_PATH=YOUR-PATH-TO/lite.ai.toolkit/lib:$LD_LIBRARY_PATH
+```
+可以参考以下的CMakeLists.txt，来配置lite.ai.toolkit。👇👀
+
+```cmake
+set(LITE_AI_DIR ${CMAKE_SOURCE_DIR}/lite.ai.toolkit)
+set(LITE_AI_INCLUDE_DIR ${LITE_AI_DIR}/include)
+set(LITE_AI_LIBRARY_DIR ${LITE_AI_DIR}/lib)
+include_directories(${LITE_AI_INCLUDE_DIR})
+link_directories(${LITE_AI_LIBRARY_DIR})
+
+set(TOOLKIT_LIBS lite.ai.toolkit onnxruntime)
+set(OpenCV_LIBS opencv_core opencv_imgcodecs opencv_imgproc opencv_video opencv_videoio)
+
+add_executable(lite_yolov5 examples/test_lite_yolov5.cpp)
+target_link_libraries(lite_yolov5 ${TOOLKIT_LIBS} ${OpenCV_LIBS})  # link lite.ai.toolkit & other libs.
 ```
 
 ## 目录 📖💡
