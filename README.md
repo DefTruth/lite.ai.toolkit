@@ -75,7 +75,9 @@ In Linux, in order to link the prebuilt libs, you need to export `lite.ai.toolki
 ```shell
 export LD_LIBRARY_PATH=YOUR-PATH-TO/lite.ai.toolkit/lib:$LD_LIBRARY_PATH
 ```
-In order to quickly setup `lite.ai.toolkit`, you can follow the `CMakeLists.txt` listed as belows. 👇👀
+## Quick Setup 👀
+
+To quickly setup `lite.ai.toolkit`, you can follow the `CMakeLists.txt` listed as belows. 👇👀
 
 ```cmake
 set(LITE_AI_DIR ${CMAKE_SOURCE_DIR}/lite.ai.toolkit)

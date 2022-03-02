@@ -77,6 +77,8 @@
 ```shell
 export LD_LIBRARY_PATH=YOUR-PATH-TO/lite.ai.toolkit/lib:$LD_LIBRARY_PATH
 ```
+## 快速配置 👀
+
 可以参考以下的CMakeLists.txt，快速配置lite.ai.toolkit。👇👀
 
 ```cmake
