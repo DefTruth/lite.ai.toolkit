@@ -5,6 +5,7 @@
 #define ENABLE_MNN
 #define ENABLE_NCNN
 #define ENABLE_TNN
+/* #undef ENABLE_ONNXRUNTIME_CUDA */
 #define BACKEND_ONNXRUNTIME
 /* #undef BACKEND_MNN */
 /* #undef BACKEND_NCNN */

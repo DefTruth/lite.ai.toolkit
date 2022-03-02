@@ -5,6 +5,7 @@
 #cmakedefine ENABLE_MNN
 #cmakedefine ENABLE_NCNN
 #cmakedefine ENABLE_TNN
+#cmakedefine ENABLE_ONNXRUNTIME_CUDA
 #cmakedefine BACKEND_ONNXRUNTIME
 #cmakedefine BACKEND_MNN
 #cmakedefine BACKEND_NCNN
