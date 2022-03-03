@@ -30,19 +30,24 @@ endif ()
 set(LIBRARY_OUTPUT_PATH ${BUILD_LITE_AI_DIR}/lib)
 set(EXECUTABLE_OUTPUT_PATH ${BUILD_LITE_AI_DIR}/bin)
 
-# options
-option(LITE_AI_BUILD_LIB "whether to build shared libraries." ON) # now, ON only
-option(LITE_AI_BUILD_TEST "whether to build test examples." ON)
-option(INCLUDE_OPENCV "whether to include OpenCV into lite.ai.toolkit." ON)
-# engine backend: config.h.in -> config.h
-option(ENABLE_ONNXRUNTIME "whether to enable ONNXRuntime engine" ON)
-option(ENABLE_MNN "whether to enable MNN engine" ON)  # unstable now, DON'T use
-option(ENABLE_NCNN "whether to enable NCNN engine" ON) # unstable now, DON'T use
-option(ENABLE_TNN "whether to enable TNN engine" ON) # unstable now, DON'T use
-option(BACKEND_ONNXRUNTIME "whether to set ONNXRuntime as the main backend of lite.ai.toolkit" ON)
-option(BACKEND_MNN "whether to set MNN as the main backend of lite.ai.toolkit" OFF)  # now, OFF only
-option(BACKEND_NCNN "whether to set NCNN as the main backend of lite.ai.toolkit" OFF)  # now, OFF only
-option(BACKEND_TNN "whether to set TNN as the main backend of lite.ai.toolkit" OFF)  # now, OFF only
+# compile options for lite.ai.toolkit
+option(LITE_AI_BUILD_LIB "build shared libraries." ON) # now, ON only
+option(LITE_AI_BUILD_TEST "build test examples." ON)
+option(INCLUDE_OPENCV "package OpenCV into lite.ai.toolkit." ON)
+# inference engines setups: config.h.in -> config.h
+option(ENABLE_ONNXRUNTIME "enable ONNXRuntime engine" ON)
+option(ENABLE_MNN "enable MNN engine" ON)  # unstable now, DON'T use
+option(ENABLE_NCNN "enable NCNN engine" ON) # unstable now, DON'T use
+option(ENABLE_TNN "enable TNN engine" ON) # unstable now, DON'T use
+# cuda provider setups: config.h.in -> config.h (only for onnxruntime)
+option(ENABLE_ONNXRUNTIME_CUDA "enable ONNXRuntime engine with CUDA provider" OFF)
+# videoio interface setups, for future use
+option(ENABLE_OPENCV_VIDEOIO "enable opencv videoio modules for detect_video apis" ON) # now, ON only
+# inference engines backend setups for lite.ai.toolkit
+option(BACKEND_ONNXRUNTIME "set ONNXRuntime as the main backend of lite.ai.toolkit" ON)
+option(BACKEND_MNN "set MNN as the main backend of lite.ai.toolkit" OFF)  # now, OFF only
+option(BACKEND_NCNN "set NCNN as the main backend of lite.ai.toolkit" OFF)  # now, OFF only
+option(BACKEND_TNN "set TNN as the main backend of lite.ai.toolkit" OFF)  # now, OFF only
 
 message(STATUS "Engines Enable Details ... ")
 message(STATUS "INCLUDE_OPENCV: ${INCLUDE_OPENCV}")
