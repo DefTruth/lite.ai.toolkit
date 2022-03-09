@@ -39,7 +39,7 @@ NCNNYoloX_V_0_1_1::~NCNNYoloX_V_0_1_1()
 void NCNNYoloX_V_0_1_1::transform(const cv::Mat &mat_rs, ncnn::Mat &in)
 {
   // BGR NHWC -> RGB NCHW
-  in = ncnn::Mat::from_pixels(mat_rs.data, ncnn::Mat::PIXEL_BGR2RGB, input_width, input_height);
+  in = ncnn::Mat::from_pixels(mat_rs.data, ncnn::Mat::PIXEL_RGB, input_width, input_height);
 }
 
 void NCNNYoloX_V_0_1_1::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
