@@ -178,17 +178,18 @@ void TNNRobustVideoMatting::initialize_context()
   context_is_initialized = true;
 }
 
-void TNNRobustVideoMatting::transform(const cv::Mat &mat)
+void TNNRobustVideoMatting::transform(const cv::Mat &mat_rs)
 {
-  cv::Mat canvas;
-  cv::resize(mat, canvas, cv::Size(input_width, input_height));
-  cv::cvtColor(canvas, canvas, cv::COLOR_BGR2RGB);
+  //  cv::Mat canvas;
+  //  cv::resize(mat, canvas, cv::Size(input_width, input_height));
+  //  cv::cvtColor(canvas, canvas, cv::COLOR_BGR2RGB);
+  //  reference: https://github.com/DefTruth/lite.ai.toolkit/issues/240
   // push into src_mat
   src_mat = std::make_shared<tnn::Mat>(
       input_device_type,
       tnn::N8UC3,
       input_shapes.at("src"),
-      (void *) canvas.data
+      (void *) mat_rs.data
   );
   if (!src_mat->GetData())
   {
@@ -206,7 +207,12 @@ void TNNRobustVideoMatting::detect(const cv::Mat &mat, types::MattingContent &co
   if (!context_is_initialized) return;
 
   // 1. make input tensor
-  this->transform(mat);
+  cv::Mat mat_rs;
+  // resize mat outside 'transform' to prevent memory overflow
+  // reference: https://github.com/DefTruth/lite.ai.toolkit/issues/240
+  cv::resize(mat, mat_rs, cv::Size(input_width, input_height));
+  cv::cvtColor(mat_rs, mat_rs, cv::COLOR_BGR2RGB);
+  this->transform(mat_rs);
   // 2. set input_mat
   tnn::MatConvertParam src_cvt_param, ctx_cvt_param;
   src_cvt_param.scale = scale_vals;
