@@ -13,7 +13,7 @@ def get_long_description():
 
 
 setuptools.setup(
-    name="pylitex",
+    name="litex",
     version="0.0.1",
     author="DefTruth",
     author_email="qyjdef@163.com",

@@ -46,7 +46,7 @@
 
 * **Simply and User friendly.** Simply and Consistent syntax like **lite::cv::Type::Class**, see [examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
 * **Minimum Dependencies.** Only **OpenCV** and **ONNXRuntime** are required by default, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit).
-* **Lots of Algorithm Modules.** Contains 10+ modules with **[80+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** AI models and **[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** weights now.
+* **Lots of Algorithm Modules.** Contains 10+ modules with **[80+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** AI models and **[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** weights now.  
 
 ## Citations 🎉🎉
 
@@ -60,8 +60,15 @@ Consider to cite it as follows if you use **Lite.Ai.ToolKit** in your projects.
   year={2021}
 }
 ```
+## About Training 💎  
+A high level Training and Evaluating Toolkit for Face Landmarks Detection is available at [torchlm](https://github.com/DefTruth/torchlm). 
 
-## Downloads ✅
+## Downloads & RoadMap ✅  
+
+<div id="lite.ai.toolkit-RoadMap"></div>
+
+![](docs/resources/lite.ai.toolkit-roadmap-v0.1.png)
+
 Some prebuilt lite.ai.toolkit libs for MacOS(x64) and Linux(x64) are available, you can download the libs from the release links. Further, prebuilt libs for Windows(x64) and Android will be coming soon ~ Please, see [issues#48](https://github.com/DefTruth/lite.ai.toolkit/issues/48) for more details of the prebuilt plan and refer to [releases](https://github.com/DefTruth/lite.ai.toolkit/releases) for more available prebuilt libs.
 
 * [x]  [lite0.1.1-osx10.15.x-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.8.1.zip](https://github.com/DefTruth/lite.ai.toolkit/releases/download/v0.1.1/lite0.1.1-osx10.15.x-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.8.1.zip)
@@ -89,7 +96,6 @@ set(OpenCV_LIBS opencv_core opencv_imgcodecs opencv_imgproc opencv_video opencv_
 add_executable(lite_yolov5 examples/test_lite_yolov5.cpp)
 target_link_libraries(lite_yolov5 ${TOOLKIT_LIBS} ${OpenCV_LIBS})
 ```
-
 
 ## Contents 📖💡
 * [Core Features](#lite.ai.toolkit-Core-Features)
@@ -128,20 +134,12 @@ static void test_default()
   delete yolov5;
 }
 ```
-
-The output is:
 <div align='center'>
-  <img src='logs/test_lite_yolov5_1.jpg' height="256px">
-  <img src='logs/test_lite_yolov5_2.jpg' height="256px">
-</div>  
-
-## 2. RoadMap 👏👋
-<div id="lite.ai.toolkit-RoadMap"></div>
-
-![](docs/resources/lite.ai.toolkit-roadmap-v0.1.png)
+  <img src="docs/resources/scrfd-mgmatting-nanodetplus.jpg" height="250px" width="750px" >
+</div>   
 
 
-## 3. Important Updates!!
+## 2. Important Updates 🆕
 <div id="lite.ai.toolkit-Important-Updates"></div>
 
 |Date|Model|C++|Paper|Code|Awesome|Type|
@@ -156,10 +154,8 @@ The output is:
 |【2021/09/20】|[RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)|[[link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_rvm.cpp)]|[[WACV 2022](https://arxiv.org/abs/2108.11515)]|[[code](https://github.com/PeterL1n/RobustVideoMatting)]|![](https://img.shields.io/github/stars/PeterL1n/RobustVideoMatting.svg?style=social)| matting |
 |【2021/09/02】|[YOLOP](https://github.com/hustvl/YOLOP)|[[link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolop.cpp)]|[[arXiv 2021](https://arxiv.org/abs/2108.11250)]|[[code](https://github.com/hustvl/YOLOP)]|![](https://img.shields.io/github/stars/hustvl/YOLOP.svg?style=social)| detection |
 
-![](docs/resources/scrfd-mgmatting-nanodetplus.jpg)
 
-
-## 4. Supported Models Matrix
+## 3. Supported Models Matrix
 <div id="lite.ai.toolkit-Supported-Models-Matrix"></div>
 
 * / = not supported now.
@@ -245,7 +241,7 @@ The output is:
 |[SubPixelCNN](https://github.com/niazwazir/SUB_PIXEL_CNN)|234K|*resolution*|[demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_subpixel_cnn.cpp)|✅| ✅ | / | ✅ | ✅ |✔️|✔️|❔|
 
 
-## 5. Build Docs.
+## 4. Build Docs.
 <div id="lite.ai.toolkit-Build-MacOS"></div>
 <div id="lite.ai.toolkit-Build-Lite.AI.ToolKit"></div>
 
@@ -424,7 +420,7 @@ To link `lite.ai.toolkit` shared lib. You need to make sure that `OpenCV` and `o
 </details>
 
 
-## 6. Model Zoo.
+## 5. Model Zoo.
 
 <div id="lite.ai.toolkit-Model-Zoo"></div>
 <div id="lite.ai.toolkit-2"></div>
@@ -546,7 +542,7 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
 </details>
 
 
-## 7. Examples.
+## 6. Examples.
 
 <div id="lite.ai.toolkit-Examples-for-Lite.AI.ToolKit"></div>
 
@@ -1069,14 +1065,14 @@ More classes for style transfer (neural style transfer, others)
 auto *transfer = new lite::cv::style::FastStyleTransfer(onnx_path); // 6.4Mb only
 ```
 
-## 8. License.
+## 7. License.
 
 <div id="lite.ai.toolkit-License"></div>
 
 The code of [Lite.Ai.ToolKit](#lite.ai.toolkit-Introduction) is released under the GPL-3.0 License.
 
 
-## 9. References.
+## 8. References.
 
 <div id="lite.ai.toolkit-References"></div>
 
@@ -1123,7 +1119,7 @@ Many thanks to these following projects. All the Lite.AI.ToolKit's models are so
 </details>  
 
 
-## 10. Compilation Options.
+## 9. Compilation Options.
 
 In addition, [MNN](https://github.com/alibaba/MNN), [NCNN](https://github.com/Tencent/ncnn) and [TNN](https://github.com/Tencent/TNN) support for some models will be added in the future, but due to operator compatibility and some other reasons, it is impossible to ensure that all models supported by [ONNXRuntime C++](https://github.com/microsoft/onnxruntime) can run through [MNN](https://github.com/alibaba/MNN), [NCNN](https://github.com/Tencent/ncnn) and [TNN](https://github.com/Tencent/TNN). So, if you want to use all the models supported by this repo and don't care about the performance gap of *1~2ms*, just let [ONNXRuntime](https://github.com/microsoft/onnxruntime) as default inference engine for this repo. However, you can follow the steps below if you want to build with [MNN](https://github.com/alibaba/MNN), [NCNN](https://github.com/Tencent/ncnn) or [TNN](https://github.com/Tencent/TNN) support.
 
@@ -1143,7 +1139,7 @@ auto *nanodet = new lite::mnn::cv::detection::NanoDet(mnn_path);
 auto *nanodet = new lite::tnn::cv::detection::NanoDet(proto_path, model_path);
 auto *nanodet = new lite::ncnn::cv::detection::NanoDet(param_path, bin_path);
 ```
-## 11. Contribute
+## 10. Contribute
 <div id="lite.ai.toolkit-Contribute"></div>  
 
 How to add your own models and become a contributor? For specific steps, please refer to [CONTRIBUTING.zh.md](https://github.com/DefTruth/lite.ai.toolkit/issues/191), or if you like this project please ❤️ consider ⭐️🌟 star this repo, as it is the simplest way to support me.
