@@ -63,7 +63,12 @@
 }
 ```  
 
-## 下载预编译库 ✅
+## 关于训练 🤓👀  
+一个用于人脸关键点检测的训练和评估的工具箱已经开源，可通过pip一键安装，地址在[torchlm](https://github.com/DefTruth/torchlm).
+
+## 预编译库 和 技术规划 ✅
+![](docs/resources/lite.ai.toolkit-roadmap-v0.1.png)
+
 目前，有一些预编译的MacOS(x64)和Linux(x64)下的lite.ai.toolkit动态库，可以直接从以下链接进行下载。Windows(x64)和Android下的预编译库，也会在最近发布出来。更多详情请参考[issues#48](https://github.com/DefTruth/lite.ai.toolkit/issues/48) . 更多可下载的的预编译库，请跳转到[releases](https://github.com/DefTruth/lite.ai.toolkit/releases) 查看。
 
 * [x]  [lite0.1.1-osx10.15.x-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.8.1.zip](https://github.com/DefTruth/lite.ai.toolkit/releases/download/v0.1.1/lite0.1.1-osx10.15.x-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.8.1.zip)
@@ -130,17 +135,8 @@ static void test_default()
 }
 ```
 
-输出的结果是:
-<div align='center'>
-  <img src='logs/test_lite_yolov5_1.jpg' height="256px">
-  <img src='logs/test_lite_yolov5_2.jpg' height="256px">
-</div>
 
-## 2. 技术规划 👏👋
-![](docs/resources/lite.ai.toolkit-roadmap-v0.1.png)
-
-
-## 3. 重要更新 !!
+## 2. 重要更新 🆕
 <div id="lite.ai.toolkit-Important-Updates"></div>
 
 |Date|Model|C++|Paper|Code|Awesome|Type|
@@ -155,11 +151,11 @@ static void test_default()
 |【2021/09/20】|[RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)|[[link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_rvm.cpp)]|[[WACV 2022](https://arxiv.org/abs/2108.11515)]|[[code](https://github.com/PeterL1n/RobustVideoMatting)]|![](https://img.shields.io/github/stars/PeterL1n/RobustVideoMatting.svg?style=social)| matting |
 |【2021/09/02】|[YOLOP](https://github.com/hustvl/YOLOP)|[[link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolop.cpp)]|[[arXiv 2021](https://arxiv.org/abs/2108.11250)]|[[code](https://github.com/hustvl/YOLOP)]|![](https://img.shields.io/github/stars/hustvl/YOLOP.svg?style=social)| detection |
 
-
+<!---
 ![](docs/resources/scrfd-mgmatting-nanodetplus.jpg)
+--->
 
-
-## 4. 模型支持矩阵
+## 3. 模型支持矩阵
 <div id="lite.ai.toolkit-Supported-Models-Matrix"></div>
 
 * / = 暂不支持.
@@ -246,7 +242,7 @@ static void test_default()
 
 
 
-## 5. 编译文档
+## 4. 编译文档
 <div id="lite.ai.toolkit-Build-MacOS"></div>
 <div id="lite.ai.toolkit-Build-Lite.AI.ToolKit"></div>
 
@@ -423,7 +419,7 @@ Default Version Detected Boxes Num: 5
 </details>
 
 
-## 6. 模型下载  
+## 5. 模型下载  
 <div id="lite.ai.toolkit-2"></div>
 <div id="lite.ai.toolkit-Model-Zoo"></div>
 
@@ -543,7 +539,7 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
 </details>
 
 
-## 7. 应用案例
+## 6. 应用案例
 
 <div id="lite.ai.toolkit-Examples-for-Lite.AI.ToolKit"></div>
 
@@ -1065,14 +1061,14 @@ static void test_default()
 auto *transfer = new lite::cv::style::FastStyleTransfer(onnx_path); // 6.4Mb only
 ```
 
-## 8. 开源协议
+## 7. 开源协议
 
 <div id="lite.ai.toolkit-License"></div>
 
 [Lite.Ai.ToolKit](#lite.ai.toolkit-Introduction) 的代码采用GPL-3.0协议。
 
 
-## 9. 引用参考
+## 8. 引用参考
 
 <div id="lite.ai.toolkit-References"></div>
 
@@ -1119,7 +1115,7 @@ auto *transfer = new lite::cv::style::FastStyleTransfer(onnx_path); // 6.4Mb onl
 </details>    
 
 
-## 10. 编译选项
+## 9. 编译选项
 未来会增加一些模型的[MNN](https://github.com/alibaba/MNN) 、[NCNN](https://github.com/Tencent/ncnn) 和 [TNN](https://github.com/Tencent/TNN) 支持，但由于算子兼容等原因，也无法确保所有被[ONNXRuntime C++](https://github.com/microsoft/onnxruntime) 支持的模型能够在[MNN](https://github.com/alibaba/MNN) 、[NCNN](https://github.com/Tencent/ncnn) 和 [TNN](https://github.com/Tencent/TNN) 下跑通。所以，如果您想使用本项目支持的所有模型，并且不在意*1~2ms*的性能差距的话，请使用ONNXRuntime版本的实现。[ONNXRuntime](https://github.com/microsoft/onnxruntime) 是本仓库默认的推理引擎。但是如果你确实希望编译支持[MNN](https://github.com/alibaba/MNN) 、[NCNN](https://github.com/Tencent/ncnn) 和 [TNN](https://github.com/Tencent/TNN) 支持的Lite.Ai.ToolKit动态库，你可以按照以下的步骤进行设置。
 
 * 在`build.sh`中添加`DENABLE_MNN=ON` 、`DENABLE_NCNN=ON` 或 `DENABLE_TNN=ON`，比如
@@ -1139,7 +1135,7 @@ auto *nanodet = new lite::tnn::cv::detection::NanoDet(proto_path, model_path);
 auto *nanodet = new lite::ncnn::cv::detection::NanoDet(param_path, bin_path);
 ```
 
-## 11. 如何添加您的模型
+## 10. 如何添加您的模型
 <div id="lite.ai.toolkit-Contribute"></div>  
 
 如何添加您自己的模型以及成为贡献者？具体步骤请参考 [CONTRIBUTING.zh.md](https://github.com/DefTruth/lite.ai.toolkit/issues/191) ，或者，❤️不妨给个⭐️🌟star，这应该是最简单的支持方式了。
