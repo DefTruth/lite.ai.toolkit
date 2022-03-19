@@ -74,6 +74,8 @@ void TNNFaceBoxesV2::detect(const cv::Mat &mat, std::vector<types::Boxf> &detect
 void TNNFaceBoxesV2::generate_anchors(const int target_height, const int target_width,
                                       std::vector<FaceBoxesAnchorV2> &anchors)
 {
+  if (anchors_is_already_generated) return;
+
   std::vector<std::vector<int>> feature_maps;
   for (auto step: steps)
   {
@@ -146,6 +148,8 @@ void TNNFaceBoxesV2::generate_anchors(const int target_height, const int target_
       }
     }
   }
+
+  anchors_is_already_generated = true;
 }
 
 void TNNFaceBoxesV2::generate_bboxes(std::vector<types::Boxf> &bbox_collection,

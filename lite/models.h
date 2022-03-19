@@ -86,6 +86,7 @@
 #include "lite/ort/cv/nanodet_plus.h"
 #include "lite/ort/cv/scrfd.h"
 #include "lite/ort/cv/yolo5face.h"
+#include "lite/ort/cv/faceboxesv2.h"
 
 #endif
 
@@ -153,6 +154,7 @@
 #include "lite/mnn/cv/mnn_nanodet_plus.h"
 #include "lite/mnn/cv/mnn_scrfd.h"
 #include "lite/mnn/cv/mnn_yolo5face.h"
+#include "lite/mnn/cv/mnn_faceboxesv2.h"
 
 #endif
 
@@ -220,6 +222,7 @@
 #include "lite/ncnn/cv/ncnn_nanodet_plus.h"
 #include "lite/ncnn/cv/ncnn_scrfd.h"
 #include "lite/ncnn/cv/ncnn_yolo5face.h"
+#include "lite/ncnn/cv/ncnn_faceboxesv2.h"
 
 #endif
 
@@ -287,6 +290,7 @@
 #include "lite/tnn/cv/tnn_nanodet_plus.h"
 #include "lite/tnn/cv/tnn_scrfd.h"
 #include "lite/tnn/cv/tnn_yolo5face.h"
+#include "lite/tnn/cv/tnn_faceboxesv2.h"
 
 #endif
 
@@ -370,6 +374,7 @@ namespace lite
     typedef ortcv::NanoDetPlus _NanoDetPlus;
     typedef ortcv::SCRFD _SCRFD;
     typedef ortcv::YOLO5Face _YOLO5Face;
+    typedef ortcv::FaceBoxesV2 _FaceBoxesV2;
 #endif
 
     // 1. classification
@@ -425,6 +430,7 @@ namespace lite
         typedef _FaceBoxes FaceBoxes;
         typedef _SCRFD SCRFD;
         typedef _YOLO5Face YOLO5Face;
+        typedef _FaceBoxesV2 FaceBoxesV2;
 #endif
       }
 
@@ -695,6 +701,7 @@ namespace lite
       typedef ortcv::NanoDetPlus _ONNXNanoDetPlus;
       typedef ortcv::SCRFD _ONNXSCRFD;
       typedef ortcv::YOLO5Face _ONNXYOLO5Face;
+      typedef ortcv::FaceBoxesV2 _ONNXFaceBoxesV2;
 
       // 1. classification
       namespace classification
@@ -744,6 +751,7 @@ namespace lite
           typedef _ONNXFaceBoxes FaceBoxes;
           typedef _ONNXSCRFD SCRFD;
           typedef _ONNXYOLO5Face YOLO5Face;
+          typedef _ONNXFaceBoxesV2 FaceBoxesV2;
         }
 
         namespace align
@@ -892,6 +900,7 @@ namespace lite
           typedef mnncv::MNNFaceBoxes FaceBoxes;
           typedef mnncv::MNNSCRFD SCRFD;
           typedef mnncv::MNNYOLO5Face YOLO5Face;
+          typedef mnncv::MNNFaceBoxesV2 FaceBoxesV2;
         }
         namespace align
         {
@@ -1028,6 +1037,7 @@ namespace lite
           typedef ncnncv::NCNNFaceBoxes FaceBoxes;
           typedef ncnncv::NCNNSCRFD SCRFD;
           typedef ncnncv::NCNNYOLO5Face YOLO5Face;
+          typedef ncnncv::NCNNFaceBoxesV2 FaceBoxesV2;
         }
         namespace align
         {
@@ -1155,6 +1165,7 @@ namespace lite
           typedef tnncv::TNNFaceBoxes FaceBoxes;
           typedef tnncv::TNNSCRFD SCRFD;
           typedef tnncv::TNNYOLO5Face YOLO5Face;
+          typedef tnncv::TNNFaceBoxesV2 FaceBoxesV2;
         }
         namespace align
         {

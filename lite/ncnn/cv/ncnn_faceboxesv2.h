@@ -43,6 +43,7 @@ namespace ncnncv
         {256},
         {512}
     };
+    bool anchors_is_already_generated = false;
 
     enum NMS
     {
@@ -68,7 +69,7 @@ namespace ncnncv
 
   public:
     void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
-                float score_threshold = 0.7f, float iou_threshold = 0.3f,
+                float score_threshold = 0.35f, float iou_threshold = 0.3f,
                 unsigned int topk = 300, unsigned int nms_type = 0);
 
 

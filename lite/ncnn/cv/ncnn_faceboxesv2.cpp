@@ -40,7 +40,7 @@ void NCNNFaceBoxesV2::detect(const cv::Mat &mat, std::vector<types::Boxf> &detec
   auto extractor = net->create_extractor();
   extractor.set_light_mode(false);  // default
   extractor.set_num_threads(num_threads);
-  extractor.input("input", input);
+  extractor.input("img", input);
   // 3.rescale & exclude.
   std::vector<types::Boxf> bbox_collection;
   this->generate_bboxes(bbox_collection, extractor, score_threshold, img_height, img_width);
@@ -51,6 +51,8 @@ void NCNNFaceBoxesV2::detect(const cv::Mat &mat, std::vector<types::Boxf> &detec
 void NCNNFaceBoxesV2::generate_anchors(const int target_height, const int target_width,
                                        std::vector<FaceBoxesAnchorV2> &anchors)
 {
+  if (anchors_is_already_generated) return;
+
   std::vector<std::vector<int>> feature_maps;
   for (auto step: steps)
   {
@@ -123,6 +125,8 @@ void NCNNFaceBoxesV2::generate_anchors(const int target_height, const int target
       }
     }
   }
+
+  anchors_is_already_generated = true;
 }
 
 void NCNNFaceBoxesV2::generate_bboxes(std::vector<types::Boxf> &bbox_collection,

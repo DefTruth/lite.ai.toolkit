@@ -74,4 +74,5 @@ add_lite_executable(lite_mg_matting cv)
 add_lite_executable(lite_nanodet_plus cv)
 add_lite_executable(lite_scrfd cv)
 add_lite_executable(lite_yolo5face cv)
+add_lite_executable(lite_faceboxesv2 cv)
 

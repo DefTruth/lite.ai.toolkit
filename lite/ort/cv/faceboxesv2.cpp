@@ -46,6 +46,8 @@ void FaceBoxesV2::generate_anchors(const int target_height,
                                    const int target_width,
                                    std::vector<FaceBoxesAnchorV2> &anchors)
 {
+  if (anchors_is_already_generated) return;
+
   std::vector<std::vector<int>> feature_maps;
   for (auto step: steps)
   {
@@ -118,6 +120,8 @@ void FaceBoxesV2::generate_anchors(const int target_height,
       }
     }
   }
+
+  anchors_is_already_generated = true;
 }
 
 

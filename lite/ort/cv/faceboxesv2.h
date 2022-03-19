@@ -38,6 +38,7 @@ namespace ortcv
         {256},
         {512}
     };
+    bool anchors_is_already_generated = false;
 
     enum NMS
     {
@@ -62,8 +63,8 @@ namespace ortcv
 
   public:
     void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
-                float score_threshold = 0.3f, float iou_threshold = 0.45f,
-                unsigned int topk = 400, unsigned int nms_type = NMS::HARD);
+                float score_threshold = 0.35f, float iou_threshold = 0.45f,
+                unsigned int topk = 300, unsigned int nms_type = NMS::HARD);
 
   };
 }
