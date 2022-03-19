@@ -70,6 +70,11 @@ namespace mnncv
   class LITE_EXPORTS MNNNanoDetPlus;                 // [56] * reference: https://github.com/RangiLyu/nanodet
   class LITE_EXPORTS MNNSCRFD;                       // [57] * reference: https://github.com/deepinsight/insightface/tree/master/detection/scrfd
   class LITE_EXPORTS MNNYOLO5Face;                   // [58] * reference: https://github.com/deepcam-cn/yolov5-face
+  class LITE_EXPORTS MNNFaceBoxesV2;                 // [59] * reference: https://github.com/jhb86253817/FaceBoxesV2
+  class LITE_EXPORTS MNNPIPNet19;                    // [60] * reference: https://github.com/jhb86253817/PIPNet
+  class LITE_EXPORTS MNNPIPNet29;                    // [61] * reference: https://github.com/jhb86253817/PIPNet
+  class LITE_EXPORTS MNNPIPNet68;                    // [62] * reference: https://github.com/jhb86253817/PIPNet
+  class LITE_EXPORTS MNNPIPNet98;                    // [63] * reference: https://github.com/jhb86253817/PIPNet
 
 }
 

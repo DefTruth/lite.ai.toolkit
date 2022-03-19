@@ -96,6 +96,11 @@ namespace ortcv
   class LITE_EXPORTS NanoDetPlus;                // [81] * reference: https://github.com/RangiLyu/nanodet
   class LITE_EXPORTS SCRFD;                      // [82] * reference: https://github.com/deepinsight/insightface/tree/master/detection/scrfd
   class LITE_EXPORTS YOLO5Face;                  // [83] * reference: https://github.com/deepcam-cn/yolov5-face
+  class LITE_EXPORTS FaceBoxesV2;                // [84] * reference: https://github.com/jhb86253817/FaceBoxesV2
+  class LITE_EXPORTS PIPNet19;                   // [85] * reference: https://github.com/jhb86253817/PIPNet
+  class LITE_EXPORTS PIPNet29;                   // [86] * reference: https://github.com/jhb86253817/PIPNet
+  class LITE_EXPORTS PIPNet68;                   // [87] * reference: https://github.com/jhb86253817/PIPNet
+  class LITE_EXPORTS PIPNet98;                   // [88] * reference: https://github.com/jhb86253817/PIPNet
 
 }
 
