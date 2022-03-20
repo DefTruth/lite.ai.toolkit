@@ -87,6 +87,7 @@
 #include "lite/ort/cv/scrfd.h"
 #include "lite/ort/cv/yolo5face.h"
 #include "lite/ort/cv/faceboxesv2.h"
+#include "lite/ort/cv/pipnet98.h"
 
 #endif
 
@@ -155,6 +156,7 @@
 #include "lite/mnn/cv/mnn_scrfd.h"
 #include "lite/mnn/cv/mnn_yolo5face.h"
 #include "lite/mnn/cv/mnn_faceboxesv2.h"
+#include "lite/mnn/cv/mnn_pipnet98.h"
 
 #endif
 
@@ -223,6 +225,7 @@
 #include "lite/ncnn/cv/ncnn_scrfd.h"
 #include "lite/ncnn/cv/ncnn_yolo5face.h"
 #include "lite/ncnn/cv/ncnn_faceboxesv2.h"
+#include "lite/ncnn/cv/ncnn_pipnet98.h"
 
 #endif
 
@@ -291,6 +294,7 @@
 #include "lite/tnn/cv/tnn_scrfd.h"
 #include "lite/tnn/cv/tnn_yolo5face.h"
 #include "lite/tnn/cv/tnn_faceboxesv2.h"
+#include "lite/tnn/cv/tnn_pipnet98.h"
 
 #endif
 
@@ -375,6 +379,7 @@ namespace lite
     typedef ortcv::SCRFD _SCRFD;
     typedef ortcv::YOLO5Face _YOLO5Face;
     typedef ortcv::FaceBoxesV2 _FaceBoxesV2;
+    typedef ortcv::PIPNet98 _PIPNet98;
 #endif
 
     // 1. classification
@@ -443,6 +448,7 @@ namespace lite
         typedef _MobileNetV268 MobileNetV268; // 68 points
         typedef _MobileNetV2SE68 MobileNetV2SE68; // 68 points
         typedef _FaceLandmark1000 FaceLandmark1000; // 1000 points
+        typedef _PIPNet98 PIPNet98; // 98 points
 #endif
       }
 
@@ -702,6 +708,7 @@ namespace lite
       typedef ortcv::SCRFD _ONNXSCRFD;
       typedef ortcv::YOLO5Face _ONNXYOLO5Face;
       typedef ortcv::FaceBoxesV2 _ONNXFaceBoxesV2;
+      typedef ortcv::PIPNet98 _ONNXPIPNet98;
 
       // 1. classification
       namespace classification
@@ -762,6 +769,7 @@ namespace lite
           typedef _ONNXMobileNetV268 MobileNetV268; // 68 points
           typedef _ONNXMobileNetV2SE68 MobileNetV2SE68; // 68 points
           typedef _ONNXFaceLandmark1000 FaceLandmark1000; // 1000 points
+          typedef _ONNXPIPNet98 PIPNet98; // 98 points
         }
 
         namespace pose
@@ -910,6 +918,7 @@ namespace lite
           typedef mnncv::MNNPFLD98 PFLD98;
           typedef mnncv::MNNMobileNetV268 MobileNetV268;
           typedef mnncv::MNNMobileNetV2SE68 MobileNetV2SE68;
+          typedef mnncv::MNNPIPNet98 PIPNet98;
         }
         namespace pose
         {
@@ -1047,6 +1056,7 @@ namespace lite
           typedef ncnncv::NCNNPFLD98 PFLD98;
           typedef ncnncv::NCNNMobileNetV268 MobileNetV268;
           typedef ncnncv::NCNNMobileNetV2SE68 MobileNetV2SE68;
+          typedef ncnncv::NCNNPIPNet98 PIPNet98;
         }
         namespace pose
         {
@@ -1175,6 +1185,7 @@ namespace lite
           typedef tnncv::TNNPFLD98 PFLD98;
           typedef tnncv::TNNMobileNetV268 MobileNetV268;
           typedef tnncv::TNNMobileNetV2SE68 MobileNetV2SE68;
+          typedef tnncv::TNNPIPNet98 PIPNet98;
         }
         namespace pose
         {
