@@ -68,7 +68,7 @@ void NCNNPIPNet98::generate_landmarks(types::Landmarks &landmarks,
   const float *outputs_nb_x_ptr = (float *) outputs_nb_x.data;
   const float *outputs_nb_y_ptr = (float *) outputs_nb_y.data;
 
-// find max_ids
+  // find max_ids
   std::vector<unsigned int> max_ids(num_lms);
   for (unsigned int i = 0; i < num_lms; ++i)
   {
