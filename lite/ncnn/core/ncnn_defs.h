@@ -11,8 +11,8 @@
 #define LITENCNN_DEBUG 1
 
 #ifdef LITE_WIN32
-#  ifndef NONMINMAX
-#    define NONMINMAX
+#  ifndef NOMINMAX
+#    define NOMINMAX
 #  endif
 #endif
 
