@@ -18,6 +18,7 @@ void NCNNResNet::transform(const cv::Mat &mat, ncnn::Mat &in)
 {
   cv::Mat mat_rs;
   cv::resize(mat, mat_rs, cv::Size(input_width, input_height));
+  // will do deepcopy inside ncnn
   in = ncnn::Mat::from_pixels(mat_rs.data, ncnn::Mat::PIXEL_BGR2RGB, input_width, input_height);
   in.substract_mean_normalize(mean_vals, norm_vals);
 }
