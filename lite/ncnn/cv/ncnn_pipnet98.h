@@ -19,12 +19,21 @@ namespace ncnncv
     ~NCNNPIPNet98() override = default;
 
   private:
-    const int input_height = 256;
-    const int input_width = 256;
+    // hardcode input size
+    static constexpr const unsigned int input_height = 256;
+    static constexpr const unsigned int input_width = 256;
     const float mean_vals[3] = {0.485f * 255.f, 0.456f * 255.f, 0.406f * 255.f};
     const float norm_vals[3] = {(1.0f / 0.229f) * (1.0 / 255.f),
                                 (1.0f / 0.224f) * (1.0 / 255.f),
                                 (1.0f / 0.225f) * (1.0 / 255.f)};
+    static constexpr const unsigned int num_nb = 10;
+    static constexpr const unsigned int num_lms = 98;
+    static constexpr const unsigned int max_len = 17;
+    static constexpr const unsigned int net_stride = 32;
+    // hardcode grid size
+    static constexpr const unsigned int grid_h = 8;
+    static constexpr const unsigned int grid_w = 8;
+    static constexpr const unsigned int grid_length = 8 * 8; // 64
 
   private:
     void transform(const cv::Mat &mat, ncnn::Mat &in) override;
