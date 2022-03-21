@@ -33,3 +33,4 @@ test_lite_emotion7*
 test_lite_mobile_emotion7*
 test_lite_yolov5face*
 test_lite_yolo5face*
+test_lite_pipnet*

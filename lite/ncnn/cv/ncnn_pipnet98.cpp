@@ -107,7 +107,7 @@ void NCNNPIPNet98::generate_landmarks(types::Landmarks &landmarks,
     std::vector<float> nb_x_offset(num_nb);
     std::vector<float> nb_y_offset(num_nb);
     output_nb_x_select[i] = nb_x_offset;
-    output_nb_x_select[i] = nb_y_offset;
+    output_nb_y_select[i] = nb_y_offset;
   }
   for (unsigned int i = 0; i < num_lms; ++i)
   {

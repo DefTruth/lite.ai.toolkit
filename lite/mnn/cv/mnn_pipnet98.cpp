@@ -63,11 +63,11 @@ MNNPIPNet98::generate_landmarks(types::Landmarks &landmarks,
   MNN::Tensor host_outputs_y_tensor(device_outputs_y_ptr, device_outputs_y_ptr->getDimensionType());
   MNN::Tensor host_outputs_nb_x_tensor(device_outputs_nb_x_ptr, device_outputs_nb_x_ptr->getDimensionType());
   MNN::Tensor host_outputs_nb_y_tensor(device_outputs_nb_y_ptr, device_outputs_nb_y_ptr->getDimensionType());
-  device_outputs_cls_ptr->copyFromHostTensor(&host_outputs_cls_tensor);
-  device_outputs_x_ptr->copyFromHostTensor(&host_outputs_x_tensor);
-  device_outputs_y_ptr->copyFromHostTensor(&host_outputs_y_tensor);
-  device_outputs_nb_x_ptr->copyFromHostTensor(&host_outputs_nb_x_tensor);
-  device_outputs_nb_y_ptr->copyFromHostTensor(&host_outputs_nb_y_tensor);
+  device_outputs_cls_ptr->copyToHostTensor(&host_outputs_cls_tensor);
+  device_outputs_x_ptr->copyToHostTensor(&host_outputs_x_tensor);
+  device_outputs_y_ptr->copyToHostTensor(&host_outputs_y_tensor);
+  device_outputs_nb_x_ptr->copyToHostTensor(&host_outputs_nb_x_tensor);
+  device_outputs_nb_y_ptr->copyToHostTensor(&host_outputs_nb_y_tensor);
 
   auto cls_shape = host_outputs_cls_tensor.shape();
   const unsigned int grid_h = cls_shape.at(2); // 8
@@ -121,7 +121,7 @@ MNNPIPNet98::generate_landmarks(types::Landmarks &landmarks,
     std::vector<float> nb_x_offset(num_nb);
     std::vector<float> nb_y_offset(num_nb);
     output_nb_x_select[i] = nb_x_offset;
-    output_nb_x_select[i] = nb_y_offset;
+    output_nb_y_select[i] = nb_y_offset;
   }
   for (unsigned int i = 0; i < num_lms; ++i)
   {

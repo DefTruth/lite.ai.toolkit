@@ -79,7 +79,6 @@ void PIPNet98::generate_landmarks(types::Landmarks &landmarks,
     }
     max_ids[i] = max_id; // range 0~64
   }
-
   // find x & y offsets
   std::vector<float> output_x_select(num_lms);
   std::vector<float> output_y_select(num_lms);
@@ -101,15 +100,15 @@ void PIPNet98::generate_landmarks(types::Landmarks &landmarks,
     std::vector<float> nb_x_offset(num_nb);
     std::vector<float> nb_y_offset(num_nb);
     output_nb_x_select[i] = nb_x_offset;
-    output_nb_x_select[i] = nb_y_offset;
+    output_nb_y_select[i] = nb_y_offset;
   }
   for (unsigned int i = 0; i < num_lms; ++i)
   {
     for (unsigned int j = 0; j < num_nb; ++j)
     {
+      const unsigned int max_id = max_ids.at(i);
       const float *offset_nb_x_ptr = outputs_nb_x_ptr + (i * num_nb + j) * grid_length;
       const float *offset_nb_y_ptr = outputs_nb_y_ptr + (i * num_nb + j) * grid_length;
-      const unsigned int max_id = max_ids.at(i);
       output_nb_x_select[i][j] = offset_nb_x_ptr[max_id];
       output_nb_y_select[i][j] = offset_nb_y_ptr[max_id];
     }
@@ -120,6 +119,7 @@ void PIPNet98::generate_landmarks(types::Landmarks &landmarks,
   std::vector<float> lms_pred_y(num_lms); // 98
   std::unordered_map<unsigned int, std::vector<float>> lms_pred_nb_x; // 98,10
   std::unordered_map<unsigned int, std::vector<float>> lms_pred_nb_y; // 98,10
+
   // initialize pred maps
   for (unsigned int i = 0; i < num_lms; ++i)
   {
