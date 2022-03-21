@@ -30,7 +30,6 @@ namespace tnncv
     static constexpr const unsigned int max_len = 17;
     static constexpr const unsigned int net_stride = 32;
 
-
   private:
     void transform(const cv::Mat &mat_rs) override; //
 
@@ -42,7 +41,6 @@ namespace tnncv
     void detect(const cv::Mat &mat, types::Landmarks &landmarks);
 
   private:
-    // reverse index1 for 98 points
     const unsigned int reverse_index1[98 * 17] = {
         1, 2, 3, 4, 5, 33, 1, 2, 3, 4, 5, 33, 1, 2, 3, 4, 5, 0, 2, 3, 4, 5, 6, 33, 0, 2, 3, 4, 5, 6, 33, 0, 2, 3, 0, 1, 3, 4, 5, 6, 0, 1, 3,
         4, 5, 6, 0, 1, 3, 4, 5, 0, 1, 2, 4, 5, 6, 7, 0, 1, 2, 4, 5, 6, 7, 0, 1, 2, 0, 1, 2, 3, 5, 6, 7, 8, 0, 1, 2, 3, 5, 6, 7, 8, 0, 1, 2,
@@ -94,7 +92,6 @@ namespace tnncv
         86, 87, 89, 90, 91, 93, 95, 15, 13, 14, 15, 76, 77, 78, 85, 86, 87, 88, 89, 90, 94, 13, 14, 15, 76, 34, 35, 36, 38, 39, 40, 41, 60,
         61, 62, 63, 64, 65, 66, 67, 34, 35, 43, 44, 45, 47, 48, 49, 50, 68, 69, 70, 71, 72, 73, 74, 75, 43, 44
     };
-    // reverse index2 for 98 points
     const unsigned int reverse_index2[98 * 17] = {
         0, 2, 4, 6, 8, 4, 0, 2, 4, 6, 8, 4, 0, 2, 4, 6, 8, 0, 0, 2, 4, 6, 8, 8, 0, 0, 2, 4, 6, 8, 8, 0, 0, 2, 1, 1, 0, 2, 4, 6, 1, 1, 0, 2,
         4, 6, 1, 1, 0, 2, 4, 3, 2, 1, 0, 2, 4, 6, 3, 2, 1, 0, 2, 4, 6, 3, 2, 1, 6, 3, 3, 1, 0, 2, 4, 7, 6, 3, 3, 1, 0, 2, 4, 7, 6, 6, 4, 3,

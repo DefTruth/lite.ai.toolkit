@@ -48,10 +48,9 @@ void MNNPIPNet98::detect(const cv::Mat &mat, types::Landmarks &landmarks)
   this->generate_landmarks(landmarks, output_tensors, img_height, img_width);
 }
 
-void
-MNNPIPNet98::generate_landmarks(types::Landmarks &landmarks,
-                                const std::map<std::string, MNN::Tensor *> &output_tensors,
-                                float img_height,float img_width)
+void MNNPIPNet98::generate_landmarks(types::Landmarks &landmarks,
+                                     const std::map<std::string, MNN::Tensor *> &output_tensors,
+                                     float img_height, float img_width)
 {
   auto device_outputs_cls_ptr = output_tensors.at("outputs_cls"); // (1,98,8,8)
   auto device_outputs_x_ptr = output_tensors.at("outputs_x"); // (1,98,8,8)
