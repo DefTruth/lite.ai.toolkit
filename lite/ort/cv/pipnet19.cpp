@@ -7,7 +7,6 @@
 
 using ortcv::PIPNet19;
 
-
 Ort::Value PIPNet19::transform(const cv::Mat &mat)
 {
   cv::Mat canvas;
