@@ -88,6 +88,9 @@
 #include "lite/ort/cv/yolo5face.h"
 #include "lite/ort/cv/faceboxesv2.h"
 #include "lite/ort/cv/pipnet98.h"
+#include "lite/ort/cv/pipnet68.h"
+#include "lite/ort/cv/pipnet29.h"
+#include "lite/ort/cv/pipnet19.h"
 
 #endif
 
@@ -157,6 +160,9 @@
 #include "lite/mnn/cv/mnn_yolo5face.h"
 #include "lite/mnn/cv/mnn_faceboxesv2.h"
 #include "lite/mnn/cv/mnn_pipnet98.h"
+#include "lite/mnn/cv/mnn_pipnet68.h"
+#include "lite/mnn/cv/mnn_pipnet29.h"
+#include "lite/mnn/cv/mnn_pipnet19.h"
 
 #endif
 
@@ -226,6 +232,9 @@
 #include "lite/ncnn/cv/ncnn_yolo5face.h"
 #include "lite/ncnn/cv/ncnn_faceboxesv2.h"
 #include "lite/ncnn/cv/ncnn_pipnet98.h"
+#include "lite/ncnn/cv/ncnn_pipnet68.h"
+#include "lite/ncnn/cv/ncnn_pipnet29.h"
+#include "lite/ncnn/cv/ncnn_pipnet19.h"
 
 #endif
 
@@ -295,6 +304,9 @@
 #include "lite/tnn/cv/tnn_yolo5face.h"
 #include "lite/tnn/cv/tnn_faceboxesv2.h"
 #include "lite/tnn/cv/tnn_pipnet98.h"
+#include "lite/tnn/cv/tnn_pipnet68.h"
+#include "lite/tnn/cv/tnn_pipnet29.h"
+#include "lite/tnn/cv/tnn_pipnet19.h"
 
 #endif
 
@@ -380,6 +392,9 @@ namespace lite
     typedef ortcv::YOLO5Face _YOLO5Face;
     typedef ortcv::FaceBoxesV2 _FaceBoxesV2;
     typedef ortcv::PIPNet98 _PIPNet98;
+    typedef ortcv::PIPNet68 _PIPNet68;
+    typedef ortcv::PIPNet29 _PIPNet29;
+    typedef ortcv::PIPNet19 _PIPNet19;
 #endif
 
     // 1. classification
@@ -449,6 +464,9 @@ namespace lite
         typedef _MobileNetV2SE68 MobileNetV2SE68; // 68 points
         typedef _FaceLandmark1000 FaceLandmark1000; // 1000 points
         typedef _PIPNet98 PIPNet98; // 98 points
+        typedef _PIPNet68 PIPNet68; // 68 points
+        typedef _PIPNet29 PIPNet29; // 29 points
+        typedef _PIPNet19 PIPNet19; // 19 points
 #endif
       }
 
@@ -709,6 +727,9 @@ namespace lite
       typedef ortcv::YOLO5Face _ONNXYOLO5Face;
       typedef ortcv::FaceBoxesV2 _ONNXFaceBoxesV2;
       typedef ortcv::PIPNet98 _ONNXPIPNet98;
+      typedef ortcv::PIPNet68 _ONNXPIPNet68;
+      typedef ortcv::PIPNet29 _ONNXPIPNet29;
+      typedef ortcv::PIPNet19 _ONNXPIPNet19;
 
       // 1. classification
       namespace classification
@@ -770,6 +791,9 @@ namespace lite
           typedef _ONNXMobileNetV2SE68 MobileNetV2SE68; // 68 points
           typedef _ONNXFaceLandmark1000 FaceLandmark1000; // 1000 points
           typedef _ONNXPIPNet98 PIPNet98; // 98 points
+          typedef _ONNXPIPNet68 PIPNet68; // 68 points
+          typedef _ONNXPIPNet29 PIPNet29; // 29 points
+          typedef _ONNXPIPNet19 PIPNet19; // 19 points
         }
 
         namespace pose
@@ -919,6 +943,9 @@ namespace lite
           typedef mnncv::MNNMobileNetV268 MobileNetV268;
           typedef mnncv::MNNMobileNetV2SE68 MobileNetV2SE68;
           typedef mnncv::MNNPIPNet98 PIPNet98;
+          typedef mnncv::MNNPIPNet68 PIPNet68;
+          typedef mnncv::MNNPIPNet29 PIPNet29;
+          typedef mnncv::MNNPIPNet19 PIPNet19;
         }
         namespace pose
         {
@@ -1057,6 +1084,9 @@ namespace lite
           typedef ncnncv::NCNNMobileNetV268 MobileNetV268;
           typedef ncnncv::NCNNMobileNetV2SE68 MobileNetV2SE68;
           typedef ncnncv::NCNNPIPNet98 PIPNet98;
+          typedef ncnncv::NCNNPIPNet68 PIPNet68;
+          typedef ncnncv::NCNNPIPNet29 PIPNet29;
+          typedef ncnncv::NCNNPIPNet19 PIPNet19;
         }
         namespace pose
         {
@@ -1186,6 +1216,9 @@ namespace lite
           typedef tnncv::TNNMobileNetV268 MobileNetV268;
           typedef tnncv::TNNMobileNetV2SE68 MobileNetV2SE68;
           typedef tnncv::TNNPIPNet98 PIPNet98;
+          typedef tnncv::TNNPIPNet68 PIPNet68;
+          typedef tnncv::TNNPIPNet29 PIPNet29;
+          typedef tnncv::TNNPIPNet19 PIPNet19;
         }
         namespace pose
         {
