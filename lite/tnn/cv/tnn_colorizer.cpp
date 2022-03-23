@@ -13,11 +13,12 @@ TNNColorizer::TNNColorizer(const std::string &_proto_path,
 {
 }
 
-void TNNColorizer::transform(const cv::Mat &mat)
+void TNNColorizer::transform(const cv::Mat &mat_l)
 {
-  cv::Mat mat_l; // assume that input mat is L of Lab
-  mat.convertTo(mat_l, CV_32FC1, 1.0f, 0.f); // (256,256,1) range (0.,100.)
-
+//  cv::Mat mat_l; // assume that input mat is L of Lab
+//  mat.convertTo(mat_l, CV_32FC1, 1.0f, 0.f); // (256,256,1) range (0.,100.)
+//  be carefully, no deepcopy inside this tnn::Mat constructor,
+//  so, we can not pass a local cv::Mat to this constructor.
   input_mat = std::make_shared<tnn::Mat>(input_device_type, tnn::NCHW_FLOAT,
                                          input_shape, (void *) mat_l.data);
   if (!input_mat->GetData())
@@ -54,7 +55,9 @@ void TNNColorizer::detect(const cv::Mat &mat, types::ColorizeContent &colorize_c
   mat_orig_l = mats_orig_lab.at(0);
 
   // 1. make input tensor
-  this->transform(mat_rs_l); // (1,1,256,256)
+  cv::Mat mat_l; // assume that input mat is L of Lab
+  mat_rs_l.convertTo(mat_l, CV_32FC1, 1.0f, 0.f); // (256,256,1) range (0.,100.)
+  this->transform(mat_l);
 
   // 2. set input_mat
   tnn::MatConvertParam input_cvt_param;

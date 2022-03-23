@@ -132,7 +132,7 @@ void TNNMGMatting::print_debug_string()
   std::cout << "========================================\n";
 }
 
-void TNNMGMatting::transform(const cv::Mat &mat, const cv::Mat &mask)
+void TNNMGMatting::transform(const cv::Mat &image_canvas, const cv::Mat &mask_canvas)
 {
 //  auto padded_mat = this->padding(mat); // 0-255 int8
 //  auto padded_mask = this->padding(mask); // 0-1.0 float32
@@ -162,12 +162,14 @@ void TNNMGMatting::transform(const cv::Mat &mat, const cv::Mat &mask)
 //
 //  cv::cvtColor(padded_mat, padded_mat, cv::COLOR_BGR2RGB);
 
-  cv::Mat image_canvas, mask_canvas;
-  cv::cvtColor(mat, image_canvas, cv::COLOR_BGR2RGB);
-  cv::resize(image_canvas, image_canvas, cv::Size(dynamic_input_width, dynamic_input_height));
-  cv::resize(mask, mask_canvas, cv::Size(dynamic_input_width, dynamic_input_height));
+//  cv::Mat image_canvas, mask_canvas;
+//  cv::cvtColor(mat, image_canvas, cv::COLOR_BGR2RGB);
+//  cv::resize(image_canvas, image_canvas, cv::Size(dynamic_input_width, dynamic_input_height));
+//  cv::resize(mask, mask_canvas, cv::Size(dynamic_input_width, dynamic_input_height));
 
   // push into image_mat
+  // be carefully, no deepcopy inside this tnn::Mat constructor,
+  // so, we can not pass a local cv::Mat to this constructor.
   image_mat = std::make_shared<tnn::Mat>(
       input_device_type,
       tnn::N8UC3,
@@ -275,7 +277,12 @@ void TNNMGMatting::detect(const cv::Mat &mat, cv::Mat &mask, types::MattingConte
   this->update_guidance_mask(mask, guidance_threshold); // -> float32 hw1 0~1.0
 
   // 1. make input tensors, image, mask
-  this->transform(mat, mask);
+  cv::Mat image_canvas, mask_canvas;
+  cv::cvtColor(mat, image_canvas, cv::COLOR_BGR2RGB);
+  cv::resize(image_canvas, image_canvas, cv::Size(dynamic_input_width, dynamic_input_height));
+  cv::resize(mask, mask_canvas, cv::Size(dynamic_input_width, dynamic_input_height));
+
+  this->transform(image_canvas, mask_canvas);
 
   // 2. set input_mat
   tnn::MatConvertParam image_cvt_param, mask_cvt_param;

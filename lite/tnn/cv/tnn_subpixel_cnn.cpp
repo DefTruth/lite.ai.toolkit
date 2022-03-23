@@ -13,11 +13,8 @@ TNNSubPixelCNN::TNNSubPixelCNN(const std::string &_proto_path,
 {
 }
 
-void TNNSubPixelCNN::transform(const cv::Mat &mat)
+void TNNSubPixelCNN::transform(const cv::Mat &mat_y)
 {
-  cv::Mat mat_y; // assume that input mat is Y of YCrCb
-  mat.convertTo(mat_y, CV_32FC1, 1.0f / 255.0f, 0.f); // (224,224,1) range (0.,1.0)
-
   input_mat = std::make_shared<tnn::Mat>(input_device_type, tnn::NCHW_FLOAT,
                                          input_shape, (void *) mat_y.data);
   if (!input_mat->GetData())
@@ -44,7 +41,9 @@ void TNNSubPixelCNN::detect(const cv::Mat &mat, types::SuperResolutionContent &s
   mat_cb = split_mats.at(2);
 
   // 1. make input tensor
-  this->transform(mat_y); // (1,1,224,224)
+  cv::Mat mat_y_; // assume that input mat is Y of YCrCb
+  mat_y.convertTo(mat_y_, CV_32FC1, 1.0f / 255.0f, 0.f); // (224,224,1) range (0.,1.0)
+  this->transform(mat_y_); // (1,1,224,224)
   // 2. set input_mat
   tnn::MatConvertParam input_cvt_param;
 

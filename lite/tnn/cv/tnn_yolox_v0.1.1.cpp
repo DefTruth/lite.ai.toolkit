@@ -16,10 +16,11 @@ TNNYoloX_V_0_1_1::TNNYoloX_V_0_1_1(const std::string &_proto_path,
 
 void TNNYoloX_V_0_1_1::transform(const cv::Mat &mat_rs)
 {
-  cv::Mat canvas = mat_rs.clone();
   // push into input_mat
+  // be carefully, no deepcopy inside this tnn::Mat constructor,
+  // so, we can not pass a local cv::Mat to this constructor.
   input_mat = std::make_shared<tnn::Mat>(input_device_type, tnn::N8UC3,
-                                         input_shape, (void *) canvas.data);
+                                         input_shape, (void *) mat_rs.data);
   if (!input_mat->GetData())
   {
 #ifdef LITETNN_DEBUG

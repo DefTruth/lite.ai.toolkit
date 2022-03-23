@@ -11,17 +11,16 @@ TNNYoloX::TNNYoloX(const std::string &_proto_path,
                    const std::string &_model_path,
                    unsigned int _num_threads) :
     BasicTNNHandler(_proto_path, _model_path, _num_threads)
-
 {
 }
 
 void TNNYoloX::transform(const cv::Mat &mat_rs)
 {
-  cv::Mat canvas;
-  cv::cvtColor(mat_rs, canvas, cv::COLOR_BGR2RGB);
   // push into input_mat
+  // be carefully, no deepcopy inside this tnn::Mat constructor,
+  // so, we can not pass a local cv::Mat to this constructor.
   input_mat = std::make_shared<tnn::Mat>(input_device_type, tnn::N8UC3,
-                                         input_shape, (void *)canvas.data);
+                                         input_shape, (void *) mat_rs.data);
   if (!input_mat->GetData())
   {
 #ifdef LITETNN_DEBUG
@@ -80,7 +79,9 @@ void TNNYoloX::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_box
   this->resize_unscale(mat, mat_rs, input_height, input_width, scale_params);
 
   // 1. make input tensor
-  this->transform(mat_rs);
+  cv::Mat mat_rs_;
+  cv::cvtColor(mat_rs, mat_rs_, cv::COLOR_BGR2RGB);
+  this->transform(mat_rs_);
   // 2. set input_mat
   tnn::MatConvertParam input_cvt_param;
   input_cvt_param.scale = scale_vals;
@@ -132,7 +133,7 @@ void TNNYoloX::generate_anchors(const int target_height,
                                 std::vector<int> &strides,
                                 std::vector<YoloXAnchor> &anchors)
 {
-  for (auto stride : strides)
+  for (auto stride: strides)
   {
     int num_grid_w = target_width / stride;
     int num_grid_h = target_height / stride;

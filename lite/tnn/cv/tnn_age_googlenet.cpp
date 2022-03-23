@@ -14,11 +14,10 @@ TNNAgeGoogleNet::TNNAgeGoogleNet(const std::string &_proto_path,
 {
 }
 
-void TNNAgeGoogleNet::transform(const cv::Mat &mat)
+void TNNAgeGoogleNet::transform(const cv::Mat &mat_rs)
 {
-  cv::Mat mat_rs;
-  cv::resize(mat, mat_rs, cv::Size(input_width, input_height));
-  cv::cvtColor(mat_rs, mat_rs, cv::COLOR_BGR2RGB);
+  // be carefully, no deepcopy inside this tnn::Mat constructor,
+  // so, we can not pass a local cv::Mat to this constructor.
   // push into input_mat
   input_mat = std::make_shared<tnn::Mat>(input_device_type, tnn::N8UC3,
                                          input_shape, (void *) mat_rs.data);
@@ -35,7 +34,10 @@ void TNNAgeGoogleNet::detect(const cv::Mat &mat, types::Age &age)
   if (mat.empty()) return;
 
   // 1. make input mat
-  this->transform(mat);
+  cv::Mat mat_rs;
+  cv::resize(mat, mat_rs, cv::Size(input_width, input_height));
+  cv::cvtColor(mat_rs, mat_rs, cv::COLOR_BGR2RGB);
+  this->transform(mat_rs);
   // 2. set input_mat
   tnn::MatConvertParam input_cvt_param;
   input_cvt_param.scale = scale_vals;

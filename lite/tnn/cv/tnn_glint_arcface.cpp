@@ -13,14 +13,11 @@ TNNGlintArcFace::TNNGlintArcFace(const std::string &_proto_path,
 {
 }
 
-void TNNGlintArcFace::transform(const cv::Mat &mat)
+void TNNGlintArcFace::transform(const cv::Mat &mat_rs)
 {
-  cv::Mat canvas;
-  cv::resize(mat, canvas, cv::Size(input_width, input_height));
-  cv::cvtColor(canvas, canvas, cv::COLOR_BGR2RGB);
   // push into input_mat
   input_mat = std::make_shared<tnn::Mat>(input_device_type, tnn::N8UC3,
-                                         input_shape, (void *) canvas.data);
+                                         input_shape, (void *) mat_rs.data);
   if (!input_mat->GetData())
   {
 #ifdef LITETNN_DEBUG
@@ -33,7 +30,10 @@ void TNNGlintArcFace::detect(const cv::Mat &mat, types::FaceContent &face_conten
 {
   if (mat.empty()) return;
   // 1. make input tensor
-  this->transform(mat);
+  cv::Mat mat_rs;
+  cv::resize(mat, mat_rs, cv::Size(input_width, input_height));
+  cv::cvtColor(mat_rs, mat_rs, cv::COLOR_BGR2RGB);
+  this->transform(mat_rs);
   // 2. set input_mat
   tnn::MatConvertParam input_cvt_param;
   input_cvt_param.scale = scale_vals;

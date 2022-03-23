@@ -63,7 +63,7 @@ namespace tnncv
     void print_debug_string();
 
   private:
-    void transform(const cv::Mat &mat, const cv::Mat &mask);
+    void transform(const cv::Mat &image_canvas, const cv::Mat &mask_canvas);
 
     void initialize_instance(); // init net & instance
 

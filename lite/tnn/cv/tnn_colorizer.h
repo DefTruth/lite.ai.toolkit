@@ -18,7 +18,7 @@ namespace tnncv
     ~TNNColorizer() override = default;
 
   private:
-    void transform(const cv::Mat &mat) override; //
+    void transform(const cv::Mat &mat_l) override; //
 
   public:
     void detect(const cv::Mat &mat, types::ColorizeContent &colorize_content);
