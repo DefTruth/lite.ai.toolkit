@@ -16,11 +16,8 @@ TNNMobileEmotion7::TNNMobileEmotion7(const std::string &_proto_path,
   input_height = 224;
 }
 
-void TNNMobileEmotion7::transform(const cv::Mat &mat)
+void TNNMobileEmotion7::transform(const cv::Mat &mat_rs)
 {
-  cv::Mat mat_rs;
-  cv::resize(mat, mat_rs, cv::Size(input_width, input_height));
-  cv::cvtColor(mat_rs, mat_rs, cv::COLOR_BGR2RGB);
   // push into input_mat (1,3,224,224)
   input_mat = std::make_shared<tnn::Mat>(input_device_type, tnn::N8UC3,
                                          input_shape, (void *) mat_rs.data);
@@ -37,7 +34,10 @@ void TNNMobileEmotion7::detect(const cv::Mat &mat, types::Emotions &emotions)
   if (mat.empty()) return;
 
   // 1. make input mat
-  this->transform(mat);
+  cv::Mat mat_rs;
+  cv::resize(mat, mat_rs, cv::Size(input_width, input_height));
+  cv::cvtColor(mat_rs, mat_rs, cv::COLOR_BGR2RGB);
+  this->transform(mat_rs);
   // 2. set input_mat
   tnn::MatConvertParam input_cvt_param;
   input_cvt_param.scale = scale_vals;

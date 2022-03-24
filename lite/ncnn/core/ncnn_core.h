@@ -71,6 +71,11 @@ namespace ncnncv
   class LITE_EXPORTS NCNNNanoDetPlus;                            // [56] * reference: https://github.com/RangiLyu/nanodet
   class LITE_EXPORTS NCNNSCRFD;                                  // [57] * reference: https://github.com/deepinsight/insightface/tree/master/detection/scrfd
   class LITE_EXPORTS NCNNYOLO5Face;                              // [58] * reference: https://github.com/deepcam-cn/yolov5-face
+  class LITE_EXPORTS NCNNFaceBoxesV2;                            // [59] * reference: https://github.com/jhb86253817/FaceBoxesV2
+  class LITE_EXPORTS NCNNPIPNet19;                               // [60] * reference: https://github.com/jhb86253817/PIPNet
+  class LITE_EXPORTS NCNNPIPNet29;                               // [61] * reference: https://github.com/jhb86253817/PIPNet
+  class LITE_EXPORTS NCNNPIPNet68;                               // [62] * reference: https://github.com/jhb86253817/PIPNet
+  class LITE_EXPORTS NCNNPIPNet98;                               // [63] * reference: https://github.com/jhb86253817/PIPNet
 }
 
 namespace ncnncv

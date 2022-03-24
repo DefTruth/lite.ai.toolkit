@@ -17,7 +17,9 @@
 #endif
 
 #ifdef LITE_WIN32
-# define NONMINMAX
+#  ifndef NOMINMAX
+#    define NOMINMAX
+#  endif
 #endif
 
 #ifdef ENABLE_ONNXRUNTIME_CUDA

@@ -14,11 +14,8 @@ TNNEmotionFerPlus::TNNEmotionFerPlus(const std::string &_proto_path,
 {
 }
 
-void TNNEmotionFerPlus::transform(const cv::Mat &mat)
+void TNNEmotionFerPlus::transform(const cv::Mat &mat_rs)
 {
-  cv::Mat mat_rs;
-  cv::resize(mat, mat_rs, cv::Size(input_width, input_height));
-  cv::cvtColor(mat_rs, mat_rs, cv::COLOR_BGR2GRAY);
   // push into input_mat (1,1,64,64)
   input_mat = std::make_shared<tnn::Mat>(input_device_type, tnn::NGRAY,
                                          input_shape, (void *) mat_rs.data);
@@ -35,7 +32,10 @@ void TNNEmotionFerPlus::detect(const cv::Mat &mat, types::Emotions &emotions)
   if (mat.empty()) return;
 
   // 1. make input mat
-  this->transform(mat);
+  cv::Mat mat_rs;
+  cv::resize(mat, mat_rs, cv::Size(input_width, input_height));
+  cv::cvtColor(mat_rs, mat_rs, cv::COLOR_BGR2GRAY);
+  this->transform(mat_rs);
   // 2. set input_mat
   tnn::MatConvertParam input_cvt_param;
   input_cvt_param.scale = scale_vals;

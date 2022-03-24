@@ -32,7 +32,7 @@ namespace tnncv
     static constexpr const unsigned int max_nms = 30000;
 
   private:
-    void transform(const cv::Mat &mat) override; //
+    void transform(const cv::Mat &mat_rs) override; //
 
     void generate_bboxes(std::vector<types::Boxf> &bbox_collection,
                          std::shared_ptr<tnn::Instance> &_instance,

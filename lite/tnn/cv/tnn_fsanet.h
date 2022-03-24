@@ -24,7 +24,7 @@ namespace tnncv
     std::vector<float> bias_vals = {-1.f, -1.f, -1.f};
 
   private:
-    void transform(const cv::Mat &mat) override; //
+    void transform(const cv::Mat &mat_padded) override; //
 
   public:
     void detect(const cv::Mat &mat, types::EulerAngles &euler_angles);

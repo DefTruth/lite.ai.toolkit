@@ -53,12 +53,9 @@ void TNNYOLOP::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
 
 void TNNYOLOP::transform(const cv::Mat &mat_rs)
 {
-  cv::Mat canvas;
-  cv::cvtColor(mat_rs, canvas, cv::COLOR_BGR2RGB);
-
   // push into input_mat
   input_mat = std::make_shared<tnn::Mat>(input_device_type, tnn::N8UC3,
-                                         input_shape, (void *) canvas.data);
+                                         input_shape, (void *) mat_rs.data);
   if (!input_mat->GetData())
   {
 #ifdef LITETNN_DEBUG
@@ -85,7 +82,9 @@ void TNNYOLOP::detect(const cv::Mat &mat,
 
   if ((!scale_params.flag) || mat_rs.empty()) return;
   // 1. make input mat
-  this->transform(mat_rs);
+  cv::Mat mat_rs_;
+  cv::cvtColor(mat_rs, mat_rs_, cv::COLOR_BGR2RGB);
+  this->transform(mat_rs_);
   // 2. set input_mat
   tnn::MatConvertParam input_cvt_param;
   input_cvt_param.scale = scale_vals;

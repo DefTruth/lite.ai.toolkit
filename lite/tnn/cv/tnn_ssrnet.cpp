@@ -13,10 +13,8 @@ TNNSSRNet::TNNSSRNet(const std::string &_proto_path,
 {
 }
 
-void TNNSSRNet::transform(const cv::Mat &mat)
+void TNNSSRNet::transform(const cv::Mat &mat_rs)
 {
-  cv::Mat mat_rs;
-  cv::resize(mat, mat_rs, cv::Size(input_width, input_height));
   // push into input_mat (1,3,64,64)
   input_mat = std::make_shared<tnn::Mat>(input_device_type, tnn::N8UC3,
                                          input_shape, (void *) mat_rs.data);
@@ -33,7 +31,9 @@ void TNNSSRNet::detect(const cv::Mat &mat, types::Age &age)
   if (mat.empty()) return;
 
   // 1. make input mat
-  this->transform(mat);
+  cv::Mat mat_rs;
+  cv::resize(mat, mat_rs, cv::Size(input_width, input_height));
+  this->transform(mat_rs);
   // 2. set input_mat
   tnn::MatConvertParam input_cvt_param;
   input_cvt_param.scale = scale_vals;

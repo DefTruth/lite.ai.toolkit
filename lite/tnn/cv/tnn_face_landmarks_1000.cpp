@@ -13,11 +13,8 @@ TNNFaceLandmark1000::TNNFaceLandmark1000(const std::string &_proto_path,
 {
 }
 
-void TNNFaceLandmark1000::transform(const cv::Mat &mat)
+void TNNFaceLandmark1000::transform(const cv::Mat &mat_rs)
 {
-  cv::Mat mat_rs;
-  cv::resize(mat, mat_rs, cv::Size(input_width, input_height));
-  cv::cvtColor(mat_rs, mat_rs, cv::COLOR_BGR2GRAY);
   // push into input_mat
   input_mat = std::make_shared<tnn::Mat>(input_device_type, tnn::NGRAY,
                                          input_shape, (void *) mat_rs.data);
@@ -36,7 +33,10 @@ void TNNFaceLandmark1000::detect(const cv::Mat &mat, types::Landmarks &landmarks
   float img_width = static_cast<float>(mat.cols);
 
   // 1. make input mat
-  this->transform(mat);
+  cv::Mat mat_rs;
+  cv::resize(mat, mat_rs, cv::Size(input_width, input_height));
+  cv::cvtColor(mat_rs, mat_rs, cv::COLOR_BGR2GRAY);
+  this->transform(mat_rs);
   // 2. set input_mat
   tnn::MatConvertParam input_cvt_param;
   input_cvt_param.scale = scale_vals;

@@ -13,11 +13,8 @@ TNNFastStyleTransfer::TNNFastStyleTransfer(const std::string &_proto_path,
 {
 }
 
-void TNNFastStyleTransfer::transform(const cv::Mat &mat)
+void TNNFastStyleTransfer::transform(const cv::Mat &mat_rs)
 {
-  cv::Mat mat_rs;
-  cv::resize(mat, mat_rs, cv::Size(input_width, input_height));
-  cv::cvtColor(mat_rs, mat_rs, cv::COLOR_BGR2RGB); // (1,224,224,3)
   // push into input_mat
   input_mat = std::make_shared<tnn::Mat>(input_device_type, tnn::N8UC3,
                                          input_shape, (void *) mat_rs.data);
@@ -34,7 +31,10 @@ void TNNFastStyleTransfer::detect(const cv::Mat &mat, types::StyleContent &style
   if (mat.empty()) return;
 
   // 1. make input mat
-  this->transform(mat);
+  cv::Mat mat_rs;
+  cv::resize(mat, mat_rs, cv::Size(input_width, input_height));
+  cv::cvtColor(mat_rs, mat_rs, cv::COLOR_BGR2RGB); // (1,224,224,3)
+  this->transform(mat_rs);
   // 2. set input_mat
   tnn::MatConvertParam input_cvt_param;
   input_cvt_param.scale = scale_vals;

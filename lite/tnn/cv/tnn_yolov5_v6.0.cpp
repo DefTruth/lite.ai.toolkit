@@ -53,12 +53,11 @@ void TNNYoloV5_V_6_0::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
 
 void TNNYoloV5_V_6_0::transform(const cv::Mat &mat_rs)
 {
-  cv::Mat canvas;
-  cv::cvtColor(mat_rs, canvas, cv::COLOR_BGR2RGB);
-
   // push into input_mat
+  // be carefully, no deepcopy inside this tnn::Mat constructor,
+  // so, we can not pass a local cv::Mat to this constructor.
   input_mat = std::make_shared<tnn::Mat>(input_device_type, tnn::N8UC3,
-                                         input_shape, (void *) canvas.data);
+                                         input_shape, (void *) mat_rs.data);
   if (!input_mat->GetData())
   {
 #ifdef LITETNN_DEBUG
@@ -80,7 +79,9 @@ void TNNYoloV5_V_6_0::detect(const cv::Mat &mat, std::vector<types::Boxf> &detec
   this->resize_unscale(mat, mat_rs, input_height, input_width, scale_params);
 
   // 1. make input tensor
-  this->transform(mat_rs);
+  cv::Mat mat_rs_;
+  cv::cvtColor(mat_rs, mat_rs_, cv::COLOR_BGR2RGB);
+  this->transform(mat_rs_);
   // 2. set input_mat
   tnn::MatConvertParam input_cvt_param;
   input_cvt_param.scale = scale_vals;

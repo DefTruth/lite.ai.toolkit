@@ -31,7 +31,7 @@ namespace tnncv
     };
 
   private:
-    void transform(const cv::Mat &mat) override; //
+    void transform(const cv::Mat &mat_rs) override; //
 
   public:
     void detect(const cv::Mat &mat, types::Landmarks &landmarks);

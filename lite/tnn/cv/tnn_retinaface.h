@@ -50,7 +50,7 @@ namespace tnncv
     static constexpr const unsigned int max_nms = 30000;
 
   private:
-    void transform(const cv::Mat &mat) override; //
+    void transform(const cv::Mat &mat_rs) override; //
 
     void generate_anchors(const int target_height,
                           const int target_width,

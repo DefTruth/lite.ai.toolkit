@@ -18,7 +18,7 @@ namespace tnncv
     ~TNNSubPixelCNN() override = default;
 
   private:
-    void transform(const cv::Mat &mat) override; //
+    void transform(const cv::Mat &mat_y) override; //
 
   public:
     void detect(const cv::Mat &mat, types::SuperResolutionContent &super_resolution_content);

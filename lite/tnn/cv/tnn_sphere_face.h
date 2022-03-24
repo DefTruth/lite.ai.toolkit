@@ -23,7 +23,7 @@ namespace tnncv
     std::vector<float> bias_vals = {-127.5f / 128.0f, -127.5f / 128.0f, -127.5f / 128.0f};
 
   private:
-    void transform(const cv::Mat &mat) override; //
+    void transform(const cv::Mat &mat_rs) override; //
 
   public:
     void detect(const cv::Mat &mat, types::FaceContent &face_content);

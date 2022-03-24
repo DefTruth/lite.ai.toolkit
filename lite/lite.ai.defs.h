@@ -22,7 +22,7 @@
 #endif
 
 #ifdef LITE_WIN32
-# define NONMINMAX
+# define NOMINMAX
 #endif
 
 #ifndef LITE_EXPORTS

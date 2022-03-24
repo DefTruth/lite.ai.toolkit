@@ -13,13 +13,11 @@ TNNSphereFace::TNNSphereFace(const std::string &_proto_path,
 {
 }
 
-void TNNSphereFace::transform(const cv::Mat &mat)
+void TNNSphereFace::transform(const cv::Mat &mat_rs)
 {
-  cv::Mat canvas;
-  cv::resize(mat, canvas, cv::Size(input_width, input_height));
   // push into input_mat
   input_mat = std::make_shared<tnn::Mat>(input_device_type, tnn::N8UC3,
-                                         input_shape, (void *) canvas.data);
+                                         input_shape, (void *) mat_rs.data);
   if (!input_mat->GetData())
   {
 #ifdef LITETNN_DEBUG
@@ -32,7 +30,9 @@ void TNNSphereFace::detect(const cv::Mat &mat, types::FaceContent &face_content)
 {
   if (mat.empty()) return;
   // 1. make input tensor
-  this->transform(mat);
+  cv::Mat mat_rs;
+  cv::resize(mat, mat_rs, cv::Size(input_width, input_height));
+  this->transform(mat_rs);
   // 2. set input_mat
   tnn::MatConvertParam input_cvt_param;
   input_cvt_param.scale = scale_vals;

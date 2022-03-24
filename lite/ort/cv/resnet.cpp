@@ -20,7 +20,7 @@ Ort::Value ResNet::transform(const cv::Mat &mat)
   // (1,3,224,224)
   return ortcv::utils::transform::create_tensor(
       canvas, input_node_dims, memory_info_handler,
-      input_values_handler, ortcv::utils::transform::CHW);
+      input_values_handler, ortcv::utils::transform::CHW); // deepcopy inside
 }
 
 void ResNet::detect(const cv::Mat &mat, types::ImageNetContent &content, unsigned int top_k)

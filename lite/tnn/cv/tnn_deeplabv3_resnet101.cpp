@@ -125,7 +125,7 @@ void TNNDeepLabV3ResNet101::print_debug_string()
   std::cout << "========================================\n";
 }
 
-void TNNDeepLabV3ResNet101::transform(const cv::Mat &mat)
+void TNNDeepLabV3ResNet101::transform(const cv::Mat &mat_rs)
 {
 //  const int img_width = mat.cols;
 //  const int img_height = mat.rows;
@@ -159,16 +159,18 @@ void TNNDeepLabV3ResNet101::transform(const cv::Mat &mat)
 //  cv::Mat canvas;
 //  cv::cvtColor(mat, canvas, cv::COLOR_BGR2RGB);
 
-  cv::Mat canvas;
-  cv::resize(mat, canvas, cv::Size(dynamic_input_width, dynamic_input_height));
-  cv::cvtColor(canvas, canvas, cv::COLOR_BGR2RGB);
+//  cv::Mat canvas;
+//  cv::resize(mat, canvas, cv::Size(dynamic_input_width, dynamic_input_height));
+//  cv::cvtColor(canvas, canvas, cv::COLOR_BGR2RGB);
 
-  // push into input_mat
+//  be carefully, no deepcopy inside this tnn::Mat constructor,
+//  so, we can not pass a local cv::Mat to this constructor.
+//  push into input_mat
   input_mat = std::make_shared<tnn::Mat>(
       input_device_type,
       tnn::N8UC3,
       input_shape,
-      (void *) canvas.data
+      (void *) mat_rs.data
   );
   if (!input_mat->GetData())
   {
@@ -185,7 +187,10 @@ void TNNDeepLabV3ResNet101::detect(const cv::Mat &mat, types::SegmentContent &co
   const int img_height = mat.rows;
 
   // 1. make input mat
-  this->transform(mat);
+  cv::Mat mat_rs;
+  cv::resize(mat, mat_rs, cv::Size(dynamic_input_width, dynamic_input_height));
+  cv::cvtColor(mat_rs, mat_rs, cv::COLOR_BGR2RGB);
+  this->transform(mat_rs);
   // 2. set input_mat
   tnn::MatConvertParam input_cvt_param;
   input_cvt_param.scale = scale_vals;

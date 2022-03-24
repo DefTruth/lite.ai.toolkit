@@ -70,6 +70,11 @@ namespace tnncv
   class LITE_EXPORTS TNNNanoDetPlus;                 // [56] * reference: https://github.com/RangiLyu/nanodet
   class LITE_EXPORTS TNNSCRFD;                       // [57] * reference: https://github.com/deepinsight/insightface/tree/master/detection/scrfd
   class LITE_EXPORTS TNNYOLO5Face;                   // [58] * reference: https://github.com/deepcam-cn/yolov5-face
+  class LITE_EXPORTS TNNFaceBoxesV2;                 // [59] * reference: https://github.com/jhb86253817/FaceBoxesV2
+  class LITE_EXPORTS TNNPIPNet19;                    // [60] * reference: https://github.com/jhb86253817/PIPNet
+  class LITE_EXPORTS TNNPIPNet29;                    // [61] * reference: https://github.com/jhb86253817/PIPNet
+  class LITE_EXPORTS TNNPIPNet68;                    // [62] * reference: https://github.com/jhb86253817/PIPNet
+  class LITE_EXPORTS TNNPIPNet98;                    // [63] * reference: https://github.com/jhb86253817/PIPNet
 
 }
 

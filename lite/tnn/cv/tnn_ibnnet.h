@@ -27,7 +27,7 @@ namespace tnncv
                                     -0.406f * 255.f * (1.0f / 0.225f) * (1.0 / 255.f)};
 
   private:
-    void transform(const cv::Mat &mat) override; //
+    void transform(const cv::Mat &mat_rs) override; //
 
   public:
     void detect(const cv::Mat &mat, types::ImageNetContent &content, unsigned int top_k = 5);

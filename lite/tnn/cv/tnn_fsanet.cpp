@@ -13,25 +13,13 @@ TNNFSANet::TNNFSANet(const std::string &_proto_path,
 {
 }
 
-void TNNFSANet::transform(const cv::Mat &mat)
+void TNNFSANet::transform(const cv::Mat &mat_padded)
 {
-  cv::Mat canvas;
-  // 0. padding
-  const int h = mat.rows;
-  const int w = mat.cols;
-  const int nh = static_cast<int>((static_cast<float>(h) + pad * static_cast<float>(h)));
-  const int nw = static_cast<int>((static_cast<float>(w) + pad * static_cast<float>(w)));
-
-  const int nx1 = std::max(0, static_cast<int>((nw - w) / 2));
-  const int ny1 = std::max(0, static_cast<int>((nh - h) / 2));
-
-  canvas = cv::Mat(nh, nw, CV_8UC3, cv::Scalar(0, 0, 0));
-  mat.copyTo(canvas(cv::Rect(nx1, ny1, w, h)));
-  cv::resize(canvas, canvas, cv::Size(input_width, input_height));
-
   // push into input_mat
+  // be carefully, no deepcopy inside this tnn::Mat constructor,
+  // so, we can not pass a local cv::Mat to this constructor.
   input_mat = std::make_shared<tnn::Mat>(input_device_type, tnn::N8UC3,
-                                         input_shape, (void *) canvas.data);
+                                         input_shape, (void *) mat_padded.data);
   if (!input_mat->GetData())
   {
 #ifdef LITETNN_DEBUG
@@ -45,7 +33,21 @@ void TNNFSANet::detect(const cv::Mat &mat, types::EulerAngles &euler_angles)
   if (mat.empty()) return;
 
   // 1. make input mat
-  this->transform(mat);
+  cv::Mat mat_padded;
+  // 0. padding
+  const int h = mat.rows;
+  const int w = mat.cols;
+  const int nh = static_cast<int>((static_cast<float>(h) + pad * static_cast<float>(h)));
+  const int nw = static_cast<int>((static_cast<float>(w) + pad * static_cast<float>(w)));
+
+  const int nx1 = std::max(0, static_cast<int>((nw - w) / 2));
+  const int ny1 = std::max(0, static_cast<int>((nh - h) / 2));
+
+  mat_padded = cv::Mat(nh, nw, CV_8UC3, cv::Scalar(0, 0, 0));
+  mat.copyTo(mat_padded(cv::Rect(nx1, ny1, w, h)));
+  cv::resize(mat_padded, mat_padded, cv::Size(input_width, input_height));
+
+  this->transform(mat_padded);
   // 2. set input_mat
   tnn::MatConvertParam input_cvt_param;
   input_cvt_param.scale = scale_vals;
