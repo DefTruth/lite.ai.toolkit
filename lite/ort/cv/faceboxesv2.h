@@ -38,7 +38,6 @@ namespace ortcv
         {256},
         {512}
     };
-    bool anchors_is_already_generated = false;
 
     enum NMS
     {
