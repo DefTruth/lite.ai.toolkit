@@ -91,6 +91,7 @@
 #include "lite/ort/cv/pipnet68.h"
 #include "lite/ort/cv/pipnet29.h"
 #include "lite/ort/cv/pipnet19.h"
+#include "lite/ort/cv/insectdet.h"
 
 #endif
 
@@ -163,6 +164,7 @@
 #include "lite/mnn/cv/mnn_pipnet68.h"
 #include "lite/mnn/cv/mnn_pipnet29.h"
 #include "lite/mnn/cv/mnn_pipnet19.h"
+#include "lite/mnn/cv/mnn_insectdet.h"
 
 #endif
 
@@ -307,6 +309,7 @@
 #include "lite/tnn/cv/tnn_pipnet68.h"
 #include "lite/tnn/cv/tnn_pipnet29.h"
 #include "lite/tnn/cv/tnn_pipnet19.h"
+#include "lite/tnn/cv/tnn_insectdet.h"
 
 #endif
 
@@ -395,6 +398,7 @@ namespace lite
     typedef ortcv::PIPNet68 _PIPNet68;
     typedef ortcv::PIPNet29 _PIPNet29;
     typedef ortcv::PIPNet19 _PIPNet19;
+    typedef ortcv::InsectDet _InsectDet;
 #endif
 
     // 1. classification
@@ -437,6 +441,7 @@ namespace lite
       typedef _YoloX_V_0_1_1 YoloX_V_0_1_1;
       typedef _YoloV5_V_6_0 YoloV5_V_6_0;
       typedef _NanoDetPlus NanoDetPlus;
+      typedef _InsectDet InsectDet;
 #endif
     }
     // 3. face detection & facial attributes detection
@@ -573,6 +578,12 @@ namespace lite
 #ifdef BACKEND_ONNXRUNTIME
       typedef _RobustVideoMatting RobustVideoMatting;
       typedef _MGMatting MGMatting;
+#endif
+    }
+    // 13. mediapipe
+    namespace mediapipe
+    {
+#ifdef BACKEND_ONNXRUNTIME
 #endif
     }
   }
@@ -730,6 +741,7 @@ namespace lite
       typedef ortcv::PIPNet68 _ONNXPIPNet68;
       typedef ortcv::PIPNet29 _ONNXPIPNet29;
       typedef ortcv::PIPNet19 _ONNXPIPNet19;
+      typedef ortcv::InsectDet _ONNXInsectDet;
 
       // 1. classification
       namespace classification
@@ -768,6 +780,7 @@ namespace lite
         typedef _ONNXYoloX_V_0_1_1 YoloX_V_0_1_1;
         typedef _ONNXYoloV5_V_6_0 YoloV5_V_6_0;
         typedef _ONNXNanoDetPlus NanoDetPlus;
+        typedef _ONNXInsectDet InsectDet;
       }
       // 3. face detection & facial attributes detection
       namespace face
@@ -881,7 +894,10 @@ namespace lite
         typedef _ONNXRobustVideoMatting RobustVideoMatting;
         typedef _ONNXMGMatting MGMatting;
       }
-
+      // 13. mediapipe
+      namespace mediapipe
+      {
+      }
     }
 
   }
@@ -921,6 +937,7 @@ namespace lite
         typedef mnncv::MNNYoloR YoloR;
         typedef mnncv::MNNYoloV5_V_6_0 YoloV5_V_6_0;
         typedef mnncv::MNNNanoDetPlus NanoDetPlus;
+        typedef mnncv::MNNInsectDet InsectDet;
       }
       // face etc.
       namespace face
@@ -1017,6 +1034,10 @@ namespace lite
       namespace resolution
       {
         typedef mnncv::MNNSubPixelCNN SubPixelCNN;
+      }
+      // mediapipe
+      namespace mediapipe
+      {
       }
 
     } // namespace cv
@@ -1154,6 +1175,10 @@ namespace lite
       {
         typedef ncnncv::NCNNSubPixelCNN SubPixelCNN;
       }
+      // mediapipe
+      namespace mediapipe
+      {
+      }
 
     } // namespace cv
 
@@ -1194,6 +1219,7 @@ namespace lite
         typedef tnncv::TNNYoloR YoloR;
         typedef tnncv::TNNYoloV5_V_6_0 YoloV5_V_6_0;
         typedef tnncv::TNNNanoDetPlus NanoDetPlus;
+        typedef tnncv::TNNInsectDet InsectDet;
       }
       // face etc.
       namespace face
@@ -1289,6 +1315,10 @@ namespace lite
       namespace resolution
       {
         typedef tnncv::TNNSubPixelCNN SubPixelCNN;
+      }
+      // mediapipe
+      namespace mediapipe
+      {
       }
 
     } // namespace cv

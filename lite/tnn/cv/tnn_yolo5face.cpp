@@ -51,10 +51,8 @@ void TNNYOLO5Face::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
 void TNNYOLO5Face::transform(const cv::Mat &mat_rs)
 {
   // push into input_mat, RGB
-  cv::Mat canvas;
-  cv::cvtColor(mat_rs, canvas, cv::COLOR_BGR2RGB);
   input_mat = std::make_shared<tnn::Mat>(input_device_type, tnn::N8UC3,
-                                         input_shape, (void *) canvas.data);
+                                         input_shape, (void *) mat_rs.data);
   if (!input_mat->GetData())
   {
 #ifdef LITETNN_DEBUG
@@ -76,7 +74,10 @@ void TNNYOLO5Face::detect(const cv::Mat &mat, std::vector<types::BoxfWithLandmar
   this->resize_unscale(mat, mat_rs, input_height, input_width, scale_params);
 
   // 1. make input mat
-  this->transform(mat_rs);
+  cv::Mat mat_rs_;
+  cv::cvtColor(mat_rs, mat_rs_, cv::COLOR_BGR2RGB);
+  this->transform(mat_rs_);
+  // this->transform(mat_rs);
   // 2. set input_mat
   tnn::MatConvertParam input_cvt_param;
   input_cvt_param.scale = scale_vals;

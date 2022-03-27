@@ -75,7 +75,10 @@ namespace tnncv
   class LITE_EXPORTS TNNPIPNet29;                    // [61] * reference: https://github.com/jhb86253817/PIPNet
   class LITE_EXPORTS TNNPIPNet68;                    // [62] * reference: https://github.com/jhb86253817/PIPNet
   class LITE_EXPORTS TNNPIPNet98;                    // [63] * reference: https://github.com/jhb86253817/PIPNet
-
+  class LITE_EXPORTS TNNInsectDet;                   // [64] * reference: https://github.com/quarrying/quarrying-insect-id
+  class LITE_EXPORTS TNNInsectID;                    // [65] * reference: https://github.com/quarrying/quarrying-insect-id
+  class LITE_EXPORTS TNNPlantID;                     // [66] * reference: https://github.com/quarrying/quarrying-plant-id
+  class LITE_EXPORTS TNNMODNet;                      // [67] * reference: https://github.com/ZHKKKe/MODNet
 }
 
 namespace tnncv

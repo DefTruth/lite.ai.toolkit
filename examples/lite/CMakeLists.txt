@@ -79,4 +79,5 @@ add_lite_executable(lite_pipnet98 cv)
 add_lite_executable(lite_pipnet68 cv)
 add_lite_executable(lite_pipnet29 cv)
 add_lite_executable(lite_pipnet19 cv)
+add_lite_executable(lite_insectdet cv)
 

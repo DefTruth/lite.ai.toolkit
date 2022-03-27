@@ -76,6 +76,9 @@ namespace ncnncv
   class LITE_EXPORTS NCNNPIPNet29;                               // [61] * reference: https://github.com/jhb86253817/PIPNet
   class LITE_EXPORTS NCNNPIPNet68;                               // [62] * reference: https://github.com/jhb86253817/PIPNet
   class LITE_EXPORTS NCNNPIPNet98;                               // [63] * reference: https://github.com/jhb86253817/PIPNet
+  class LITE_EXPORTS NCNNInsectID;                               // [64] * reference: https://github.com/quarrying/quarrying-insect-id
+  class LITE_EXPORTS NCNNPlantID;                                // [65] * reference: https://github.com/quarrying/quarrying-plant-id
+  class LITE_EXPORTS NCNNMODNet;                                 // [66] * reference: https://github.com/ZHKKKe/MODNet
 }
 
 namespace ncnncv
