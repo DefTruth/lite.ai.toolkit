@@ -92,6 +92,8 @@
 #include "lite/ort/cv/pipnet29.h"
 #include "lite/ort/cv/pipnet19.h"
 #include "lite/ort/cv/insectdet.h"
+#include "lite/ort/cv/insectid.h"
+#include "lite/ort/cv/plantid.h"
 
 #endif
 
@@ -165,6 +167,8 @@
 #include "lite/mnn/cv/mnn_pipnet29.h"
 #include "lite/mnn/cv/mnn_pipnet19.h"
 #include "lite/mnn/cv/mnn_insectdet.h"
+#include "lite/mnn/cv/mnn_insectid.h"
+#include "lite/mnn/cv/mnn_plantid.h"
 
 #endif
 
@@ -237,6 +241,8 @@
 #include "lite/ncnn/cv/ncnn_pipnet68.h"
 #include "lite/ncnn/cv/ncnn_pipnet29.h"
 #include "lite/ncnn/cv/ncnn_pipnet19.h"
+#include "lite/ncnn/cv/ncnn_insectid.h"
+#include "lite/ncnn/cv/ncnn_plantid.h"
 
 #endif
 
@@ -310,6 +316,8 @@
 #include "lite/tnn/cv/tnn_pipnet29.h"
 #include "lite/tnn/cv/tnn_pipnet19.h"
 #include "lite/tnn/cv/tnn_insectdet.h"
+#include "lite/tnn/cv/tnn_insectid.h"
+#include "lite/tnn/cv/tnn_plantid.h"
 
 #endif
 
@@ -399,6 +407,8 @@ namespace lite
     typedef ortcv::PIPNet29 _PIPNet29;
     typedef ortcv::PIPNet19 _PIPNet19;
     typedef ortcv::InsectDet _InsectDet;
+    typedef ortcv::InsectID _InsectID;
+    typedef ortcv::PlantID _PlantID;
 #endif
 
     // 1. classification
@@ -414,6 +424,8 @@ namespace lite
       typedef _MobileNetV2 MobileNetV2;
       typedef _ResNet ResNet;
       typedef _ResNeXt ResNeXt;
+      typedef _InsectID InsectID;
+      typedef _PlantID PlantID;
 #endif
     }
 
@@ -742,6 +754,8 @@ namespace lite
       typedef ortcv::PIPNet29 _ONNXPIPNet29;
       typedef ortcv::PIPNet19 _ONNXPIPNet19;
       typedef ortcv::InsectDet _ONNXInsectDet;
+      typedef ortcv::InsectID _ONNXInsectID;
+      typedef ortcv::PlantID _ONNXPlantID;
 
       // 1. classification
       namespace classification
@@ -755,6 +769,8 @@ namespace lite
         typedef _ONNXMobileNetV2 MobileNetV2;
         typedef _ONNXResNet ResNet;
         typedef _ONNXResNeXt ResNeXt;
+        typedef _ONNXInsectID InsectID;
+        typedef _ONNXPlantID PlantID;
       }
 
       // 2. general object detection
@@ -924,6 +940,8 @@ namespace lite
         typedef mnncv::MNNMobileNetV2 MobileNetV2;
         typedef mnncv::MNNResNet ResNet;
         typedef mnncv::MNNResNeXt ResNeXt;
+        typedef mnncv::MNNInsectID InsectID;
+        typedef mnncv::MNNPlantID PlantID;
       }
       // object detection
       namespace detection
@@ -1066,6 +1084,8 @@ namespace lite
         typedef ncnncv::NCNNMobileNetV2 MobileNetV2;
         typedef ncnncv::NCNNResNet ResNet;
         typedef ncnncv::NCNNResNeXt ResNeXt;
+        typedef ncnncv::NCNNInsectID InsectID;
+        typedef ncnncv::NCNNPlantID PlantID;
       }
       // object detection
       namespace detection
@@ -1206,6 +1226,8 @@ namespace lite
         typedef tnncv::TNNMobileNetV2 MobileNetV2;
         typedef tnncv::TNNResNet ResNet;
         typedef tnncv::TNNResNeXt ResNeXt;
+        typedef tnncv::TNNInsectID InsectID;
+        typedef tnncv::TNNPlantID PlantID;
       }
       // object detection
       namespace detection

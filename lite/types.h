@@ -199,6 +199,8 @@ namespace lite {
 
     } ImageNetContent;
 
+    typedef ImageNetContent ClassificationContent;
+
     typedef struct LITE_EXPORTS SegmentContentType
     {
       cv::Mat class_mat; // 21|? classes 1 channel
