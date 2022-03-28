@@ -42,12 +42,12 @@ void MNNPlantID::detect(const cv::Mat &mat, types::ImageNetContent &content, uns
   mnn_interpreter->runSession(mnn_session);
   auto output_tensors = mnn_interpreter->getSessionOutputAll(mnn_session);
   // 3. fetch.
-  auto device_logits_ptr = output_tensors.at("Reshape128");
+  auto device_logits_ptr = output_tensors.at("477");
   MNN::Tensor host_logits_tensor(device_logits_ptr, device_logits_ptr->getDimensionType());
   device_logits_ptr->copyToHostTensor(&host_logits_tensor);
 
   auto logits_dims = host_logits_tensor.shape();
-  const unsigned int num_classes = logits_dims.at(1); // 1000
+  const unsigned int num_classes = logits_dims.at(1); // 4066
   const float *logits = host_logits_tensor.host<float>();
 
   unsigned int max_id;
