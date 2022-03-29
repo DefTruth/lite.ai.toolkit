@@ -37,6 +37,7 @@ void MODNet::detect(const cv::Mat &mat, types::MattingContent &content, bool rem
   this->generate_matting(output_tensors, mat, content, remove_noise);
 }
 
+// user-friendly method for swap background.
 void MODNet::swap_background(const cv::Mat &fg_mat,
                              const cv::Mat &pha_mat,
                              const cv::Mat &bg_mat,
