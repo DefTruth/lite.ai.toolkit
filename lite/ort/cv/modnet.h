@@ -19,14 +19,21 @@ namespace ortcv
     ~MODNet() override = default;
 
   private:
-    static constexpr const float mean = 127.5f;
-    static constexpr const float scale = 1.f / 127.5f;
+    static constexpr const float mean_val = 127.5f;
+    static constexpr const float scale_val = 1.f / 127.5f;
 
   private:
     Ort::Value transform(const cv::Mat &mat) override;
 
+    void remove_small_connected_area(cv::Mat &alpha_pred);
+
+    void generate_matting(std::vector<Ort::Value> &output_tensors,
+                          const cv::Mat &mat, types::MattingContent &content,
+                          bool remove_noise = false);
+
   public:
-    void detect(const cv::Mat &mat, types::MattingContent &content);
+    void detect(const cv::Mat &mat, types::MattingContent &content, bool remove_noise = false);
+    // TODO: add `swap_background` API.
   };
 }
 
