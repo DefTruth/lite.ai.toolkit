@@ -33,7 +33,11 @@ namespace ortcv
 
   public:
     void detect(const cv::Mat &mat, types::MattingContent &content, bool remove_noise = false);
-    // TODO: add `swap_background` API.
+
+  public:
+    // class method.
+    static void swap_background(const cv::Mat &fg_mat, const cv::Mat &pha_mat,
+                                const cv::Mat &bg_mat, cv::Mat &out_mat);
   };
 }
 

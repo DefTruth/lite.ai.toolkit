@@ -35,7 +35,40 @@ void MODNet::detect(const cv::Mat &mat, types::MattingContent &content, bool rem
   );
   // 3. generate matting
   this->generate_matting(output_tensors, mat, content, remove_noise);
+}
 
+void MODNet::swap_background(const cv::Mat &fg_mat,
+                             const cv::Mat &pha_mat,
+                             const cv::Mat &bg_mat,
+                             cv::Mat &out_mat)
+{
+  if (fg_mat.empty() || pha_mat.empty() || bg_mat.empty()) return;
+  const unsigned int fg_h = fg_mat.rows;
+  const unsigned int fg_w = fg_mat.cols;
+  const unsigned int bg_h = bg_mat.rows;
+  const unsigned int bg_w = bg_mat.cols;
+  const unsigned int ph_h = pha_mat.rows;
+  const unsigned int ph_w = pha_mat.cols;
+  cv::Mat bg_mat_copy, pha_mat_copy, fg_mat_copy;
+  if (bg_h != fg_h || bg_w != fg_w)
+    cv::resize(bg_mat, bg_mat_copy, cv::Size(fg_w, fg_h));
+  else bg_mat_copy = bg_mat; // ref only.
+  if (ph_h != fg_h || ph_w != fg_w)
+    cv::resize(pha_mat, pha_mat_copy, cv::Size(fg_w, fg_h));
+  else pha_mat_copy = pha_mat; // ref only.
+  // convert pha_mat_copy to 3 channels.
+  if (pha_mat_copy.channels() == 1)
+    cv::cvtColor(pha_mat_copy, pha_mat_copy, cv::COLOR_GRAY2BGR); // 0.~1.
+  // convert mats to float32 points.
+  fg_mat.convertTo(fg_mat_copy, CV_32FC3); // 0.~255.
+  bg_mat_copy.convertTo(bg_mat_copy, CV_32FC3); // 0.~255.
+  pha_mat_copy.convertTo(pha_mat_copy, CV_32FC3); // 0.~1. assert pha_mat_copy is float32.
+  // element wise operations.
+  cv::Mat rest = 1.f - pha_mat_copy;
+  // out_mat = fg_mat_copy.mul(pha_mat_copy) + bg_mat_copy.mul(rest);
+  cv::add(fg_mat_copy.mul(pha_mat_copy), bg_mat_copy.mul(rest), out_mat);
+  // check with 'out_mat.empty()' and CV_8UC3.
+  if (!out_mat.empty()) out_mat.convertTo(out_mat, CV_8UC3);
 }
 
 void MODNet::generate_matting(std::vector<Ort::Value> &output_tensors,
