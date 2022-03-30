@@ -82,4 +82,5 @@ add_lite_executable(lite_pipnet19 cv)
 add_lite_executable(lite_insectdet cv)
 add_lite_executable(lite_insectid cv)
 add_lite_executable(lite_plantid cv)
+add_lite_executable(lite_modnet cv)
 

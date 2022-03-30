@@ -8,9 +8,9 @@ using ncnncv::NCNNMODNet;
 
 NCNNMODNet::NCNNMODNet(const std::string &_param_path,
                        const std::string &_bin_path,
+                       unsigned int _num_threads,
                        unsigned int _input_height,
-                       unsigned int _input_width,
-                       unsigned int _num_threads) :
+                       unsigned int _input_width) :
     BasicNCNNHandler(_param_path, _bin_path, _num_threads),
     input_height(_input_height), input_width(_input_width)
 {
