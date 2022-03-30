@@ -15,7 +15,7 @@ Ort::Value MODNet::transform(const cv::Mat &mat)
   cv::cvtColor(canvas, canvas, cv::COLOR_BGR2RGB);
 
   ortcv::utils::transform::normalize_inplace(canvas, mean_val, scale_val); // float32
-  // e.g (1,3,224,224)
+  // e.g (1,3,512,512)
   return ortcv::utils::transform::create_tensor(
       canvas, input_node_dims, memory_info_handler,
       input_values_handler, ortcv::utils::transform::CHW); // deepcopy inside
@@ -37,7 +37,7 @@ void MODNet::detect(const cv::Mat &mat, types::MattingContent &content, bool rem
   this->generate_matting(output_tensors, mat, content, remove_noise);
 }
 
-// user-friendly method for swap background.
+// user-friendly method for background swap.
 void MODNet::swap_background(const cv::Mat &fg_mat,
                              const cv::Mat &pha_mat,
                              const cv::Mat &bg_mat,

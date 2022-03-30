@@ -324,6 +324,13 @@
 // Default Engine ONNXRuntime
 namespace lite
 {
+  // mediapipe
+  namespace mediapipe
+  {
+#ifdef BACKEND_ONNXRUNTIME
+#endif
+  }
+
   namespace cv
   {
 #ifdef BACKEND_ONNXRUNTIME
@@ -592,12 +599,6 @@ namespace lite
       typedef _MGMatting MGMatting;
 #endif
     }
-    // 13. mediapipe
-    namespace mediapipe
-    {
-#ifdef BACKEND_ONNXRUNTIME
-#endif
-    }
   }
 
   namespace asr
@@ -672,6 +673,11 @@ namespace lite
 #ifdef ENABLE_ONNXRUNTIME
   namespace onnxruntime
   {
+    // mediapipe
+    namespace mediapipe
+    {
+    }
+
     namespace cv
     {
       typedef ortcv::FSANet _ONNXFSANet;
@@ -910,10 +916,6 @@ namespace lite
         typedef _ONNXRobustVideoMatting RobustVideoMatting;
         typedef _ONNXMGMatting MGMatting;
       }
-      // 13. mediapipe
-      namespace mediapipe
-      {
-      }
     }
 
   }
@@ -926,6 +928,11 @@ namespace lite
 #ifdef ENABLE_MNN
   namespace mnn
   {
+    // mediapipe
+    namespace mediapipe
+    {
+    }
+
     namespace cv
     {
       // classification
@@ -1070,6 +1077,11 @@ namespace lite
 #ifdef ENABLE_NCNN
   namespace ncnn
   {
+    // mediapipe
+    namespace mediapipe
+    {
+    }
+
     namespace cv
     {
       // classification
@@ -1195,10 +1207,6 @@ namespace lite
       {
         typedef ncnncv::NCNNSubPixelCNN SubPixelCNN;
       }
-      // mediapipe
-      namespace mediapipe
-      {
-      }
 
     } // namespace cv
 
@@ -1212,6 +1220,11 @@ namespace lite
 #ifdef ENABLE_TNN
   namespace tnn
   {
+    // mediapipe
+    namespace mediapipe
+    {
+    }
+
     namespace cv
     {
       // classification
@@ -1337,10 +1350,6 @@ namespace lite
       namespace resolution
       {
         typedef tnncv::TNNSubPixelCNN SubPixelCNN;
-      }
-      // mediapipe
-      namespace mediapipe
-      {
       }
 
     } // namespace cv
