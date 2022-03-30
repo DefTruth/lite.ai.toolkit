@@ -19,7 +19,7 @@ namespace ortcv
     ~MODNet() override = default;
 
   private:
-    static constexpr const float mean_val = 127.5f;
+    static constexpr const float mean_val = 127.5f; // RGB
     static constexpr const float scale_val = 1.f / 127.5f;
 
   private:

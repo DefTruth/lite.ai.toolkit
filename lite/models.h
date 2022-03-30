@@ -94,6 +94,7 @@
 #include "lite/ort/cv/insectdet.h"
 #include "lite/ort/cv/insectid.h"
 #include "lite/ort/cv/plantid.h"
+#include "lite/ort/cv/modnet.h"
 
 #endif
 
@@ -169,6 +170,7 @@
 #include "lite/mnn/cv/mnn_insectdet.h"
 #include "lite/mnn/cv/mnn_insectid.h"
 #include "lite/mnn/cv/mnn_plantid.h"
+#include "lite/mnn/cv/mnn_modnet.h"
 
 #endif
 
@@ -243,6 +245,7 @@
 #include "lite/ncnn/cv/ncnn_pipnet19.h"
 #include "lite/ncnn/cv/ncnn_insectid.h"
 #include "lite/ncnn/cv/ncnn_plantid.h"
+#include "lite/ncnn/cv/ncnn_modnet.h"
 
 #endif
 
@@ -318,6 +321,7 @@
 #include "lite/tnn/cv/tnn_insectdet.h"
 #include "lite/tnn/cv/tnn_insectid.h"
 #include "lite/tnn/cv/tnn_plantid.h"
+#include "lite/tnn/cv/tnn_modnet.h"
 
 #endif
 
@@ -416,6 +420,7 @@ namespace lite
     typedef ortcv::InsectDet _InsectDet;
     typedef ortcv::InsectID _InsectID;
     typedef ortcv::PlantID _PlantID;
+    typedef ortcv::MODNet _MODNet;
 #endif
 
     // 1. classification
@@ -597,6 +602,7 @@ namespace lite
 #ifdef BACKEND_ONNXRUNTIME
       typedef _RobustVideoMatting RobustVideoMatting;
       typedef _MGMatting MGMatting;
+      typedef _MODNet MODNet;
 #endif
     }
   }
@@ -762,6 +768,7 @@ namespace lite
       typedef ortcv::InsectDet _ONNXInsectDet;
       typedef ortcv::InsectID _ONNXInsectID;
       typedef ortcv::PlantID _ONNXPlantID;
+      typedef ortcv::MODNet _ONNXMODNet;
 
       // 1. classification
       namespace classification
@@ -915,6 +922,7 @@ namespace lite
       {
         typedef _ONNXRobustVideoMatting RobustVideoMatting;
         typedef _ONNXMGMatting MGMatting;
+        typedef _ONNXMODNet MODNet;
       }
     }
 
@@ -1042,6 +1050,7 @@ namespace lite
       {
         typedef mnncv::MNNRobustVideoMatting RobustVideoMatting;
         typedef mnncv::MNNMGMatting MGMatting;
+        typedef mnncv::MNNMODNet MODNet;
       }
 
       // style transfer
@@ -1190,6 +1199,7 @@ namespace lite
       namespace matting
       {
         typedef ncnncv::NCNNRobustVideoMatting RobustVideoMatting;
+        typedef ncnncv::NCNNMODNet MODNet;
       }
       // style transfer
       namespace style
@@ -1334,6 +1344,7 @@ namespace lite
       {
         typedef tnncv::TNNRobustVideoMatting RobustVideoMatting;
         typedef tnncv::TNNMGMatting MGMatting;
+        typedef tnncv::TNNMODNet MODNet;
       }
       // style transfer
       namespace style
