@@ -30,8 +30,6 @@ namespace ncnncv
   private:
     void transform(const cv::Mat &mat, ncnn::Mat &in) override;
 
-    void remove_small_connected_area(cv::Mat &alpha_pred);
-
     void generate_matting(ncnn::Extractor &extractor,
                           const cv::Mat &mat, types::MattingContent &content,
                           bool remove_noise = false);
@@ -39,10 +37,6 @@ namespace ncnncv
   public:
     void detect(const cv::Mat &mat, types::MattingContent &content, bool remove_noise = false);
 
-  public:
-    // class method.
-    static void swap_background(const cv::Mat &fg_mat, const cv::Mat &pha_mat,
-                                const cv::Mat &bg_mat, cv::Mat &out_mat);
   };
 }
 

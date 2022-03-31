@@ -13,10 +13,12 @@ namespace lite
   {
     static constexpr const float _PI = 3.1415926f;
 
+    // String Utils
     LITE_EXPORTS std::wstring to_wstring(const std::string &str);
 
     LITE_EXPORTS std::string to_string(const std::wstring &wstr);
 
+    // Drawing Utils
     LITE_EXPORTS cv::Mat draw_axis(const cv::Mat &mat, const types::EulerAngles &euler_angles, float size = 50.f, int thickness = 2);
 
     LITE_EXPORTS cv::Mat draw_boxes(const cv::Mat &mat, const std::vector<types::Boxf> &boxes);
@@ -45,11 +47,17 @@ namespace lite
 
     LITE_EXPORTS void draw_boxes_with_landmarks_inplace(cv::Mat &mat_inplace, const std::vector<types::BoxfWithLandmarks> &boxes_kps, bool text = false);
 
+    // Object Detection Utils
     LITE_EXPORTS void hard_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output, float iou_threshold, unsigned int topk);
 
     LITE_EXPORTS void blending_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output, float iou_threshold, unsigned int topk);
 
     LITE_EXPORTS void offset_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output, float iou_threshold, unsigned int topk);
+
+    // Matting & Segmentation Utils
+    LITE_EXPORTS void swap_background(const cv::Mat &fgr_mat, const cv::Mat &pha_mat, const cv::Mat &bgr_mat, cv::Mat &out_mat, bool fgr_is_already_mul_pha = false);
+
+    LITE_EXPORTS void remove_small_connected_area(cv::Mat &alpha_pred, float threshold = 0.05f);
 
     namespace math
     {

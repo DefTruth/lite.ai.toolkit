@@ -31,7 +31,7 @@ static void test_default()
     if (!content.merge_mat.empty()) cv::imwrite(save_merge_path, content.merge_mat);
     // swap background
     cv::Mat out_mat;
-    modnet->swap_background(content.fgr_mat, content.pha_mat, bgr_mat, out_mat);
+    lite::utils::swap_background(content.fgr_mat, content.pha_mat, bgr_mat, out_mat, true);
     if (!out_mat.empty())
     {
       cv::imwrite(save_swap_path, out_mat);
@@ -72,7 +72,7 @@ static void test_onnxruntime()
     if (!content.merge_mat.empty()) cv::imwrite(save_merge_path, content.merge_mat);
     // swap background
     cv::Mat out_mat;
-    modnet->swap_background(content.fgr_mat, content.pha_mat, bgr_mat, out_mat);
+    lite::utils::swap_background(content.fgr_mat, content.pha_mat, bgr_mat, out_mat, true);
     if (!out_mat.empty())
     {
       cv::imwrite(save_swap_path, out_mat);
@@ -114,7 +114,7 @@ static void test_mnn()
     if (!content.merge_mat.empty()) cv::imwrite(save_merge_path, content.merge_mat);
     // swap background
     cv::Mat out_mat;
-    modnet->swap_background(content.fgr_mat, content.pha_mat, bgr_mat, out_mat);
+    lite::utils::swap_background(content.fgr_mat, content.pha_mat, bgr_mat, out_mat, true);
     if (!out_mat.empty())
     {
       cv::imwrite(save_swap_path, out_mat);
@@ -130,8 +130,8 @@ static void test_mnn()
 static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
-  std::string proto_path = "../../../hub/tnn/cv/modnet_photographic_portrait_matting-512x512.opt.param";
-  std::string model_path = "../../../hub/tnn/cv/modnet_photographic_portrait_matting-512x512.opt.bin";
+  std::string proto_path = "../../../hub/ncnn/cv/modnet_photographic_portrait_matting-512x512.opt.param";
+  std::string model_path = "../../../hub/ncnn/cv/modnet_photographic_portrait_matting-512x512.opt.bin";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_matting_input.jpg";
   std::string test_bgr_path = "../../../examples/lite/resources/test_lite_matting_bgr.jpg";
   std::string save_fgr_path = "../../../logs/test_lite_modnet_fgr_ncnn.jpg";
@@ -156,7 +156,7 @@ static void test_ncnn()
     if (!content.merge_mat.empty()) cv::imwrite(save_merge_path, content.merge_mat);
     // swap background
     cv::Mat out_mat;
-    modnet->swap_background(content.fgr_mat, content.pha_mat, bgr_mat, out_mat);
+    lite::utils::swap_background(content.fgr_mat, content.pha_mat, bgr_mat, out_mat, true);
     if (!out_mat.empty())
     {
       cv::imwrite(save_swap_path, out_mat);
@@ -198,7 +198,7 @@ static void test_tnn()
     if (!content.merge_mat.empty()) cv::imwrite(save_merge_path, content.merge_mat);
     // swap background
     cv::Mat out_mat;
-    modnet->swap_background(content.fgr_mat, content.pha_mat, bgr_mat, out_mat);
+    lite::utils::swap_background(content.fgr_mat, content.pha_mat, bgr_mat, out_mat, true);
     if (!out_mat.empty())
     {
       cv::imwrite(save_swap_path, out_mat);

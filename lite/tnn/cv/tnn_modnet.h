@@ -26,8 +26,6 @@ namespace tnncv
   private:
     void transform(const cv::Mat &mat_rs) override; //
 
-    void remove_small_connected_area(cv::Mat &alpha_pred);
-
     void generate_matting(std::shared_ptr<tnn::Instance> &_instance,
                           const cv::Mat &mat, types::MattingContent &content,
                           bool remove_noise = false);
@@ -35,10 +33,6 @@ namespace tnncv
   public:
     void detect(const cv::Mat &mat, types::MattingContent &content, bool remove_noise = false);
 
-  public:
-    // class method.
-    static void swap_background(const cv::Mat &fg_mat, const cv::Mat &pha_mat,
-                                const cv::Mat &bg_mat, cv::Mat &out_mat);
   };
 }
 

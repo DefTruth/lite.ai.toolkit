@@ -24,19 +24,12 @@ namespace mnncv
 
     void transform(const cv::Mat &mat) override; // resize & normalize.
 
-    void remove_small_connected_area(cv::Mat &alpha_pred);
-
     void generate_matting(const std::map<std::string, MNN::Tensor *> &output_tensors,
                           const cv::Mat &mat, types::MattingContent &content,
                           bool remove_noise = false);
 
   public:
     void detect(const cv::Mat &mat, types::MattingContent &content, bool remove_noise = false);
-
-  public:
-    // class method.
-    static void swap_background(const cv::Mat &fg_mat, const cv::Mat &pha_mat,
-                                const cv::Mat &bg_mat, cv::Mat &out_mat);
 
   };
 }
