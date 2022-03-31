@@ -95,6 +95,7 @@
 #include "lite/ort/cv/insectid.h"
 #include "lite/ort/cv/plantid.h"
 #include "lite/ort/cv/modnet.h"
+#include "lite/ort/cv/modnet_dyn.h"
 
 #endif
 
@@ -421,6 +422,7 @@ namespace lite
     typedef ortcv::InsectID _InsectID;
     typedef ortcv::PlantID _PlantID;
     typedef ortcv::MODNet _MODNet;
+    typedef ortcv::MODNetDyn _MODNetDyn;
 #endif
 
     // 1. classification
@@ -603,6 +605,7 @@ namespace lite
       typedef _RobustVideoMatting RobustVideoMatting;
       typedef _MGMatting MGMatting;
       typedef _MODNet MODNet;
+      typedef _MODNetDyn MODNetDyn;
 #endif
     }
   }
@@ -769,6 +772,7 @@ namespace lite
       typedef ortcv::InsectID _ONNXInsectID;
       typedef ortcv::PlantID _ONNXPlantID;
       typedef ortcv::MODNet _ONNXMODNet;
+      typedef ortcv::MODNetDyn _ONNXMODNetDyn;
 
       // 1. classification
       namespace classification
@@ -923,6 +927,7 @@ namespace lite
         typedef _ONNXRobustVideoMatting RobustVideoMatting;
         typedef _ONNXMGMatting MGMatting;
         typedef _ONNXMODNet MODNet;
+        typedef _ONNXMODNetDyn MODNetDyn;
       }
     }
 
