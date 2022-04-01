@@ -71,17 +71,7 @@ void MODNetDyn::print_debug_string()
 
 Ort::Value MODNetDyn::transform(const cv::Mat &mat)
 {
-  cv::Mat canvas = mat.clone();
-  const unsigned int img_height = mat.rows;
-  const unsigned int img_width = mat.cols;
-
-  // update dynamic input dims
-  dynamic_input_height = img_height;
-  dynamic_input_width = img_width;
-  dynamic_input_node_dims.at(0).at(2) = dynamic_input_height;
-  dynamic_input_node_dims.at(0).at(3) = dynamic_input_width;
-  dynamic_input_tensor_size = 1 * 3 * dynamic_input_height * dynamic_input_width;
-  dynamic_input_values_handler.resize(dynamic_input_tensor_size);
+  auto canvas = this->padding(mat);
 
   cv::cvtColor(canvas, canvas, cv::COLOR_BGR2RGB);
   ortcv::utils::transform::normalize_inplace(canvas, mean_val, scale_val);
@@ -95,8 +85,11 @@ Ort::Value MODNetDyn::transform(const cv::Mat &mat)
 void MODNetDyn::detect(const cv::Mat &mat, types::MattingContent &content, bool remove_noise)
 {
   if (mat.empty()) return;
+  const unsigned int img_height = mat.rows;
+  const unsigned int img_width = mat.cols;
+  // align input size with 32 first
+  this->update_dynamic_shape(img_height, img_width);
 
-  // TODO: align input size with 32
   // 1. make input tensor
   Ort::Value input_tensor = this->transform(mat);
   // 2. inference
@@ -112,7 +105,9 @@ void MODNetDyn::generate_matting(std::vector<Ort::Value> &output_tensors,
                                  const cv::Mat &mat, types::MattingContent &content,
                                  bool remove_noise)
 {
-  Ort::Value &output = output_tensors.at(0); // (1,1,h,w) 0~1
+  Ort::Value &output = output_tensors.at(0); // (1,1,out_h,out_w) 0~1
+  const unsigned int h = mat.rows;
+  const unsigned int w = mat.cols;
 
   auto output_dims = output.GetTypeInfo().GetTensorTypeAndShapeInfo().GetShape();
   const unsigned int out_h = output_dims.at(2);
@@ -121,12 +116,11 @@ void MODNetDyn::generate_matting(std::vector<Ort::Value> &output_tensors,
   float *output_ptr = output.GetTensorMutableData<float>();
 
   cv::Mat alpha_pred(out_h, out_w, CV_32FC1, output_ptr);
-  // post process
   if (remove_noise) lite::utils::remove_small_connected_area(alpha_pred, 0.05f);
 
   cv::Mat mat_copy;
   mat.convertTo(mat_copy, CV_32FC3);
-  cv::Mat pmat = alpha_pred; // ref
+  cv::Mat pmat = alpha_pred(cv::Rect(align_val, align_val, w, h));
 
   // merge mat and fgr mat may not need
   std::vector<cv::Mat> mat_channels;
@@ -159,8 +153,67 @@ void MODNetDyn::generate_matting(std::vector<Ort::Value> &output_tensors,
   content.flag = true;
 }
 
+void MODNetDyn::update_dynamic_shape(unsigned int img_height, unsigned int img_width)
+{
+  // align input shape with 32
+  const unsigned int h = img_height;
+  const unsigned int w = img_width;
+  // update dynamic input dims
+  if (h % align_val == 0 && w % align_val == 0)
+  {
+    // aligned
+    dynamic_input_height = h + 2 * align_val;
+    dynamic_input_width = w + 2 * align_val;
+  } // un-aligned
+  else
+  {
+    // align first
+    const unsigned int align_h = align_val * ((h - 1) / align_val + 1);
+    const unsigned int align_w = align_val * ((w - 1) / align_val + 1);
+    const unsigned int pad_h = align_h - h; // >= 0
+    const unsigned int pad_w = align_w - w; // >= 0
+    dynamic_input_height = h + align_val + (pad_h + align_val);
+    dynamic_input_width = w + align_val + (pad_w + align_val);
+  }
+  dynamic_input_node_dims.at(0).at(2) = dynamic_input_height;
+  dynamic_input_node_dims.at(0).at(3) = dynamic_input_width;
+  dynamic_input_tensor_size = 1 * 3 * dynamic_input_height * dynamic_input_width;
+  dynamic_input_values_handler.resize(dynamic_input_tensor_size);
+}
 
+cv::Mat MODNetDyn::padding(const cv::Mat &unpad_mat)
+{
+  const unsigned int h = unpad_mat.rows;
+  const unsigned int w = unpad_mat.cols;
 
+  // aligned
+  if (h % align_val == 0 && w % align_val == 0)
+  {
+    const unsigned int target_h = h + 2 * align_val;
+    const unsigned int target_w = w + 2 * align_val;
+    cv::Mat pad_mat(target_h, target_w, unpad_mat.type());
+
+    cv::copyMakeBorder(unpad_mat, pad_mat, align_val, align_val,
+                       align_val, align_val, cv::BORDER_REFLECT);
+    return pad_mat;
+  } // un-aligned
+  else
+  {
+    // align & padding
+    const unsigned int align_h = align_val * ((h - 1) / align_val + 1);
+    const unsigned int align_w = align_val * ((w - 1) / align_val + 1);
+    const unsigned int pad_h = align_h - h; // >= 0
+    const unsigned int pad_w = align_w - w; // >= 0
+    const unsigned int target_h = h + align_val + (pad_h + align_val);
+    const unsigned int target_w = w + align_val + (pad_w + align_val);
+
+    cv::Mat pad_mat(target_h, target_w, unpad_mat.type());
+
+    cv::copyMakeBorder(unpad_mat, pad_mat, align_val, pad_h + align_val,
+                       align_val, pad_w + align_val, cv::BORDER_REFLECT);
+    return pad_mat;
+  }
+}
 
 
 

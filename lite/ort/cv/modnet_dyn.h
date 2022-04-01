@@ -49,11 +49,16 @@ namespace ortcv
   private:
     static constexpr const float mean_val = 127.5f; // RGB
     static constexpr const float scale_val = 1.f / 127.5f;
+    static constexpr const unsigned int align_val = 32;
 
   private:
     Ort::Value transform(const cv::Mat &mat);
 
     void print_debug_string();
+
+    void update_dynamic_shape(unsigned int img_height, unsigned int img_width);
+
+    cv::Mat padding(const cv::Mat &unpad_mat);
 
     void generate_matting(std::vector<Ort::Value> &output_tensors,
                           const cv::Mat &mat, types::MattingContent &content,
