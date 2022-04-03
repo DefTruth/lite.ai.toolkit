@@ -6,73 +6,88 @@ You can download all the pretrained models files of TNN format from ([Baidu Driv
 
 <div id="lite.ai.toolkit.hub.tnn-object-detection"></div>
 
-|                        Class                        |                 Pretrained TNN Files                 |            Rename or Converted From (Repo)             | Size  |
-|:---------------------------------------------------:|:----------------------------------------------------:|:------------------------------------------------------:|:-----:|
-|         *lite::tnn::cv::detection::YoloV5*          |            yolov5l.opt.tnnproto&tnnmodel             |    [yolov5](https://github.com/ultralytics/yolov5)     | 188Mb |
-|         *lite::tnn::cv::detection::YoloV5*          |            yolov5m.opt.tnnproto&tnnmodel             |    [yolov5](https://github.com/ultralytics/yolov5)     | 85Mb  |
-|         *lite::tnn::cv::detection::YoloV5*          |            yolov5s.opt.tnnproto&tnnmodel             |    [yolov5](https://github.com/ultralytics/yolov5)     | 29Mb  |
-|         *lite::tnn::cv::detection::YoloV5*          |            yolov5x.opt.tnnproto&tnnmodel             |    [yolov5](https://github.com/ultralytics/yolov5)     | 351Mb |  
-|          *lite::tnn::cv::detection::YoloX*          |            yolox_x.opt.tnnproto&tnnmodel             | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) | 378Mb |
-|          *lite::tnn::cv::detection::YoloX*          |            yolox_l.opt.tnnproto&tnnmodel             | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) | 207Mb |
-|          *lite::tnn::cv::detection::YoloX*          |            yolox_m.opt.tnnproto&tnnmodel             | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) | 97Mb  |
-|          *lite::tnn::cv::detection::YoloX*          |            yolox_s.opt.tnnproto&tnnmodel             | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) | 34Mb  |
-|          *lite::tnn::cv::detection::YoloX*          |           yolox_tiny.opt.tnnproto&tnnmodel           | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) | 19Mb  |
-|          *lite::tnn::cv::detection::YoloX*          |           yolox_nano.opt.tnnproto&tnnmodel           | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) | 3.5Mb |
-|          *lite::tnn::cv::detection::YOLOP*          |         yolop-320-320.opt.tnnproto&tnnmodel          |        [YOLOP](https://github.com/hustvl/YOLOP)        | 30Mb  |
-|          *lite::tnn::cv::detection::YOLOP*          |         yolop-640-640.opt.tnnproto&tnnmodel          |        [YOLOP](https://github.com/hustvl/YOLOP)        | 30Mb  |
-|          *lite::tnn::cv::detection::YOLOP*          |        yolop-1280-1280.opt.tnnproto&tnnmodel         |        [YOLOP](https://github.com/hustvl/YOLOP)        | 30Mb  |
-|         *lite::tnn::cv::detection::NanoDet*         |         nanodet_m_0.5x.opt.tnnproto&tnnmodel         |     [nanodet](https://github.com/RangiLyu/nanodet)     | 1.1Mb |
-|         *lite::tnn::cv::detection::NanoDet*         |           nanodet_m.opt.tnnproto&tnnmodel            |     [nanodet](https://github.com/RangiLyu/nanodet)     | 3.6Mb |
-|         *lite::tnn::cv::detection::NanoDet*         |         nanodet_m_1.5x.opt.tnnproto&tnnmodel         |     [nanodet](https://github.com/RangiLyu/nanodet)     | 7.9Mb |
-|         *lite::tnn::cv::detection::NanoDet*         |       nanodet_m_1.5x_416.opt.tnnproto&tnnmodel       |     [nanodet](https://github.com/RangiLyu/nanodet)     | 7.9Mb |
-|         *lite::tnn::cv::detection::NanoDet*         |         nanodet_m_416.opt.tnnproto&tnnmodel          |     [nanodet](https://github.com/RangiLyu/nanodet)     | 3.6Mb |
-|         *lite::tnn::cv::detection::NanoDet*         |           nanodet_g.opt.tnnproto&tnnmodel            |     [nanodet](https://github.com/RangiLyu/nanodet)     | 14Mb  |
-|         *lite::tnn::cv::detection::NanoDet*         |           nanodet_t.opt.tnnproto&tnnmodel            |     [nanodet](https://github.com/RangiLyu/nanodet)     | 5.1Mb |
-|         *lite::tnn::cv::detection::NanoDet*         |     nanodet-RepVGG-A0_416.opt.tnnproto&tnnmodel      |     [nanodet](https://github.com/RangiLyu/nanodet)     | 26Mb  |
-| *lite::tnn::cv::detection::NanoDetEfficientNetLite* | nanodet-EfficientNet-Lite0_320.opt.tnnproto&tnnmodel |     [nanodet](https://github.com/RangiLyu/nanodet)     | 12Mb  |
-| *lite::tnn::cv::detection::NanoDetEfficientNetLite* | nanodet-EfficientNet-Lite1_416.opt.tnnproto&tnnmodel |     [nanodet](https://github.com/RangiLyu/nanodet)     | 15Mb  |
-| *lite::tnn::cv::detection::NanoDetEfficientNetLite* | nanodet-EfficientNet-Lite2_512.opt.tnnproto&tnnmodel |     [nanodet](https://github.com/RangiLyu/nanodet)     | 18Mb  |
-|      *lite::tnn::cv::detection::YoloX_V_0_1_1*      |         yolox_x_v0.1.1.opt.tnnproto&tnnmodel         | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) | 378Mb |
-|      *lite::tnn::cv::detection::YoloX_V_0_1_1*      |         yolox_l_v0.1.1.opt.tnnproto&tnnmodel         | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) | 207Mb |
-|      *lite::tnn::cv::detection::YoloX_V_0_1_1*      |         yolox_m_v0.1.1.opt.tnnproto&tnnmodel         | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) | 97Mb  |
-|      *lite::tnn::cv::detection::YoloX_V_0_1_1*      |         yolox_s_v0.1.1.opt.tnnproto&tnnmodel         | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) | 34Mb  |
-|      *lite::tnn::cv::detection::YoloX_V_0_1_1*      |       yolox_tiny_v0.1.1.opt.tnnproto&tnnmodel        | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) | 19Mb  |
-|      *lite::tnn::cv::detection::YoloX_V_0_1_1*      |       yolox_nano_v0.1.1.opt.tnnproto&tnnmodel        | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) | 3.5Mb |
-|          *lite::tnn::cv::detection::YoloR*          |        yolor-p6-320-320.opt.tnnproto&tnnmodel        |      [yolor](https://github.com/WongKinYiu/yolor)      | 157Mb |
-|          *lite::tnn::cv::detection::YoloR*          |        yolor-p6-640-640.opt.tnnproto&tnnmodel        |      [yolor](https://github.com/WongKinYiu/yolor)      | 157Mb |
-|          *lite::tnn::cv::detection::YoloR*          |     yolor-ssss-s2d-640-640.opt.tnnproto&tnnmodel     |      [yolor](https://github.com/WongKinYiu/yolor)      | 50Mb  |
-|      *lite::tnn::cv::detection::YoloV5_V_6_0*       |     yolov5m.640-640.v.6.0.opt.tnnproto&tnnmodel      |    [yolov5](https://github.com/ultralytics/yolov5)     | 81Mb  |
-|      *lite::tnn::cv::detection::YoloV5_V_6_0*       |     yolov5s.640-640.v.6.0.opt.tnnproto&tnnmodel      |    [yolov5](https://github.com/ultralytics/yolov5)     | 28Mb  |
-|      *lite::tnn::cv::detection::YoloV5_V_6_0*       |     yolov5n.640-640.v.6.0.opt.tnnproto&tnnmodel      |    [yolov5](https://github.com/ultralytics/yolov5)     | 7.5Mb |
-|      *lite::tnn::cv::detection::YoloV5_V_6_0*       |     yolov5m6.640-640.v.6.0.opt.tnnproto&tnnmodel     |    [yolov5](https://github.com/ultralytics/yolov5)     | 128Mb |
-|      *lite::tnn::cv::detection::YoloV5_V_6_0*       |     yolov5s6.640-640.v.6.0.opt.tnnproto&tnnmodel     |    [yolov5](https://github.com/ultralytics/yolov5)     | 50Mb  |
-|      *lite::tnn::cv::detection::YoloV5_V_6_0*       |     yolov5n6.640-640.v.6.0.opt.tnnproto&tnnmodel     |    [yolov5](https://github.com/ultralytics/yolov5)     | 14Mb  |
-|      *lite::tnn::cv::detection::YoloV5_V_6_0*       |    yolov5m6.1280-1280.v.6.0.opt.tnnproto&tnnmodel    |    [yolov5](https://github.com/ultralytics/yolov5)     | 128Mb |
-|      *lite::tnn::cv::detection::YoloV5_V_6_0*       |    yolov5s6.1280-1280.v.6.0.opt.tnnproto&tnnmodel    |    [yolov5](https://github.com/ultralytics/yolov5)     | 50Mb  |
-|      *lite::tnn::cv::detection::YoloV5_V_6_0*       |    yolov5n6.1280-1280.v.6.0.opt.tnnproto&tnnmodel    |    [yolov5](https://github.com/ultralytics/yolov5)     | 14Mb  |
-|       *lite::mnn::cv::detection::NanoDetPlus*       |       nanodet-plus-m_320.opt.tnnproto&tnnmodel       |     [nanodet](https://github.com/RangiLyu/nanodet)     | 4.5Mb |
-|       *lite::mnn::cv::detection::NanoDetPlus*       |       nanodet-plus-m_416.opt.tnnproto&tnnmodel       |     [nanodet](https://github.com/RangiLyu/nanodet)     | 4.5Mb |
-|       *lite::mnn::cv::detection::NanoDetPlus*       |    nanodet-plus-m-1.5x_320.opt.tnnproto&tnnmodel     |     [nanodet](https://github.com/RangiLyu/nanodet)     | 9.4Mb |
-|       *lite::mnn::cv::detection::NanoDetPlus*       |    nanodet-plus-m-1.5x_416.opt.tnnproto&tnnmodel     |     [nanodet](https://github.com/RangiLyu/nanodet)     | 9.4Mb |
+|                        Class                        |                 Pretrained TNN Files                 |               Rename or Converted From (Repo)                | Size  |
+|:---------------------------------------------------:|:----------------------------------------------------:|:------------------------------------------------------------:|:-----:|
+|         *lite::tnn::cv::detection::YoloV5*          |            yolov5l.opt.tnnproto&tnnmodel             |       [yolov5](https://github.com/ultralytics/yolov5)        | 188Mb |
+|         *lite::tnn::cv::detection::YoloV5*          |            yolov5m.opt.tnnproto&tnnmodel             |       [yolov5](https://github.com/ultralytics/yolov5)        | 85Mb  |
+|         *lite::tnn::cv::detection::YoloV5*          |            yolov5s.opt.tnnproto&tnnmodel             |       [yolov5](https://github.com/ultralytics/yolov5)        | 29Mb  |
+|         *lite::tnn::cv::detection::YoloV5*          |            yolov5x.opt.tnnproto&tnnmodel             |       [yolov5](https://github.com/ultralytics/yolov5)        | 351Mb |  
+|          *lite::tnn::cv::detection::YoloX*          |            yolox_x.opt.tnnproto&tnnmodel             |    [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)    | 378Mb |
+|          *lite::tnn::cv::detection::YoloX*          |            yolox_l.opt.tnnproto&tnnmodel             |    [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)    | 207Mb |
+|          *lite::tnn::cv::detection::YoloX*          |            yolox_m.opt.tnnproto&tnnmodel             |    [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)    | 97Mb  |
+|          *lite::tnn::cv::detection::YoloX*          |            yolox_s.opt.tnnproto&tnnmodel             |    [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)    | 34Mb  |
+|          *lite::tnn::cv::detection::YoloX*          |           yolox_tiny.opt.tnnproto&tnnmodel           |    [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)    | 19Mb  |
+|          *lite::tnn::cv::detection::YoloX*          |           yolox_nano.opt.tnnproto&tnnmodel           |    [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)    | 3.5Mb |
+|          *lite::tnn::cv::detection::YOLOP*          |         yolop-320-320.opt.tnnproto&tnnmodel          |           [YOLOP](https://github.com/hustvl/YOLOP)           | 30Mb  |
+|          *lite::tnn::cv::detection::YOLOP*          |         yolop-640-640.opt.tnnproto&tnnmodel          |           [YOLOP](https://github.com/hustvl/YOLOP)           | 30Mb  |
+|          *lite::tnn::cv::detection::YOLOP*          |        yolop-1280-1280.opt.tnnproto&tnnmodel         |           [YOLOP](https://github.com/hustvl/YOLOP)           | 30Mb  |
+|         *lite::tnn::cv::detection::NanoDet*         |         nanodet_m_0.5x.opt.tnnproto&tnnmodel         |        [nanodet](https://github.com/RangiLyu/nanodet)        | 1.1Mb |
+|         *lite::tnn::cv::detection::NanoDet*         |           nanodet_m.opt.tnnproto&tnnmodel            |        [nanodet](https://github.com/RangiLyu/nanodet)        | 3.6Mb |
+|         *lite::tnn::cv::detection::NanoDet*         |         nanodet_m_1.5x.opt.tnnproto&tnnmodel         |        [nanodet](https://github.com/RangiLyu/nanodet)        | 7.9Mb |
+|         *lite::tnn::cv::detection::NanoDet*         |       nanodet_m_1.5x_416.opt.tnnproto&tnnmodel       |        [nanodet](https://github.com/RangiLyu/nanodet)        | 7.9Mb |
+|         *lite::tnn::cv::detection::NanoDet*         |         nanodet_m_416.opt.tnnproto&tnnmodel          |        [nanodet](https://github.com/RangiLyu/nanodet)        | 3.6Mb |
+|         *lite::tnn::cv::detection::NanoDet*         |           nanodet_g.opt.tnnproto&tnnmodel            |        [nanodet](https://github.com/RangiLyu/nanodet)        | 14Mb  |
+|         *lite::tnn::cv::detection::NanoDet*         |           nanodet_t.opt.tnnproto&tnnmodel            |        [nanodet](https://github.com/RangiLyu/nanodet)        | 5.1Mb |
+|         *lite::tnn::cv::detection::NanoDet*         |     nanodet-RepVGG-A0_416.opt.tnnproto&tnnmodel      |        [nanodet](https://github.com/RangiLyu/nanodet)        | 26Mb  |
+| *lite::tnn::cv::detection::NanoDetEfficientNetLite* | nanodet-EfficientNet-Lite0_320.opt.tnnproto&tnnmodel |        [nanodet](https://github.com/RangiLyu/nanodet)        | 12Mb  |
+| *lite::tnn::cv::detection::NanoDetEfficientNetLite* | nanodet-EfficientNet-Lite1_416.opt.tnnproto&tnnmodel |        [nanodet](https://github.com/RangiLyu/nanodet)        | 15Mb  |
+| *lite::tnn::cv::detection::NanoDetEfficientNetLite* | nanodet-EfficientNet-Lite2_512.opt.tnnproto&tnnmodel |        [nanodet](https://github.com/RangiLyu/nanodet)        | 18Mb  |
+|      *lite::tnn::cv::detection::YoloX_V_0_1_1*      |         yolox_x_v0.1.1.opt.tnnproto&tnnmodel         |    [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)    | 378Mb |
+|      *lite::tnn::cv::detection::YoloX_V_0_1_1*      |         yolox_l_v0.1.1.opt.tnnproto&tnnmodel         |    [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)    | 207Mb |
+|      *lite::tnn::cv::detection::YoloX_V_0_1_1*      |         yolox_m_v0.1.1.opt.tnnproto&tnnmodel         |    [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)    | 97Mb  |
+|      *lite::tnn::cv::detection::YoloX_V_0_1_1*      |         yolox_s_v0.1.1.opt.tnnproto&tnnmodel         |    [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)    | 34Mb  |
+|      *lite::tnn::cv::detection::YoloX_V_0_1_1*      |       yolox_tiny_v0.1.1.opt.tnnproto&tnnmodel        |    [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)    | 19Mb  |
+|      *lite::tnn::cv::detection::YoloX_V_0_1_1*      |       yolox_nano_v0.1.1.opt.tnnproto&tnnmodel        |    [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)    | 3.5Mb |
+|          *lite::tnn::cv::detection::YoloR*          |        yolor-p6-320-320.opt.tnnproto&tnnmodel        |         [yolor](https://github.com/WongKinYiu/yolor)         | 157Mb |
+|          *lite::tnn::cv::detection::YoloR*          |        yolor-p6-640-640.opt.tnnproto&tnnmodel        |         [yolor](https://github.com/WongKinYiu/yolor)         | 157Mb |
+|          *lite::tnn::cv::detection::YoloR*          |     yolor-ssss-s2d-640-640.opt.tnnproto&tnnmodel     |         [yolor](https://github.com/WongKinYiu/yolor)         | 50Mb  |
+|      *lite::tnn::cv::detection::YoloV5_V_6_0*       |     yolov5m.640-640.v.6.0.opt.tnnproto&tnnmodel      |       [yolov5](https://github.com/ultralytics/yolov5)        | 81Mb  |
+|      *lite::tnn::cv::detection::YoloV5_V_6_0*       |     yolov5s.640-640.v.6.0.opt.tnnproto&tnnmodel      |       [yolov5](https://github.com/ultralytics/yolov5)        | 28Mb  |
+|      *lite::tnn::cv::detection::YoloV5_V_6_0*       |     yolov5n.640-640.v.6.0.opt.tnnproto&tnnmodel      |       [yolov5](https://github.com/ultralytics/yolov5)        | 7.5Mb |
+|      *lite::tnn::cv::detection::YoloV5_V_6_0*       |     yolov5m6.640-640.v.6.0.opt.tnnproto&tnnmodel     |       [yolov5](https://github.com/ultralytics/yolov5)        | 128Mb |
+|      *lite::tnn::cv::detection::YoloV5_V_6_0*       |     yolov5s6.640-640.v.6.0.opt.tnnproto&tnnmodel     |       [yolov5](https://github.com/ultralytics/yolov5)        | 50Mb  |
+|      *lite::tnn::cv::detection::YoloV5_V_6_0*       |     yolov5n6.640-640.v.6.0.opt.tnnproto&tnnmodel     |       [yolov5](https://github.com/ultralytics/yolov5)        | 14Mb  |
+|      *lite::tnn::cv::detection::YoloV5_V_6_0*       |    yolov5m6.1280-1280.v.6.0.opt.tnnproto&tnnmodel    |       [yolov5](https://github.com/ultralytics/yolov5)        | 128Mb |
+|      *lite::tnn::cv::detection::YoloV5_V_6_0*       |    yolov5s6.1280-1280.v.6.0.opt.tnnproto&tnnmodel    |       [yolov5](https://github.com/ultralytics/yolov5)        | 50Mb  |
+|      *lite::tnn::cv::detection::YoloV5_V_6_0*       |    yolov5n6.1280-1280.v.6.0.opt.tnnproto&tnnmodel    |       [yolov5](https://github.com/ultralytics/yolov5)        | 14Mb  |
+|       *lite::tnn::cv::detection::NanoDetPlus*       |       nanodet-plus-m_320.opt.tnnproto&tnnmodel       |        [nanodet](https://github.com/RangiLyu/nanodet)        | 4.5Mb |
+|       *lite::tnn::cv::detection::NanoDetPlus*       |       nanodet-plus-m_416.opt.tnnproto&tnnmodel       |        [nanodet](https://github.com/RangiLyu/nanodet)        | 4.5Mb |
+|       *lite::tnn::cv::detection::NanoDetPlus*       |    nanodet-plus-m-1.5x_320.opt.tnnproto&tnnmodel     |        [nanodet](https://github.com/RangiLyu/nanodet)        | 9.4Mb |
+|       *lite::tnn::cv::detection::NanoDetPlus*       |    nanodet-plus-m-1.5x_416.opt.tnnproto&tnnmodel     |        [nanodet](https://github.com/RangiLyu/nanodet)        | 9.4Mb |
+|        *lite::tnn::cv::detection::InsectDet*        |   quarrying_insect_detector.opt.tnnproto&tnnmodel    | [InsectID](https://github.com/quarrying/quarrying-insect-id) | 22Mb  |
 
 
 ## Matting.
 
 <div id="lite.ai.toolkit.hub.tnn-matting"></div>
 
-|                    Class                     |                   Pretrained TNN Files                   |                   Rename or Converted From (Repo)                    | Size  |
-|:--------------------------------------------:|:--------------------------------------------------------:|:--------------------------------------------------------------------:|:-----:|
-| *lite::tnn::cv::matting::RobustVideoMatting* |    rvm_mobilenetv3_fp32-480-480-sim.tnnproto&tnnmodel    | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 14Mb  |
-| *lite::tnn::cv::matting::RobustVideoMatting* |  rvm_mobilenetv3_fp32-480-480-sim.opt.tnnproto&tnnmodel  | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 14Mb  |
-| *lite::tnn::cv::matting::RobustVideoMatting* |  rvm_mobilenetv3_fp32-480-640-sim.opt.tnnproto&tnnmodel  | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 14Mb  |
-| *lite::tnn::cv::matting::RobustVideoMatting* |  rvm_mobilenetv3_fp32-640-480-sim.opt.tnnproto&tnnmodel  | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 14Mb  |
-| *lite::tnn::cv::matting::RobustVideoMatting* | rvm_mobilenetv3_fp32-1080-1920-sim.opt.tnnproto&tnnmodel | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 14Mb  |
-| *lite::tnn::cv::matting::RobustVideoMatting* |   rvm_resnet50_fp32-480-480-sim.opt.tnnproto&tnnmodel    | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 50Mb  |
-| *lite::tnn::cv::matting::RobustVideoMatting* |   rvm_resnet50_fp32-480-640-sim.opt.tnnproto&tnnmodel    | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 50Mb  |
-| *lite::tnn::cv::matting::RobustVideoMatting* |   rvm_resnet50_fp32-640-480-sim.opt.tnnproto&tnnmodel    | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 50Mb  |
-| *lite::tnn::cv::matting::RobustVideoMatting* |  rvm_resnet50_fp32-1080-1920-sim.opt.tnnproto&tnnmodel   | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 50Mb  |
-|     *lite::tnn::cv::matting::MGMatting*      |         MGMatting-DIM-100k.opt.tnnproto&tnnmodel         |         [MGMatting](https://github.com/yucornetto/MGMatting)         | 113Mb |
-|     *lite::tnn::cv::matting::MGMatting*      |         MGMatting-RWP-100k.opt.tnnproto&tnnmodel         |         [MGMatting](https://github.com/yucornetto/MGMatting)         | 113Mb |
+|                    Class                     |                       Pretrained TNN Files                       |                   Rename or Converted From (Repo)                    | Size  |
+|:--------------------------------------------:|:----------------------------------------------------------------:|:--------------------------------------------------------------------:|:-----:|
+| *lite::tnn::cv::matting::RobustVideoMatting* |        rvm_mobilenetv3_fp32-480-480-sim.tnnproto&tnnmodel        | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 14Mb  |
+| *lite::tnn::cv::matting::RobustVideoMatting* |      rvm_mobilenetv3_fp32-480-480-sim.opt.tnnproto&tnnmodel      | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 14Mb  |
+| *lite::tnn::cv::matting::RobustVideoMatting* |      rvm_mobilenetv3_fp32-480-640-sim.opt.tnnproto&tnnmodel      | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 14Mb  |
+| *lite::tnn::cv::matting::RobustVideoMatting* |      rvm_mobilenetv3_fp32-640-480-sim.opt.tnnproto&tnnmodel      | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 14Mb  |
+| *lite::tnn::cv::matting::RobustVideoMatting* |     rvm_mobilenetv3_fp32-1080-1920-sim.opt.tnnproto&tnnmodel     | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 14Mb  |
+| *lite::tnn::cv::matting::RobustVideoMatting* |       rvm_resnet50_fp32-480-480-sim.opt.tnnproto&tnnmodel        | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 50Mb  |
+| *lite::tnn::cv::matting::RobustVideoMatting* |       rvm_resnet50_fp32-480-640-sim.opt.tnnproto&tnnmodel        | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 50Mb  |
+| *lite::tnn::cv::matting::RobustVideoMatting* |       rvm_resnet50_fp32-640-480-sim.opt.tnnproto&tnnmodel        | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 50Mb  |
+| *lite::tnn::cv::matting::RobustVideoMatting* |      rvm_resnet50_fp32-1080-1920-sim.opt.tnnproto&tnnmodel       | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 50Mb  |
+|     *lite::tnn::cv::matting::MGMatting*      |             MGMatting-DIM-100k.opt.tnnproto&tnnmodel             |         [MGMatting](https://github.com/yucornetto/MGMatting)         | 113Mb |
+|     *lite::tnn::cv::matting::MGMatting*      |             MGMatting-RWP-100k.opt.tnnproto&tnnmodel             |         [MGMatting](https://github.com/yucornetto/MGMatting)         | 113Mb |
+|       *lite::tnn::cv::matting::MODNet*       | modnet_photographic_portrait_matting-1024x1024.tnnproto&tnnmodel |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::tnn::cv::matting::MODNet*       | modnet_photographic_portrait_matting-1024x512.tnnproto&tnnmodel  |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::tnn::cv::matting::MODNet*       |  modnet_photographic_portrait_matting-256x256.tnnproto&tnnmodel  |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::tnn::cv::matting::MODNet*       |  modnet_photographic_portrait_matting-256x512.tnnproto&tnnmodel  |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::tnn::cv::matting::MODNet*       | modnet_photographic_portrait_matting-512x1024.tnnproto&tnnmodel  |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::tnn::cv::matting::MODNet*       |  modnet_photographic_portrait_matting-512x256.tnnproto&tnnmodel  |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::tnn::cv::matting::MODNet*       |  modnet_photographic_portrait_matting-512x512.tnnproto&tnnmodel  |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::tnn::cv::matting::MODNet*       |    modnet_webcam_portrait_matting-1024x1024.tnnproto&tnnmodel    |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::tnn::cv::matting::MODNet*       |    modnet_webcam_portrait_matting-1024x512.tnnproto&tnnmodel     |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::tnn::cv::matting::MODNet*       |     modnet_webcam_portrait_matting-256x256.tnnproto&tnnmodel     |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::tnn::cv::matting::MODNet*       |     modnet_webcam_portrait_matting-256x512.tnnproto&tnnmodel     |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::tnn::cv::matting::MODNet*       |    modnet_webcam_portrait_matting-512x1024.tnnproto&tnnmodel     |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::tnn::cv::matting::MODNet*       |     modnet_webcam_portrait_matting-512x256.tnnproto&tnnmodel     |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::tnn::cv::matting::MODNet*       |     modnet_webcam_portrait_matting-512x512.tnnproto&tnnmodel     |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
 
 ## Face Recognition.
 
@@ -210,17 +225,19 @@ You can download all the pretrained models files of TNN format from ([Baidu Driv
 <div id="lite.ai.toolkit.hub.tnn-classification"></div>
 
 
-|                       Class                       |            Pretrained TNN Files             |         Rename or Converted From (Repo)          | Size  |
-|:-------------------------------------------------:|:-------------------------------------------:|:------------------------------------------------:|:-----:|
-| *lite::tnn::cv::classification:EfficientNetLite4* | efficientnet-lite4-11.opt.tnnproto&tnnmodel |  [onnx-models](https://github.com/onnx/models)   | 49Mb  |
-|   *lite::tnn::cv::classification::ShuffleNetV2*   |   shufflenet-v2-10.opt.tnnproto&tnnmodel    |  [onnx-models](https://github.com/onnx/models)   | 8.7Mb |
-|   *lite::tnn::cv::classification::DenseNet121*    |      densenet121.opt.tnnproto&tnnmodel      | [torchvision](https://github.com/pytorch/vision) | 30Mb  |
-|     *lite::tnn::cv::classification::GhostNet*     |       ghostnet.opt.tnnproto&tnnmodel        | [torchvision](https://github.com/pytorch/vision) | 20Mb  |
-|     *lite::tnn::cv::classification::HdrDNet*      |        hardnet.opt.tnnproto&tnnmodel        | [torchvision](https://github.com/pytorch/vision) | 13Mb  |
-|      *lite::tnn::cv::classification::IBNNet*      |       ibnnet18.opt.tnnproto&tnnmodel        | [torchvision](https://github.com/pytorch/vision) | 97Mb  |
-|   *lite::tnn::cv::classification::MobileNetV2*    |      mobilenetv2.opt.tnnproto&tnnmodel      | [torchvision](https://github.com/pytorch/vision) | 13Mb  |
-|      *lite::tnn::cv::classification::ResNet*      |       resnet18.opt.tnnproto&tnnmodel        | [torchvision](https://github.com/pytorch/vision) | 44Mb  |
-|     *lite::tnn::cv::classification::ResNeXt*      |        resnext.opt.tnnproto&tnnmodel        | [torchvision](https://github.com/pytorch/vision) | 95Mb  |
+|                       Class                       |               Pretrained TNN Files                |               Rename or Converted From (Repo)                | Size  |
+|:-------------------------------------------------:|:-------------------------------------------------:|:------------------------------------------------------------:|:-----:|
+| *lite::tnn::cv::classification:EfficientNetLite4* |    efficientnet-lite4-11.opt.tnnproto&tnnmodel    |        [onnx-models](https://github.com/onnx/models)         | 49Mb  |
+|   *lite::tnn::cv::classification::ShuffleNetV2*   |      shufflenet-v2-10.opt.tnnproto&tnnmodel       |        [onnx-models](https://github.com/onnx/models)         | 8.7Mb |
+|   *lite::tnn::cv::classification::DenseNet121*    |         densenet121.opt.tnnproto&tnnmodel         |       [torchvision](https://github.com/pytorch/vision)       | 30Mb  |
+|     *lite::tnn::cv::classification::GhostNet*     |          ghostnet.opt.tnnproto&tnnmodel           |       [torchvision](https://github.com/pytorch/vision)       | 20Mb  |
+|     *lite::tnn::cv::classification::HdrDNet*      |           hardnet.opt.tnnproto&tnnmodel           |       [torchvision](https://github.com/pytorch/vision)       | 13Mb  |
+|      *lite::tnn::cv::classification::IBNNet*      |          ibnnet18.opt.tnnproto&tnnmodel           |       [torchvision](https://github.com/pytorch/vision)       | 97Mb  |
+|   *lite::tnn::cv::classification::MobileNetV2*    |         mobilenetv2.opt.tnnproto&tnnmodel         |       [torchvision](https://github.com/pytorch/vision)       | 13Mb  |
+|      *lite::tnn::cv::classification::ResNet*      |          resnet18.opt.tnnproto&tnnmodel           |       [torchvision](https://github.com/pytorch/vision)       | 44Mb  |
+|     *lite::tnn::cv::classification::ResNeXt*      |           resnext.opt.tnnproto&tnnmodel           |       [torchvision](https://github.com/pytorch/vision)       | 95Mb  |
+|     *lite::tnn::cv::classification::InsectID*     | quarrying_insect_identifier.opt.tnnproto&tnnmodel | [InsectID](https://github.com/quarrying/quarrying-insect-id) | 27Mb  |
+|      *lite::tnn::cv::classification:PlantID*      |   quarrying_planted_model.opt.tnnproto&tnnmodel   |  [PlantID](https://github.com/quarrying/quarrying-plant-id)  | 30Mb  |
 
 
 ## Segmentation.

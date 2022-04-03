@@ -205,16 +205,18 @@ You can download all the pretrained models files of NCNN format from ([Baidu Dri
 <div id="lite.ai.toolkit.hub.ncnn-classification"></div>
 
 
-|                     Class                      |     Pretrained NCNN Files      |         Rename or Converted From (Repo)          | Size  |
-|:----------------------------------------------:|:------------------------------:|:------------------------------------------------:|:-----:|
-| *lite::ncnn::cv::classification::ShuffleNetV2* | shufflenet-v2-10.opt.param&bin |  [onnx-models](https://github.com/onnx/models)   | 8.7Mb |
-| *lite::ncnn::cv::classification::DenseNet121*  |   densenet121.opt.param&bin    | [torchvision](https://github.com/pytorch/vision) | 30Mb  |
-|   *lite::ncnn::cv::classification::GhostNet*   |     ghostnet.opt.param&bin     | [torchvision](https://github.com/pytorch/vision) | 20Mb  |
-|   *lite::ncnn::cv::classification::HdrDNet*    |     hardnet.opt.param&bin      | [torchvision](https://github.com/pytorch/vision) | 13Mb  |
-|    *lite::ncnn::cv::classification::IBNNet*    |     ibnnet18.opt.param&bin     | [torchvision](https://github.com/pytorch/vision) | 97Mb  |
-| *lite::ncnn::cv::classification::MobileNetV2*  |   mobilenetv2.opt.param&bin    | [torchvision](https://github.com/pytorch/vision) | 13Mb  |
-|    *lite::ncnn::cv::classification::ResNet*    |     resnet18.opt.param&bin     | [torchvision](https://github.com/pytorch/vision) | 44Mb  |
-|   *lite::ncnn::cv::classification::ResNeXt*    |     resnext.opt.param&bin      | [torchvision](https://github.com/pytorch/vision) | 95Mb  |
+|                     Class                      |           Pretrained NCNN Files           |               Rename or Converted From (Repo)                | Size  |
+|:----------------------------------------------:|:-----------------------------------------:|:------------------------------------------------------------:|:-----:|
+| *lite::ncnn::cv::classification::ShuffleNetV2* |      shufflenet-v2-10.opt.param&bin       |        [onnx-models](https://github.com/onnx/models)         | 8.7Mb |
+| *lite::ncnn::cv::classification::DenseNet121*  |         densenet121.opt.param&bin         |       [torchvision](https://github.com/pytorch/vision)       | 30Mb  |
+|   *lite::ncnn::cv::classification::GhostNet*   |          ghostnet.opt.param&bin           |       [torchvision](https://github.com/pytorch/vision)       | 20Mb  |
+|   *lite::ncnn::cv::classification::HdrDNet*    |           hardnet.opt.param&bin           |       [torchvision](https://github.com/pytorch/vision)       | 13Mb  |
+|    *lite::ncnn::cv::classification::IBNNet*    |          ibnnet18.opt.param&bin           |       [torchvision](https://github.com/pytorch/vision)       | 97Mb  |
+| *lite::ncnn::cv::classification::MobileNetV2*  |         mobilenetv2.opt.param&bin         |       [torchvision](https://github.com/pytorch/vision)       | 13Mb  |
+|    *lite::ncnn::cv::classification::ResNet*    |          resnet18.opt.param&bin           |       [torchvision](https://github.com/pytorch/vision)       | 44Mb  |
+|   *lite::ncnn::cv::classification::ResNeXt*    |           resnext.opt.param&bin           |       [torchvision](https://github.com/pytorch/vision)       | 95Mb  |
+|   *lite::ncnn::cv::classification::InsectID*   | quarrying_insect_identifier.opt.param&bin | [InsectID](https://github.com/quarrying/quarrying-insect-id) | 27Mb  |
+|    *lite::ncnn::cv::classification:PlantID*    |   quarrying_plantid_model.opt.param&bin   |  [PlantID](https://github.com/quarrying/quarrying-plant-id)  | 30Mb  |
 
 ## Segmentation.
 
@@ -231,16 +233,30 @@ You can download all the pretrained models files of NCNN format from ([Baidu Dri
 
 <div id="lite.ai.toolkit.hub.ncnn-style-transfer"></div>  
 
-|                   Class                    |        Pretrained NCNN Files        |        Rename or Converted From (Repo)        | Size  |
-|:------------------------------------------:|:-----------------------------------:|:---------------------------------------------:|:-----:|
-| *lite::ncnn::cv::style::FastStyleTransfer* |    style-mosaic-8.opt.param&bin     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
-| *lite::ncnn::cv::style::FastStyleTransfer* |     style-candy-9.opt.param&bin     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
-| *lite::ncnn::cv::style::FastStyleTransfer* |     style-udnie-8.opt.param&bin     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
-| *lite::ncnn::cv::style::FastStyleTransfer* |     style-udnie-9.opt.param&bin     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
-| *lite::ncnn::cv::style::FastStyleTransfer* |  style-pointilism-8.opt.param&bin   | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
-| *lite::ncnn::cv::style::FastStyleTransfer* |  style-pointilism-9.opt.param&bin   | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
-| *lite::ncnn::cv::style::FastStyleTransfer* | style-rain-princess-9.opt.param&bin | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
-| *lite::ncnn::cv::style::FastStyleTransfer* | style-rain-princess-8.opt.param&bin | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
-| *lite::ncnn::cv::style::FastStyleTransfer* |     style-candy-8.opt.param&bin     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
-| *lite::ncnn::cv::style::FastStyleTransfer* |    style-mosaic-9.opt.param&bin     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+|                   Class                    |                    Pretrained NCNN Files                     |        Rename or Converted From (Repo)        | Size  |
+|:------------------------------------------:|:------------------------------------------------------------:|:---------------------------------------------:|:-----:|
+| *lite::ncnn::cv::style::FastStyleTransfer* |                 style-mosaic-8.opt.param&bin                 | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::ncnn::cv::style::FastStyleTransfer* |                 style-candy-9.opt.param&bin                  | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::ncnn::cv::style::FastStyleTransfer* |                 style-udnie-8.opt.param&bin                  | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::ncnn::cv::style::FastStyleTransfer* |                 style-udnie-9.opt.param&bin                  | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::ncnn::cv::style::FastStyleTransfer* |               style-pointilism-8.opt.param&bin               | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::ncnn::cv::style::FastStyleTransfer* |               style-pointilism-9.opt.param&bin               | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::ncnn::cv::style::FastStyleTransfer* |             style-rain-princess-9.opt.param&bin              | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::ncnn::cv::style::FastStyleTransfer* |             style-rain-princess-8.opt.param&bin              | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::ncnn::cv::style::FastStyleTransfer* |                 style-candy-8.opt.param&bin                  | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+| *lite::ncnn::cv::style::FastStyleTransfer* |                 style-mosaic-9.opt.param&bin                 | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+|     *lite::ncnn::cv::matting::MODNet*      | modnet_photographic_portrait_matting-1024x1024.opt.param&bin |  [MODNet](https://github.com/ZHKKKe/MODNet)   | 24Mb  |
+|     *lite::ncnn::cv::matting::MODNet*      | modnet_photographic_portrait_matting-1024x512.opt.param&bin  |  [MODNet](https://github.com/ZHKKKe/MODNet)   | 24Mb  |
+|     *lite::ncnn::cv::matting::MODNet*      |  modnet_photographic_portrait_matting-256x256.opt.param&bin  |  [MODNet](https://github.com/ZHKKKe/MODNet)   | 24Mb  |
+|     *lite::ncnn::cv::matting::MODNet*      |  modnet_photographic_portrait_matting-256x512.opt.param&bin  |  [MODNet](https://github.com/ZHKKKe/MODNet)   | 24Mb  |
+|     *lite::ncnn::cv::matting::MODNet*      | modnet_photographic_portrait_matting-512x1024.opt.param&bin  |  [MODNet](https://github.com/ZHKKKe/MODNet)   | 24Mb  |
+|     *lite::ncnn::cv::matting::MODNet*      |  modnet_photographic_portrait_matting-512x256.opt.param&bin  |  [MODNet](https://github.com/ZHKKKe/MODNet)   | 24Mb  |
+|     *lite::ncnn::cv::matting::MODNet*      |  modnet_photographic_portrait_matting-512x512.opt.param&bin  |  [MODNet](https://github.com/ZHKKKe/MODNet)   | 24Mb  |
+|     *lite::ncnn::cv::matting::MODNet*      |    modnet_webcam_portrait_matting-1024x1024.opt.param&bin    |  [MODNet](https://github.com/ZHKKKe/MODNet)   | 24Mb  |
+|     *lite::ncnn::cv::matting::MODNet*      |    modnet_webcam_portrait_matting-1024x512.opt.param&bin     |  [MODNet](https://github.com/ZHKKKe/MODNet)   | 24Mb  |
+|     *lite::ncnn::cv::matting::MODNet*      |     modnet_webcam_portrait_matting-256x256.opt.param&bin     |  [MODNet](https://github.com/ZHKKKe/MODNet)   | 24Mb  |
+|     *lite::ncnn::cv::matting::MODNet*      |     modnet_webcam_portrait_matting-256x512.opt.param&bin     |  [MODNet](https://github.com/ZHKKKe/MODNet)   | 24Mb  |
+|     *lite::ncnn::cv::matting::MODNet*      |    modnet_webcam_portrait_matting-512x1024.opt.param&bin     |  [MODNet](https://github.com/ZHKKKe/MODNet)   | 24Mb  |
+|     *lite::ncnn::cv::matting::MODNet*      |     modnet_webcam_portrait_matting-512x256.opt.param&bin     |  [MODNet](https://github.com/ZHKKKe/MODNet)   | 24Mb  |
+|     *lite::ncnn::cv::matting::MODNet*      |     modnet_webcam_portrait_matting-512x512.opt.param&bin     |  [MODNet](https://github.com/ZHKKKe/MODNet)   | 24Mb  |
 

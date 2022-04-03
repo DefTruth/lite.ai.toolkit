@@ -135,23 +135,26 @@ You can download all the pretrained models files of ONNX format from ([Baidu Dri
 |       *lite::cv::detection::NanoDetPlus*       |        nanodet-plus-m_416.onnx         |                  [nanodet](https://github.com/RangiLyu/nanodet)                   | 4.5Mb |
 |       *lite::cv::detection::NanoDetPlus*       |      nanodet-plus-m-1.5x_320.onnx      |                  [nanodet](https://github.com/RangiLyu/nanodet)                   | 9.4Mb |
 |       *lite::cv::detection::NanoDetPlus*       |      nanodet-plus-m-1.5x_416.onnx      |                  [nanodet](https://github.com/RangiLyu/nanodet)                   | 9.4Mb |
+|        *lite::cv::detection::InsectDet*        |     quarrying_insect_detector.onnx     |           [InsectID](https://github.com/quarrying/quarrying-insect-id)            | 22Mb  |
 
 ## Classification.  
 
 <div id="lite.ai.toolkit.hub.onnx-classification"></div>
 
 
-|                    Class                     |   Pretrained ONNX Files    |         Rename or Converted From (Repo)          | Size  |
-|:--------------------------------------------:|:--------------------------:|:------------------------------------------------:|:-----:|
-| *lite::cv::classification:EfficientNetLite4* | efficientnet-lite4-11.onnx |  [onnx-models](https://github.com/onnx/models)   | 49Mb  |
-|   *lite::cv::classification::ShuffleNetV2*   |   shufflenet-v2-10.onnx    |  [onnx-models](https://github.com/onnx/models)   | 8.7Mb |
-|   *lite::cv::classification::DenseNet121*    |      densenet121.onnx      | [torchvision](https://github.com/pytorch/vision) | 30Mb  |
-|     *lite::cv::classification::GhostNet*     |       ghostnet.onnx        | [torchvision](https://github.com/pytorch/vision) | 20Mb  |
-|     *lite::cv::classification::HdrDNet*      |        hardnet.onnx        | [torchvision](https://github.com/pytorch/vision) | 13Mb  |
-|      *lite::cv::classification::IBNNet*      |       ibnnet18.onnx        | [torchvision](https://github.com/pytorch/vision) | 97Mb  |
-|   *lite::cv::classification::MobileNetV2*    |      mobilenetv2.onnx      | [torchvision](https://github.com/pytorch/vision) | 13Mb  |
-|      *lite::cv::classification::ResNet*      |       resnet18.onnx        | [torchvision](https://github.com/pytorch/vision) | 44Mb  |
-|     *lite::cv::classification::ResNeXt*      |        resnext.onnx        | [torchvision](https://github.com/pytorch/vision) | 95Mb  |
+|                    Class                     |      Pretrained ONNX Files       |               Rename or Converted From (Repo)                | Size  |
+|:--------------------------------------------:|:--------------------------------:|:------------------------------------------------------------:|:-----:|
+| *lite::cv::classification:EfficientNetLite4* |    efficientnet-lite4-11.onnx    |        [onnx-models](https://github.com/onnx/models)         | 49Mb  |
+|   *lite::cv::classification::ShuffleNetV2*   |      shufflenet-v2-10.onnx       |        [onnx-models](https://github.com/onnx/models)         | 8.7Mb |
+|   *lite::cv::classification::DenseNet121*    |         densenet121.onnx         |       [torchvision](https://github.com/pytorch/vision)       | 30Mb  |
+|     *lite::cv::classification::GhostNet*     |          ghostnet.onnx           |       [torchvision](https://github.com/pytorch/vision)       | 20Mb  |
+|     *lite::cv::classification::HdrDNet*      |           hardnet.onnx           |       [torchvision](https://github.com/pytorch/vision)       | 13Mb  |
+|      *lite::cv::classification::IBNNet*      |          ibnnet18.onnx           |       [torchvision](https://github.com/pytorch/vision)       | 97Mb  |
+|   *lite::cv::classification::MobileNetV2*    |         mobilenetv2.onnx         |       [torchvision](https://github.com/pytorch/vision)       | 13Mb  |
+|      *lite::cv::classification::ResNet*      |          resnet18.onnx           |       [torchvision](https://github.com/pytorch/vision)       | 44Mb  |
+|     *lite::cv::classification::ResNeXt*      |           resnext.onnx           |       [torchvision](https://github.com/pytorch/vision)       | 95Mb  |
+|     *lite::cv::classification::InsectID*     | quarrying_insect_identifier.onnx | [InsectID](https://github.com/quarrying/quarrying-insect-id) | 27Mb  |
+|      *lite::cv::classification:PlantID*      |   quarrying_plantid_model.onnx   |  [PlantID](https://github.com/quarrying/quarrying-plant-id)  | 30Mb  |
 
 
 ## Face Detection.
@@ -350,11 +353,27 @@ You can download all the pretrained models files of ONNX format from ([Baidu Dri
 
 <div id="lite.ai.toolkit.hub.onnx-matting"></div>
 
-|                  Class                  |   Pretrained ONNX Files   |                   Rename or Converted From (Repo)                    | Size  |
-|:---------------------------------------:|:-------------------------:|:--------------------------------------------------------------------:|:-----:|
-| *lite::cv::matting::RobustVideoMatting* | rvm_mobilenetv3_fp32.onnx | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 14Mb  |
-| *lite::cv::matting::RobustVideoMatting* | rvm_mobilenetv3_fp16.onnx | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 7.2Mb |
-| *lite::cv::matting::RobustVideoMatting* |  rvm_resnet50_fp32.onnx   | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 50Mb  |
-| *lite::cv::matting::RobustVideoMatting* |  rvm_resnet50_fp16.onnx   | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 100Mb |
-|     *lite::cv::matting::MGMatting*      |  MGMatting-DIM-100k.onnx  |         [MGMatting](https://github.com/yucornetto/MGMatting)         | 113Mb |
-|     *lite::cv::matting::MGMatting*      |  MGMatting-RWP-100k.onnx  |         [MGMatting](https://github.com/yucornetto/MGMatting)         | 113Mb |
+|                  Class                  |                Pretrained ONNX Files                |                   Rename or Converted From (Repo)                    | Size  |
+|:---------------------------------------:|:---------------------------------------------------:|:--------------------------------------------------------------------:|:-----:|
+| *lite::cv::matting::RobustVideoMatting* |              rvm_mobilenetv3_fp32.onnx              | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 14Mb  |
+| *lite::cv::matting::RobustVideoMatting* |              rvm_mobilenetv3_fp16.onnx              | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 7.2Mb |
+| *lite::cv::matting::RobustVideoMatting* |               rvm_resnet50_fp32.onnx                | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 50Mb  |
+| *lite::cv::matting::RobustVideoMatting* |               rvm_resnet50_fp16.onnx                | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 100Mb |
+|     *lite::cv::matting::MGMatting*      |               MGMatting-DIM-100k.onnx               |         [MGMatting](https://github.com/yucornetto/MGMatting)         | 113Mb |
+|     *lite::cv::matting::MGMatting*      |               MGMatting-RWP-100k.onnx               |         [MGMatting](https://github.com/yucornetto/MGMatting)         | 113Mb |
+|       *lite::cv::matting::MODNet*       | modnet_photographic_portrait_matting-1024x1024.onnx |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::cv::matting::MODNet*       | modnet_photographic_portrait_matting-1024x512.onnx  |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::cv::matting::MODNet*       |  modnet_photographic_portrait_matting-256x256.onnx  |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::cv::matting::MODNet*       |  modnet_photographic_portrait_matting-256x512.onnx  |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::cv::matting::MODNet*       | modnet_photographic_portrait_matting-512x1024.onnx  |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::cv::matting::MODNet*       |  modnet_photographic_portrait_matting-512x256.onnx  |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::cv::matting::MODNet*       |  modnet_photographic_portrait_matting-512x512.onnx  |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::cv::matting::MODNet*       |    modnet_webcam_portrait_matting-1024x1024.onnx    |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::cv::matting::MODNet*       |    modnet_webcam_portrait_matting-1024x512.onnx     |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::cv::matting::MODNet*       |     modnet_webcam_portrait_matting-256x256.onnx     |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::cv::matting::MODNet*       |     modnet_webcam_portrait_matting-256x512.onnx     |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::cv::matting::MODNet*       |    modnet_webcam_portrait_matting-512x1024.onnx     |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::cv::matting::MODNet*       |     modnet_webcam_portrait_matting-512x256.onnx     |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::cv::matting::MODNet*       |     modnet_webcam_portrait_matting-512x512.onnx     |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|     *lite::cv::matting::MODNetDyn*      |      modnet_photographic_portrait_matting.onnx      |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|     *lite::cv::matting::MODNetDyn*      |         modnet_webcam_portrait_matting.onnx         |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |

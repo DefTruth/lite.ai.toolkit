@@ -139,8 +139,12 @@ static void test_default()
 ## 2. 重要更新 🆕
 <div id="lite.ai.toolkit-Important-Updates"></div>
 
+<details> 
+<summary> Click here to see details of Important Updates! </summary>
+
 |     Date     |                                        Model                                         |                                                    C++                                                    |                         Paper                         |                                      Code                                       |                                        Awesome                                        |     Type     | 
 |:------------:|:------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------:|:-------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------:|:------------:|  
+| 【2022/04/03】 |                      [MODNet](https://github.com/ZHKKKe/MODNet)                      |    [link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_modnet.cpp)    |   [AAAI 2022](https://arxiv.org/pdf/2011.11961.pdf)   |                    [code](https://github.com/ZHKKKe/MODNet)                     |        ![](https://img.shields.io/github/stars/ZHKKKe/MODNet.svg?style=social)        |   matting    |
 | 【2022/03/23】 |                   [PIPNtet](https://github.com/jhb86253817/PIPNet)                   |   [link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_pipnet98.cpp)   |     [CVPR 2021](https://arxiv.org/abs/2003.03771)     |                  [code](https://github.com/jhb86253817/PIPNet)                  |     ![](https://img.shields.io/github/stars/jhb86253817/PIPNet.svg?style=social)      | face::align  |
 | 【2022/01/19】 |                [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)                |  [link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolo5face.cpp)   |    [arXiv 2021](https://arxiv.org/abs/2105.12931)     |                [code](https://github.com/deepcam-cn/yolov5-face)                |   ![](https://img.shields.io/github/stars/deepcam-cn/yolov5-face.svg?style=social)    | face::detect |
 | 【2022/01/07】 |   [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd/)   |    [link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_scrfd.cpp)     |     [CVPR 2021](https://arxiv.org/abs/2105.04714)     | [code](https://github.com/deepinsight/insightface/blob/master/detection/scrfd/) |   ![](https://img.shields.io/github/stars/deepinsight/insightface.svg?style=social)   | face::detect |
@@ -155,6 +159,8 @@ static void test_default()
 <!---
 ![](docs/resources/scrfd-mgmatting-nanodetplus.jpg)
 --->
+
+</details>
 
 ## 3. 模型支持矩阵
 <div id="lite.ai.toolkit-Supported-Models-Matrix"></div>
@@ -204,6 +210,8 @@ static void test_default()
 |                    [MobileSEFocalFace](https://github.com/grib0ed0v/face_recognition.pytorch)                     | 4.5M  |     *faceid*     |    [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mobilese_focal_face.cpp)    |      ✅      |  ✅  |  ✅   |  ✅  |   ✅   |  ✔️   |   ✔️    |    ❔    |
 |                       [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)                        |  14M  |    *matting*     |            [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_rvm.cpp)            |      ✅      |  ✅  |  /   |  ✅  |   ✅   |  ✔️   |   ✔️    |    ❔    |
 |                               [MGMatting](https://github.com/yucornetto/MGMatting)                                | 113M  |    *matting*     |        [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mg_matting.cpp)         |      ✅      |  ✅  |  /   |  ✅  |   ✅   |  ✔️   |   ✔️    |    /    |
+|                                    [MODNet](https://github.com/ZHKKKe/MODNet)                                     |  24M  |    *matting*     |          [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_modnet.cpp)           |      ✅      |  ✅  |  ✅   |  ✅  |   ✅   |  ✔️   |   ✔️    |    /    |
+|                                   [MODNetDyn](https://github.com/ZHKKKe/MODNet)                                   |  24M  |    *matting*     |        [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_modnet_dyn.cpp)         |      ✅      |  /  |  /   |  /  |   ✅   |  ✔️   |   ✔️    |    /    |
 |                [UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB)                 | 1.1M  |  *face::detect*  |         [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_ultraface.cpp)         |      ✅      |  ✅  |  ✅   |  ✅  |   ✅   |  ✔️   |   ✔️    |    ❔    |
 |                            [RetinaFace](https://github.com/biubug6/Pytorch_Retinaface)                            | 1.6M  |  *face::detect*  |        [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_retinaface.cpp)         |      ✅      |  ✅  |  ✅   |  ✅  |   ✅   |  ✔️   |   ✔️    |    ❔    |
 |                             [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)                             | 3.8M  |  *face::detect*  |         [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_faceboxes.cpp)         |      ✅      |  ✅  |  ✅   |  ✅  |   ✅   |  ✔️   |   ✔️    |    ❔    |
@@ -245,7 +253,10 @@ static void test_default()
 |      [FastStyleTransfer](https://github.com/onnx/models/blob/master/vision/style_transfer/fast_neural_style)      | 6.4M  |     *style*      |    [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_fast_style_transfer.cpp)    |      ✅      |  ✅  |  ✅   |  ✅  |   ✅   |  ✔️   |   ✔️    |    ❔    |
 |                              [Colorizer](https://github.com/richzhang/colorization)                               | 123M  |  *colorization*  |         [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_colorizer.cpp)         |      ✅      |  ✅  |  /   |  ✅  |   ✅   |  ✔️   |   ✔️    |    /    |
 |                             [SubPixelCNN](https://github.com/niazwazir/SUB_PIXEL_CNN)                             | 234K  |   *resolution*   |       [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_subpixel_cnn.cpp)        |      ✅      |  ✅  |  /   |  ✅  |   ✅   |  ✔️   |   ✔️    |    ❔    |
-
+|                             [SubPixelCNN](https://github.com/niazwazir/SUB_PIXEL_CNN)                             | 234K  |   *resolution*   |       [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_subpixel_cnn.cpp)        |      ✅      |  ✅  |  /   |  ✅  |   ✅   |  ✔️   |   ✔️    |    ❔    |
+|                           [InsectDet](https://github.com/quarrying/quarrying-insect-id)                           |  27M  |   *detection*    |         [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_insectdet.cpp)         |      ✅      |  ✅  |  /   |  ✅  |   ✅   |  ✔️   |   ✔️    |    ❔    |
+|                           [InsectID](https://github.com/quarrying/quarrying-insect-id)                            |  22M  | *classification* |         [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_insectid.cpp)          |      ✅      |  ✅  |  ✅   |     |   ✅   |   ✅   |   ✔️    |   ✔️    |    ❔    |
+|                            [PlantID](https://github.com/quarrying/quarrying-plant-id)                             |  30M  | *classification* |          [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_plantid.cpp)          |      ✅      |  ✅  |  ✅   |     |   ✅   |   ✅   |   ✔️    |   ✔️    |    ❔    |
 
 
 ## 4. 编译文档
@@ -544,9 +555,10 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
 
 </details>
 
-### ONNX Model Hub
+### Model Hubs
 lite.ai.toolkit提供大量的预训练模型的ONNX文件. 同时, 更多的模型权重文件详见 [Model Zoo](#lite.ai.toolkit-Model-Zoo) and [ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md), [MNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md), [TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md), [NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md).
-
+<details>
+<summary> 🔑️ ONNX Model Hub </summary>
 #### Object Detection.
 
 <div id="lite.ai.toolkit.hub.onnx-object-detection"></div>
@@ -650,23 +662,26 @@ lite.ai.toolkit提供大量的预训练模型的ONNX文件. 同时, 更多的模
 |       *lite::cv::detection::NanoDetPlus*       |        nanodet-plus-m_416.onnx         |                  [nanodet](https://github.com/RangiLyu/nanodet)                   | 4.5Mb |
 |       *lite::cv::detection::NanoDetPlus*       |      nanodet-plus-m-1.5x_320.onnx      |                  [nanodet](https://github.com/RangiLyu/nanodet)                   | 9.4Mb |
 |       *lite::cv::detection::NanoDetPlus*       |      nanodet-plus-m-1.5x_416.onnx      |                  [nanodet](https://github.com/RangiLyu/nanodet)                   | 9.4Mb |
+|        *lite::cv::detection::InsectDet*        |     quarrying_insect_detector.onnx     |           [InsectID](https://github.com/quarrying/quarrying-insect-id)            | 22Mb  |
 
 #### Classification.
 
 <div id="lite.ai.toolkit.hub.onnx-classification"></div>
 
 
-|                    Class                     |   Pretrained ONNX Files    |         Rename or Converted From (Repo)          | Size  |
-|:--------------------------------------------:|:--------------------------:|:------------------------------------------------:|:-----:|
-| *lite::cv::classification:EfficientNetLite4* | efficientnet-lite4-11.onnx |  [onnx-models](https://github.com/onnx/models)   | 49Mb  |
-|   *lite::cv::classification::ShuffleNetV2*   |   shufflenet-v2-10.onnx    |  [onnx-models](https://github.com/onnx/models)   | 8.7Mb |
-|   *lite::cv::classification::DenseNet121*    |      densenet121.onnx      | [torchvision](https://github.com/pytorch/vision) | 30Mb  |
-|     *lite::cv::classification::GhostNet*     |       ghostnet.onnx        | [torchvision](https://github.com/pytorch/vision) | 20Mb  |
-|     *lite::cv::classification::HdrDNet*      |        hardnet.onnx        | [torchvision](https://github.com/pytorch/vision) | 13Mb  |
-|      *lite::cv::classification::IBNNet*      |       ibnnet18.onnx        | [torchvision](https://github.com/pytorch/vision) | 97Mb  |
-|   *lite::cv::classification::MobileNetV2*    |      mobilenetv2.onnx      | [torchvision](https://github.com/pytorch/vision) | 13Mb  |
-|      *lite::cv::classification::ResNet*      |       resnet18.onnx        | [torchvision](https://github.com/pytorch/vision) | 44Mb  |
-|     *lite::cv::classification::ResNeXt*      |        resnext.onnx        | [torchvision](https://github.com/pytorch/vision) | 95Mb  |
+|                    Class                     |      Pretrained ONNX Files       |               Rename or Converted From (Repo)                | Size  |
+|:--------------------------------------------:|:--------------------------------:|:------------------------------------------------------------:|:-----:|
+| *lite::cv::classification:EfficientNetLite4* |    efficientnet-lite4-11.onnx    |        [onnx-models](https://github.com/onnx/models)         | 49Mb  |
+|   *lite::cv::classification::ShuffleNetV2*   |      shufflenet-v2-10.onnx       |        [onnx-models](https://github.com/onnx/models)         | 8.7Mb |
+|   *lite::cv::classification::DenseNet121*    |         densenet121.onnx         |       [torchvision](https://github.com/pytorch/vision)       | 30Mb  |
+|     *lite::cv::classification::GhostNet*     |          ghostnet.onnx           |       [torchvision](https://github.com/pytorch/vision)       | 20Mb  |
+|     *lite::cv::classification::HdrDNet*      |           hardnet.onnx           |       [torchvision](https://github.com/pytorch/vision)       | 13Mb  |
+|      *lite::cv::classification::IBNNet*      |          ibnnet18.onnx           |       [torchvision](https://github.com/pytorch/vision)       | 97Mb  |
+|   *lite::cv::classification::MobileNetV2*    |         mobilenetv2.onnx         |       [torchvision](https://github.com/pytorch/vision)       | 13Mb  |
+|      *lite::cv::classification::ResNet*      |          resnet18.onnx           |       [torchvision](https://github.com/pytorch/vision)       | 44Mb  |
+|     *lite::cv::classification::ResNeXt*      |           resnext.onnx           |       [torchvision](https://github.com/pytorch/vision)       | 95Mb  |
+|     *lite::cv::classification::InsectID*     | quarrying_insect_identifier.onnx | [InsectID](https://github.com/quarrying/quarrying-insect-id) | 27Mb  |
+|      *lite::cv::classification:PlantID*      |   quarrying_plantid_model.onnx   |  [PlantID](https://github.com/quarrying/quarrying-plant-id)  | 30Mb  |
 
 
 #### Face Detection.
@@ -865,15 +880,32 @@ lite.ai.toolkit提供大量的预训练模型的ONNX文件. 同时, 更多的模
 
 <div id="lite.ai.toolkit.hub.onnx-matting"></div>
 
-|                  Class                  |   Pretrained ONNX Files   |                   Rename or Converted From (Repo)                    | Size  |
-|:---------------------------------------:|:-------------------------:|:--------------------------------------------------------------------:|:-----:|
-| *lite::cv::matting::RobustVideoMatting* | rvm_mobilenetv3_fp32.onnx | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 14Mb  |
-| *lite::cv::matting::RobustVideoMatting* | rvm_mobilenetv3_fp16.onnx | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 7.2Mb |
-| *lite::cv::matting::RobustVideoMatting* |  rvm_resnet50_fp32.onnx   | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 50Mb  |
-| *lite::cv::matting::RobustVideoMatting* |  rvm_resnet50_fp16.onnx   | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 100Mb |
-|     *lite::cv::matting::MGMatting*      |  MGMatting-DIM-100k.onnx  |         [MGMatting](https://github.com/yucornetto/MGMatting)         | 113Mb |
-|     *lite::cv::matting::MGMatting*      |  MGMatting-RWP-100k.onnx  |         [MGMatting](https://github.com/yucornetto/MGMatting)         | 113Mb |
+|                  Class                  |                Pretrained ONNX Files                |                   Rename or Converted From (Repo)                    | Size  |
+|:---------------------------------------:|:---------------------------------------------------:|:--------------------------------------------------------------------:|:-----:|
+| *lite::cv::matting::RobustVideoMatting* |              rvm_mobilenetv3_fp32.onnx              | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 14Mb  |
+| *lite::cv::matting::RobustVideoMatting* |              rvm_mobilenetv3_fp16.onnx              | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 7.2Mb |
+| *lite::cv::matting::RobustVideoMatting* |               rvm_resnet50_fp32.onnx                | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 50Mb  |
+| *lite::cv::matting::RobustVideoMatting* |               rvm_resnet50_fp16.onnx                | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 100Mb |
+|     *lite::cv::matting::MGMatting*      |               MGMatting-DIM-100k.onnx               |         [MGMatting](https://github.com/yucornetto/MGMatting)         | 113Mb |
+|     *lite::cv::matting::MGMatting*      |               MGMatting-RWP-100k.onnx               |         [MGMatting](https://github.com/yucornetto/MGMatting)         | 113Mb |
+|       *lite::cv::matting::MODNet*       | modnet_photographic_portrait_matting-1024x1024.onnx |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::cv::matting::MODNet*       | modnet_photographic_portrait_matting-1024x512.onnx  |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::cv::matting::MODNet*       |  modnet_photographic_portrait_matting-256x256.onnx  |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::cv::matting::MODNet*       |  modnet_photographic_portrait_matting-256x512.onnx  |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::cv::matting::MODNet*       | modnet_photographic_portrait_matting-512x1024.onnx  |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::cv::matting::MODNet*       |  modnet_photographic_portrait_matting-512x256.onnx  |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::cv::matting::MODNet*       |  modnet_photographic_portrait_matting-512x512.onnx  |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::cv::matting::MODNet*       |    modnet_webcam_portrait_matting-1024x1024.onnx    |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::cv::matting::MODNet*       |    modnet_webcam_portrait_matting-1024x512.onnx     |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::cv::matting::MODNet*       |     modnet_webcam_portrait_matting-256x256.onnx     |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::cv::matting::MODNet*       |     modnet_webcam_portrait_matting-256x512.onnx     |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::cv::matting::MODNet*       |    modnet_webcam_portrait_matting-512x1024.onnx     |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::cv::matting::MODNet*       |     modnet_webcam_portrait_matting-512x256.onnx     |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|       *lite::cv::matting::MODNet*       |     modnet_webcam_portrait_matting-512x512.onnx     |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|     *lite::cv::matting::MODNetDyn*      |      modnet_photographic_portrait_matting.onnx      |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|     *lite::cv::matting::MODNetDyn*      |         modnet_webcam_portrait_matting.onnx         |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
 
+</details>
 
 ## 6. 应用案例
 
