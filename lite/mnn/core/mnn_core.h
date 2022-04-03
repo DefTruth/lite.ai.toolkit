@@ -75,7 +75,10 @@ namespace mnncv
   class LITE_EXPORTS MNNPIPNet29;                    // [61] * reference: https://github.com/jhb86253817/PIPNet
   class LITE_EXPORTS MNNPIPNet68;                    // [62] * reference: https://github.com/jhb86253817/PIPNet
   class LITE_EXPORTS MNNPIPNet98;                    // [63] * reference: https://github.com/jhb86253817/PIPNet
-
+  class LITE_EXPORTS MNNInsectDet;                   // [64] * reference: https://github.com/quarrying/quarrying-insect-id
+  class LITE_EXPORTS MNNInsectID;                    // [65] * reference: https://github.com/quarrying/quarrying-insect-id
+  class LITE_EXPORTS MNNPlantID;                     // [66] * reference: https://github.com/quarrying/quarrying-plant-id
+  class LITE_EXPORTS MNNMODNet;                      // [67] * reference: https://github.com/ZHKKKe/MODNet
 }
 
 namespace mnncv

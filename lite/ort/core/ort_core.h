@@ -68,40 +68,33 @@ namespace ortcv
   class LITE_EXPORTS RetinaFace;                 // [54] * reference: https://github.com/biubug6/Pytorch_Retinaface
   class LITE_EXPORTS FaceBoxes;                  // [55] * reference: https://github.com/zisianw/FaceBoxes.PyTorch
   class LITE_EXPORTS YoloX;                      // [56] * reference: https://github.com/Megvii-BaseDetection/YOLOX
-  class LITE_EXPORTS Pyramidbox;                 // [57] reference: https://github.com/yxlijun/Pyramidbox.pytorch
-  class LITE_EXPORTS TinyFaceDet;                // [58] reference: https://github.com/varunagrawal/tiny-faces-pytorch
-  class LITE_EXPORTS S3FD;                       // [59] reference: https://github.com/yxlijun/S3FD.pytorch
-  class LITE_EXPORTS DSFD;                       // [60] reference: https://github.com/yxlijun/DSFD.pytorch
-  class LITE_EXPORTS TencentDSFD;                // [61] reference: https://github.com/Tencent/FaceDetection-DSFD
-  class LITE_EXPORTS BlazeFace;                  // [62] reference: https://github.com/hollance/BlazeFace-PyTorch
-  class LITE_EXPORTS GoinPyramidBox;             // [63] reference: https://github.com/Goingqs/PyramidBox
-  class LITE_EXPORTS CenterFace;                 // [64] reference: https://github.com/chenjun2hao/CenterFace.pytorch
-  class LITE_EXPORTS FaceMaskDetection;          // [65] reference: https://github.com/AIZOOTech/FaceMaskDetection
-  class LITE_EXPORTS DBFace;                     // [66] reference: https://github.com/dlunion/DBFace
-  class LITE_EXPORTS HRNet;                      // [67] reference: https://github.com/HRNet/HRNet-Facial-Landmark-Detection
-  class LITE_EXPORTS TinyYoloV4VOC;              // [68] * reference: https://github.com/bubbliiiing/yolov4-tiny-pytorch
-  class LITE_EXPORTS TinyYoloV4COCO;             // [69] * reference: https://github.com/bubbliiiing/yolov4-tiny-pytorch
-  class LITE_EXPORTS YoloR;                      // [70] * reference: https://github.com/WongKinYiu/yolor
-  class LITE_EXPORTS ScaledYoloV4;               // [71] * reference: https://github.com/WongKinYiu/ScaledYOLOv4
-  class LITE_EXPORTS EfficientDet;               // [71] * reference: https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch
-  class LITE_EXPORTS EfficientDetD7;             // [72] * reference: https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch
-  class LITE_EXPORTS EfficientDetD8;             // [73] * reference: https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch
-  class LITE_EXPORTS YOLOP;                      // [74] * reference: https://github.com/hustvl/YOLOP
-  class LITE_EXPORTS RobustVideoMatting;         // [75] * reference: https://github.com/PeterL1n/RobustVideoMatting
-  class LITE_EXPORTS NanoDet;                    // [76] * reference: https://github.com/RangiLyu/nanodet
-  class LITE_EXPORTS NanoDetEfficientNetLite;    // [77] * reference: https://github.com/RangiLyu/nanodet
-  class LITE_EXPORTS YoloX_V_0_1_1;              // [78] * reference: https://github.com/Megvii-BaseDetection/YOLOX
-  class LITE_EXPORTS YoloV5_V_6_0;               // [79] * reference: https://github.com/ultralytics/yolov5
-  class LITE_EXPORTS MGMatting;                  // [80] * reference: https://github.com/yucornetto/MGMatting
-  class LITE_EXPORTS NanoDetPlus;                // [81] * reference: https://github.com/RangiLyu/nanodet
-  class LITE_EXPORTS SCRFD;                      // [82] * reference: https://github.com/deepinsight/insightface/tree/master/detection/scrfd
-  class LITE_EXPORTS YOLO5Face;                  // [83] * reference: https://github.com/deepcam-cn/yolov5-face
-  class LITE_EXPORTS FaceBoxesV2;                // [84] * reference: https://github.com/jhb86253817/FaceBoxesV2
-  class LITE_EXPORTS PIPNet19;                   // [85] * reference: https://github.com/jhb86253817/PIPNet
-  class LITE_EXPORTS PIPNet29;                   // [86] * reference: https://github.com/jhb86253817/PIPNet
-  class LITE_EXPORTS PIPNet68;                   // [87] * reference: https://github.com/jhb86253817/PIPNet
-  class LITE_EXPORTS PIPNet98;                   // [88] * reference: https://github.com/jhb86253817/PIPNet
-
+  class LITE_EXPORTS TinyYoloV4VOC;              // [57] * reference: https://github.com/bubbliiiing/yolov4-tiny-pytorch
+  class LITE_EXPORTS TinyYoloV4COCO;             // [58] * reference: https://github.com/bubbliiiing/yolov4-tiny-pytorch
+  class LITE_EXPORTS YoloR;                      // [59] * reference: https://github.com/WongKinYiu/yolor
+  class LITE_EXPORTS ScaledYoloV4;               // [60] * reference: https://github.com/WongKinYiu/ScaledYOLOv4
+  class LITE_EXPORTS EfficientDet;               // [61] * reference: https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch
+  class LITE_EXPORTS EfficientDetD7;             // [62] * reference: https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch
+  class LITE_EXPORTS EfficientDetD8;             // [63] * reference: https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch
+  class LITE_EXPORTS YOLOP;                      // [64] * reference: https://github.com/hustvl/YOLOP
+  class LITE_EXPORTS RobustVideoMatting;         // [65] * reference: https://github.com/PeterL1n/RobustVideoMatting
+  class LITE_EXPORTS NanoDet;                    // [66] * reference: https://github.com/RangiLyu/nanodet
+  class LITE_EXPORTS NanoDetEfficientNetLite;    // [67] * reference: https://github.com/RangiLyu/nanodet
+  class LITE_EXPORTS YoloX_V_0_1_1;              // [68] * reference: https://github.com/Megvii-BaseDetection/YOLOX
+  class LITE_EXPORTS YoloV5_V_6_0;               // [69] * reference: https://github.com/ultralytics/yolov5
+  class LITE_EXPORTS MGMatting;                  // [70] * reference: https://github.com/yucornetto/MGMatting
+  class LITE_EXPORTS NanoDetPlus;                // [71] * reference: https://github.com/RangiLyu/nanodet
+  class LITE_EXPORTS SCRFD;                      // [72] * reference: https://github.com/deepinsight/insightface/tree/master/detection/scrfd
+  class LITE_EXPORTS YOLO5Face;                  // [73] * reference: https://github.com/deepcam-cn/yolov5-face
+  class LITE_EXPORTS FaceBoxesV2;                // [74] * reference: https://github.com/jhb86253817/FaceBoxesV2
+  class LITE_EXPORTS PIPNet19;                   // [75] * reference: https://github.com/jhb86253817/PIPNet
+  class LITE_EXPORTS PIPNet29;                   // [76] * reference: https://github.com/jhb86253817/PIPNet
+  class LITE_EXPORTS PIPNet68;                   // [77] * reference: https://github.com/jhb86253817/PIPNet
+  class LITE_EXPORTS PIPNet98;                   // [78] * reference: https://github.com/jhb86253817/PIPNet
+  class LITE_EXPORTS InsectDet;                  // [79] * reference: https://github.com/quarrying/quarrying-insect-id
+  class LITE_EXPORTS InsectID;                   // [80] * reference: https://github.com/quarrying/quarrying-insect-id
+  class LITE_EXPORTS PlantID;                    // [81] * reference: https://github.com/quarrying/quarrying-plant-id
+  class LITE_EXPORTS MODNet;                     // [82] * reference: https://github.com/ZHKKKe/MODNet
+  class LITE_EXPORTS MODNetDyn;                  // [83] * reference: https://github.com/ZHKKKe/MODNet (With Dynamic Input Shape)
 }
 
 namespace ortnlp

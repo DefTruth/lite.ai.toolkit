@@ -7,13 +7,13 @@ PATH_ROOT = Path(__file__).parent.resolve()
 def get_long_description():
     description = (PATH_ROOT / "README.md").read_text(encoding="utf-8")
     # replace relative repository path to absolute link to the release
-    static_url = f"https://github.com/DefTruth/lite.ai.toolkit/blob/main/pylitex"
+    static_url = f"https://github.com/DefTruth/lite.ai.toolkit/blob/main"
     description = description.replace("docs/res/", f"{static_url}/docs/res/")
     return description
 
 
 setuptools.setup(
-    name="litex",
+    name="lite-ai-toolkit",
     version="0.0.1",
     author="DefTruth",
     author_email="qyjdef@163.com",

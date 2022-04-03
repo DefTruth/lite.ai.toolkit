@@ -91,6 +91,11 @@
 #include "lite/ort/cv/pipnet68.h"
 #include "lite/ort/cv/pipnet29.h"
 #include "lite/ort/cv/pipnet19.h"
+#include "lite/ort/cv/insectdet.h"
+#include "lite/ort/cv/insectid.h"
+#include "lite/ort/cv/plantid.h"
+#include "lite/ort/cv/modnet.h"
+#include "lite/ort/cv/modnet_dyn.h"
 
 #endif
 
@@ -163,6 +168,10 @@
 #include "lite/mnn/cv/mnn_pipnet68.h"
 #include "lite/mnn/cv/mnn_pipnet29.h"
 #include "lite/mnn/cv/mnn_pipnet19.h"
+#include "lite/mnn/cv/mnn_insectdet.h"
+#include "lite/mnn/cv/mnn_insectid.h"
+#include "lite/mnn/cv/mnn_plantid.h"
+#include "lite/mnn/cv/mnn_modnet.h"
 
 #endif
 
@@ -235,6 +244,9 @@
 #include "lite/ncnn/cv/ncnn_pipnet68.h"
 #include "lite/ncnn/cv/ncnn_pipnet29.h"
 #include "lite/ncnn/cv/ncnn_pipnet19.h"
+#include "lite/ncnn/cv/ncnn_insectid.h"
+#include "lite/ncnn/cv/ncnn_plantid.h"
+#include "lite/ncnn/cv/ncnn_modnet.h"
 
 #endif
 
@@ -307,12 +319,23 @@
 #include "lite/tnn/cv/tnn_pipnet68.h"
 #include "lite/tnn/cv/tnn_pipnet29.h"
 #include "lite/tnn/cv/tnn_pipnet19.h"
+#include "lite/tnn/cv/tnn_insectdet.h"
+#include "lite/tnn/cv/tnn_insectid.h"
+#include "lite/tnn/cv/tnn_plantid.h"
+#include "lite/tnn/cv/tnn_modnet.h"
 
 #endif
 
 // Default Engine ONNXRuntime
 namespace lite
 {
+  // mediapipe
+  namespace mediapipe
+  {
+#ifdef BACKEND_ONNXRUNTIME
+#endif
+  }
+
   namespace cv
   {
 #ifdef BACKEND_ONNXRUNTIME
@@ -395,6 +418,11 @@ namespace lite
     typedef ortcv::PIPNet68 _PIPNet68;
     typedef ortcv::PIPNet29 _PIPNet29;
     typedef ortcv::PIPNet19 _PIPNet19;
+    typedef ortcv::InsectDet _InsectDet;
+    typedef ortcv::InsectID _InsectID;
+    typedef ortcv::PlantID _PlantID;
+    typedef ortcv::MODNet _MODNet;
+    typedef ortcv::MODNetDyn _MODNetDyn;
 #endif
 
     // 1. classification
@@ -410,6 +438,8 @@ namespace lite
       typedef _MobileNetV2 MobileNetV2;
       typedef _ResNet ResNet;
       typedef _ResNeXt ResNeXt;
+      typedef _InsectID InsectID;
+      typedef _PlantID PlantID;
 #endif
     }
 
@@ -437,6 +467,7 @@ namespace lite
       typedef _YoloX_V_0_1_1 YoloX_V_0_1_1;
       typedef _YoloV5_V_6_0 YoloV5_V_6_0;
       typedef _NanoDetPlus NanoDetPlus;
+      typedef _InsectDet InsectDet;
 #endif
     }
     // 3. face detection & facial attributes detection
@@ -573,6 +604,8 @@ namespace lite
 #ifdef BACKEND_ONNXRUNTIME
       typedef _RobustVideoMatting RobustVideoMatting;
       typedef _MGMatting MGMatting;
+      typedef _MODNet MODNet;
+      typedef _MODNetDyn MODNetDyn;
 #endif
     }
   }
@@ -649,6 +682,11 @@ namespace lite
 #ifdef ENABLE_ONNXRUNTIME
   namespace onnxruntime
   {
+    // mediapipe
+    namespace mediapipe
+    {
+    }
+
     namespace cv
     {
       typedef ortcv::FSANet _ONNXFSANet;
@@ -730,6 +768,11 @@ namespace lite
       typedef ortcv::PIPNet68 _ONNXPIPNet68;
       typedef ortcv::PIPNet29 _ONNXPIPNet29;
       typedef ortcv::PIPNet19 _ONNXPIPNet19;
+      typedef ortcv::InsectDet _ONNXInsectDet;
+      typedef ortcv::InsectID _ONNXInsectID;
+      typedef ortcv::PlantID _ONNXPlantID;
+      typedef ortcv::MODNet _ONNXMODNet;
+      typedef ortcv::MODNetDyn _ONNXMODNetDyn;
 
       // 1. classification
       namespace classification
@@ -743,6 +786,8 @@ namespace lite
         typedef _ONNXMobileNetV2 MobileNetV2;
         typedef _ONNXResNet ResNet;
         typedef _ONNXResNeXt ResNeXt;
+        typedef _ONNXInsectID InsectID;
+        typedef _ONNXPlantID PlantID;
       }
 
       // 2. general object detection
@@ -768,6 +813,7 @@ namespace lite
         typedef _ONNXYoloX_V_0_1_1 YoloX_V_0_1_1;
         typedef _ONNXYoloV5_V_6_0 YoloV5_V_6_0;
         typedef _ONNXNanoDetPlus NanoDetPlus;
+        typedef _ONNXInsectDet InsectDet;
       }
       // 3. face detection & facial attributes detection
       namespace face
@@ -880,8 +926,9 @@ namespace lite
       {
         typedef _ONNXRobustVideoMatting RobustVideoMatting;
         typedef _ONNXMGMatting MGMatting;
+        typedef _ONNXMODNet MODNet;
+        typedef _ONNXMODNetDyn MODNetDyn;
       }
-
     }
 
   }
@@ -894,6 +941,11 @@ namespace lite
 #ifdef ENABLE_MNN
   namespace mnn
   {
+    // mediapipe
+    namespace mediapipe
+    {
+    }
+
     namespace cv
     {
       // classification
@@ -908,6 +960,8 @@ namespace lite
         typedef mnncv::MNNMobileNetV2 MobileNetV2;
         typedef mnncv::MNNResNet ResNet;
         typedef mnncv::MNNResNeXt ResNeXt;
+        typedef mnncv::MNNInsectID InsectID;
+        typedef mnncv::MNNPlantID PlantID;
       }
       // object detection
       namespace detection
@@ -921,6 +975,7 @@ namespace lite
         typedef mnncv::MNNYoloR YoloR;
         typedef mnncv::MNNYoloV5_V_6_0 YoloV5_V_6_0;
         typedef mnncv::MNNNanoDetPlus NanoDetPlus;
+        typedef mnncv::MNNInsectDet InsectDet;
       }
       // face etc.
       namespace face
@@ -1000,6 +1055,7 @@ namespace lite
       {
         typedef mnncv::MNNRobustVideoMatting RobustVideoMatting;
         typedef mnncv::MNNMGMatting MGMatting;
+        typedef mnncv::MNNMODNet MODNet;
       }
 
       // style transfer
@@ -1018,6 +1074,10 @@ namespace lite
       {
         typedef mnncv::MNNSubPixelCNN SubPixelCNN;
       }
+      // mediapipe
+      namespace mediapipe
+      {
+      }
 
     } // namespace cv
 
@@ -1031,6 +1091,11 @@ namespace lite
 #ifdef ENABLE_NCNN
   namespace ncnn
   {
+    // mediapipe
+    namespace mediapipe
+    {
+    }
+
     namespace cv
     {
       // classification
@@ -1045,6 +1110,8 @@ namespace lite
         typedef ncnncv::NCNNMobileNetV2 MobileNetV2;
         typedef ncnncv::NCNNResNet ResNet;
         typedef ncnncv::NCNNResNeXt ResNeXt;
+        typedef ncnncv::NCNNInsectID InsectID;
+        typedef ncnncv::NCNNPlantID PlantID;
       }
       // object detection
       namespace detection
@@ -1137,6 +1204,7 @@ namespace lite
       namespace matting
       {
         typedef ncnncv::NCNNRobustVideoMatting RobustVideoMatting;
+        typedef ncnncv::NCNNMODNet MODNet;
       }
       // style transfer
       namespace style
@@ -1167,6 +1235,11 @@ namespace lite
 #ifdef ENABLE_TNN
   namespace tnn
   {
+    // mediapipe
+    namespace mediapipe
+    {
+    }
+
     namespace cv
     {
       // classification
@@ -1181,6 +1254,8 @@ namespace lite
         typedef tnncv::TNNMobileNetV2 MobileNetV2;
         typedef tnncv::TNNResNet ResNet;
         typedef tnncv::TNNResNeXt ResNeXt;
+        typedef tnncv::TNNInsectID InsectID;
+        typedef tnncv::TNNPlantID PlantID;
       }
       // object detection
       namespace detection
@@ -1194,6 +1269,7 @@ namespace lite
         typedef tnncv::TNNYoloR YoloR;
         typedef tnncv::TNNYoloV5_V_6_0 YoloV5_V_6_0;
         typedef tnncv::TNNNanoDetPlus NanoDetPlus;
+        typedef tnncv::TNNInsectDet InsectDet;
       }
       // face etc.
       namespace face
@@ -1273,6 +1349,7 @@ namespace lite
       {
         typedef tnncv::TNNRobustVideoMatting RobustVideoMatting;
         typedef tnncv::TNNMGMatting MGMatting;
+        typedef tnncv::TNNMODNet MODNet;
       }
       // style transfer
       namespace style

@@ -72,8 +72,6 @@ namespace ortcv
 
     cv::Mat get_unknown_tensor_from_pred(const cv::Mat &alpha_pred, unsigned int rand_width = 30);
 
-    void remove_small_connected_area(cv::Mat &alpha_pred);
-
     void generate_matting(std::vector<Ort::Value> &output_tensors,
                           const cv::Mat &mat, types::MattingContent &content,
                           bool remove_noise = false);

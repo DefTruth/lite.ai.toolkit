@@ -5,6 +5,7 @@
 #include "utils.h"
 
 //*************************************** lite::utils **********************************************//
+// String Utils
 std::string lite::utils::to_string(const std::wstring &wstr)
 {
   unsigned len = wstr.size() * 4;
@@ -27,6 +28,7 @@ std::wstring lite::utils::to_wstring(const std::string &str)
   return wstr;
 }
 
+// Drawing Utils
 // reference: https://github.com/DefTruth/headpose-fsanet-pytorch/blob/master/src/utils.py
 void lite::utils::draw_axis_inplace(cv::Mat &mat_inplace,
                                     const types::EulerAngles &euler_angles,
@@ -309,6 +311,7 @@ void lite::utils::draw_emotion_inplace(cv::Mat &mat_inplace, types::Emotions &em
               cv::FONT_HERSHEY_SIMPLEX, 0.6f, cv::Scalar(0, 255, 0), 2);
 }
 
+// Object Detection Utils
 // reference: https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB/
 //            blob/master/ncnn/src/UltraFace.cpp
 void lite::utils::hard_nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
@@ -480,5 +483,98 @@ void lite::utils::offset_nms(std::vector<types::Boxf> &input, std::vector<types:
 
 }
 
+// Matting Utils & Segmentation Utils
+void lite::utils::swap_background(const cv::Mat &fgr_mat, const cv::Mat &pha_mat,
+                                  const cv::Mat &bgr_mat, cv::Mat &out_mat,
+                                  bool fgr_is_already_mul_pha)
+{
+  // user-friendly method for background swap.
+  if (fgr_mat.empty() || pha_mat.empty() || bgr_mat.empty()) return;
+  const unsigned int fg_h = fgr_mat.rows;
+  const unsigned int fg_w = fgr_mat.cols;
+  const unsigned int bg_h = bgr_mat.rows;
+  const unsigned int bg_w = bgr_mat.cols;
+  const unsigned int ph_h = pha_mat.rows;
+  const unsigned int ph_w = pha_mat.cols;
+  const unsigned int channels = fgr_mat.channels();
+  if (channels != 3) return; // only support 3 channels.
+  const unsigned int num_elements = fg_h * fg_w * channels;
+
+  cv::Mat bg_mat_copy, ph_mat_copy, fg_mat_copy;
+  if (bg_h != fg_h || bg_w != fg_w)
+    cv::resize(bgr_mat, bg_mat_copy, cv::Size(fg_w, fg_h));
+  else bg_mat_copy = bgr_mat; // ref only.
+  if (ph_h != fg_h || ph_w != fg_w)
+    cv::resize(pha_mat, ph_mat_copy, cv::Size(fg_w, fg_h));
+  else ph_mat_copy = pha_mat; // ref only.
+  if (ph_mat_copy.channels() == 1)
+    cv::cvtColor(ph_mat_copy, ph_mat_copy, cv::COLOR_GRAY2BGR); // 0.~1.
+  // convert mats to float32 points.
+  if (bg_mat_copy.type() != CV_32FC3) bg_mat_copy.convertTo(bg_mat_copy, CV_32FC3); // 0.~255.
+  if (ph_mat_copy.type() != CV_32FC3) ph_mat_copy.convertTo(ph_mat_copy, CV_32FC3); // 0.~1.
+  if (fgr_mat.type() != CV_32FC3) fgr_mat.convertTo(fg_mat_copy, CV_32FC3); // 0.~255.
+  else fg_mat_copy = fgr_mat; // ref only
+
+  // element wise operations.
+  out_mat = fg_mat_copy.clone();
+  const float *fg_ptr = (float *) fg_mat_copy.data;
+  const float *bg_ptr = (float *) bg_mat_copy.data;
+  const float *ph_ptr = (float *) ph_mat_copy.data;
+  float *mutable_out_ptr = (float *) out_mat.data;
+
+  // TODO: add omp support instead of native loop.
+  if (!fgr_is_already_mul_pha)
+    for (unsigned int i = 0; i < num_elements; ++i)
+      mutable_out_ptr[i] = fg_ptr[i] * ph_ptr[i] + (1.f - ph_ptr[i]) * bg_ptr[i];
+  else
+    for (unsigned int i = 0; i < num_elements; ++i)
+      mutable_out_ptr[i] = fg_ptr[i] + (1.f - ph_ptr[i]) * bg_ptr[i];
+
+  if (!out_mat.empty() && out_mat.type() != CV_8UC3)
+    out_mat.convertTo(out_mat, CV_8UC3);
+}
+
+void lite::utils::remove_small_connected_area(cv::Mat &alpha_pred, float threshold)
+{
+  cv::Mat gray, binary;
+  alpha_pred.convertTo(gray, CV_8UC1, 255.f);
+  // 255 * 0.05 ~ 13
+  unsigned int binary_threshold = (unsigned int) (255.f * threshold);
+  // https://github.com/yucornetto/MGMatting/blob/main/code-base/utils/util.py#L209
+  cv::threshold(gray, binary, binary_threshold, 255, cv::THRESH_BINARY);
+  // morphologyEx with OPEN operation to remove noise first.
+  auto kernel = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(3, 3), cv::Point(-1, -1));
+  cv::morphologyEx(binary, binary, cv::MORPH_OPEN, kernel);
+  // Computationally connected domain
+  cv::Mat labels = cv::Mat::zeros(alpha_pred.size(), CV_32S);
+  cv::Mat stats, centroids;
+  int num_labels = cv::connectedComponentsWithStats(binary, labels, stats, centroids, 8, 4);
+  if (num_labels <= 1) return; // no noise, skip.
+  // find max connected area, 0 is background
+  int max_connected_id = 1; // 1,2,...
+  int max_connected_area = stats.at<int>(max_connected_id, cv::CC_STAT_AREA);
+  for (int i = 1; i < num_labels; ++i)
+  {
+    int tmp_connected_area = stats.at<int>(i, cv::CC_STAT_AREA);
+    if (tmp_connected_area > max_connected_area)
+    {
+      max_connected_area = tmp_connected_area;
+      max_connected_id = i;
+    }
+  }
+  const int h = alpha_pred.rows;
+  const int w = alpha_pred.cols;
+  // remove small connected area.
+  for (int i = 0; i < h; ++i)
+  {
+    int *label_row_ptr = labels.ptr<int>(i);
+    float *alpha_row_ptr = alpha_pred.ptr<float>(i);
+    for (int j = 0; j < w; ++j)
+    {
+      if (label_row_ptr[j] != max_connected_id)
+        alpha_row_ptr[j] = 0.f;
+    }
+  }
+}
 
 //*************************************** lite::utils **********************************************//
