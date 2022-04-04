@@ -1016,6 +1016,8 @@ More classes for matting (image matting, video matting, trimap/mask-free, trimap
 ```c++
 auto *matting = new lite::cv::matting::RobustVideoMatting:(onnx_path);  //  WACV 2022.
 auto *matting = new lite::cv::matting::MGMatting(onnx_path); // CVPR 2021
+auto *matting = new lite::cv::matting::MODNet(onnx_path); // AAAI 2022
+auto *matting = new lite::cv::matting::MODNetDyn(onnx_path); // AAAI 2022 MODNet with Dynamic Shape Inference.
 ```
 
 
