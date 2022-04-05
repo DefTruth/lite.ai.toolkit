@@ -304,11 +304,11 @@ static void test_default()
 and put the libs into **lite.ai.toolkit/lib/(linux|windows)** directory. Please reference the build-docs[<sup>1</sup>](#lite.ai.toolkit-1) for **third_party**.
 * **lite.ai.toolkit/lib/(linux|windows)**
   ```shell
-    cp you-path-to-downloaded-or-built-opencv/lib/(linux|windows)/*opencv* lite.ai.toolkit/lib
-    cp you-path-to-downloaded-or-built-onnxruntime/lib/(linux|windows)/*onnxruntime* lite.ai.toolkit/lib
-    cp you-path-to-downloaded-or-built-MNN/lib/(linux|windows)/*MNN* lite.ai.toolkit/lib
-    cp you-path-to-downloaded-or-built-ncnn/lib/(linux|windows)/*ncnn* lite.ai.toolkit/lib
-    cp you-path-to-downloaded-or-built-TNN/lib/(linux|windows)/*TNN* lite.ai.toolkit/lib
+    cp you-path-to-downloaded-or-built-opencv/lib/*opencv* lite.ai.toolkit/lib/(linux|windows)/
+    cp you-path-to-downloaded-or-built-onnxruntime/lib/*onnxruntime* lite.ai.toolkit/lib/(linux|windows)/
+    cp you-path-to-downloaded-or-built-MNN/lib/*MNN* lite.ai.toolkit/lib/(linux|windows)/
+    cp you-path-to-downloaded-or-built-ncnn/lib/*ncnn* lite.ai.toolkit/lib/(linux|windows)/
+    cp you-path-to-downloaded-or-built-TNN/lib/*TNN* lite.ai.toolkit/lib/(linux|windows)/
   ```
 
 Note, your also need to install ffmpeg(<=4.2.2) in Linux to support the opencv videoio module. See [issue#203](https://github.com/DefTruth/lite.ai.toolkit/issues/6). In MacOS, ffmpeg4.2.2 was been package into lite.ai.toolkit, thus, no installation need in OSX. In Windows, ffmpeg was been package into opencv dll prebuilt by the team of opencv. Please make sure -DWITH_FFMPEG=ON and check the configuration info when building opencv.
