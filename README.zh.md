@@ -302,11 +302,11 @@ static void test_default()
 然后把各个依赖库拷贝到**lite.ai.toolkit/lib/(linux|windows)** 文件夹。 请参考依赖库的编译文档[<sup>1</sup>](#lite.ai.toolkit-1)。
 * **lite.ai.toolkit/lib/(linux|windows)**
   ```shell
-    cp you-path-to-downloaded-or-built-opencv/lib/(linux|windows)/*opencv* lite.ai.toolkit/lib
-    cp you-path-to-downloaded-or-built-onnxruntime/lib/(linux|windows)/*onnxruntime* lite.ai.toolkit/lib
-    cp you-path-to-downloaded-or-built-MNN/lib/(linux|windows)/*MNN* lite.ai.toolkit/lib
-    cp you-path-to-downloaded-or-built-ncnn/lib/(linux|windows)/*ncnn* lite.ai.toolkit/lib
-    cp you-path-to-downloaded-or-built-TNN/lib/(linux|windows)/*TNN* lite.ai.toolkit/lib
+    cp you-path-to-downloaded-or-built-opencv/lib/*opencv* lite.ai.toolkit/lib/(linux|windows)/
+    cp you-path-to-downloaded-or-built-onnxruntime/lib/*onnxruntime* lite.ai.toolkit/lib/(linux|windows)/
+    cp you-path-to-downloaded-or-built-MNN/lib/*MNN* lite.ai.toolkit/lib/(linux|windows)/
+    cp you-path-to-downloaded-or-built-ncnn/lib/*ncnn* lite.ai.toolkit/lib/(linux|windows)/
+    cp you-path-to-downloaded-or-built-TNN/lib/*TNN* lite.ai.toolkit/lib/(linux|windows)/
   ```
 注意，你还需要安装ffmpeg(<=4.2.2)，因为opencv的videoio模块依赖ffmpeg进行mp4的编解码。参考[issue#203](https://github.com/DefTruth/lite.ai.toolkit/issues/6) . 在MacOS下，ffmpeg4.2.2已经作为一个自定义依赖库被我打包进lite.ai.toolkit，不需要再从HomeBrew安装为系统库，因此lite.ai.toolkit是单体的，你可以把它移植到app里面，不用心另一台运行app的机器没有ffmpeg，MacOS版本的lite.ai.toolkit已经包含ffmpeg. 在Windows下，opencv官方团队已经提供了用于opencv的ffmpeg预编译库。在Linux下编译opencv时，请确保-DWITH_FFMPEG=ON，并检查是否链接到ffmpeg. 
 * 先编译ffmpeg，注意必须是低版本的，高于4.4的，opencv会不兼容。
