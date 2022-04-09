@@ -79,6 +79,7 @@ namespace ncnncv
   class LITE_EXPORTS NCNNInsectID;                               // [64] * reference: https://github.com/quarrying/quarrying-insect-id
   class LITE_EXPORTS NCNNPlantID;                                // [65] * reference: https://github.com/quarrying/quarrying-plant-id
   class LITE_EXPORTS NCNNMODNet;                                 // [66] * reference: https://github.com/ZHKKKe/MODNet
+  class LITE_EXPORTS NCNNBackgroundMattingV2;                    // [67] * reference: https://github.com/PeterL1n/BackgroundMattingV2
 }
 
 namespace ncnncv
