@@ -91,7 +91,7 @@ static void test_mnn()
     if (!content.fgr_mat.empty()) cv::imwrite(save_fgr_path, content.fgr_mat);
     if (!content.pha_mat.empty()) cv::imwrite(save_pha_path, content.pha_mat * 255.);
     if (!content.merge_mat.empty()) cv::imwrite(save_merge_path, content.merge_mat);
-    std::cout << "MNN Version MGMatting Done!" << std::endl;
+    std::cout << "MNN Version BackgroundMattingV2 Done!" << std::endl;
   }
 
   delete bgmv2;
@@ -130,7 +130,7 @@ static void test_tnn()
     if (!content.fgr_mat.empty()) cv::imwrite(save_fgr_path, content.fgr_mat);
     if (!content.pha_mat.empty()) cv::imwrite(save_pha_path, content.pha_mat * 255.);
     if (!content.merge_mat.empty()) cv::imwrite(save_merge_path, content.merge_mat);
-    std::cout << "TNN Version MGMatting Done!" << std::endl;
+    std::cout << "TNN Version BackgroundMattingV2 Done!" << std::endl;
   }
 
   delete bgmv2;

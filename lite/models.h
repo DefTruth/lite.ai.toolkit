@@ -97,6 +97,7 @@
 #include "lite/ort/cv/modnet.h"
 #include "lite/ort/cv/modnet_dyn.h"
 #include "lite/ort/cv/backgroundmattingv2.h"
+#include "lite/ort/cv/backgroundmattingv2_dyn.h"
 
 #endif
 
@@ -427,6 +428,7 @@ namespace lite
     typedef ortcv::MODNet _MODNet;
     typedef ortcv::MODNetDyn _MODNetDyn;
     typedef ortcv::BackgroundMattingV2 _BackgroundMattingV2;
+    typedef ortcv::BackgroundMattingV2Dyn _BackgroundMattingV2Dyn;
 #endif
 
     // 1. classification
@@ -611,6 +613,7 @@ namespace lite
       typedef _MODNet MODNet;
       typedef _MODNetDyn MODNetDyn;
       typedef _BackgroundMattingV2 BackgroundMattingV2;
+      typedef _BackgroundMattingV2Dyn BackgroundMattingV2Dyn;
 #endif
     }
   }
@@ -779,6 +782,8 @@ namespace lite
       typedef ortcv::MODNet _ONNXMODNet;
       typedef ortcv::MODNetDyn _ONNXMODNetDyn;
       typedef ortcv::BackgroundMattingV2 _ONNXBackgroundMattingV2;
+      typedef ortcv::BackgroundMattingV2Dyn _ONNXBackgroundMattingV2Dyn;
+
 
       // 1. classification
       namespace classification
@@ -935,6 +940,7 @@ namespace lite
         typedef _ONNXMODNet MODNet;
         typedef _ONNXMODNetDyn MODNetDyn;
         typedef _ONNXBackgroundMattingV2 BackgroundMattingV2;
+        typedef _ONNXBackgroundMattingV2Dyn BackgroundMattingV2Dyn;
       }
     }
 
