@@ -30,7 +30,6 @@ MODNetDyn::MODNetDyn(const std::string &_onnx_path, unsigned int _num_threads) :
   OrtSessionOptionsAppendExecutionProvider_CUDA(session_options, 0); // C API stable.
 #endif
   ort_session = new Ort::Session(ort_env, onnx_path, session_options);
-  Ort::AllocatorWithDefaultOptions allocator;
   // 2. input name & input dims
   input_node_names.resize(num_inputs); // num_inputs=1
   input_node_names[0] = ort_session->GetInputName(0, allocator);

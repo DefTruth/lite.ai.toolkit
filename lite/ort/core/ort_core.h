@@ -95,6 +95,8 @@ namespace ortcv
   class LITE_EXPORTS PlantID;                    // [81] * reference: https://github.com/quarrying/quarrying-plant-id
   class LITE_EXPORTS MODNet;                     // [82] * reference: https://github.com/ZHKKKe/MODNet
   class LITE_EXPORTS MODNetDyn;                  // [83] * reference: https://github.com/ZHKKKe/MODNet (With Dynamic Input Shape)
+  class LITE_EXPORTS BackgroundMattingV2;        // [84] * reference: https://github.com/PeterL1n/BackgroundMattingV2
+  class LITE_EXPORTS BackgroundMattingV2Dyn;     // [85] * reference: https://github.com/PeterL1n/BackgroundMattingV2 (With Dynamic Input Shape)
 }
 
 namespace ortnlp

@@ -14,6 +14,7 @@ namespace ortcv
   private:
     Ort::Env ort_env;
     Ort::Session *ort_session = nullptr;
+    Ort::AllocatorWithDefaultOptions allocator;
     std::vector<const char *> input_node_names;
     std::vector<std::vector<int64_t>> dynamic_input_node_dims; // >=1 inputs.
     unsigned int dynamic_input_height = 512; // init only, will change according to input mat.

@@ -79,6 +79,7 @@ namespace tnncv
   class LITE_EXPORTS TNNInsectID;                    // [65] * reference: https://github.com/quarrying/quarrying-insect-id
   class LITE_EXPORTS TNNPlantID;                     // [66] * reference: https://github.com/quarrying/quarrying-plant-id
   class LITE_EXPORTS TNNMODNet;                      // [67] * reference: https://github.com/ZHKKKe/MODNet
+  class LITE_EXPORTS TNNBackgroundMattingV2;         // [68] * reference: https://github.com/PeterL1n/BackgroundMattingV2
 }
 
 namespace tnncv
