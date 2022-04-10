@@ -212,6 +212,8 @@ static void test_default()
 |                               [MGMatting](https://github.com/yucornetto/MGMatting)                                | 113M  |    *matting*     |        [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mg_matting.cpp)         |      ✅      |  ✅  |  /   |  ✅  |   ✅   |  ✔️   |   ✔️    |    /    |
 |                                    [MODNet](https://github.com/ZHKKKe/MODNet)                                     |  24M  |    *matting*     |          [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_modnet.cpp)           |      ✅      |  ✅  |  ✅   |  ✅  |   ✅   |  ✔️   |   ✔️    |    /    |
 |                                   [MODNetDyn](https://github.com/ZHKKKe/MODNet)                                   |  24M  |    *matting*     |        [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_modnet_dyn.cpp)         |      ✅      |  /  |  /   |  /  |   ✅   |  ✔️   |   ✔️    |    /    |
+|                      [BackgroundMattingV2](https://github.com/PeterL1n/BackgroundMattingV2)                       |  20M  |    *matting*     |    [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_backgroundmattingv2.cpp)    |      ✅      |  ✅  |  /   |  ✅  |   ✅   |  ✔️   |   ✔️    |    /    |
+|                     [BackgroundMattingV2Dyn](https://github.com/PeterL1n/BackgroundMattingV2)                     |  20M  |    *matting*     |  [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_backgroundmattingv2_dyn.cpp)  |      ✅      |  /  |  /   |  /  |   ✅   |  ✔️   |   ✔️    |    /    |
 |                [UltraFace](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB)                 | 1.1M  |  *face::detect*  |         [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_ultraface.cpp)         |      ✅      |  ✅  |  ✅   |  ✅  |   ✅   |  ✔️   |   ✔️    |    ❔    |
 |                            [RetinaFace](https://github.com/biubug6/Pytorch_Retinaface)                            | 1.6M  |  *face::detect*  |        [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_retinaface.cpp)         |      ✅      |  ✅  |  ✅   |  ✅  |   ✅   |  ✔️   |   ✔️    |    ❔    |
 |                             [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)                             | 3.8M  |  *face::detect*  |         [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_faceboxes.cpp)         |      ✅      |  ✅  |  ✅   |  ✅  |   ✅   |  ✔️   |   ✔️    |    ❔    |
@@ -880,30 +882,39 @@ lite.ai.toolkit提供大量的预训练模型的ONNX文件. 同时, 更多的模
 
 <div id="lite.ai.toolkit.hub.onnx-matting"></div>
 
-|                  Class                  |                Pretrained ONNX Files                |                   Rename or Converted From (Repo)                    | Size  |
-|:---------------------------------------:|:---------------------------------------------------:|:--------------------------------------------------------------------:|:-----:|
-| *lite::cv::matting::RobustVideoMatting* |              rvm_mobilenetv3_fp32.onnx              | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 14Mb  |
-| *lite::cv::matting::RobustVideoMatting* |              rvm_mobilenetv3_fp16.onnx              | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 7.2Mb |
-| *lite::cv::matting::RobustVideoMatting* |               rvm_resnet50_fp32.onnx                | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 50Mb  |
-| *lite::cv::matting::RobustVideoMatting* |               rvm_resnet50_fp16.onnx                | [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) | 100Mb |
-|     *lite::cv::matting::MGMatting*      |               MGMatting-DIM-100k.onnx               |         [MGMatting](https://github.com/yucornetto/MGMatting)         | 113Mb |
-|     *lite::cv::matting::MGMatting*      |               MGMatting-RWP-100k.onnx               |         [MGMatting](https://github.com/yucornetto/MGMatting)         | 113Mb |
-|       *lite::cv::matting::MODNet*       | modnet_photographic_portrait_matting-1024x1024.onnx |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
-|       *lite::cv::matting::MODNet*       | modnet_photographic_portrait_matting-1024x512.onnx  |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
-|       *lite::cv::matting::MODNet*       |  modnet_photographic_portrait_matting-256x256.onnx  |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
-|       *lite::cv::matting::MODNet*       |  modnet_photographic_portrait_matting-256x512.onnx  |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
-|       *lite::cv::matting::MODNet*       | modnet_photographic_portrait_matting-512x1024.onnx  |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
-|       *lite::cv::matting::MODNet*       |  modnet_photographic_portrait_matting-512x256.onnx  |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
-|       *lite::cv::matting::MODNet*       |  modnet_photographic_portrait_matting-512x512.onnx  |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
-|       *lite::cv::matting::MODNet*       |    modnet_webcam_portrait_matting-1024x1024.onnx    |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
-|       *lite::cv::matting::MODNet*       |    modnet_webcam_portrait_matting-1024x512.onnx     |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
-|       *lite::cv::matting::MODNet*       |     modnet_webcam_portrait_matting-256x256.onnx     |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
-|       *lite::cv::matting::MODNet*       |     modnet_webcam_portrait_matting-256x512.onnx     |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
-|       *lite::cv::matting::MODNet*       |    modnet_webcam_portrait_matting-512x1024.onnx     |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
-|       *lite::cv::matting::MODNet*       |     modnet_webcam_portrait_matting-512x256.onnx     |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
-|       *lite::cv::matting::MODNet*       |     modnet_webcam_portrait_matting-512x512.onnx     |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
-|     *lite::cv::matting::MODNetDyn*      |      modnet_photographic_portrait_matting.onnx      |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
-|     *lite::cv::matting::MODNetDyn*      |         modnet_webcam_portrait_matting.onnx         |              [MODNet](https://github.com/ZHKKKe/MODNet)              | 24Mb  |
+|                    Class                    |                Pretrained ONNX Files                |                    Rename or Converted From (Repo)                     | Size  |
+|:-------------------------------------------:|:---------------------------------------------------:|:----------------------------------------------------------------------:|:-----:|
+|   *lite::cv::matting::RobustVideoMatting*   |              rvm_mobilenetv3_fp32.onnx              |  [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)  | 14Mb  |
+|   *lite::cv::matting::RobustVideoMatting*   |              rvm_mobilenetv3_fp16.onnx              |  [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)  | 7.2Mb |
+|   *lite::cv::matting::RobustVideoMatting*   |               rvm_resnet50_fp32.onnx                |  [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)  | 50Mb  |
+|   *lite::cv::matting::RobustVideoMatting*   |               rvm_resnet50_fp16.onnx                |  [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)  | 100Mb |
+|       *lite::cv::matting::MGMatting*        |               MGMatting-DIM-100k.onnx               |          [MGMatting](https://github.com/yucornetto/MGMatting)          | 113Mb |
+|       *lite::cv::matting::MGMatting*        |               MGMatting-RWP-100k.onnx               |          [MGMatting](https://github.com/yucornetto/MGMatting)          | 113Mb |
+|         *lite::cv::matting::MODNet*         | modnet_photographic_portrait_matting-1024x1024.onnx |               [MODNet](https://github.com/ZHKKKe/MODNet)               | 24Mb  |
+|         *lite::cv::matting::MODNet*         | modnet_photographic_portrait_matting-1024x512.onnx  |               [MODNet](https://github.com/ZHKKKe/MODNet)               | 24Mb  |
+|         *lite::cv::matting::MODNet*         |  modnet_photographic_portrait_matting-256x256.onnx  |               [MODNet](https://github.com/ZHKKKe/MODNet)               | 24Mb  |
+|         *lite::cv::matting::MODNet*         |  modnet_photographic_portrait_matting-256x512.onnx  |               [MODNet](https://github.com/ZHKKKe/MODNet)               | 24Mb  |
+|         *lite::cv::matting::MODNet*         | modnet_photographic_portrait_matting-512x1024.onnx  |               [MODNet](https://github.com/ZHKKKe/MODNet)               | 24Mb  |
+|         *lite::cv::matting::MODNet*         |  modnet_photographic_portrait_matting-512x256.onnx  |               [MODNet](https://github.com/ZHKKKe/MODNet)               | 24Mb  |
+|         *lite::cv::matting::MODNet*         |  modnet_photographic_portrait_matting-512x512.onnx  |               [MODNet](https://github.com/ZHKKKe/MODNet)               | 24Mb  |
+|         *lite::cv::matting::MODNet*         |    modnet_webcam_portrait_matting-1024x1024.onnx    |               [MODNet](https://github.com/ZHKKKe/MODNet)               | 24Mb  |
+|         *lite::cv::matting::MODNet*         |    modnet_webcam_portrait_matting-1024x512.onnx     |               [MODNet](https://github.com/ZHKKKe/MODNet)               | 24Mb  |
+|         *lite::cv::matting::MODNet*         |     modnet_webcam_portrait_matting-256x256.onnx     |               [MODNet](https://github.com/ZHKKKe/MODNet)               | 24Mb  |
+|         *lite::cv::matting::MODNet*         |     modnet_webcam_portrait_matting-256x512.onnx     |               [MODNet](https://github.com/ZHKKKe/MODNet)               | 24Mb  |
+|         *lite::cv::matting::MODNet*         |    modnet_webcam_portrait_matting-512x1024.onnx     |               [MODNet](https://github.com/ZHKKKe/MODNet)               | 24Mb  |
+|         *lite::cv::matting::MODNet*         |     modnet_webcam_portrait_matting-512x256.onnx     |               [MODNet](https://github.com/ZHKKKe/MODNet)               | 24Mb  |
+|         *lite::cv::matting::MODNet*         |     modnet_webcam_portrait_matting-512x512.onnx     |               [MODNet](https://github.com/ZHKKKe/MODNet)               | 24Mb  |
+|       *lite::cv::matting::MODNetDyn*        |      modnet_photographic_portrait_matting.onnx      |               [MODNet](https://github.com/ZHKKKe/MODNet)               | 24Mb  |
+|       *lite::cv::matting::MODNetDyn*        |         modnet_webcam_portrait_matting.onnx         |               [MODNet](https://github.com/ZHKKKe/MODNet)               | 24Mb  |
+|  *lite::cv::matting::BackgroundMattingV2*   |         BGMv2_mobilenetv2-256x256-full.onnx         | [BackgroundMattingV2](https://github.com/PeterL1n/BackgroundMattingV2) | 20Mb  |
+|  *lite::cv::matting::BackgroundMattingV2*   |         BGMv2_mobilenetv2-512x512-full.onnx         | [BackgroundMattingV2](https://github.com/PeterL1n/BackgroundMattingV2) | 20Mb  |
+|  *lite::cv::matting::BackgroundMattingV2*   |        BGMv2_mobilenetv2-1080x1920-full.onnx        | [BackgroundMattingV2](https://github.com/PeterL1n/BackgroundMattingV2) | 20Mb  |
+|  *lite::cv::matting::BackgroundMattingV2*   |        BGMv2_mobilenetv2-2160x3840-full.onnx        | [BackgroundMattingV2](https://github.com/PeterL1n/BackgroundMattingV2) | 20Mb  |
+|  *lite::cv::matting::BackgroundMattingV2*   |         BGMv2_resnet50-1080x1920-full.onnx          | [BackgroundMattingV2](https://github.com/PeterL1n/BackgroundMattingV2) | 20Mb  |
+|  *lite::cv::matting::BackgroundMattingV2*   |         BGMv2_resnet50-2160x3840-full.onnx          | [BackgroundMattingV2](https://github.com/PeterL1n/BackgroundMattingV2) | 20Mb  |
+|  *lite::cv::matting::BackgroundMattingV2*   |         BGMv2_resnet101-2160x3840-full.onnx         | [BackgroundMattingV2](https://github.com/PeterL1n/BackgroundMattingV2) | 154Mb |
+| *lite::cv::matting::BackgroundMattingV2Dyn* |          BGMv2_mobilenetv2_4k_dynamic.onnx          | [BackgroundMattingV2](https://github.com/PeterL1n/BackgroundMattingV2) | 157Mb |
+| *lite::cv::matting::BackgroundMattingV2Dyn* |          BGMv2_mobilenetv2_hd_dynamic.onnx          | [BackgroundMattingV2](https://github.com/PeterL1n/BackgroundMattingV2) | 230Mb |
 
 </details>
 
@@ -1009,7 +1020,9 @@ static void test_default()
 auto *matting = new lite::cv::matting::RobustVideoMatting:(onnx_path);  //  WACV 2022.
 auto *matting = new lite::cv::matting::MGMatting(onnx_path); // CVPR 2021
 auto *matting = new lite::cv::matting::MODNet(onnx_path); // AAAI 2022
-auto *matting = new lite::cv::matting::MODNetDyn(onnx_path); // AAAI 2022 MODNet with Dynamic Shape Inference.
+auto *matting = new lite::cv::matting::MODNetDyn(onnx_path); // AAAI 2022 Dynamic Shape Inference.
+auto *matting = new lite::cv::matting::BackgroundMattingV2(onnx_path); // CVPR 2020 
+auto *matting = new lite::cv::matting::BackgroundMattingV2Dyn(onnx_path); // CVPR 2020 Dynamic Shape Inference.
 ```
 
 ****
