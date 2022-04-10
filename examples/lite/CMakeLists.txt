@@ -84,4 +84,5 @@ add_lite_executable(lite_insectid cv)
 add_lite_executable(lite_plantid cv)
 add_lite_executable(lite_modnet cv)
 add_lite_executable(lite_modnet_dyn cv)
+add_lite_executable(lite_backgroundmattingv2 cv)
 

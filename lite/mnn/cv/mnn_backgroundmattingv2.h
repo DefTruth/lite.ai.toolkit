@@ -49,7 +49,7 @@ namespace mnncv
     // multi inputs.
     MNN::Tensor *src_tensor = nullptr;
     MNN::Tensor *bgr_tensor = nullptr;
-    // input size & variant_type, initialize at runtime.
+    // input size, initialize at runtime.
     int input_height;
     int input_width;
     int dimension_type; // hint only
@@ -63,6 +63,7 @@ namespace mnncv
 
   private:
     void print_debug_string();
+
   private:
     void transform(const cv::Mat &mat, const cv::Mat &bgr);
 

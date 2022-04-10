@@ -89,7 +89,6 @@ void TNNMODNet::generate_matting(std::shared_ptr<tnn::Instance> &_instance,
   float *output_ptr = (float *) output_mat->GetData();
 
   cv::Mat alpha_pred(out_h, out_w, CV_32FC1, output_ptr);
-  // post process
   if (remove_noise) lite::utils::remove_small_connected_area(alpha_pred, 0.05f);
   // resize alpha
   if (out_h != h || out_w != w)

@@ -33,6 +33,10 @@ BackgroundMattingV2::BackgroundMattingV2(const std::string &_onnx_path, unsigned
 
   // 3. type info.
   num_inputs = ort_session->GetInputCount(); // 2
+  input_node_names.resize(num_inputs);
+  for (unsigned int i = 0; i < num_inputs; ++i)
+    input_node_names[i] = ort_session->GetInputName(i, allocator);
+
   Ort::TypeInfo input_mat_type_info = ort_session->GetInputTypeInfo(0);
   Ort::TypeInfo input_bgr_type_info = ort_session->GetInputTypeInfo(1);
   auto input_mat_tensor_info = input_mat_type_info.GetTensorTypeAndShapeInfo();
@@ -55,7 +59,7 @@ BackgroundMattingV2::BackgroundMattingV2(const std::string &_onnx_path, unsigned
   for (unsigned int i = 0; i < num_outputs; ++i)
   {
     output_node_names[i] = ort_session->GetOutputName(i, allocator);
-    Ort::TypeInfo type_info = ort_session->GetOutputTypeInfo(0);
+    Ort::TypeInfo type_info = ort_session->GetOutputTypeInfo(i);
     auto tensor_info = type_info.GetTensorTypeAndShapeInfo();
     auto output_shape = tensor_info.GetShape();
     output_node_dims.push_back(output_shape);
@@ -119,6 +123,7 @@ void BackgroundMattingV2::detect(const cv::Mat &mat, const cv::Mat &bgr,
                                  types::MattingContent &content, bool remove_noise,
                                  bool minimum_post_process)
 {
+  if (mat.empty() || bgr.empty()) return;
   // 1. make input tensor
   auto input_tensors = this->transform(mat, bgr);
   // 2. inference

@@ -96,6 +96,7 @@
 #include "lite/ort/cv/plantid.h"
 #include "lite/ort/cv/modnet.h"
 #include "lite/ort/cv/modnet_dyn.h"
+#include "lite/ort/cv/backgroundmattingv2.h"
 
 #endif
 
@@ -172,6 +173,7 @@
 #include "lite/mnn/cv/mnn_insectid.h"
 #include "lite/mnn/cv/mnn_plantid.h"
 #include "lite/mnn/cv/mnn_modnet.h"
+#include "lite/mnn/cv/mnn_backgroundmattingv2.h"
 
 #endif
 
@@ -323,6 +325,7 @@
 #include "lite/tnn/cv/tnn_insectid.h"
 #include "lite/tnn/cv/tnn_plantid.h"
 #include "lite/tnn/cv/tnn_modnet.h"
+#include "lite/tnn/cv/tnn_backgroundmattingv2.h"
 
 #endif
 
@@ -423,6 +426,7 @@ namespace lite
     typedef ortcv::PlantID _PlantID;
     typedef ortcv::MODNet _MODNet;
     typedef ortcv::MODNetDyn _MODNetDyn;
+    typedef ortcv::BackgroundMattingV2 _BackgroundMattingV2;
 #endif
 
     // 1. classification
@@ -606,6 +610,7 @@ namespace lite
       typedef _MGMatting MGMatting;
       typedef _MODNet MODNet;
       typedef _MODNetDyn MODNetDyn;
+      typedef _BackgroundMattingV2 BackgroundMattingV2;
 #endif
     }
   }
@@ -773,6 +778,7 @@ namespace lite
       typedef ortcv::PlantID _ONNXPlantID;
       typedef ortcv::MODNet _ONNXMODNet;
       typedef ortcv::MODNetDyn _ONNXMODNetDyn;
+      typedef ortcv::BackgroundMattingV2 _ONNXBackgroundMattingV2;
 
       // 1. classification
       namespace classification
@@ -928,6 +934,7 @@ namespace lite
         typedef _ONNXMGMatting MGMatting;
         typedef _ONNXMODNet MODNet;
         typedef _ONNXMODNetDyn MODNetDyn;
+        typedef _ONNXBackgroundMattingV2 BackgroundMattingV2;
       }
     }
 
@@ -1056,6 +1063,7 @@ namespace lite
         typedef mnncv::MNNRobustVideoMatting RobustVideoMatting;
         typedef mnncv::MNNMGMatting MGMatting;
         typedef mnncv::MNNMODNet MODNet;
+        typedef mnncv::MNNBackgroundMattingV2 BackgroundMattingV2;
       }
 
       // style transfer
@@ -1350,6 +1358,7 @@ namespace lite
         typedef tnncv::TNNRobustVideoMatting RobustVideoMatting;
         typedef tnncv::TNNMGMatting MGMatting;
         typedef tnncv::TNNMODNet MODNet;
+        typedef tnncv::TNNBackgroundMattingV2 BackgroundMattingV2;
       }
       // style transfer
       namespace style
