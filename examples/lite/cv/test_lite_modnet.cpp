@@ -22,7 +22,7 @@ static void test_default()
   cv::Mat bgr_mat = cv::imread(test_bgr_path);
 
   // 1. image matting.
-  modnet->detect(img_bgr, content, true);
+  modnet->detect(img_bgr, content, true, true);
 
   if (content.flag)
   {
@@ -31,7 +31,11 @@ static void test_default()
     if (!content.merge_mat.empty()) cv::imwrite(save_merge_path, content.merge_mat);
     // swap background
     cv::Mat out_mat;
-    lite::utils::swap_background(content.fgr_mat, content.pha_mat, bgr_mat, out_mat, true);
+    if (!content.fgr_mat.empty())
+      lite::utils::swap_background(content.fgr_mat, content.pha_mat, bgr_mat, out_mat, true);
+    else
+      lite::utils::swap_background(img_bgr, content.pha_mat, bgr_mat, out_mat, false);
+
     if (!out_mat.empty())
     {
       cv::imwrite(save_swap_path, out_mat);
@@ -63,7 +67,7 @@ static void test_onnxruntime()
   cv::Mat bgr_mat = cv::imread(test_bgr_path);
 
   // 1. image matting.
-  modnet->detect(img_bgr, content, true);
+  modnet->detect(img_bgr, content, true, true);
 
   if (content.flag)
   {
@@ -72,7 +76,11 @@ static void test_onnxruntime()
     if (!content.merge_mat.empty()) cv::imwrite(save_merge_path, content.merge_mat);
     // swap background
     cv::Mat out_mat;
-    lite::utils::swap_background(content.fgr_mat, content.pha_mat, bgr_mat, out_mat, true);
+    if (!content.fgr_mat.empty())
+      lite::utils::swap_background(content.fgr_mat, content.pha_mat, bgr_mat, out_mat, true);
+    else
+      lite::utils::swap_background(img_bgr, content.pha_mat, bgr_mat, out_mat, false);
+
     if (!out_mat.empty())
     {
       cv::imwrite(save_swap_path, out_mat);
@@ -105,7 +113,7 @@ static void test_mnn()
   cv::Mat bgr_mat = cv::imread(test_bgr_path);
 
   // 1. image matting.
-  modnet->detect(img_bgr, content, true);
+  modnet->detect(img_bgr, content, true, true);
 
   if (content.flag)
   {
@@ -114,7 +122,11 @@ static void test_mnn()
     if (!content.merge_mat.empty()) cv::imwrite(save_merge_path, content.merge_mat);
     // swap background
     cv::Mat out_mat;
-    lite::utils::swap_background(content.fgr_mat, content.pha_mat, bgr_mat, out_mat, true);
+    if (!content.fgr_mat.empty())
+      lite::utils::swap_background(content.fgr_mat, content.pha_mat, bgr_mat, out_mat, true);
+    else
+      lite::utils::swap_background(img_bgr, content.pha_mat, bgr_mat, out_mat, false);
+
     if (!out_mat.empty())
     {
       cv::imwrite(save_swap_path, out_mat);
@@ -147,7 +159,7 @@ static void test_ncnn()
   cv::Mat bgr_mat = cv::imread(test_bgr_path);
 
   // 1. image matting.
-  modnet->detect(img_bgr, content, true);
+  modnet->detect(img_bgr, content, true, true);
 
   if (content.flag)
   {
@@ -156,7 +168,11 @@ static void test_ncnn()
     if (!content.merge_mat.empty()) cv::imwrite(save_merge_path, content.merge_mat);
     // swap background
     cv::Mat out_mat;
-    lite::utils::swap_background(content.fgr_mat, content.pha_mat, bgr_mat, out_mat, true);
+    if (!content.fgr_mat.empty())
+      lite::utils::swap_background(content.fgr_mat, content.pha_mat, bgr_mat, out_mat, true);
+    else
+      lite::utils::swap_background(img_bgr, content.pha_mat, bgr_mat, out_mat, false);
+
     if (!out_mat.empty())
     {
       cv::imwrite(save_swap_path, out_mat);
@@ -189,7 +205,7 @@ static void test_tnn()
   cv::Mat bgr_mat = cv::imread(test_bgr_path);
 
   // 1. image matting.
-  modnet->detect(img_bgr, content, true);
+  modnet->detect(img_bgr, content, true, true);
 
   if (content.flag)
   {
@@ -198,7 +214,11 @@ static void test_tnn()
     if (!content.merge_mat.empty()) cv::imwrite(save_merge_path, content.merge_mat);
     // swap background
     cv::Mat out_mat;
-    lite::utils::swap_background(content.fgr_mat, content.pha_mat, bgr_mat, out_mat, true);
+    if (!content.fgr_mat.empty())
+      lite::utils::swap_background(content.fgr_mat, content.pha_mat, bgr_mat, out_mat, true);
+    else
+      lite::utils::swap_background(img_bgr, content.pha_mat, bgr_mat, out_mat, false);
+
     if (!out_mat.empty())
     {
       cv::imwrite(save_swap_path, out_mat);

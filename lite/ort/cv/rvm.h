@@ -81,7 +81,9 @@ namespace ortcv
     int64_t value_size_of(const std::vector<int64_t> &dims); // get value size
 
     void generate_matting(std::vector<Ort::Value> &output_tensors,
-                          types::MattingContent &content);
+                          types::MattingContent &content,
+                          bool remove_noise = false,
+                          bool minimum_post_process = false);
 
     void update_context(std::vector<Ort::Value> &output_tensors);
 
@@ -93,9 +95,14 @@ namespace ortcv
      * @param downsample_ratio: 0.25 by default.
      * @param video_mode: false by default.
      * See https://github.com/PeterL1n/RobustVideoMatting/blob/master/documentation/inference_zh_Hans.md
+     * @param remove_noise: remove small connected area or not
+     * @param minimum_post_process: if True, will run matting with minimum post process
+     * in order to speed up the matting processes.
      */
     void detect(const cv::Mat &mat, types::MattingContent &content,
-                float downsample_ratio = 0.25f, bool video_mode = false);
+                float downsample_ratio = 0.25f, bool video_mode = false,
+                bool remove_noise = false, bool minimum_post_process = false);
+
     /**
      * Video Matting Using RVM(https://github.com/PeterL1n/RobustVideoMatting)
      * @param video_path: eg. xxx/xxx/input.mp4
@@ -105,13 +112,21 @@ namespace ortcv
      * @param downsample_ratio: 0.25 by default.
      * See https://github.com/PeterL1n/RobustVideoMatting/blob/master/documentation/inference_zh_Hans.md
      * @param writer_fps: FPS for VideoWriter, 20 by default.
+     * @param remove_noise: remove small connected area or not
+     * @param minimum_post_process: if True, will run matting with minimum post process
+     * in order to speed up the matting processes.
+     * @param background: user's custom background setting, will return with this target
+     * background if background Mat is not empty instead of green background.
      */
     void detect_video(const std::string &video_path,
                       const std::string &output_path,
                       std::vector<types::MattingContent> &contents,
                       bool save_contents = false,
                       float downsample_ratio = 0.25f,
-                      unsigned int writer_fps = 20);
+                      unsigned int writer_fps = 20,
+                      bool remove_noise = false,
+                      bool minimum_post_process = false,
+                      const cv::Mat &background = cv::Mat());
 
   };
 }

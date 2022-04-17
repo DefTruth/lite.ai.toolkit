@@ -269,7 +269,8 @@ void TNNMGMatting::update_guidance_mask(cv::Mat &mask, unsigned int guidance_thr
 }
 
 void TNNMGMatting::detect(const cv::Mat &mat, cv::Mat &mask, types::MattingContent &content,
-                          bool remove_noise, unsigned int guidance_threshold)
+                          bool remove_noise, unsigned int guidance_threshold,
+                          bool minimum_post_process)
 {
   if (mat.empty() || mask.empty()) return;
   // const unsigned int img_height = mat.rows;
@@ -317,13 +318,13 @@ void TNNMGMatting::detect(const cv::Mat &mat, cv::Mat &mask, types::MattingConte
     return;
   }
   // 4. generate matting
-  this->generate_matting(instance, mat, content, remove_noise);
+  this->generate_matting(instance, mat, content, remove_noise, minimum_post_process);
 }
 
 void TNNMGMatting::generate_matting(
     std::shared_ptr<tnn::Instance> &_instance,
     const cv::Mat &mat, types::MattingContent &content,
-    bool remove_noise)
+    bool remove_noise, bool minimum_post_process)
 {
   std::shared_ptr<tnn::Mat> alpha_os1_mat;
   std::shared_ptr<tnn::Mat> alpha_os4_mat;
@@ -366,40 +367,41 @@ void TNNMGMatting::generate_matting(
   this->update_alpha_pred(alpha_pred, weight_os4, alpha_os4_pred);
   cv::Mat weight_os1 = this->get_unknown_tensor_from_pred(alpha_pred, 15);
   this->update_alpha_pred(alpha_pred, weight_os1, alpha_os1_pred);
-  // post process
   if (remove_noise) lite::utils::remove_small_connected_area(alpha_pred, 0.05f);
 
-  cv::Mat mat_copy;
-  mat.convertTo(mat_copy, CV_32FC3);
   cv::Mat pmat = alpha_pred;
-
   if (out_h != h || out_w != w) cv::resize(pmat, pmat, cv::Size(w, h));
-
-  std::vector<cv::Mat> mat_channels;
-  cv::split(mat_copy, mat_channels);
-  cv::Mat bmat = mat_channels.at(0);
-  cv::Mat gmat = mat_channels.at(1);
-  cv::Mat rmat = mat_channels.at(2); // ref only, zero-copy.
-  bmat = bmat.mul(pmat);
-  gmat = gmat.mul(pmat);
-  rmat = rmat.mul(pmat);
-  cv::Mat rest = 1.f - pmat;
-  cv::Mat mbmat = bmat.mul(pmat) + rest * 153.f;
-  cv::Mat mgmat = gmat.mul(pmat) + rest * 255.f;
-  cv::Mat mrmat = rmat.mul(pmat) + rest * 120.f;
-  std::vector<cv::Mat> fgr_channel_mats, merge_channel_mats;
-  fgr_channel_mats.push_back(bmat);
-  fgr_channel_mats.push_back(gmat);
-  fgr_channel_mats.push_back(rmat);
-  merge_channel_mats.push_back(mbmat);
-  merge_channel_mats.push_back(mgmat);
-  merge_channel_mats.push_back(mrmat);
-
   content.pha_mat = pmat;
-  cv::merge(fgr_channel_mats, content.fgr_mat);
-  cv::merge(merge_channel_mats, content.merge_mat);
-  content.fgr_mat.convertTo(content.fgr_mat, CV_8UC3);
-  content.merge_mat.convertTo(content.merge_mat, CV_8UC3);
+
+  if (!minimum_post_process)
+  {
+    cv::Mat mat_copy;
+    mat.convertTo(mat_copy, CV_32FC3);
+    std::vector<cv::Mat> mat_channels;
+    cv::split(mat_copy, mat_channels);
+    cv::Mat bmat = mat_channels.at(0);
+    cv::Mat gmat = mat_channels.at(1);
+    cv::Mat rmat = mat_channels.at(2); // ref only, zero-copy.
+    bmat = bmat.mul(pmat);
+    gmat = gmat.mul(pmat);
+    rmat = rmat.mul(pmat);
+    cv::Mat rest = 1.f - pmat;
+    cv::Mat mbmat = bmat.mul(pmat) + rest * 153.f;
+    cv::Mat mgmat = gmat.mul(pmat) + rest * 255.f;
+    cv::Mat mrmat = rmat.mul(pmat) + rest * 120.f;
+    std::vector<cv::Mat> fgr_channel_mats, merge_channel_mats;
+    fgr_channel_mats.push_back(bmat);
+    fgr_channel_mats.push_back(gmat);
+    fgr_channel_mats.push_back(rmat);
+    merge_channel_mats.push_back(mbmat);
+    merge_channel_mats.push_back(mgmat);
+    merge_channel_mats.push_back(mrmat);
+
+    cv::merge(fgr_channel_mats, content.fgr_mat);
+    cv::merge(merge_channel_mats, content.merge_mat);
+    content.fgr_mat.convertTo(content.fgr_mat, CV_8UC3);
+    content.merge_mat.convertTo(content.merge_mat, CV_8UC3);
+  }
 
   content.flag = true;
 }

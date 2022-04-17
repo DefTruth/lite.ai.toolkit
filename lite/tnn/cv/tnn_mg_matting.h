@@ -77,11 +77,9 @@ namespace tnncv
 
     cv::Mat get_unknown_tensor_from_pred(const cv::Mat &alpha_pred, unsigned int rand_width = 30);
 
-    void remove_small_connected_area(cv::Mat &alpha_pred);
-
     void generate_matting(std::shared_ptr<tnn::Instance> &_instance,
                           const cv::Mat &mat, types::MattingContent &content,
-                          bool remove_noise = false);
+                          bool remove_noise = false, bool minimum_post_process = false);
 
   public:
     /**
@@ -92,7 +90,8 @@ namespace tnncv
      * @param content: types::MattingContent to catch the detected results.
      */
     void detect(const cv::Mat &mat, cv::Mat &mask, types::MattingContent &content,
-                bool remove_noise = false, unsigned int guidance_threshold = 128);
+                bool remove_noise = false, unsigned int guidance_threshold = 128,
+                bool minimum_post_process = false);
   };
 }
 

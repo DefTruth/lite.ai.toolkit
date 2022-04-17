@@ -69,7 +69,7 @@ namespace mnncv
 
     void generate_matting(const std::map<std::string, MNN::Tensor *> &output_tensors,
                           const cv::Mat &mat, types::MattingContent &content,
-                          bool remove_noise = false);
+                          bool remove_noise = false, bool minimum_post_process = false);
 
   public:
     /**
@@ -80,7 +80,8 @@ namespace mnncv
      * @param content: types::MattingContent to catch the detected results.
      */
     void detect(const cv::Mat &mat, cv::Mat &mask, types::MattingContent &content,
-                bool remove_noise = false, unsigned int guidance_threshold = 128);
+                bool remove_noise = false, unsigned int guidance_threshold = 128,
+                bool minimum_post_process = false);
 
   };
 }

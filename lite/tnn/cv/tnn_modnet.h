@@ -28,10 +28,11 @@ namespace tnncv
 
     void generate_matting(std::shared_ptr<tnn::Instance> &_instance,
                           const cv::Mat &mat, types::MattingContent &content,
-                          bool remove_noise = false);
+                          bool remove_noise = false, bool minimum_post_process = false);
 
   public:
-    void detect(const cv::Mat &mat, types::MattingContent &content, bool remove_noise = false);
+    void detect(const cv::Mat &mat, types::MattingContent &content, bool remove_noise = false,
+                bool minimum_post_process = false);
 
   };
 }

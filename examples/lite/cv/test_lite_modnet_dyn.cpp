@@ -31,7 +31,11 @@ static void test_default()
     if (!content.merge_mat.empty()) cv::imwrite(save_merge_path, content.merge_mat);
     // swap background
     cv::Mat out_mat;
-    lite::utils::swap_background(content.fgr_mat, content.pha_mat, bgr_mat, out_mat, true);
+    if (!content.fgr_mat.empty())
+      lite::utils::swap_background(content.fgr_mat, content.pha_mat, bgr_mat, out_mat, true);
+    else
+      lite::utils::swap_background(img_bgr, content.pha_mat, bgr_mat, out_mat, false);
+
     if (!out_mat.empty())
     {
       cv::imwrite(save_swap_path, out_mat);
@@ -72,7 +76,11 @@ static void test_onnxruntime()
     if (!content.merge_mat.empty()) cv::imwrite(save_merge_path, content.merge_mat);
     // swap background
     cv::Mat out_mat;
-    lite::utils::swap_background(content.fgr_mat, content.pha_mat, bgr_mat, out_mat, true);
+    if (!content.fgr_mat.empty())
+      lite::utils::swap_background(content.fgr_mat, content.pha_mat, bgr_mat, out_mat, true);
+    else
+      lite::utils::swap_background(img_bgr, content.pha_mat, bgr_mat, out_mat, false);
+
     if (!out_mat.empty())
     {
       cv::imwrite(save_swap_path, out_mat);

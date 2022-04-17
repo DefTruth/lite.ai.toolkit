@@ -108,7 +108,8 @@ std::vector<Ort::Value> RobustVideoMatting::transform(const cv::Mat &mat)
 }
 
 void RobustVideoMatting::detect(const cv::Mat &mat, types::MattingContent &content,
-                                float downsample_ratio, bool video_mode)
+                                float downsample_ratio, bool video_mode,
+                                bool remove_noise, bool minimum_post_process)
 {
   if (mat.empty()) return;
   // 0. set dsr at runtime.
@@ -123,7 +124,7 @@ void RobustVideoMatting::detect(const cv::Mat &mat, types::MattingContent &conte
       num_outputs
   );
   // 3. generate matting
-  this->generate_matting(output_tensors, content);
+  this->generate_matting(output_tensors, content, remove_noise, minimum_post_process);
   // 4. update context (needed for video detection.)
   if (video_mode)
   {
@@ -138,7 +139,8 @@ void RobustVideoMatting::detect_video(const std::string &video_path,
                                       const std::string &output_path,
                                       std::vector<types::MattingContent> &contents,
                                       bool save_contents, float downsample_ratio,
-                                      unsigned int writer_fps)
+                                      unsigned int writer_fps, bool remove_noise,
+                                      bool minimum_post_process, const cv::Mat &background)
 {
   // 0. init video capture
   cv::VideoCapture video_capture(video_path);
@@ -166,12 +168,36 @@ void RobustVideoMatting::detect_video(const std::string &video_path,
   {
     i += 1;
     types::MattingContent content;
-    this->detect(mat, content, downsample_ratio, true); // video_mode true
+    this->detect(mat, content, downsample_ratio, true, remove_noise, minimum_post_process); // video_mode true
     // 3. save contents and writing out.
     if (content.flag)
     {
       if (save_contents) contents.push_back(content);
-      if (!content.merge_mat.empty()) video_writer.write(content.merge_mat);
+      // 3.1 do nothing if set minimum_post_process as true
+      if (background.empty())
+      {
+        if (!content.merge_mat.empty() && !minimum_post_process)
+          video_writer.write(content.merge_mat);
+        else if (!content.fgr_mat.empty())
+          video_writer.write(content.fgr_mat);
+      } //
+      else
+      {
+        cv::Mat out_mat;
+        // 3.2 merge user custom background
+        if (!content.pha_mat.empty())
+        {
+          if (!content.fgr_mat.empty())
+            lite::utils::swap_background(content.fgr_mat, content.pha_mat,
+                                         background, out_mat, false);
+          else
+            lite::utils::swap_background(mat, content.pha_mat,
+                                         background, out_mat, false);
+        }
+        if (!out_mat.empty()) video_writer.write(out_mat);
+
+      }
+
     }
     // 4. check context states.
     if (!context_is_update) break;
@@ -187,7 +213,9 @@ void RobustVideoMatting::detect_video(const std::string &video_path,
 }
 
 void RobustVideoMatting::generate_matting(std::vector<Ort::Value> &output_tensors,
-                                          types::MattingContent &content)
+                                          types::MattingContent &content,
+                                          bool remove_noise,
+                                          bool minimum_post_process)
 {
   Ort::Value &fgr = output_tensors.at(0); // fgr (1,3,h,w) 0.~1.
   Ort::Value &pha = output_tensors.at(1); // pha (1,1,h,w) 0.~1.
@@ -203,26 +231,33 @@ void RobustVideoMatting::generate_matting(std::vector<Ort::Value> &output_tensor
   cv::Mat gmat(height, width, CV_32FC1, fgr_ptr + channel_step);
   cv::Mat bmat(height, width, CV_32FC1, fgr_ptr + 2 * channel_step);
   cv::Mat pmat(height, width, CV_32FC1, pha_ptr);
+  if (remove_noise) lite::utils::remove_small_connected_area(pmat, 0.05f);
+
   rmat *= 255.;
   bmat *= 255.;
   gmat *= 255.;
-  cv::Mat rest = 1. - pmat;
-  cv::Mat mbmat = bmat.mul(pmat) + rest * 153.;
-  cv::Mat mgmat = gmat.mul(pmat) + rest * 255.;
-  cv::Mat mrmat = rmat.mul(pmat) + rest * 120.;
-  std::vector<cv::Mat> fgr_channel_mats, merge_channel_mats;
+  std::vector<cv::Mat> fgr_channel_mats;
   fgr_channel_mats.push_back(bmat);
   fgr_channel_mats.push_back(gmat);
   fgr_channel_mats.push_back(rmat);
-  merge_channel_mats.push_back(mbmat);
-  merge_channel_mats.push_back(mgmat);
-  merge_channel_mats.push_back(mrmat);
 
   content.pha_mat = pmat;
   cv::merge(fgr_channel_mats, content.fgr_mat);
-  cv::merge(merge_channel_mats, content.merge_mat);
   content.fgr_mat.convertTo(content.fgr_mat, CV_8UC3);
-  content.merge_mat.convertTo(content.merge_mat, CV_8UC3);
+
+  if (!minimum_post_process)
+  {
+    cv::Mat rest = 1. - pmat;
+    cv::Mat mbmat = bmat.mul(pmat) + rest * 153.;
+    cv::Mat mgmat = gmat.mul(pmat) + rest * 255.;
+    cv::Mat mrmat = rmat.mul(pmat) + rest * 120.;
+    std::vector<cv::Mat> merge_channel_mats;
+    merge_channel_mats.push_back(mbmat);
+    merge_channel_mats.push_back(mgmat);
+    merge_channel_mats.push_back(mrmat);
+    cv::merge(merge_channel_mats, content.merge_mat);
+    content.merge_mat.convertTo(content.merge_mat, CV_8UC3);
+  }
 
   content.flag = true;
 }

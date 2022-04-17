@@ -94,11 +94,11 @@ namespace mnncv
 
     void initialize_context();
 
-    void generate_matting(const std::map<std::string, MNN::Tensor*> &output_tensors,
-                          types::MattingContent &content,
-                          int img_h, int img_w);
+    void generate_matting(const std::map<std::string, MNN::Tensor *> &output_tensors,
+                          types::MattingContent &content, int img_h, int img_w,
+                          bool remove_noise = false, bool minimum_post_process = false);
 
-    void update_context(const std::map<std::string, MNN::Tensor*> &output_tensors);
+    void update_context(const std::map<std::string, MNN::Tensor *> &output_tensors);
 
   public:
     /**
@@ -107,8 +107,13 @@ namespace mnncv
      * @param content: types::MattingContent to catch the detected results.
      * @param video_mode: false by default.
      * See https://github.com/PeterL1n/RobustVideoMatting/blob/master/documentation/inference_zh_Hans.md
+     * @param remove_noise: remove small connected area or not
+     * @param minimum_post_process: if True, will run matting with minimum post process
+     * in order to speed up the matting processes.
      */
-    void detect(const cv::Mat &mat, types::MattingContent &content, bool video_mode = false);
+    void detect(const cv::Mat &mat, types::MattingContent &content, bool video_mode = false,
+                bool remove_noise = false, bool minimum_post_process = false);
+
     /**
      * Video Matting Using RVM(https://github.com/PeterL1n/RobustVideoMatting)
      * @param video_path: eg. xxx/xxx/input.mp4
@@ -117,12 +122,20 @@ namespace mnncv
      * @param save_contents: false by default, whether to save MattingContent.
      * See https://github.com/PeterL1n/RobustVideoMatting/blob/master/documentation/inference_zh_Hans.md
      * @param writer_fps: FPS for VideoWriter, 20 by default.
+     * @param remove_noise: remove small connected area or not
+     * @param minimum_post_process: if True, will run matting with minimum post process
+     * in order to speed up the matting processes.
+     * @param background: user's custom background setting, will return with this target
+     * background if background Mat is not empty instead of green background.
      */
     void detect_video(const std::string &video_path,
                       const std::string &output_path,
                       std::vector<types::MattingContent> &contents,
                       bool save_contents = false,
-                      unsigned int writer_fps = 20);
+                      unsigned int writer_fps = 20,
+                      bool remove_noise = false,
+                      bool minimum_post_process = false,
+                      const cv::Mat &background = cv::Mat());
 
   };
 }
