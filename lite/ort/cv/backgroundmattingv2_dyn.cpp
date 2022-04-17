@@ -112,7 +112,7 @@ void BackgroundMattingV2Dyn::detect(const cv::Mat &mat, const cv::Mat &bgr,
   // align input size with 32 first
   this->update_dynamic_shape(img_height, img_width);
   // 1. make input tensor
-  auto input_tensors = this->transform(mat, bgr);
+  auto input_tensors = this->transform(mat, bgr_ref);
   // 2. inference
   auto output_tensors = ort_session->Run(
       Ort::RunOptions{nullptr}, input_node_names.data(),

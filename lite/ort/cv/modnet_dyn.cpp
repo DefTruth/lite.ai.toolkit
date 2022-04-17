@@ -81,7 +81,8 @@ Ort::Value MODNetDyn::transform(const cv::Mat &mat)
   );
 }
 
-void MODNetDyn::detect(const cv::Mat &mat, types::MattingContent &content, bool remove_noise)
+void MODNetDyn::detect(const cv::Mat &mat, types::MattingContent &content, bool remove_noise,
+                       bool minimum_post_process)
 {
   if (mat.empty()) return;
   const unsigned int img_height = mat.rows;
@@ -97,12 +98,12 @@ void MODNetDyn::detect(const cv::Mat &mat, types::MattingContent &content, bool 
       &input_tensor, 1, output_node_names.data(), num_outputs
   );
   // 3. generate matting
-  this->generate_matting(output_tensors, mat, content, remove_noise);
+  this->generate_matting(output_tensors, mat, content, remove_noise, minimum_post_process);
 }
 
 void MODNetDyn::generate_matting(std::vector<Ort::Value> &output_tensors,
                                  const cv::Mat &mat, types::MattingContent &content,
-                                 bool remove_noise)
+                                 bool remove_noise, bool minimum_post_process)
 {
   Ort::Value &output = output_tensors.at(0); // (1,1,out_h,out_w) 0~1
   const unsigned int h = mat.rows;
@@ -117,37 +118,44 @@ void MODNetDyn::generate_matting(std::vector<Ort::Value> &output_tensors,
   cv::Mat alpha_pred(out_h, out_w, CV_32FC1, output_ptr);
   if (remove_noise) lite::utils::remove_small_connected_area(alpha_pred, 0.05f);
 
-  cv::Mat mat_copy;
-  mat.convertTo(mat_copy, CV_32FC3);
   cv::Mat pmat = alpha_pred(cv::Rect(align_val, align_val, w, h));
-
-  // merge mat and fgr mat may not need
-  std::vector<cv::Mat> mat_channels;
-  cv::split(mat_copy, mat_channels);
-  cv::Mat bmat = mat_channels.at(0);
-  cv::Mat gmat = mat_channels.at(1);
-  cv::Mat rmat = mat_channels.at(2); // ref only, zero-copy.
-  bmat = bmat.mul(pmat);
-  gmat = gmat.mul(pmat);
-  rmat = rmat.mul(pmat);
-  cv::Mat rest = 1.f - pmat;
-  cv::Mat mbmat = bmat.mul(pmat) + rest * 153.f;
-  cv::Mat mgmat = gmat.mul(pmat) + rest * 255.f;
-  cv::Mat mrmat = rmat.mul(pmat) + rest * 120.f;
-  std::vector<cv::Mat> fgr_channel_mats, merge_channel_mats;
-  fgr_channel_mats.push_back(bmat);
-  fgr_channel_mats.push_back(gmat);
-  fgr_channel_mats.push_back(rmat);
-  merge_channel_mats.push_back(mbmat);
-  merge_channel_mats.push_back(mgmat);
-  merge_channel_mats.push_back(mrmat);
-
   content.pha_mat = pmat;
-  cv::merge(fgr_channel_mats, content.fgr_mat);
-  cv::merge(merge_channel_mats, content.merge_mat);
 
-  content.fgr_mat.convertTo(content.fgr_mat, CV_8UC3);
-  content.merge_mat.convertTo(content.merge_mat, CV_8UC3);
+  if (!minimum_post_process)
+  {
+    // MODNet only predict Alpha, no fgr. So,
+    // the fake fgr and merge mat may not need,
+    // let the fgr mat and merge mat empty to
+    // Speed up the post processes.
+    cv::Mat mat_copy;
+    mat.convertTo(mat_copy, CV_32FC3);
+    // merge mat and fgr mat may not need
+    std::vector<cv::Mat> mat_channels;
+    cv::split(mat_copy, mat_channels);
+    cv::Mat bmat = mat_channels.at(0);
+    cv::Mat gmat = mat_channels.at(1);
+    cv::Mat rmat = mat_channels.at(2); // ref only, zero-copy.
+    bmat = bmat.mul(pmat);
+    gmat = gmat.mul(pmat);
+    rmat = rmat.mul(pmat);
+    cv::Mat rest = 1.f - pmat;
+    cv::Mat mbmat = bmat.mul(pmat) + rest * 153.f;
+    cv::Mat mgmat = gmat.mul(pmat) + rest * 255.f;
+    cv::Mat mrmat = rmat.mul(pmat) + rest * 120.f;
+    std::vector<cv::Mat> fgr_channel_mats, merge_channel_mats;
+    fgr_channel_mats.push_back(bmat);
+    fgr_channel_mats.push_back(gmat);
+    fgr_channel_mats.push_back(rmat);
+    merge_channel_mats.push_back(mbmat);
+    merge_channel_mats.push_back(mgmat);
+    merge_channel_mats.push_back(mrmat);
+
+    cv::merge(fgr_channel_mats, content.fgr_mat);
+    cv::merge(merge_channel_mats, content.merge_mat);
+
+    content.fgr_mat.convertTo(content.fgr_mat, CV_8UC3);
+    content.merge_mat.convertTo(content.merge_mat, CV_8UC3);
+  }
 
   content.flag = true;
 }

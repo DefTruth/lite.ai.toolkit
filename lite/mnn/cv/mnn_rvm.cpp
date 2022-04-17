@@ -3,6 +3,7 @@
 //
 
 #include "mnn_rvm.h"
+#include "lite/utils.h"
 
 using mnncv::MNNRobustVideoMatting;
 
@@ -163,7 +164,8 @@ inline void MNNRobustVideoMatting::transform(const cv::Mat &mat_rs)
   pretreat->convert(mat_rs.data, input_width, input_height, mat_rs.step[0], src_tensor);
 }
 
-void MNNRobustVideoMatting::detect(const cv::Mat &mat, types::MattingContent &content, bool video_mode)
+void MNNRobustVideoMatting::detect(const cv::Mat &mat, types::MattingContent &content, bool video_mode,
+                                   bool remove_noise, bool minimum_post_process)
 {
   if (mat.empty()) return;
   int img_h = mat.rows;
@@ -180,7 +182,7 @@ void MNNRobustVideoMatting::detect(const cv::Mat &mat, types::MattingContent &co
 
   auto output_tensors = mnn_interpreter->getSessionOutputAll(mnn_session);
   // 3. generate matting
-  this->generate_matting(output_tensors, content, img_h, img_w);
+  this->generate_matting(output_tensors, content, img_h, img_w, remove_noise, minimum_post_process);
   // 4.  update context (needed for video matting)
   if (video_mode)
   {
@@ -192,7 +194,8 @@ void MNNRobustVideoMatting::detect(const cv::Mat &mat, types::MattingContent &co
 void MNNRobustVideoMatting::detect_video(
     const std::string &video_path, const std::string &output_path,
     std::vector<types::MattingContent> &contents, bool save_contents,
-    unsigned int writer_fps)
+    unsigned int writer_fps, bool remove_noise, bool minimum_post_process,
+    const cv::Mat &background)
 {
   // 0. init video capture
   cv::VideoCapture video_capture(video_path);
@@ -220,12 +223,39 @@ void MNNRobustVideoMatting::detect_video(
   {
     i += 1;
     types::MattingContent content;
-    this->detect(mat, content, true); // video_mode true
+    this->detect(mat, content, true, remove_noise, minimum_post_process); // video_mode true
     // 3. save contents and writing out.
     if (content.flag)
     {
+//      if (save_contents) contents.push_back(content);
+//      if (!content.merge_mat.empty()) video_writer.write(content.merge_mat);
+
       if (save_contents) contents.push_back(content);
-      if (!content.merge_mat.empty()) video_writer.write(content.merge_mat);
+      // 3.1 do nothing if set minimum_post_process as true
+      if (background.empty())
+      {
+        if (!content.merge_mat.empty() && !minimum_post_process)
+          video_writer.write(content.merge_mat);
+        else if (!content.fgr_mat.empty())
+          video_writer.write(content.fgr_mat);
+      } //
+      else
+      {
+        cv::Mat out_mat;
+        // 3.2 merge user custom background
+        if (!content.pha_mat.empty())
+        {
+          if (!content.fgr_mat.empty())
+            lite::utils::swap_background(content.fgr_mat, content.pha_mat,
+                                         background, out_mat, false);
+          else
+            lite::utils::swap_background(mat, content.pha_mat,
+                                         background, out_mat, false);
+        }
+        if (!out_mat.empty()) video_writer.write(out_mat);
+
+      }
+
     }
     // 4. check context states.
     if (!context_is_update) break;
@@ -241,8 +271,8 @@ void MNNRobustVideoMatting::detect_video(
 
 void MNNRobustVideoMatting::generate_matting(
     const std::map<std::string, MNN::Tensor *> &output_tensors,
-    types::MattingContent &content,
-    int img_h, int img_w)
+    types::MattingContent &content, int img_h, int img_w,
+    bool remove_noise, bool minimum_post_process)
 {
   auto device_fgr_ptr = output_tensors.at("fgr");
   auto device_pha_ptr = output_tensors.at("pha");
@@ -260,32 +290,39 @@ void MNNRobustVideoMatting::generate_matting(
   cv::Mat gmat(input_height, input_width, CV_32FC1, fgr_ptr + channel_step);
   cv::Mat bmat(input_height, input_width, CV_32FC1, fgr_ptr + 2 * channel_step);
   cv::Mat pmat(input_height, input_width, CV_32FC1, pha_ptr); // ref only, zero-copy.
+  if (remove_noise) lite::utils::remove_small_connected_area(pmat, 0.05f);
+
   rmat *= 255.f;
   bmat *= 255.f;
   gmat *= 255.f;
-  cv::Mat rest = 1.f - pmat;
-  cv::Mat mbmat = bmat.mul(pmat) + rest * 153.f;
-  cv::Mat mgmat = gmat.mul(pmat) + rest * 255.f;
-  cv::Mat mrmat = rmat.mul(pmat) + rest * 120.f;
-  std::vector<cv::Mat> fgr_channel_mats, merge_channel_mats;
+  std::vector<cv::Mat> fgr_channel_mats;
   fgr_channel_mats.push_back(bmat);
   fgr_channel_mats.push_back(gmat);
   fgr_channel_mats.push_back(rmat);
-  merge_channel_mats.push_back(mbmat);
-  merge_channel_mats.push_back(mgmat);
-  merge_channel_mats.push_back(mrmat);
-
   content.pha_mat = pmat;
   cv::merge(fgr_channel_mats, content.fgr_mat);
-  cv::merge(merge_channel_mats, content.merge_mat);
   content.fgr_mat.convertTo(content.fgr_mat, CV_8UC3);
-  content.merge_mat.convertTo(content.merge_mat, CV_8UC3);
+
+  if (!minimum_post_process)
+  {
+    cv::Mat rest = 1.f - pmat;
+    cv::Mat mbmat = bmat.mul(pmat) + rest * 153.f;
+    cv::Mat mgmat = gmat.mul(pmat) + rest * 255.f;
+    cv::Mat mrmat = rmat.mul(pmat) + rest * 120.f;
+    std::vector<cv::Mat> merge_channel_mats;
+    merge_channel_mats.push_back(mbmat);
+    merge_channel_mats.push_back(mgmat);
+    merge_channel_mats.push_back(mrmat);
+    cv::merge(merge_channel_mats, content.merge_mat);
+    content.merge_mat.convertTo(content.merge_mat, CV_8UC3);
+  }
 
   if (img_w != input_width || img_h != input_height)
   {
     cv::resize(content.pha_mat, content.pha_mat, cv::Size(img_w, img_h));
     cv::resize(content.fgr_mat, content.fgr_mat, cv::Size(img_w, img_h));
-    cv::resize(content.merge_mat, content.merge_mat, cv::Size(img_w, img_h));
+    if (!minimum_post_process)
+      cv::resize(content.merge_mat, content.merge_mat, cv::Size(img_w, img_h));
   }
 
   content.flag = true;
