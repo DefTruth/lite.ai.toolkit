@@ -1531,3 +1531,9 @@ auto *nanodet = new lite::ncnn::cv::detection::NanoDet(param_path, bin_path);
 
 如何添加您自己的模型以及成为贡献者？具体步骤请参考 [CONTRIBUTING.zh.md](https://github.com/DefTruth/lite.ai.toolkit/issues/191) ，或者，❤️不妨给个⭐️🌟star，这应该是最简单的支持方式了。
 
+## 11. 感谢 !! 🤗🤗
+非常感谢以下的贡献者:
+* [Windows10 VS2019 CUDA 11.1 Build Docs](https://github.com/DefTruth/lite.ai.toolkit/issues/207) ([@zhanghongyong123456](https://github.com/zhanghongyong123456))
+* [Linux Build Docs](https://github.com/DefTruth/lite.ai.toolkit/blob/main/docs/build/Linux.zh.md) ([@lee1221ee](https://github.com/lee1221ee))
+* [Some Windows10 Bugs Fixed](https://github.com/DefTruth/lite.ai.toolkit/pull/105) ([@ysc3839](https://github.com/ysc3839), [@AvenSun](https://github.com/AvenSun))
+
