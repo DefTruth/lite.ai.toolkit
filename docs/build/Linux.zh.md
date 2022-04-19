@@ -98,7 +98,10 @@ detected num_anchors: 25200
 generate_bboxes num: 39
 ONNXRuntime Version Detected Boxes Num: 4
 ```
-## 在自己的專案中使用 Lite.Ai.ToolKit
+## 在自己的案例中使用 Lite.Ai.ToolKit
 <div id="lite.ai.toolkit-linuxzh-Sample-Project"></div>
+
+## opencv使用注意问题
+如果需要opencv支持mp4格式的视频编解码，还需要在编译opencv时，开启-DWITH_FFMPEG=ON支持，并先安装ffmpeg，安装方法可以参考README.md文档中的说明。
 
 TODO
