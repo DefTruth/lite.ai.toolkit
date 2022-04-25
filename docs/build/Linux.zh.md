@@ -6,14 +6,26 @@
 ## 編譯 Lite.Ai.ToolKit
 <div id="lite.ai.toolkit-linuxzh-Self-Compile"></div>
 
-在 Linux 之下，編譯 lite.ai.toolkit 共有三個步驟
-1. 編譯 OpenCV
-2. 下載 Onnx Runtime 動態庫
-3. 編譯 Lite.Ai.ToolKit
-### 1. OpenCV
+在 Linux 之下，編譯 lite.ai.toolkit 共有四個步驟
+1. 編譯 FFmpeg
+2. 編譯 OpenCV
+3. 下載 Onnx Runtime 動態庫
+4. 編譯 Lite.Ai.ToolKit
+
+### 1. FFmpeg
+```
+mkdir ~/library && cd ~/library
+git clone --depth=1 https://git.ffmpeg.org/ffmpeg.git -b n4.2.2
+cd ffmpeg
+./configure --enable-shared --disable-x86asm --prefix=/usr/local/opt/ffmpeg --disable-static
+make -j8
+sudo make install
+```
+
+### 2. OpenCV
 下載原始碼
 ```
-mkdir ~/library
+cd ~/library
 wget https://github.com/opencv/opencv/archive/refs/tags/4.5.2.zip
 unzip 4.5.2.zip
 ```
@@ -21,9 +33,18 @@ unzip 4.5.2.zip
 ```
 cd opencv-4.5.2
 mkdir build && cd build
-cmake .. && make -j8
+cmake .. \
+  -D CMAKE_BUILD_TYPE=Release \
+  -D CMAKE_INSTALL_PREFIX=your-path-to-custom-dir \
+  -D BUILD_TESTS=OFF \
+  -D BUILD_PERF_TESTS=OFF \
+  -D BUILD_opencv_python3=OFF \
+  -D BUILD_opencv_python2=OFF \
+  -D BUILD_SHARED_LIBS=ON \
+  -D BUILD_opencv_apps=OFF \
+  -D WITH_FFMPEG=ON 
+make -j8
 sudo make install
-sudo ldconfig -v
 ```
 查詢已安裝的 opencv 版本
 ```
@@ -31,7 +52,7 @@ opencv_version
 > 4.5.2
 ```
 **經過測試目前不支援最新版 v4.5.5**
-### 2. ONNX Runtime
+### 3. ONNX Runtime
 下載官方建構的動態庫(不需要再從原始碼進行編譯)
 ```
 cd ~/library
@@ -44,7 +65,7 @@ ls onnxruntime-linux-x64-1.7.0/lib
 > libonnxruntime.so  libonnxruntime.so.1.7.0
 ```
 
-### 3. Lite.Ai.ToolKit
+### 4. Lite.Ai.ToolKit
 下載原始碼
 ```
 cd ~/library
@@ -98,10 +119,7 @@ detected num_anchors: 25200
 generate_bboxes num: 39
 ONNXRuntime Version Detected Boxes Num: 4
 ```
-## 在自己的案例中使用 Lite.Ai.ToolKit
+## 在自己的專案中使用 Lite.Ai.ToolKit
 <div id="lite.ai.toolkit-linuxzh-Sample-Project"></div>
-
-## opencv使用注意问题
-如果需要opencv支持mp4格式的视频编解码，还需要在编译opencv时，开启-DWITH_FFMPEG=ON支持，并先安装ffmpeg，安装方法可以参考README.md文档中的说明。
 
 TODO
