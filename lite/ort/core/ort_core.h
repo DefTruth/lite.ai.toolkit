@@ -104,17 +104,19 @@ namespace ortcv
   class LITE_EXPORTS HandRecrop;                 // [90] * reference: https://github.com/google/mediapipe
   class LITE_EXPORTS BlazePalm;                  // [91] * reference: https://github.com/google/mediapipe
   class LITE_EXPORTS BlazePose;                  // [92] * reference: https://github.com/google/mediapipe
-  class LITE_EXPORTS PPPicodet;                  // [93] * reference: https://github.com/PaddlePaddle/PaddleDetection/tree/release/2.4/configs/picodet
+  class LITE_EXPORTS PPPicoDet;                  // [93] * reference: https://github.com/PaddlePaddle/PaddleDetection/tree/release/2.4/configs/picodet
   class LITE_EXPORTS PPTinyPose;                 // [94] * reference: https://github.com/PaddlePaddle/PaddleDetection/tree/release/2.3/configs/keypoint/tiny_pose
   class LITE_EXPORTS PPMODNet;                   // [95] * reference: https://github.com/PaddlePaddle/PaddleSeg/blob/release%2F2.5/Matting/README_CN.md
   class LITE_EXPORTS PPMatting;                  // [96] * reference: https://github.com/PaddlePaddle/PaddleSeg/blob/release%2F2.5/Matting/README_CN.md
   class LITE_EXPORTS PPHumanMatting;             // [97] * reference: https://github.com/PaddlePaddle/PaddleSeg/blob/release%2F2.5/Matting/README_CN.md
   class LITE_EXPORTS PPLiteSeg;                  // [98] * reference: https://github.com/PaddlePaddle/PaddleSeg/tree/release/2.5/configs/pp_liteseg
   class LITE_EXPORTS PPHumanSeg;                 // [99] * reference: https://github.com/PaddlePaddle/PaddleSeg/tree/release/2.5/contrib/PP-HumanSeg
-  class LITE_EXPORTS MobileHumanPose3D;          // [100] * reference: https://github.com/ibaiGorordo/ONNX-Mobile-Human-Pose-3D
-  class LITE_EXPORTS RealSR;                     // [101] * reference: https://github.com/jixiaozhong/RealSR
-  class LITE_EXPORTS BSRGAN;                     // [102] * reference: https://github.com/cszn/BSRGAN
-  class LITE_EXPORTS SCUNet;                     // [102] * reference: https://github.com/cszn/SCUNet
+  class LITE_EXPORTS PPBlazeFace;                // [100] * reference: https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.3/configs/face_detection/README.md
+  class LITE_EXPORTS YOLOv5BlazeFace;            // [101] * reference: https://github.com/deepcam-cn/yolov5-face
+  class LITE_EXPORTS MobileHumanPose3D;          // [102] * reference: https://github.com/ibaiGorordo/ONNX-Mobile-Human-Pose-3D
+  class LITE_EXPORTS RealSR;                     // [103] * reference: https://github.com/jixiaozhong/RealSR
+  class LITE_EXPORTS BSRGAN;                     // [104] * reference: https://github.com/cszn/BSRGAN
+  class LITE_EXPORTS SCUNet;                     // [105] * reference: https://github.com/cszn/SCUNet
 }
 
 namespace ortnlp

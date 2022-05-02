@@ -1,0 +1,8 @@
+//
+// Created by DefTruth on 2022/5/2.
+//
+
+#ifndef LITE_AI_TOOLKIT__ORT_CV_BLAZEFACE_H
+#define LITE_AI_TOOLKIT__ORT_CV_BLAZEFACE_H
+
+#endif //LITE_AI_TOOLKIT__ORT_CV_BLAZEFACE_H
