@@ -81,6 +81,7 @@
 在Linux下，为了链接到预编译库，使用前，需要先将`lite.ai.toolkit/lib`的路径添加到LD_LIBRARY_PATH.
 ```shell
 export LD_LIBRARY_PATH=YOUR-PATH-TO/lite.ai.toolkit/lib:$LD_LIBRARY_PATH
+export LIBRARY_PATH=YOUR-PATH-TO/lite.ai.toolkit/lib:LIBRARY_PATH  # (may need)
 ```
 ## 快速配置 👀
 
