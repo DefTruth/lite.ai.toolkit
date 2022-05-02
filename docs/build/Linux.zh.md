@@ -221,3 +221,6 @@ cmake -DCMAKE_BUILD_TYPE=Realese .. && make -j1
 輸出 `../test_lite_scrfd.jpg` 結果圖，可以看到成功檢測出人臉
 
 ![test_lite_scrfd](https://user-images.githubusercontent.com/91650059/165025024-00cc2c26-8478-454f-be7a-0e23a164054f.jpg)
+
+## 说明
+以上案例是基于最小依赖，即opencv和onnxruntime实现的，如果需要MNN、TNN和NCNN等推理引擎的支持，请参考项目README.md文档中的编译选项进行配置。
