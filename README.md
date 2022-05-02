@@ -81,6 +81,7 @@ Some prebuilt lite.ai.toolkit libs for MacOS(x64) and Linux(x64) are available, 
 In Linux, in order to link the prebuilt libs, you need to export `lite.ai.toolkit/lib` to LD_LIBRARY_PATH first.  
 ```shell
 export LD_LIBRARY_PATH=YOUR-PATH-TO/lite.ai.toolkit/lib:$LD_LIBRARY_PATH
+export LIBRARY_PATH=YOUR-PATH-TO/lite.ai.toolkit/lib:LIBRARY_PATH  # (may need)
 ```
 ## Quick Setup 👀
 
@@ -1539,10 +1540,9 @@ auto *nanodet = new lite::ncnn::cv::detection::NanoDet(param_path, bin_path);
 ## 10. Contribute
 <div id="lite.ai.toolkit-Contribute"></div>  
 
-How to add your own models and become a contributor? For specific steps, please refer to [CONTRIBUTING.zh.md](https://github.com/DefTruth/lite.ai.toolkit/issues/191), or if you like this project please ❤️ consider ⭐️🌟 star this repo, as it is the simplest way to support me.
+How to add your own models and become a contributor? See [CONTRIBUTING.zh.md](https://github.com/DefTruth/lite.ai.toolkit/issues/191), or ❤️ consider ⭐️🌟 star this repo to support me.
 
-## 11. Thanks !! 🤗🤗  
-Many thanks to these contributors: 👇🎉🎉
+## 11. Many Thanks !!! 🤗🎉🎉  
 * [Windows10 VS2019 CUDA 11.1 Build Docs](https://github.com/DefTruth/lite.ai.toolkit/issues/207) ([@zhanghongyong123456](https://github.com/zhanghongyong123456))
 * [Linux Build Docs](https://github.com/DefTruth/lite.ai.toolkit/blob/main/docs/build/Linux.zh.md) ([@lee1221ee](https://github.com/lee1221ee))
 * [Some Windows10 Bugs Fixed](https://github.com/DefTruth/lite.ai.toolkit/pull/105) ([@ysc3839](https://github.com/ysc3839), [@AvenSun](https://github.com/AvenSun))
