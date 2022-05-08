@@ -1,31 +1,37 @@
 //
-// Created by DefTruth on 2022/5/2.
+// Created by DefTruth on 2022/5/8.
 //
 
-#include "yolov5_blazeface.h"
-#include "lite/ort/core/ort_utils.h"
+#include "mnn_yolov5_blazeface.h"
 
-using ortcv::YOLOv5BlazeFace;
+using mnncv::MNNYOLOv5BlazeFace;
 
-YOLOv5BlazeFace::YOLOv5BlazeFace(const std::string &_onnx_path, unsigned int _num_threads) :
-    BasicOrtHandler(_onnx_path, _num_threads)
+MNNYOLOv5BlazeFace::MNNYOLOv5BlazeFace(const std::string &_mnn_path, unsigned int _num_threads) :
+    BasicMNNHandler(_mnn_path, _num_threads)
 {
+  initialize_pretreat();
 }
 
-Ort::Value YOLOv5BlazeFace::transform(const cv::Mat &mat_rs)
+inline void MNNYOLOv5BlazeFace::initialize_pretreat()
 {
-  cv::Mat canvas;
-  cv::cvtColor(mat_rs, canvas, cv::COLOR_BGR2RGB);
-  // (1,3,640,640) 1xCXHXW
-  ortcv::utils::transform::normalize_inplace(canvas, mean_val, scale_val); // float32
-  return ortcv::utils::transform::create_tensor(
-      canvas, input_node_dims, memory_info_handler,
-      input_values_handler, ortcv::utils::transform::CHW);
+  pretreat = std::shared_ptr<MNN::CV::ImageProcess>(
+      MNN::CV::ImageProcess::create(
+          MNN::CV::BGR,
+          MNN::CV::RGB,
+          mean_vals, 3,
+          norm_vals, 3
+      )
+  );
 }
 
-void YOLOv5BlazeFace::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
-                                     int target_height, int target_width,
-                                     YOLOv5BlazeFaceScaleParams &scale_params)
+inline void MNNYOLOv5BlazeFace::transform(const cv::Mat &mat_rs)
+{
+  pretreat->convert(mat_rs.data, input_width, input_height, mat_rs.step[0], input_tensor);
+}
+
+void MNNYOLOv5BlazeFace::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
+                                        int target_height, int target_width,
+                                        YOLOv5BlazeFaceScaleParams &scale_params)
 {
   if (mat.empty()) return;
   int img_height = static_cast<int>(mat.rows);
@@ -58,27 +64,25 @@ void YOLOv5BlazeFace::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
   scale_params.flag = true;
 }
 
-void YOLOv5BlazeFace::detect(const cv::Mat &mat, std::vector<types::BoxfWithLandmarks> &detected_boxes_kps,
-                             float score_threshold, float iou_threshold, unsigned int topk)
+void MNNYOLOv5BlazeFace::detect(const cv::Mat &mat, std::vector<types::BoxfWithLandmarks> &detected_boxes_kps,
+                                float score_threshold, float iou_threshold, unsigned int topk)
 {
   if (mat.empty()) return;
   auto img_height = static_cast<float>(mat.rows);
   auto img_width = static_cast<float>(mat.cols);
-  const int target_height = (int) input_node_dims.at(2);
-  const int target_width = (int) input_node_dims.at(3);
 
   // resize & unscale
   cv::Mat mat_rs;
   YOLOv5BlazeFaceScaleParams scale_params;
-  this->resize_unscale(mat, mat_rs, target_height, target_width, scale_params);
+  this->resize_unscale(mat, mat_rs, input_height, input_width, scale_params);
 
   // 1. make input tensor
-  Ort::Value input_tensor = this->transform(mat_rs);
+  this->transform(mat_rs);
+
   // 2. inference scores & boxes.
-  auto output_tensors = ort_session->Run(
-      Ort::RunOptions{nullptr}, input_node_names.data(),
-      &input_tensor, 1, output_node_names.data(), num_outputs
-  );
+  mnn_interpreter->runSession(mnn_session);
+  auto output_tensors = mnn_interpreter->getSessionOutputAll(mnn_session);
+
   // 3. rescale & exclude.
   std::vector<types::BoxfWithLandmarks> bbox_kps_collection;
   this->generate_bboxes_kps(scale_params, bbox_kps_collection, output_tensors,
@@ -88,15 +92,18 @@ void YOLOv5BlazeFace::detect(const cv::Mat &mat, std::vector<types::BoxfWithLand
 
 }
 
-void YOLOv5BlazeFace::generate_bboxes_kps(const YOLOv5BlazeFaceScaleParams &scale_params,
-                                          std::vector<types::BoxfWithLandmarks> &bbox_kps_collection,
-                                          std::vector<Ort::Value> &output_tensors, float score_threshold,
-                                          float img_height, float img_width)
+void MNNYOLOv5BlazeFace::generate_bboxes_kps(const YOLOv5BlazeFaceScaleParams &scale_params,
+                                             std::vector<types::BoxfWithLandmarks> &bbox_kps_collection,
+                                             const std::map<std::string, MNN::Tensor *> &output_tensors,
+                                             float score_threshold, float img_height, float img_width)
 {
-  Ort::Value &output = output_tensors.at(0); // (1,n,16=4+1+10+1)
-  auto output_dims = output_node_dims.at(0); // (1,n,16)
+  auto device_output_pred = output_tensors.at("output");
+  MNN::Tensor host_output_pred(device_output_pred, device_output_pred->getDimensionType());
+  device_output_pred->copyToHostTensor(&host_output_pred);
+
+  auto output_dims = host_output_pred.shape();
   const unsigned int num_anchors = output_dims.at(1); // n = ?
-  const float *output_ptr = output.GetTensorMutableData<float>();
+  const float *output_ptr = host_output_pred.host<float>();
 
   float r_ = scale_params.ratio;
   int dw_ = scale_params.dw;
@@ -154,14 +161,15 @@ void YOLOv5BlazeFace::generate_bboxes_kps(const YOLOv5BlazeFaceScaleParams &scal
       break;
   }
 
-#if LITEORT_DEBUG
+#if LITEMNN_DEBUG
   std::cout << "generate_bboxes_kps num: " << bbox_kps_collection.size() << "\n";
 #endif
+
 }
 
-void YOLOv5BlazeFace::nms_bboxes_kps(std::vector<types::BoxfWithLandmarks> &input,
-                                     std::vector<types::BoxfWithLandmarks> &output,
-                                     float iou_threshold, unsigned int topk)
+void MNNYOLOv5BlazeFace::nms_bboxes_kps(std::vector<types::BoxfWithLandmarks> &input,
+                                        std::vector<types::BoxfWithLandmarks> &output,
+                                        float iou_threshold, unsigned int topk)
 {
   if (input.empty()) return;
   std::sort(

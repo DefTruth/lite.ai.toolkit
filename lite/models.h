@@ -98,6 +98,7 @@
 #include "lite/ort/cv/modnet_dyn.h"
 #include "lite/ort/cv/backgroundmattingv2.h"
 #include "lite/ort/cv/backgroundmattingv2_dyn.h"
+#include "lite/ort/cv/yolov5_blazeface.h"
 
 #endif
 
@@ -175,6 +176,7 @@
 #include "lite/mnn/cv/mnn_plantid.h"
 #include "lite/mnn/cv/mnn_modnet.h"
 #include "lite/mnn/cv/mnn_backgroundmattingv2.h"
+#include "lite/mnn/cv/mnn_yolov5_blazeface.h"
 
 #endif
 
@@ -429,6 +431,7 @@ namespace lite
     typedef ortcv::MODNetDyn _MODNetDyn;
     typedef ortcv::BackgroundMattingV2 _BackgroundMattingV2;
     typedef ortcv::BackgroundMattingV2Dyn _BackgroundMattingV2Dyn;
+    typedef ortcv::YOLOv5BlazeFace _YOLOv5BlazeFace;
 #endif
 
     // 1. classification
@@ -488,6 +491,7 @@ namespace lite
         typedef _SCRFD SCRFD;
         typedef _YOLO5Face YOLO5Face;
         typedef _FaceBoxesV2 FaceBoxesV2;
+        typedef _YOLOv5BlazeFace YOLOv5BlazeFace;
 #endif
       }
 
@@ -783,7 +787,7 @@ namespace lite
       typedef ortcv::MODNetDyn _ONNXMODNetDyn;
       typedef ortcv::BackgroundMattingV2 _ONNXBackgroundMattingV2;
       typedef ortcv::BackgroundMattingV2Dyn _ONNXBackgroundMattingV2Dyn;
-
+      typedef ortcv::YOLOv5BlazeFace _ONNXYOLOv5BlazeFace;
 
       // 1. classification
       namespace classification
@@ -837,6 +841,7 @@ namespace lite
           typedef _ONNXSCRFD SCRFD;
           typedef _ONNXYOLO5Face YOLO5Face;
           typedef _ONNXFaceBoxesV2 FaceBoxesV2;
+          typedef _ONNXYOLOv5BlazeFace YOLOv5BlazeFace;
         }
 
         namespace align
@@ -1001,6 +1006,7 @@ namespace lite
           typedef mnncv::MNNSCRFD SCRFD;
           typedef mnncv::MNNYOLO5Face YOLO5Face;
           typedef mnncv::MNNFaceBoxesV2 FaceBoxesV2;
+          typedef mnncv::MNNYOLOv5BlazeFace YOLOv5BlazeFace;
         }
         namespace align
         {
