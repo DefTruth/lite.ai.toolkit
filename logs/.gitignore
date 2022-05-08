@@ -37,3 +37,5 @@ test_lite_pipnet*
 test_lite_insect*
 test_lite_modnet*
 test_lite_bgmv2*
+test_lite_yolov5_blazeface*
+test_lite_yolov5_v6*

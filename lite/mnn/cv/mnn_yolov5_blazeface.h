@@ -1,20 +1,20 @@
 //
-// Created by DefTruth on 2022/5/2.
+// Created by DefTruth on 2022/5/8.
 //
 
-#ifndef LITE_AI_TOOLKIT_ORT_CV_YOLOV5_BLAZEFACE_H
-#define LITE_AI_TOOLKIT_ORT_CV_YOLOV5_BLAZEFACE_H
+#ifndef LITE_AI_TOOLKIT_MNN_CV_MNN_YOLOV5_BLAZEFACE_H
+#define LITE_AI_TOOLKIT_MNN_CV_MNN_YOLOV5_BLAZEFACE_H
 
-#include "lite/ort/core/ort_core.h"
+#include "lite/mnn/core/mnn_core.h"
 
-namespace ortcv
+namespace mnncv
 {
-  class LITE_EXPORTS YOLOv5BlazeFace : public BasicOrtHandler
+  class LITE_EXPORTS MNNYOLOv5BlazeFace : public BasicMNNHandler
   {
   public:
-    explicit YOLOv5BlazeFace(const std::string &_onnx_path, unsigned int _num_threads = 1);
+    explicit MNNYOLOv5BlazeFace(const std::string &_mnn_path, unsigned int _num_threads = 1);
 
-    ~YOLOv5BlazeFace() override = default;
+    ~MNNYOLOv5BlazeFace() override = default;
 
   private:
     // nested classes
@@ -27,12 +27,14 @@ namespace ortcv
     } YOLOv5BlazeFaceScaleParams;
 
   private:
-    static constexpr const float mean_val = 0.f; // RGB
-    static constexpr const float scale_val = 1.0 / 255.f;
+    const float mean_vals[3] = {0.f, 0.f, 0.f}; // RGB
+    const float norm_vals[3] = {1.f / 255.f, 1.f / 255.f, 1.f / 255.f};
     static constexpr const unsigned int max_nms = 30000;
 
   private:
-    Ort::Value transform(const cv::Mat &mat_rs) override; // without resize
+    void transform(const cv::Mat &mat_rs) override; // without resize
+
+    void initialize_pretreat();
 
     void resize_unscale(const cv::Mat &mat,
                         cv::Mat &mat_rs,
@@ -42,7 +44,7 @@ namespace ortcv
 
     void generate_bboxes_kps(const YOLOv5BlazeFaceScaleParams &scale_params,
                              std::vector<types::BoxfWithLandmarks> &bbox_kps_collection,
-                             std::vector<Ort::Value> &output_tensors,
+                             const std::map<std::string, MNN::Tensor *> &output_tensors,
                              float score_threshold, float img_height,
                              float img_width); // rescale & exclude
 
@@ -59,4 +61,4 @@ namespace ortcv
 }
 
 
-#endif //LITE_AI_TOOLKIT_ORT_CV_YOLOV5_BLAZEFACE_H
+#endif //LITE_AI_TOOLKIT_MNN_CV_MNN_YOLOV5_BLAZEFACE_H

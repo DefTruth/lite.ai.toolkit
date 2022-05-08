@@ -117,6 +117,7 @@ namespace ortcv
   class LITE_EXPORTS RealSR;                     // [103] * reference: https://github.com/jixiaozhong/RealSR
   class LITE_EXPORTS BSRGAN;                     // [104] * reference: https://github.com/cszn/BSRGAN
   class LITE_EXPORTS SCUNet;                     // [105] * reference: https://github.com/cszn/SCUNet
+  class LITE_EXPORTS YoloV5_V_6_1;               // [106] * reference: https://github.com/ultralytics/yolov5/releases/tag/v6.1
 }
 
 namespace ortnlp
