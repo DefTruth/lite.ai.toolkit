@@ -19,7 +19,7 @@ if (CMAKE_COMPILER_IS_GNUCXX)
     set(CMAKE_CXX_FLAGS "-std=c++11 -Wno-deprecated ${CMAKE_CXX_FLAGS} ")
     message(STATUS "[Linux GCC Compiler Options]+:-std=c++11 -Wno-deprecated")
 endif ()
-
+message(STATUS "CMAKE_CXX_COMPILER: ${CMAKE_CXX_COMPILER}")
 
 # root dir
 set(LITE_AI_ROOT_DIR ${CMAKE_SOURCE_DIR})
