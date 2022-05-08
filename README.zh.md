@@ -48,7 +48,7 @@
 
 * **用户友好，开箱即用。** 使用简单一致的调用语法，如**lite::cv::Type::Class**，详见[examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
 * **少量依赖，构建容易。** 目前, 默认只依赖 **OpenCV** 和 **ONNXRuntime**，详见[build](#lite.ai.toolkit-Build-Lite.AI.ToolKit)。
-* **众多的算法模块，且持续更新。** 目前，包括 10+ 算法模块、**[80+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** 流行的开源模型以及 **[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** 权重文件
+* **众多的算法模块，且持续更新。** 目前，包括将近 **[300+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** C++实现以及 **[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** 权重文件
 
 ## 引用 🎉🎉
 
