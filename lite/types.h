@@ -79,12 +79,24 @@ namespace lite {
 
     typedef struct LITE_EXPORTS LandmarksType
     {
-      std::vector<cv::Point2f> points;
+      std::vector<cv::Point2f> points; // x,y
       bool flag;
 
       LandmarksType() : flag(false)
       {};
     } Landmarks;
+
+    // 2D & 3D Landmarks
+    typedef Landmarks Landmarks2D;
+
+    typedef struct LITE_EXPORTS Landmarks3DType
+    {
+      std::vector<cv::Point3f> points; // x,y,z
+      bool flag;
+
+      Landmarks3DType() : flag(false)
+      {};
+    } Landmarks3D;
 
     typedef struct LITE_EXPORTS BoxfWithLandmarksType
     {
