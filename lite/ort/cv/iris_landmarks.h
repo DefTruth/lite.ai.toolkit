@@ -52,7 +52,7 @@ namespace ortcv
 
   public:
     void detect(const cv::Mat &mat, types::Landmarks3D &eyes_contours_and_brows,
-                types::Landmarks3D &iris);
+                types::Landmarks3D &iris, bool is_screen_right_eye = false);
   };
 }
 

@@ -11,11 +11,11 @@ Ort::Value FaceMesh::transform(const cv::Mat &mat_rs)
 {
   cv::Mat canvas;
   cv::cvtColor(mat_rs, canvas, cv::COLOR_BGR2RGB);
-  // (1,3,192,192) 1xCXHXW
+  // (1,192,192,3) 1xHXWXC
   ortcv::utils::transform::normalize_inplace(canvas, mean_val, scale_val); // float32
   return ortcv::utils::transform::create_tensor(
       canvas, input_node_dims, memory_info_handler,
-      input_values_handler, ortcv::utils::transform::CHW);
+      input_values_handler, ortcv::utils::transform::HWC);
 }
 
 void FaceMesh::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
@@ -102,8 +102,9 @@ void FaceMesh::generate_landmarks3d_and_confidence(const FaceMeshScaleParams &sc
   int dw_ = scale_params.dw;
   int dh_ = scale_params.dh;
 
-  landmarks3d.points.clear();
   confidence = sigmoid(confidence_ptr[0]);
+
+  landmarks3d.points.clear();
   // fetch non-normalized 468 points with target size (192)
   for (unsigned int i = 0; i < num_element; i += 3)
   {

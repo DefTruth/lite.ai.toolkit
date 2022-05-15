@@ -82,6 +82,8 @@ namespace mnncv
   class LITE_EXPORTS MNNBackgroundMattingV2;         // [68] * reference: https://github.com/PeterL1n/BackgroundMattingV2
   class LITE_EXPORTS MNNYOLOv5BlazeFace;             // [69] * reference: https://github.com/deepcam-cn/yolov5-face
   class LITE_EXPORTS MNNYoloV5_V_6_1;                // [70] * reference: https://github.com/ultralytics/yolov5/releases/tag/v6.1
+  class LITE_EXPORTS MNNFaceMesh;                    // [71] * reference: https://github.com/google/mediapipe
+  class LITE_EXPORTS MNNIrisLandmarks;               // [72] * reference: https://github.com/google/mediapipe
 }
 
 namespace mnncv

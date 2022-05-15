@@ -11,11 +11,11 @@ Ort::Value IrisLandmarks::transform(const cv::Mat &mat_rs)
 {
   cv::Mat canvas;
   cv::cvtColor(mat_rs, canvas, cv::COLOR_BGR2RGB);
-  // (1,3,64,64) 1xCXHXW
+  // (1,64,64,3) 1xHXWXC
   ortcv::utils::transform::normalize_inplace(canvas, mean_val, scale_val); // float32
   return ortcv::utils::transform::create_tensor(
       canvas, input_node_dims, memory_info_handler,
-      input_values_handler, ortcv::utils::transform::CHW);
+      input_values_handler, ortcv::utils::transform::HWC);
 }
 
 void IrisLandmarks::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
@@ -56,9 +56,15 @@ void IrisLandmarks::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
 }
 
 void IrisLandmarks::detect(const cv::Mat &mat, types::Landmarks3D &eyes_contours_and_brows,
-                           types::Landmarks3D &iris)
+                           types::Landmarks3D &iris, bool is_screen_right_eye)
 {
   if (mat.empty()) return;
+
+  cv::Mat mat_ref;
+  if (is_screen_right_eye)
+    cv::flip(mat, mat_ref, 1);
+  else mat_ref = mat; // ref only.
+
   const int input_height = input_node_dims.at(2);
   const int input_width = input_node_dims.at(3);
   int img_height = static_cast<int>(mat.rows);
@@ -67,7 +73,7 @@ void IrisLandmarks::detect(const cv::Mat &mat, types::Landmarks3D &eyes_contours
   // resize & unscale
   cv::Mat mat_rs;
   IrisScaleParams scale_params;
-  this->resize_unscale(mat, mat_rs, input_height, input_width, scale_params);
+  this->resize_unscale(mat_ref, mat_rs, input_height, input_width, scale_params);
 
   // 1. make input tensor
   Ort::Value input_tensor = this->transform(mat_rs);
@@ -80,6 +86,20 @@ void IrisLandmarks::detect(const cv::Mat &mat, types::Landmarks3D &eyes_contours
   this->generate_eye_contours_brows_and_iris_landmarks3d(
       scale_params, output_tensors, eyes_contours_and_brows, iris,
       img_height, img_width);
+
+  // horizontal flip the detected points if source image is
+  // screen right eye according to target size (64, 64)
+  if (is_screen_right_eye && eyes_contours_and_brows.flag && iris.flag)
+  {
+    for (auto &point3d: eyes_contours_and_brows.points)
+      point3d.x = (float) img_width - point3d.x;
+    for (auto &point3d: iris.points)
+      point3d.x = (float) img_width - point3d.x;
+  }
+
+#if LITEORT_DEBUG
+  std::cout << "IrisLandmarks is_screen_right_eye: " << is_screen_right_eye << "\n";
+#endif
 }
 
 void IrisLandmarks::generate_eye_contours_brows_and_iris_landmarks3d(
