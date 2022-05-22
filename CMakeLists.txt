@@ -4,7 +4,7 @@ project(lite.ai.toolkit)
 set(CMAKE_CXX_STANDARD 11)
 set(VERSION_STRING 0.1.1)
 set(SOVERSION_STRING 0.1.1)
-include(cmake/lite.ai.toolkit-platform.cmake)  # checking platform
+include(cmake/platform.cmake)  # checking platform
 
 message(STATUS "Lite.AI.ToolKit  ${VERSION_STRING}")
 message(STATUS "Project: lite.ai.toolkit")
@@ -19,7 +19,7 @@ if (CMAKE_COMPILER_IS_GNUCXX)
     set(CMAKE_CXX_FLAGS "-std=c++11 -Wno-deprecated ${CMAKE_CXX_FLAGS} ")
     message(STATUS "[Linux GCC Compiler Options]+:-std=c++11 -Wno-deprecated")
 endif ()
-# message(STATUS "CMAKE_CXX_COMPILER: ${CMAKE_CXX_COMPILER}")
+message(STATUS "CMAKE_CXX_COMPILER: [${CMAKE_CXX_COMPILER}]")
 
 # root dir
 set(LITE_AI_ROOT_DIR ${CMAKE_SOURCE_DIR})
@@ -35,12 +35,18 @@ option(LITE_AI_BUILD_LIB "build shared libraries." ON) # now, ON only
 option(LITE_AI_BUILD_TEST "build test examples." ON)
 option(INCLUDE_OPENCV "package OpenCV into lite.ai.toolkit." ON)
 # inference engines setups: config.h.in -> config.h
+option(ENABLE_DEBUG_STRING "enable DEBUG string or not" ON)
 option(ENABLE_ONNXRUNTIME "enable ONNXRuntime engine" ON)
 option(ENABLE_MNN "enable MNN engine" ON)  # unstable now, DON'T use
 option(ENABLE_NCNN "enable NCNN engine" ON) # unstable now, DON'T use
 option(ENABLE_TNN "enable TNN engine" ON) # unstable now, DON'T use
 # cuda provider setups: config.h.in -> config.h (only for onnxruntime)
 option(ENABLE_ONNXRUNTIME_CUDA "enable ONNXRuntime engine with CUDA provider" OFF)
+# openmp/opengl/vulkan/cuda setups: config.h.in -> config.h (for future use)
+option(ENABLE_LITE_OPENMP "enable OPENMP accelerate for some post processes" OFF)  # for future use, DON'T use NOW!
+option(ENABLE_LITE_OPENGL "enable OPENGL accelerate for some post processes" OFF)  # for future use, DON'T use NOW!
+option(ENABLE_LITE_VULKAN "enable VULKAN accelerate for some post processes" OFF)  # for future use, DON'T use NOW!
+option(ENABLE_LITE_CUDA "enable CUDA accelerate for some post processes" OFF)  # for future use, DON'T use NOW!
 # videoio interface setups, for future use
 option(ENABLE_OPENCV_VIDEOIO "enable opencv videoio modules for detect_video apis" ON) # now, ON only
 # inference engines backend setups for lite.ai.toolkit
@@ -61,8 +67,8 @@ include_directories(${LITE_AI_ROOT_DIR})
 link_directories(${LITE_AI_ROOT_DIR}/lib/${PLATFORM_NAME})
 
 # include custom cmake files.
-include(cmake/setup_opencv_libs.cmake)
-include(cmake/lite.ai.toolkit-cmd.cmake)
+include(cmake/opencv.cmake)
+include(cmake/command.cmake)
 
 # configuration for lite.ai shared lib.
 if (LITE_AI_BUILD_LIB)

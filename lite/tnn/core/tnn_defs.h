@@ -8,7 +8,11 @@
 #include "lite/config.h"
 #include "lite/lite.ai.defs.h"
 
-#define LITETNN_DEBUG 1
+#ifdef ENABLE_DEBUG_STRING
+# define LITETNN_DEBUG 1
+#else
+# define LITETNN_DEBUG 0
+#endif
 
 #ifdef LITE_WIN32
 #  ifndef NOMINMAX

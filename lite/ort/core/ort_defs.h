@@ -8,7 +8,11 @@
 #include "lite/config.h"
 #include "lite/lite.ai.defs.h"
 
-#define LITEORT_DEBUG 1
+#ifdef ENABLE_DEBUG_STRING
+# define LITEORT_DEBUG 1
+#else
+# define LITEORT_DEBUG 0
+#endif
 
 #ifdef LITE_WIN32
 # define LITEORT_CHAR wchar_t
