@@ -136,6 +136,15 @@ You can download all the pretrained models files of ONNX format from ([Baidu Dri
 |       *lite::cv::detection::NanoDetPlus*       |      nanodet-plus-m-1.5x_320.onnx      |                  [nanodet](https://github.com/RangiLyu/nanodet)                   | 9.4Mb |
 |       *lite::cv::detection::NanoDetPlus*       |      nanodet-plus-m-1.5x_416.onnx      |                  [nanodet](https://github.com/RangiLyu/nanodet)                   | 9.4Mb |
 |        *lite::cv::detection::InsectDet*        |     quarrying_insect_detector.onnx     |           [InsectID](https://github.com/quarrying/quarrying-insect-id)            | 22Mb  |
+|      *lite::cv::detection::YoloV5_V_6_1*       |       yolov5l.v6.1.640x640.onnx        |                  [yolov5](https://github.com/ultralytics/yolov5)                  | 178Mb |
+|      *lite::cv::detection::YoloV5_V_6_1*       |      yolov5l.v6.1.1280x1280.onnx       |                  [yolov5](https://github.com/ultralytics/yolov5)                  | 178Mb |
+|      *lite::cv::detection::YoloV5_V_6_1*       |       yolov5m.v6.1.640x640.onnx        |                  [yolov5](https://github.com/ultralytics/yolov5)                  | 81Mb  |
+|      *lite::cv::detection::YoloV5_V_6_1*       |       yolov5x.v6.1.640x640.onnx        |                  [yolov5](https://github.com/ultralytics/yolov5)                  | 332Mb |
+|      *lite::cv::detection::YoloV5_V_6_1*       |      yolov5x.v6.1.1280x1280.onnx       |                  [yolov5](https://github.com/ultralytics/yolov5)                  | 332Mb |
+|      *lite::cv::detection::YoloV5_V_6_1*       |       yolov5s.v6.1.640x640.onnx        |                  [yolov5](https://github.com/ultralytics/yolov5)                  | 28Mb  |
+|      *lite::cv::detection::YoloV5_V_6_1*       |       yolov5s.v6.1.320x320.onnx        |                  [yolov5](https://github.com/ultralytics/yolov5)                  | 28Mb  |
+|      *lite::cv::detection::YoloV5_V_6_1*       |       yolov5n.v6.1.640x640.onnx        |                  [yolov5](https://github.com/ultralytics/yolov5)                  |  7Mb  |
+|      *lite::cv::detection::YoloV5_V_6_1*       |       yolov5n.v6.1.320x320.onnx        |                  [yolov5](https://github.com/ultralytics/yolov5)                  |  7Mb  |
 
 ## Classification.  
 
@@ -161,49 +170,49 @@ You can download all the pretrained models files of ONNX format from ([Baidu Dri
 
 <div id="lite.ai.toolkit.hub.onnx-face-detection"></div>  
 
-|                 Class                 |            Pretrained ONNX Files            |                             Rename or Converted From (Repo)                             |  Size  |
-|:-------------------------------------:|:-------------------------------------------:|:---------------------------------------------------------------------------------------:|:------:|
-|  *lite::cv::face::detect::UltraFace*  |           ultraface-rfb-640.onnx            | [Ultra-Light...](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) | 1.5Mb  |
-|  *lite::cv::face::detect::UltraFace*  |           ultraface-rfb-320.onnx            | [Ultra-Light...](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) | 1.2Mb  |
-| *lite::cv::face::detect::RetinaFace*  |      Pytorch_RetinaFace_resnet50.onnx       |             [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface)              | 104Mb  |
-| *lite::cv::face::detect::RetinaFace*  |  Pytorch_RetinaFace_resnet50-640-640.onnx   |             [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface)              | 104Mb  |
-| *lite::cv::face::detect::RetinaFace*  |  Pytorch_RetinaFace_resnet50-320-320.onnx   |             [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface)              | 104Mb  |
-| *lite::cv::face::detect::RetinaFace*  |  Pytorch_RetinaFace_resnet50-720-1080.onnx  |             [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface)              | 104Mb  |
-| *lite::cv::face::detect::RetinaFace*  |     Pytorch_RetinaFace_mobile0.25.onnx      |             [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface)              | 1.6Mb  |
-| *lite::cv::face::detect::RetinaFace*  | Pytorch_RetinaFace_mobile0.25-640-640.onnx  |             [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface)              | 1.6Mb  |
-| *lite::cv::face::detect::RetinaFace*  | Pytorch_RetinaFace_mobile0.25-320-320.onnx  |             [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface)              | 1.6Mb  |
-| *lite::cv::face::detect::RetinaFace*  | Pytorch_RetinaFace_mobile0.25-720-1080.onnx |             [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface)              | 1.6Mb  |
-|  *lite::cv::face::detect::FaceBoxes*  |               FaceBoxes.onnx                |                [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)                | 3.8Mb  |
-|  *lite::cv::face::detect::FaceBoxes*  |           FaceBoxes-640-640.onnx            |                [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)                | 3.8Mb  |
-|  *lite::cv::face::detect::FaceBoxes*  |           FaceBoxes-320-320.onnx            |                [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)                | 3.8Mb  |
-|  *lite::cv::face::detect::FaceBoxes*  |           FaceBoxes-720-1080.onnx           |                [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)                | 3.8Mb  |
-|    *lite::cv::face::detect::SCRFD*    |        scrfd_500m_shape160x160.onnx         |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 2.5Mb  |
-|    *lite::cv::face::detect::SCRFD*    |        scrfd_500m_shape320x320.onnx         |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 2.5Mb  |
-|    *lite::cv::face::detect::SCRFD*    |        scrfd_500m_shape640x640.onnx         |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 2.5Mb  |
-|    *lite::cv::face::detect::SCRFD*    |     scrfd_500m_bnkps_shape160x160.onnx      |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 2.5Mb  |  
-|    *lite::cv::face::detect::SCRFD*    |     scrfd_500m_bnkps_shape320x320.onnx      |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 2.5Mb  |  
-|    *lite::cv::face::detect::SCRFD*    |     scrfd_500m_bnkps_shape640x640.onnx      |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 2.5Mb  |  
-|    *lite::cv::face::detect::SCRFD*    |         scrfd_1g_shape160x160.onnx          |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 2.7Mb  |
-|    *lite::cv::face::detect::SCRFD*    |         scrfd_1g_shape320x320.onnx          |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 2.7Mb  |
-|    *lite::cv::face::detect::SCRFD*    |         scrfd_1g_shape640x640.onnx          |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 2.7Mb  |
-|    *lite::cv::face::detect::SCRFD*    |        scrfd_2.5g_shape160x160.onnx         |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 3.3Mb  |
-|    *lite::cv::face::detect::SCRFD*    |        scrfd_2.5g_shape320x320.onnx         |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 3.3Mb  |
-|    *lite::cv::face::detect::SCRFD*    |        scrfd_2.5g_shape640x640.onnx         |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 3.3Mb  |
-|    *lite::cv::face::detect::SCRFD*    |     scrfd_2.5g_bnkps_shape160x160.onnx      |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 3.3Mb  |  
-|    *lite::cv::face::detect::SCRFD*    |     scrfd_2.5g_bnkps_shape320x320.onnx      |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 3.3Mb  |  
-|    *lite::cv::face::detect::SCRFD*    |     scrfd_2.5g_bnkps_shape640x640.onnx      |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 3.3Mb  |  
-|    *lite::cv::face::detect::SCRFD*    |         scrfd_10g_shape640x640.onnx         |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 16.9Mb |
-|    *lite::cv::face::detect::SCRFD*    |        scrfd_10g_shape1280x1280.onnx        |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 16.9Mb |
-|    *lite::cv::face::detect::SCRFD*    |      scrfd_10g_bnkps_shape640x640.onnx      |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 16.9Mb |  
-|    *lite::cv::face::detect::SCRFD*    |     scrfd_10g_bnkps_shape1280x1280.onnx     |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 16.9Mb |  
-|  *lite::cv::face::detect::YOLO5Face*  |      yolov5face-blazeface-640x640.onnx      |                 [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)                  | 3.4Mb  |
-|  *lite::cv::face::detect::YOLO5Face*  |          yolov5face-l-640x640.onnx          |                 [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)                  | 181Mb  |
-|  *lite::cv::face::detect::YOLO5Face*  |          yolov5face-m-640x640.onnx          |                 [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)                  |  83Mb  |
-|  *lite::cv::face::detect::YOLO5Face*  |        yolov5face-n-0.5-320x320.onnx        |                 [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)                  | 2.5Mb  |
-|  *lite::cv::face::detect::YOLO5Face*  |        yolov5face-n-0.5-640x640.onnx        |                 [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)                  | 4.6Mb  |
-|  *lite::cv::face::detect::YOLO5Face*  |          yolov5face-n-640x640.onnx          |                 [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)                  | 9.5Mb  |
-|  *lite::cv::face::detect::YOLO5Face*  |          yolov5face-s-640x640.onnx          |                 [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)                  |  30Mb  |
-| *lite::cv::face::detect::FaceBoxesV2* |          faceboxesv2-640x640.onnx           |                [FaceBoxesV2](https://github.com/jhb86253817/FaceBoxesV2)                | 4.0Mb  |
+|                   Class                   |            Pretrained ONNX Files            |                             Rename or Converted From (Repo)                             |  Size  |
+|:-----------------------------------------:|:-------------------------------------------:|:---------------------------------------------------------------------------------------:|:------:|
+|    *lite::cv::face::detect::UltraFace*    |           ultraface-rfb-640.onnx            | [Ultra-Light...](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) | 1.5Mb  |
+|    *lite::cv::face::detect::UltraFace*    |           ultraface-rfb-320.onnx            | [Ultra-Light...](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) | 1.2Mb  |
+|   *lite::cv::face::detect::RetinaFace*    |      Pytorch_RetinaFace_resnet50.onnx       |             [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface)              | 104Mb  |
+|   *lite::cv::face::detect::RetinaFace*    |  Pytorch_RetinaFace_resnet50-640-640.onnx   |             [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface)              | 104Mb  |
+|   *lite::cv::face::detect::RetinaFace*    |  Pytorch_RetinaFace_resnet50-320-320.onnx   |             [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface)              | 104Mb  |
+|   *lite::cv::face::detect::RetinaFace*    |  Pytorch_RetinaFace_resnet50-720-1080.onnx  |             [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface)              | 104Mb  |
+|   *lite::cv::face::detect::RetinaFace*    |     Pytorch_RetinaFace_mobile0.25.onnx      |             [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface)              | 1.6Mb  |
+|   *lite::cv::face::detect::RetinaFace*    | Pytorch_RetinaFace_mobile0.25-640-640.onnx  |             [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface)              | 1.6Mb  |
+|   *lite::cv::face::detect::RetinaFace*    | Pytorch_RetinaFace_mobile0.25-320-320.onnx  |             [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface)              | 1.6Mb  |
+|   *lite::cv::face::detect::RetinaFace*    | Pytorch_RetinaFace_mobile0.25-720-1080.onnx |             [...Retinaface](https://github.com/biubug6/Pytorch_Retinaface)              | 1.6Mb  |
+|    *lite::cv::face::detect::FaceBoxes*    |               FaceBoxes.onnx                |                [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)                | 3.8Mb  |
+|    *lite::cv::face::detect::FaceBoxes*    |           FaceBoxes-640-640.onnx            |                [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)                | 3.8Mb  |
+|    *lite::cv::face::detect::FaceBoxes*    |           FaceBoxes-320-320.onnx            |                [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)                | 3.8Mb  |
+|    *lite::cv::face::detect::FaceBoxes*    |           FaceBoxes-720-1080.onnx           |                [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch)                | 3.8Mb  |
+|      *lite::cv::face::detect::SCRFD*      |        scrfd_500m_shape160x160.onnx         |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 2.5Mb  |
+|      *lite::cv::face::detect::SCRFD*      |        scrfd_500m_shape320x320.onnx         |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 2.5Mb  |
+|      *lite::cv::face::detect::SCRFD*      |        scrfd_500m_shape640x640.onnx         |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 2.5Mb  |
+|      *lite::cv::face::detect::SCRFD*      |     scrfd_500m_bnkps_shape160x160.onnx      |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 2.5Mb  |  
+|      *lite::cv::face::detect::SCRFD*      |     scrfd_500m_bnkps_shape320x320.onnx      |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 2.5Mb  |  
+|      *lite::cv::face::detect::SCRFD*      |     scrfd_500m_bnkps_shape640x640.onnx      |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 2.5Mb  |  
+|      *lite::cv::face::detect::SCRFD*      |         scrfd_1g_shape160x160.onnx          |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 2.7Mb  |
+|      *lite::cv::face::detect::SCRFD*      |         scrfd_1g_shape320x320.onnx          |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 2.7Mb  |
+|      *lite::cv::face::detect::SCRFD*      |         scrfd_1g_shape640x640.onnx          |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 2.7Mb  |
+|      *lite::cv::face::detect::SCRFD*      |        scrfd_2.5g_shape160x160.onnx         |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 3.3Mb  |
+|      *lite::cv::face::detect::SCRFD*      |        scrfd_2.5g_shape320x320.onnx         |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 3.3Mb  |
+|      *lite::cv::face::detect::SCRFD*      |        scrfd_2.5g_shape640x640.onnx         |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 3.3Mb  |
+|      *lite::cv::face::detect::SCRFD*      |     scrfd_2.5g_bnkps_shape160x160.onnx      |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 3.3Mb  |  
+|      *lite::cv::face::detect::SCRFD*      |     scrfd_2.5g_bnkps_shape320x320.onnx      |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 3.3Mb  |  
+|      *lite::cv::face::detect::SCRFD*      |     scrfd_2.5g_bnkps_shape640x640.onnx      |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 3.3Mb  |  
+|      *lite::cv::face::detect::SCRFD*      |         scrfd_10g_shape640x640.onnx         |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 16.9Mb |
+|      *lite::cv::face::detect::SCRFD*      |        scrfd_10g_shape1280x1280.onnx        |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 16.9Mb |
+|      *lite::cv::face::detect::SCRFD*      |      scrfd_10g_bnkps_shape640x640.onnx      |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 16.9Mb |  
+|      *lite::cv::face::detect::SCRFD*      |     scrfd_10g_bnkps_shape1280x1280.onnx     |     [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd)     | 16.9Mb |  
+|    *lite::cv::face::detect::YOLO5Face*    |          yolov5face-l-640x640.onnx          |                 [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)                  | 181Mb  |
+|    *lite::cv::face::detect::YOLO5Face*    |          yolov5face-m-640x640.onnx          |                 [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)                  |  83Mb  |
+|    *lite::cv::face::detect::YOLO5Face*    |        yolov5face-n-0.5-320x320.onnx        |                 [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)                  | 2.5Mb  |
+|    *lite::cv::face::detect::YOLO5Face*    |        yolov5face-n-0.5-640x640.onnx        |                 [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)                  | 4.6Mb  |
+|    *lite::cv::face::detect::YOLO5Face*    |          yolov5face-n-640x640.onnx          |                 [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)                  | 9.5Mb  |
+|    *lite::cv::face::detect::YOLO5Face*    |          yolov5face-s-640x640.onnx          |                 [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)                  |  30Mb  |
+|   *lite::cv::face::detect::FaceBoxesV2*   |          faceboxesv2-640x640.onnx           |                [FaceBoxesV2](https://github.com/jhb86253817/FaceBoxesV2)                | 4.0Mb  |
+| *lite::cv::face::detect::YOLOv5BlazeFace* |      yolov5face-blazeface-640x640.onnx      |                 [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)                  | 3.4Mb  |
 
 ## Face Alignment.  
 
@@ -228,6 +237,8 @@ You can download all the pretrained models files of ONNX format from ([Baidu Dri
 |     *lite::cv::face::align::PIPNet68*      |            pipnet_resnet101_10x29x32x256_cofw.onnx            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
 |     *lite::cv::face::align::PIPNet29*      |            pipnet_resnet101_10x68x32x256_300w.onnx            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
 |     *lite::cv::face::align::PIPNet19*      |            pipnet_resnet101_10x98x32x256_wflw.onnx            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
+|    *lite::cv::face::align3d::FaceMesh*     |                  facemesh_face_landmark.onnx                  |          [FaceMesh](https://github.com/google/mediapipe)           |  2.4Mb  |
+|  *lite::cv::face::align3d::IrisLandmarks*  |                      iris_landmark.onnx                       |        [IrisLandmarks](https://github.com/google/mediapipe)        |  2.6Mb  |
 
 
 

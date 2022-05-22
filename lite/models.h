@@ -518,6 +518,12 @@ namespace lite
         typedef _PIPNet68 PIPNet68; // 68 points
         typedef _PIPNet29 PIPNet29; // 29 points
         typedef _PIPNet19 PIPNet19; // 19 points
+#endif
+      }
+
+      namespace align3d
+      {
+#ifdef BACKEND_ONNXRUNTIME
         typedef _FaceMesh FaceMesh; // 468 points 3D
         typedef _IrisLandmarks IrisLandmarks; // 71 + 5 points 3D
 #endif
@@ -872,6 +878,10 @@ namespace lite
           typedef _ONNXPIPNet68 PIPNet68; // 68 points
           typedef _ONNXPIPNet29 PIPNet29; // 29 points
           typedef _ONNXPIPNet19 PIPNet19; // 19 points
+        }
+
+        namespace align3d
+        {
           typedef _ONNXFaceMesh FaceMesh; // 468 points 3D
           typedef _ONNXIrisLandmarks IrisLandmarks; // 71 + 5 points 3D
         }
@@ -1039,9 +1049,14 @@ namespace lite
           typedef mnncv::MNNPIPNet68 PIPNet68;
           typedef mnncv::MNNPIPNet29 PIPNet29;
           typedef mnncv::MNNPIPNet19 PIPNet19;
+        }
+
+        namespace align3d
+        {
           typedef mnncv::MNNFaceMesh FaceMesh;
           typedef mnncv::MNNIrisLandmarks IrisLandmarks;
         }
+
         namespace pose
         {
           typedef mnncv::MNNFSANet FSANet;
@@ -1196,6 +1211,11 @@ namespace lite
           typedef ncnncv::NCNNPIPNet29 PIPNet29;
           typedef ncnncv::NCNNPIPNet19 PIPNet19;
         }
+
+        namespace align3d
+        {
+        }
+
         namespace pose
         {
         }
@@ -1336,6 +1356,9 @@ namespace lite
           typedef tnncv::TNNPIPNet68 PIPNet68;
           typedef tnncv::TNNPIPNet29 PIPNet29;
           typedef tnncv::TNNPIPNet19 PIPNet19;
+        }
+        namespace align3d
+        {
         }
         namespace pose
         {

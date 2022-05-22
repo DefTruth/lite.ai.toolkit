@@ -10,8 +10,8 @@ static void test_default()
   std::string test_img_path = "../../../examples/lite/resources/test_lite_screen_lefteye.png";
   std::string save_img_path = "../../../logs/test_lite_iris_landmarks_screen_lefteye.jpg";
 
-  lite::cv::face::align::IrisLandmarks *iris_landmarks =
-      new lite::cv::face::align::IrisLandmarks(onnx_path);
+  lite::cv::face::align3d::IrisLandmarks *iris_landmarks =
+      new lite::cv::face::align3d::IrisLandmarks(onnx_path);
 
   const bool is_screen_right_eye = false;
   cv::Mat img_bgr = cv::imread(test_img_path);
@@ -37,8 +37,8 @@ static void test_onnxruntime()
   std::string test_img_path = "../../../examples/lite/resources/test_lite_screen_righteye.png";
   std::string save_img_path = "../../../logs/test_lite_iris_landmarks_screen_righteye_onnx.jpg";
 
-  lite::onnxruntime::cv::face::align::IrisLandmarks *iris_landmarks =
-      new lite::onnxruntime::cv::face::align::IrisLandmarks(onnx_path);
+  lite::onnxruntime::cv::face::align3d::IrisLandmarks *iris_landmarks =
+      new lite::onnxruntime::cv::face::align3d::IrisLandmarks(onnx_path);
 
   const bool is_screen_right_eye = true;
   cv::Mat img_bgr = cv::imread(test_img_path);
@@ -65,8 +65,8 @@ static void test_mnn()
   std::string test_img_path = "../../../examples/lite/resources/test_lite_screen_righteye.png";
   std::string save_img_path = "../../../logs/test_lite_iris_landmarks_screen_righteye_mnn.jpg";
 
-  lite::mnn::cv::face::align::IrisLandmarks *iris_landmarks =
-      new lite::mnn::cv::face::align::IrisLandmarks(mnn_path);
+  lite::mnn::cv::face::align3d::IrisLandmarks *iris_landmarks =
+      new lite::mnn::cv::face::align3d::IrisLandmarks(mnn_path);
 
   const bool is_screen_right_eye = true;
   cv::Mat img_bgr = cv::imread(test_img_path);
