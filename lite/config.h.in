@@ -7,6 +7,11 @@
 #cmakedefine ENABLE_TNN
 #cmakedefine ENABLE_ONNXRUNTIME_CUDA
 #cmakedefine ENABLE_OPENCV_VIDEOIO
+#cmakedefine ENABLE_DEBUG_STRING
+#cmakedefine ENABLE_LITE_OPENMP
+#cmakedefine ENABLE_LITE_OPENGL
+#cmakedefine ENABLE_LITE_VULKAN
+#cmakedefine ENABLE_LITE_CUDA
 #cmakedefine BACKEND_ONNXRUNTIME
 #cmakedefine BACKEND_MNN
 #cmakedefine BACKEND_NCNN

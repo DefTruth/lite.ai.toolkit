@@ -81,7 +81,7 @@
 在Linux下，为了链接到预编译库，使用前，需要先将`lite.ai.toolkit/lib`的路径添加到LD_LIBRARY_PATH.
 ```shell
 export LD_LIBRARY_PATH=YOUR-PATH-TO/lite.ai.toolkit/lib:$LD_LIBRARY_PATH
-export LIBRARY_PATH=YOUR-PATH-TO/lite.ai.toolkit/lib:LIBRARY_PATH  # (may need)
+export LIBRARY_PATH=YOUR-PATH-TO/lite.ai.toolkit/lib:$LIBRARY_PATH  # (may need)
 ```
 ## 快速配置 👀
 
@@ -1078,6 +1078,8 @@ auto *align = new lite::cv::face::align::PIPNet98(onnx_path);  // 98 landmarks, 
 auto *align = new lite::cv::face::align::PIPNet68(onnx_path);  // 68 landmarks, CVPR2021!
 auto *align = new lite::cv::face::align::PIPNet29(onnx_path);  // 29 landmarks, CVPR2021!
 auto *align = new lite::cv::face::align::PIPNet19(onnx_path);  // 19 landmarks, CVPR2021!
+auto *align = new lite::cv::face::align::FaceMesh(onnx_path);  // 468 3D landmarks, from mediapipe!
+auto *align = new lite::cv::face::align::IrisLandmarks(onnx_path);  // 71+5 3D iris landmarks, from mediapipe!
 ```
 
 ****  
@@ -1232,6 +1234,7 @@ auto *detector = new lite::face::detect::FaceBoxesv2(onnx_path);  // 4.0Mb only 
 auto *detector = new lite::face::detect::RetinaFace(onnx_path);  // 1.6Mb only ! CVPR2020
 auto *detector = new lite::face::detect::SCRFD(onnx_path);  // 2.5Mb only ! CVPR2021, Super fast and accurate!!
 auto *detector = new lite::face::detect::YOLO5Face(onnx_path);  // 2021, Super fast and accurate!!
+auto *detector = new lite::face::detect::YOLOv5BlazeFace(onnx_path);  // 2021, Super fast and accurate!!
 ```
 
 <div id="lite.ai.toolkit-segmentation"></div>  

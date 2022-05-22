@@ -3,6 +3,7 @@
 //
 
 #include "utils.h"
+#include "constants.h"
 
 //*************************************** lite::utils **********************************************//
 // String Utils
@@ -111,16 +112,16 @@ cv::Mat lite::utils::draw_landmarks(const cv::Mat &mat, types::Landmarks &landma
 {
   if (landmarks.points.empty() || !landmarks.flag) return mat;
   cv::Mat mat_copy = mat.clone();
-  for (const auto &point: landmarks.points)
-    cv::circle(mat_copy, point, 2, cv::Scalar(0, 255, 0), -1);
+  for (const auto &p: landmarks.points)
+    cv::circle(mat_copy, p, 2, cv::Scalar(0, 255, 0), -1);
   return mat_copy;
 }
 
 void lite::utils::draw_landmarks_inplace(cv::Mat &mat, types::Landmarks &landmarks)
 {
   if (landmarks.points.empty() || !landmarks.flag) return;
-  for (const auto &point: landmarks.points)
-    cv::circle(mat, point, 2, cv::Scalar(0, 255, 0), -1);
+  for (const auto &p: landmarks.points)
+    cv::circle(mat, p, 2, cv::Scalar(0, 255, 0), -1);
 }
 
 void lite::utils::draw_boxes_inplace(cv::Mat &mat_inplace, const std::vector<types::Boxf> &boxes)
@@ -141,6 +142,69 @@ void lite::utils::draw_boxes_inplace(cv::Mat &mat_inplace, const std::vector<typ
       }
     }
   }
+}
+
+cv::Mat lite::utils::draw_facemesh(const cv::Mat &mat, const types::Landmarks3D &landmarks3d, bool connection)
+{
+  if (landmarks3d.points.empty() || !landmarks3d.flag) return mat;
+  cv::Mat mat_copy = mat.clone();
+  for (const auto &p: landmarks3d.points)
+    cv::circle(mat_copy, cv::Point(p.x, p.y), 2, cv::Scalar(0, 255, 0), -1);
+  if (connection)
+  {
+    for (int i = 0; i < FACEMESH_TESSELATION_COUNT; ++i)
+    {
+      auto p1 = landmarks3d.points.at(
+          FACEMESH_TESSELATION[i][0]);
+      auto p2 = landmarks3d.points.at(
+          FACEMESH_TESSELATION[i][1]);
+      cv::line(mat_copy,
+               cv::Point(p1.x, p1.y),
+               cv::Point(p2.x, p2.y),
+               cv::Scalar(255, 255, 0),
+               2);
+    }
+  }
+
+  return mat_copy;
+}
+
+void lite::utils::draw_facemesh_inplace(cv::Mat &mat_inplace, const types::Landmarks3D &landmarks3d, bool connection)
+{
+  if (landmarks3d.points.empty() || !landmarks3d.flag) return;
+  for (const auto &p: landmarks3d.points)
+    cv::circle(mat_inplace, cv::Point(p.x, p.y), 2, cv::Scalar(0, 255, 0), -1);
+  if (connection)
+  {
+    for (int i = 0; i < FACEMESH_TESSELATION_COUNT; ++i)
+    {
+      auto p1 = landmarks3d.points.at(
+          FACEMESH_TESSELATION[i][0]);
+      auto p2 = landmarks3d.points.at(
+          FACEMESH_TESSELATION[i][1]);
+      cv::line(mat_inplace,
+               cv::Point(p1.x, p1.y),
+               cv::Point(p2.x, p2.y),
+               cv::Scalar(255, 255, 0),
+               2);
+    }
+  }
+}
+
+cv::Mat lite::utils::draw_landmarks3d(const cv::Mat &mat, types::Landmarks &landmarks3d)
+{
+  if (landmarks3d.points.empty() || !landmarks3d.flag) return mat;
+  cv::Mat mat_copy = mat.clone();
+  for (const auto &p: landmarks3d.points)
+    cv::circle(mat_copy, cv::Point(p.x, p.y), 2, cv::Scalar(0, 255, 0), -1);
+  return mat_copy;
+}
+
+void lite::utils::draw_landmarks3d_inplace(cv::Mat &mat_inplace, types::Landmarks3D &landmarks3d)
+{
+  if (landmarks3d.points.empty() || !landmarks3d.flag) return;
+  for (const auto &p: landmarks3d.points)
+    cv::circle(mat_inplace, cv::Point(p.x, p.y), 2, cv::Scalar(0, 255, 0), -1);
 }
 
 cv::Mat lite::utils::draw_boxes(const cv::Mat &mat, const std::vector<types::Boxf> &boxes)
