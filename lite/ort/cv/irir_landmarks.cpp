@@ -64,9 +64,9 @@ void IrisLandmarks::detect(const cv::Mat &mat, types::Landmarks3D &eyes_contours
   if (is_screen_right_eye)
     cv::flip(mat, mat_ref, 1);
   else mat_ref = mat; // ref only.
-
-  const int input_height = input_node_dims.at(2);
-  const int input_width = input_node_dims.at(3);
+  // (1,64,64,3)
+  const int input_height = input_node_dims.at(1);
+  const int input_width = input_node_dims.at(2);
   int img_height = static_cast<int>(mat.rows);
   int img_width = static_cast<int>(mat.cols);
 
@@ -92,9 +92,9 @@ void IrisLandmarks::detect(const cv::Mat &mat, types::Landmarks3D &eyes_contours
   if (is_screen_right_eye && eyes_contours_and_brows.flag && iris.flag)
   {
     for (auto &point3d: eyes_contours_and_brows.points)
-      point3d.x = (float) img_width - point3d.x;
+      point3d.x = (float) (img_width - 1.f) - point3d.x;
     for (auto &point3d: iris.points)
-      point3d.x = (float) img_width - point3d.x;
+      point3d.x = (float) (img_width - 1.f) - point3d.x;
   }
 
 #if LITEORT_DEBUG

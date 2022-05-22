@@ -38,7 +38,6 @@ void MNNFaceMesh::print_debug_string()
   std::cout << "LITEMNN_DEBUG LogId: " << log_id << "\n";
   std::cout << "=============== Input-Dims ==============\n";
   if (input_tensor) input_tensor->printShape();
-
   if (dimension_type == MNN::Tensor::CAFFE)
     std::cout << "Dimension Type: (CAFFE/PyTorch/ONNX)NCHW" << "\n";
   else if (dimension_type == MNN::Tensor::TENSORFLOW)

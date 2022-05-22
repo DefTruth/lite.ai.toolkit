@@ -11,6 +11,7 @@ namespace mnncv
 {
   class LITE_EXPORTS MNNIrisLandmarks
   {
+  public:
     explicit MNNIrisLandmarks(const std::string &_mnn_path, unsigned int _num_threads = 1);
 
     ~MNNIrisLandmarks() noexcept;

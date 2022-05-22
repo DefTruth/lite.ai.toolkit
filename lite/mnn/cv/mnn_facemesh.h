@@ -11,6 +11,7 @@ namespace mnncv
 {
   class LITE_EXPORTS MNNFaceMesh
   {
+  public:
     explicit MNNFaceMesh(const std::string &_mnn_path, unsigned int _num_threads = 1);
 
     ~MNNFaceMesh() noexcept;

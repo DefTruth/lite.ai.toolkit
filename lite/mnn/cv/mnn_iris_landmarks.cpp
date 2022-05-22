@@ -141,9 +141,9 @@ void MNNIrisLandmarks::detect(const cv::Mat &mat, types::Landmarks3D &eyes_conto
   if (is_screen_right_eye && eyes_contours_and_brows.flag && iris.flag)
   {
     for (auto &point3d: eyes_contours_and_brows.points)
-      point3d.x = (float) img_width - point3d.x;
+      point3d.x = (float) (img_width - 1.f) - point3d.x;
     for (auto &point3d: iris.points)
-      point3d.x = (float) img_width - point3d.x;
+      point3d.x = (float) (img_width - 1.f) - point3d.x;
   }
 
 #if LITEMNN_DEBUG

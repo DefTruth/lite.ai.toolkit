@@ -58,8 +58,9 @@ void FaceMesh::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
 void FaceMesh::detect(const cv::Mat &mat, types::Landmarks3D &landmarks3d, float &confidence)
 {
   if (mat.empty()) return;
-  const int input_height = input_node_dims.at(2);
-  const int input_width = input_node_dims.at(3);
+  // (1,192,192,3)
+  const int input_height = input_node_dims.at(1);
+  const int input_width = input_node_dims.at(2);
   int img_height = static_cast<int>(mat.rows);
   int img_width = static_cast<int>(mat.cols);
 

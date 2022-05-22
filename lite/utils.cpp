@@ -159,10 +159,10 @@ cv::Mat lite::utils::draw_facemesh(const cv::Mat &mat, const types::Landmarks3D 
       auto p2 = landmarks3d.points.at(
           FACEMESH_TESSELATION[i][1]);
       cv::line(mat_copy,
-               cv::Point(p1.x, p1.y),
-               cv::Point(p2.x, p2.y),
+               cv::Point2f(p1.x, p1.y),
+               cv::Point2f(p2.x, p2.y),
                cv::Scalar(255, 255, 0),
-               2);
+               1);
     }
   }
 
@@ -183,28 +183,30 @@ void lite::utils::draw_facemesh_inplace(cv::Mat &mat_inplace, const types::Landm
       auto p2 = landmarks3d.points.at(
           FACEMESH_TESSELATION[i][1]);
       cv::line(mat_inplace,
-               cv::Point(p1.x, p1.y),
-               cv::Point(p2.x, p2.y),
+               cv::Point2f(p1.x, p1.y),
+               cv::Point2f(p2.x, p2.y),
                cv::Scalar(255, 255, 0),
-               2);
+               1);
     }
   }
 }
 
 cv::Mat lite::utils::draw_landmarks3d(const cv::Mat &mat, types::Landmarks &landmarks3d)
 {
+  // only draw x and y
   if (landmarks3d.points.empty() || !landmarks3d.flag) return mat;
   cv::Mat mat_copy = mat.clone();
   for (const auto &p: landmarks3d.points)
-    cv::circle(mat_copy, cv::Point(p.x, p.y), 2, cv::Scalar(0, 255, 0), -1);
+    cv::circle(mat_copy, cv::Point2f(p.x, p.y), 2, cv::Scalar(0, 255, 0), -1);
   return mat_copy;
 }
 
 void lite::utils::draw_landmarks3d_inplace(cv::Mat &mat_inplace, types::Landmarks3D &landmarks3d)
 {
+  // only draw x and y
   if (landmarks3d.points.empty() || !landmarks3d.flag) return;
   for (const auto &p: landmarks3d.points)
-    cv::circle(mat_inplace, cv::Point(p.x, p.y), 2, cv::Scalar(0, 255, 0), -1);
+    cv::circle(mat_inplace, cv::Point2f(p.x, p.y), 2, cv::Scalar(0, 255, 0), -1);
 }
 
 cv::Mat lite::utils::draw_boxes(const cv::Mat &mat, const std::vector<types::Boxf> &boxes)

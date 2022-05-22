@@ -27,9 +27,9 @@ throw(std::runtime_error)
   if (data_format == transform::CHW)
   {
 
-    const unsigned int target_channel = tensor_dims.at(1);
     const unsigned int target_height = tensor_dims.at(2);
     const unsigned int target_width = tensor_dims.at(3);
+    const unsigned int target_channel = tensor_dims.at(1);
     const unsigned int target_tensor_size = target_channel * target_height * target_width;
     if (target_channel != channels) throw std::runtime_error("channel mismatch.");
 
@@ -53,9 +53,9 @@ throw(std::runtime_error)
   }
 
   // HXWXC
-  const unsigned int target_channel = tensor_dims.at(3);
   const unsigned int target_height = tensor_dims.at(1);
   const unsigned int target_width = tensor_dims.at(2);
+  const unsigned int target_channel = tensor_dims.at(3);
   const unsigned int target_tensor_size = target_channel * target_height * target_width;
   if (target_channel != channels) throw std::runtime_error("channel mismatch!");
   tensor_value_handler.resize(target_tensor_size);
