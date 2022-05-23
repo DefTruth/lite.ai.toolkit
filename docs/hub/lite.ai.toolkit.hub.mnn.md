@@ -188,6 +188,7 @@ You can download all the pretrained models files of MNN format from ([Baidu Driv
 |   *lite::mnn::cv::face::detect::FaceBoxesV2*   |          faceboxesv2-640x640.mnn           |                [FaceBoxesV2](https://github.com/jhb86253817/FaceBoxesV2)                | 4.0Mb  |
 | *lite::mnn::cv::face::detect::YOLOv5BlazeFace* |      yolov5face-blazeface-640x640.mnn      |                 [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)                  | 3.4Mb  |
 
+
 ## Face Alignment.
 
 <div id="lite.ai.toolkit.hub.mnn-face-alignment"></div>  

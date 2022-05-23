@@ -471,21 +471,22 @@ Default Version Detected Boxes Num: 5
 
 ### 命名空间和Lite.Ai.ToolKit算法模块的对应关系
 
-| Namepace                   | Details                                                                            |
-|:---------------------------|:-----------------------------------------------------------------------------------|
-| *lite::cv::detection*      | Object Detection. one-stage and anchor-free detectors, YoloV5, YoloV4, SSD, etc. ✅ |
-| *lite::cv::classification* | Image Classification. DensNet, ShuffleNet, ResNet, IBNNet, GhostNet, etc. ✅        |
-| *lite::cv::faceid*         | Face Recognition. ArcFace, CosFace, CurricularFace, etc. ❇️                        |
-| *lite::cv::face*           | Face Analysis. *detect*, *align*, *pose*, *attr*, etc. ❇️                          |
-| *lite::cv::face::detect*   | Face Detection. UltraFace, RetinaFace, FaceBoxes, PyramidBox, etc. ❇️              |
-| *lite::cv::face::align*    | Face Alignment. PFLD(106), FaceLandmark1000(1000 landmarks), PRNet, etc. ❇️        |
-| *lite::cv::face::pose*     | Head Pose Estimation.  FSANet, etc. ❇️                                             |
-| *lite::cv::face::attr*     | Face Attributes. Emotion, Age, Gender. EmotionFerPlus, VGG16Age, etc. ❇️           |
-| *lite::cv::segmentation*   | Object Segmentation. Such as FCN, DeepLabV3, etc.  ❇️ ️                            |
-| *lite::cv::style*          | Style Transfer. Contains neural style transfer now, such as FastStyleTransfer.  ⚠️ |
-| *lite::cv::matting*        | Image Matting. Object and Human matting.   ❇️ ️                                    |
-| *lite::cv::colorization*   | Colorization. Make Gray image become RGB. ⚠️                                       |
-| *lite::cv::resolution*     | Super Resolution.  ⚠️                                                              |
+| Namespace                  | Details                                                                                       |
+|:---------------------------|:----------------------------------------------------------------------------------------------|
+| *lite::cv::detection*      | Object Detection. one-stage and anchor-free detectors, YoloV5, YoloV4, SSD, etc. ✅            |
+| *lite::cv::classification* | Image Classification. DensNet, ShuffleNet, ResNet, IBNNet, GhostNet, etc. ✅                   |
+| *lite::cv::faceid*         | Face Recognition. ArcFace, CosFace, CurricularFace, etc. ❇️                                   |
+| *lite::cv::face*           | Face Analysis. *detect*, *align*, *pose*, *attr*, etc. ❇️                                     |
+| *lite::cv::face::detect*   | Face Detection. UltraFace, RetinaFace, FaceBoxes, PyramidBox, etc. ❇️                         |
+| *lite::cv::face::align*    | Face Alignment. PFLD(106), FaceLandmark1000(1000 landmarks), PRNet, etc. ❇️                   |
+| *lite::cv::face::align3d*  | 3D Face Alignment. FaceMesh(468 3D landmarks), IrisLandmark(71+5 3D landmarks), etc. ❇️       |
+| *lite::cv::face::pose*     | Head Pose Estimation.  FSANet, etc. ❇️                                                        |
+| *lite::cv::face::attr*     | Face Attributes. Emotion, Age, Gender. EmotionFerPlus, VGG16Age, etc. ❇️                      |
+| *lite::cv::segmentation*   | Object Segmentation. Such as FCN, DeepLabV3, etc.  ❇️ ️                                       |
+| *lite::cv::style*          | Style Transfer. Contains neural style transfer now, such as FastStyleTransfer.  ⚠️            |
+| *lite::cv::matting*        | Image Matting. Object and Human matting.   ❇️ ️                                               |
+| *lite::cv::colorization*   | Colorization. Make Gray image become RGB. ⚠️                                                  |
+| *lite::cv::resolution*     | Super Resolution.  ⚠️                                                                         |
 
 
 ### Lite.Ai.ToolKit的类与权重文件对应关系说明
@@ -977,7 +978,7 @@ static void test_default()
   std::string test_img_path = "../../../examples/lite/resources/test_lite_ssrnet.jpg";
   std::string save_img_path = "../../../logs/test_lite_ssrnet.jpg";
 
-  lite::cv::face::attr::SSRNet *ssrnet = new lite::cv::face::attr::SSRNet(onnx_path);
+  auto *ssrnet = new lite::cv::face::attr::SSRNet(onnx_path);
 
   lite::types::Age age;
   cv::Mat img_bgr = cv::imread(test_img_path);

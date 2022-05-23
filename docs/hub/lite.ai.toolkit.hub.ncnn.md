@@ -115,6 +115,7 @@ You can download all the pretrained models files of NCNN format from ([Baidu Dri
 |    *lite::ncnn::cv::faceid:CavaCombinedFace*    |        cavaface_IR_SE_100_Combined_Epoch_24.opt.param&bin        |     [cavaface...](https://github.com/cavalleria/cavaface.pytorch)      | 250Mb |
 |   *lite::ncnn::cv::faceid:MobileSEFocalFace*    | face_recognition.pytorch_Mobilenet_se_focal_121000.opt.param&bin | [face_recog...](https://github.com/grib0ed0v/face_recognition.pytorch) | 4.5Mb |
 
+
 ## Face Detection.
 
 <div id="lite.ai.toolkit.hub.ncnn-face-detection"></div>  
@@ -182,6 +183,7 @@ You can download all the pretrained models files of NCNN format from ([Baidu Dri
 |     *lite::ncnn::cv::face::align::PIPNet68*      |            pipnet_resnet101_10x68x32x256_300w.opt.param&bin            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
 |     *lite::ncnn::cv::face::align::PIPNet29*      |            pipnet_resnet101_10x29x32x256_cofw.opt.param&bin            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
 |     *lite::ncnn::cv::face::align::PIPNet19*      |            pipnet_resnet101_10x19x32x256_aflw.opt.param&bin            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
+
 
 ## Face Attributes.
 
