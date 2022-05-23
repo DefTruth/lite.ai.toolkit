@@ -190,14 +190,14 @@ You can download all the pretrained models files of TNN format from ([Baidu Driv
 |  *lite::tnn::cv::face::align::MobileNetV2SE68*  | pytorch_face_landmarks_landmark_detection_56_se_external.opt.tnnproto&tnnmodel |  [...landmark](https://github.com/cunjian/pytorch_face_landmark)   |  11Mb   |
 |      *lite::tnn::cv::face::align::PFLD68*       |               pytorch_face_landmarks_pfld.opt.tnnproto&tnnmodel                |  [...landmark](https://github.com/cunjian/pytorch_face_landmark)   |  2.8Mb  |
 | *lite::tnn::cv::face::align::FaceLandmarks1000* |                     FaceLandmark1000.opt.tnnproto&tnnmodel                     |   [FaceLandm...](https://github.com/Single430/FaceLandmark1000)    |  2.0Mb  |
-|     *lite::tnn::cv::face::align::PIPNet98*      |            pipnet_resnet18_10x19x32x256_aflw.opt.tnnproto&tnnmodel             |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 44.0Mb  |
-|     *lite::tnn::cv::face::align::PIPNet68*      |            pipnet_resnet18_10x29x32x256_cofw.opt.tnnproto&tnnmodel             |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 44.0Mb  |
-|     *lite::tnn::cv::face::align::PIPNet29*      |            pipnet_resnet18_10x68x32x256_300w.opt.tnnproto&tnnmodel             |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 44.0Mb  |
-|     *lite::tnn::cv::face::align::PIPNet19*      |            pipnet_resnet18_10x98x32x256_wflw.opt.tnnproto&tnnmodel             |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 44.0Mb  |
-|     *lite::tnn::cv::face::align::PIPNet98*      |            pipnet_resnet101_10x19x32x256_aflw.opt.tnnproto&tnnmodel            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
-|     *lite::tnn::cv::face::align::PIPNet68*      |            pipnet_resnet101_10x29x32x256_cofw.opt.tnnproto&tnnmodel            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
-|     *lite::tnn::cv::face::align::PIPNet29*      |            pipnet_resnet101_10x68x32x256_300w.opt.tnnproto&tnnmodel            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
-|     *lite::tnn::cv::face::align::PIPNet19*      |            pipnet_resnet101_10x98x32x256_wflw.opt.tnnproto&tnnmodel            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
+|     *lite::tnn::cv::face::align::PIPNet98*      |            pipnet_resnet18_10x98x32x256_wflw.opt.tnnproto&tnnmodel             |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 44.0Mb  |
+|     *lite::tnn::cv::face::align::PIPNet68*      |            pipnet_resnet18_10x68x32x256_300w.opt.tnnproto&tnnmodel             |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 44.0Mb  |
+|     *lite::tnn::cv::face::align::PIPNet29*      |            pipnet_resnet18_10x29x32x256_cofw.opt.tnnproto&tnnmodel             |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 44.0Mb  |
+|     *lite::tnn::cv::face::align::PIPNet19*      |            pipnet_resnet18_10x19x32x256_aflw.opt.tnnproto&tnnmodel             |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 44.0Mb  |
+|     *lite::tnn::cv::face::align::PIPNet98*      |            pipnet_resnet101_10x98x32x256_wflw.opt.tnnproto&tnnmodel            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
+|     *lite::tnn::cv::face::align::PIPNet68*      |            pipnet_resnet101_10x68x32x256_300w.opt.tnnproto&tnnmodel            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
+|     *lite::tnn::cv::face::align::PIPNet29*      |            pipnet_resnet101_10x29x32x256_cofw.opt.tnnproto&tnnmodel            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
+|     *lite::tnn::cv::face::align::PIPNet19*      |            pipnet_resnet101_10x19x32x256_aflw.opt.tnnproto&tnnmodel            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
 
 ## Head Pose Estimation.
 
