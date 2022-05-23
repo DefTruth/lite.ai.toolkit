@@ -115,6 +115,7 @@ You can download all the pretrained models files of NCNN format from ([Baidu Dri
 |    *lite::ncnn::cv::faceid:CavaCombinedFace*    |        cavaface_IR_SE_100_Combined_Epoch_24.opt.param&bin        |     [cavaface...](https://github.com/cavalleria/cavaface.pytorch)      | 250Mb |
 |   *lite::ncnn::cv::faceid:MobileSEFocalFace*    | face_recognition.pytorch_Mobilenet_se_focal_121000.opt.param&bin | [face_recog...](https://github.com/grib0ed0v/face_recognition.pytorch) | 4.5Mb |
 
+
 ## Face Detection.
 
 <div id="lite.ai.toolkit.hub.ncnn-face-detection"></div>  
@@ -174,14 +175,15 @@ You can download all the pretrained models files of NCNN format from ([Baidu Dri
 |  *lite::ncnn::cv::face::align::MobileNetV2SE68*  | pytorch_face_landmarks_landmark_detection_56_se_external.opt.param&bin |  [...landmark](https://github.com/cunjian/pytorch_face_landmark)   |  11Mb   |
 |      *lite::ncnn::cv::face::align::PFLD68*       |               pytorch_face_landmarks_pfld.opt.param&bin                |  [...landmark](https://github.com/cunjian/pytorch_face_landmark)   |  2.8Mb  |
 | *lite::ncnn::cv::face::align::FaceLandmarks1000* |                     FaceLandmark1000.opt.param&bin                     |   [FaceLandm...](https://github.com/Single430/FaceLandmark1000)    |  2.0Mb  |
-|     *lite::ncnn::cv::face::align::PIPNet98*      |            pipnet_resnet18_10x19x32x256_aflw.opt.param&bin             |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 44.0Mb  |
-|     *lite::ncnn::cv::face::align::PIPNet68*      |            pipnet_resnet18_10x29x32x256_cofw.opt.param&bin             |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 44.0Mb  |
-|     *lite::ncnn::cv::face::align::PIPNet29*      |            pipnet_resnet18_10x68x32x256_300w.opt.param&bin             |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 44.0Mb  |
-|     *lite::ncnn::cv::face::align::PIPNet19*      |            pipnet_resnet18_10x98x32x256_wflw.opt.param&bin             |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 44.0Mb  |
-|     *lite::ncnn::cv::face::align::PIPNet98*      |            pipnet_resnet101_10x19x32x256_aflw.opt.param&bin            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
-|     *lite::ncnn::cv::face::align::PIPNet68*      |            pipnet_resnet101_10x29x32x256_cofw.opt.param&bin            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
-|     *lite::ncnn::cv::face::align::PIPNet29*      |            pipnet_resnet101_10x68x32x256_300w.opt.param&bin            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
-|     *lite::ncnn::cv::face::align::PIPNet19*      |            pipnet_resnet101_10x98x32x256_wflw.opt.param&bin            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
+|     *lite::ncnn::cv::face::align::PIPNet98*      |            pipnet_resnet18_10x98x32x256_wflw.opt.param&bin             |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 44.0Mb  |
+|     *lite::ncnn::cv::face::align::PIPNet68*      |            pipnet_resnet18_10x68x32x256_300w.opt.param&bin             |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 44.0Mb  |
+|     *lite::ncnn::cv::face::align::PIPNet29*      |            pipnet_resnet18_10x29x32x256_cofw.opt.param&bin             |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 44.0Mb  |
+|     *lite::ncnn::cv::face::align::PIPNet19*      |            pipnet_resnet18_10x19x32x256_aflw.opt.param&bin             |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 44.0Mb  |
+|     *lite::ncnn::cv::face::align::PIPNet98*      |            pipnet_resnet101_10x98x32x256_wflw.opt.param&bin            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
+|     *lite::ncnn::cv::face::align::PIPNet68*      |            pipnet_resnet101_10x68x32x256_300w.opt.param&bin            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
+|     *lite::ncnn::cv::face::align::PIPNet29*      |            pipnet_resnet101_10x29x32x256_cofw.opt.param&bin            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
+|     *lite::ncnn::cv::face::align::PIPNet19*      |            pipnet_resnet101_10x19x32x256_aflw.opt.param&bin            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
+
 
 ## Face Attributes.
 

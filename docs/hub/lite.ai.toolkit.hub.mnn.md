@@ -188,6 +188,7 @@ You can download all the pretrained models files of MNN format from ([Baidu Driv
 |   *lite::mnn::cv::face::detect::FaceBoxesV2*   |          faceboxesv2-640x640.mnn           |                [FaceBoxesV2](https://github.com/jhb86253817/FaceBoxesV2)                | 4.0Mb  |
 | *lite::mnn::cv::face::detect::YOLOv5BlazeFace* |      yolov5face-blazeface-640x640.mnn      |                 [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)                  | 3.4Mb  |
 
+
 ## Face Alignment.
 
 <div id="lite.ai.toolkit.hub.mnn-face-alignment"></div>  
@@ -203,14 +204,14 @@ You can download all the pretrained models files of MNN format from ([Baidu Driv
 |  *lite::mnn::cv::face::align::MobileNetV2SE68*  | pytorch_face_landmarks_landmark_detection_56_se_external.mnn |  [...landmark](https://github.com/cunjian/pytorch_face_landmark)   |  11Mb   |
 |      *lite::mnn::cv::face::align::PFLD68*       |               pytorch_face_landmarks_pfld.mnn                |  [...landmark](https://github.com/cunjian/pytorch_face_landmark)   |  2.8Mb  |
 | *lite::mnn::cv::face::align::FaceLandmarks1000* |                     FaceLandmark1000.mnn                     |   [FaceLandm...](https://github.com/Single430/FaceLandmark1000)    |  2.0Mb  |
-|     *lite::mnn::cv::face::align::PIPNet98*      |            pipnet_resnet18_10x19x32x256_aflw.mnn             |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 44.0Mb  |
-|     *lite::mnn::cv::face::align::PIPNet68*      |            pipnet_resnet18_10x29x32x256_cofw.mnn             |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 44.0Mb  |
-|     *lite::mnn::cv::face::align::PIPNet29*      |            pipnet_resnet18_10x68x32x256_300w.mnn             |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 44.0Mb  |
-|     *lite::mnn::cv::face::align::PIPNet19*      |            pipnet_resnet18_10x98x32x256_wflw.mnn             |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 44.0Mb  |
-|     *lite::mnn::cv::face::align::PIPNet98*      |            pipnet_resnet101_10x19x32x256_aflw.mnn            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
-|     *lite::mnn::cv::face::align::PIPNet68*      |            pipnet_resnet101_10x29x32x256_cofw.mnn            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
-|     *lite::mnn::cv::face::align::PIPNet29*      |            pipnet_resnet101_10x68x32x256_300w.mnn            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
-|     *lite::mnn::cv::face::align::PIPNet19*      |            pipnet_resnet101_10x98x32x256_wflw.mnn            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
+|     *lite::mnn::cv::face::align::PIPNet98*      |            pipnet_resnet18_10x98x32x256_wflw.mnn             |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 44.0Mb  |
+|     *lite::mnn::cv::face::align::PIPNet68*      |            pipnet_resnet18_10x68x32x256_300w.mnn             |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 44.0Mb  |
+|     *lite::mnn::cv::face::align::PIPNet29*      |            pipnet_resnet18_10x29x32x256_cofw.mnn             |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 44.0Mb  |
+|     *lite::mnn::cv::face::align::PIPNet19*      |            pipnet_resnet18_10x19x32x256_aflw.mnn             |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 44.0Mb  |
+|     *lite::mnn::cv::face::align::PIPNet98*      |            pipnet_resnet101_10x98x32x256_wflw.mnn            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
+|     *lite::mnn::cv::face::align::PIPNet68*      |            pipnet_resnet101_10x68x32x256_300w.mnn            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
+|     *lite::mnn::cv::face::align::PIPNet29*      |            pipnet_resnet101_10x29x32x256_cofw.mnn            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
+|     *lite::mnn::cv::face::align::PIPNet19*      |            pipnet_resnet101_10x19x32x256_aflw.mnn            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
 |    *lite::mnn::cv::face::align3d::FaceMesh*     |                  facemesh_face_landmark.mnn                  |          [FaceMesh](https://github.com/google/mediapipe)           |  2.4Mb  |
 |  *lite::mnn::cv::face::align3d::IrisLandmarks*  |                      iris_landmark.mnn                       |        [IrisLandmarks](https://github.com/google/mediapipe)        |  2.6Mb  |
 
