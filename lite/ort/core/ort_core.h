@@ -98,9 +98,7 @@ namespace ortcv
   class LITE_EXPORTS BackgroundMattingV2;        // [84] * reference: https://github.com/PeterL1n/BackgroundMattingV2
   class LITE_EXPORTS BackgroundMattingV2Dyn;     // [85] * reference: https://github.com/PeterL1n/BackgroundMattingV2 (With Dynamic Input Shape)
   class LITE_EXPORTS BlazeFace;                  // [86] * reference: https://github.com/google/mediapipe
-  class LITE_EXPORTS FaceMesh;                   // [87] * reference: https://github.com/google/mediapipe
-  class LITE_EXPORTS IrisLandmarks;              // [88] * reference: https://github.com/google/mediapipe
-  class LITE_EXPORTS HandLandmarks;              // [89] * reference: https://github.com/google/mediapipe
+  class LITE_EXPORTS HandLandmarks;              // [87] * reference: https://github.com/google/mediapipe
   class LITE_EXPORTS HandRecrop;                 // [90] * reference: https://github.com/google/mediapipe
   class LITE_EXPORTS BlazePalm;                  // [91] * reference: https://github.com/google/mediapipe
   class LITE_EXPORTS BlazePose;                  // [92] * reference: https://github.com/google/mediapipe

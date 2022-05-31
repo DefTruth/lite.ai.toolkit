@@ -100,8 +100,6 @@
 #include "lite/ort/cv/backgroundmattingv2_dyn.h"
 #include "lite/ort/cv/yolov5_blazeface.h"
 #include "lite/ort/cv/yolov5_v6.1.h"
-#include "lite/ort/cv/facemesh.h"
-#include "lite/ort/cv/iris_landmarks.h"
 
 #endif
 
@@ -181,8 +179,6 @@
 #include "lite/mnn/cv/mnn_backgroundmattingv2.h"
 #include "lite/mnn/cv/mnn_yolov5_blazeface.h"
 #include "lite/mnn/cv/mnn_yolov5_v6.1.h"
-#include "lite/mnn/cv/mnn_facemesh.h"
-#include "lite/mnn/cv/mnn_iris_landmarks.h"
 
 #endif
 
@@ -439,8 +435,7 @@ namespace lite
     typedef ortcv::BackgroundMattingV2Dyn _BackgroundMattingV2Dyn;
     typedef ortcv::YOLOv5BlazeFace _YOLOv5BlazeFace;
     typedef ortcv::YoloV5_V_6_1 _YoloV5_V_6_1;
-    typedef ortcv::FaceMesh _FaceMesh;
-    typedef ortcv::IrisLandmarks _IrisLandmarks;
+
 #endif
 
     // 1. classification
@@ -524,8 +519,7 @@ namespace lite
       namespace align3d
       {
 #ifdef BACKEND_ONNXRUNTIME
-        typedef _FaceMesh FaceMesh; // 468 points 3D
-        typedef _IrisLandmarks IrisLandmarks; // 71 + 5 points 3D
+
 #endif
       }
 
@@ -807,8 +801,6 @@ namespace lite
       typedef ortcv::BackgroundMattingV2Dyn _ONNXBackgroundMattingV2Dyn;
       typedef ortcv::YOLOv5BlazeFace _ONNXYOLOv5BlazeFace;
       typedef ortcv::YoloV5_V_6_1 _ONNXYoloV5_V_6_1;
-      typedef ortcv::FaceMesh _ONNXFaceMesh;
-      typedef ortcv::IrisLandmarks _ONNXIrisLandmarks;
 
       // 1. classification
       namespace classification
@@ -882,8 +874,7 @@ namespace lite
 
         namespace align3d
         {
-          typedef _ONNXFaceMesh FaceMesh; // 468 points 3D
-          typedef _ONNXIrisLandmarks IrisLandmarks; // 71 + 5 points 3D
+
         }
 
         namespace pose
@@ -1053,8 +1044,7 @@ namespace lite
 
         namespace align3d
         {
-          typedef mnncv::MNNFaceMesh FaceMesh;
-          typedef mnncv::MNNIrisLandmarks IrisLandmarks;
+
         }
 
         namespace pose

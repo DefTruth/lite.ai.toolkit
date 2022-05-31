@@ -212,8 +212,6 @@ You can download all the pretrained models files of MNN format from ([Baidu Driv
 |     *lite::mnn::cv::face::align::PIPNet68*      |            pipnet_resnet101_10x68x32x256_300w.mnn            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
 |     *lite::mnn::cv::face::align::PIPNet29*      |            pipnet_resnet101_10x29x32x256_cofw.mnn            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
 |     *lite::mnn::cv::face::align::PIPNet19*      |            pipnet_resnet101_10x19x32x256_aflw.mnn            |          [PIPNet](https://github.com/jhb86253817/PIPNet)           | 150.0Mb |
-|    *lite::mnn::cv::face::align3d::FaceMesh*     |                  facemesh_face_landmark.mnn                  |          [FaceMesh](https://github.com/google/mediapipe)           |  2.4Mb  |
-|  *lite::mnn::cv::face::align3d::IrisLandmarks*  |                      iris_landmark.mnn                       |        [IrisLandmarks](https://github.com/google/mediapipe)        |  2.6Mb  |
 
 
 ## Head Pose Estimation.

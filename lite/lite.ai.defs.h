@@ -5,6 +5,7 @@
 #ifndef LITE_AI_LITE_AI_DEFS_H
 #define LITE_AI_LITE_AI_DEFS_H
 
+#include "config.h"
 #include <iostream>
 
 #ifndef LITE_EXPORTS
@@ -31,6 +32,13 @@
 
 #ifndef __unused
 # define __unused
+#endif
+
+// TODO (format debug infos)
+#ifdef ENABLE_DEBUG_STRING
+
+#else
+
 #endif
 
 #endif //LITE_AI_LITE_AI_DEFS_H
