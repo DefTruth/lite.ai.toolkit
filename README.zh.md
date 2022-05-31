@@ -262,8 +262,6 @@ static void test_default()
 |                            [PlantID](https://github.com/quarrying/quarrying-plant-id)                             |  30M  | *classification* |          [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_plantid.cpp)          |      ✅      |  ✅  |  ✅   |  ✅  |   ✅   |   ✅   |   ✔️    |   ✔️    |    ❔    |
 |                           [YOLOv5BlazeFace](https://github.com/deepcam-cn/yolov5-face)                            | 3.4M  |  *face::detect*  |     [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolov5_blazeface.cpp)      |      ✅      |  ✅  |  /   |  /  |   ✅   |  ✔️   |   ✔️    |    ❔    |  
 |                      [YoloV5_V_6_1](https://github.com/ultralytics/yolov5/releases/tag/v6.1)                      | 7.5M  |   *detection*    |        [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolov5_v6.1.cpp)        |      ✅      |  ✅  |  /   |  /  |   ✅   |  ✔️   |   ✔️    |    ❔    |
-|                                  [FaceMesh](https://github.com/google/mediapipe)                                  | 2.4M  | *face::align3d*  |         [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_facemesh.cpp)          |      ✅      |  ✅  |  /   |  /  |   ✅   |  ✔️   |   ✔️    |    ❔    |
-|                               [IrisLandmarks](https://github.com/google/mediapipe)                                | 2.6M  | *face::align3d*  |      [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_iris_landmarks.cpp)       |      ✅      |  ✅  |  /   |  /  |   ✅   |  ✔️   |   ✔️    |    ❔    |
 
 
 ## 4. 编译文档
@@ -728,47 +726,9 @@ auto *align = new lite::cv::face::align::PIPNet19(onnx_path);  // 19 landmarks, 
 
 ****
 
-#### 案例3: 使用 [FaceMesh](https://github.com/google/mediapipe/blob/master/mediapipe/modules/face_landmark/) 进行 FaceMesh(3D 人脸关键点) 检测。 请从Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2) 下载模型文件。
-```c++
-#include "lite/lite.h"
-
-static void test_default()
-{
-  std::string onnx_path = "../../../hub/onnx/cv/facemesh_face_landmark.onnx";
-  std::string test_img_path = "../../../examples/lite/resources/test_lite_face_align.png";
-  std::string save_img_path = "../../../logs/test_lite_facemesh.jpg";
-
-  auto *facemesh = new lite::cv::face::align3d::FaceMesh(onnx_path);
-
-  float confidence = 0.f;
-  lite::types::Landmarks3D landmarks3d;
-  cv::Mat img_bgr = cv::imread(test_img_path);
-  facemesh->detect(img_bgr, landmarks3d, confidence);
-
-  lite::utils::draw_facemesh_inplace(img_bgr, landmarks3d);
-  cv::imwrite(save_img_path, img_bgr);
-  
-  delete facemesh;
-}
-```
-The output is:
-<div align='center'>
-  <img src='docs/resources/facemesh0.jpg' height="224px" width="224px">
-  <img src='docs/resources/facemesh1.jpg' height="224px" width="224px">
-  <img src='docs/resources/facemesh2.jpg' height="224px" width="224px">
-</div>    
-
-更多可用的3D人脸关键点检测器 (x, y, z axis, 468 3D 人脸关键点, 71+5 3D 瞳孔关键点)
-```c++
-auto *align = new lite::cv::face::align3d::FaceMesh(onnx_path);  // 468 3D landmarks, 2.4Mb only! from mediapipe!
-auto *align = new lite::cv::face::align3d::IrisLandmarks(onnx_path);  // 71+5 3D iris landmarks, 2.6Mb only! from mediapipe!
-```
-
-****  
-
 <div id="lite.ai.toolkit-colorization"></div>
 
-#### 案例4: 使用[colorization](https://github.com/richzhang/colorization) 进行图像着色。请从Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2) 下载模型文件。
+#### 案例3: 使用[colorization](https://github.com/richzhang/colorization) 进行图像着色。请从Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2) 下载模型文件。
 ```c++
 #include "lite/lite.h"
 
@@ -809,7 +769,7 @@ auto *colorizer = new lite::cv::colorization::Colorizer(onnx_path);
 
 <div id="lite.ai.toolkit-face-recognition"></div>  
 
-#### 案例5: 使用[ArcFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch) 进行人脸识别。请从Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2) 下载模型文件。
+#### 案例4: 使用[ArcFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch) 进行人脸识别。请从Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2) 下载模型文件。
 
 ```c++
 #include "lite/lite.h"
@@ -877,7 +837,7 @@ auto *recognition = new lite::cv::faceid::MobileSEFocalFace(onnx_path); // 4.5Mb
 
 <div id="lite.ai.toolkit-face-detection"></div>
 
-#### 案例6: 使用[SCRFD 2021](https://github.com/deepinsight/insightface/blob/master/detection/scrfd/) 进行人脸检测。请从Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2) 下载模型文件。
+#### 案例5: 使用[SCRFD 2021](https://github.com/deepinsight/insightface/blob/master/detection/scrfd/) 进行人脸检测。请从Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2) 下载模型文件。
 ```c++
 #include "lite/lite.h"
 
@@ -921,7 +881,7 @@ auto *detector = new lite::face::detect::YOLOv5BlazeFace(onnx_path);  // 2021, S
 
 <div id="lite.ai.toolkit-segmentation"></div>  
 
-#### 案例7: 使用 [DeepLabV3ResNet101](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/) 进行语义分割. 请从Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2) 下载模型文件。
+#### 案例6: 使用 [DeepLabV3ResNet101](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/) 进行语义分割. 请从Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2) 下载模型文件。
 ```c++
 #include "lite/lite.h"
 
@@ -968,7 +928,7 @@ auto *segment = new lite::cv::segmentation::DeepLabV3ResNet101(onnx_path);
 
 <div id="lite.ai.toolkit-face-attributes-analysis"></div>    
 
-#### 案例8: 使用 [SSRNet](https://github.com/oukohou/SSR_Net_Pytorch) 进行年龄估计. 请从Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2) 下载模型文件。
+#### 案例7: 使用 [SSRNet](https://github.com/oukohou/SSR_Net_Pytorch) 进行年龄估计. 请从Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2) 下载模型文件。
 ```c++
 #include "lite/lite.h"
 
@@ -1014,7 +974,7 @@ auto *attribute = new lite::cv::face::attr::SSRNet(onnx_path); // age estimation
 
 <div id="lite.ai.toolkit-image-classification"></div>   
 
-#### 案例9: 使用 [DenseNet](https://pytorch.org/hub/pytorch_vision_densenet/) 进行图片1000分类. 请从Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2) 下载模型文件。
+#### 案例8: 使用 [DenseNet](https://pytorch.org/hub/pytorch_vision_densenet/) 进行图片1000分类. 请从Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2) 下载模型文件。
 ```c++
 #include "lite/lite.h"
 
@@ -1066,7 +1026,7 @@ auto *classifier = new lite::cv::classification::ResNeXt(onnx_path);
 
 <div id="lite.ai.toolkit-head-pose-estimation"></div>   
 
-#### 案例10: 使用 [FSANet](https://github.com/omasaht/headpose-fsanet-pytorch) 进行头部姿态识别. 请从Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2) 下载模型文件。
+#### 案例9: 使用 [FSANet](https://github.com/omasaht/headpose-fsanet-pytorch) 进行头部姿态识别. 请从Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2) 下载模型文件。
 
 ```c++
 #include "lite/lite.h"
@@ -1106,7 +1066,7 @@ auto *pose = new lite::cv::face::pose::FSANet(onnx_path); // 1.2Mb only!
 
 <div id="lite.ai.toolkit-style-transfer"></div>  
 
-#### 案例11: 使用 [FastStyleTransfer](https://github.com/onnx/models/tree/master/vision/style_transfer/fast_neural_style) 进行风格迁移. 请从Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2) 下载模型文件。
+#### 案例10: 使用 [FastStyleTransfer](https://github.com/onnx/models/tree/master/vision/style_transfer/fast_neural_style) 进行风格迁移. 请从Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2) 下载模型文件。
 ```c++
 #include "lite/lite.h"
 

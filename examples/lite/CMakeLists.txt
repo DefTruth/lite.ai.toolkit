@@ -88,6 +88,4 @@ add_lite_executable(lite_backgroundmattingv2 cv)
 add_lite_executable(lite_backgroundmattingv2_dyn cv)
 add_lite_executable(lite_yolov5_blazeface cv)
 add_lite_executable(lite_yolov5_v6.1 cv)
-add_lite_executable(lite_facemesh cv)
-add_lite_executable(lite_iris_landmarks cv)
 
