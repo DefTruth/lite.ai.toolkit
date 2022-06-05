@@ -116,8 +116,11 @@ namespace ortcv
   class LITE_EXPORTS BSRGAN;                     // [102] * reference: https://github.com/cszn/BSRGAN
   class LITE_EXPORTS SCUNet;                     // [103] * reference: https://github.com/cszn/SCUNet
   class LITE_EXPORTS YoloV5_V_6_1;               // [104] * reference: https://github.com/ultralytics/yolov5/releases/tag/v6.1
-  class LITE_EXPORTS MiniPortraitSeg;            // [105] * reference: https://github.com/minivision-ai/photo2cartoon
-  class LITE_EXPORTS MiniPhoto2Cartoon;          // [106] * reference: https://github.com/minivision-ai/photo2cartoon
+  class LITE_EXPORTS HeadSeg;                    // [105] * reference: https://github.com/minivision-ai/photo2cartoon
+  class LITE_EXPORTS FemalePhoto2Cartoon;        // [106] * reference: https://github.com/minivision-ai/photo2cartoon
+  class LITE_EXPORTS FastPortraitSeg;            // [107] * reference: https://github.com/YexingWan/Fast-Portrait-Segmentation
+  class LITE_EXPORTS PortraitSegExtremeC3Net;    // [108] * reference: https://github.com/clovaai/ext_portrait_segmentation
+  class LITE_EXPORTS PortraitSegSINet;           // [109] * reference: https://github.com/clovaai/ext_portrait_segmentation
 }
 
 namespace ortnlp
