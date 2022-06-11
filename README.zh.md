@@ -145,7 +145,6 @@ static void test_default()
 }
 ```
 
-
 ## 2. 重要更新 🆕
 <div id="lite.ai.toolkit-Important-Updates"></div>
 
@@ -455,7 +454,7 @@ Default Version Detected Boxes Num: 5
 <div id="lite.ai.toolkit-2"></div>
 <div id="lite.ai.toolkit-Model-Zoo"></div>
 
-**Lite.Ai.ToolKit** 目前包括 **[80+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** 流行的开源模型以及 **[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** 文件，大部分文件是我自己转换的。你可以通过**lite::cv::Type::Class** 语法进行调用，如 **[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)**。更多的细节见[Examples for Lite.Ai.ToolKit](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit)。注意，由于Google Driver(15G)的存储限制，我无法上传所有的模型文件，国内的小伙伴请使用百度云盘。
+**Lite.Ai.ToolKit** 目前包括将近 **[100+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** 流行的开源模型以及 **[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** 文件，大部分文件是我自己转换的。你可以通过**lite::cv::Type::Class** 语法进行调用，如 **[lite::cv::detection::YoloV5](#lite.ai.toolkit-object-detection)**。更多的细节见[Examples for Lite.Ai.ToolKit](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit)。注意，由于Google Driver(15G)的存储限制，我无法上传所有的模型文件，国内的小伙伴请使用百度云盘。
 
 | File |                                Baidu Drive                                |                                             Google Drive                                             |                                                          Docker Hub                                                          |                                               Hub (Docs)                                               |  
 |:----:|:-------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------:|
