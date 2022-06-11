@@ -144,11 +144,6 @@ static void test_default()
   delete yolov5;
 }
 ```
-<!----
-<div align='center'>
-  <img src="docs/resources/scrfd-mgmatting-nanodetplus.jpg" height="250px" width="750px" >
-</div>   
----->
 
 ## 2. Important Updates 🆕
 <div id="lite.ai.toolkit-Important-Updates"></div>

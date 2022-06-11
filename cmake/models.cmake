@@ -1,1 +1,1 @@
-# Model compile options (TODO)
+# Model compile options (for future use)
