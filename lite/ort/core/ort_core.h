@@ -121,6 +121,7 @@ namespace ortcv
   class LITE_EXPORTS FastPortraitSeg;            // [107] * reference: https://github.com/YexingWan/Fast-Portrait-Segmentation
   class LITE_EXPORTS PortraitSegExtremeC3Net;    // [108] * reference: https://github.com/clovaai/ext_portrait_segmentation
   class LITE_EXPORTS PortraitSegSINet;           // [109] * reference: https://github.com/clovaai/ext_portrait_segmentation
+  class LITE_EXPORTS MobileHumanMatting;         // [110] * reference: https://github.com/lizhengwei1992/mobile_phone_human_matting
 }
 
 namespace ortnlp

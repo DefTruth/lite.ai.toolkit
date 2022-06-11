@@ -100,6 +100,7 @@
 #include "lite/ort/cv/backgroundmattingv2_dyn.h"
 #include "lite/ort/cv/yolov5_blazeface.h"
 #include "lite/ort/cv/yolov5_v6.1.h"
+#include "lite/ort/cv/head_seg.h"
 
 #endif
 
@@ -179,6 +180,7 @@
 #include "lite/mnn/cv/mnn_backgroundmattingv2.h"
 #include "lite/mnn/cv/mnn_yolov5_blazeface.h"
 #include "lite/mnn/cv/mnn_yolov5_v6.1.h"
+#include "lite/mnn/cv/mnn_head_seg.h"
 
 #endif
 
@@ -331,6 +333,7 @@
 #include "lite/tnn/cv/tnn_plantid.h"
 #include "lite/tnn/cv/tnn_modnet.h"
 #include "lite/tnn/cv/tnn_backgroundmattingv2.h"
+#include "lite/tnn/cv/tnn_head_seg.h"
 
 #endif
 
@@ -435,6 +438,7 @@ namespace lite
     typedef ortcv::BackgroundMattingV2Dyn _BackgroundMattingV2Dyn;
     typedef ortcv::YOLOv5BlazeFace _YOLOv5BlazeFace;
     typedef ortcv::YoloV5_V_6_1 _YoloV5_V_6_1;
+    typedef ortcv::HeadSeg _HeadSeg;
 
 #endif
 
@@ -576,6 +580,7 @@ namespace lite
 #ifdef BACKEND_ONNXRUNTIME
       typedef _DeepLabV3ResNet101 DeepLabV3ResNet101;
       typedef _FCNResNet101 FCNResNet101;
+      typedef _HeadSeg HeadSeg;
 #endif
 
     }
@@ -801,6 +806,7 @@ namespace lite
       typedef ortcv::BackgroundMattingV2Dyn _ONNXBackgroundMattingV2Dyn;
       typedef ortcv::YOLOv5BlazeFace _ONNXYOLOv5BlazeFace;
       typedef ortcv::YoloV5_V_6_1 _ONNXYoloV5_V_6_1;
+      typedef ortcv::HeadSeg _ONNXHeadSeg;
 
       // 1. classification
       namespace classification
@@ -922,6 +928,7 @@ namespace lite
       {
         typedef _ONNXDeepLabV3ResNet101 DeepLabV3ResNet101;
         typedef _ONNXFCNResNet101 FCNResNet101;
+        typedef _ONNXHeadSeg HeadSeg;
 
       }
       // 6. reid
@@ -1086,6 +1093,7 @@ namespace lite
       {
         typedef mnncv::MNNDeepLabV3ResNet101 DeepLabV3ResNet101;
         typedef mnncv::MNNFCNResNet101 FCNResNet101;
+        typedef mnncv::MNNHeadSeg HeadSeg;
       }
       // reid
       namespace reid
@@ -1389,6 +1397,7 @@ namespace lite
       {
         typedef tnncv::TNNDeepLabV3ResNet101 DeepLabV3ResNet101;
         typedef tnncv::TNNFCNResNet101 FCNResNet101;
+        typedef tnncv::TNNHeadSeg HeadSeg;
       }
       // reid
       namespace reid

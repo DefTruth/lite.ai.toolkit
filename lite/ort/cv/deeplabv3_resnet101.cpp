@@ -4,7 +4,10 @@
 
 #include "deeplabv3_resnet101.h"
 #include "lite/ort/core/ort_utils.h"
+
+#ifdef LITE_WIN32
 #include "lite/utils.h"
+#endif
 
 using ortcv::DeepLabV3ResNet101;
 
@@ -147,7 +150,7 @@ void DeepLabV3ResNet101::detect(const cv::Mat &mat, types::SegmentContent &conte
       // assign color for detected class at pixel(i,j).
       p_color[j][0] = cv::saturate_cast<uchar>((max_label % 10) * 20);
       p_color[j][1] = cv::saturate_cast<uchar>((max_label % 5) * 40);
-      p_color[j][2] = cv::saturate_cast<uchar>((max_label % 10) * 20 );
+      p_color[j][2] = cv::saturate_cast<uchar>((max_label % 10) * 20);
       // assign names map
       content.names_map[max_label] = class_names[max_label - 1]; // max_label >= 1
     }
