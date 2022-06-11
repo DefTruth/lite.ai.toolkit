@@ -230,6 +230,35 @@ namespace lite {
       {};
     } MattingContent;
 
+    typedef struct LITE_EXPORTS HeadSegContentType
+    {
+      cv::Mat mask; // mask mat  (0. ~ 1.)
+      bool flag;
+
+      HeadSegContentType(): flag(false)
+      {};
+    } HeadSegContent;
+
+    typedef struct LITE_EXPORTS PortraitSegContentType
+    {
+      cv::Mat mask; // mask mat (0. ~ 1.)
+      bool flag;
+
+      PortraitSegContentType(): flag(false)
+      {};
+    } PortraitSegContent;
+
+    typedef struct LITE_EXPORTS Photo2CartoonContentType
+    {
+      cv::Mat cartoon;
+      bool flag;
+
+      Photo2CartoonContentType(): flag(false)
+      {};
+    } Photo2CartoonContent;
+
+    typedef Photo2CartoonContent FemalePhoto2CartoonContent;
+
   } // NAMESPACE TYPES
 }
 

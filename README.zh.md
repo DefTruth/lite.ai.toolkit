@@ -24,21 +24,30 @@
   <img src='logs/test_lite_yolov5_1.jpg' height="90px" width="90px">
   <img src='docs/resources/efficientdet_d0.jpg' height="90px" width="90px">
   <img src='docs/resources/street.jpg' height="90px" width="90px">
+  <img src='docs/resources/scrfd_2.jpg' height="90px" width="90px">
   <img src='logs/test_lite_ultraface.jpg' height="90px" width="90px">
   <img src='logs/test_lite_face_landmarks_1000.jpg' height="90px" width="90px">
   <img src='logs/test_lite_fsanet.jpg' height="90px" width="90px">
   <img src='logs/test_lite_deeplabv3_resnet101.jpg' height="90px" width="90px">
-  <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="90px" width="90px"> 
   <br>
   <img src='docs/resources/teslai.gif' height="90px" width="90px">
   <img src='docs/resources/tesla.gif' height="90px" width="90px">
   <img src='docs/resources/dance3i.gif' height="90px" width="90px">
   <img src='docs/resources/dance3.gif' height="90px" width="90px">  
   <img src='docs/resources/yolop1.png' height="90px" width="90px">
-  <img src='docs/resources/yolop1.gif' height="90px" width="90px">
   <img src='docs/resources/yolop2.png' height="90px" width="90px">
-  <img src='docs/resources/yolop2.gif' height="90px" width="90px">
-</div>    
+  <img src='docs/resources/head_seg.png' height="90px" width="90px">
+  <img src='docs/resources/head_seg_mask.jpg' height="90px" width="90px">
+  <br>
+  <img src='docs/resources/head_seg_1.png' height="90px" width="90px">
+  <img src='docs/resources/head_seg_1_mask.jpg' height="90px" width="90px">
+  <img src='docs/resources/head_seg.png' height="90px" width="90px">
+  <img src='docs/resources/cartoon.jpg' height="90px" width="90px">
+  <img src='docs/resources/facemesh0.jpg' height="90px" width="90px">  
+  <img src='docs/resources/facemesh1.jpg' height="90px" width="90px">
+  <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="90px" width="90px">
+  <img src='logs/test_lite_fast_style_transfer_candy.jpg' height="90px" width="90px">
+</div>  
 
 <p align="center"><a href="README.md">English</a> | 中文文档 | <a href=#lite.ai.toolkit-Build-MacOS>MacOS</a> | <a href=#lite.ai.toolkit-Build-Linux>Linux</a> | <a href=#lite.ai.toolkit-Build-Windows>Windows</a> </p>
 
@@ -262,6 +271,7 @@ static void test_default()
 |                            [PlantID](https://github.com/quarrying/quarrying-plant-id)                             |  30M  | *classification* |          [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_plantid.cpp)          |      ✅      |  ✅  |  ✅   |  ✅  |   ✅   |   ✅   |   ✔️    |   ✔️    |    ❔    |
 |                           [YOLOv5BlazeFace](https://github.com/deepcam-cn/yolov5-face)                            | 3.4M  |  *face::detect*  |     [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolov5_blazeface.cpp)      |      ✅      |  ✅  |  /   |  /  |   ✅   |  ✔️   |   ✔️    |    ❔    |  
 |                      [YoloV5_V_6_1](https://github.com/ultralytics/yolov5/releases/tag/v6.1)                      | 7.5M  |   *detection*    |        [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolov5_v6.1.cpp)        |      ✅      |  ✅  |  /   |  /  |   ✅   |  ✔️   |   ✔️    |    ❔    |
+|                             [HeadSeg](https://github.com/minivision-ai/photo2cartoon)                             |  31M  |  *segmentation*  |         [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_head_seg.cpp)          |      ✅      |  ✅  |  /   |  ✅  |   ✅   |  ✔️   |   ✔️    |    ❔    |
 
 
 ## 4. 编译文档
@@ -657,16 +667,17 @@ static void test_default()
 输出的结果是:
 
 <div align='center'>
-  <img src='docs/resources/interviewi.gif' height="80px" width="150px">
-  <img src='docs/resources/interview.gif' height="80px" width="150px">  
-  <img src='docs/resources/dance3i.gif' height="80px" width="150px">
-  <img src='docs/resources/dance3.gif' height="80px" width="150px">
+  <img src='docs/resources/interviewi.gif' height="150px" width="150px">
+  <img src='docs/resources/interview.gif' height="150px" width="150px">  
+  <img src='docs/resources/dance3i.gif' height="150px" width="150px">
+  <img src='docs/resources/dance3.gif' height="150px" width="150px">
   <br>
-  <img src='docs/resources/teslai.gif' height="80px" width="150px">
-  <img src='docs/resources/tesla.gif' height="80px" width="150px">  
-  <img src='docs/resources/b5i.gif' height="80px" width="150px">
-  <img src='docs/resources/b5.gif' height="80px" width="150px">
+  <img src='docs/resources/teslai.gif' height="150px" width="150px">
+  <img src='docs/resources/tesla.gif' height="150px" width="150px">  
+  <img src='docs/resources/b5i.gif' height="150px" width="150px">
+  <img src='docs/resources/b5.gif' height="150px" width="150px">
 </div>
+
 
 更多可用的抠图模型（图片抠图、视频抠图、trimap/mask-free、trimap/mask-based）:
 ```c++
@@ -879,6 +890,8 @@ auto *detector = new lite::face::detect::YOLO5Face(onnx_path);  // 2021, Super f
 auto *detector = new lite::face::detect::YOLOv5BlazeFace(onnx_path);  // 2021, Super fast and accurate!!
 ```
 
+****
+
 <div id="lite.ai.toolkit-segmentation"></div>  
 
 #### 案例6: 使用 [DeepLabV3ResNet101](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/) 进行语义分割. 请从Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2) 下载模型文件。
@@ -926,6 +939,8 @@ auto *segment = new lite::cv::segmentation::FCNResNet101(onnx_path);
 auto *segment = new lite::cv::segmentation::DeepLabV3ResNet101(onnx_path);
 ```
 
+****
+
 <div id="lite.ai.toolkit-face-attributes-analysis"></div>    
 
 #### 案例7: 使用 [SSRNet](https://github.com/oukohou/SSR_Net_Pytorch) 进行年龄估计. 请从Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2) 下载模型文件。
@@ -971,6 +986,7 @@ auto *attribute = new lite::cv::face::attr::ReXNetEmotion7(onnx_path); // 7 emot
 auto *attribute = new lite::cv::face::attr::SSRNet(onnx_path); // age estimation, 190kb only!!!
 ```
 
+****
 
 <div id="lite.ai.toolkit-image-classification"></div>   
 
@@ -1023,6 +1039,7 @@ auto *classifier = new lite::cv::classification::ResNet(onnx_path);
 auto *classifier = new lite::cv::classification::ResNeXt(onnx_path);
 ```
 
+****
 
 <div id="lite.ai.toolkit-head-pose-estimation"></div>   
 
@@ -1062,7 +1079,9 @@ static void test_default()
 更多可用的头部姿态识别模型（欧拉角、yaw、pitch、roll）:
 ```c++
 auto *pose = new lite::cv::face::pose::FSANet(onnx_path); // 1.2Mb only!
-```
+``` 
+
+****
 
 <div id="lite.ai.toolkit-style-transfer"></div>  
 
@@ -1101,6 +1120,42 @@ static void test_default()
 更多可用的风格迁移模型（自然风格迁移、其他）:
 ```c++
 auto *transfer = new lite::cv::style::FastStyleTransfer(onnx_path); // 6.4Mb only
+```
+
+**** 
+
+#### 案例11: 使用 [HeadSeg](https://github.com/minivision-ai/photo2cartoon) 进行人像头部分割. 请从Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2) 下载模型文件。
+```c++
+#include "lite/lite.h"
+
+static void test_default()
+{
+  std::string onnx_path = "../../../hub/onnx/cv/minivision_head_seg.onnx";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_head_seg.png";
+  std::string save_img_path = "../../../logs/test_lite_head_seg.jpg";
+
+  auto *head_seg = new lite::cv::segmentation::HeadSeg(onnx_path, 4); // 4 threads
+
+  lite::types::HeadSegContent content;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  head_seg->detect(img_bgr, content);
+  if (content.flag) cv::imwrite(save_img_path, content.mask * 255.f);
+
+  delete head_seg;
+}
+```  
+输出的结果是:
+
+<div align='center'>
+  <img src='docs/resources/head_seg.png' height="180px" width="180px">
+  <img src='docs/resources/head_seg_mask.jpg' height="180px" width="180px">
+  <img src='docs/resources/head_seg_1.png' height="180px" width="180px">
+  <img src='docs/resources/head_seg_1_mask.jpg' height="180px" width="180px">
+</div> 
+
+更多可用的人像分割模型（头部分割、肖像分割）
+```c++
+auto *segment = new lite::cv::segmentation::HeadSeg(onnx_path);
 ```
 
 ## 7. 开源协议

@@ -23,20 +23,29 @@
   <img src='logs/test_lite_yolov5_1.jpg' height="90px" width="90px">
   <img src='docs/resources/efficientdet_d0.jpg' height="90px" width="90px">
   <img src='docs/resources/street.jpg' height="90px" width="90px">
+  <img src='docs/resources/scrfd_2.jpg' height="90px" width="90px">
   <img src='logs/test_lite_ultraface.jpg' height="90px" width="90px">
   <img src='logs/test_lite_face_landmarks_1000.jpg' height="90px" width="90px">
   <img src='logs/test_lite_fsanet.jpg' height="90px" width="90px">
   <img src='logs/test_lite_deeplabv3_resnet101.jpg' height="90px" width="90px">
-  <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="90px" width="90px"> 
   <br>
   <img src='docs/resources/teslai.gif' height="90px" width="90px">
   <img src='docs/resources/tesla.gif' height="90px" width="90px">
   <img src='docs/resources/dance3i.gif' height="90px" width="90px">
   <img src='docs/resources/dance3.gif' height="90px" width="90px">  
   <img src='docs/resources/yolop1.png' height="90px" width="90px">
-  <img src='docs/resources/yolop1.gif' height="90px" width="90px">
   <img src='docs/resources/yolop2.png' height="90px" width="90px">
-  <img src='docs/resources/yolop2.gif' height="90px" width="90px">
+  <img src='docs/resources/head_seg.png' height="90px" width="90px">
+  <img src='docs/resources/head_seg_mask.jpg' height="90px" width="90px">
+  <br>
+  <img src='docs/resources/head_seg_1.png' height="90px" width="90px">
+  <img src='docs/resources/head_seg_1_mask.jpg' height="90px" width="90px">
+  <img src='docs/resources/head_seg.png' height="90px" width="90px">
+  <img src='docs/resources/cartoon.jpg' height="90px" width="90px">
+  <img src='docs/resources/facemesh0.jpg' height="90px" width="90px">  
+  <img src='docs/resources/facemesh1.jpg' height="90px" width="90px">
+  <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="90px" width="90px">
+  <img src='logs/test_lite_fast_style_transfer_candy.jpg' height="90px" width="90px">
 </div>  
 
 <p align="center">English | <a href="README.zh.md">中文文档</a> | <a href=#lite.ai.toolkit-Build-MacOS>MacOS</a> | <a href=#lite.ai.toolkit-Build-Linux>Linux</a> | <a href=#lite.ai.toolkit-Build-Windows>Windows</a> </p>
@@ -263,6 +272,7 @@ static void test_default()
 |                            [PlantID](https://github.com/quarrying/quarrying-plant-id)                             |  30M  | *classification* |          [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_plantid.cpp)          |      ✅      |  ✅  |  ✅   |  ✅  |   ✅   |   ✅   |   ✔️    |   ✔️    |    ❔    |
 |                           [YOLOv5BlazeFace](https://github.com/deepcam-cn/yolov5-face)                            | 3.4M  |  *face::detect*  |     [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolov5_blazeface.cpp)      |      ✅      |  ✅  |  /   |  /  |   ✅   |  ✔️   |   ✔️    |    ❔    |  
 |                      [YoloV5_V_6_1](https://github.com/ultralytics/yolov5/releases/tag/v6.1)                      | 7.5M  |   *detection*    |        [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolov5_v6.1.cpp)        |      ✅      |  ✅  |  /   |  /  |   ✅   |  ✔️   |   ✔️    |    ❔    |
+|                             [HeadSeg](https://github.com/minivision-ai/photo2cartoon)                             |  31M  |  *segmentation*  |         [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_head_seg.cpp)          |      ✅      |  ✅  |  /   |  ✅  |   ✅   |  ✔️   |   ✔️    |    ❔    |
 
 
 ## 4. Build Docs.
@@ -663,15 +673,15 @@ static void test_default()
 The output is:
 
 <div align='center'>
-  <img src='docs/resources/interviewi.gif' height="80px" width="150px">
-  <img src='docs/resources/interview.gif' height="80px" width="150px">  
-  <img src='docs/resources/dance3i.gif' height="80px" width="150px">
-  <img src='docs/resources/dance3.gif' height="80px" width="150px">
+  <img src='docs/resources/interviewi.gif' height="150px" width="150px">
+  <img src='docs/resources/interview.gif' height="150px" width="150px">  
+  <img src='docs/resources/dance3i.gif' height="150px" width="150px">
+  <img src='docs/resources/dance3.gif' height="150px" width="150px">
   <br>
-  <img src='docs/resources/teslai.gif' height="80px" width="150px">
-  <img src='docs/resources/tesla.gif' height="80px" width="150px">  
-  <img src='docs/resources/b5i.gif' height="80px" width="150px">
-  <img src='docs/resources/b5.gif' height="80px" width="150px">
+  <img src='docs/resources/teslai.gif' height="150px" width="150px">
+  <img src='docs/resources/tesla.gif' height="150px" width="150px">  
+  <img src='docs/resources/b5i.gif' height="150px" width="150px">
+  <img src='docs/resources/b5.gif' height="150px" width="150px">
 </div>
 
 More classes for matting (image matting, video matting, trimap/mask-free, trimap/mask-based)
@@ -887,9 +897,11 @@ auto *detector = new lite::face::detect::YOLO5Face(onnx_path);  // 2021, Super f
 auto *detector = new lite::face::detect::YOLOv5BlazeFace(onnx_path);  // 2021, Super fast and accurate!!
 ```
 
+****
+
 <div id="lite.ai.toolkit-segmentation"></div>   
 
-#### Example6: Segmentation using [DeepLabV3ResNet101](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
+#### Example6: Object Segmentation using [DeepLabV3ResNet101](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
 ```c++
 #include "lite/lite.h"
 
@@ -928,11 +940,13 @@ The output is:
   <img src='logs/test_lite_deeplabv3_resnet101.jpg' height="256px">
 </div> 
 
-More classes for segmentation (human segmentation, instance segmentation)
+More classes for object segmentation (general objects segmentation)
 ```c++
 auto *segment = new lite::cv::segmentation::FCNResNet101(onnx_path);
 auto *segment = new lite::cv::segmentation::DeepLabV3ResNet101(onnx_path);
 ```
+
+****
 
 <div id="lite.ai.toolkit-face-attributes-analysis"></div>  
 
@@ -978,6 +992,8 @@ auto *attribute = new lite::cv::face::attr::MobileEmotion7(onnx_path); // 7 emot
 auto *attribute = new lite::cv::face::attr::ReXNetEmotion7(onnx_path); // 7 emotions
 auto *attribute = new lite::cv::face::attr::SSRNet(onnx_path); // age estimation, 190kb only!!!
 ```
+
+****
 
 <div id="lite.ai.toolkit-image-classification"></div>  
 
@@ -1030,6 +1046,8 @@ auto *classifier = new lite::cv::classification::ResNet(onnx_path);
 auto *classifier = new lite::cv::classification::ResNeXt(onnx_path);
 ```
 
+****
+
 <div id="lite.ai.toolkit-head-pose-estimation"></div>  
 
 #### Example9: Head Pose Estimation using [FSANet](https://github.com/omasaht/headpose-fsanet-pytorch). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
@@ -1070,6 +1088,8 @@ More classes for head pose estimation (euler angle, yaw, pitch, roll)
 auto *pose = new lite::cv::face::pose::FSANet(onnx_path); // 1.2Mb only!
 ```
 
+****
+
 <div id="lite.ai.toolkit-style-transfer"></div>
 
 #### Example10: Style Transfer using [FastStyleTransfer](https://github.com/onnx/models/tree/master/vision/style_transfer/fast_neural_style). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
@@ -1108,6 +1128,43 @@ More classes for style transfer (neural style transfer, others)
 ```c++
 auto *transfer = new lite::cv::style::FastStyleTransfer(onnx_path); // 6.4Mb only
 ```
+
+**** 
+
+#### Example11: Human Head Segmentation using [HeadSeg](https://github.com/minivision-ai/photo2cartoon). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
+```c++
+#include "lite/lite.h"
+
+static void test_default()
+{
+  std::string onnx_path = "../../../hub/onnx/cv/minivision_head_seg.onnx";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_head_seg.png";
+  std::string save_img_path = "../../../logs/test_lite_head_seg.jpg";
+
+  auto *head_seg = new lite::cv::segmentation::HeadSeg(onnx_path, 4); // 4 threads
+
+  lite::types::HeadSegContent content;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  head_seg->detect(img_bgr, content);
+  if (content.flag) cv::imwrite(save_img_path, content.mask * 255.f);
+
+  delete head_seg;
+}
+```  
+The output is:  
+
+<div align='center'>
+  <img src='docs/resources/head_seg.png' height="180px" width="180px">
+  <img src='docs/resources/head_seg_mask.jpg' height="180px" width="180px">
+  <img src='docs/resources/head_seg_1.png' height="180px" width="180px">
+  <img src='docs/resources/head_seg_1_mask.jpg' height="180px" width="180px">
+</div> 
+
+More classes for human segmentation (head, portrait, others)
+```c++
+auto *segment = new lite::cv::segmentation::HeadSeg(onnx_path);
+```
+
 
 ## 7. License.
 
