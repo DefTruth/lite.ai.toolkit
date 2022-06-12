@@ -41,3 +41,4 @@ test_lite_yolov5_blazeface*
 test_lite_yolov5_v6*
 test_lite_head_seg*
 test_lite_head_seg_*
+test_lite_female_photo2cartoon*

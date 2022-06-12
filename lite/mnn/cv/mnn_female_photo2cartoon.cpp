@@ -1,25 +1,36 @@
 //
-// Created by DefTruth on 2022/6/3.
+// Created by DefTruth on 2022/6/12.
 //
 
-#include "female_photo2cartoon.h"
-#include "lite/ort/core/ort_utils.h"
+#include "mnn_female_photo2cartoon.h"
 
-using ortcv::FemalePhoto2Cartoon;
+using mnncv::MNNFemalePhoto2Cartoon;
 
-Ort::Value FemalePhoto2Cartoon::transform(const cv::Mat &mat_merged_rs)
+MNNFemalePhoto2Cartoon::MNNFemalePhoto2Cartoon(const std::string &_mnn_path, unsigned int _num_threads)
+    : BasicMNNHandler(_mnn_path, _num_threads)
 {
-  cv::Mat canvas;
-  cv::cvtColor(mat_merged_rs, canvas, cv::COLOR_BGR2RGB);
-  // normalize -> (-1.f ~ +1.f)
-  canvas.convertTo(canvas, CV_32FC3, 1.f / 127.5f, -1.f); // y=x*alpha+beta
-  // NCHW (1,3,256,256)
-  return ortcv::utils::transform::create_tensor(
-      canvas, input_node_dims, memory_info_handler,
-      input_values_handler, ortcv::utils::transform::CHW); // deepcopy inside
+  initialize_pretreat();
 }
 
-void FemalePhoto2Cartoon::detect(
+inline void MNNFemalePhoto2Cartoon::initialize_pretreat()
+{
+  pretreat = std::shared_ptr<MNN::CV::ImageProcess>(
+      MNN::CV::ImageProcess::create(
+          MNN::CV::BGR,
+          MNN::CV::RGB,
+          mean_vals, 3,
+          norm_vals, 3
+      )
+  );
+}
+
+void MNNFemalePhoto2Cartoon::transform(const cv::Mat &mat_merged_rs)
+{
+  // (1,3,256,256) deepcopy inside
+  pretreat->convert(mat_merged_rs.data, input_width, input_height, mat_merged_rs.step[0], input_tensor);
+}
+
+void MNNFemalePhoto2Cartoon::detect(
     const cv::Mat &mat, const cv::Mat &mask,
     types::FemalePhoto2CartoonContent &content)
 {
@@ -29,9 +40,8 @@ void FemalePhoto2Cartoon::detect(
   const unsigned int mask_channels = mask.channels();
   if (mask_channels != 1 && mask_channels != 3) return;
   // model input size
-  const unsigned int input_h = input_node_dims.at(2); // 256
-  const unsigned int input_w = input_node_dims.at(3); // 256
-
+  const unsigned int input_h = input_height; // 256
+  const unsigned int input_w = input_width; // 256
   // resize before merging mat and mask
   cv::Mat mat_rs, mask_rs;
   cv::resize(mat, mat_rs, cv::Size(input_w, input_h));
@@ -40,31 +50,33 @@ void FemalePhoto2Cartoon::detect(
   mat_rs.convertTo(mat_rs, CV_32FC3, 1.f, 0.f); // CV_32FC3
   // merge mat_rs and mask_rs
   cv::Mat mat_merged_rs = mat_rs.mul(mask_rs) + (1.f - mask_rs) * 255.f;
+  mat_merged_rs.convertTo(mat_merged_rs, CV_8UC3); // keep CV_8UC3 BGR
+
   // 1. make input tensor
-  Ort::Value input_tensor = this->transform(mat_merged_rs);
+  this->transform(mat_merged_rs);
   // 2. inference cartoon (1,3,256,256)
-  auto output_tensors = ort_session->Run(
-      Ort::RunOptions{nullptr}, input_node_names.data(),
-      &input_tensor, 1, output_node_names.data(),
-      num_outputs
-  );
+  mnn_interpreter->runSession(mnn_session);
+  auto output_tensors = mnn_interpreter->getSessionOutputAll(mnn_session);
   // 3. generate cartoon
   this->generate_cartoon(output_tensors, mask_rs, content);
 }
 
-void FemalePhoto2Cartoon::generate_cartoon(
-    std::vector<Ort::Value> &output_tensors, const cv::Mat &mask_rs,
-    types::FemalePhoto2CartoonContent &content)
+void MNNFemalePhoto2Cartoon::generate_cartoon(
+    const std::map<std::string, MNN::Tensor *> &output_tensors,
+    const cv::Mat &mask_rs, types::FemalePhoto2CartoonContent &content)
 {
-  Ort::Value &cartoon_pred = output_tensors.at(0); // (1,3,256,256)
-  auto cartoon_dims = cartoon_pred.GetTensorTypeAndShapeInfo().GetShape();
+  auto device_cartoon_pred = output_tensors.at("output");
+  MNN::Tensor host_cartoon_tensor(device_cartoon_pred, device_cartoon_pred->getDimensionType());
+  device_cartoon_pred->copyToHostTensor(&host_cartoon_tensor);
+
+  auto cartoon_dims = host_cartoon_tensor.shape();
   const unsigned int out_h = cartoon_dims.at(2);
   const unsigned int out_w = cartoon_dims.at(3);
   const unsigned int channel_step = out_h * out_w;
   const unsigned int mask_h = mask_rs.rows;
   const unsigned int mask_w = mask_rs.cols;
   // fast assign & channel transpose(CHW->HWC).
-  float *cartoon_ptr = cartoon_pred.GetTensorMutableData<float>();
+  float *cartoon_ptr = host_cartoon_tensor.host<float>();
   std::vector<cv::Mat> cartoon_channel_mats;
   cv::Mat rmat(out_h, out_w, CV_32FC1, cartoon_ptr); // R
   cv::Mat gmat(out_h, out_w, CV_32FC1, cartoon_ptr + channel_step); // G
@@ -87,3 +99,35 @@ void FemalePhoto2Cartoon::generate_cartoon(
   content.cartoon = cartoon;
   content.flag = true;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

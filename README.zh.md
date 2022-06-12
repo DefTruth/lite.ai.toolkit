@@ -271,6 +271,7 @@ static void test_default()
 |                           [YOLOv5BlazeFace](https://github.com/deepcam-cn/yolov5-face)                            | 3.4M  |  *face::detect*  |     [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolov5_blazeface.cpp)      |      ✅      |  ✅  |  /   |  /  |   ✅   |  ✔️   |   ✔️    |    ❔    |  
 |                      [YoloV5_V_6_1](https://github.com/ultralytics/yolov5/releases/tag/v6.1)                      | 7.5M  |   *detection*    |        [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolov5_v6.1.cpp)        |      ✅      |  ✅  |  /   |  /  |   ✅   |  ✔️   |   ✔️    |    ❔    |
 |                             [HeadSeg](https://github.com/minivision-ai/photo2cartoon)                             |  31M  |  *segmentation*  |         [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_head_seg.cpp)          |      ✅      |  ✅  |  /   |  ✅  |   ✅   |  ✔️   |   ✔️    |    ❔    |
+|                       [FemalePhoto2Cartoon](https://github.com/minivision-ai/photo2cartoon)                       |  15M  |     *style*      |   [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_female_photo2cartoon.cpp)    |      ✅      |  ✅  |  /   |  ✅  |   ✅   |  ✔️   |   ✔️    |    ❔    |
 
 
 ## 4. 编译文档
@@ -1156,6 +1157,57 @@ static void test_default()
 ```c++
 auto *segment = new lite::cv::segmentation::HeadSeg(onnx_path);
 ```
+
+**** 
+
+#### Example12: 使用 [Photo2Cartoon](https://github.com/minivision-ai/photo2cartoon) 进行人像卡通风格化。请从Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2) 下载模型文件。
+```c++
+#include "lite/lite.h"
+
+static void test_default()
+{
+  std::string head_seg_onnx_path = "../../../hub/onnx/cv/minivision_head_seg.onnx";
+  std::string cartoon_onnx_path = "../../../hub/onnx/cv/minivision_female_photo2cartoon.onnx";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_female_photo2cartoon.jpg";
+  std::string save_mask_path = "../../../logs/test_lite_female_photo2cartoon_seg.jpg";
+  std::string save_cartoon_path = "../../../logs/test_lite_female_photo2cartoon_cartoon.jpg";
+
+  auto *head_seg = new lite::cv::segmentation::HeadSeg(head_seg_onnx_path, 4); // 4 threads
+  auto *female_photo2cartoon = new lite::cv::style::FemalePhoto2Cartoon(cartoon_onnx_path, 4); // 4 threads
+
+  lite::types::HeadSegContent head_seg_content;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  head_seg->detect(img_bgr, head_seg_content);
+
+  if (head_seg_content.flag && !head_seg_content.mask.empty())
+  {
+    cv::imwrite(save_mask_path, head_seg_content.mask * 255.f);
+    // Female Photo2Cartoon Style Transfer
+    lite::types::FemalePhoto2CartoonContent female_cartoon_content;
+    female_photo2cartoon->detect(img_bgr, head_seg_content.mask, female_cartoon_content);
+    
+    if (female_cartoon_content.flag && !female_cartoon_content.cartoon.empty())
+      cv::imwrite(save_cartoon_path, female_cartoon_content.cartoon);
+  }
+
+  delete head_seg;
+  delete female_photo2cartoon;
+}
+```  
+输出的结果是:
+
+<div align='center'>
+  <img src='docs/resources/head_seg.png' height="180px" width="180px">
+  <img src='docs/resources/female_photo2cartoon_cartoon_out.jpg' height="180px" width="180px">
+  <img src='docs/resources/female_photo2cartoon_1.jpg' height="180px" width="180px">
+  <img src='docs/resources/female_photo2cartoon_cartoon_1_out.jpg' height="180px" width="180px">
+</div> 
+
+更多的人像风格化模型
+```c++
+auto *transfer = new lite::cv::style::FemalePhoto2Cartoon(onnx_path);
+```
+
 
 ## 7. 开源协议
 

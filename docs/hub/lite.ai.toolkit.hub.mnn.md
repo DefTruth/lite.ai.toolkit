@@ -278,18 +278,19 @@ You can download all the pretrained models files of MNN format from ([Baidu Driv
 
 <div id="lite.ai.toolkit.hub.mnn-style-transfer"></div>  
 
-|                   Class                   |   Pretrained MNN Files    |        Rename or Converted From (Repo)        | Size  |
-|:-----------------------------------------:|:-------------------------:|:---------------------------------------------:|:-----:|
-| *lite::mnn::cv::style::FastStyleTransfer* |    style-mosaic-8.mnn     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
-| *lite::mnn::cv::style::FastStyleTransfer* |     style-candy-9.mnn     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
-| *lite::mnn::cv::style::FastStyleTransfer* |     style-udnie-8.mnn     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
-| *lite::mnn::cv::style::FastStyleTransfer* |     style-udnie-9.mnn     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
-| *lite::mnn::cv::style::FastStyleTransfer* |  style-pointilism-8.mnn   | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
-| *lite::mnn::cv::style::FastStyleTransfer* |  style-pointilism-9.mnn   | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
-| *lite::mnn::cv::style::FastStyleTransfer* | style-rain-princess-9.mnn | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
-| *lite::mnn::cv::style::FastStyleTransfer* | style-rain-princess-8.mnn | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
-| *lite::mnn::cv::style::FastStyleTransfer* |     style-candy-8.mnn     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
-| *lite::mnn::cv::style::FastStyleTransfer* |    style-mosaic-9.mnn     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+|                    Class                    |        Pretrained MNN Files         |                 Rename or Converted From (Repo)                 | Size  |
+|:-------------------------------------------:|:-----------------------------------:|:---------------------------------------------------------------:|:-----:|
+|  *lite::mnn::cv::style::FastStyleTransfer*  |         style-mosaic-8.mnn          |          [onnx-models](https://github.com/onnx/models)          | 6.4Mb |
+|  *lite::mnn::cv::style::FastStyleTransfer*  |          style-candy-9.mnn          |          [onnx-models](https://github.com/onnx/models)          | 6.4Mb |
+|  *lite::mnn::cv::style::FastStyleTransfer*  |          style-udnie-8.mnn          |          [onnx-models](https://github.com/onnx/models)          | 6.4Mb |
+|  *lite::mnn::cv::style::FastStyleTransfer*  |          style-udnie-9.mnn          |          [onnx-models](https://github.com/onnx/models)          | 6.4Mb |
+|  *lite::mnn::cv::style::FastStyleTransfer*  |       style-pointilism-8.mnn        |          [onnx-models](https://github.com/onnx/models)          | 6.4Mb |
+|  *lite::mnn::cv::style::FastStyleTransfer*  |       style-pointilism-9.mnn        |          [onnx-models](https://github.com/onnx/models)          | 6.4Mb |
+|  *lite::mnn::cv::style::FastStyleTransfer*  |      style-rain-princess-9.mnn      |          [onnx-models](https://github.com/onnx/models)          | 6.4Mb |
+|  *lite::mnn::cv::style::FastStyleTransfer*  |      style-rain-princess-8.mnn      |          [onnx-models](https://github.com/onnx/models)          | 6.4Mb |
+|  *lite::mnn::cv::style::FastStyleTransfer*  |          style-candy-8.mnn          |          [onnx-models](https://github.com/onnx/models)          | 6.4Mb |
+|  *lite::mnn::cv::style::FastStyleTransfer*  |         style-mosaic-9.mnn          |          [onnx-models](https://github.com/onnx/models)          | 6.4Mb |
+| *lite::mnn::cv::style::FemalePhoto2Cartoon* | minivision_female_photo2cartoon.mnn | [photo2cartoon](https://github.com/minivision-ai/photo2cartoon) | 15Mb  |
 
 
 ## Colorization.
