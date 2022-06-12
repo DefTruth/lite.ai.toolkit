@@ -101,6 +101,7 @@
 #include "lite/ort/cv/yolov5_blazeface.h"
 #include "lite/ort/cv/yolov5_v6.1.h"
 #include "lite/ort/cv/head_seg.h"
+#include "lite/ort/cv/female_photo2cartoon.h"
 
 #endif
 
@@ -181,6 +182,7 @@
 #include "lite/mnn/cv/mnn_yolov5_blazeface.h"
 #include "lite/mnn/cv/mnn_yolov5_v6.1.h"
 #include "lite/mnn/cv/mnn_head_seg.h"
+#include "lite/mnn/cv/mnn_female_photo2cartoon.h"
 
 #endif
 
@@ -256,6 +258,7 @@
 #include "lite/ncnn/cv/ncnn_insectid.h"
 #include "lite/ncnn/cv/ncnn_plantid.h"
 #include "lite/ncnn/cv/ncnn_modnet.h"
+#include "lite/ncnn/cv/ncnn_female_photo2cartoon.h"
 
 #endif
 
@@ -334,6 +337,7 @@
 #include "lite/tnn/cv/tnn_modnet.h"
 #include "lite/tnn/cv/tnn_backgroundmattingv2.h"
 #include "lite/tnn/cv/tnn_head_seg.h"
+#include "lite/tnn/cv/tnn_female_photo2cartoon.h"
 
 #endif
 
@@ -439,6 +443,7 @@ namespace lite
     typedef ortcv::YOLOv5BlazeFace _YOLOv5BlazeFace;
     typedef ortcv::YoloV5_V_6_1 _YoloV5_V_6_1;
     typedef ortcv::HeadSeg _HeadSeg;
+    typedef ortcv::FemalePhoto2Cartoon _FemalePhoto2Cartoon;
 
 #endif
 
@@ -608,6 +613,7 @@ namespace lite
     {
 #ifdef BACKEND_ONNXRUNTIME
       typedef _FastStyleTransfer FastStyleTransfer;
+      typedef _FemalePhoto2Cartoon FemalePhoto2Cartoon;
 #endif
     }
 
@@ -807,6 +813,7 @@ namespace lite
       typedef ortcv::YOLOv5BlazeFace _ONNXYOLOv5BlazeFace;
       typedef ortcv::YoloV5_V_6_1 _ONNXYoloV5_V_6_1;
       typedef ortcv::HeadSeg _ONNXHeadSeg;
+      typedef ortcv::FemalePhoto2Cartoon _ONNXFemalePhoto2Cartoon;
 
       // 1. classification
       namespace classification
@@ -951,6 +958,7 @@ namespace lite
       namespace style
       {
         typedef _ONNXFastStyleTransfer FastStyleTransfer;
+        typedef _ONNXFemalePhoto2Cartoon FemalePhoto2Cartoon;
       }
 
       // 10. colorization
@@ -1116,6 +1124,7 @@ namespace lite
       namespace style
       {
         typedef mnncv::MNNFastStyleTransfer FastStyleTransfer;
+        typedef mnncv::MNNFemalePhoto2Cartoon FemalePhoto2Cartoon;
       }
 
       // colorization
@@ -1269,6 +1278,7 @@ namespace lite
       namespace style
       {
         typedef ncnncv::NCNNFastStyleTransfer FastStyleTransfer;
+        typedef ncnncv::NCNNFemalePhoto2Cartoon FemalePhoto2Cartoon;
       }
 
       // colorization
@@ -1419,8 +1429,8 @@ namespace lite
       namespace style
       {
         typedef tnncv::TNNFastStyleTransfer FastStyleTransfer;
+        typedef tnncv::TNNFemalePhoto2Cartoon FemalePhoto2Cartoon;
       }
-
       // colorization
       namespace colorization
       {

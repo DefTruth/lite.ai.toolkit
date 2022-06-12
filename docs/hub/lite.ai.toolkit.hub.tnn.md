@@ -266,18 +266,19 @@ You can download all the pretrained models files of TNN format from ([Baidu Driv
 
 <div id="lite.ai.toolkit.hub.tnn-style-transfer"></div>  
 
-|                   Class                   |            Pretrained TNN Files             |        Rename or Converted From (Repo)        | Size  |
-|:-----------------------------------------:|:-------------------------------------------:|:---------------------------------------------:|:-----:|
-| *lite::tnn::cv::style::FastStyleTransfer* |    style-mosaic-8.opt.tnnproto&tnnmodel     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
-| *lite::tnn::cv::style::FastStyleTransfer* |     style-candy-9.opt.tnnproto&tnnmodel     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
-| *lite::tnn::cv::style::FastStyleTransfer* |     style-udnie-8.opt.tnnproto&tnnmodel     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
-| *lite::tnn::cv::style::FastStyleTransfer* |     style-udnie-9.opt.tnnproto&tnnmodel     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
-| *lite::tnn::cv::style::FastStyleTransfer* |  style-pointilism-8.opt.tnnproto&tnnmodel   | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
-| *lite::tnn::cv::style::FastStyleTransfer* |  style-pointilism-9.opt.tnnproto&tnnmodel   | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
-| *lite::tnn::cv::style::FastStyleTransfer* | style-rain-princess-9.opt.tnnproto&tnnmodel | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
-| *lite::tnn::cv::style::FastStyleTransfer* | style-rain-princess-8.opt.tnnproto&tnnmodel | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
-| *lite::tnn::cv::style::FastStyleTransfer* |     style-candy-8.opt.tnnproto&tnnmodel     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
-| *lite::tnn::cv::style::FastStyleTransfer* |    style-mosaic-9.opt.tnnproto&tnnmodel     | [onnx-models](https://github.com/onnx/models) | 6.4Mb |
+|                    Class                    |                 Pretrained TNN Files                  |                 Rename or Converted From (Repo)                 | Size  |
+|:-------------------------------------------:|:-----------------------------------------------------:|:---------------------------------------------------------------:|:-----:|
+|  *lite::tnn::cv::style::FastStyleTransfer*  |         style-mosaic-8.opt.tnnproto&tnnmodel          |          [onnx-models](https://github.com/onnx/models)          | 6.4Mb |
+|  *lite::tnn::cv::style::FastStyleTransfer*  |          style-candy-9.opt.tnnproto&tnnmodel          |          [onnx-models](https://github.com/onnx/models)          | 6.4Mb |
+|  *lite::tnn::cv::style::FastStyleTransfer*  |          style-udnie-8.opt.tnnproto&tnnmodel          |          [onnx-models](https://github.com/onnx/models)          | 6.4Mb |
+|  *lite::tnn::cv::style::FastStyleTransfer*  |          style-udnie-9.opt.tnnproto&tnnmodel          |          [onnx-models](https://github.com/onnx/models)          | 6.4Mb |
+|  *lite::tnn::cv::style::FastStyleTransfer*  |       style-pointilism-8.opt.tnnproto&tnnmodel        |          [onnx-models](https://github.com/onnx/models)          | 6.4Mb |
+|  *lite::tnn::cv::style::FastStyleTransfer*  |       style-pointilism-9.opt.tnnproto&tnnmodel        |          [onnx-models](https://github.com/onnx/models)          | 6.4Mb |
+|  *lite::tnn::cv::style::FastStyleTransfer*  |      style-rain-princess-9.opt.tnnproto&tnnmodel      |          [onnx-models](https://github.com/onnx/models)          | 6.4Mb |
+|  *lite::tnn::cv::style::FastStyleTransfer*  |      style-rain-princess-8.opt.tnnproto&tnnmodel      |          [onnx-models](https://github.com/onnx/models)          | 6.4Mb |
+|  *lite::tnn::cv::style::FastStyleTransfer*  |          style-candy-8.opt.tnnproto&tnnmodel          |          [onnx-models](https://github.com/onnx/models)          | 6.4Mb |
+|  *lite::tnn::cv::style::FastStyleTransfer*  |         style-mosaic-9.opt.tnnproto&tnnmodel          |          [onnx-models](https://github.com/onnx/models)          | 6.4Mb |
+| *lite::tnn::cv::style::FemalePhoto2Cartoon* | minivision_female_photo2cartoon.opt.tnnproto&tnnmodel | [photo2cartoon](https://github.com/minivision-ai/photo2cartoon) | 15Mb  |
 
 
 ## Colorization.

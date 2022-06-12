@@ -89,4 +89,5 @@ add_lite_executable(lite_backgroundmattingv2_dyn cv)
 add_lite_executable(lite_yolov5_blazeface cv)
 add_lite_executable(lite_yolov5_v6.1 cv)
 add_lite_executable(lite_head_seg cv)
+add_lite_executable(lite_female_photo2cartoon cv)
 
