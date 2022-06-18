@@ -1,24 +1,37 @@
 //
-// Created by DefTruth on 2022/6/5.
+// Created by DefTruth on 2022/6/18.
 //
 
-#include "fast_portrait_seg.h"
-#include "lite/ort/core/ort_utils.h"
+#include "mnn_fast_portrait_seg.h"
 #include "lite/utils.h"
 
-using ortcv::FastPortraitSeg;
+using mnncv::MNNFastPortraitSeg;
 
-Ort::Value FastPortraitSeg::transform(const cv::Mat &mat_rs)
+MNNFastPortraitSeg::MNNFastPortraitSeg(const std::string &_mnn_path, unsigned int _num_threads)
+    : BasicMNNHandler(_mnn_path, _num_threads)
+{ initialize_pretreat(); }
+
+void MNNFastPortraitSeg::initialize_pretreat()
 {
-  return ortcv::utils::transform::create_tensor(
-      ortcv::utils::transform::normalize(mat_rs, mean_vals, scale_vals),
-      input_node_dims, memory_info_handler, input_values_handler,
-      ortcv::utils::transform::CHW); // e.g (1,3,256,320)
+  pretreat = std::shared_ptr<MNN::CV::ImageProcess>(
+      MNN::CV::ImageProcess::create(
+          MNN::CV::BGR,
+          MNN::CV::BGR,
+          mean_vals, 3,
+          norm_vals, 3
+      )
+  );
 }
 
-void FastPortraitSeg::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
-                                     int target_height, int target_width,
-                                     FastPortraitSegScaleParams &scale_params)
+void MNNFastPortraitSeg::transform(const cv::Mat &mat_rs)
+{
+  pretreat->convert(mat_rs.data, input_width, input_height,
+                    mat_rs.step[0], input_tensor);
+}
+
+void MNNFastPortraitSeg::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
+                                        int target_height, int target_width,
+                                        FastPortraitSegScaleParams &scale_params)
 {
   if (mat.empty()) return;
   int img_height = static_cast<int>(mat.rows);
@@ -53,12 +66,10 @@ void FastPortraitSeg::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
   scale_params.flag = true;
 }
 
-void FastPortraitSeg::detect(const cv::Mat &mat, types::PortraitSegContent &content,
-                             float score_threshold, bool remove_noise)
+void MNNFastPortraitSeg::detect(const cv::Mat &mat, types::PortraitSegContent &content,
+                                float score_threshold, bool remove_noise)
 {
   if (mat.empty()) return;
-  const int input_height = input_node_dims.at(2);
-  const int input_width = input_node_dims.at(3);
 
   // resize & unscale
   cv::Mat mat_rs;
@@ -66,12 +77,10 @@ void FastPortraitSeg::detect(const cv::Mat &mat, types::PortraitSegContent &cont
   this->resize_unscale(mat, mat_rs, input_height, input_width, scale_params);
 
   // 1. make input tensor
-  Ort::Value input_tensor = this->transform(mat_rs);
+  this->transform(mat_rs);
   // 2. inference
-  auto output_tensors = ort_session->Run(
-      Ort::RunOptions{nullptr}, input_node_names.data(),
-      &input_tensor, 1, output_node_names.data(), num_outputs
-  );
+  mnn_interpreter->runSession(mnn_session);
+  auto output_tensors = mnn_interpreter->getSessionOutputAll(mnn_session);
   // 3. generate mask
   this->generate_mask(scale_params, output_tensors, mat, content, score_threshold, remove_noise);
 }
@@ -87,20 +96,22 @@ static inline void __softmax_inplace(float *mutable_ptr_bgr, float *mutable_ptr_
 static inline void __zero_if_small_inplace(float *mutable_ptr, float &score)
 { if (*(mutable_ptr) < score) *(mutable_ptr) = 0.f; }
 
-void FastPortraitSeg::generate_mask(const FastPortraitSegScaleParams &scale_params,
-                                    std::vector<Ort::Value> &output_tensors,
-                                    const cv::Mat &mat, types::PortraitSegContent &content,
-                                    float score_threshold, bool remove_noise)
+void MNNFastPortraitSeg::generate_mask(const FastPortraitSegScaleParams &scale_params,
+                                       const std::map<std::string, MNN::Tensor *> &output_tensors,
+                                       const cv::Mat &mat, types::PortraitSegContent &content,
+                                       float score_threshold, bool remove_noise)
 {
-  Ort::Value &output = output_tensors.at(0); // e.g (1,2,256,320)
+  auto device_output_ptr = output_tensors.at("948"); // e.g (1,2,256,320)
+  MNN::Tensor host_output_tensor(device_output_ptr, device_output_ptr->getDimensionType());
+  device_output_ptr->copyToHostTensor(&host_output_tensor);
   const unsigned int h = mat.rows;
   const unsigned int w = mat.cols;
-  auto output_dims = output.GetTypeInfo().GetTensorTypeAndShapeInfo().GetShape();
+  auto output_dims = host_output_tensor.shape();
   const unsigned int out_h = output_dims.at(2); // e.g 256
   const unsigned int out_w = output_dims.at(3); // e.g 320
   const unsigned int channel_step = out_h * out_w;
 
-  float *output_ptr = output.GetTensorMutableData<float>();
+  float *output_ptr = host_output_tensor.host<float>();
 
   // softmax
   for (unsigned int i = 0; i < channel_step; ++i)
@@ -124,4 +135,3 @@ void FastPortraitSeg::generate_mask(const FastPortraitSegScaleParams &scale_para
   content.mask = mask;
   content.flag = true;
 }
-

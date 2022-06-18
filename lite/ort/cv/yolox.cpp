@@ -124,7 +124,7 @@ void YoloX::generate_anchors(const int target_height,
                              std::vector<int> &strides,
                              std::vector<YoloXAnchor> &anchors)
 {
-  for (auto stride : strides)
+  for (auto stride: strides)
   {
     int num_grid_w = target_width / stride;
     int num_grid_h = target_height / stride;
@@ -210,8 +210,8 @@ void YoloX::generate_bboxes(const YoloXScaleParams &scale_params,
     types::Boxf box;
     box.x1 = std::max(0.f, x1);
     box.y1 = std::max(0.f, y1);
-    box.x2 = std::min(x2, (float) img_width);
-    box.y2 = std::min(y2, (float) img_height);
+    box.x2 = std::min(x2, (float) img_width - 1.f);
+    box.y2 = std::min(y2, (float) img_height - 1.f);
     box.score = conf;
     box.label = label;
     box.label_text = class_names[label];

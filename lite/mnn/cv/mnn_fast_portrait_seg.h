@@ -1,22 +1,19 @@
 //
-// Created by DefTruth on 2022/6/5.
+// Created by DefTruth on 2022/6/18.
 //
 
-#ifndef LITE_AI_TOOLKIT_ORT_CV_FAST_PORTRAIT_SEG_H
-#define LITE_AI_TOOLKIT_ORT_CV_FAST_PORTRAIT_SEG_H
+#ifndef LITE_AI_TOOLKIT_MNN_CV_MNN_FAST_PORTRAIT_SEG_H
+#define LITE_AI_TOOLKIT_MNN_CV_MNN_FAST_PORTRAIT_SEG_H
 
-#include "lite/ort/core/ort_core.h"
+#include "lite/mnn/core/mnn_core.h"
 
-namespace ortcv
+namespace mnncv
 {
-  class LITE_EXPORTS FastPortraitSeg : public BasicOrtHandler
+  class LITE_EXPORTS MNNFastPortraitSeg : public BasicMNNHandler
   {
   public:
-    explicit FastPortraitSeg(const std::string &_onnx_path, unsigned int _num_threads = 1) :
-        BasicOrtHandler(_onnx_path, _num_threads)
-    {};
-
-    ~FastPortraitSeg() override = default;
+    explicit MNNFastPortraitSeg(const std::string &_mnn_path, unsigned int _num_threads = 1); //
+    ~MNNFastPortraitSeg() override = default;
 
   private:
     // nested classes
@@ -32,18 +29,19 @@ namespace ortcv
 
   private:
     const float mean_vals[3] = {107.304565f, 115.69884f, 132.35703f}; // BGR
-    const float scale_vals[3] = {1.f / (63.97182f * 255.f), 1.f / (65.1337f * 255.f),
-                                 1.f / (68.29726f * 255.f)};
-
+    const float norm_vals[3] = {1.f / (63.97182f * 255.f), 1.f / (65.1337f * 255.f),
+                                1.f / (68.29726f * 255.f)};
   private:
-    Ort::Value transform(const cv::Mat &mat_rs) override;
+    void initialize_pretreat();
+
+    void transform(const cv::Mat &mat_rs) override;
 
     void resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
                         int target_height, int target_width,
                         FastPortraitSegScaleParams &scale_params);
 
     void generate_mask(const FastPortraitSegScaleParams &scale_params,
-                       std::vector<Ort::Value> &output_tensors,
+                       const std::map<std::string, MNN::Tensor *> &output_tensors,
                        const cv::Mat &mat, types::PortraitSegContent &content,
                        float score_threshold = 0.02f, bool remove_noise = false);
 
@@ -53,4 +51,5 @@ namespace ortcv
   };
 }
 
-#endif //LITE_AI_TOOLKIT_ORT_CV_FAST_PORTRAIT_SEG_H
+
+#endif //LITE_AI_TOOLKIT_MNN_CV_MNN_FAST_PORTRAIT_SEG_H

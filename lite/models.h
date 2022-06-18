@@ -102,6 +102,7 @@
 #include "lite/ort/cv/yolov5_v6.1.h"
 #include "lite/ort/cv/head_seg.h"
 #include "lite/ort/cv/female_photo2cartoon.h"
+#include "lite/ort/cv/fast_portrait_seg.h"
 
 #endif
 
@@ -183,6 +184,7 @@
 #include "lite/mnn/cv/mnn_yolov5_v6.1.h"
 #include "lite/mnn/cv/mnn_head_seg.h"
 #include "lite/mnn/cv/mnn_female_photo2cartoon.h"
+#include "lite/mnn/cv/mnn_fast_portrait_seg.h"
 
 #endif
 
@@ -444,6 +446,7 @@ namespace lite
     typedef ortcv::YoloV5_V_6_1 _YoloV5_V_6_1;
     typedef ortcv::HeadSeg _HeadSeg;
     typedef ortcv::FemalePhoto2Cartoon _FemalePhoto2Cartoon;
+    typedef ortcv::FastPortraitSeg _FastPortraitSeg;
 
 #endif
 
@@ -586,6 +589,7 @@ namespace lite
       typedef _DeepLabV3ResNet101 DeepLabV3ResNet101;
       typedef _FCNResNet101 FCNResNet101;
       typedef _HeadSeg HeadSeg;
+      typedef _FastPortraitSeg FastPortraitSeg;
 #endif
 
     }
@@ -814,6 +818,7 @@ namespace lite
       typedef ortcv::YoloV5_V_6_1 _ONNXYoloV5_V_6_1;
       typedef ortcv::HeadSeg _ONNXHeadSeg;
       typedef ortcv::FemalePhoto2Cartoon _ONNXFemalePhoto2Cartoon;
+      typedef ortcv::FastPortraitSeg _ONNXFastPortraitSeg;
 
       // 1. classification
       namespace classification
@@ -936,6 +941,7 @@ namespace lite
         typedef _ONNXDeepLabV3ResNet101 DeepLabV3ResNet101;
         typedef _ONNXFCNResNet101 FCNResNet101;
         typedef _ONNXHeadSeg HeadSeg;
+        typedef _ONNXFastPortraitSeg FastPortraitSeg;
 
       }
       // 6. reid
@@ -1102,6 +1108,7 @@ namespace lite
         typedef mnncv::MNNDeepLabV3ResNet101 DeepLabV3ResNet101;
         typedef mnncv::MNNFCNResNet101 FCNResNet101;
         typedef mnncv::MNNHeadSeg HeadSeg;
+        typedef mnncv::MNNFastPortraitSeg FastPortraitSeg;
       }
       // reid
       namespace reid

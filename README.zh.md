@@ -272,6 +272,7 @@ static void test_default()
 |                      [YoloV5_V_6_1](https://github.com/ultralytics/yolov5/releases/tag/v6.1)                      | 7.5M  |   *detection*    |        [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolov5_v6.1.cpp)        |      ✅      |  ✅  |  /   |  /  |   ✅   |  ✔️   |   ✔️    |    ❔    |
 |                             [HeadSeg](https://github.com/minivision-ai/photo2cartoon)                             |  31M  |  *segmentation*  |         [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_head_seg.cpp)          |      ✅      |  ✅  |  /   |  ✅  |   ✅   |  ✔️   |   ✔️    |    ❔    |
 |                       [FemalePhoto2Cartoon](https://github.com/minivision-ai/photo2cartoon)                       |  15M  |     *style*      |   [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_female_photo2cartoon.cpp)    |      ✅      |  ✅  |  /   |  ✅  |   ✅   |  ✔️   |   ✔️    |    ❔    |
+|                    [FastPortraitSeg](https://github.com/YexingWan/Fast-Portrait-Segmentation)                     | 400k  |  *segmentation*  |     [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_fast_portrait_seg.cpp)     |      ✅      |  ✅  |  /   |  /  |   ✅   |  ✔️   |   ✔️    |    ❔    |
 
 
 ## 4. 编译文档
@@ -1155,7 +1156,8 @@ static void test_default()
 
 更多可用的人像分割模型（头部分割、肖像分割）
 ```c++
-auto *segment = new lite::cv::segmentation::HeadSeg(onnx_path);
+auto *segment = new lite::cv::segmentation::HeadSeg(onnx_path); // 31Mb
+auto *segment = new lite::cv::segmentation::FastPortraitSeg(onnx_path); // <= 400Kb !!!
 ```
 
 **** 
