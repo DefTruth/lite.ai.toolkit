@@ -84,6 +84,7 @@ namespace mnncv
   class LITE_EXPORTS MNNYoloV5_V_6_1;                // [70] * reference: https://github.com/ultralytics/yolov5/releases/tag/v6.1
   class LITE_EXPORTS MNNHeadSeg;                     // [71] * reference: https://github.com/minivision-ai/photo2cartoon
   class LITE_EXPORTS MNNFemalePhoto2Cartoon;         // [72] * reference: https://github.com/minivision-ai/photo2cartoon
+  class LITE_EXPORTS MNNFastPortraitSeg;             // [73] * reference: https://github.com/YexingWan/Fast-Portrait-Segmentation
 }
 
 namespace mnncv

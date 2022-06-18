@@ -314,11 +314,14 @@ You can download all the pretrained models files of ONNX format from ([Baidu Dri
 <div id="lite.ai.toolkit.hub.onnx-segmentation"></div>  
 
 
-|                    Class                     |     Pretrained ONNX Files     |                 Rename or Converted From (Repo)                 | Size  |
-|:--------------------------------------------:|:-----------------------------:|:---------------------------------------------------------------:|:-----:|
-| *lite::cv::segmentation::DeepLabV3ResNet101* | deeplabv3_resnet101_coco.onnx |        [torchvision](https://github.com/pytorch/vision)         | 232Mb |
-|    *lite::cv::segmentation::FCNResNet101*    |      fcn_resnet101.onnx       |        [torchvision](https://github.com/pytorch/vision)         | 207Mb |
-|      *lite::cv::segmentation::HeadSeg*       |   minivision_head_seg.onnx    | [photo2cartoon](https://github.com/minivision-ai/photo2cartoon) | 31Mb  |
+|                    Class                     |          Pretrained ONNX Files          |                       Rename or Converted From (Repo)                       | Size  |
+|:--------------------------------------------:|:---------------------------------------:|:---------------------------------------------------------------------------:|:-----:|
+| *lite::cv::segmentation::DeepLabV3ResNet101* |      deeplabv3_resnet101_coco.onnx      |              [torchvision](https://github.com/pytorch/vision)               | 232Mb |
+|    *lite::cv::segmentation::FCNResNet101*    |           fcn_resnet101.onnx            |              [torchvision](https://github.com/pytorch/vision)               | 207Mb |
+|      *lite::cv::segmentation::HeadSeg*       |        minivision_head_seg.onnx         |       [photo2cartoon](https://github.com/minivision-ai/photo2cartoon)       | 31Mb  |
+|  *lite::cv::segmentation::FastPortraitSeg*   | fast_portrait_seg_SINet_bi_192_128.onnx | [Fast-Portrait...](https://github.com/YexingWan/Fast-Portrait-Segmentation) | 400k  |
+|  *lite::cv::segmentation::FastPortraitSeg*   | fast_portrait_seg_SINet_bi_256_160.onnx | [Fast-Portrait...](https://github.com/YexingWan/Fast-Portrait-Segmentation) | 400k  |
+|  *lite::cv::segmentation::FastPortraitSeg*   | fast_portrait_seg_SINet_bi_320_256.onnx | [Fast-Portrait...](https://github.com/YexingWan/Fast-Portrait-Segmentation) | 400k  |
 
 
 ## Style Transfer.  
