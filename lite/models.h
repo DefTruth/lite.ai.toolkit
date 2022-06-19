@@ -103,6 +103,8 @@
 #include "lite/ort/cv/head_seg.h"
 #include "lite/ort/cv/female_photo2cartoon.h"
 #include "lite/ort/cv/fast_portrait_seg.h"
+#include "lite/ort/cv/portrait_seg_sinet.h"
+#include "lite/ort/cv/portrait_seg_extremec3net.h"
 
 #endif
 
@@ -185,6 +187,8 @@
 #include "lite/mnn/cv/mnn_head_seg.h"
 #include "lite/mnn/cv/mnn_female_photo2cartoon.h"
 #include "lite/mnn/cv/mnn_fast_portrait_seg.h"
+#include "lite/mnn/cv/mnn_portrait_seg_sinet.h"
+#include "lite/mnn/cv/mnn_portrait_seg_extremec3net.h"
 
 #endif
 
@@ -447,6 +451,8 @@ namespace lite
     typedef ortcv::HeadSeg _HeadSeg;
     typedef ortcv::FemalePhoto2Cartoon _FemalePhoto2Cartoon;
     typedef ortcv::FastPortraitSeg _FastPortraitSeg;
+    typedef ortcv::PortraitSegSINet _PortraitSegSINet;
+    typedef ortcv::PortraitSegExtremeC3Net _PortraitSegExtremeC3Net;
 
 #endif
 
@@ -590,6 +596,8 @@ namespace lite
       typedef _FCNResNet101 FCNResNet101;
       typedef _HeadSeg HeadSeg;
       typedef _FastPortraitSeg FastPortraitSeg;
+      typedef _PortraitSegSINet PortraitSegSINet;
+      typedef _PortraitSegExtremeC3Net PortraitSegExtremeC3Net;
 #endif
 
     }
@@ -819,6 +827,8 @@ namespace lite
       typedef ortcv::HeadSeg _ONNXHeadSeg;
       typedef ortcv::FemalePhoto2Cartoon _ONNXFemalePhoto2Cartoon;
       typedef ortcv::FastPortraitSeg _ONNXFastPortraitSeg;
+      typedef ortcv::PortraitSegSINet _ONNXPortraitSegSINet;
+      typedef ortcv::PortraitSegExtremeC3Net _ONNXPortraitSegExtremeC3Net;
 
       // 1. classification
       namespace classification
@@ -942,7 +952,8 @@ namespace lite
         typedef _ONNXFCNResNet101 FCNResNet101;
         typedef _ONNXHeadSeg HeadSeg;
         typedef _ONNXFastPortraitSeg FastPortraitSeg;
-
+        typedef _ONNXPortraitSegSINet PortraitSegSINet;
+        typedef _ONNXPortraitSegExtremeC3Net PortraitSegExtremeC3Net;
       }
       // 6. reid
       namespace reid
@@ -1109,6 +1120,8 @@ namespace lite
         typedef mnncv::MNNFCNResNet101 FCNResNet101;
         typedef mnncv::MNNHeadSeg HeadSeg;
         typedef mnncv::MNNFastPortraitSeg FastPortraitSeg;
+        typedef mnncv::MNNPortraitSegSINet PortraitSegSINet;
+        typedef mnncv::MNNPortraitSegExtremeC3Net PortraitSegExtremeC3Net;
       }
       // reid
       namespace reid
