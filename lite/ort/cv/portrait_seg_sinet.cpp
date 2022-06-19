@@ -39,7 +39,7 @@ void PortraitSegSINet::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
   int dh = pad_h / 2;
 
   // resize with unscaling
-  cv::Mat new_unpad_mat = mat.clone(); // may not need clone.
+  cv::Mat new_unpad_mat = mat.clone(); // TODO: may not need clone.
   cv::resize(new_unpad_mat, new_unpad_mat, cv::Size(new_unpad_w, new_unpad_h));
   new_unpad_mat.copyTo(mat_rs(cv::Rect(dw, dh, new_unpad_w, new_unpad_h)));
 
@@ -84,7 +84,7 @@ static inline void __softmax_inplace(float *mutable_ptr_bgr, float *mutable_ptr_
 }
 
 static inline void __zero_if_small_inplace(float *mutable_ptr, float &score)
-{ if (*(mutable_ptr) < score) *(mutable_ptr) = 0.f; }
+{ if ((*mutable_ptr) < score) *mutable_ptr = 0.f; }
 
 void PortraitSegSINet::generate_mask(const PortraitSegSINetScaleParams &scale_params,
                                      std::vector<Ort::Value> &output_tensors,
@@ -106,8 +106,9 @@ void PortraitSegSINet::generate_mask(const PortraitSegSINetScaleParams &scale_pa
     __softmax_inplace(output_ptr + i, output_ptr + i + channel_step); // bgr & fgr
 
   // remove small values
-  for (unsigned int i = 0; i < channel_step; ++i)
-    __zero_if_small_inplace(output_ptr + channel_step + i, score_threshold);
+  if (score_threshold > 0.001f)
+    for (unsigned int i = 0; i < channel_step; ++i)
+      __zero_if_small_inplace(output_ptr + channel_step + i, score_threshold);
 
   // fetch foreground score
   const int dw = scale_params.dw;

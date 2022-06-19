@@ -272,6 +272,8 @@ static void test_default()
 |                    [FastPortraitSeg](https://github.com/YexingWan/Fast-Portrait-Segmentation)                     | 400k  |  *segmentation*  |     [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_fast_portrait_seg.cpp)     |      ✅      |  ✅  |  /   |  /  |   ✅   |  ✔️   |   ✔️    |    ❔    |
 |                     [PortraitSegSINet](https://github.com/clovaai/ext_portrait_segmentation)                      | 380k  |  *segmentation*  |    [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_portrait_seg_sinet.cpp)     |      ✅      |  ✅  |  /   |  /  |   ✅   |  ✔️   |   ✔️    |    ❔    |
 |                  [PortraitSegExtremeC3Net](https://github.com/clovaai/ext_portrait_segmentation)                  | 180k  |  *segmentation*  | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_portrait_seg_extremec3net.cpp) |      ✅      |  ✅  |  /   |  /  |   ✅   |  ✔️   |   ✔️    |    ❔    |
+|                                 [FaceHairSeg](https://github.com/kampta/face-seg)                                 |  18M  |  *segmentation*  |       [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_face_hair_seg.cpp)       |      ✅      |  ✅  |  /   |  /  |   ✅   |  ✔️   |   ✔️    |    ❔    |
+|                       [HairSeg](https://github.com/akirasosa/mobile-semantic-segmentation)                        |  18M  |  *segmentation*  |         [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_hair_seg.cpp)          |      ✅      |  ✅  |  /   |  /  |   ✅   |  ✔️   |   ✔️    |    ❔    |
 
 
 ## 4. Build Docs.
@@ -1159,12 +1161,14 @@ The output is:
   <img src='docs/resources/head_seg_1_mask.jpg' height="180px" width="180px">
 </div> 
 
-More classes for human segmentation (head, portrait, others)
+More classes for human segmentation (head, portrait, hair, others)
 ```c++
 auto *segment = new lite::cv::segmentation::HeadSeg(onnx_path); // 31Mb
 auto *segment = new lite::cv::segmentation::FastPortraitSeg(onnx_path); // <= 400Kb !!! 
 auto *segment = new lite::cv::segmentation::PortraitSegSINet(onnx_path); // <= 380Kb !!!
 auto *segment = new lite::cv::segmentation::PortraitSegExtremeC3Net(onnx_path); // <= 180Kb !!! Extreme Tiny !!!
+auto *segment = new lite::cv::segmentation::FaceHairSeg(onnx_path); // 18M
+auto *segment = new lite::cv::segmentation::HairSeg(onnx_path); // 18M
 ```
 
 **** 

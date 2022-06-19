@@ -230,23 +230,14 @@ namespace lite {
       {};
     } MattingContent;
 
-    typedef struct LITE_EXPORTS HeadSegContentType
+    typedef struct LITE_EXPORTS SegmentationMaskContentType
     {
-      cv::Mat mask; // mask mat  (0. ~ 1.)
+      cv::Mat mask; // mask mat  (0. ~ 1.) | (0~255) | others
       bool flag;
 
-      HeadSegContentType(): flag(false)
+      SegmentationMaskContentType(): flag(false)
       {};
-    } HeadSegContent;
-
-    typedef struct LITE_EXPORTS PortraitSegContentType
-    {
-      cv::Mat mask; // mask mat (0. ~ 1.)
-      bool flag;
-
-      PortraitSegContentType(): flag(false)
-      {};
-    } PortraitSegContent;
+    } SegmentationMaskContent;
 
     typedef struct LITE_EXPORTS Photo2CartoonContentType
     {
@@ -257,6 +248,11 @@ namespace lite {
       {};
     } Photo2CartoonContent;
 
+    // alias
+    typedef SegmentationMaskContent HairSegContent;
+    typedef SegmentationMaskContent HeadSegContent;
+    typedef SegmentationMaskContent FaceHairSegContent;
+    typedef SegmentationMaskContent PortraitSegContent;
     typedef Photo2CartoonContent FemalePhoto2CartoonContent;
 
   } // NAMESPACE TYPES

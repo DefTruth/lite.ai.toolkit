@@ -85,7 +85,7 @@ static inline void __softmax_inplace(float *mutable_ptr_bgr, float *mutable_ptr_
 }
 
 static inline void __zero_if_small_inplace(float *mutable_ptr, float &score)
-{ if (*(mutable_ptr) < score) *(mutable_ptr) = 0.f; }
+{ if ((*mutable_ptr) < score) *mutable_ptr = 0.f; }
 
 void FastPortraitSeg::generate_mask(const FastPortraitSegScaleParams &scale_params,
                                     std::vector<Ort::Value> &output_tensors,
@@ -107,8 +107,9 @@ void FastPortraitSeg::generate_mask(const FastPortraitSegScaleParams &scale_para
     __softmax_inplace(output_ptr + i, output_ptr + i + channel_step); // bgr & fgr
 
   // remove small values
-  for (unsigned int i = 0; i < channel_step; ++i)
-    __zero_if_small_inplace(output_ptr + channel_step + i, score_threshold);
+  if (score_threshold > 0.001f)
+    for (unsigned int i = 0; i < channel_step; ++i)
+      __zero_if_small_inplace(output_ptr + channel_step + i, score_threshold);
 
   // fetch foreground score
   const int dw = scale_params.dw;

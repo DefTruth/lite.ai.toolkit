@@ -29,7 +29,7 @@ void MNNMODNet::transform(const cv::Mat &mat)
 {
   cv::Mat canvas;
   cv::resize(mat, canvas, cv::Size(input_width, input_height));
-  // (1,3,512,512) deepcopy inside
+  // (1,3,256,256) deepcopy inside
   pretreat->convert(canvas.data, input_width, input_height, canvas.step[0], input_tensor);
 }
 
