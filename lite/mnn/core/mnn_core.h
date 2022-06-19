@@ -85,6 +85,8 @@ namespace mnncv
   class LITE_EXPORTS MNNHeadSeg;                     // [71] * reference: https://github.com/minivision-ai/photo2cartoon
   class LITE_EXPORTS MNNFemalePhoto2Cartoon;         // [72] * reference: https://github.com/minivision-ai/photo2cartoon
   class LITE_EXPORTS MNNFastPortraitSeg;             // [73] * reference: https://github.com/YexingWan/Fast-Portrait-Segmentation
+  class LITE_EXPORTS MNNPortraitSegExtremeC3Net;     // [74] * reference: https://github.com/clovaai/ext_portrait_segmentation
+  class LITE_EXPORTS MNNPortraitSegSINet;            // [75] * reference: https://github.com/clovaai/ext_portrait_segmentation
 }
 
 namespace mnncv
