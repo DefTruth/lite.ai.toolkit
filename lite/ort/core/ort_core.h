@@ -97,32 +97,20 @@ namespace ortcv
   class LITE_EXPORTS MODNetDyn;                  // [83] * reference: https://github.com/ZHKKKe/MODNet (With Dynamic Input Shape)
   class LITE_EXPORTS BackgroundMattingV2;        // [84] * reference: https://github.com/PeterL1n/BackgroundMattingV2
   class LITE_EXPORTS BackgroundMattingV2Dyn;     // [85] * reference: https://github.com/PeterL1n/BackgroundMattingV2 (With Dynamic Input Shape)
-  class LITE_EXPORTS BlazeFace;                  // [86] * reference: https://github.com/google/mediapipe
-  class LITE_EXPORTS HandLandmarks;              // [87] * reference: https://github.com/google/mediapipe
-  class LITE_EXPORTS HandRecrop;                 // [88] * reference: https://github.com/google/mediapipe
-  class LITE_EXPORTS BlazePalm;                  // [89] * reference: https://github.com/google/mediapipe
-  class LITE_EXPORTS BlazePose;                  // [90] * reference: https://github.com/google/mediapipe
-  class LITE_EXPORTS PPPicoDet;                  // [91] * reference: https://github.com/PaddlePaddle/PaddleDetection/tree/release/2.4/configs/picodet
-  class LITE_EXPORTS PPTinyPose;                 // [92] * reference: https://github.com/PaddlePaddle/PaddleDetection/tree/release/2.3/configs/keypoint/tiny_pose
-  class LITE_EXPORTS PPMODNet;                   // [93] * reference: https://github.com/PaddlePaddle/PaddleSeg/blob/release%2F2.5/Matting/README_CN.md
-  class LITE_EXPORTS PPMatting;                  // [94] * reference: https://github.com/PaddlePaddle/PaddleSeg/blob/release%2F2.5/Matting/README_CN.md
-  class LITE_EXPORTS PPHumanMatting;             // [95] * reference: https://github.com/PaddlePaddle/PaddleSeg/blob/release%2F2.5/Matting/README_CN.md
-  class LITE_EXPORTS PPLiteSeg;                  // [96] * reference: https://github.com/PaddlePaddle/PaddleSeg/tree/release/2.5/configs/pp_liteseg
-  class LITE_EXPORTS PPHumanSeg;                 // [97] * reference: https://github.com/PaddlePaddle/PaddleSeg/tree/release/2.5/contrib/PP-HumanSeg
-  class LITE_EXPORTS PPBlazeFace;                // [98] * reference: https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.3/configs/face_detection/README.md
-  class LITE_EXPORTS YOLOv5BlazeFace;            // [99] * reference: https://github.com/deepcam-cn/yolov5-face
-  class LITE_EXPORTS MobileHumanPose3D;          // [100] * reference: https://github.com/ibaiGorordo/ONNX-Mobile-Human-Pose-3D
-  class LITE_EXPORTS RealSR;                     // [101] * reference: https://github.com/jixiaozhong/RealSR
-  class LITE_EXPORTS BSRGAN;                     // [102] * reference: https://github.com/cszn/BSRGAN
-  class LITE_EXPORTS SCUNet;                     // [103] * reference: https://github.com/cszn/SCUNet
-  class LITE_EXPORTS YoloV5_V_6_1;               // [104] * reference: https://github.com/ultralytics/yolov5/releases/tag/v6.1
-  class LITE_EXPORTS HeadSeg;                    // [105] * reference: https://github.com/minivision-ai/photo2cartoon
-  class LITE_EXPORTS FemalePhoto2Cartoon;        // [106] * reference: https://github.com/minivision-ai/photo2cartoon
-  class LITE_EXPORTS FastPortraitSeg;            // [107] * reference: https://github.com/YexingWan/Fast-Portrait-Segmentation
-  class LITE_EXPORTS PortraitSegExtremeC3Net;    // [108] * reference: https://github.com/clovaai/ext_portrait_segmentation
-  class LITE_EXPORTS PortraitSegSINet;           // [109] * reference: https://github.com/clovaai/ext_portrait_segmentation
-  class LITE_EXPORTS MobileHumanMatting;         // [110] * reference: https://github.com/lizhengwei1992/mobile_phone_human_matting
-  class LITE_EXPORTS FaceSeg;                    // [111] * reference: https://github.com/kampta/face-seg
+  class LITE_EXPORTS YOLOv5BlazeFace;            // [86] * reference: https://github.com/deepcam-cn/yolov5-face
+  class LITE_EXPORTS YoloV5_V_6_1;               // [87] * reference: https://github.com/ultralytics/yolov5/releases/tag/v6.1
+  class LITE_EXPORTS HeadSeg;                    // [88] * reference: https://github.com/minivision-ai/photo2cartoon
+  class LITE_EXPORTS FemalePhoto2Cartoon;        // [89] * reference: https://github.com/minivision-ai/photo2cartoon
+  class LITE_EXPORTS FastPortraitSeg;            // [90] * reference: https://github.com/YexingWan/Fast-Portrait-Segmentation
+  class LITE_EXPORTS PortraitSegExtremeC3Net;    // [91] * reference: https://github.com/clovaai/ext_portrait_segmentation
+  class LITE_EXPORTS PortraitSegSINet;           // [92] * reference: https://github.com/clovaai/ext_portrait_segmentation
+  class LITE_EXPORTS FaceHairSeg;                // [93] * reference: https://github.com/kampta/face-seg
+  class LITE_EXPORTS HairSeg;                    // [94] * reference: https://github.com/akirasosa/mobile-semantic-segmentation
+  class LITE_EXPORTS MobileHumanMatting;         // [95] * reference: https://github.com/lizhengwei1992/mobile_phone_human_matting
+  class LITE_EXPORTS RealSR;                     // [96] * reference: https://github.com/jixiaozhong/RealSR
+  class LITE_EXPORTS BSRGAN;                     // [97] * reference: https://github.com/cszn/BSRGAN
+  class LITE_EXPORTS SCUNet;                     // [98] * reference: https://github.com/cszn/SCUNet
+  class LITE_EXPORTS MobileHumanPose3D;          // [99] * reference: https://github.com/ibaiGorordo/ONNX-Mobile-Human-Pose-3D
 }
 
 namespace ortnlp

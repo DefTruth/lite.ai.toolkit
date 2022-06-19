@@ -40,7 +40,7 @@ void PortraitSegExtremeC3Net::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs
   int dh = pad_h / 2;
 
   // resize with unscaling
-  cv::Mat new_unpad_mat = mat.clone(); // may not need clone.
+  cv::Mat new_unpad_mat = mat.clone(); // TODO: may not need clone.
   cv::resize(new_unpad_mat, new_unpad_mat, cv::Size(new_unpad_w, new_unpad_h));
   new_unpad_mat.copyTo(mat_rs(cv::Rect(dw, dh, new_unpad_w, new_unpad_h)));
 
@@ -99,8 +99,9 @@ void PortraitSegExtremeC3Net::generate_mask(const PortraitSegExtremeC3NetScalePa
   float *output_ptr = output.GetTensorMutableData<float>();
 
   // remove small values
-  for (unsigned int i = 0; i < element_size; ++i)
-    __decode_and_zero_if_small_inplace(output_ptr + i, score_threshold);
+  if (score_threshold > 0.001f)
+    for (unsigned int i = 0; i < element_size; ++i)
+      __decode_and_zero_if_small_inplace(output_ptr + i, score_threshold);
 
   // fetch foreground score
   const int dw = scale_params.dw;

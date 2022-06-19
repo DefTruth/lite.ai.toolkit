@@ -87,6 +87,8 @@ namespace mnncv
   class LITE_EXPORTS MNNFastPortraitSeg;             // [73] * reference: https://github.com/YexingWan/Fast-Portrait-Segmentation
   class LITE_EXPORTS MNNPortraitSegExtremeC3Net;     // [74] * reference: https://github.com/clovaai/ext_portrait_segmentation
   class LITE_EXPORTS MNNPortraitSegSINet;            // [75] * reference: https://github.com/clovaai/ext_portrait_segmentation
+  class LITE_EXPORTS MNNFaceHairSeg;                 // [76] * reference: https://github.com/kampta/face-seg
+  class LITE_EXPORTS MNNHairSeg;                     // [77] * reference: https://github.com/akirasosa/mobile-semantic-segmentation
 }
 
 namespace mnncv

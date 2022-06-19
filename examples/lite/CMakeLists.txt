@@ -93,4 +93,6 @@ add_lite_executable(lite_female_photo2cartoon cv)
 add_lite_executable(lite_fast_portrait_seg cv)
 add_lite_executable(lite_portrait_seg_sinet cv)
 add_lite_executable(lite_portrait_seg_extremec3net cv)
+add_lite_executable(lite_hair_seg cv)
+add_lite_executable(lite_face_hair_seg cv)
 

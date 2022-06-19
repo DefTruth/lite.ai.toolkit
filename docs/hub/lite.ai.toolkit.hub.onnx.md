@@ -314,16 +314,18 @@ You can download all the pretrained models files of ONNX format from ([Baidu Dri
 <div id="lite.ai.toolkit.hub.onnx-segmentation"></div>  
 
 
-|                       Class                       |          Pretrained ONNX Files          |                       Rename or Converted From (Repo)                       | Size  |
-|:-------------------------------------------------:|:---------------------------------------:|:---------------------------------------------------------------------------:|:-----:|
-|   *lite::cv::segmentation::DeepLabV3ResNet101*    |      deeplabv3_resnet101_coco.onnx      |              [torchvision](https://github.com/pytorch/vision)               | 232Mb |
-|      *lite::cv::segmentation::FCNResNet101*       |           fcn_resnet101.onnx            |              [torchvision](https://github.com/pytorch/vision)               | 207Mb |
-|         *lite::cv::segmentation::HeadSeg*         |        minivision_head_seg.onnx         |       [photo2cartoon](https://github.com/minivision-ai/photo2cartoon)       | 31Mb  |
-|     *lite::cv::segmentation::FastPortraitSeg*     | fast_portrait_seg_SINet_bi_192_128.onnx | [Fast-Portrait...](https://github.com/YexingWan/Fast-Portrait-Segmentation) | 400k  |
-|     *lite::cv::segmentation::FastPortraitSeg*     | fast_portrait_seg_SINet_bi_256_160.onnx | [Fast-Portrait...](https://github.com/YexingWan/Fast-Portrait-Segmentation) | 400k  |
-|     *lite::cv::segmentation::FastPortraitSeg*     | fast_portrait_seg_SINet_bi_320_256.onnx | [Fast-Portrait...](https://github.com/YexingWan/Fast-Portrait-Segmentation) | 400k  |
-|    *lite::cv::segmentation::PortraitSegSINet*     |   ext_portrait_seg_SINet_224x224.onnx   |   [ext_portrait...](https://github.com/clovaai/ext_portrait_segmentation)   | 380k  |
-| *lite::cv::segmentation::PortraitSegExtremeC3Net* | ext_portrait_seg_ExtremeC3_224x224.onnx |   [ext_portrait...](https://github.com/clovaai/ext_portrait_segmentation)   | 180k  |
+|                       Class                       |          Pretrained ONNX Files          |                         Rename or Converted From (Repo)                          | Size  |
+|:-------------------------------------------------:|:---------------------------------------:|:--------------------------------------------------------------------------------:|:-----:|
+|   *lite::cv::segmentation::DeepLabV3ResNet101*    |      deeplabv3_resnet101_coco.onnx      |                 [torchvision](https://github.com/pytorch/vision)                 | 232Mb |
+|      *lite::cv::segmentation::FCNResNet101*       |           fcn_resnet101.onnx            |                 [torchvision](https://github.com/pytorch/vision)                 | 207Mb |
+|         *lite::cv::segmentation::HeadSeg*         |        minivision_head_seg.onnx         |         [photo2cartoon](https://github.com/minivision-ai/photo2cartoon)          | 31Mb  |
+|     *lite::cv::segmentation::FastPortraitSeg*     | fast_portrait_seg_SINet_bi_192_128.onnx |   [Fast-Portrait...](https://github.com/YexingWan/Fast-Portrait-Segmentation)    | 400k  |
+|     *lite::cv::segmentation::FastPortraitSeg*     | fast_portrait_seg_SINet_bi_256_160.onnx |   [Fast-Portrait...](https://github.com/YexingWan/Fast-Portrait-Segmentation)    | 400k  |
+|     *lite::cv::segmentation::FastPortraitSeg*     | fast_portrait_seg_SINet_bi_320_256.onnx |   [Fast-Portrait...](https://github.com/YexingWan/Fast-Portrait-Segmentation)    | 400k  |
+|    *lite::cv::segmentation::PortraitSegSINet*     |   ext_portrait_seg_SINet_224x224.onnx   |     [ext_portrait...](https://github.com/clovaai/ext_portrait_segmentation)      | 380k  |
+| *lite::cv::segmentation::PortraitSegExtremeC3Net* | ext_portrait_seg_ExtremeC3_224x224.onnx |     [ext_portrait...](https://github.com/clovaai/ext_portrait_segmentation)      | 180k  |
+|       *lite::cv::segmentation::FaceHairSeg*       |       face_hair_seg_224x224.onnx        |                  [face-seg](https://github.com/kampta/face-seg)                  |  18M  |
+|         *lite::cv::segmentation::HairSeg*         |          hairseg_224x224.onnx           | [mobile-semantic-seg](https://github.com/akirasosa/mobile-semantic-segmentation) |  18M  |
 
 
 ## Style Transfer.  

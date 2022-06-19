@@ -45,11 +45,11 @@ namespace ortcv
     void generate_mask(const FastPortraitSegScaleParams &scale_params,
                        std::vector<Ort::Value> &output_tensors,
                        const cv::Mat &mat, types::PortraitSegContent &content,
-                       float score_threshold = 0.02f, bool remove_noise = false);
+                       float score_threshold = 0.0f, bool remove_noise = false);
 
   public:
     void detect(const cv::Mat &mat, types::PortraitSegContent &content,
-                float score_threshold = 0.02f, bool remove_noise = false);
+                float score_threshold = 0.0f, bool remove_noise = false);
   };
 }
 

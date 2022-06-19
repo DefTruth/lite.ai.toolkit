@@ -267,16 +267,18 @@ You can download all the pretrained models files of MNN format from ([Baidu Driv
 <div id="lite.ai.toolkit.hub.mnn-segmentation"></div>  
 
 
-|                         Class                          |          Pretrained MNN Files          |                       Rename or Converted From (Repo)                       | Size  |
-|:------------------------------------------------------:|:--------------------------------------:|:---------------------------------------------------------------------------:|:-----:|
-|   *lite::mnn::cv::segmentation::DeepLabV3ResNet101*    |      deeplabv3_resnet101_coco.mnn      |              [torchvision](https://github.com/pytorch/vision)               | 232Mb |
-|      *lite::mnn::cv::segmentation::FCNResNet101*       |           fcn_resnet101.mnn            |              [torchvision](https://github.com/pytorch/vision)               | 207Mb |
-|         *lite::mnn::cv::segmentation::HeadSeg*         |        minivision_head_seg.mnn         |       [photo2cartoon](https://github.com/minivision-ai/photo2cartoon)       | 31Mb  |
-|     *lite::mnn::cv::segmentation::FastPortraitSeg*     | fast_portrait_seg_SINet_bi_192_128.mnn | [Fast-Portrait...](https://github.com/YexingWan/Fast-Portrait-Segmentation) | 400k  |
-|     *lite::mnn::cv::segmentation::FastPortraitSeg*     | fast_portrait_seg_SINet_bi_256_160.mnn | [Fast-Portrait...](https://github.com/YexingWan/Fast-Portrait-Segmentation) | 400k  |
-|     *lite::mnn::cv::segmentation::FastPortraitSeg*     | fast_portrait_seg_SINet_bi_320_256.mnn | [Fast-Portrait...](https://github.com/YexingWan/Fast-Portrait-Segmentation) | 400k  |
-|    *lite::mnn::cv::segmentation::PortraitSegSINet*     |   ext_portrait_seg_SINet_224x224.mnn   |   [ext_portrait...](https://github.com/clovaai/ext_portrait_segmentation)   | 380k  |
-| *lite::mnn::cv::segmentation::PortraitSegExtremeC3Net* | ext_portrait_seg_ExtremeC3_224x224.mnn |   [ext_portrait...](https://github.com/clovaai/ext_portrait_segmentation)   | 180k  |
+|                         Class                          |          Pretrained MNN Files          |                         Rename or Converted From (Repo)                          | Size  |
+|:------------------------------------------------------:|:--------------------------------------:|:--------------------------------------------------------------------------------:|:-----:|
+|   *lite::mnn::cv::segmentation::DeepLabV3ResNet101*    |      deeplabv3_resnet101_coco.mnn      |                 [torchvision](https://github.com/pytorch/vision)                 | 232Mb |
+|      *lite::mnn::cv::segmentation::FCNResNet101*       |           fcn_resnet101.mnn            |                 [torchvision](https://github.com/pytorch/vision)                 | 207Mb |
+|         *lite::mnn::cv::segmentation::HeadSeg*         |        minivision_head_seg.mnn         |         [photo2cartoon](https://github.com/minivision-ai/photo2cartoon)          | 31Mb  |
+|     *lite::mnn::cv::segmentation::FastPortraitSeg*     | fast_portrait_seg_SINet_bi_192_128.mnn |   [Fast-Portrait...](https://github.com/YexingWan/Fast-Portrait-Segmentation)    | 400k  |
+|     *lite::mnn::cv::segmentation::FastPortraitSeg*     | fast_portrait_seg_SINet_bi_256_160.mnn |   [Fast-Portrait...](https://github.com/YexingWan/Fast-Portrait-Segmentation)    | 400k  |
+|     *lite::mnn::cv::segmentation::FastPortraitSeg*     | fast_portrait_seg_SINet_bi_320_256.mnn |   [Fast-Portrait...](https://github.com/YexingWan/Fast-Portrait-Segmentation)    | 400k  |
+|    *lite::mnn::cv::segmentation::PortraitSegSINet*     |   ext_portrait_seg_SINet_224x224.mnn   |     [ext_portrait...](https://github.com/clovaai/ext_portrait_segmentation)      | 380k  |
+| *lite::mnn::cv::segmentation::PortraitSegExtremeC3Net* | ext_portrait_seg_ExtremeC3_224x224.mnn |     [ext_portrait...](https://github.com/clovaai/ext_portrait_segmentation)      | 180k  |
+|       *lite::mnn::cv::segmentation::FaceHairSeg*       |       face_hair_seg_224x224.mnn        |                  [face-seg](https://github.com/kampta/face-seg)                  |  18M  |
+|         *lite::mnn::cv::segmentation::HairSeg*         |          hairseg_224x224.mnn           | [mobile-semantic-seg](https://github.com/akirasosa/mobile-semantic-segmentation) |  18M  |
 
 
 ## Style Transfer.
