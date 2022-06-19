@@ -7,7 +7,8 @@
 
 using mnncv::MNNPortraitSegExtremeC3Net;
 
-MNNPortraitSegExtremeC3Net::MNNPortraitSegExtremeC3Net(const std::string &_mnn_path, unsigned int _num_threads)
+MNNPortraitSegExtremeC3Net::MNNPortraitSegExtremeC3Net(
+    const std::string &_mnn_path, unsigned int _num_threads)
     : BasicMNNHandler(_mnn_path, _num_threads)
 { initialize_pretreat(); }
 
@@ -53,7 +54,7 @@ void MNNPortraitSegExtremeC3Net::resize_unscale(const cv::Mat &mat, cv::Mat &mat
   int dh = pad_h / 2;
 
   // resize with unscaling
-  cv::Mat new_unpad_mat = mat.clone();
+  cv::Mat new_unpad_mat = mat.clone(); // may not need clone.
   cv::resize(new_unpad_mat, new_unpad_mat, cv::Size(new_unpad_w, new_unpad_h));
   new_unpad_mat.copyTo(mat_rs(cv::Rect(dw, dh, new_unpad_w, new_unpad_h)));
 

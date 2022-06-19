@@ -91,4 +91,6 @@ add_lite_executable(lite_yolov5_v6.1 cv)
 add_lite_executable(lite_head_seg cv)
 add_lite_executable(lite_female_photo2cartoon cv)
 add_lite_executable(lite_fast_portrait_seg cv)
+add_lite_executable(lite_portrait_seg_sinet cv)
+add_lite_executable(lite_portrait_seg_extremec3net cv)
 
