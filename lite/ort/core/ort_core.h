@@ -107,10 +107,11 @@ namespace ortcv
   class LITE_EXPORTS FaceHairSeg;                // [93] * reference: https://github.com/kampta/face-seg
   class LITE_EXPORTS HairSeg;                    // [94] * reference: https://github.com/akirasosa/mobile-semantic-segmentation
   class LITE_EXPORTS MobileHumanMatting;         // [95] * reference: https://github.com/lizhengwei1992/mobile_phone_human_matting
-  class LITE_EXPORTS RealSR;                     // [96] * reference: https://github.com/jixiaozhong/RealSR
-  class LITE_EXPORTS BSRGAN;                     // [97] * reference: https://github.com/cszn/BSRGAN
-  class LITE_EXPORTS SCUNet;                     // [98] * reference: https://github.com/cszn/SCUNet
-  class LITE_EXPORTS MobileHumanPose3D;          // [99] * reference: https://github.com/ibaiGorordo/ONNX-Mobile-Human-Pose-3D
+  class LITE_EXPORTS MobileHairSeg;              // [96] * reference: https://github.com/wonbeomjang/mobile-hair-segmentation-pytorch
+  class LITE_EXPORTS RealSR;                     // [97] * reference: https://github.com/jixiaozhong/RealSR
+  class LITE_EXPORTS BSRGAN;                     // [98] * reference: https://github.com/cszn/BSRGAN
+  class LITE_EXPORTS SCUNet;                     // [99] * reference: https://github.com/cszn/SCUNet
+  class LITE_EXPORTS MobileHumanPose3D;          // [100] * reference: https://github.com/ibaiGorordo/ONNX-Mobile-Human-Pose-3D
 }
 
 namespace ortnlp

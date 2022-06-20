@@ -58,9 +58,8 @@ void MODNet::generate_matting(std::vector<Ort::Value> &output_tensors,
   if (remove_noise) lite::utils::remove_small_connected_area(alpha_pred, 0.05f);
   // resize alpha
   if (out_h != h || out_w != w)
-  {
     cv::resize(alpha_pred, alpha_pred, cv::Size(w, h));
-  }
+
   cv::Mat pmat = alpha_pred; // ref
   content.pha_mat = pmat;
 

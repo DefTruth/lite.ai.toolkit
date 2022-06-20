@@ -107,6 +107,7 @@
 #include "lite/ort/cv/portrait_seg_extremec3net.h"
 #include "lite/ort/cv/hair_seg.h"
 #include "lite/ort/cv/face_hair_seg.h"
+#include "lite/ort/cv/mobile_human_matting.h"
 
 #endif
 
@@ -193,6 +194,7 @@
 #include "lite/mnn/cv/mnn_portrait_seg_extremec3net.h"
 #include "lite/mnn/cv/mnn_hair_seg.h"
 #include "lite/mnn/cv/mnn_face_hair_seg.h"
+#include "lite/mnn/cv/mnn_mobile_human_matting.h"
 
 #endif
 
@@ -459,6 +461,7 @@ namespace lite
     typedef ortcv::PortraitSegExtremeC3Net _PortraitSegExtremeC3Net;
     typedef ortcv::HairSeg _HairSeg;
     typedef ortcv::FaceHairSeg _FaceHairSeg;
+    typedef ortcv::MobileHumanMatting _MobileHumanMatting;
 
 #endif
 
@@ -661,6 +664,7 @@ namespace lite
       typedef _MODNetDyn MODNetDyn;
       typedef _BackgroundMattingV2 BackgroundMattingV2;
       typedef _BackgroundMattingV2Dyn BackgroundMattingV2Dyn;
+      typedef _MobileHumanMatting MobileHumanMatting;
 #endif
     }
   }
@@ -839,6 +843,7 @@ namespace lite
       typedef ortcv::PortraitSegExtremeC3Net _ONNXPortraitSegExtremeC3Net;
       typedef ortcv::HairSeg _ONNXHairSeg;
       typedef ortcv::FaceHairSeg _ONNXFaceHairSeg;
+      typedef ortcv::MobileHumanMatting _ONNXMobileHumanMatting;
 
       // 1. classification
       namespace classification
@@ -1009,6 +1014,7 @@ namespace lite
         typedef _ONNXMODNetDyn MODNetDyn;
         typedef _ONNXBackgroundMattingV2 BackgroundMattingV2;
         typedef _ONNXBackgroundMattingV2Dyn BackgroundMattingV2Dyn;
+        typedef _ONNXMobileHumanMatting MobileHumanMatting;
       }
     }
 
@@ -1152,6 +1158,7 @@ namespace lite
         typedef mnncv::MNNMGMatting MGMatting;
         typedef mnncv::MNNMODNet MODNet;
         typedef mnncv::MNNBackgroundMattingV2 BackgroundMattingV2;
+        typedef mnncv::MNNMobileHumanMatting MobileHumanMatting;
       }
 
       // style transfer

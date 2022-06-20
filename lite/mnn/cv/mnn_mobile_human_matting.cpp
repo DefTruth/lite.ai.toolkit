@@ -1,31 +1,31 @@
 //
-// Created by DefTruth on 2022/3/27.
+// Created by DefTruth on 2022/6/20.
 //
 
-#include "mnn_modnet.h"
+#include "mnn_mobile_human_matting.h"
 #include "lite/utils.h"
 
-using mnncv::MNNMODNet;
+using mnncv::MNNMobileHumanMatting;
 
-MNNMODNet::MNNMODNet(const std::string &_mnn_path, unsigned int _num_threads)
+MNNMobileHumanMatting::MNNMobileHumanMatting(const std::string &_mnn_path, unsigned int _num_threads)
     : BasicMNNHandler(_mnn_path, _num_threads)
 {
   initialize_pretreat();
 }
 
-inline void MNNMODNet::initialize_pretreat()
+inline void MNNMobileHumanMatting::initialize_pretreat()
 {
   pretreat = std::shared_ptr<MNN::CV::ImageProcess>(
       MNN::CV::ImageProcess::create(
           MNN::CV::BGR,
-          MNN::CV::RGB,
+          MNN::CV::BGR,
           mean_vals, 3,
           norm_vals, 3
       )
   );
 }
 
-void MNNMODNet::transform(const cv::Mat &mat)
+void MNNMobileHumanMatting::transform(const cv::Mat &mat)
 {
   cv::Mat canvas;
   cv::resize(mat, canvas, cv::Size(input_width, input_height));
@@ -33,8 +33,8 @@ void MNNMODNet::transform(const cv::Mat &mat)
   pretreat->convert(canvas.data, input_width, input_height, canvas.step[0], input_tensor);
 }
 
-void MNNMODNet::detect(const cv::Mat &mat, types::MattingContent &content, bool remove_noise,
-                       bool minimum_post_process)
+void MNNMobileHumanMatting::detect(const cv::Mat &mat, types::MattingContent &content,
+                                   bool remove_noise, bool minimum_post_process)
 {
   if (mat.empty()) return;
   // 1. make input tensor
@@ -46,12 +46,11 @@ void MNNMODNet::detect(const cv::Mat &mat, types::MattingContent &content, bool 
   this->generate_matting(output_tensors, mat, content, remove_noise, minimum_post_process);
 }
 
-
-void MNNMODNet::generate_matting(const std::map<std::string, MNN::Tensor *> &output_tensors,
-                                 const cv::Mat &mat, types::MattingContent &content,
-                                 bool remove_noise, bool minimum_post_process)
+void MNNMobileHumanMatting::generate_matting(const std::map<std::string, MNN::Tensor *> &output_tensors,
+                                             const cv::Mat &mat, types::MattingContent &content,
+                                             bool remove_noise, bool minimum_post_process)
 {
-  auto device_output_ptr = output_tensors.at("output"); // e.g (1,1,256,256)
+  auto device_output_ptr = output_tensors.at("alpha"); // e.g (1,1,256,256)
   MNN::Tensor host_output_tensor(device_output_ptr, device_output_ptr->getDimensionType());
   device_output_ptr->copyToHostTensor(&host_output_tensor);
   const unsigned int h = mat.rows;
@@ -74,10 +73,10 @@ void MNNMODNet::generate_matting(const std::map<std::string, MNN::Tensor *> &out
 
   if (!minimum_post_process)
   {
-    // MODNet only predict Alpha, no fgr. So,
+    // MobileHumanMatting only predict Alpha, no fgr. So,
     // the fake fgr and merge mat may not need,
     // let the fgr mat and merge mat empty to
-    // speed up the post processes.
+    // Speed up the post processes.
     cv::Mat mat_copy;
     mat.convertTo(mat_copy, CV_32FC3);
     // merge mat and fgr mat may not need
