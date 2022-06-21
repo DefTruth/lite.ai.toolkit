@@ -274,6 +274,7 @@ static void test_default()
 |                  [PortraitSegExtremeC3Net](https://github.com/clovaai/ext_portrait_segmentation)                  | 180k  |  *segmentation*  | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_portrait_seg_extremec3net.cpp) |      ✅      |  ✅  |  /   |  /  |   ✅   |  ✔️   |   ✔️    |    ❔    |
 |                                 [FaceHairSeg](https://github.com/kampta/face-seg)                                 |  18M  |  *segmentation*  |       [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_face_hair_seg.cpp)       |      ✅      |  ✅  |  /   |  /  |   ✅   |  ✔️   |   ✔️    |    ❔    |
 |                       [HairSeg](https://github.com/akirasosa/mobile-semantic-segmentation)                        |  18M  |  *segmentation*  |         [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_hair_seg.cpp)          |      ✅      |  ✅  |  /   |  /  |   ✅   |  ✔️   |   ✔️    |    ❔    |
+|                [MobileHumanMatting](https://github.com/lizhengwei1992/mobile_phone_human_matting)                 |  3M   |    *matting*     |   [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mobile_human_matting.cpp)    |      ✅      |  ✅  |  /   |  /  |   ✅   |  ✔️   |   ✔️    |    ❔    |
 
 
 ## 4. Build Docs.
@@ -693,6 +694,7 @@ auto *matting = new lite::cv::matting::MODNet(onnx_path); // AAAI 2022
 auto *matting = new lite::cv::matting::MODNetDyn(onnx_path); // AAAI 2022 Dynamic Shape Inference.
 auto *matting = new lite::cv::matting::BackgroundMattingV2(onnx_path); // CVPR 2020 
 auto *matting = new lite::cv::matting::BackgroundMattingV2Dyn(onnx_path); // CVPR 2020 Dynamic Shape Inference.
+auto *matting = new lite::cv::matting::MobileHumanMatting(onnx_path); // 3Mb only !!!
 ```
 
 
