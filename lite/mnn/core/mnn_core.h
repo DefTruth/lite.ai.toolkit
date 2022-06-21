@@ -89,6 +89,7 @@ namespace mnncv
   class LITE_EXPORTS MNNPortraitSegSINet;            // [75] * reference: https://github.com/clovaai/ext_portrait_segmentation
   class LITE_EXPORTS MNNFaceHairSeg;                 // [76] * reference: https://github.com/kampta/face-seg
   class LITE_EXPORTS MNNHairSeg;                     // [77] * reference: https://github.com/akirasosa/mobile-semantic-segmentation
+  class LITE_EXPORTS MNNMobileHumanMatting;          // [78] * reference: https://github.com/lizhengwei1992/mobile_phone_human_matting
 }
 
 namespace mnncv

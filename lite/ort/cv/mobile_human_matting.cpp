@@ -1,69 +1,56 @@
 //
-// Created by DefTruth on 2022/3/27.
+// Created by DefTruth on 2022/6/20.
 //
 
-#include "mnn_modnet.h"
+#include "mobile_human_matting.h"
+#include "lite/ort/core/ort_utils.h"
 #include "lite/utils.h"
 
-using mnncv::MNNMODNet;
+using ortcv::MobileHumanMatting;
 
-MNNMODNet::MNNMODNet(const std::string &_mnn_path, unsigned int _num_threads)
-    : BasicMNNHandler(_mnn_path, _num_threads)
-{
-  initialize_pretreat();
-}
-
-inline void MNNMODNet::initialize_pretreat()
-{
-  pretreat = std::shared_ptr<MNN::CV::ImageProcess>(
-      MNN::CV::ImageProcess::create(
-          MNN::CV::BGR,
-          MNN::CV::RGB,
-          mean_vals, 3,
-          norm_vals, 3
-      )
-  );
-}
-
-void MNNMODNet::transform(const cv::Mat &mat)
+Ort::Value MobileHumanMatting::transform(const cv::Mat &mat)
 {
   cv::Mat canvas;
-  cv::resize(mat, canvas, cv::Size(input_width, input_height));
-  // (1,3,256,256) deepcopy inside
-  pretreat->convert(canvas.data, input_width, input_height, canvas.step[0], input_tensor);
+  cv::resize(mat, canvas, cv::Size(input_node_dims.at(3), input_node_dims.at(2)));
+  ortcv::utils::transform::normalize_inplace(canvas, mean_vals, scale_vals);
+  // e.g (1,3,256,256
+  return ortcv::utils::transform::create_tensor(
+      canvas, input_node_dims, memory_info_handler,
+      input_values_handler, ortcv::utils::transform::CHW); // deepcopy inside
 }
 
-void MNNMODNet::detect(const cv::Mat &mat, types::MattingContent &content, bool remove_noise,
-                       bool minimum_post_process)
+void MobileHumanMatting::detect(const cv::Mat &mat, types::MattingContent &content,
+                                bool remove_noise, bool minimum_post_process)
 {
   if (mat.empty()) return;
+
   // 1. make input tensor
-  this->transform(mat);
+  Ort::Value input_tensor = this->transform(mat);
   // 2. inference
-  mnn_interpreter->runSession(mnn_session);
-  auto output_tensors = mnn_interpreter->getSessionOutputAll(mnn_session);
+  auto output_tensors = ort_session->Run(
+      Ort::RunOptions{nullptr}, input_node_names.data(),
+      &input_tensor, 1, output_node_names.data(), num_outputs
+  );
   // 3. generate matting
   this->generate_matting(output_tensors, mat, content, remove_noise, minimum_post_process);
 }
 
-
-void MNNMODNet::generate_matting(const std::map<std::string, MNN::Tensor *> &output_tensors,
-                                 const cv::Mat &mat, types::MattingContent &content,
-                                 bool remove_noise, bool minimum_post_process)
+void MobileHumanMatting::generate_matting(std::vector<Ort::Value> &output_tensors, const cv::Mat &mat,
+                                          types::MattingContent &content, bool remove_noise,
+                                          bool minimum_post_process)
 {
-  auto device_output_ptr = output_tensors.at("output"); // e.g (1,1,256,256)
-  MNN::Tensor host_output_tensor(device_output_ptr, device_output_ptr->getDimensionType());
-  device_output_ptr->copyToHostTensor(&host_output_tensor);
+  Ort::Value &output = output_tensors.at(1); // (1,1,h,w) 0~1 alpha
   const unsigned int h = mat.rows;
   const unsigned int w = mat.cols;
 
-  auto output_dims = host_output_tensor.shape();
+  auto output_dims = output.GetTypeInfo().GetTensorTypeAndShapeInfo().GetShape();
   const unsigned int out_h = output_dims.at(2);
   const unsigned int out_w = output_dims.at(3);
 
-  float *output_ptr = host_output_tensor.host<float>();
+  float *output_ptr = output.GetTensorMutableData<float>();
 
   cv::Mat alpha_pred(out_h, out_w, CV_32FC1, output_ptr);
+  // post process
   if (remove_noise) lite::utils::remove_small_connected_area(alpha_pred, 0.05f);
   // resize alpha
   if (out_h != h || out_w != w)
@@ -74,10 +61,10 @@ void MNNMODNet::generate_matting(const std::map<std::string, MNN::Tensor *> &out
 
   if (!minimum_post_process)
   {
-    // MODNet only predict Alpha, no fgr. So,
+    // MobileHumanMatting only predict Alpha, no fgr. So,
     // the fake fgr and merge mat may not need,
     // let the fgr mat and merge mat empty to
-    // speed up the post processes.
+    // Speed up the post processes.
     cv::Mat mat_copy;
     mat.convertTo(mat_copy, CV_32FC3);
     // merge mat and fgr mat may not need

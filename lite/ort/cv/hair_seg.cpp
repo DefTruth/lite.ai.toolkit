@@ -16,10 +16,8 @@ Ort::Value HairSeg::transform(const cv::Mat &mat)
   canvas.convertTo(canvas, CV_32FC3, 1.f / 255.f, 0.f);
   // e.g (1,3,224,224)
   return ortcv::utils::transform::create_tensor(
-      canvas, input_node_dims,
-      memory_info_handler,
-      input_values_handler,
-      ortcv::utils::transform::CHW); // deepcopy inside
+      canvas, input_node_dims, memory_info_handler,
+      input_values_handler, ortcv::utils::transform::CHW); // deepcopy inside
 }
 
 void HairSeg::detect(const cv::Mat &mat, types::HairSegContent &content,
