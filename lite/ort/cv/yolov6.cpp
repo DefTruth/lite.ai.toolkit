@@ -1,27 +1,28 @@
 //
-// Created by DefTruth on 2022/5/8.
+// Created by DefTruth on 2022/6/25.
 //
 
-#include "yolov5_v6.1.h"
+#include "yolov6.h"
 #include "lite/ort/core/ort_utils.h"
 #include "lite/utils.h"
 
-using ortcv::YoloV5_V_6_1;
+using ortcv::YOLOv6;
 
-Ort::Value YoloV5_V_6_1::transform(const cv::Mat &mat_rs)
+Ort::Value YOLOv6::transform(const cv::Mat &mat_rs)
 {
   cv::Mat canvas;
   cv::cvtColor(mat_rs, canvas, cv::COLOR_BGR2RGB);
+  canvas.convertTo(canvas, CV_32FC3, 1.f / 255.f, 0.f);
   // (1,3,640,640) 1xCXHXW
-  ortcv::utils::transform::normalize_inplace(canvas, mean_val, scale_val); // float32
   return ortcv::utils::transform::create_tensor(
       canvas, input_node_dims, memory_info_handler,
       input_values_handler, ortcv::utils::transform::CHW);
 }
 
-void YoloV5_V_6_1::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
-                                  int target_height, int target_width,
-                                  YoloV5ScaleParams &scale_params)
+// letterbox
+void YOLOv6::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
+                            int target_height, int target_width,
+                            YOLOv6ScaleParams &scale_params)
 {
   if (mat.empty()) return;
   int img_height = static_cast<int>(mat.rows);
@@ -43,8 +44,8 @@ void YoloV5_V_6_1::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
   int dh = pad_h / 2;
 
   // resize with unscaling
-  cv::Mat new_unpad_mat = mat.clone(); // may not need clone
-  cv::resize(new_unpad_mat, new_unpad_mat, cv::Size(new_unpad_w, new_unpad_h));
+  cv::Mat new_unpad_mat;
+  cv::resize(mat, new_unpad_mat, cv::Size(new_unpad_w, new_unpad_h));
   new_unpad_mat.copyTo(mat_rs(cv::Rect(dw, dh, new_unpad_w, new_unpad_h)));
 
   // record scale params.
@@ -56,9 +57,9 @@ void YoloV5_V_6_1::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
   scale_params.flag = true;
 }
 
-void YoloV5_V_6_1::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
-                          float score_threshold, float iou_threshold, unsigned int topk,
-                          unsigned int nms_type)
+void YOLOv6::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
+                    float score_threshold, float iou_threshold, unsigned int topk,
+                    unsigned int nms_type)
 {
   if (mat.empty()) return;
   // this->transform(mat);
@@ -69,7 +70,7 @@ void YoloV5_V_6_1::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected
 
   // resize & unscale
   cv::Mat mat_rs;
-  YoloV5ScaleParams scale_params;
+  YOLOv6ScaleParams scale_params;
   this->resize_unscale(mat, mat_rs, input_height, input_width, scale_params);
 
   // 1. make input tensor
@@ -86,13 +87,12 @@ void YoloV5_V_6_1::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected
   this->nms(bbox_collection, detected_boxes, iou_threshold, topk, nms_type);
 }
 
-void YoloV5_V_6_1::generate_bboxes(const YoloV5ScaleParams &scale_params,
-                                   std::vector<types::Boxf> &bbox_collection,
-                                   std::vector<Ort::Value> &output_tensors,
-                                   float score_threshold, int img_height,
-                                   int img_width)
+void YOLOv6::generate_bboxes(const YOLOv6ScaleParams &scale_params,
+                             std::vector<types::Boxf> &bbox_collection,
+                             std::vector<Ort::Value> &output_tensors,
+                             float score_threshold, int img_height,
+                             int img_width)
 {
-
   Ort::Value &pred = output_tensors.at(0); // (1,n,85=5+80=cxcy+cwch+obj_conf+cls_conf)
   auto pred_dims = output_node_dims.at(0); // (1,n,85)
   const unsigned int num_anchors = pred_dims.at(1); // n = ?
@@ -153,8 +153,8 @@ void YoloV5_V_6_1::generate_bboxes(const YoloV5ScaleParams &scale_params,
 #endif
 }
 
-void YoloV5_V_6_1::nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
-                       float iou_threshold, unsigned int topk, unsigned int nms_type)
+void YOLOv6::nms(std::vector<types::Boxf> &input, std::vector<types::Boxf> &output,
+                 float iou_threshold, unsigned int topk, unsigned int nms_type)
 {
   if (nms_type == NMS::BLEND) lite::utils::blending_nms(input, output, iou_threshold, topk);
   else if (nms_type == NMS::OFFSET) lite::utils::offset_nms(input, output, iou_threshold, topk);

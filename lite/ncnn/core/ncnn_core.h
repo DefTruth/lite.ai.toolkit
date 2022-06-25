@@ -80,6 +80,7 @@ namespace ncnncv
   class LITE_EXPORTS NCNNPlantID;                                // [65] * reference: https://github.com/quarrying/quarrying-plant-id
   class LITE_EXPORTS NCNNMODNet;                                 // [66] * reference: https://github.com/ZHKKKe/MODNet
   class LITE_EXPORTS NCNNFemalePhoto2Cartoon;                    // [67] * reference: https://github.com/minivision-ai/photo2cartoon
+  class LITE_EXPORTS NCNNYOLOv6;                                 // [68] * reference: https://github.com/meituan/YOLOv6
 }
 
 namespace ncnncv

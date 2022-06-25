@@ -63,6 +63,11 @@ You can download all the pretrained models files of NCNN format from ([Baidu Dri
 |            *lite::ncnn::cv::detection::NanoDetPlus*             |             nanodet-plus-m_416.opt.param&bin             |     [nanodet](https://github.com/RangiLyu/nanodet)     | 4.5Mb |
 |            *lite::ncnn::cv::detection::NanoDetPlus*             |          nanodet-plus-m-1.5x_320.opt.param&bin           |     [nanodet](https://github.com/RangiLyu/nanodet)     | 9.4Mb |
 |            *lite::ncnn::cv::detection::NanoDetPlus*             |          nanodet-plus-m-1.5x_416.opt.param&bin           |     [nanodet](https://github.com/RangiLyu/nanodet)     | 9.4Mb |
+|               *lite::ncnn::cv::detection::YOLOv6*               |          yolov6n-320x320-for-ncnn.opt.param&bin          |      [YOLOv6](https://github.com/meituan/YOLOv6)       | 17Mb  |
+|               *lite::ncnn::cv::detection::YOLOv6*               |          yolov6n-640x640-for-ncnn.opt.param&bin          |      [YOLOv6](https://github.com/meituan/YOLOv6)       | 17Mb  |
+|               *lite::ncnn::cv::detection::YOLOv6*               |          yolov6s-320x320-for-ncnn.opt.param&bin          |      [YOLOv6](https://github.com/meituan/YOLOv6)       | 66Mb  |
+|               *lite::ncnn::cv::detection::YOLOv6*               |          yolov6n-640x640-for-ncnn.opt.param&bin          |      [YOLOv6](https://github.com/meituan/YOLOv6)       | 66Mb  |
+|               *lite::ncnn::cv::detection::YOLOv6*               |          yolov6t-640x640-for-ncnn.opt.param&bin          |      [YOLOv6](https://github.com/meituan/YOLOv6)       | 57Mb  |
 
 
 

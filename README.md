@@ -275,6 +275,8 @@ static void test_default()
 |                                 [FaceHairSeg](https://github.com/kampta/face-seg)                                 |  18M  |  *segmentation*  |       [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_face_hair_seg.cpp)       |      ✅      |  ✅  |  /   |  /  |   ✅   |  ✔️   |   ✔️    |    ❔    |
 |                       [HairSeg](https://github.com/akirasosa/mobile-semantic-segmentation)                        |  18M  |  *segmentation*  |         [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_hair_seg.cpp)          |      ✅      |  ✅  |  /   |  /  |   ✅   |  ✔️   |   ✔️    |    ❔    |
 |                [MobileHumanMatting](https://github.com/lizhengwei1992/mobile_phone_human_matting)                 |  3M   |    *matting*     |   [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mobile_human_matting.cpp)    |      ✅      |  ✅  |  /   |  /  |   ✅   |  ✔️   |   ✔️    |    ❔    |
+|                 [MobileHairSeg](https://github.com/wonbeomjang/mobile-hair-segmentation-pytorch)                  |  14M  |  *segmentation*  |      [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mobile_hair_seg.cpp)      |      ✅      |  ✅  |  /   |  /  |   ✅   |  ✔️   |   ✔️    |    ❔    |
+|                                    [YOLOv6](https://github.com/meituan/YOLOv6)                                    |  17M  |   *detection*    |          [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolov6.cpp)           |      ✅      |  ✅  |  ✅   |  ✅  |   ✅   |  ✔️   |   ✔️    |    ❔    |
 
 
 ## 4. Build Docs.
@@ -642,6 +644,7 @@ auto *detector = new lite::cv::detection::NanoDetEfficientNetLite(onnx_path); //
 auto *detector = new lite::cv::detection::YoloV5_V_6_0(onnx_path); 
 auto *detector = new lite::cv::detection::YoloV5_V_6_1(onnx_path); 
 auto *detector = new lite::cv::detection::YoloX_V_0_1_1(onnx_path);  // Newest YOLO detector !!! 2021-07
+auto *detector = new lite::cv::detection::YOLOv6(onnx_path);  // Newest 2022 YOLO detector !!!
 ```
 
 
@@ -1171,6 +1174,7 @@ auto *segment = new lite::cv::segmentation::PortraitSegSINet(onnx_path); // <= 3
 auto *segment = new lite::cv::segmentation::PortraitSegExtremeC3Net(onnx_path); // <= 180Kb !!! Extreme Tiny !!!
 auto *segment = new lite::cv::segmentation::FaceHairSeg(onnx_path); // 18M
 auto *segment = new lite::cv::segmentation::HairSeg(onnx_path); // 18M
+auto *segment = new lite::cv::segmentation::MobileHairSeg(onnx_path); // 14M
 ```
 
 **** 

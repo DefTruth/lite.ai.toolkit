@@ -108,6 +108,8 @@
 #include "lite/ort/cv/hair_seg.h"
 #include "lite/ort/cv/face_hair_seg.h"
 #include "lite/ort/cv/mobile_human_matting.h"
+#include "lite/ort/cv/mobile_hair_seg.h"
+#include "lite/ort/cv/yolov6.h"
 
 #endif
 
@@ -195,6 +197,8 @@
 #include "lite/mnn/cv/mnn_hair_seg.h"
 #include "lite/mnn/cv/mnn_face_hair_seg.h"
 #include "lite/mnn/cv/mnn_mobile_human_matting.h"
+#include "lite/mnn/cv/mnn_mobile_hair_seg.h"
+#include "lite/mnn/cv/mnn_yolov6.h"
 
 #endif
 
@@ -271,6 +275,7 @@
 #include "lite/ncnn/cv/ncnn_plantid.h"
 #include "lite/ncnn/cv/ncnn_modnet.h"
 #include "lite/ncnn/cv/ncnn_female_photo2cartoon.h"
+#include "lite/ncnn/cv/ncnn_yolov6.h"
 
 #endif
 
@@ -350,6 +355,7 @@
 #include "lite/tnn/cv/tnn_backgroundmattingv2.h"
 #include "lite/tnn/cv/tnn_head_seg.h"
 #include "lite/tnn/cv/tnn_female_photo2cartoon.h"
+#include "lite/tnn/cv/tnn_yolov6.h"
 
 #endif
 
@@ -462,6 +468,8 @@ namespace lite
     typedef ortcv::HairSeg _HairSeg;
     typedef ortcv::FaceHairSeg _FaceHairSeg;
     typedef ortcv::MobileHumanMatting _MobileHumanMatting;
+    typedef ortcv::MobileHairSeg _MobileHairSeg;
+    typedef ortcv::YOLOv6 _YOLOv6;
 
 #endif
 
@@ -509,6 +517,7 @@ namespace lite
       typedef _NanoDetPlus NanoDetPlus;
       typedef _InsectDet InsectDet;
       typedef _YoloV5_V_6_1 YoloV5_V_6_1;
+      typedef _YOLOv6 YOLOv6;
 #endif
     }
     // 3. face detection & facial attributes detection
@@ -609,6 +618,7 @@ namespace lite
       typedef _PortraitSegExtremeC3Net PortraitSegExtremeC3Net;
       typedef _HairSeg HairSeg;
       typedef _FaceHairSeg FaceHairSeg;
+      typedef _MobileHairSeg MobileHairSeg;
 #endif
 
     }
@@ -844,6 +854,8 @@ namespace lite
       typedef ortcv::HairSeg _ONNXHairSeg;
       typedef ortcv::FaceHairSeg _ONNXFaceHairSeg;
       typedef ortcv::MobileHumanMatting _ONNXMobileHumanMatting;
+      typedef ortcv::MobileHairSeg _ONNXMobileHairSeg;
+      typedef ortcv::YOLOv6 _ONNXYOLOv6;
 
       // 1. classification
       namespace classification
@@ -886,6 +898,7 @@ namespace lite
         typedef _ONNXNanoDetPlus NanoDetPlus;
         typedef _ONNXInsectDet InsectDet;
         typedef _ONNXYoloV5_V_6_1 YoloV5_V_6_1;
+        typedef _ONNXYOLOv6 YOLOv6;
       }
       // 3. face detection & facial attributes detection
       namespace face
@@ -971,6 +984,7 @@ namespace lite
         typedef _ONNXPortraitSegExtremeC3Net PortraitSegExtremeC3Net;
         typedef _ONNXHairSeg HairSeg;
         typedef _ONNXFaceHairSeg FaceHairSeg;
+        typedef _ONNXMobileHairSeg MobileHairSeg;
       }
       // 6. reid
       namespace reid
@@ -1064,6 +1078,7 @@ namespace lite
         typedef mnncv::MNNNanoDetPlus NanoDetPlus;
         typedef mnncv::MNNInsectDet InsectDet;
         typedef mnncv::MNNYoloV5_V_6_1 YoloV5_V_6_1;
+        typedef mnncv::MNNYOLOv6 YOLOv6;
       }
       // face etc.
       namespace face
@@ -1142,6 +1157,7 @@ namespace lite
         typedef mnncv::MNNPortraitSegExtremeC3Net PortraitSegExtremeC3Net;
         typedef mnncv::MNNHairSeg HairSeg;
         typedef mnncv::MNNFaceHairSeg FaceHairSeg;
+        typedef mnncv::MNNMobileHairSeg MobileHairSeg;
       }
       // reid
       namespace reid
@@ -1233,6 +1249,7 @@ namespace lite
         typedef ncnncv::NCNNYoloV5_V_6_0 YoloV5_V_6_0;
         typedef ncnncv::NCNNYoloV5_V_6_0_P6 YoloV5_V_6_0_P6;
         typedef ncnncv::NCNNNanoDetPlus NanoDetPlus;
+        typedef ncnncv::NCNNYOLOv6 YOLOv6;
       }
       // face etc.
       namespace face
@@ -1380,6 +1397,7 @@ namespace lite
         typedef tnncv::TNNYoloV5_V_6_0 YoloV5_V_6_0;
         typedef tnncv::TNNNanoDetPlus NanoDetPlus;
         typedef tnncv::TNNInsectDet InsectDet;
+        typedef tnncv::TNNYOLOv6 YOLOv6;
       }
       // face etc.
       namespace face

@@ -96,4 +96,6 @@ add_lite_executable(lite_portrait_seg_extremec3net cv)
 add_lite_executable(lite_hair_seg cv)
 add_lite_executable(lite_face_hair_seg cv)
 add_lite_executable(lite_mobile_human_matting cv)
+add_lite_executable(lite_mobile_hair_seg cv)
+add_lite_executable(lite_yolov6 cv)
 

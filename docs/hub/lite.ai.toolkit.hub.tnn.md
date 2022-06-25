@@ -55,6 +55,11 @@ You can download all the pretrained models files of TNN format from ([Baidu Driv
 |       *lite::tnn::cv::detection::NanoDetPlus*       |    nanodet-plus-m-1.5x_320.opt.tnnproto&tnnmodel     |        [nanodet](https://github.com/RangiLyu/nanodet)        | 9.4Mb |
 |       *lite::tnn::cv::detection::NanoDetPlus*       |    nanodet-plus-m-1.5x_416.opt.tnnproto&tnnmodel     |        [nanodet](https://github.com/RangiLyu/nanodet)        | 9.4Mb |
 |        *lite::tnn::cv::detection::InsectDet*        |   quarrying_insect_detector.opt.tnnproto&tnnmodel    | [InsectID](https://github.com/quarrying/quarrying-insect-id) | 22Mb  |
+|         *lite::tnn::cv::detection::YOLOv6*          |        yolov6n-320x320.opt.tnnproto&tnnmodel         |         [YOLOv6](https://github.com/meituan/YOLOv6)          | 17Mb  |
+|         *lite::tnn::cv::detection::YOLOv6*          |        yolov6n-640x640.opt.tnnproto&tnnmodel         |         [YOLOv6](https://github.com/meituan/YOLOv6)          | 17Mb  |
+|         *lite::tnn::cv::detection::YOLOv6*          |        yolov6s-320x320.opt.tnnproto&tnnmodel         |         [YOLOv6](https://github.com/meituan/YOLOv6)          | 66Mb  |
+|         *lite::tnn::cv::detection::YOLOv6*          |        yolov6n-640x640.opt.tnnproto&tnnmodel         |         [YOLOv6](https://github.com/meituan/YOLOv6)          | 66Mb  |
+|         *lite::tnn::cv::detection::YOLOv6*          |        yolov6t-640x640.opt.tnnproto&tnnmodel         |         [YOLOv6](https://github.com/meituan/YOLOv6)          | 57Mb  |
 
 
 ## Matting.
