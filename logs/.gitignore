@@ -47,3 +47,4 @@ test_lite_portrait_seg*
 test_lite_hair*
 test_lite_face_hair*
 test_lite_mobile_human_matting*
+test_lite_mobile_hair_seg*
