@@ -83,6 +83,7 @@ namespace tnncv
   class LITE_EXPORTS TNNHeadSeg;                     // [69] * reference: https://github.com/minivision-ai/photo2cartoon
   class LITE_EXPORTS TNNFemalePhoto2Cartoon;         // [70] * reference: https://github.com/minivision-ai/photo2cartoon
   class LITE_EXPORTS TNNYOLOv6;                      // [71] * reference: https://github.com/meituan/YOLOv6
+  class LITE_EXPORTS TNNFaceParsingBiSeNet;          // [72] * reference: https://github.com/zllrunning/face-parsing.PyTorch
 }
 
 namespace tnncv

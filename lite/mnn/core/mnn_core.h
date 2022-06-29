@@ -91,6 +91,7 @@ namespace mnncv
   class LITE_EXPORTS MNNHairSeg;                     // [77] * reference: https://github.com/akirasosa/mobile-semantic-segmentation
   class LITE_EXPORTS MNNMobileHumanMatting;          // [78] * reference: https://github.com/lizhengwei1992/mobile_phone_human_matting
   class LITE_EXPORTS MNNYOLOv6;                      // [78] * reference: https://github.com/meituan/YOLOv6
+  class LITE_EXPORTS MNNFaceParsingBiSeNet;          // [79] * reference: https://github.com/zllrunning/face-parsing.PyTorch
 }
 
 namespace mnncv

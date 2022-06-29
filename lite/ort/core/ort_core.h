@@ -113,7 +113,8 @@ namespace ortcv
   class LITE_EXPORTS SCUNet;                     // [99] * reference: https://github.com/cszn/SCUNet
   class LITE_EXPORTS MobileHumanPose3D;          // [100] * reference: https://github.com/ibaiGorordo/ONNX-Mobile-Human-Pose-3D
   class LITE_EXPORTS FaceParsingBiSeNet;         // [101] * reference: https://github.com/zllrunning/face-parsing.PyTorch
-  class LITE_EXPORTS YOLOv6;                     // [102] * reference: https://github.com/meituan/YOLOv6
+  class LITE_EXPORTS FaceParsingBiSeNetDyn;      // [102] * reference: https://github.com/zllrunning/face-parsing.PyTorch
+  class LITE_EXPORTS YOLOv6;                     // [103] * reference: https://github.com/meituan/YOLOv6
 }
 
 namespace ortnlp

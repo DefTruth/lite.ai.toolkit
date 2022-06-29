@@ -248,6 +248,16 @@ namespace lite {
       {};
     } Photo2CartoonContent;
 
+    typedef struct LITE_EXPORTS FaceParsingContentType
+    {
+      cv::Mat label;
+      cv::Mat merge;
+      bool flag;
+
+      FaceParsingContentType(): flag(false)
+      {};
+    } FaceParsingContent;
+
     // alias
     typedef SegmentationMaskContent HairSegContent;
     typedef SegmentationMaskContent HeadSegContent;

@@ -81,6 +81,7 @@ namespace ncnncv
   class LITE_EXPORTS NCNNMODNet;                                 // [66] * reference: https://github.com/ZHKKKe/MODNet
   class LITE_EXPORTS NCNNFemalePhoto2Cartoon;                    // [67] * reference: https://github.com/minivision-ai/photo2cartoon
   class LITE_EXPORTS NCNNYOLOv6;                                 // [68] * reference: https://github.com/meituan/YOLOv6
+  class LITE_EXPORTS NCNNFaceParsingBiSeNet;                     // [69] * reference: https://github.com/zllrunning/face-parsing.PyTorch
 }
 
 namespace ncnncv
