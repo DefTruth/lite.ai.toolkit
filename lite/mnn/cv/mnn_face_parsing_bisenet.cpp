@@ -1,37 +1,48 @@
 //
-// Created by DefTruth on 2022/6/29.
+// Created by DefTruth on 2022/6/30.
 //
 
-#include "face_parsing_bisenet.h"
-#include "lite/ort/core/ort_utils.h"
+#include "mnn_face_parsing_bisenet.h"
 #include "lite/utils.h"
 
-using ortcv::FaceParsingBiSeNet;
+using mnncv::MNNFaceParsingBiSeNet;
 
-Ort::Value FaceParsingBiSeNet::transform(const cv::Mat &mat)
+MNNFaceParsingBiSeNet::MNNFaceParsingBiSeNet(const std::string &_mnn_path, unsigned int _num_threads)
+    : BasicMNNHandler(_mnn_path, _num_threads)
 {
-  cv::Mat canvas;
-  cv::resize(mat, canvas, cv::Size(input_node_dims.at(3), input_node_dims.at(2)));
-  cv::cvtColor(canvas, canvas, cv::COLOR_BGR2RGB);
-  // e.g (1,3,512,512)
-  ortcv::utils::transform::normalize_inplace(canvas, mean_vals, scale_vals);
-  return ortcv::utils::transform::create_tensor(
-      canvas, input_node_dims, memory_info_handler,
-      input_values_handler, ortcv::utils::transform::CHW); // deepcopy inside
+  initialize_pretreat();
 }
 
-void FaceParsingBiSeNet::detect(const cv::Mat &mat, types::FaceParsingContent &content,
-                                bool minimum_post_process)
+void MNNFaceParsingBiSeNet::initialize_pretreat()
+{
+  pretreat = std::shared_ptr<MNN::CV::ImageProcess>(
+      MNN::CV::ImageProcess::create(
+          MNN::CV::BGR,
+          MNN::CV::RGB,
+          mean_vals, 3,
+          norm_vals, 3
+      )
+  );
+}
+
+void MNNFaceParsingBiSeNet::transform(const cv::Mat &mat)
+{
+  cv::Mat canvas;
+  cv::resize(mat, canvas, cv::Size(input_width, input_height));
+  cv::cvtColor(canvas, canvas, cv::COLOR_BGR2RGB);
+  // (1,3,512,512) deepcopy inside
+  pretreat->convert(canvas.data, input_width, input_height, canvas.step[0], input_tensor);
+}
+
+void MNNFaceParsingBiSeNet::detect(const cv::Mat &mat, types::FaceParsingContent &content,
+                                   bool minimum_post_process)
 {
   if (mat.empty()) return;
-
   // 1. make input tensor
-  Ort::Value input_tensor = this->transform(mat);
+  this->transform(mat);
   // 2. inference
-  auto output_tensors = ort_session->Run(
-      Ort::RunOptions{nullptr}, input_node_names.data(),
-      &input_tensor, 1, output_node_names.data(), num_outputs
-  );
+  mnn_interpreter->runSession(mnn_session);
+  auto output_tensors = mnn_interpreter->getSessionOutputAll(mnn_session);
   // 3. generate mask
   this->generate_mask(output_tensors, mat, content, minimum_post_process);
 }
@@ -77,20 +88,22 @@ static const unsigned int part_colors[20][3] = {
     {255, 170, 255}
 };
 
-void FaceParsingBiSeNet::generate_mask(std::vector<Ort::Value> &output_tensors, const cv::Mat &mat,
-                                       types::FaceParsingContent &content,
-                                       bool minimum_post_process)
+void MNNFaceParsingBiSeNet::generate_mask(const std::map<std::string, MNN::Tensor *> &output_tensors,
+                                          const cv::Mat &mat, types::FaceParsingContent &content,
+                                          bool minimum_post_process)
 {
-  Ort::Value &output = output_tensors.at(0); // (1,19,h,w)
+  auto device_output_ptr = output_tensors.at("out"); // e.g (1,19,h,w)
+  MNN::Tensor host_output_tensor(device_output_ptr, device_output_ptr->getDimensionType());
+  device_output_ptr->copyToHostTensor(&host_output_tensor);
   const unsigned int h = mat.rows;
   const unsigned int w = mat.cols;
 
-  auto output_dims = output.GetTypeInfo().GetTensorTypeAndShapeInfo().GetShape();
+  auto output_dims = host_output_tensor.shape();
   const unsigned int out_h = output_dims.at(2);
   const unsigned int out_w = output_dims.at(3);
   const unsigned int channel_step = out_h * out_w;
 
-  float *output_ptr = output.GetTensorMutableData<float>();
+  float *output_ptr = host_output_tensor.host<float>();
   std::vector<unsigned int> elements(channel_step, 0); // allocate
   for (unsigned int i = 0; i < channel_step; ++i)
     elements[i] = __argmax_find(output_ptr + i, channel_step);
@@ -118,7 +131,6 @@ void FaceParsingBiSeNet::generate_mask(std::vector<Ort::Value> &output_tensors, 
   content.label = label;
   content.flag = true;
 }
-
 
 
 

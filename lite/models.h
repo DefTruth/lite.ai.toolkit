@@ -110,6 +110,7 @@
 #include "lite/ort/cv/mobile_human_matting.h"
 #include "lite/ort/cv/mobile_hair_seg.h"
 #include "lite/ort/cv/yolov6.h"
+#include "lite/ort/cv/face_parsing_bisenet.h"
 
 #endif
 
@@ -199,6 +200,7 @@
 #include "lite/mnn/cv/mnn_mobile_human_matting.h"
 #include "lite/mnn/cv/mnn_mobile_hair_seg.h"
 #include "lite/mnn/cv/mnn_yolov6.h"
+#include "lite/mnn/cv/mnn_face_parsing_bisenet.h"
 
 #endif
 
@@ -470,6 +472,7 @@ namespace lite
     typedef ortcv::MobileHumanMatting _MobileHumanMatting;
     typedef ortcv::MobileHairSeg _MobileHairSeg;
     typedef ortcv::YOLOv6 _YOLOv6;
+    typedef ortcv::FaceParsingBiSeNet _FaceParsingBiSeNet;
 
 #endif
 
@@ -619,6 +622,7 @@ namespace lite
       typedef _HairSeg HairSeg;
       typedef _FaceHairSeg FaceHairSeg;
       typedef _MobileHairSeg MobileHairSeg;
+      typedef _FaceParsingBiSeNet FaceParsingBiSeNet;
 #endif
 
     }
@@ -856,6 +860,7 @@ namespace lite
       typedef ortcv::MobileHumanMatting _ONNXMobileHumanMatting;
       typedef ortcv::MobileHairSeg _ONNXMobileHairSeg;
       typedef ortcv::YOLOv6 _ONNXYOLOv6;
+      typedef ortcv::FaceParsingBiSeNet _ONNXFaceParsingBiSeNet;
 
       // 1. classification
       namespace classification
@@ -985,6 +990,7 @@ namespace lite
         typedef _ONNXHairSeg HairSeg;
         typedef _ONNXFaceHairSeg FaceHairSeg;
         typedef _ONNXMobileHairSeg MobileHairSeg;
+        typedef _ONNXFaceParsingBiSeNet FaceParsingBiSeNet;
       }
       // 6. reid
       namespace reid
@@ -1158,6 +1164,7 @@ namespace lite
         typedef mnncv::MNNHairSeg HairSeg;
         typedef mnncv::MNNFaceHairSeg FaceHairSeg;
         typedef mnncv::MNNMobileHairSeg MobileHairSeg;
+        typedef mnncv::MNNFaceParsingBiSeNet FaceParsingBiSeNet;
       }
       // reid
       namespace reid
