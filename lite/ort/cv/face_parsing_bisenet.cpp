@@ -36,25 +36,26 @@ void FaceParsingBiSeNet::detect(const cv::Mat &mat, types::FaceParsingContent &c
   this->generate_mask(output_tensors, mat, content, minimum_post_process);
 }
 
-static inline unsigned int __argmax_find(float *mutable_ptr, const unsigned int &step)
+static inline uchar __argmax_find(float *mutable_ptr, const unsigned int &step)
 {
   std::vector<float> logits(19, 0.f);
   for (unsigned int i = 0; i < 19; ++i)
     logits[i] = *(mutable_ptr + i * step);
-  unsigned int label = 0;
+  uchar label = 0;
   float max_logit = logits[0];
   for (unsigned int i = 1; i < 19; ++i)
   {
     if (logits[i] > max_logit)
     {
       max_logit = logits[i];
-      label = i;
+      label = (uchar) i;
     }
   }
   return label;
 }
 
-static const unsigned int part_colors[20][3] = {
+static const uchar part_colors[20][3] = {
+    {255, 0,   0},
     {255, 85,  0},
     {255, 170, 0},
     {255, 0,   85},
@@ -73,8 +74,7 @@ static const unsigned int part_colors[20][3] = {
     {255, 255, 85},
     {255, 255, 170},
     {255, 0,   255},
-    {255, 85,  255},
-    {255, 170, 255}
+    {255, 85,  255}
 };
 
 void FaceParsingBiSeNet::generate_mask(std::vector<Ort::Value> &output_tensors, const cv::Mat &mat,
@@ -91,7 +91,7 @@ void FaceParsingBiSeNet::generate_mask(std::vector<Ort::Value> &output_tensors, 
   const unsigned int channel_step = out_h * out_w;
 
   float *output_ptr = output.GetTensorMutableData<float>();
-  std::vector<unsigned int> elements(channel_step, 0); // allocate
+  std::vector<uchar> elements(channel_step, 0); // allocate
   for (unsigned int i = 0; i < channel_step; ++i)
     elements[i] = __argmax_find(output_ptr + i, channel_step);
 
@@ -101,12 +101,13 @@ void FaceParsingBiSeNet::generate_mask(std::vector<Ort::Value> &output_tensors, 
   if (!minimum_post_process)
   {
     const uchar *label_ptr = label.data;
-    cv::Mat color_mat(h, w, CV_8UC3, cv::Scalar(0, 0, 0));
+    cv::Mat color_mat(h, w, CV_8UC3, cv::Scalar(255, 255, 255));
     for (unsigned int i = 0; i < color_mat.rows; ++i)
     {
-      cv::Vec3i *p = color_mat.ptr<cv::Vec3i>(i);
+      cv::Vec3b *p = color_mat.ptr<cv::Vec3b>(i);
       for (unsigned int j = 0; j < color_mat.cols; ++j)
       {
+        if (label_ptr[i * w + j] == 0) continue;
         p[j][0] = part_colors[label_ptr[i * w + j]][0];
         p[j][1] = part_colors[label_ptr[i * w + j]][1];
         p[j][2] = part_colors[label_ptr[i * w + j]][2];
