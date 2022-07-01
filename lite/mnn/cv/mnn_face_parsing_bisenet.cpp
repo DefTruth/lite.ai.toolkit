@@ -108,25 +108,27 @@ void MNNFaceParsingBiSeNet::generate_mask(const std::map<std::string, MNN::Tenso
     elements[i] = __argmax_find(output_ptr + i, channel_step);
 
   cv::Mat label(out_h, out_w, CV_8UC1, elements.data());
-  if (out_h != h || out_w != w) cv::resize(label, label, cv::Size(w, h));
 
   if (!minimum_post_process)
   {
     const uchar *label_ptr = label.data;
-    cv::Mat color_mat(h, w, CV_8UC3, cv::Scalar(255, 255, 255));
+    cv::Mat color_mat(out_h, out_w, CV_8UC3, cv::Scalar(255, 255, 255));
     for (unsigned int i = 0; i < color_mat.rows; ++i)
     {
       cv::Vec3b *p = color_mat.ptr<cv::Vec3b>(i);
       for (unsigned int j = 0; j < color_mat.cols; ++j)
       {
-        if (label_ptr[i * w + j] == 0) continue;
-        p[j][0] = part_colors[label_ptr[i * w + j]][0];
-        p[j][1] = part_colors[label_ptr[i * w + j]][1];
-        p[j][2] = part_colors[label_ptr[i * w + j]][2];
+        if (label_ptr[i * out_w + j] == 0) continue;
+        p[j][0] = part_colors[label_ptr[i * out_w + j]][0];
+        p[j][1] = part_colors[label_ptr[i * out_w + j]][1];
+        p[j][2] = part_colors[label_ptr[i * out_w + j]][2];
       }
     }
+    if (out_h != h || out_w != w)
+      cv::resize(color_mat, color_mat, cv::Size(w, h));
     cv::addWeighted(mat, 0.4, color_mat, 0.6, 0., content.merge);
   }
+  if (out_h != h || out_w != w) cv::resize(label, label, cv::Size(w, h));
 
   content.label = label;
   content.flag = true;
