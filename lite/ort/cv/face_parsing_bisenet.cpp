@@ -4,7 +4,6 @@
 
 #include "face_parsing_bisenet.h"
 #include "lite/ort/core/ort_utils.h"
-#include "lite/utils.h"
 
 using ortcv::FaceParsingBiSeNet;
 

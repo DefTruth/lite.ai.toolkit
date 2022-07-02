@@ -278,6 +278,7 @@
 #include "lite/ncnn/cv/ncnn_modnet.h"
 #include "lite/ncnn/cv/ncnn_female_photo2cartoon.h"
 #include "lite/ncnn/cv/ncnn_yolov6.h"
+#include "lite/ncnn/cv/ncnn_face_parsing_bisenet.h"
 
 #endif
 
@@ -358,6 +359,7 @@
 #include "lite/tnn/cv/tnn_head_seg.h"
 #include "lite/tnn/cv/tnn_female_photo2cartoon.h"
 #include "lite/tnn/cv/tnn_yolov6.h"
+#include "lite/tnn/cv/tnn_face_parsing_bisenet.h"
 
 #endif
 
@@ -1324,6 +1326,7 @@ namespace lite
       {
         typedef ncnncv::NCNNDeepLabV3ResNet101 DeepLabV3ResNet101;
         typedef ncnncv::NCNNFCNResNet101 FCNResNet101;
+        typedef ncnncv::NCNNFaceParsingBiSeNet FaceParsingBiSeNet;
       }
       // reid
       namespace reid
@@ -1474,6 +1477,7 @@ namespace lite
         typedef tnncv::TNNDeepLabV3ResNet101 DeepLabV3ResNet101;
         typedef tnncv::TNNFCNResNet101 FCNResNet101;
         typedef tnncv::TNNHeadSeg HeadSeg;
+        typedef tnncv::TNNFaceParsingBiSeNet FaceParsingBiSeNet;
       }
       // reid
       namespace reid

@@ -1,48 +1,64 @@
 //
-// Created by DefTruth on 2022/6/30.
+// Created by DefTruth on 2022/7/2.
 //
 
-#include "mnn_face_parsing_bisenet.h"
+#include "tnn_face_parsing_bisenet.h"
 
-using mnncv::MNNFaceParsingBiSeNet;
+using tnncv::TNNFaceParsingBiSeNet;
 
-MNNFaceParsingBiSeNet::MNNFaceParsingBiSeNet(const std::string &_mnn_path, unsigned int _num_threads)
-    : BasicMNNHandler(_mnn_path, _num_threads)
+TNNFaceParsingBiSeNet::TNNFaceParsingBiSeNet(const std::string &_proto_path,
+                                             const std::string &_model_path,
+                                             unsigned int _num_threads) :
+    BasicTNNHandler(_proto_path, _model_path, _num_threads)
 {
-  initialize_pretreat();
 }
 
-void MNNFaceParsingBiSeNet::initialize_pretreat()
+void TNNFaceParsingBiSeNet::transform(const cv::Mat &mat_rs)
 {
-  pretreat = std::shared_ptr<MNN::CV::ImageProcess>(
-      MNN::CV::ImageProcess::create(
-          MNN::CV::BGR,
-          MNN::CV::RGB,
-          mean_vals, 3,
-          norm_vals, 3
-      )
-  );
+  // push into input_mat (1,3,512,512) no deepcopy inside TNN
+  input_mat = std::make_shared<tnn::Mat>(input_device_type, tnn::N8UC3,
+                                         input_shape, (void *) mat_rs.data);
+  if (!input_mat->GetData())
+  {
+#ifdef LITETNN_DEBUG
+    std::cout << "input_mat == nullptr! transform failed\n";
+#endif
+  }
 }
 
-void MNNFaceParsingBiSeNet::transform(const cv::Mat &mat)
-{
-  cv::Mat canvas;
-  cv::resize(mat, canvas, cv::Size(input_width, input_height));
-  // (1,3,512,512) deepcopy inside
-  pretreat->convert(canvas.data, input_width, input_height, canvas.step[0], input_tensor);
-}
-
-void MNNFaceParsingBiSeNet::detect(const cv::Mat &mat, types::FaceParsingContent &content,
+void TNNFaceParsingBiSeNet::detect(const cv::Mat &mat, types::FaceParsingContent &content,
                                    bool minimum_post_process)
 {
-  if (mat.empty()) return;
-  // 1. make input tensor
-  this->transform(mat);
-  // 2. inference
-  mnn_interpreter->runSession(mnn_session);
-  auto output_tensors = mnn_interpreter->getSessionOutputAll(mnn_session);
-  // 3. generate mask
-  this->generate_mask(output_tensors, mat, content, minimum_post_process);
+  // 1. make input mat
+  cv::Mat mat_rs;
+  cv::resize(mat, mat_rs, cv::Size(input_width, input_height));
+  cv::cvtColor(mat_rs, mat_rs, cv::COLOR_BGR2RGB);
+  this->transform(mat_rs);
+  // 2. set input mat
+  tnn::MatConvertParam input_cvt_param;
+  input_cvt_param.scale = scale_vals;
+  input_cvt_param.bias = bias_vals;
+
+  tnn::Status status;
+  status = instance->SetInputMat(input_mat, input_cvt_param);
+  if (status != tnn::TNN_OK)
+  {
+#ifdef LITETNN_DEBUG
+    std::cout << status.description().c_str() << "\n";
+#endif
+    return;
+  }
+  // 3. forward
+  status = instance->Forward();
+  if (status != tnn::TNN_OK)
+  {
+#ifdef LITETNN_DEBUG
+    std::cout << status.description().c_str() << "\n";
+#endif
+    return;
+  }
+  // 4. generate mask
+  this->generate_mask(instance, mat, content, minimum_post_process);
 }
 
 static inline uchar __argmax_find(float *mutable_ptr, const unsigned int &step)
@@ -86,22 +102,30 @@ static const uchar part_colors[20][3] = {
     {255, 85,  255}
 };
 
-void MNNFaceParsingBiSeNet::generate_mask(const std::map<std::string, MNN::Tensor *> &output_tensors,
-                                          const cv::Mat &mat, types::FaceParsingContent &content,
+void TNNFaceParsingBiSeNet::generate_mask(std::shared_ptr<tnn::Instance> &_instance, const cv::Mat &mat,
+                                          types::FaceParsingContent &content,
                                           bool minimum_post_process)
 {
-  auto device_output_ptr = output_tensors.at("out"); // e.g (1,19,h,w)
-  MNN::Tensor host_output_tensor(device_output_ptr, device_output_ptr->getDimensionType());
-  device_output_ptr->copyToHostTensor(&host_output_tensor);
+  std::shared_ptr<tnn::Mat> output_mat;
+  tnn::MatConvertParam cvt_param;
+  auto status = _instance->GetOutputMat(output_mat, cvt_param, "out", output_device_type);
+  if (status != tnn::TNN_OK)
+  {
+#ifdef LITETNN_DEBUG
+    std::cout << "instance->GetOutputMat failed!:"
+              << status.description().c_str() << "\n";
+#endif
+    return;
+  }
   const unsigned int h = mat.rows;
   const unsigned int w = mat.cols;
 
-  auto output_dims = host_output_tensor.shape();
+  auto output_dims = output_mat->GetDims();
   const unsigned int out_h = output_dims.at(2);
   const unsigned int out_w = output_dims.at(3);
   const unsigned int channel_step = out_h * out_w;
 
-  float *output_ptr = host_output_tensor.host<float>();
+  float *output_ptr = (float *) output_mat->GetData();
   std::vector<uchar> elements(channel_step, 0); // allocate
   for (unsigned int i = 0; i < channel_step; ++i)
     elements[i] = __argmax_find(output_ptr + i, channel_step);
@@ -132,11 +156,6 @@ void MNNFaceParsingBiSeNet::generate_mask(const std::map<std::string, MNN::Tenso
   content.label = label;
   content.flag = true;
 }
-
-
-
-
-
 
 
 

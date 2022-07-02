@@ -12,7 +12,7 @@
 namespace tnncv
 {
   class LITE_EXPORTS TNNNanoDet;                     // [0] * reference: https://github.com/RangiLyu/nanodet
-  class LITE_EXPORTS TNNNanoDetEfficientNetLite;     // [1] * reference: https://github.com/RangiLyu/nanodet
+  class LITE_EXPORTS TNNNanoDetEfficientNetLite;      // [1] * reference: https://github.com/RangiLyu/nanodet
   class LITE_EXPORTS TNNRobustVideoMatting;          // [2] * reference: https://github.com/PeterL1n/RobustVideoMatting
   class LITE_EXPORTS TNNYoloX;                       // [3] * reference: https://github.com/Megvii-BaseDetection/YOLOX
   class LITE_EXPORTS TNNYOLOP;                       // [4] * reference: https://github.com/hustvl/YOLOP
@@ -48,12 +48,12 @@ namespace tnncv
   class LITE_EXPORTS TNNGenderGoogleNet;             // [34] * reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
   class LITE_EXPORTS TNNEmotionFerPlus;              // [35] * reference: https://github.com/onnx/models/blob/master/vision/body_analysis/emotion_ferplus
   class LITE_EXPORTS TNNSSRNet;                      // [36] * reference: https://github.com/oukohou/SSR_Net_Pytorch
-  class LITE_EXPORTS TNNEfficientEmotion7;           // [37] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
-  class LITE_EXPORTS TNNEfficientEmotion8;           // [38] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
+  class LITE_EXPORTS TNNEfficientEmotion7;            // [37] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
+  class LITE_EXPORTS TNNEfficientEmotion8;            // [38] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
   class LITE_EXPORTS TNNMobileEmotion7;              // [39] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
   class LITE_EXPORTS TNNReXNetEmotion7;              // [40] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
-  class LITE_EXPORTS TNNEfficientNetLite4;           // [41] * reference: https://github.com/onnx/models/blob/master/vision/classification/efficientnet-lite4
-  class LITE_EXPORTS TNNShuffleNetV2;                // [42] * reference: https://github.com/onnx/models/blob/master/vision/classification/shufflenet
+  class LITE_EXPORTS TNNEfficientNetLite4;            // [41] * reference: https://github.com/onnx/models/blob/master/vision/classification/efficientnet-lite4
+  class LITE_EXPORTS TNNShuffleNetV2;                 // [42] * reference: https://github.com/onnx/models/blob/master/vision/classification/shufflenet
   class LITE_EXPORTS TNNDenseNet;                    // [43] * reference: https://pytorch.org/hub/pytorch_vision_densenet/
   class LITE_EXPORTS TNNGhostNet;                    // [44] * reference：https://pytorch.org/hub/pytorch_vision_ghostnet/
   class LITE_EXPORTS TNNHdrDNet;                     // [45] * reference: https://pytorch.org/hub/pytorch_vision_hardnet/
