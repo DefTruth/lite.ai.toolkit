@@ -95,8 +95,8 @@ void NCNNFaceParsingBiSeNet::generate_mask(ncnn::Extractor &extractor, const cv:
   const unsigned int h = mat.rows;
   const unsigned int w = mat.cols;
 
-  const unsigned int out_h = input_height;
-  const unsigned int out_w = input_width;
+  const unsigned int out_h = output.h;
+  const unsigned int out_w = output.w;
   const unsigned int channel_step = out_h * out_w;
 
   float *output_ptr = (float *) output.data;

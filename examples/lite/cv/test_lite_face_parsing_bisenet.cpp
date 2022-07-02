@@ -103,8 +103,8 @@ static void test_ncnn()
 static void test_tnn()
 {
 #ifdef ENABLE_TNN
-  std::string proto_path = "../../../hub/ncnn/cv/face_parsing_512x512.opt.tnnproto";
-  std::string model_path = "../../../hub/ncnn/cv/face_parsing_512x512.opt.tnnmodel";
+  std::string proto_path = "../../../hub/tnn/cv/face_parsing_512x512.opt.tnnproto";
+  std::string model_path = "../../../hub/tnn/cv/face_parsing_512x512.opt.tnnmodel";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_face_parsing.png";
   std::string save_img_path = "../../../logs/test_lite_face_parsing_bisenet_tnn.jpg";
 

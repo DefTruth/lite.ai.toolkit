@@ -20,8 +20,14 @@ namespace tnncv
 
   private:
     // In TNN: x*scale + bias
-    std::vector<float> bias_vals = {-0.485f * 255.f, -0.456f * 255.f, -0.406f * 255.f}; // RGB
-    std::vector<float> scale_vals = {1.f / (0.229f * 255.f), 1.f / (0.224f * 255.f), 1.f / (0.225f * 255.f)};
+    std::vector<float> bias_vals = {
+        -0.485f * 255.f * (1.f / (0.229f * 255.f)),
+        -0.456f * 255.f * (1.f / (0.224f * 255.f)),
+        -0.406f * 255.f * (1.f / (0.225f * 255.f))}; // RGB
+    std::vector<float> scale_vals = {
+        1.f / (0.229f * 255.f),
+        1.f / (0.224f * 255.f),
+        1.f / (0.225f * 255.f)};
 
   private:
     void transform(const cv::Mat &mat_rs) override; //
@@ -33,7 +39,6 @@ namespace tnncv
   public:
     void detect(const cv::Mat &mat, types::FaceParsingContent &content,
                 bool minimum_post_process = false);
-
   };
 }
 

@@ -333,6 +333,9 @@ You can download all the pretrained models files of ONNX format from ([Baidu Dri
 |         *lite::cv::segmentation::HairSeg*         |            hairseg_224x224.onnx             | [mobile-semantic-seg](https://github.com/akirasosa/mobile-semantic-segmentation)  |  18M  |
 |      *lite::cv::segmentation::MobileHairSeg*      | mobile_hair_seg_hairmattenetv1_224x224.onnx | [mobile-hair...](https://github.com/wonbeomjang/mobile-hair-segmentation-pytorch) |  14M  |
 |      *lite::cv::segmentation::MobileHairSeg*      | mobile_hair_seg_hairmattenetv2_224x224.onnx | [mobile-hair...](https://github.com/wonbeomjang/mobile-hair-segmentation-pytorch) |  14M  |
+|   *lite::cv::segmentation::FaceParsingBiSeNet*    |          face_parsing_512x512.onnx          |    [face-parsing.PyTorch](https://github.com/zllrunning/face-parsing.PyTorch)     |  50M  |
+|   *lite::cv::segmentation::FaceParsingBiSeNet*    |         face_parsing_1024x1024.onnx         |    [face-parsing.PyTorch](https://github.com/zllrunning/face-parsing.PyTorch)     |  50M  |
+|  *lite::cv::segmentation::FaceParsingBiSeNetDyn*  |          face_parsing_dynamic.onnx          |    [face-parsing.PyTorch](https://github.com/zllrunning/face-parsing.PyTorch)     |  50M  |
 
 
 ## Style Transfer.  

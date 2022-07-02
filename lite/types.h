@@ -250,8 +250,8 @@ namespace lite {
 
     typedef struct LITE_EXPORTS FaceParsingContentType
     {
-      cv::Mat label;
-      cv::Mat merge;
+      cv::Mat label; // integer labels 0 ~ 255 | 0 ~ 19 | ... so on
+      cv::Mat merge; // merge mat with original image and mask
       bool flag;
 
       FaceParsingContentType(): flag(false)

@@ -115,6 +115,8 @@ namespace ortcv
   class LITE_EXPORTS FaceParsingBiSeNet;         // [101] * reference: https://github.com/zllrunning/face-parsing.PyTorch
   class LITE_EXPORTS FaceParsingBiSeNetDyn;      // [102] * reference: https://github.com/zllrunning/face-parsing.PyTorch
   class LITE_EXPORTS YOLOv6;                     // [103] * reference: https://github.com/meituan/YOLOv6
+  class LITE_EXPORTS FaceMesh;                   // [104] * reference: https://github.com/google/mediapipe/tree/master/mediapipe/graphs/face_mesh
+  class LITE_EXPORTS IrisLandmarks;              // [105] * reference: https://github.com/google/mediapipe/tree/master/mediapipe/graphs/iris_tracking
 }
 
 namespace ortnlp
