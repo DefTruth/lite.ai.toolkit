@@ -39,8 +39,8 @@
   <img src='docs/resources/head_seg.png' height="90px" width="90px">
   <img src='docs/resources/head_seg_mask.jpg' height="90px" width="90px">
   <br>
-  <img src='docs/resources/head_seg_1.png' height="90px" width="90px">
-  <img src='docs/resources/head_seg_1_mask.jpg' height="90px" width="90px">
+  <img src='docs/resources/face_parsing.png' height="90px" width="90px">
+  <img src='docs/resources/face_parsing_merge.jpg' height="90px" width="90px">
   <img src='docs/resources/head_seg.png' height="90px" width="90px">
   <img src='docs/resources/cartoon.jpg' height="90px" width="90px">
   <img src='docs/resources/facemesh0.jpg' height="90px" width="90px">  
