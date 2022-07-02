@@ -12,7 +12,7 @@
 namespace mnncv
 {
   class LITE_EXPORTS MNNNanoDet;                     // [0] * reference: https://github.com/RangiLyu/nanodet
-  class LITE_EXPORTS MNNNanoDetEfficientNetLite;     // [1] * reference: https://github.com/RangiLyu/nanodet
+  class LITE_EXPORTS MNNNanoDetEfficientNetLite;      // [1] * reference: https://github.com/RangiLyu/nanodet
   class LITE_EXPORTS MNNRobustVideoMatting;          // [2] * reference: https://github.com/PeterL1n/RobustVideoMatting
   class LITE_EXPORTS MNNYoloX;                       // [3] * reference: https://github.com/Megvii-BaseDetection/YOLOX
   class LITE_EXPORTS MNNYOLOP;                       // [4] * reference: https://github.com/hustvl/YOLOP
@@ -48,12 +48,12 @@ namespace mnncv
   class LITE_EXPORTS MNNGenderGoogleNet;             // [34] * reference: https://github.com/onnx/models/tree/master/vision/body_analysis/age_gender
   class LITE_EXPORTS MNNEmotionFerPlus;              // [35] * reference: https://github.com/onnx/models/blob/master/vision/body_analysis/emotion_ferplus
   class LITE_EXPORTS MNNSSRNet;                      // [36] * reference: https://github.com/oukohou/SSR_Net_Pytorch
-  class LITE_EXPORTS MNNEfficientEmotion7;           // [37] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
-  class LITE_EXPORTS MNNEfficientEmotion8;           // [38] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
+  class LITE_EXPORTS MNNEfficientEmotion7;            // [37] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
+  class LITE_EXPORTS MNNEfficientEmotion8;            // [38] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
   class LITE_EXPORTS MNNMobileEmotion7;              // [39] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
   class LITE_EXPORTS MNNReXNetEmotion7;              // [40] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
-  class LITE_EXPORTS MNNEfficientNetLite4;           // [41] * reference: https://github.com/onnx/models/blob/master/vision/classification/efficientnet-lite4
-  class LITE_EXPORTS MNNShuffleNetV2;                // [42] * reference: https://github.com/onnx/models/blob/master/vision/classification/shufflenet
+  class LITE_EXPORTS MNNEfficientNetLite4;            // [41] * reference: https://github.com/onnx/models/blob/master/vision/classification/efficientnet-lite4
+  class LITE_EXPORTS MNNShuffleNetV2;                 // [42] * reference: https://github.com/onnx/models/blob/master/vision/classification/shufflenet
   class LITE_EXPORTS MNNDenseNet;                    // [43] * reference: https://pytorch.org/hub/pytorch_vision_densenet/
   class LITE_EXPORTS MNNGhostNet;                    // [44] * reference：https://pytorch.org/hub/pytorch_vision_ghostnet/
   class LITE_EXPORTS MNNHdrDNet;                     // [45] * reference: https://pytorch.org/hub/pytorch_vision_hardnet/
@@ -91,6 +91,9 @@ namespace mnncv
   class LITE_EXPORTS MNNHairSeg;                     // [77] * reference: https://github.com/akirasosa/mobile-semantic-segmentation
   class LITE_EXPORTS MNNMobileHumanMatting;          // [78] * reference: https://github.com/lizhengwei1992/mobile_phone_human_matting
   class LITE_EXPORTS MNNYOLOv6;                      // [78] * reference: https://github.com/meituan/YOLOv6
+  class LITE_EXPORTS MNNFaceParsingBiSeNet;          // [79] * reference: https://github.com/zllrunning/face-parsing.PyTorch
+  class LITE_EXPORTS MNNFaceMesh;                    // [80] * reference: https://github.com/google/mediapipe/tree/master/mediapipe/graphs/face_mesh
+  class LITE_EXPORTS MNNIrisLandmarks;               // [81] * reference: https://github.com/google/mediapipe/tree/master/mediapipe/graphs/iris_tracking
 }
 
 namespace mnncv

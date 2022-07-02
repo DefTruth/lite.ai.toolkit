@@ -110,6 +110,8 @@
 #include "lite/ort/cv/mobile_human_matting.h"
 #include "lite/ort/cv/mobile_hair_seg.h"
 #include "lite/ort/cv/yolov6.h"
+#include "lite/ort/cv/face_parsing_bisenet.h"
+#include "lite/ort/cv/face_parsing_bisenet_dyn.h"
 
 #endif
 
@@ -199,6 +201,7 @@
 #include "lite/mnn/cv/mnn_mobile_human_matting.h"
 #include "lite/mnn/cv/mnn_mobile_hair_seg.h"
 #include "lite/mnn/cv/mnn_yolov6.h"
+#include "lite/mnn/cv/mnn_face_parsing_bisenet.h"
 
 #endif
 
@@ -276,6 +279,7 @@
 #include "lite/ncnn/cv/ncnn_modnet.h"
 #include "lite/ncnn/cv/ncnn_female_photo2cartoon.h"
 #include "lite/ncnn/cv/ncnn_yolov6.h"
+#include "lite/ncnn/cv/ncnn_face_parsing_bisenet.h"
 
 #endif
 
@@ -356,6 +360,7 @@
 #include "lite/tnn/cv/tnn_head_seg.h"
 #include "lite/tnn/cv/tnn_female_photo2cartoon.h"
 #include "lite/tnn/cv/tnn_yolov6.h"
+#include "lite/tnn/cv/tnn_face_parsing_bisenet.h"
 
 #endif
 
@@ -470,6 +475,8 @@ namespace lite
     typedef ortcv::MobileHumanMatting _MobileHumanMatting;
     typedef ortcv::MobileHairSeg _MobileHairSeg;
     typedef ortcv::YOLOv6 _YOLOv6;
+    typedef ortcv::FaceParsingBiSeNet _FaceParsingBiSeNet;
+    typedef ortcv::FaceParsingBiSeNetDyn _FaceParsingBiSeNetDyn;
 
 #endif
 
@@ -619,6 +626,8 @@ namespace lite
       typedef _HairSeg HairSeg;
       typedef _FaceHairSeg FaceHairSeg;
       typedef _MobileHairSeg MobileHairSeg;
+      typedef _FaceParsingBiSeNet FaceParsingBiSeNet;
+      typedef _FaceParsingBiSeNetDyn FaceParsingBiSeNetDyn;
 #endif
 
     }
@@ -856,6 +865,8 @@ namespace lite
       typedef ortcv::MobileHumanMatting _ONNXMobileHumanMatting;
       typedef ortcv::MobileHairSeg _ONNXMobileHairSeg;
       typedef ortcv::YOLOv6 _ONNXYOLOv6;
+      typedef ortcv::FaceParsingBiSeNet _ONNXFaceParsingBiSeNet;
+      typedef ortcv::FaceParsingBiSeNetDyn _ONNXFaceParsingBiSeNetDyn;
 
       // 1. classification
       namespace classification
@@ -985,6 +996,8 @@ namespace lite
         typedef _ONNXHairSeg HairSeg;
         typedef _ONNXFaceHairSeg FaceHairSeg;
         typedef _ONNXMobileHairSeg MobileHairSeg;
+        typedef _ONNXFaceParsingBiSeNet FaceParsingBiSeNet;
+        typedef _ONNXFaceParsingBiSeNetDyn FaceParsingBiSeNetDyn;
       }
       // 6. reid
       namespace reid
@@ -1158,6 +1171,7 @@ namespace lite
         typedef mnncv::MNNHairSeg HairSeg;
         typedef mnncv::MNNFaceHairSeg FaceHairSeg;
         typedef mnncv::MNNMobileHairSeg MobileHairSeg;
+        typedef mnncv::MNNFaceParsingBiSeNet FaceParsingBiSeNet;
       }
       // reid
       namespace reid
@@ -1317,6 +1331,7 @@ namespace lite
       {
         typedef ncnncv::NCNNDeepLabV3ResNet101 DeepLabV3ResNet101;
         typedef ncnncv::NCNNFCNResNet101 FCNResNet101;
+        typedef ncnncv::NCNNFaceParsingBiSeNet FaceParsingBiSeNet;
       }
       // reid
       namespace reid
@@ -1467,6 +1482,7 @@ namespace lite
         typedef tnncv::TNNDeepLabV3ResNet101 DeepLabV3ResNet101;
         typedef tnncv::TNNFCNResNet101 FCNResNet101;
         typedef tnncv::TNNHeadSeg HeadSeg;
+        typedef tnncv::TNNFaceParsingBiSeNet FaceParsingBiSeNet;
       }
       // reid
       namespace reid

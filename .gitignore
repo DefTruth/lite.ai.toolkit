@@ -7,3 +7,4 @@ build-debug.sh
 __pycache__
 scripts
 prebuilt
+debug.txt

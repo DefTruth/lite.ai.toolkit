@@ -230,10 +230,12 @@ You can download all the pretrained models files of NCNN format from ([Baidu Dri
 <div id="lite.ai.toolkit.hub.ncnn-segmentation"></div>  
 
 
-|                       Class                        |         Pretrained NCNN Files          |         Rename or Converted From (Repo)          | Size  |
-|:--------------------------------------------------:|:--------------------------------------:|:------------------------------------------------:|:-----:|
-| *lite::ncnn::cv::segmentation::DeepLabV3ResNet101* | deeplabv3_resnet101_coco.opt.param&bin | [torchvision](https://github.com/pytorch/vision) | 232Mb |
-|    *lite::ncnn::cv::segmentation::FCNResNet101*    |      fcn_resnet101.opt.param&bin       | [torchvision](https://github.com/pytorch/vision) | 207Mb |
+|                       Class                        |         Pretrained NCNN Files          |                      Rename or Converted From (Repo)                       | Size  |
+|:--------------------------------------------------:|:--------------------------------------:|:--------------------------------------------------------------------------:|:-----:|
+| *lite::ncnn::cv::segmentation::DeepLabV3ResNet101* | deeplabv3_resnet101_coco.opt.param&bin |              [torchvision](https://github.com/pytorch/vision)              | 232Mb |
+|    *lite::ncnn::cv::segmentation::FCNResNet101*    |      fcn_resnet101.opt.param&bin       |              [torchvision](https://github.com/pytorch/vision)              | 207Mb |
+| *lite::ncnn::cv::segmentation::FaceParsingBiSeNet* |   face_parsing_512x512.opt.param&bin   | [face-parsing.PyTorch](https://github.com/zllrunning/face-parsing.PyTorch) |  50M  |
+| *lite::ncnn::cv::segmentation::FaceParsingBiSeNet* |  face_parsing_1024x1024.opt.param&bin  | [face-parsing.PyTorch](https://github.com/zllrunning/face-parsing.PyTorch) |  50M  |
 
 
 ## Style Transfer.

@@ -260,11 +260,14 @@ You can download all the pretrained models files of TNN format from ([Baidu Driv
 <div id="lite.ai.toolkit.hub.onnx-segmentation"></div>  
 
 
-|                       Class                       |              Pretrained TNN Files              |                 Rename or Converted From (Repo)                 | Size  |
-|:-------------------------------------------------:|:----------------------------------------------:|:---------------------------------------------------------------:|:-----:|
-| *lite::tnn::cv::segmentation::DeepLabV3ResNet101* | deeplabv3_resnet101_coco.opt.tnnproto&tnnmodel |        [torchvision](https://github.com/pytorch/vision)         | 232Mb |
-|    *lite::tnn::cv::segmentation::FCNResNet101*    |      fcn_resnet101.opt.tnnproto&tnnmodel       |        [torchvision](https://github.com/pytorch/vision)         | 207Mb |
-|      *lite::tnn::cv::segmentation::HeadSeg*       |    minivision_head_seg.opt.tnnproto&cmodel     | [photo2cartoon](https://github.com/minivision-ai/photo2cartoon) | 31Mb  |
+|                       Class                       |              Pretrained TNN Files              |                      Rename or Converted From (Repo)                       | Size  |
+|:-------------------------------------------------:|:----------------------------------------------:|:--------------------------------------------------------------------------:|:-----:|
+| *lite::tnn::cv::segmentation::DeepLabV3ResNet101* | deeplabv3_resnet101_coco.opt.tnnproto&tnnmodel |              [torchvision](https://github.com/pytorch/vision)              | 232Mb |
+|    *lite::tnn::cv::segmentation::FCNResNet101*    |      fcn_resnet101.opt.tnnproto&tnnmodel       |              [torchvision](https://github.com/pytorch/vision)              | 207Mb |
+|      *lite::tnn::cv::segmentation::HeadSeg*       |    minivision_head_seg.opt.tnnproto&cmodel     |      [photo2cartoon](https://github.com/minivision-ai/photo2cartoon)       | 31Mb  |
+| *lite::tnn::cv::segmentation::FaceParsingBiSeNet* |    face_parsing_512x512.opt.tnnproto&cmodel    | [face-parsing.PyTorch](https://github.com/zllrunning/face-parsing.PyTorch) |  50M  |
+| *lite::tnn::cv::segmentation::FaceParsingBiSeNet* |   face_parsing_1024x1024.opt.tnnproto&cmodel   | [face-parsing.PyTorch](https://github.com/zllrunning/face-parsing.PyTorch) |  50M  |
+
 
 
 ## Style Transfer.

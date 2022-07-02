@@ -38,8 +38,8 @@
   <img src='docs/resources/head_seg.png' height="90px" width="90px">
   <img src='docs/resources/head_seg_mask.jpg' height="90px" width="90px">
   <br>
-  <img src='docs/resources/head_seg_1.png' height="90px" width="90px">
-  <img src='docs/resources/head_seg_1_mask.jpg' height="90px" width="90px">
+  <img src='docs/resources/face_parsing.png' height="90px" width="90px">
+  <img src='docs/resources/face_parsing_merge.jpg' height="90px" width="90px">
   <img src='docs/resources/head_seg.png' height="90px" width="90px">
   <img src='docs/resources/cartoon.jpg' height="90px" width="90px">
   <img src='docs/resources/facemesh0.jpg' height="90px" width="90px">  
@@ -263,8 +263,8 @@ static void test_default()
 |                             [SubPixelCNN](https://github.com/niazwazir/SUB_PIXEL_CNN)                             | 234K  |   *resolution*   |       [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_subpixel_cnn.cpp)        |      ✅      |  ✅  |  /   |  ✅  |   ✅   |  ✔️   |   ✔️    |    ❔    |
 |                             [SubPixelCNN](https://github.com/niazwazir/SUB_PIXEL_CNN)                             | 234K  |   *resolution*   |       [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_subpixel_cnn.cpp)        |      ✅      |  ✅  |  /   |  ✅  |   ✅   |  ✔️   |   ✔️    |    ❔    |
 |                           [InsectDet](https://github.com/quarrying/quarrying-insect-id)                           |  27M  |   *detection*    |         [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_insectdet.cpp)         |      ✅      |  ✅  |  /   |  ✅  |   ✅   |  ✔️   |   ✔️    |    ❔    |
-|                           [InsectID](https://github.com/quarrying/quarrying-insect-id)                            |  22M  | *classification* |         [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_insectid.cpp)          |      ✅      |  ✅  |  ✅   |  ✅  |   ✅   |   ✅   |   ✔️    |   ✔️    |    ❔    |
-|                            [PlantID](https://github.com/quarrying/quarrying-plant-id)                             |  30M  | *classification* |          [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_plantid.cpp)          |      ✅      |  ✅  |  ✅   |  ✅  |   ✅   |   ✅   |   ✔️    |   ✔️    |    ❔    |
+|                           [InsectID](https://github.com/quarrying/quarrying-insect-id)                            |  22M  | *classification* |         [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_insectid.cpp)          |      ✅      |  ✅  |  ✅   |  ✅  |   ✅   |  ✔️   |   ✔️    |   ✔️    |    ❔    |
+|                            [PlantID](https://github.com/quarrying/quarrying-plant-id)                             |  30M  | *classification* |          [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_plantid.cpp)          |      ✅      |  ✅  |  ✅   |  ✅  |   ✅   |  ✔️   |   ✔️    |   ✔️    |    ❔    |
 |                           [YOLOv5BlazeFace](https://github.com/deepcam-cn/yolov5-face)                            | 3.4M  |  *face::detect*  |     [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolov5_blazeface.cpp)      |      ✅      |  ✅  |  /   |  /  |   ✅   |  ✔️   |   ✔️    |    ❔    |  
 |                      [YoloV5_V_6_1](https://github.com/ultralytics/yolov5/releases/tag/v6.1)                      | 7.5M  |   *detection*    |        [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolov5_v6.1.cpp)        |      ✅      |  ✅  |  /   |  /  |   ✅   |  ✔️   |   ✔️    |    ❔    |
 |                             [HeadSeg](https://github.com/minivision-ai/photo2cartoon)                             |  31M  |  *segmentation*  |         [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_head_seg.cpp)          |      ✅      |  ✅  |  /   |  ✅  |   ✅   |  ✔️   |   ✔️    |    ❔    |
@@ -277,6 +277,8 @@ static void test_default()
 |                [MobileHumanMatting](https://github.com/lizhengwei1992/mobile_phone_human_matting)                 |  3M   |    *matting*     |   [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mobile_human_matting.cpp)    |      ✅      |  ✅  |  /   |  /  |   ✅   |  ✔️   |   ✔️    |    ❔    |
 |                 [MobileHairSeg](https://github.com/wonbeomjang/mobile-hair-segmentation-pytorch)                  |  14M  |  *segmentation*  |      [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mobile_hair_seg.cpp)      |      ✅      |  ✅  |  /   |  /  |   ✅   |  ✔️   |   ✔️    |    ❔    |
 |                                    [YOLOv6](https://github.com/meituan/YOLOv6)                                    |  17M  |   *detection*    |          [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolov6.cpp)           |      ✅      |  ✅  |  ✅   |  ✅  |   ✅   |  ✔️   |   ✔️    |    ❔    |
+|                     [FaceParsingBiSeNet](https://github.com/zllrunning/face-parsing.PyTorch)                      |  50M  |  *segmentation*  |   [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_face_parsing_bisenet.cpp)    |      ✅      |  ✅  |  ✅   |  ✅  |   ✅   |  ✔️   |   ✔️    |    ❔    |
+|                    [FaceParsingBiSeNetDyn](https://github.com/zllrunning/face-parsing.PyTorch)                    |  50M  |  *segmentation*  | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_face_parsing_bisenet_dyn.cpp)  |      ✅      |  /  |  /   |  /  |   /   |  ✔️   |   ✔️    |    ❔    |
 
 
 ## 4. Build Docs.
@@ -880,8 +882,6 @@ static void test_default()
   lite::utils::draw_boxes_with_landmarks_inplace(img_bgr, detected_boxes);
   cv::imwrite(save_img_path, img_bgr);
   
-  std::cout << "Default Version Done! Detected Face Num: " << detected_boxes.size() << std::endl;
-  
   delete scrfd;
 }
 ```
@@ -973,7 +973,6 @@ static void test_default()
   ssrnet->detect(img_bgr, age);
   lite::utils::draw_age_inplace(img_bgr, age);
   cv::imwrite(save_img_path, img_bgr);
-  std::cout << "Default Version Done! Detected SSRNet Age: " << age.age << std::endl;
 
   delete ssrnet;
 }
@@ -1227,6 +1226,44 @@ More classes for photo style transfer.
 auto *transfer = new lite::cv::style::FemalePhoto2Cartoon(onnx_path);
 ```
 
+**** 
+
+#### Example13: Face Parsing using [FaceParsing](https://github.com/zllrunning/face-parsing.PyTorch). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
+```c++
+#include "lite/lite.h"
+
+static void test_default()
+{
+  std::string onnx_path = "../../../hub/onnx/cv/face_parsing_512x512.onnx";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_face_parsing.png";
+  std::string save_img_path = "../../../logs/test_lite_face_parsing_bisenet.jpg";
+
+  auto *face_parsing_bisenet = new lite::cv::segmentation::FaceParsingBiSeNet(onnx_path, 8); // 8 threads
+
+  lite::types::FaceParsingContent content;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  face_parsing_bisenet->detect(img_bgr, content);
+
+  if (content.flag && !content.merge.empty())
+    cv::imwrite(save_img_path, content.merge);
+  
+  delete face_parsing_bisenet;
+}
+```  
+The output is:
+
+<div align='center'>
+  <img src='docs/resources/face_parsing.png' height="180px" width="180px">
+  <img src='docs/resources/face_parsing_merge.jpg' height="180px" width="180px">
+  <img src='docs/resources/face_parsing_1.png' height="180px" width="180px">
+  <img src='docs/resources/face_parsing_1_merge.jpg' height="180px" width="180px">
+</div> 
+
+More classes for face parsing (hair, eyes, nose, mouth, others)
+```c++
+auto *segment = new lite::cv::segmentation::FaceParsingBiSeNet(onnx_path); // 50Mb
+auto *segment = new lite::cv::segmentation::FaceParsingBiSeNetDyn(onnx_path); // Dynamic Shape Inference.
+```
 
 ## 7. License.
 

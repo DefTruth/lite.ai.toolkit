@@ -290,6 +290,8 @@ You can download all the pretrained models files of MNN format from ([Baidu Driv
 |         *lite::mnn::cv::segmentation::HairSeg*         |            hairseg_224x224.mnn             | [mobile-semantic-seg](https://github.com/akirasosa/mobile-semantic-segmentation)  |  18M  |
 |      *lite::mnn::cv::segmentation::MobileHairSeg*      | mobile_hair_seg_hairmattenetv1_224x224.mnn | [mobile-hair...](https://github.com/wonbeomjang/mobile-hair-segmentation-pytorch) |  14M  |
 |      *lite::mnn::cv::segmentation::MobileHairSeg*      | mobile_hair_seg_hairmattenetv2_224x224.mnn | [mobile-hair...](https://github.com/wonbeomjang/mobile-hair-segmentation-pytorch) |  14M  |
+|   *lite::mnn::cv::segmentation::FaceParsingBiSeNet*    |          face_parsing_512x512.mnn          |    [face-parsing.PyTorch](https://github.com/zllrunning/face-parsing.PyTorch)     |  50M  |
+|   *lite::mnn::cv::segmentation::FaceParsingBiSeNet*    |         face_parsing_1024x1024.mnn         |    [face-parsing.PyTorch](https://github.com/zllrunning/face-parsing.PyTorch)     |  50M  |
 
 
 ## Style Transfer.

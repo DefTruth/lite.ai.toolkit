@@ -16,8 +16,7 @@ namespace ncnncv
                         const std::string &_bin_path,
                         unsigned int _num_threads = 1,
                         unsigned int _input_height = 512,
-                        unsigned int _input_width = 512
-                        );
+                        unsigned int _input_width = 512);
 
     ~NCNNMODNet() override = default;
 

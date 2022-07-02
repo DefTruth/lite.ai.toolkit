@@ -143,7 +143,7 @@ static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
   std::string proto_path = "../../../hub/ncnn/cv/modnet_photographic_portrait_matting-512x512.opt.param";
-  std::string model_path = "../../../hub/ncnn/cv/modnet_photographic_portrait_matting-512x512.opt.bin";
+  std::string bin_path = "../../../hub/ncnn/cv/modnet_photographic_portrait_matting-512x512.opt.bin";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_matting_input.jpg";
   std::string test_bgr_path = "../../../examples/lite/resources/test_lite_matting_bgr.jpg";
   std::string save_fgr_path = "../../../logs/test_lite_modnet_fgr_ncnn.jpg";
@@ -152,7 +152,7 @@ static void test_ncnn()
   std::string save_swap_path = "../../../logs/test_lite_modnet_swap_ncnn.jpg";
 
   lite::ncnn::cv::matting::MODNet *modnet =
-      new lite::ncnn::cv::matting::MODNet(proto_path, model_path, 16, 512, 512); // 16 threads
+      new lite::ncnn::cv::matting::MODNet(proto_path, bin_path, 16, 512, 512); // 16 threads
 
   lite::types::MattingContent content;
   cv::Mat img_bgr = cv::imread(test_img_path);
