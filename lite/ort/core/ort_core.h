@@ -27,8 +27,8 @@ namespace ortcv
   class LITE_EXPORTS YoloV4;                     // [13] * reference: https://github.com/argusswift/YOLOv4-pytorch
   class LITE_EXPORTS YoloV5;                     // [14] * reference: https://github.com/ultralytics/yolov5
   class LITE_EXPORTS YoloV3;                     // [15] * reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/yolov3
-  class LITE_EXPORTS EfficientNetLite4;          // [16] * reference: https://github.com/onnx/models/blob/master/vision/classification/efficientnet-lite4
-  class LITE_EXPORTS ShuffleNetV2;               // [17] * reference: https://github.com/onnx/models/blob/master/vision/classification/shufflenet
+  class LITE_EXPORTS EfficientNetLite4;           // [16] * reference: https://github.com/onnx/models/blob/master/vision/classification/efficientnet-lite4
+  class LITE_EXPORTS ShuffleNetV2;                // [17] * reference: https://github.com/onnx/models/blob/master/vision/classification/shufflenet
   class LITE_EXPORTS TinyYoloV3;                 // [18] * reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/tiny-yolov3
   class LITE_EXPORTS SSD;                        // [19] * reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd
   class LITE_EXPORTS SSDMobileNetV1;             // [20] * reference: https://github.com/onnx/models/blob/master/vision/object_detection_segmentation/ssd-mobilenetv1
@@ -56,8 +56,8 @@ namespace ortcv
   class LITE_EXPORTS CavaGhostArcFace;           // [42] * reference: https://github.com/cavalleria/cavaface.pytorch
   class LITE_EXPORTS CavaCombinedFace;           // [43] * reference: https://github.com/cavalleria/cavaface.pytorch
   class LITE_EXPORTS MobileSEFocalFace;          // [44] * reference: https://github.com/grib0ed0v/face_recognition.pytorch
-  class LITE_EXPORTS EfficientEmotion7;          // [45] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
-  class LITE_EXPORTS EfficientEmotion8;          // [46] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
+  class LITE_EXPORTS EfficientEmotion7;           // [45] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
+  class LITE_EXPORTS EfficientEmotion8;           // [46] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
   class LITE_EXPORTS MobileEmotion7;             // [47] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
   class LITE_EXPORTS ReXNetEmotion7;             // [48] * reference: https://github.com/HSE-asavchenko/face-emotion-recognition
   class LITE_EXPORTS PFLD98;                     // [49] * reference: https://github.com/polarisZhao/PFLD-pytorch
@@ -72,13 +72,13 @@ namespace ortcv
   class LITE_EXPORTS TinyYoloV4COCO;             // [58] * reference: https://github.com/bubbliiiing/yolov4-tiny-pytorch
   class LITE_EXPORTS YoloR;                      // [59] * reference: https://github.com/WongKinYiu/yolor
   class LITE_EXPORTS ScaledYoloV4;               // [60] * reference: https://github.com/WongKinYiu/ScaledYOLOv4
-  class LITE_EXPORTS EfficientDet;               // [61] * reference: https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch
-  class LITE_EXPORTS EfficientDetD7;             // [62] * reference: https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch
-  class LITE_EXPORTS EfficientDetD8;             // [63] * reference: https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch
+  class LITE_EXPORTS EfficientDet;                // [61] * reference: https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch
+  class LITE_EXPORTS EfficientDetD7;              // [62] * reference: https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch
+  class LITE_EXPORTS EfficientDetD8;              // [63] * reference: https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch
   class LITE_EXPORTS YOLOP;                      // [64] * reference: https://github.com/hustvl/YOLOP
   class LITE_EXPORTS RobustVideoMatting;         // [65] * reference: https://github.com/PeterL1n/RobustVideoMatting
   class LITE_EXPORTS NanoDet;                    // [66] * reference: https://github.com/RangiLyu/nanodet
-  class LITE_EXPORTS NanoDetEfficientNetLite;    // [67] * reference: https://github.com/RangiLyu/nanodet
+  class LITE_EXPORTS NanoDetEfficientNetLite;     // [67] * reference: https://github.com/RangiLyu/nanodet
   class LITE_EXPORTS YoloX_V_0_1_1;              // [68] * reference: https://github.com/Megvii-BaseDetection/YOLOX
   class LITE_EXPORTS YoloV5_V_6_0;               // [69] * reference: https://github.com/ultralytics/yolov5
   class LITE_EXPORTS MGMatting;                  // [70] * reference: https://github.com/yucornetto/MGMatting

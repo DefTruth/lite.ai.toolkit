@@ -111,6 +111,7 @@
 #include "lite/ort/cv/mobile_hair_seg.h"
 #include "lite/ort/cv/yolov6.h"
 #include "lite/ort/cv/face_parsing_bisenet.h"
+#include "lite/ort/cv/face_parsing_bisenet_dyn.h"
 
 #endif
 
@@ -475,6 +476,7 @@ namespace lite
     typedef ortcv::MobileHairSeg _MobileHairSeg;
     typedef ortcv::YOLOv6 _YOLOv6;
     typedef ortcv::FaceParsingBiSeNet _FaceParsingBiSeNet;
+    typedef ortcv::FaceParsingBiSeNetDyn _FaceParsingBiSeNetDyn;
 
 #endif
 
@@ -625,6 +627,7 @@ namespace lite
       typedef _FaceHairSeg FaceHairSeg;
       typedef _MobileHairSeg MobileHairSeg;
       typedef _FaceParsingBiSeNet FaceParsingBiSeNet;
+      typedef _FaceParsingBiSeNetDyn FaceParsingBiSeNetDyn;
 #endif
 
     }
@@ -863,6 +866,7 @@ namespace lite
       typedef ortcv::MobileHairSeg _ONNXMobileHairSeg;
       typedef ortcv::YOLOv6 _ONNXYOLOv6;
       typedef ortcv::FaceParsingBiSeNet _ONNXFaceParsingBiSeNet;
+      typedef ortcv::FaceParsingBiSeNetDyn _ONNXFaceParsingBiSeNetDyn;
 
       // 1. classification
       namespace classification
@@ -993,6 +997,7 @@ namespace lite
         typedef _ONNXFaceHairSeg FaceHairSeg;
         typedef _ONNXMobileHairSeg MobileHairSeg;
         typedef _ONNXFaceParsingBiSeNet FaceParsingBiSeNet;
+        typedef _ONNXFaceParsingBiSeNetDyn FaceParsingBiSeNetDyn;
       }
       // 6. reid
       namespace reid

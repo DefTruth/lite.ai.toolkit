@@ -134,6 +134,10 @@ void TNNFaceParsingBiSeNet::generate_mask(std::shared_ptr<tnn::Instance> &_insta
 
   if (!minimum_post_process)
   {
+    // FaceParsingBiSeNet only predict integer label mask,
+    // no fgr. So, the fake fgr and merge mat may not need,
+    // let the fgr mat and merge mat empty to
+    // Speed up the post processes.
     const uchar *label_ptr = label.data;
     cv::Mat color_mat(out_h, out_w, CV_8UC3, cv::Scalar(255, 255, 255));
     for (unsigned int i = 0; i < color_mat.rows; ++i)
@@ -152,8 +156,8 @@ void TNNFaceParsingBiSeNet::generate_mask(std::shared_ptr<tnn::Instance> &_insta
     cv::addWeighted(mat, 0.4, color_mat, 0.6, 0., content.merge);
   }
   if (out_h != h || out_w != w) cv::resize(label, label, cv::Size(w, h));
-
-  content.label = label;
+  // the data elements point to will release after return.
+  content.label = label.clone(); // need clone ?
   content.flag = true;
 }
 
