@@ -38,8 +38,9 @@ void TNNNanoDet::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
   int dh = pad_h / 2;
 
   // resize with unscaling
-  cv::Mat new_unpad_mat = mat.clone();
-  cv::resize(new_unpad_mat, new_unpad_mat, cv::Size(new_unpad_w, new_unpad_h));
+  cv::Mat new_unpad_mat;
+  // cv::Mat new_unpad_mat = mat.clone(); // may not need clone.
+  cv::resize(mat, new_unpad_mat, cv::Size(new_unpad_w, new_unpad_h));
   new_unpad_mat.copyTo(mat_rs(cv::Rect(dw, dh, new_unpad_w, new_unpad_h)));
 
   // record scale params.
@@ -114,7 +115,7 @@ void TNNNanoDet::generate_points(unsigned int target_height, unsigned int target
 {
   if (center_points_is_update) return;
 
-  for (auto stride : strides)
+  for (auto stride: strides)
   {
     unsigned int num_grid_w = target_width / stride;
     unsigned int num_grid_h = target_height / stride;
@@ -226,7 +227,7 @@ void TNNNanoDet::generate_bboxes_single_stride(const NanoScaleParams &scale_para
   auto &stride_points = center_points[stride];
   for (unsigned int i = 0; i < num_points; ++i)
   {
-    const float *scores = (float *)cls_pred->GetData() + (i * num_classes); // row ptr
+    const float *scores = (float *) cls_pred->GetData() + (i * num_classes); // row ptr
     float cls_conf = scores[0];
     unsigned int label = 0;
     for (unsigned int j = 0; j < num_classes; ++j)
@@ -245,7 +246,7 @@ void TNNNanoDet::generate_bboxes_single_stride(const NanoScaleParams &scale_para
     const float cy = point.grid1; // cy
     const float s = point.stride; // stride
 
-    const float *offsets = (float *)dis_pred->GetData() + (i * 4);
+    const float *offsets = (float *) dis_pred->GetData() + (i * 4);
 
     float l = offsets[0]; // left
     float t = offsets[1]; // top
@@ -259,8 +260,8 @@ void TNNNanoDet::generate_bboxes_single_stride(const NanoScaleParams &scale_para
     float y2 = ((cy + b) * s - (float) dh) / ratio;  // cy + b y2
     box.x1 = std::max(0.f, x1);
     box.y1 = std::max(0.f, y1);
-    box.x2 = std::min(img_width, x2);
-    box.y2 = std::min(img_height, y2);
+    box.x2 = std::min(img_width - 1.f, x2);
+    box.y2 = std::min(img_height - 1.f, y2);
     box.score = cls_conf;
     box.label = label;
     box.label_text = class_names[label];

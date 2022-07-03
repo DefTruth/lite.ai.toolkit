@@ -190,7 +190,8 @@ void NCNNRobustVideoMatting::generate_matting(ncnn::Extractor &extractor,
   merge_channel_mats.push_back(mgmat);
   merge_channel_mats.push_back(mrmat);
 
-  content.pha_mat = pmat;
+  // need clone to allocate a new continuous memory.
+  content.pha_mat = pmat.clone(); // allocated
   cv::merge(fgr_channel_mats, content.fgr_mat);
   cv::merge(merge_channel_mats, content.merge_mat);
   content.fgr_mat.convertTo(content.fgr_mat, CV_8UC3);

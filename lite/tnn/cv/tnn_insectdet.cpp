@@ -38,8 +38,9 @@ void TNNInsectDet::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
   int dh = pad_h / 2;
 
   // resize with unscaling
-  cv::Mat new_unpad_mat = mat.clone();
-  cv::resize(new_unpad_mat, new_unpad_mat, cv::Size(new_unpad_w, new_unpad_h));
+  cv::Mat new_unpad_mat;
+  // cv::Mat new_unpad_mat = mat.clone(); // may not need clone.
+  cv::resize(mat, new_unpad_mat, cv::Size(new_unpad_w, new_unpad_h));
   new_unpad_mat.copyTo(mat_rs(cv::Rect(dw, dh, new_unpad_w, new_unpad_h)));
 
   // record scale params.
@@ -162,8 +163,8 @@ void TNNInsectDet::generate_bboxes(const InsectDetScaleParams &scale_params,
     float y2 = ((cy + h / 2.f) - (float) dh_) / r_;
     box.x1 = std::max(0.f, x1);
     box.y1 = std::max(0.f, y1);
-    box.x2 = std::min((float) img_width, x2);
-    box.y2 = std::min((float) img_height, y2);
+    box.x2 = std::min((float) img_width - 1.f, x2);
+    box.y2 = std::min((float) img_height - 1.f, y2);
     box.score = cls_conf;
     box.label = 1;
     box.label_text = "insect";

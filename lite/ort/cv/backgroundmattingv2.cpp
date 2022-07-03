@@ -152,7 +152,7 @@ void BackgroundMattingV2::generate_matting(std::vector<Ort::Value> &output_tenso
   float *pha_ptr = pha.GetTensorMutableData<float>();
   float *fgr_ptr = fgr.GetTensorMutableData<float>();
   // fast assign & channel transpose(CHW->HWC).
-  cv::Mat pmat(out_h, out_w, CV_32FC1, pha_ptr);
+  cv::Mat pmat(out_h, out_w, CV_32FC1, pha_ptr); // ref
   if (remove_noise) lite::utils::remove_small_connected_area(pmat, 0.05f);
 
   std::vector<cv::Mat> fgr_channel_mats;
@@ -166,8 +166,8 @@ void BackgroundMattingV2::generate_matting(std::vector<Ort::Value> &output_tenso
   fgr_channel_mats.push_back(gmat);
   fgr_channel_mats.push_back(rmat);
 
-  content.pha_mat = pmat;
-  cv::merge(fgr_channel_mats, content.fgr_mat);
+  content.pha_mat = pmat; // ref only
+  cv::merge(fgr_channel_mats, content.fgr_mat); // allocated
   content.fgr_mat.convertTo(content.fgr_mat, CV_8UC3);
 
   if (!minimum_post_process)
@@ -180,17 +180,24 @@ void BackgroundMattingV2::generate_matting(std::vector<Ort::Value> &output_tenso
     merge_channel_mats.push_back(mbmat);
     merge_channel_mats.push_back(mgmat);
     merge_channel_mats.push_back(mrmat);
-    cv::merge(merge_channel_mats, content.merge_mat);
+    cv::merge(merge_channel_mats, content.merge_mat);  // allocated
     content.merge_mat.convertTo(content.merge_mat, CV_8UC3);
   }
 
   // resize alpha
   if (out_h != h || out_w != w)
   {
+    // already allocated a new continuous memory after resize (pha_mat)
     cv::resize(content.pha_mat, content.pha_mat, cv::Size(w, h));
     cv::resize(content.fgr_mat, content.fgr_mat, cv::Size(w, h));
     if (!minimum_post_process)
       cv::resize(content.merge_mat, content.merge_mat, cv::Size(w, h));
+  } //
+  else
+  {
+    // need clone to allocate a new continuous memory if not performed resize.
+    // The memory elements point to will release after return.
+    content.pha_mat = content.pha_mat.clone();
   }
 
   content.flag = true;

@@ -166,10 +166,17 @@ void MNNBackgroundMattingV2::generate_matting(
   // resize alpha
   if (out_h != h || out_w != w)
   {
+    // already allocated a new continuous memory after resize (pha_mat)
     cv::resize(content.pha_mat, content.pha_mat, cv::Size(w, h));
     cv::resize(content.fgr_mat, content.fgr_mat, cv::Size(w, h));
     if (!minimum_post_process)
       cv::resize(content.merge_mat, content.merge_mat, cv::Size(w, h));
+  } //
+  else
+  {
+    // need clone to allocate a new continuous memory if not performed resize.
+    // The memory elements point to will release after return.
+    content.pha_mat = content.pha_mat.clone();
   }
 
   content.flag = true;

@@ -207,7 +207,8 @@ void MGMatting::generate_matting(std::vector<Ort::Value> &output_tensors,
   this->update_alpha_pred(alpha_pred, weight_os1, alpha_os1_pred);
   if (remove_noise) lite::utils::remove_small_connected_area(alpha_pred, 0.05f);
 
-  cv::Mat pmat = alpha_pred(cv::Rect(align_val, align_val, w, h));
+  // need clone to allocate a new continuous memory.
+  cv::Mat pmat = alpha_pred(cv::Rect(align_val, align_val, w, h)).clone(); // allocated
   content.pha_mat = pmat;
 
   if (!minimum_post_process)
@@ -242,8 +243,8 @@ void MGMatting::generate_matting(std::vector<Ort::Value> &output_tensors,
     cv::merge(fgr_channel_mats, content.fgr_mat);
     cv::merge(merge_channel_mats, content.merge_mat);
 
-    content.fgr_mat.convertTo(content.fgr_mat, CV_8UC3);
-    content.merge_mat.convertTo(content.merge_mat, CV_8UC3);
+    content.fgr_mat.convertTo(content.fgr_mat, CV_8UC3); // allocated
+    content.merge_mat.convertTo(content.merge_mat, CV_8UC3); // allocated
   }
 
   content.flag = true;

@@ -54,8 +54,9 @@ void MNNPortraitSegExtremeC3Net::resize_unscale(const cv::Mat &mat, cv::Mat &mat
   int dh = pad_h / 2;
 
   // resize with unscaling
-  cv::Mat new_unpad_mat = mat.clone(); // TODO: may not need clone.
-  cv::resize(new_unpad_mat, new_unpad_mat, cv::Size(new_unpad_w, new_unpad_h));
+  cv::Mat new_unpad_mat;
+  // cv::Mat new_unpad_mat = mat.clone(); // may not need clone.
+  cv::resize(mat, new_unpad_mat, cv::Size(new_unpad_w, new_unpad_h));
   new_unpad_mat.copyTo(mat_rs(cv::Rect(dw, dh, new_unpad_w, new_unpad_h)));
 
   // record scale params.
@@ -86,7 +87,7 @@ void MNNPortraitSegExtremeC3Net::detect(const cv::Mat &mat, types::PortraitSegCo
   this->generate_mask(scale_params, output_tensors, mat, content, score_threshold, remove_noise);
 }
 
-static inline void __decode_and_zero_if_small_inplace(float *mutable_ptr, float &score)
+static inline void decode_and_zero_if_small_inplace(float *mutable_ptr, float &score)
 {
   // ref: https://github.com/clovaai/ext_portrait_segmentation/blob/master/etc/lovasz_losses.py#L143
   const float sign = (1.f / (*mutable_ptr)) <= score ? -1.f : 1.f;
@@ -112,7 +113,7 @@ void MNNPortraitSegExtremeC3Net::generate_mask(const PortraitSegExtremeC3NetScal
 
   // remove small values
   for (unsigned int i = 0; i < element_size; ++i)
-    __decode_and_zero_if_small_inplace(output_ptr + i, score_threshold);
+    decode_and_zero_if_small_inplace(output_ptr + i, score_threshold);
 
   // fetch foreground score
   const int dw = scale_params.dw;
@@ -123,8 +124,12 @@ void MNNPortraitSegExtremeC3Net::generate_mask(const PortraitSegExtremeC3NetScal
   cv::Mat alpha_pred(out_h, out_w, CV_32FC1, output_ptr);
   cv::Mat mask = alpha_pred(cv::Rect(dw, dh, nw, nh)); // 0. ~ 1.
   if (remove_noise) lite::utils::remove_small_connected_area(mask, 0.05f);
+  // already allocated a new continuous memory after resize.
   if (nh != h || nw != w) cv::resize(mask, mask, cv::Size(w, h));
+    // need clone to allocate a new continuous memory if not performed resize.
+    // The memory elements point to will release after return.
+  else mask = mask.clone();
 
-  content.mask = mask;
+  content.mask = mask; // auto handle the memory inside ocv with smart ref.
   content.flag = true;
 }

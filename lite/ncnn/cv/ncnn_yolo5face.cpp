@@ -64,8 +64,9 @@ void NCNNYOLO5Face::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
   int dh = pad_h / 2;
 
   // resize with unscaling
-  cv::Mat new_unpad_mat = mat.clone();
-  cv::resize(new_unpad_mat, new_unpad_mat, cv::Size(new_unpad_w, new_unpad_h));
+  cv::Mat new_unpad_mat;
+  // cv::Mat new_unpad_mat = mat.clone(); // may not need clone.
+  cv::resize(mat, new_unpad_mat, cv::Size(new_unpad_w, new_unpad_h));
   new_unpad_mat.copyTo(mat_rs(cv::Rect(dw, dh, new_unpad_w, new_unpad_h)));
 
   // record scale params.
@@ -341,8 +342,8 @@ void NCNNYOLO5Face::generate_bboxes_kps_single_stride(
     float y2 = ((cy + h / 2.f) - (float) dh_) / r_;
     box_kps.box.x1 = std::max(0.f, x1);
     box_kps.box.y1 = std::max(0.f, y1);
-    box_kps.box.x2 = std::min(img_width, x2);
-    box_kps.box.y2 = std::min(img_height, y2);
+    box_kps.box.x2 = std::min(img_width - 1.f, x2);
+    box_kps.box.y2 = std::min(img_height - 1.f, y2);
     box_kps.box.score = cls_conf;
     box_kps.box.label = 1;
     box_kps.box.label_text = "face";
@@ -360,8 +361,8 @@ void NCNNYOLO5Face::generate_bboxes_kps_single_stride(
       cv::Point2f kps;
       kps_x = (kps_x - (float) dw_) / r_;
       kps_y = (kps_y - (float) dh_) / r_;
-      kps.x = std::min(std::max(0.f, kps_x), img_width);
-      kps.y = std::min(std::max(0.f, kps_y), img_height);
+      kps.x = std::min(std::max(0.f, kps_x), img_width - 1.f);
+      kps.y = std::min(std::max(0.f, kps_y), img_height - 1.f);
       box_kps.landmarks.points.push_back(kps);
     }
     box_kps.landmarks.flag = true;

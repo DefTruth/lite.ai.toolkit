@@ -76,7 +76,7 @@ void FemalePhoto2Cartoon::generate_cartoon(
   cartoon_channel_mats.push_back(gmat);
   cartoon_channel_mats.push_back(bmat);
   cv::Mat cartoon;
-  cv::merge(cartoon_channel_mats, cartoon); // CV_32FC3
+  cv::merge(cartoon_channel_mats, cartoon); // CV_32FC3 allocated
   if (out_h != mask_h || out_w != mask_w)
     cv::resize(cartoon, cartoon, cv::Size(mask_w, mask_h));
   // combine & RGB -> BGR -> uint8

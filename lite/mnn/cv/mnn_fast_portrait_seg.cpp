@@ -85,7 +85,7 @@ void MNNFastPortraitSeg::detect(const cv::Mat &mat, types::PortraitSegContent &c
   this->generate_mask(scale_params, output_tensors, mat, content, score_threshold, remove_noise);
 }
 
-static inline void __softmax_inplace(float *mutable_ptr_bgr, float *mutable_ptr_fgr)
+static inline void softmax_inplace(float *mutable_ptr_bgr, float *mutable_ptr_fgr)
 {
   const float bgr_exp = std::exp(*mutable_ptr_bgr);
   const float fgr_exp = std::exp(*mutable_ptr_fgr);
@@ -93,7 +93,7 @@ static inline void __softmax_inplace(float *mutable_ptr_bgr, float *mutable_ptr_
   *mutable_ptr_fgr = 1.f - *mutable_ptr_bgr;
 }
 
-static inline void __zero_if_small_inplace(float *mutable_ptr, float &score)
+static inline void zero_if_small_inplace(float *mutable_ptr, float &score)
 { if (*(mutable_ptr) < score) *(mutable_ptr) = 0.f; }
 
 void MNNFastPortraitSeg::generate_mask(const FastPortraitSegScaleParams &scale_params,
@@ -115,11 +115,11 @@ void MNNFastPortraitSeg::generate_mask(const FastPortraitSegScaleParams &scale_p
 
   // softmax
   for (unsigned int i = 0; i < channel_step; ++i)
-    __softmax_inplace(output_ptr + i, output_ptr + i + channel_step); // bgr & fgr
+    softmax_inplace(output_ptr + i, output_ptr + i + channel_step); // bgr & fgr
 
   // remove small values
   for (unsigned int i = 0; i < channel_step; ++i)
-    __zero_if_small_inplace(output_ptr + channel_step + i, score_threshold);
+    zero_if_small_inplace(output_ptr + channel_step + i, score_threshold);
 
   // fetch foreground score
   const int dw = scale_params.dw;
@@ -130,8 +130,12 @@ void MNNFastPortraitSeg::generate_mask(const FastPortraitSegScaleParams &scale_p
   cv::Mat alpha_pred(out_h, out_w, CV_32FC1, output_ptr + channel_step); // only need prob of fgr
   cv::Mat mask = alpha_pred(cv::Rect(dw, dh, nw, nh)); // 0. ~ 1.
   if (remove_noise) lite::utils::remove_small_connected_area(mask, 0.05f);
+  // already allocated a new continuous memory after resize.
   if (nh != h || nw != w) cv::resize(mask, mask, cv::Size(w, h));
+    // need clone to allocate a new continuous memory if not performed resize.
+    // The memory elements point to will release after return.
+  else mask = mask.clone();
 
-  content.mask = mask;
+  content.mask = mask; // auto handle the memory inside ocv with smart ref.
   content.flag = true;
 }

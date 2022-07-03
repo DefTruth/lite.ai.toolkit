@@ -42,7 +42,7 @@ void NCNNFaceParsingBiSeNet::detect(const cv::Mat &mat, types::FaceParsingConten
   this->generate_mask(extractor, mat, content, minimum_post_process);
 }
 
-static inline uchar __argmax_find(float *mutable_ptr, const unsigned int &step)
+static inline uchar argmax(float *mutable_ptr, const unsigned int &step)
 {
   std::vector<float> logits(19, 0.f);
   for (unsigned int i = 0; i < 19; ++i)
@@ -102,7 +102,7 @@ void NCNNFaceParsingBiSeNet::generate_mask(ncnn::Extractor &extractor, const cv:
   float *output_ptr = (float *) output.data;
   std::vector<uchar> elements(channel_step, 0); // allocate
   for (unsigned int i = 0; i < channel_step; ++i)
-    elements[i] = __argmax_find(output_ptr + i, channel_step);
+    elements[i] = argmax(output_ptr + i, channel_step);
 
   cv::Mat label(out_h, out_w, CV_8UC1, elements.data());
 
@@ -129,9 +129,13 @@ void NCNNFaceParsingBiSeNet::generate_mask(ncnn::Extractor &extractor, const cv:
       cv::resize(color_mat, color_mat, cv::Size(w, h));
     cv::addWeighted(mat, 0.4, color_mat, 0.6, 0., content.merge);
   }
+  // already allocated a new continuous memory after resize.
   if (out_h != h || out_w != w) cv::resize(label, label, cv::Size(w, h));
-  // the data elements point to will release after return.
-  content.label = label.clone(); // need clone ?
+    // need clone to allocate a new continuous memory if not performed resize.
+    // The memory elements point to will release after return.
+  else label = label.clone();
+
+  content.label = label; // auto handle the memory inside ocv with smart ref.
   content.flag = true;
 }
 

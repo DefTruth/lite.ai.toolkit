@@ -36,7 +36,7 @@ void MobileHairSeg::detect(const cv::Mat &mat, types::HairSegContent &content,
   this->generate_mask(output_tensors, mat, content, score_threshold, remove_noise);
 }
 
-static inline void __zero_if_small_inplace(float *mutable_ptr, float &score)
+static inline void zero_if_small_inplace(float *mutable_ptr, float &score)
 { if ((*mutable_ptr) < score) *mutable_ptr = 0.f; }
 
 void MobileHairSeg::generate_mask(std::vector<Ort::Value> &output_tensors, const cv::Mat &mat,
@@ -57,13 +57,17 @@ void MobileHairSeg::generate_mask(std::vector<Ort::Value> &output_tensors, const
   // remove small values
   if (score_threshold > 0.001f)
     for (unsigned int i = 0; i < element_size; ++i)
-      __zero_if_small_inplace(output_ptr + i, score_threshold);
+      zero_if_small_inplace(output_ptr + i, score_threshold);
 
   cv::Mat mask(out_h, out_w, CV_32FC1, output_ptr);
   // post process
   if (remove_noise) lite::utils::remove_small_connected_area(mask, 0.05f);
+  // already allocated a new continuous memory after resize.
   if (out_h != h || out_w != w) cv::resize(mask, mask, cv::Size(w, h));
+    // need clone to allocate a new continuous memory if not performed resize.
+    // The memory elements point to will release after return.
+  else mask = mask.clone();
 
-  content.mask = mask;
+  content.mask = mask; // auto handle the memory inside ocv with smart ref.
   content.flag = true;
 }

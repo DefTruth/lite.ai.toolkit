@@ -36,7 +36,7 @@ void FaceHairSeg::detect(const cv::Mat &mat, types::FaceHairSegContent &content,
   this->generate_mask(output_tensors, mat, content, remove_noise);
 }
 
-static inline float __argmax_find(float *mutable_ptr, const unsigned int &step)
+static inline float argmax(float *mutable_ptr, const unsigned int &step)
 {
   std::vector<float> logits(3, 0.f);
   logits[0] = *mutable_ptr; // background
@@ -73,13 +73,17 @@ void FaceHairSeg::generate_mask(std::vector<Ort::Value> &output_tensors, const c
 
   std::vector<float> elements(channel_step, 0.f); // allocate
   for (unsigned int i = 0; i < channel_step; ++i)
-    elements[i] = (float) __argmax_find(output_ptr + i, channel_step); // with normalize
+    elements[i] = (float) argmax(output_ptr + i, channel_step); // with normalize
 
-  cv::Mat mask(out_h, out_w, CV_32FC1, elements.data());
+  cv::Mat mask(out_h, out_w, CV_32FC1, elements.data()); // ref only !
   // post process
   if (remove_noise) lite::utils::remove_small_connected_area(mask, 0.05f);
+  // already allocated a new continuous memory after resize.
   if (out_h != h || out_w != w) cv::resize(mask, mask, cv::Size(w, h));
+    // need clone to allocate a new continuous memory if not performed resize.
+    // The memory elements point to will release after return.
+  else mask = mask.clone();
 
-  content.mask = mask;
+  content.mask = mask; // auto handle the memory inside ocv with smart ref.
   content.flag = true;
 }
