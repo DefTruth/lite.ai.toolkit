@@ -101,7 +101,7 @@ void FaceParsingBiSeNetDyn::detect(const cv::Mat &mat, types::FaceParsingContent
   this->generate_mask(output_tensors, mat, content, minimum_post_process);
 }
 
-static inline uchar __argmax_find(float *mutable_ptr, const unsigned int &step)
+static inline uchar argmax(float *mutable_ptr, const unsigned int &step)
 {
   std::vector<float> logits(19, 0.f);
   for (unsigned int i = 0; i < 19; ++i)
@@ -158,7 +158,7 @@ void FaceParsingBiSeNetDyn::generate_mask(std::vector<Ort::Value> &output_tensor
   float *output_ptr = output.GetTensorMutableData<float>();
   std::vector<uchar> elements(channel_step, 0); // allocate
   for (unsigned int i = 0; i < channel_step; ++i)
-    elements[i] = __argmax_find(output_ptr + i, channel_step);
+    elements[i] = argmax(output_ptr + i, channel_step);
 
   cv::Mat label_pred(out_h, out_w, CV_8UC1, elements.data()); // ref only
   // need clone to allocate a new continuous memory.

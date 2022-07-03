@@ -230,7 +230,7 @@ void RobustVideoMatting::generate_matting(std::vector<Ort::Value> &output_tensor
   cv::Mat rmat(height, width, CV_32FC1, fgr_ptr);
   cv::Mat gmat(height, width, CV_32FC1, fgr_ptr + channel_step);
   cv::Mat bmat(height, width, CV_32FC1, fgr_ptr + 2 * channel_step);
-  cv::Mat pmat(height, width, CV_32FC1, pha_ptr);
+  cv::Mat pmat(height, width, CV_32FC1, pha_ptr); // ref only
   if (remove_noise) lite::utils::remove_small_connected_area(pmat, 0.05f);
 
   rmat *= 255.;
@@ -241,8 +241,9 @@ void RobustVideoMatting::generate_matting(std::vector<Ort::Value> &output_tensor
   fgr_channel_mats.push_back(gmat);
   fgr_channel_mats.push_back(rmat);
 
-  content.pha_mat = pmat;
-  cv::merge(fgr_channel_mats, content.fgr_mat);
+  // need clone to allocate a new continuous memory.
+  content.pha_mat = pmat.clone(); // allocated
+  cv::merge(fgr_channel_mats, content.fgr_mat); // allocated
   content.fgr_mat.convertTo(content.fgr_mat, CV_8UC3);
 
   if (!minimum_post_process)
@@ -255,7 +256,7 @@ void RobustVideoMatting::generate_matting(std::vector<Ort::Value> &output_tensor
     merge_channel_mats.push_back(mbmat);
     merge_channel_mats.push_back(mgmat);
     merge_channel_mats.push_back(mrmat);
-    cv::merge(merge_channel_mats, content.merge_mat);
+    cv::merge(merge_channel_mats, content.merge_mat); // allocated
     content.merge_mat.convertTo(content.merge_mat, CV_8UC3);
   }
 

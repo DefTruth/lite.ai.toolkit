@@ -67,10 +67,14 @@ void MNNMODNet::generate_matting(const std::map<std::string, MNN::Tensor *> &out
   if (remove_noise) lite::utils::remove_small_connected_area(alpha_pred, 0.05f);
   // resize alpha
   if (out_h != h || out_w != w)
+    // already allocated a new continuous memory after resize.
     cv::resize(alpha_pred, alpha_pred, cv::Size(w, h));
+    // need clone to allocate a new continuous memory if not performed resize.
+    // The memory elements point to will release after return.
+  else alpha_pred = alpha_pred.clone();
 
   cv::Mat pmat = alpha_pred; // ref
-  content.pha_mat = pmat;
+  content.pha_mat = pmat; // auto handle the memory inside ocv with smart ref.
 
   if (!minimum_post_process)
   {

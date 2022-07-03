@@ -122,8 +122,8 @@ void HeadSeg::detect(const cv::Mat &mat, types::HeadSegContent &content)
   float *mask_ptr = mask_pred.GetTensorMutableData<float>();
 
   cv::Mat mask_adj;
-  cv::Mat mask_out(out_h, out_w, CV_32FC1, mask_ptr);
-  cv::resize(mask_out, mask_adj, cv::Size(img_w, img_h)); // (img_h,img_w,1)
+  cv::Mat mask_out(out_h, out_w, CV_32FC1, mask_ptr); // ref only
+  cv::resize(mask_out, mask_adj, cv::Size(img_w, img_h)); // (img_h,img_w,1) allocated
 
   content.mask = mask_adj;
   content.flag = true;

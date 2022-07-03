@@ -116,9 +116,10 @@ void MODNetDyn::generate_matting(std::vector<Ort::Value> &output_tensors,
   float *output_ptr = output.GetTensorMutableData<float>();
 
   cv::Mat alpha_pred(out_h, out_w, CV_32FC1, output_ptr);
-  if (remove_noise) lite::utils::remove_small_connected_area(alpha_pred, 0.05f);
+  // need clone to allocate a new continuous memory.
+  cv::Mat pmat = alpha_pred(cv::Rect(align_val, align_val, w, h)).clone(); // allocated
+  if (remove_noise) lite::utils::remove_small_connected_area(pmat, 0.05f);
 
-  cv::Mat pmat = alpha_pred(cv::Rect(align_val, align_val, w, h));
   content.pha_mat = pmat;
 
   if (!minimum_post_process)
@@ -150,8 +151,8 @@ void MODNetDyn::generate_matting(std::vector<Ort::Value> &output_tensors,
     merge_channel_mats.push_back(mgmat);
     merge_channel_mats.push_back(mrmat);
 
-    cv::merge(fgr_channel_mats, content.fgr_mat);
-    cv::merge(merge_channel_mats, content.merge_mat);
+    cv::merge(fgr_channel_mats, content.fgr_mat); // allocated
+    cv::merge(merge_channel_mats, content.merge_mat); // allocated
 
     content.fgr_mat.convertTo(content.fgr_mat, CV_8UC3);
     content.merge_mat.convertTo(content.merge_mat, CV_8UC3);

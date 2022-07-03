@@ -60,8 +60,9 @@ void NCNNSCRFD::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
   int dh = pad_h / 2;
 
   // resize with unscaling
-  cv::Mat new_unpad_mat = mat.clone();
-  cv::resize(new_unpad_mat, new_unpad_mat, cv::Size(new_unpad_w, new_unpad_h));
+  cv::Mat new_unpad_mat;
+  // cv::Mat new_unpad_mat = mat.clone(); // may not need clone.
+  cv::resize(mat, new_unpad_mat, cv::Size(new_unpad_w, new_unpad_h));
   new_unpad_mat.copyTo(mat_rs(cv::Rect(dw, dh, new_unpad_w, new_unpad_h)));
 
   // record scale params.
@@ -238,8 +239,8 @@ void NCNNSCRFD::generate_bboxes_single_stride(
     float y2 = ((cy + b) * s - (float) dh) / ratio;  // cy + b y2
     box_kps.box.x1 = std::max(0.f, x1);
     box_kps.box.y1 = std::max(0.f, y1);
-    box_kps.box.x2 = std::min(img_width, x2);
-    box_kps.box.y2 = std::min(img_height, y2);
+    box_kps.box.x2 = std::min(img_width - 1.f, x2);
+    box_kps.box.y2 = std::min(img_height - 1.f, y2);
     box_kps.box.score = cls_conf;
     box_kps.box.label = 1;
     box_kps.box.label_text = "face";
@@ -308,8 +309,8 @@ void NCNNSCRFD::generate_bboxes_kps_single_stride(
     float y2 = ((cy + b) * s - (float) dh) / ratio;  // cy + b y2
     box_kps.box.x1 = std::max(0.f, x1);
     box_kps.box.y1 = std::max(0.f, y1);
-    box_kps.box.x2 = std::min(img_width, x2);
-    box_kps.box.y2 = std::min(img_height, y2);
+    box_kps.box.x2 = std::min(img_width - 1.f, x2);
+    box_kps.box.y2 = std::min(img_height - 1.f, y2);
     box_kps.box.score = cls_conf;
     box_kps.box.label = 1;
     box_kps.box.label_text = "face";
@@ -324,8 +325,8 @@ void NCNNSCRFD::generate_bboxes_kps_single_stride(
       float kps_t = kps_offsets[j + 1];
       float kps_x = ((cx + kps_l) * s - (float) dw) / ratio;  // cx - l x
       float kps_y = ((cy + kps_t) * s - (float) dh) / ratio;  // cy - t y
-      kps.x = std::min(std::max(0.f, kps_x), img_width);
-      kps.y = std::min(std::max(0.f, kps_y), img_height);
+      kps.x = std::min(std::max(0.f, kps_x), img_width - 1.f);
+      kps.y = std::min(std::max(0.f, kps_y), img_height - 1.f);
       box_kps.landmarks.points.push_back(kps);
     }
     box_kps.landmarks.flag = true;

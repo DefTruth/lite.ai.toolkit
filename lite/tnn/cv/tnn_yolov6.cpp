@@ -40,6 +40,7 @@ void TNNYOLOv6::resize_unscale(const cv::Mat &mat, cv::Mat &mat_rs,
 
   // resize with unscaling
   cv::Mat new_unpad_mat;
+  // cv::Mat new_unpad_mat = mat.clone(); // may not need clone.
   cv::resize(mat, new_unpad_mat, cv::Size(new_unpad_w, new_unpad_h));
   new_unpad_mat.copyTo(mat_rs(cv::Rect(dw, dh, new_unpad_w, new_unpad_h)));
 

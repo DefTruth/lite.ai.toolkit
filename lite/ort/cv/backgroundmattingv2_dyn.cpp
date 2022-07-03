@@ -140,7 +140,8 @@ void BackgroundMattingV2Dyn::generate_matting(std::vector<Ort::Value> &output_te
   float *fgr_ptr = fgr.GetTensorMutableData<float>();
   // fast assign & channel transpose(CHW->HWC).
   cv::Mat alpha_pred(out_h, out_w, CV_32FC1, pha_ptr); // ref only, zero copy
-  cv::Mat pmat = alpha_pred(cv::Rect(align_val, align_val, w, h)); // ref only, zero copy
+  // need clone to allocate a new continuous memory.
+  cv::Mat pmat = alpha_pred(cv::Rect(align_val, align_val, w, h)).clone(); // allocated
   if (remove_noise) lite::utils::remove_small_connected_area(pmat, 0.05f);
 
   std::vector<cv::Mat> fgr_channel_mats;
@@ -157,8 +158,8 @@ void BackgroundMattingV2Dyn::generate_matting(std::vector<Ort::Value> &output_te
   fgr_channel_mats.push_back(gmat);
   fgr_channel_mats.push_back(rmat);
 
-  content.pha_mat = pmat;
-  cv::merge(fgr_channel_mats, content.fgr_mat);
+  content.pha_mat = pmat; // ref only, no need clone, already cloned.
+  cv::merge(fgr_channel_mats, content.fgr_mat); // allocated
   content.fgr_mat.convertTo(content.fgr_mat, CV_8UC3);
 
   if (!minimum_post_process)
@@ -171,7 +172,7 @@ void BackgroundMattingV2Dyn::generate_matting(std::vector<Ort::Value> &output_te
     merge_channel_mats.push_back(mbmat);
     merge_channel_mats.push_back(mgmat);
     merge_channel_mats.push_back(mrmat);
-    cv::merge(merge_channel_mats, content.merge_mat);
+    cv::merge(merge_channel_mats, content.merge_mat);  // allocated
     content.merge_mat.convertTo(content.merge_mat, CV_8UC3);
   }
 
