@@ -50,12 +50,22 @@
 
 <p align="center">English | <a href="README.zh.md">中文文档</a> | <a href=#lite.ai.toolkit-Build-MacOS>MacOS</a> | <a href=#lite.ai.toolkit-Build-Linux>Linux</a> | <a href=#lite.ai.toolkit-Build-Windows>Windows</a> </p>
 
+## 重要通知 (Important Note) !!! 🔥🔥🔥
+
+中文：本项目将不再频繁更新，更优的部署体验请尝试[⚡️PaddlePaddle/FastDeploy](https://github.com/PaddlePaddle/FastDeploy) : ⚡️一款开箱即用的推理部署工具箱。覆盖业界主流优质预训练模型并提供开箱即用的开发体验，包括图像分类、目标检测、图像分割、人脸检测、人体关键点识别、文字识别等多任务，满足开发者多场景，多硬件、多平台的快速部署需求，并同时支持 **C++** 和 **Python** 两种语言。**lite.ai.toolkit** 中的核心模型未来将会以contrib的方式集成到[⚡️PaddlePaddle/FastDeploy](https://github.com/PaddlePaddle/FastDeploy) 中。欢迎同学们使用 ✋👉[⚡️PaddlePaddle/FastDeploy](https://github.com/PaddlePaddle/FastDeploy).
+
+----
+
+English: This project will no longer be updated frequently. For a better deployment experience, please try [⚡️PaddlePaddle/FastDeploy](https://github.com/PaddlePaddle/FastDeploy): ⚡️An Easy-to-use and Fast Deep Learning Model Deployment Toolkit. Covering the industry's mainstream high-quality pre-training models and providing out-of-the-box development experience, including image classification, target detection, image segmentation, face detection, human key point recognition, text recognition and other multi-tasks, to meet the needs of developers in multiple scenarios and multiple hardware, multi-platform deployment requirements, and supports both **C++** and **Python** languages. The core models in **lite.ai.toolkit** will be integrated into [⚡️PaddlePaddle/FastDeploy](https://github.com/PaddlePaddle/FastDeploy) in a contrib way in the future. Welcome to use ✋👉[⚡️PaddlePaddle/FastDeploy](https://github.com/PaddlePaddle/FastDeploy).
+
+----
+
 ## Core Features 👏👋
 <div id="lite.ai.toolkit-Core-Features"></div>
 
 * **Simply and User friendly.** Simply and Consistent syntax like **lite::cv::Type::Class**, see [examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
 * **Minimum Dependencies.** Only **OpenCV** and **ONNXRuntime** are required by default, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit).
-* **Lots of Algorithm Modules.** Contains almost **[300+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** C++ re-implementations and **[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** weights.  
+* **Lots of Algorithm Modules.** Contains almost **[300+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** C++ re-implementations and **[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** weights.
 
 ## Citations 🎉🎉
 
