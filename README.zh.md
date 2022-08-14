@@ -51,6 +51,9 @@
 
 <p align="center"><a href="README.md">English</a> | 中文文档 | <a href=#lite.ai.toolkit-Build-MacOS>MacOS</a> | <a href=#lite.ai.toolkit-Build-Linux>Linux</a> | <a href=#lite.ai.toolkit-Build-Windows>Windows</a> </p>
 
+## 重要通知 (Important Note) !!! 🔥🔥🔥
+本项目将不再频繁更新，更优的部署体验请尝试[⚡️PaddlePaddle/FastDeploy](https://github.com/PaddlePaddle/FastDeploy) :一款简单易用的推理部署工具箱。覆盖业界主流优质预训练模型并提供开箱即用的开发体验，包括图像分类、目标检测、图像分割、人脸检测、人体关键点识别、文字识别等多任务，满足开发者多场景，多硬件、多平台的快速部署需求，并同时支持 **C++** 和 **Python** 两种语言。**lite.ai.toolkit** 中的核心模型未来将会以contrib的方式集成到[⚡️PaddlePaddle/FastDeploy](https://github.com/PaddlePaddle/FastDeploy) 中。
+
 
 ## 核心特征👏👋
 <div id="lite.ai.toolkit-Core-Features"></div>
