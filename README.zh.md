@@ -62,6 +62,23 @@ English: This project will no longer be updated frequently. For a better deploym
 
 ----
 
+- [⚡️PaddlePaddle/FastDeploy](https://github.com/PaddlePaddle/FastDeploy) 近期更新 🔥🔥🔥
+
+  - 🔥 **2022.8.18：发布FastDeploy [release/v0.2.0](https://github.com/PaddlePaddle/FastDeploy/)**
+    - **服务端全新升级：一套SDK，覆盖全量模型**
+      - 发布基于x86 CPU、NVIDIA GPU的易用、高性能推理引擎SDK，推理速度大幅提升
+      - 支持ONNXRuntime、Paddle Inference、TensorRT推理引擎
+      - 支持YOLOv7、YOLOv6、YOLOv5、PP-YOLOE等目标检测最优模型及[Demo示例](https://github.com/PaddlePaddle/FastDeploy/tree/develop/examples/vision/detection/)
+      - 支持人脸检测、人脸识别、实时人像抠图、图像分割等40+重点模型及[Demo示例](https://github.com/PaddlePaddle/FastDeploy/tree/develop/examples/vision/)
+      - 支持Python API 和 C++ API
+      - 开发AI模型部署代码量减少～60%
+    - **端侧继ARM CPU后，延伸至瑞芯微、晶晨、恩智浦等NPU能力**
+      - 发布轻量化目标检测 [Picodet-NPU部署Demo](https://github.com/PaddlePaddle/Paddle-Lite-Demo/tree/develop/object_detection/linux/picodet_detection) ，提供低门槛INT8全量化能力
+    - **同时支持Python和C++两种语言**
+      - 支持 `pip install` 一行命令安装，Linux/Mac/Windows 快速使用
+      - 提供 Linux/Mac/Windows，CPU/GPU 等多平台多硬件支持的C++预编译库
+----
+
 
 ## 核心特征👏👋
 <div id="lite.ai.toolkit-Core-Features"></div>
