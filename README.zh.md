@@ -77,6 +77,7 @@ English: This project will no longer be updated frequently. For a better deploym
     - **同时支持Python和C++两种语言**
       - 支持 `pip install` 一行命令安装，Linux/Mac/Windows 快速使用
       - 提供 Linux/Mac/Windows，CPU/GPU 等多平台多硬件支持的C++预编译库
+- 更多详情请跳转✋👉[⚡️PaddlePaddle/FastDeploy](https://github.com/PaddlePaddle/FastDeploy) 🎉🎉
 ----
 
 
