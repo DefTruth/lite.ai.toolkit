@@ -10,7 +10,6 @@
 <div align='center'>
   <img src=https://img.shields.io/badge/mac|linux|win-pass-brightgreen.svg >
   <img src=https://img.shields.io/badge/device-GPU/CPU-yellow.svg >
-  <img src=https://img.shields.io/badge/license-GPLv3-blue.svg >
   <img src=https://img.shields.io/badge/onnxruntime-1.10.0-turquoise.svg >
   <img src=https://img.shields.io/badge/mnn-1.2.0-hotpink.svg >
   <img src=https://img.shields.io/badge/ncnn-1.0.21-orange.svg >
