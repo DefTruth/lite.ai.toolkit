@@ -15,6 +15,7 @@
   <img src=https://img.shields.io/badge/mnn-1.2.0-hotpink.svg >
   <img src=https://img.shields.io/badge/ncnn-1.0.21-orange.svg >
   <img src=https://img.shields.io/badge/tnn-0.3.0-blue.svg >
+  <img src=https://img.shields.io/github/downloads/DefTruth/lite.ai.toolkit/total?color=ccf&label=downloads&logo=github&logoColor=lightgrey >
 </div>   
 
 🛠**Lite.Ai.ToolKit**: A lite C++ toolkit of awesome AI models, such as [Object Detection](#lite.ai.toolkit-object-detection), [Face Detection](#lite.ai.toolkit-face-detection), [Face Recognition](#lite.ai.toolkit-face-recognition), [Segmentation](#lite.ai.toolkit-segmentation), [Matting](#lite.ai.toolkit-matting), etc. See [Model Zoo](#lite.ai.toolkit-Model-Zoo) and [ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md), [MNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md), [TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md), [NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md). [❤️ Star 🌟👆🏻 this repo to support me if it does any helps to you, thanks ~ ]
