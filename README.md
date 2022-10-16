@@ -61,22 +61,26 @@ English: This project will no longer be updated frequently. For a better deploym
 
 ----
 
-- [⚡️PaddlePaddle/FastDeploy](https://github.com/PaddlePaddle/FastDeploy) 近期更新 🔥🔥🔥
+## 📣 [PaddlePaddle/FastDeploy](https://github.com/PaddlePaddle/FastDeploy) Recent Updates
 
-  - 🔥 **2022.8.18：发布FastDeploy [release/v0.2.0](https://github.com/PaddlePaddle/FastDeploy/)** 
-    - **服务端全新升级：一套SDK，覆盖全量模型**
-      - 发布基于x86 CPU、NVIDIA GPU的易用、高性能推理引擎SDK，推理速度大幅提升
-      - 支持ONNXRuntime、Paddle Inference、TensorRT推理引擎
-      - 支持YOLOv7、YOLOv6、YOLOv5、PP-YOLOE等目标检测最优模型及[Demo示例](https://github.com/PaddlePaddle/FastDeploy/tree/develop/examples/vision/detection/)
-      - 支持人脸检测、人脸识别、实时人像抠图、图像分割等40+重点模型及[Demo示例](https://github.com/PaddlePaddle/FastDeploy/tree/develop/examples/vision/)
-      - 支持Python API 和 C++ API
-      - 开发AI模型部署代码量减少～60%
-    - **端侧继ARM CPU后，延伸至瑞芯微、晶晨、恩智浦等NPU能力**
-      - 发布轻量化目标检测 [Picodet-NPU部署Demo](https://github.com/PaddlePaddle/Paddle-Lite-Demo/tree/develop/object_detection/linux/picodet_detection) ，提供低门槛INT8全量化能力
-    - **同时支持Python和C++两种语言** 
-      - 支持 `pip install` 一行命令安装，Linux/Mac/Windows 快速使用
-      - 提供 Linux/Mac/Windows，CPU/GPU 等多平台多硬件支持的C++预编译库
-- 更多详情请跳转✋👉[⚡️PaddlePaddle/FastDeploy](https://github.com/PaddlePaddle/FastDeploy) 🎉🎉
+- 🔥 **2022.10.15：Release FastDeploy [release v0.3.0](https://github.com/PaddlePaddle/FastDeploy/tree/release/0.3.0)** <br>
+  - **New server-side deployment upgrade: support more CV model and NLP model**
+       - Integrate OpenVINO and provide a seamless deployment experience with other inference engines include TensorRT、ONNX Runtime、Paddle Inference；
+       - Support [one-click model quantization](tools/quantization) to improve model inference speed by 1.5 to 2 times on CPU & GPU platform. The supported quantized model are YOLOv7, YOLOv6, YOLOv5, etc. 
+       - New CV models include PP-OCRv3, PP-OCRv2, PP-TinyPose, PP-Matting, etc. and provides [end-to-end deployment demos](examples/vision/detection/)
+       - New information extraction model is UIE, and provides [end-to-end deployment demos](examples/text/uie).
+
+- 🔥 **2022.8.18：Release FastDeploy [release v0.2.0](https://github.com/PaddlePaddle/FastDeploy/tree/release%2F0.2.0)** <br>
+  - **New server-side deployment upgrade: faster inference performance, support more CV model**
+    - Release high-performance inference engine SDK based on x86 CPUs and NVIDIA GPUs, with significant increase in inference speed
+    - Integrate Paddle Inference, ONNX Runtime, TensorRT and other inference engines and provide a seamless deployment experience
+    - Supports full range of object detection models such as YOLOv7, YOLOv6, YOLOv5, PP-YOLOE and provides [end-to-end deployment demos](examples/vision/detection/)
+    - Support over 40 key models and [demo examples](examples/vision/) including face detection, face recognition, real-time portrait matting, image segmentation.
+    - Support deployment in both Python and C++
+  - **Supports Rockchip, Amlogic, NXP and other NPU chip deployment capabilities on edge device deployment**
+    - Release Lightweight Object Detection [Picodet-NPU deployment demo](https://github.com/PaddlePaddle/Paddle-Lite-Demo/tree/develop/object_detection/linux/picodet_detection), providing the full quantized inference capability for INT8.
+
+- Please reference ✋👉[⚡️PaddlePaddle/FastDeploy](https://github.com/PaddlePaddle/FastDeploy) 🎉🎉 for more details.  
 ----
 
 ## Core Features 👏👋
