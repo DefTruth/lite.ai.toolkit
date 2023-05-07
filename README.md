@@ -58,9 +58,9 @@
 
 ## Tools
 
-| About Training 🤓 | About Visualizing ☕️ | For Better Performance 🔥|  
-|:---:|:---:|:---:|   
-| [DefTruth/torchlm](https://github.com/DefTruth/torchlm) | [DefTruth/netron-vscode-extension](https://github.com/DefTruth/netron-vscode-extension) | [⚡️PaddlePaddle/FastDeploy](https://github.com/PaddlePaddle/FastDeploy) |
+| About Training 🤓 | About Visualizing ☕️ | For Better Performance 🔥| Build Status 👀 | 
+|:---:|:---:|:---:| :---:|
+| [DefTruth/torchlm](https://github.com/DefTruth/torchlm) | [DefTruth/netron-vscode-extension](https://github.com/DefTruth/netron-vscode-extension) | [⚡️PaddlePaddle/FastDeploy](https://github.com/PaddlePaddle/FastDeploy) | ✅ |
 
 - [torchlm](https://github.com/DefTruth/torchlm): A high level Training and Evaluating Toolkit for Face Landmarks Detection is available at [torchlm](https://github.com/DefTruth/torchlm). 
 - [netron-vscode-extension](https://github.com/DefTruth/netron-vscode-extension): A vscode extension for netron is avaliable at [netron-vscode-extension](https://github.com/DefTruth/netron-vscode-extension), support *.pdmodel, *.nb, *.onnx, *.pb, *.h5, *.tflite, *.pth, *.pt, *.mnn, *.param, etc.
