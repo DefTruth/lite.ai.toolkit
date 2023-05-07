@@ -16,7 +16,7 @@
   <img src=https://img.shields.io/badge/tnn-0.3.0-blue.svg >
 </div>   
 
-🛠**Lite.Ai.ToolKit**: A lite C++ toolkit of awesome AI models, such as [Object Detection](#lite.ai.toolkit-object-detection), [Face Detection](#lite.ai.toolkit-face-detection), [Face Recognition](#lite.ai.toolkit-face-recognition), [Segmentation](#lite.ai.toolkit-segmentation), [Matting](#lite.ai.toolkit-matting), etc. See [Model Zoo](#lite.ai.toolkit-Model-Zoo) and [ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md), [MNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md), [TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md), [NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md). [❤️ Star 🌟👆🏻 this repo to support me if it does any helps to you, thanks ~ ]
+🛠**Lite.Ai.ToolKit**: A lite C++ toolkit of awesome AI models, such as [Object Detection](#lite.ai.toolkit-object-detection), [Face Detection](#lite.ai.toolkit-face-detection), [Face Recognition](#lite.ai.toolkit-face-recognition), [Segmentation](#lite.ai.toolkit-segmentation), [Matting](#lite.ai.toolkit-matting), etc. See [Model Zoo](#lite.ai.toolkit-Model-Zoo) and [ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md), [MNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md), [TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md), [NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md). (❤️ Star 🌟👆🏻 this repo to support me if it does any helps to you, thanks ~)
 
 <div align='center'>
   <img src='logs/test_lite_yolov5_1.jpg' height="90px" width="90px">
@@ -49,23 +49,23 @@
 
 <p align="center">English | <a href="README.zh.md">中文文档</a> | <a href=#lite.ai.toolkit-Build-MacOS>MacOS</a> | <a href=#lite.ai.toolkit-Build-Linux>Linux</a> | <a href=#lite.ai.toolkit-Build-Windows>Windows</a> </p>
 
-## About Training 🤓
-A high level Training and Evaluating Toolkit for Face Landmarks Detection is available at [torchlm](https://github.com/DefTruth/torchlm). 
-
-## About Visualizing ☕️ 
-A vscode extension for netron is avaliable at [netron-vscode-extension](https://github.com/DefTruth/netron-vscode-extension), support *.pdmodel, *.nb, *.onnx, *.pb, *.h5, *.tflite, *.pth, *.pt, *.mnn, *.param, etc.
-
-## About Better Performance 🔥
-
-For a better deployment experience, please try [⚡️PaddlePaddle/FastDeploy](https://github.com/PaddlePaddle/FastDeploy). **⚡️FastDeploy** is an **Easy-to-use** and **High Performance** AI model deployment toolkit for Cloud, Mobile and Edge with 📦**out-of-the-box and unified experience**, 🔚**end-to-end optimization** for over **🔥160+ Text, Vision, Speech and Cross-modal AI models**.
-Including [image classification](examples/vision/classification), [object detection](examples/vision/detection), [OCR](https://github.com/PaddlePaddle/FastDeploy), [face detection](https://github.com/PaddlePaddle/FastDeploy), [matting](https://github.com/PaddlePaddle/FastDeploy), [pp-tracking](https://github.com/PaddlePaddle/FastDeploy), [NLP](https://github.com/PaddlePaddle/FastDeploy), [stable difussion](https://github.com/PaddlePaddle/FastDeploy) and other tasks to meet developers' industrial deployment needs for **multi-scenario**, **multi-hardware** and **multi-platform**.
-
-## Core Features 👏👋
+## Features 👏👋
 <div id="lite.ai.toolkit-Core-Features"></div>
 
 * **Simply and User friendly.** Simply and Consistent syntax like **lite::cv::Type::Class**, see [examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
 * **Minimum Dependencies.** Only **OpenCV** and **ONNXRuntime** are required by default, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit).
 * **Lots of Algorithm Modules.** Contains almost **[300+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** C++ re-implementations and **[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** weights.
+
+## Tools
+
+|Training 🤓 | Visualizing ☕️ | For Better Performance 🔥|  
+|:---:|:---:|:---:|   
+| [torchlm](https://github.com/DefTruth/torchlm) | [netron-vscode-extension](https://github.com/DefTruth/netron-vscode-extension) | [⚡️PaddlePaddle/FastDeploy](https://github.com/PaddlePaddle/FastDeploy) |
+
+- [torchlm](https://github.com/DefTruth/torchlm): A high level Training and Evaluating Toolkit for Face Landmarks Detection is available at [torchlm](https://github.com/DefTruth/torchlm). 
+- [netron-vscode-extension](https://github.com/DefTruth/netron-vscode-extension): A vscode extension for netron is avaliable at [netron-vscode-extension](https://github.com/DefTruth/netron-vscode-extension), support *.pdmodel, *.nb, *.onnx, *.pb, *.h5, *.tflite, *.pth, *.pt, *.mnn, *.param, etc.
+- [FastDeploy](https://github.com/PaddlePaddle/FastDeploy): For better deployment experience, please try [PaddlePaddle/FastDeploy](https://github.com/PaddlePaddle/FastDeploy). ⚡️FastDeploy is an **Easy-to-use** and **High Performance** AI model deployment toolkit for Cloud, Mobile and Edge with 📦out-of-the-box and unified experience, 🔚end-to-end optimization for over 🔥160+ Text, Vision, Speech and Cross-modal AI models. Support C, C++, Java, Python, CSharp etc.
+
 
 ## Citations 🎉🎉
 
