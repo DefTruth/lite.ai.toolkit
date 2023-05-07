@@ -49,27 +49,17 @@
 
 <p align="center">English | <a href="README.zh.md">中文文档</a> | <a href=#lite.ai.toolkit-Build-MacOS>MacOS</a> | <a href=#lite.ai.toolkit-Build-Linux>Linux</a> | <a href=#lite.ai.toolkit-Build-Windows>Windows</a> </p>
 
+## About Training 🤓
+A high level Training and Evaluating Toolkit for Face Landmarks Detection is available at [torchlm](https://github.com/DefTruth/torchlm). 
 
-## Important Note !!! 🔥🔥🔥
+## About Visualizing ☕️ 
+A vscode extension for netron is avaliable at [netron-vscode-extension](https://github.com/DefTruth/netron-vscode-extension), support *.pdmodel, *.nb, *.onnx, *.pb, *.h5, *.tflite, *.pth, *.pt, *.mnn, *.param, etc.
+
+## About Better Performance 🔥
 
 For a better deployment experience, please try [⚡️PaddlePaddle/FastDeploy](https://github.com/PaddlePaddle/FastDeploy). **⚡️FastDeploy** is an **Easy-to-use** and **High Performance** AI model deployment toolkit for Cloud, Mobile and Edge with 📦**out-of-the-box and unified experience**, 🔚**end-to-end optimization** for over **🔥160+ Text, Vision, Speech and Cross-modal AI models**.
-Including [image classification](examples/vision/classification), [object detection](examples/vision/detection), [OCR](./examples/vision/ocr), [face detection](./examples/vision/facedet), [matting](./examples/vision/matting), [pp-tracking](./examples/vision/tracking/pptracking), [NLP](./examples/text), [stable difussion](./examples/multimodal/stable_diffusion), [TTS](./examples/audio/pp-tts) and other tasks to meet developers' industrial deployment needs for **multi-scenario**, **multi-hardware** and **multi-platform**.
+Including [image classification](examples/vision/classification), [object detection](examples/vision/detection), [OCR](https://github.com/PaddlePaddle/FastDeploy), [face detection](https://github.com/PaddlePaddle/FastDeploy), [matting](https://github.com/PaddlePaddle/FastDeploy), [pp-tracking](https://github.com/PaddlePaddle/FastDeploy), [NLP](https://github.com/PaddlePaddle/FastDeploy), [stable difussion](https://github.com/PaddlePaddle/FastDeploy) and other tasks to meet developers' industrial deployment needs for **multi-scenario**, **multi-hardware** and **multi-platform**.
 
-<div align="center">
-    
-<img src="https://user-images.githubusercontent.com/115439700/212800436-9cb39830-fca5-4b40-9def-a1fd83fcfc90.png" >
-    
-</div>
-
-
-##  🌠 Recent updates
-- ✨✨✨ In **2023.01.17** we released [**YOLOv8**](https://github.com/PaddlePaddle/FastDeploy/blob/develop/examples/vision/detection/paddledetection/) for deployment on FastDeploy series hardware, which includes [**Paddle YOLOv8**](https://github.com/PaddlePaddle/PaddleYOLO/tree/release/2.5/configs/yolov8) and [**ultralytics YOLOv8**](https://github.com/ultralytics/ultralytics)
-    - Deployable hardware for [**Paddle YOLOv8**](https://github.com/PaddlePaddle/PaddleYOLO/tree/release/2.5/configs/yolov8)：[**Intel CPU**](https://github.com/PaddlePaddle/FastDeploy/blob/develop/examples/vision/detection/paddledetection/python/infer_yolov8.py), [**NVIDIA GPU**](https://github.com/PaddlePaddle/FastDeploy/blob/develop/examples/vision/detection/paddledetection/python/infer_yolov8.py), [**Jetson**](https://github.com/PaddlePaddle/FastDeploy/blob/develop/examples/vision/detection/paddledetection/python/infer_yolov8.py), [**Phytium**](https://github.com/PaddlePaddle/FastDeploy/blob/develop/examples/vision/detection/paddledetection/python/infer_yolov8.py), [**Kunlunxin**](https://github.com/PaddlePaddle/FastDeploy/blob/develop/examples/vision/detection/paddledetection/python/infer_yolov8.py), [**HUAWEI Ascend**](https://github.com/PaddlePaddle/FastDeploy/blob/develop/examples/vision/detection/paddledetection/python/infer_yolov8.py), [**ARM CPU**](https://github.com/PaddlePaddle/FastDeploy/blob/develop/examples/vision/detection/paddledetection/cpp/infer_yolov8.cc), both **Python** deployments and **C++** deployments are included. [**Sophgo TPU**]() and [**RK3588**]() are being updated
-    - Deployable hardware for [**ultralytics YOLOv8**](https://github.com/ultralytics/ultralytics): [**Intel CPU**](https://github.com/PaddlePaddle/FastDeploy/blob/develop/examples/vision/detection/yolov8), [**NVIDIA GPU**](https://github.com/PaddlePaddle/FastDeploy/blob/develop/examples/vision/detection/yolov8), [**Jetson**](./examples/vision/detection/yolov8), both **Python** deployments and **C++** deployments are included
-    -  FastDeploy one-line model API switch, which can achieve **YOLOv8**, **PP-YOLOE+**, **YOLOv5** and other model performance comparison
-- Please reference 👉[⚡️PaddlePaddle/FastDeploy](https://github.com/PaddlePaddle/FastDeploy) for more details.  
-
-----   
 ## Core Features 👏👋
 <div id="lite.ai.toolkit-Core-Features"></div>
 
@@ -89,8 +79,6 @@ Consider to cite it as follows if you use **Lite.Ai.ToolKit** in your projects.
   year={2021}
 }
 ```
-## About Training 🤓👀  
-A high level Training and Evaluating Toolkit for Face Landmarks Detection is available at [torchlm](https://github.com/DefTruth/torchlm). 
 
 ## Downloads & RoadMap ✅  
 
