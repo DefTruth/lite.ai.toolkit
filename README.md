@@ -5,7 +5,7 @@
 
 <div id="lite.ai.toolkit-Introduction"></div>  
 
-![logo-v3](docs/resources/logo-v3.png)
+![logo-v3](https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/f99f5300-ece6-4572-8c4b-56b90e6e4d74)
 
 <div align='center'>
   <img src=https://img.shields.io/badge/mac|linux|win-pass-brightgreen.svg >
@@ -19,32 +19,32 @@
 🛠**Lite.Ai.ToolKit**: A lite C++ toolkit of awesome AI models, such as [Object Detection](#lite.ai.toolkit-object-detection), [Face Detection](#lite.ai.toolkit-face-detection), [Face Recognition](#lite.ai.toolkit-face-recognition), [Segmentation](#lite.ai.toolkit-segmentation), [Matting](#lite.ai.toolkit-matting), etc. See [Model Zoo](#lite.ai.toolkit-Model-Zoo) and [ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md), [MNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md), [TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md), [NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md). (❤️ Star 🌟👆🏻 this repo to support me if it does any helps to you, thanks ~)
 
 <div align='center'>
-  <img src='logs/test_lite_yolov5_1.jpg' height="90px" width="90px">
-  <img src='docs/resources/efficientdet_d0.jpg' height="90px" width="90px">
-  <img src='docs/resources/street.jpg' height="90px" width="90px">
-  <img src='docs/resources/scrfd_2.jpg' height="90px" width="90px">
-  <img src='logs/test_lite_ultraface.jpg' height="90px" width="90px">
-  <img src='logs/test_lite_face_landmarks_1000.jpg' height="90px" width="90px">
-  <img src='logs/test_lite_fsanet.jpg' height="90px" width="90px">
-  <img src='logs/test_lite_deeplabv3_resnet101.jpg' height="90px" width="90px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/44dbf4ac-0f38-41b6-930b-55b032b3c2ee' height="90px" width="90px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/5b28aed1-e207-4256-b3ea-3b52f9e68aed' height="90px" width="90px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/e3743596-1efb-48c6-95d5-b5a62f34eff3' height="90px" width="90px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/28274741-8745-4665-abff-3a384b75f7fa' height="90px" width="90px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/64fea806-f13b-4dc9-98fc-cd01319b75f4' height="90px" width="90px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/c802858c-6899-4246-8839-5721c43faffe' height="90px" width="90px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/20a18d56-297c-4c72-8153-76d4380fc9ec' height="90px" width="90px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/f4dd5263-8514-4bb0-a0dd-dbe532481aff' height="90px" width="90px">
   <br>
-  <img src='docs/resources/teslai.gif' height="90px" width="90px">
-  <img src='docs/resources/tesla.gif' height="90px" width="90px">
-  <img src='docs/resources/dance3i.gif' height="90px" width="90px">
-  <img src='docs/resources/dance3.gif' height="90px" width="90px">  
-  <img src='docs/resources/yolop1.png' height="90px" width="90px">
-  <img src='docs/resources/yolop2.png' height="90px" width="90px">
-  <img src='docs/resources/head_seg.png' height="90px" width="90px">
-  <img src='docs/resources/head_seg_mask.jpg' height="90px" width="90px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/c1411bb7-5537-4d6e-81f7-c902c2256a72' height="90px" width="90px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/6344f307-15e3-4593-9866-50f5ee777f43' height="90px" width="90px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/42bb2991-333a-4524-b874-6ab6156b3425' height="90px" width="90px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/f8d65d8c-2a3d-4634-9169-3bc36452d997' height="90px" width="90px">  
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/7f6983f2-7319-4c26-a71b-dcdf89a4e483' height="90px" width="90px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/3d8ec05e-f850-40e5-b4a9-2914c4ac5b9e' height="90px" width="90px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/5684e1d9-b3b1-45af-ac38-d9201490d46e' height="90px" width="90px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/b6a431d2-225b-416b-8a1e-cf9617d79a63' height="90px" width="90px">
   <br>
-  <img src='docs/resources/face_parsing.png' height="90px" width="90px">
-  <img src='docs/resources/face_parsing_merge.jpg' height="90px" width="90px">
-  <img src='docs/resources/head_seg.png' height="90px" width="90px">
-  <img src='docs/resources/cartoon.jpg' height="90px" width="90px">
-  <img src='docs/resources/facemesh0.jpg' height="90px" width="90px">  
-  <img src='docs/resources/facemesh1.jpg' height="90px" width="90px">
-  <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="90px" width="90px">
-  <img src='logs/test_lite_fast_style_transfer_candy.jpg' height="90px" width="90px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/32532cbc-ef90-4afb-9fa9-0a1f52b18654' height="90px" width="90px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/157b9e11-fc92-445b-ae0d-0d859c8663ee' height="90px" width="90px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/5684e1d9-b3b1-45af-ac38-d9201490d46e' height="90px" width="90px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/84d3ed6a-b711-4c0a-8e92-a2da05a0d04e' height="90px" width="90px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/ef0eeabe-6dbe-4837-9aad-b806a8398697' height="90px" width="90px">  
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/7d3e929e-c363-4457-862c-8b725f0463ec' height="90px" width="90px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/95106e7e-c6bc-433d-b20c-95b579e85a06' height="90px" width="90px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/bbaa6e7e-50c0-4993-b6e9-aee681e61fdb' height="90px" width="90px">
 </div>  
 
 <p align="center">English | <a href="README.zh.md">中文文档</a> | <a href=#lite.ai.toolkit-Build-MacOS>MacOS</a> | <a href=#lite.ai.toolkit-Build-Linux>Linux</a> | <a href=#lite.ai.toolkit-Build-Windows>Windows</a> </p>
@@ -84,7 +84,7 @@ Consider to cite it as follows if you use **Lite.Ai.ToolKit** in your projects.
 
 <div id="lite.ai.toolkit-RoadMap"></div>
 
-![](docs/resources/lite.ai.toolkit-roadmap-v0.1.png)
+![](https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/f521540d-41d5-4d1c-8d5b-219ca96b5d2d)
 
 Some prebuilt lite.ai.toolkit libs for MacOS(x64) and Linux(x64) are available, you can download the libs from the release links. Further, prebuilt libs for Windows(x64) and Android will be coming soon ~ Please, see [issues#48](https://github.com/DefTruth/lite.ai.toolkit/issues/48) for more details of the prebuilt plan and refer to [releases](https://github.com/DefTruth/lite.ai.toolkit/releases) for more available prebuilt libs.
 
@@ -626,8 +626,8 @@ static void test_default()
 
 The output is:
 <div align='center'>
-  <img src='logs/test_lite_yolov5_1.jpg' height="256px">
-  <img src='logs/test_lite_yolov5_2.jpg' height="256px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/44dbf4ac-0f38-41b6-930b-55b032b3c2ee' height="256px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/23aca3df-76a6-45c0-a48b-7968b4d4b9d8' height="256px">
 </div>
 
 Or you can use Newest 🔥🔥 ! YOLO series's detector [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) or [YoloR](https://github.com/WongKinYiu/yolor). They got the similar results.
@@ -688,15 +688,15 @@ static void test_default()
 The output is:
 
 <div align='center'>
-  <img src='docs/resources/interviewi.gif' height="150px" width="150px">
-  <img src='docs/resources/interview.gif' height="150px" width="150px">  
-  <img src='docs/resources/dance3i.gif' height="150px" width="150px">
-  <img src='docs/resources/dance3.gif' height="150px" width="150px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/a6da4814-6643-4dfc-89ce-57f140c999fc' height="150px" width="150px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/9e4f060e-3de8-44c4-a20f-74a0ff3943bb' height="150px" width="150px">  
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/42bb2991-333a-4524-b874-6ab6156b3425' height="150px" width="150px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/f8d65d8c-2a3d-4634-9169-3bc36452d997' height="150px" width="150px">
   <br>
-  <img src='docs/resources/teslai.gif' height="150px" width="150px">
-  <img src='docs/resources/tesla.gif' height="150px" width="150px">  
-  <img src='docs/resources/b5i.gif' height="150px" width="150px">
-  <img src='docs/resources/b5.gif' height="150px" width="150px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/c1411bb7-5537-4d6e-81f7-c902c2256a72' height="150px" width="150px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/6344f307-15e3-4593-9866-50f5ee777f43' height="150px" width="150px">  
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/4d824828-7727-48df-8aae-64e15ca1c03b' height="150px" width="150px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/e8102fd6-e869-4a42-a19f-dd6d180dda92' height="150px" width="150px">
 </div>
 
 More classes for matting (image matting, video matting, trimap/mask-free, trimap/mask-based)
@@ -738,9 +738,9 @@ static void test_default()
 ```
 The output is:
 <div align='center'>
-  <img src='logs/test_lite_face_landmarks_1000.jpg' height="224px" width="224px">
-  <img src='logs/test_lite_face_landmarks_1000_2.jpg' height="224px" width="224px">
-  <img src='logs/test_lite_face_landmarks_1000_0.jpg' height="224px" width="224px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/318691ec-7226-4d55-990b-a320635d8910' height="224px" width="224px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/d64ae30e-a0b9-4ac9-bf4f-9d6f80c2c05a' height="224px" width="224px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/c802858c-6899-4246-8839-5721c43faffe' height="224px" width="224px">
 </div>    
 
 More classes for face alignment (68 points, 98 points, 106 points, 1000 points)
@@ -789,9 +789,9 @@ The output is:
   <img src='examples/lite/resources/test_lite_colorizer_2.jpg' height="224px" width="224px">
   <img src='examples/lite/resources/test_lite_colorizer_3.jpg' height="224px" width="224px">  
   <br> 
-  <img src='logs/test_lite_siggraph17_colorizer_1.jpg' height="224px" width="224px">
-  <img src='logs/test_lite_siggraph17_colorizer_2.jpg' height="224px" width="224px">
-  <img src='logs/test_lite_siggraph17_colorizer_3.jpg' height="224px" width="224px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/95f265a8-ca85-4df1-b2f0-04e1dd3d8fff' height="224px" width="224px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/34bd3bcb-377a-47a0-b8bf-a44603f9b275' height="224px" width="224px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/e1eff9e9-9f3c-4558-8826-d05c0c254e29' height="224px" width="224px">
 </div>    
 
 More classes for colorization (gray to rgb)
@@ -895,9 +895,9 @@ static void test_default()
 ```
 The output is:
 <div align='center'>
-  <img src='docs/resources/scrfd.jpg' height="224px" width="224px">
-  <img src='docs/resources/scrfd_2.jpg' height="224px" width="224px">
-  <img src='docs/resources/scrfd_3.jpg' height="224px" width="224px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/b913c502-93fc-4a29-8114-9a3450c512f0' height="224px" width="224px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/28274741-8745-4665-abff-3a384b75f7fa' height="224px" width="224px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/a0bc4d9f-df88-4757-bcfb-214f2c1d4991' height="224px" width="224px">
 </div>  
 
 More classes for face detection (super fast face detection)
@@ -951,7 +951,7 @@ static void test_default()
 The output is:
 <div align='center'>
   <img src='examples/lite/resources/test_lite_deeplabv3_resnet101.png' height="256px">
-  <img src='logs/test_lite_deeplabv3_resnet101.jpg' height="256px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/f4dd5263-8514-4bb0-a0dd-dbe532481aff' height="256px">
 </div> 
 
 More classes for object segmentation (general objects segmentation)
@@ -987,9 +987,9 @@ static void test_default()
 ```
 The output is:
 <div align='center'>
-  <img src='logs/test_lite_ssrnet.jpg' height="224px" width="224px">
-  <img src='logs/test_lite_gender_googlenet.jpg' height="224px" width="224px">
-  <img src='logs/test_lite_emotion_ferplus.jpg' height="224px" width="224px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/6dc688d9-95be-40f3-b9b8-1a2f69e39e1d' height="224px" width="224px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/77089174-f744-4603-b417-c23caeb344d7' height="224px" width="224px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/8f279483-5849-4356-885c-5806337ced2a' height="224px" width="224px">
 </div>    
 
 More classes for face attributes analysis (age, gender, emotion)
@@ -1043,8 +1043,8 @@ static void test_default()
 
 The output is:
 <div align='center'>
-  <img src='examples/lite/resources/test_lite_densenet.jpg' height="224px" width="224px">
-  <img src='logs/test_lite_densenet.png' height="224px" width="500px">
+  <img src='examples/lite/resources/test_lite_densenet.jpg' height="224px" width="500px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/cf81d298-5903-4d3c-ad06-14882911c006' height="224px" width="500px">
 </div>  
 
 More classes for image classification (1000 classes)
@@ -1091,9 +1091,9 @@ static void test_default()
 
 The output is:
 <div align='center'>
-  <img src='logs/test_lite_fsanet.jpg' height="224px" width="224px">
-  <img src='logs/test_lite_fsanet_2.jpg' height="224px" width="224px">
-  <img src='logs/test_lite_fsanet_3.jpg' height="224px" width="224px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/20a18d56-297c-4c72-8153-76d4380fc9ec)' height="224px" width="224px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/6630a13b-af81-4606-8a81-37fb416f0a64' height="224px" width="224px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/fb873266-2cfd-4b08-8ffb-639aee1ca2b6' height="224px" width="224px">
 </div>  
 
 More classes for head pose estimation (euler angle, yaw, pitch, roll)
@@ -1129,12 +1129,12 @@ The output is:
 
 <div align='center'>
   <img src='examples/lite/resources/test_lite_fast_style_transfer.jpg' height="224px">
-  <img src='logs/test_lite_fast_style_transfer_candy.jpg' height="224px">
-  <img src='logs/test_lite_fast_style_transfer_mosaic.jpg' height="224px">  
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/bbaa6e7e-50c0-4993-b6e9-aee681e61fdb' height="224px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/95106e7e-c6bc-433d-b20c-95b579e85a06' height="224px">  
   <br> 
-  <img src='logs/test_lite_fast_style_transfer_pointilism.jpg' height="224px">
-  <img src='logs/test_lite_fast_style_transfer_rain_princes.jpg' height="224px">
-  <img src='logs/test_lite_fast_style_transfer_udnie.jpg' height="224px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/13a17444-27a4-4153-a6ee-5fff0a7fc667' height="224px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/6e2c1d8b-f4a2-4433-b31b-b60f381344c1' height="224px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/9f3f706a-50b7-43e4-8631-13ffa9b12fb5' height="224px">
 </div>
 
 More classes for style transfer (neural style transfer, others)
@@ -1167,10 +1167,10 @@ static void test_default()
 The output is:  
 
 <div align='center'>
-  <img src='docs/resources/head_seg.png' height="180px" width="180px">
-  <img src='docs/resources/head_seg_mask.jpg' height="180px" width="180px">
-  <img src='docs/resources/head_seg_1.png' height="180px" width="180px">
-  <img src='docs/resources/head_seg_1_mask.jpg' height="180px" width="180px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/5684e1d9-b3b1-45af-ac38-d9201490d46e' height="180px" width="180px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/b6a431d2-225b-416b-8a1e-cf9617d79a63' height="180px" width="180px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/ff9740a5-a70e-400c-8301-fc19c92c6248' height="180px" width="180px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/62747811-3856-4f40-9057-9ec4db687b31' height="180px" width="180px">
 </div> 
 
 More classes for human segmentation (head, portrait, hair, others)
@@ -1223,10 +1223,10 @@ static void test_default()
 The output is:
 
 <div align='center'>
-  <img src='docs/resources/head_seg.png' height="180px" width="180px">
-  <img src='docs/resources/female_photo2cartoon_cartoon_out.jpg' height="180px" width="180px">
-  <img src='docs/resources/female_photo2cartoon_1.jpg' height="180px" width="180px">
-  <img src='docs/resources/female_photo2cartoon_cartoon_1_out.jpg' height="180px" width="180px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/5684e1d9-b3b1-45af-ac38-d9201490d46e' height="180px" width="180px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/1970b922-6027-44b3-9211-9f057e2ce003' height="180px" width="180px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/73494f60-9efd-48cb-a993-5a5837badb12' height="180px" width="180px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/e10e9624-3176-4137-988b-c73be6103fed' height="180px" width="180px">
 </div> 
 
 More classes for photo style transfer.
@@ -1261,10 +1261,10 @@ static void test_default()
 The output is:
 
 <div align='center'>
-  <img src='docs/resources/face_parsing.png' height="180px" width="180px">
-  <img src='docs/resources/face_parsing_merge.jpg' height="180px" width="180px">
-  <img src='docs/resources/face_parsing_1.png' height="180px" width="180px">
-  <img src='docs/resources/face_parsing_1_merge.jpg' height="180px" width="180px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/32532cbc-ef90-4afb-9fa9-0a1f52b18654' height="180px" width="180px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/157b9e11-fc92-445b-ae0d-0d859c8663ee' height="180px" width="180px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/e7945202-e4dc-4e70-b931-019afdc5a95b' height="180px" width="180px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/7dbba712-078a-4cd6-b968-d6f565e10a3e' height="180px" width="180px">
 </div> 
 
 More classes for face parsing (hair, eyes, nose, mouth, others)
