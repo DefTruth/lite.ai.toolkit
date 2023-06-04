@@ -1043,8 +1043,8 @@ static void test_default()
 
 The output is:
 <div align='center'>
-  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/58e3b905-367d-486a-a3b6-062cef87d726' height="224px" width="500px">
-  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/cf81d298-5903-4d3c-ad06-14882911c006' height="224px" width="500px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/58e3b905-367d-486a-a3b6-062cef87d726' height="224px" width="350px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/cf81d298-5903-4d3c-ad06-14882911c006' height="224px" width="350px">
 </div>  
 
 More classes for image classification (1000 classes)
