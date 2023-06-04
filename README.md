@@ -785,9 +785,9 @@ static void test_default()
 The output is:
 
 <div align='center'>
-  <img src='examples/lite/resources/test_lite_colorizer_1.jpg' height="224px" width="224px">
-  <img src='examples/lite/resources/test_lite_colorizer_2.jpg' height="224px" width="224px">
-  <img src='examples/lite/resources/test_lite_colorizer_3.jpg' height="224px" width="224px">  
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/022dd4ab-1048-4d51-8e84-f839464d013e' height="224px" width="224px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/8eceb121-6da6-41d9-8dbf-949034f27247' height="224px" width="224px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/54a9b811-d21b-4120-8381-df0f858dba8b' height="224px" width="224px">  
   <br> 
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/95f265a8-ca85-4df1-b2f0-04e1dd3d8fff' height="224px" width="224px">
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/34bd3bcb-377a-47a0-b8bf-a44603f9b275' height="224px" width="224px">
@@ -840,9 +840,9 @@ static void test_default()
 
 The output is:
 <div align='center'>
-  <img src='examples/lite/resources/test_lite_arcface_resnet_0.png' height="224px" width="224px">
-  <img src='examples/lite/resources/test_lite_arcface_resnet_1.png' height="224px" width="224px">
-  <img src='examples/lite/resources/test_lite_arcface_resnet_2.png' height="224px" width="224px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/8311a1e0-1945-4a70-a361-c15a6e55baab' height="224px" width="224px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/c1619f3f-cb12-4607-9e72-4a9f9224ef09' height="224px" width="224px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/21859087-8458-4be6-b1ab-f20c1546e310' height="224px" width="224px">
 </div>  
 
 > Detected Sim01: 0.721159  Sim02: -0.0626267
@@ -950,7 +950,7 @@ static void test_default()
 
 The output is:
 <div align='center'>
-  <img src='examples/lite/resources/test_lite_deeplabv3_resnet101.png' height="256px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/cf143f25-a233-40f1-a4b9-7ad52f691799' height="256px">
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/f4dd5263-8514-4bb0-a0dd-dbe532481aff' height="256px">
 </div> 
 
@@ -1043,7 +1043,7 @@ static void test_default()
 
 The output is:
 <div align='center'>
-  <img src='examples/lite/resources/test_lite_densenet.jpg' height="224px" width="500px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/58e3b905-367d-486a-a3b6-062cef87d726' height="224px" width="500px">
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/cf81d298-5903-4d3c-ad06-14882911c006' height="224px" width="500px">
 </div>  
 
@@ -1128,7 +1128,7 @@ static void test_default()
 The output is:
 
 <div align='center'>
-  <img src='examples/lite/resources/test_lite_fast_style_transfer.jpg' height="224px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/c42af6ea-0b3a-4816-902a-9958fdef5653' height="224px">
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/bbaa6e7e-50c0-4993-b6e9-aee681e61fdb' height="224px">
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/95106e7e-c6bc-433d-b20c-95b579e85a06' height="224px">  
   <br> 
