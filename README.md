@@ -58,19 +58,14 @@
 
 ## Tools
 
-| About Training 🤓 | About Visualizing ☕️ | For Better Performance 🔥| Build Status 👀 | 
+| About Training 🤓 | About Visualizing ☕️ | For Better Performance 🔥| About Large Language Models 🔥 | 
 |:---:|:---:|:---:| :---:|
-| [DefTruth/torchlm](https://github.com/DefTruth/torchlm) | [DefTruth/netron-vscode-extension](https://github.com/DefTruth/netron-vscode-extension) | [⚡️PaddlePaddle/FastDeploy](https://github.com/PaddlePaddle/FastDeploy) | ✅ |    
-
-| About Large Language Models 🔥 | Build Status 👀 |    
-|:---:|:---:|  
-| [DefTruth/LLMs-Inference-Papers](https://github.com/DefTruth/LLMs-Inference-Papers) |  ✅ |  
-
+| [torchlm](https://github.com/DefTruth/torchlm) | [netron-vscode-extension](https://github.com/DefTruth/netron-vscode-extension) | [⚡️FastDeploy](https://github.com/PaddlePaddle/FastDeploy) | [Awesome-LLM-Inference](https://github.com/DefTruth/Awesome-LLM-Inference)  |    
 
 - [torchlm](https://github.com/DefTruth/torchlm): A high level Training and Evaluating Toolkit for Face Landmarks Detection is available at [torchlm](https://github.com/DefTruth/torchlm). 
 - [netron-vscode-extension](https://github.com/DefTruth/netron-vscode-extension): A vscode extension for netron is avaliable at [netron-vscode-extension](https://github.com/DefTruth/netron-vscode-extension), support *.pdmodel, *.nb, *.onnx, *.pb, *.h5, *.tflite, *.pth, *.pt, *.mnn, *.param, etc.
 - [FastDeploy](https://github.com/PaddlePaddle/FastDeploy): For better deployment experience, please try [PaddlePaddle/FastDeploy](https://github.com/PaddlePaddle/FastDeploy). ⚡️FastDeploy is an **Easy-to-use** and **High Performance** AI model deployment toolkit for Cloud, Mobile and Edge with 📦out-of-the-box and unified experience, 🔚end-to-end optimization for over 🔥160+ Text, Vision, Speech and Cross-modal AI models. Support C, C++, Java, Python, CSharp etc.  
-- [DefTruth/LLMs-Inference-Papers](https://github.com/DefTruth/LLMs-Inference-Papers): 持续更新，将自己关注的一些LLMs论文成册，便于阅读查找；偏优化，PDF格式，带标签；包含Transformer、MQA、RoPE、SmoothQuant、WINT8/4、Continuous Batching（动态插入）、FP8、FlashAttention、FlashAttention2、LN、LLaMA、LLaMA2、LoRA、QLoRA、P-Tuning V1/V2、GLM、GLM-130B、GPT-3/3.5/4等。
+- [Awesome-LLM-Inference](https://github.com/DefTruth/Awesome-LLM-Inference): A small Collection for Awesome LLM inference papers with codes, contains LLM.int8(), streaming-llm, SmoothQuant, WINT8/4, Continuous Batching, FlashAttention 1/2, PagedAttention etc.
 
 
 ## Citations 🎉🎉
