@@ -58,7 +58,7 @@
 
 ## Tools
 
-| About Training 🤓 | About Visualizing ☕️ | For Better Performance 🔥| About Large Language Models 🔥 | 
+| Training |Visualizing | Performance | Large Language Models 🔥 | 
 |:---:|:---:|:---:| :---:|
 | [torchlm](https://github.com/DefTruth/torchlm) | [netron-vscode-extension](https://github.com/DefTruth/netron-vscode-extension) | [⚡️FastDeploy](https://github.com/PaddlePaddle/FastDeploy) | [Awesome-LLM-Inference](https://github.com/DefTruth/Awesome-LLM-Inference)  |    
 
