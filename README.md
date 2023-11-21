@@ -60,7 +60,7 @@
 
 | Training | Visualizing | For Better Performance 🔥 | About Large Language Models 🔥 | 
 |:---:|:---:|:---:| :---:|
-| [torchlm](https://github.com/DefTruth/torchlm) | [netron-vscode-extension](https://github.com/DefTruth/netron-vscode-extension) | [⚡️FastDeploy](https://github.com/PaddlePaddle/FastDeploy) | [Awesome-LLM-Inference](https://github.com/DefTruth/Awesome-LLM-Inference)  |    
+| [torchlm](https://github.com/DefTruth/torchlm) ![](https://img.shields.io/github/stars/DefTruth/torchlm.svg?style=social) | [netron-vscode-extension](https://github.com/DefTruth/netron-vscode-extension)  ![](https://img.shields.io/github/stars/DefTruth/netron-vscode-extension.svg?style=social)| [⚡️FastDeploy](https://github.com/PaddlePaddle/FastDeploy) ![](https://img.shields.io/github/stars/PaddlePaddle/FastDeploy.svg?style=social) | [Awesome-LLM-Inference](https://github.com/DefTruth/Awesome-LLM-Inference)  ![](https://img.shields.io/github/stars/DefTruth/Awesome-LLM-Inference.svg?style=social) |    
 
 - [torchlm](https://github.com/DefTruth/torchlm): A high level Training and Evaluating Toolkit for Face Landmarks Detection is available at [torchlm](https://github.com/DefTruth/torchlm). 
 - [netron-vscode-extension](https://github.com/DefTruth/netron-vscode-extension): A vscode extension for netron is avaliable at [netron-vscode-extension](https://github.com/DefTruth/netron-vscode-extension), support *.pdmodel, *.nb, *.onnx, *.pb, *.h5, *.tflite, *.pth, *.pt, *.mnn, *.param, etc.
