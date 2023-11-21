@@ -50,9 +50,9 @@
 <p align="center">English | <a href="README.zh.md">中文文档</a> | <a href=#lite.ai.toolkit-Build-MacOS>MacOS</a> | <a href=#lite.ai.toolkit-Build-Linux>Linux</a> | <a href=#lite.ai.toolkit-Build-Windows>Windows</a> </p>
 
 ```bash
-本仓库近期已经不再频繁更新，作为一个案例库，lite.ai.toolkit已经完成了它的使命，希望能对来到这里的
-同学带来一些帮助，感谢大家的关注。最近翻到一句诗，很喜欢，与大家共勉，“昨日邻家乞新火，晓窗分与读书灯”，
-愿你我，能始终心若曾经年少，保持学习，保持热情。-- 2023.11.21
+本仓库近期已经不再频繁更新，作为一个案例库，lite.ai.toolkit已经完成了它的使命，希望能对来到这里的同学
+带来一些帮助，感谢大家的关注。最近翻到一句诗，很喜欢，在此与大家共勉，“昨日邻家乞新火，晓窗分与读书灯”
+愿你我，能始终心若曾经年少，保持学习，保持热情。                                       -- 2023.11.21
 ```
 
 ## Features 👏👋
