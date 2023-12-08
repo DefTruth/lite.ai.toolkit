@@ -57,7 +57,7 @@
 * **Minimum Dependencies.** Only **OpenCV** and **ONNXRuntime** are required by default, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit).
 * **Lots of Algorithm Modules.** Contains almost **[300+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** C++ re-implementations and **[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** weights.
 
-## Tools
+## Tools 🌟🌟
 
 |lite.ai.toolkit | torchlm | statistic-learning-R-note | ⚡️FastDeploy | Awesome-LLM-Inference |   
 |:---:|:---:|:---:|:---:|:---:|
@@ -70,14 +70,12 @@
 
 
 ## Citations 🎉🎉
-
-Consider to cite it as follows if you use **Lite.Ai.ToolKit** in your projects.
 ```BibTeX
-@misc{lite.ai.toolkit2021,
+@misc{lite.ai.toolkit@2021,
   title={lite.ai.toolkit: A lite C++ toolkit of awesome AI models.},
   url={https://github.com/DefTruth/lite.ai.toolkit},
   note={Open-source software available at https://github.com/DefTruth/lite.ai.toolkit},
-  author={Yan Jun},
+  author={Yanjun Qiu},
   year={2021}
 }
 ```
