@@ -57,7 +57,7 @@
 * **Minimum Dependencies.** Only **OpenCV** and **ONNXRuntime** are required by default, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit).
 * **Lots of Algorithm Modules.** Contains almost **[300+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** C++ re-implementations and **[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** weights.
 
-## Tools 🌟🌟
+## Others 🌟🌟
 
 |🛠[lite.ai.toolkit](https://github.com/DefTruth/lite.ai.toolkit) | 💎[torchlm](https://github.com/DefTruth/torchlm) | 📒[statistic-learning-R-note](https://github.com/DefTruth/statistic-learning-R-note) | ⚡️[FastDeploy](https://github.com/PaddlePaddle/FastDeploy) | 🔥[Awesome-LLM-Inference](https://github.com/DefTruth/Awesome-LLM-Inference) |   
 |:---:|:---:|:---:|:---:|:---:|
