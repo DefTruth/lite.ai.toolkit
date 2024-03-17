@@ -5,7 +5,7 @@
 #ifndef LITE_AI_MODELS_H
 #define LITE_AI_MODELS_H
 
-#include "backend.h"
+#include "config.h"
 
 // ENABLE_ONNXRUNTIME
 #ifdef ENABLE_ONNXRUNTIME
@@ -364,407 +364,12 @@
 
 #endif
 
-// Default Engine ONNXRuntime
-namespace lite
-{
-  // mediapipe
-  namespace mediapipe
-  {
-#ifdef BACKEND_ONNXRUNTIME
-#endif
-  }
-
-  namespace cv
-  {
-#ifdef BACKEND_ONNXRUNTIME
-    typedef ortcv::FSANet _FSANet;
-    typedef ortcv::PFLD _PFLD;
-    typedef ortcv::UltraFace _UltraFace;
-    typedef ortcv::AgeGoogleNet _AgeGoogleNet;
-    typedef ortcv::GenderGoogleNet _GenderGoogleNet;
-    typedef ortcv::EmotionFerPlus _EmotionFerPlus;
-    typedef ortcv::VGG16Age _VGG16Age;
-    typedef ortcv::VGG16Gender _VGG16Gender;
-    typedef ortcv::SSRNet _SSRNet;
-    typedef ortcv::FastStyleTransfer _FastStyleTransfer;
-    typedef ortcv::GlintArcFace _GlintArcFace;
-    typedef ortcv::Colorizer _Colorizer;
-    typedef ortcv::SubPixelCNN _SubPixelCNN;
-    typedef ortcv::YoloV4 _YoloV4;
-    typedef ortcv::YoloV3 _YoloV3;
-    typedef ortcv::YoloV5 _YoloV5;
-    typedef ortcv::EfficientNetLite4 _EfficientNetLite4;
-    typedef ortcv::ShuffleNetV2 _ShuffleNetV2;
-    typedef ortcv::TinyYoloV3 _TinyYoloV3;
-    typedef ortcv::SSD _SSD;
-    typedef ortcv::SSDMobileNetV1 _SSDMobileNetV1;
-    typedef ortcv::DeepLabV3ResNet101 _DeepLabV3ResNet101;
-    typedef ortcv::DenseNet _DenseNet;
-    typedef ortcv::FCNResNet101 _FCNResNet101;
-    typedef ortcv::GhostNet _GhostNet;
-    typedef ortcv::HdrDNet _HdrDNet;
-    typedef ortcv::IBNNet _IBNNet;
-    typedef ortcv::MobileNetV2 _MobileNetV2;
-    typedef ortcv::ResNet _ResNet;
-    typedef ortcv::ResNeXt _ResNeXt;
-    typedef ortcv::GlintCosFace _GlintCosFace;
-    typedef ortcv::GlintPartialFC _GlintPartialFC;
-    typedef ortcv::FaceNet _FaceNet;
-    typedef ortcv::FocalArcFace _FocalArcFace;
-    typedef ortcv::FocalAsiaArcFace _FocalAsiaArcFace;
-    typedef ortcv::TencentCifpFace _TencentCifpFace;
-    typedef ortcv::TencentCurricularFace _TencentCurricularFace;
-    typedef ortcv::CenterLossFace _CenterLossFace;
-    typedef ortcv::SphereFace _SphereFace;
-    typedef ortcv::PoseRobustFace _PoseRobustFace;
-    typedef ortcv::NaivePoseRobustFace _NaivePoseRobustFace;
-    typedef ortcv::MobileFaceNet _MobileFaceNet;
-    typedef ortcv::CavaGhostArcFace _CavaGhostArcFace;
-    typedef ortcv::CavaCombinedFace _CavaCombinedFace;
-    typedef ortcv::YoloX _YoloX;
-    typedef ortcv::MobileSEFocalFace _MobileSEFocalFace;
-    typedef ortcv::EfficientEmotion7 _EfficientEmotion7;
-    typedef ortcv::EfficientEmotion8 _EfficientEmotion8;
-    typedef ortcv::MobileEmotion7 _MobileEmotion7;
-    typedef ortcv::ReXNetEmotion7 _ReXNetEmotion7;
-    typedef ortcv::PFLD98 _PFLD98;
-    typedef ortcv::PFLD68 _PFLD68;
-    typedef ortcv::MobileNetV268 _MobileNetV268;
-    typedef ortcv::MobileNetV2SE68 _MobileNetV2SE68;
-    typedef ortcv::FaceLandmark1000 _FaceLandmark1000;
-    typedef ortcv::RetinaFace _RetinaFace;
-    typedef ortcv::FaceBoxes _FaceBoxes;
-    typedef ortcv::TinyYoloV4VOC _TinyYoloV4VOC;
-    typedef ortcv::TinyYoloV4COCO _TinyYoloV4COCO;
-    typedef ortcv::YoloR _YoloR;
-    typedef ortcv::ScaledYoloV4 _ScaledYoloV4;
-    typedef ortcv::EfficientDet _EfficientDet;
-    typedef ortcv::EfficientDetD7 _EfficientDetD7;
-    typedef ortcv::EfficientDetD8 _EfficientDetD8;
-    typedef ortcv::YOLOP _YOLOP;
-    typedef ortcv::RobustVideoMatting _RobustVideoMatting;
-    typedef ortcv::NanoDet _NanoDet;
-    typedef ortcv::NanoDetEfficientNetLite _NanoDetEfficientNetLite;
-    typedef ortcv::YoloX_V_0_1_1 _YoloX_V_0_1_1;
-    typedef ortcv::YoloV5_V_6_0 _YoloV5_V_6_0;
-    typedef ortcv::MGMatting _MGMatting;
-    typedef ortcv::NanoDetPlus _NanoDetPlus;
-    typedef ortcv::SCRFD _SCRFD;
-    typedef ortcv::YOLO5Face _YOLO5Face;
-    typedef ortcv::FaceBoxesV2 _FaceBoxesV2;
-    typedef ortcv::PIPNet98 _PIPNet98;
-    typedef ortcv::PIPNet68 _PIPNet68;
-    typedef ortcv::PIPNet29 _PIPNet29;
-    typedef ortcv::PIPNet19 _PIPNet19;
-    typedef ortcv::InsectDet _InsectDet;
-    typedef ortcv::InsectID _InsectID;
-    typedef ortcv::PlantID _PlantID;
-    typedef ortcv::MODNet _MODNet;
-    typedef ortcv::MODNetDyn _MODNetDyn;
-    typedef ortcv::BackgroundMattingV2 _BackgroundMattingV2;
-    typedef ortcv::BackgroundMattingV2Dyn _BackgroundMattingV2Dyn;
-    typedef ortcv::YOLOv5BlazeFace _YOLOv5BlazeFace;
-    typedef ortcv::YoloV5_V_6_1 _YoloV5_V_6_1;
-    typedef ortcv::HeadSeg _HeadSeg;
-    typedef ortcv::FemalePhoto2Cartoon _FemalePhoto2Cartoon;
-    typedef ortcv::FastPortraitSeg _FastPortraitSeg;
-    typedef ortcv::PortraitSegSINet _PortraitSegSINet;
-    typedef ortcv::PortraitSegExtremeC3Net _PortraitSegExtremeC3Net;
-    typedef ortcv::HairSeg _HairSeg;
-    typedef ortcv::FaceHairSeg _FaceHairSeg;
-    typedef ortcv::MobileHumanMatting _MobileHumanMatting;
-    typedef ortcv::MobileHairSeg _MobileHairSeg;
-    typedef ortcv::YOLOv6 _YOLOv6;
-    typedef ortcv::FaceParsingBiSeNet _FaceParsingBiSeNet;
-    typedef ortcv::FaceParsingBiSeNetDyn _FaceParsingBiSeNetDyn;
-
-#endif
-
-    // 1. classification
-    namespace classification
-    {
-#ifdef BACKEND_ONNXRUNTIME
-      typedef _EfficientNetLite4 EfficientNetLite4;
-      typedef _ShuffleNetV2 ShuffleNetV2;
-      typedef _DenseNet DenseNet;
-      typedef _GhostNet GhostNet;
-      typedef _HdrDNet HdrDNet;
-      typedef _IBNNet IBNNet;
-      typedef _MobileNetV2 MobileNetV2;
-      typedef _ResNet ResNet;
-      typedef _ResNeXt ResNeXt;
-      typedef _InsectID InsectID;
-      typedef _PlantID PlantID;
-#endif
-    }
-
-    // 2. general object detection
-    namespace detection
-    {
-#ifdef BACKEND_ONNXRUNTIME
-      typedef _YoloV3 YoloV3;
-      typedef _YoloV4 YoloV4;
-      typedef _YoloV5 YoloV5;
-      typedef _TinyYoloV3 TinyYoloV3;
-      typedef _SSD SSD;
-      typedef _SSDMobileNetV1 SSDMobileNetV1;
-      typedef _YoloX YoloX;
-      typedef _TinyYoloV4VOC TinyYoloV4VOC;
-      typedef _TinyYoloV4COCO TinyYoloV4COCO;
-      typedef _YoloR YoloR;
-      typedef _ScaledYoloV4 ScaledYoloV4;
-      typedef _EfficientDet EfficientDet;
-      typedef _EfficientDetD7 EfficientDetD7;
-      typedef _EfficientDetD8 EfficientDetD8;
-      typedef _YOLOP YOLOP;
-      typedef _NanoDet NanoDet;
-      typedef _NanoDetEfficientNetLite NanoDetEfficientNetLite;
-      typedef _YoloX_V_0_1_1 YoloX_V_0_1_1;
-      typedef _YoloV5_V_6_0 YoloV5_V_6_0;
-      typedef _NanoDetPlus NanoDetPlus;
-      typedef _InsectDet InsectDet;
-      typedef _YoloV5_V_6_1 YoloV5_V_6_1;
-      typedef _YOLOv6 YOLOv6;
-#endif
-    }
-    // 3. face detection & facial attributes detection
-    namespace face
-    {
-      namespace detect
-      {
-#ifdef BACKEND_ONNXRUNTIME
-        typedef _UltraFace UltraFace;  // face detection.
-        typedef _RetinaFace RetinaFace;
-        typedef _FaceBoxes FaceBoxes;
-        typedef _SCRFD SCRFD;
-        typedef _YOLO5Face YOLO5Face;
-        typedef _FaceBoxesV2 FaceBoxesV2;
-        typedef _YOLOv5BlazeFace YOLOv5BlazeFace;
-#endif
-      }
-
-      namespace align
-      {
-#ifdef BACKEND_ONNXRUNTIME
-        typedef _PFLD PFLD; // facial landmarks detection. 106 points
-        typedef _PFLD98 PFLD98; // 98 points
-        typedef _PFLD68 PFLD68; // 68 points
-        typedef _MobileNetV268 MobileNetV268; // 68 points
-        typedef _MobileNetV2SE68 MobileNetV2SE68; // 68 points
-        typedef _FaceLandmark1000 FaceLandmark1000; // 1000 points
-        typedef _PIPNet98 PIPNet98; // 98 points
-        typedef _PIPNet68 PIPNet68; // 68 points
-        typedef _PIPNet29 PIPNet29; // 29 points
-        typedef _PIPNet19 PIPNet19; // 19 points
-#endif
-      }
-
-      namespace align3d
-      {
-#ifdef BACKEND_ONNXRUNTIME
-
-#endif
-      }
-
-      namespace pose
-      {
-#ifdef BACKEND_ONNXRUNTIME
-        typedef _FSANet FSANet; // head pose estimation.
-#endif
-      }
-
-      namespace attr
-      {
-#ifdef BACKEND_ONNXRUNTIME
-        typedef _AgeGoogleNet AgeGoogleNet; // age estimation
-        typedef _GenderGoogleNet GenderGoogleNet; // gender estimation
-        typedef _VGG16Age VGG16Age; // age estimation
-        typedef _VGG16Gender VGG16Gender; // gender estimation
-        typedef _EmotionFerPlus EmotionFerPlus; // emotion detection
-        typedef _SSRNet SSRNet; // age estimation
-        typedef _EfficientEmotion7 EfficientEmotion7;
-        typedef _EfficientEmotion8 EfficientEmotion8;
-        typedef _MobileEmotion7 MobileEmotion7;
-        typedef _ReXNetEmotion7 ReXNetEmotion7;
-#endif
-      }
-
-    }
-    // 4. face recognition
-    namespace faceid
-    {
-#ifdef BACKEND_ONNXRUNTIME
-      typedef _GlintArcFace GlintArcFace; //
-      typedef _GlintCosFace GlintCosFace; //
-      typedef _GlintPartialFC GlintPartialFC;
-      typedef _FaceNet FaceNet;
-      typedef _FocalArcFace FocalArcFace;
-      typedef _FocalAsiaArcFace FocalAsiaArcFace;
-      typedef _TencentCurricularFace TencentCurricularFace;
-      typedef _TencentCifpFace TencentCifpFace;
-      typedef _CenterLossFace CenterLossFace;
-      typedef _SphereFace SphereFace;
-      typedef _PoseRobustFace PoseRobustFace;
-      typedef _NaivePoseRobustFace NaivePoseRobustFace;
-      typedef _MobileFaceNet MobileFaceNet;
-      typedef _CavaGhostArcFace CavaGhostArcFace;
-      typedef _CavaCombinedFace CavaCombinedFace;
-      typedef _MobileSEFocalFace MobileSEFocalFace;
-#endif
-
-    }
-    // 5. segmentation
-    namespace segmentation
-    {
-#ifdef BACKEND_ONNXRUNTIME
-      typedef _DeepLabV3ResNet101 DeepLabV3ResNet101;
-      typedef _FCNResNet101 FCNResNet101;
-      typedef _HeadSeg HeadSeg;
-      typedef _FastPortraitSeg FastPortraitSeg;
-      typedef _PortraitSegSINet PortraitSegSINet;
-      typedef _PortraitSegExtremeC3Net PortraitSegExtremeC3Net;
-      typedef _HairSeg HairSeg;
-      typedef _FaceHairSeg FaceHairSeg;
-      typedef _MobileHairSeg MobileHairSeg;
-      typedef _FaceParsingBiSeNet FaceParsingBiSeNet;
-      typedef _FaceParsingBiSeNetDyn FaceParsingBiSeNetDyn;
-#endif
-
-    }
-    // 6. reid
-    namespace reid
-    {
-#ifdef BACKEND_ONNXRUNTIME
-#endif
-    }
-
-    // 7. ocr
-    namespace ocr
-    {
-#ifdef BACKEND_ONNXRUNTIME
-#endif
-    }
-    // 8. neural rendering
-    namespace render
-    {
-#ifdef BACKEND_ONNXRUNTIME
-#endif
-    }
-    // 9. style transfer
-    namespace style
-    {
-#ifdef BACKEND_ONNXRUNTIME
-      typedef _FastStyleTransfer FastStyleTransfer;
-      typedef _FemalePhoto2Cartoon FemalePhoto2Cartoon;
-#endif
-    }
-
-    // 10. colorization
-    namespace colorization
-    {
-#ifdef BACKEND_ONNXRUNTIME
-      typedef _Colorizer Colorizer;
-#endif
-    }
-    // 11. super resolution
-    namespace resolution
-    {
-#ifdef BACKEND_ONNXRUNTIME
-      typedef _SubPixelCNN SubPixelCNN;
-#endif
-    }
-    // 12. image & face & human matting
-    namespace matting
-    {
-#ifdef BACKEND_ONNXRUNTIME
-      typedef _RobustVideoMatting RobustVideoMatting;
-      typedef _MGMatting MGMatting;
-      typedef _MODNet MODNet;
-      typedef _MODNetDyn MODNetDyn;
-      typedef _BackgroundMattingV2 BackgroundMattingV2;
-      typedef _BackgroundMattingV2Dyn BackgroundMattingV2Dyn;
-      typedef _MobileHumanMatting MobileHumanMatting;
-#endif
-    }
-  }
-
-  namespace asr
-  {
-#ifdef BACKEND_ONNXRUNTIME
-#endif
-  }
-
-  namespace nlp
-  {
-#ifdef BACKEND_ONNXRUNTIME
-#endif
-  }
-}
-
-// models for mobile device
-namespace lite
-{
-  namespace mobile
-  {
-    // classification
-    namespace classification
-    {
-    }
-    // object detection
-    namespace detection
-    {
-    }
-    // face etc.
-    namespace face
-    {
-      namespace detect
-      {
-      }
-      namespace align
-      {
-      }
-      namespace pose
-      {
-      }
-      namespace attr
-      {
-      }
-    }
-    // face recognition
-    namespace faceid
-    {
-    }
-    // segmentation
-    namespace segmentation
-    {
-    }
-    // reid
-    namespace reid
-    {
-    }
-    // ocr
-    namespace ocr
-    {
-    }
-    // matting
-    namespace matting
-    {
-    }
-
-  }
-}
-
 // ONNXRuntime version
 namespace lite
 {
 #ifdef ENABLE_ONNXRUNTIME
   namespace onnxruntime
   {
-    // mediapipe
-    namespace mediapipe
-    {
-    }
-
     namespace cv
     {
       typedef ortcv::FSANet _ONNXFSANet;
@@ -1055,11 +660,6 @@ namespace lite
 #ifdef ENABLE_MNN
   namespace mnn
   {
-    // mediapipe
-    namespace mediapipe
-    {
-    }
-
     namespace cv
     {
       // classification
@@ -1520,6 +1120,21 @@ namespace lite
     } // namespace cv
   }
 #endif
+}
+
+// Default Engine ONNXRuntime
+namespace lite
+{
+#if defined(ENABLE_ONNXRUNTIME)
+  namespace cv = lite::onnxruntime::cv;
+#elif defined(ENABLE_MNN)
+  namespace cv = lite::mnn::cv;
+#elif defined(ENABLE_NCNN)
+  namespace cv = lite::ncnn::cv;
+#elif defined(ENABLE_TNN)
+  namespace cv = lite::tnn::cv;
+#endif
+
 }
 
 #endif //LITE_AI_MODELS_H

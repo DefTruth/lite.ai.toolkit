@@ -1,4 +1,11 @@
 ############################## Source Files of LiteHub Based on NCNN #################################
+set(NCNN_DIR ${THIRD_PARTY_PATH}/ncnn)
+if(NOT EXISTS ${NCNN_DIR})
+    message(FATAL_ERROR "${NCNN_DIR} is not exists!")
+endif()
+include_directories(${NCNN_DIR}/include)
+link_directories(${NCNN_DIR}/lib)
+
 # 1. glob sources files
 file(GLOB NCNN_CORE_SRCS ${CMAKE_SOURCE_DIR}/lite/ncnn/core/*.cpp)
 file(GLOB NCNN_CV_SRCS ${CMAKE_SOURCE_DIR}/lite/ncnn/cv/*.cpp)
@@ -20,7 +27,7 @@ set(NCNN_SRCS
 message("Installing Lite.AI.ToolKit Headers for NCNN Backend ...")
 # "INSTALL" can copy all files from the list to the specified path.
 # "COPY" only copies one file to a specified path
-file(INSTALL ${NCNN_CORE_HEAD} DESTINATION ${BUILD_LITE_AI_DIR}/include/lite/ncnn/core)
-file(INSTALL ${NCNN_CV_HEAD} DESTINATION ${BUILD_LITE_AI_DIR}/include/lite/ncnn/cv)
-file(INSTALL ${NCNN_ASR_HEAD} DESTINATION ${BUILD_LITE_AI_DIR}/include/lite/ncnn/asr)
-file(INSTALL ${NCNN_NLP_HEAD} DESTINATION ${BUILD_LITE_AI_DIR}/include/lite/ncnn/nlp)
+file(INSTALL ${NCNN_CORE_HEAD} DESTINATION ${CMAKE_INSTALL_PREFIX}/include/lite/ncnn/core)
+file(INSTALL ${NCNN_CV_HEAD} DESTINATION ${CMAKE_INSTALL_PREFIX}/include/lite/ncnn/cv)
+file(INSTALL ${NCNN_ASR_HEAD} DESTINATION ${CMAKE_INSTALL_PREFIX}/include/lite/ncnn/asr)
+file(INSTALL ${NCNN_NLP_HEAD} DESTINATION ${CMAKE_INSTALL_PREFIX}/include/lite/ncnn/nlp)

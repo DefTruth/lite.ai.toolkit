@@ -30,7 +30,7 @@ namespace ortcv
       LITE_EXPORTS Ort::Value create_tensor(const cv::Mat &mat, const std::vector<int64_t> &tensor_dims,
                                                const Ort::MemoryInfo &memory_info_handler,
                                                std::vector<float> &tensor_value_handler,
-                                               unsigned int data_format = CHW) throw(std::runtime_error);
+                                               unsigned int data_format = CHW);
 
       LITE_EXPORTS cv::Mat normalize(const cv::Mat &mat, float mean, float scale);
 

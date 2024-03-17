@@ -21,10 +21,12 @@ namespace ortcv
     // hardcode input node names
     unsigned int num_inputs = 2;
     std::vector<const char *> input_node_names;
+    std::vector<std::string> input_node_names_;
     std::vector<std::vector<int64_t>> input_node_dims;
     // hardcode output node names
     unsigned int num_outputs = 6;
     std::vector<const char *> output_node_names;
+    std::vector<std::string> output_node_names_;
     std::vector<std::vector<int64_t>> output_node_dims;
     const LITEORT_CHAR *onnx_path = nullptr;
     const char *log_id = nullptr;

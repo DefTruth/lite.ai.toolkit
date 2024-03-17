@@ -34,8 +34,11 @@ BackgroundMattingV2::BackgroundMattingV2(const std::string &_onnx_path, unsigned
   // 3. type info.
   num_inputs = ort_session->GetInputCount(); // 2
   input_node_names.resize(num_inputs);
-  for (unsigned int i = 0; i < num_inputs; ++i)
-    input_node_names[i] = ort_session->GetInputName(i, allocator);
+  input_node_names_.resize(num_inputs);
+  for (unsigned int i = 0; i < num_inputs; ++i) {
+    input_node_names_[i] = OrtCompatiableGetInputName(i, allocator, ort_session);
+    input_node_names[i] = input_node_names_[i].data();
+  }
 
   Ort::TypeInfo input_mat_type_info = ort_session->GetInputTypeInfo(0);
   Ort::TypeInfo input_bgr_type_info = ort_session->GetInputTypeInfo(1);
@@ -56,9 +59,11 @@ BackgroundMattingV2::BackgroundMattingV2(const std::string &_onnx_path, unsigned
 
   num_outputs = ort_session->GetOutputCount();
   output_node_names.resize(num_outputs);
+  output_node_names_.resize(num_outputs);
   for (unsigned int i = 0; i < num_outputs; ++i)
   {
-    output_node_names[i] = ort_session->GetOutputName(i, allocator);
+    output_node_names_[i] = OrtCompatiableGetOutputName(i, allocator, ort_session);
+    output_node_names[i] = output_node_names_[i].data();
     Ort::TypeInfo type_info = ort_session->GetOutputTypeInfo(i);
     auto tensor_info = type_info.GetTensorTypeAndShapeInfo();
     auto output_shape = tensor_info.GetShape();

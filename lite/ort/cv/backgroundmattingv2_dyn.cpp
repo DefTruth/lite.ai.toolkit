@@ -32,9 +32,11 @@ BackgroundMattingV2Dyn::BackgroundMattingV2Dyn(const std::string &_onnx_path, un
   ort_session = new Ort::Session(ort_env, onnx_path, session_options);
   // 2. input name & input dims
   input_node_names.resize(num_inputs); // num_inputs=1
-  input_node_names.resize(num_inputs);
-  for (unsigned int i = 0; i < num_inputs; ++i)
-    input_node_names[i] = ort_session->GetInputName(i, allocator);
+  input_node_names_.resize(num_inputs);
+  for (unsigned int i = 0; i < num_inputs; ++i) {
+    input_node_names_[i] = OrtCompatiableGetInputName(i, allocator, ort_session);
+    input_node_names[i] = input_node_names_[i].data();
+  }
   // 3. initial input node dims.
   dynamic_input_node_dims.push_back({1, 3, dynamic_input_height, dynamic_input_width}); // src
   dynamic_input_node_dims.push_back({1, 3, dynamic_input_height, dynamic_input_width}); // bgr
@@ -45,8 +47,11 @@ BackgroundMattingV2Dyn::BackgroundMattingV2Dyn(const std::string &_onnx_path, un
   // 4. output names & output dims
   num_outputs = ort_session->GetOutputCount();
   output_node_names.resize(num_outputs);
-  for (unsigned int i = 0; i < num_outputs; ++i)
-    output_node_names[i] = ort_session->GetOutputName(i, allocator);
+  output_node_names_.resize(num_outputs);
+  for (unsigned int i = 0; i < num_outputs; ++i) {
+    output_node_names_[i] = OrtCompatiableGetOutputName(i, allocator, ort_session);
+    output_node_names[i] = output_node_names_[i].data();
+  }
 #if LITEORT_DEBUG
   this->print_debug_string();
 #endif

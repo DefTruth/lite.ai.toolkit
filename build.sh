@@ -9,10 +9,7 @@ else
   echo "build dir: ${BUILD_DIR} directory exist! ..."
 fi
 
-cd "${BUILD_DIR}" && pwd && cmake .. \
-  -DCMAKE_BUILD_TYPE=MinSizeRel \
-  -DINCLUDE_OPENCV=ON \
-  -DENABLE_MNN=OFF \
-  -DENABLE_NCNN=OFF \
-  -DENABLE_TNN=OFF &&
-  make -j8
+cd "${BUILD_DIR}" && pwd 
+cmake .. -DCMAKE_BUILD_TYPE=MinSizeRel -DCMAKE_INSTALL_PREFIX=./install
+make -j8
+make install
