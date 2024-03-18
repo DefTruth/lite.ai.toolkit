@@ -49,13 +49,13 @@ function(add_lite_ai_toolkit_shared_library version soversion)
     target_link_libraries(lite.ai.toolkit ${LITE_DEPENDENCIES})
     set_target_properties(lite.ai.toolkit PROPERTIES VERSION ${version} SOVERSION ${soversion})
 
-    message(">>>> Added Shared Library: lite.ai.toolkit !")
+    message("[Lite.AI.Toolkit][I] Added Shared Library: lite.ai.toolkit !")
 
 endfunction()
 
 function(add_lite_executable executable_name field)
     add_executable(${executable_name} ${field}/test_${executable_name}.cpp)
     target_link_libraries(${executable_name} lite.ai.toolkit)  # link lite.ai.toolkit
-    message(">>>> Added Lite Executable: ${executable_name} !")
+    message("[Lite.AI.Toolkit][I] Added Lite Executable: ${executable_name} !")
 endfunction()
 
