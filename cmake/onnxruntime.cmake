@@ -1,13 +1,13 @@
 set(OnnxRuntime_Version "1.17.1" CACHE STRING "OnnxRuntime version" FORCE)
 set(OnnxRuntime_DIR ${THIRD_PARTY_PATH}/onnxruntime)
-# download from github if onnxruntime library is not exists
-if (NOT EXISTS ${OnnxRuntime_DIR})
-    set(OnnxRuntime_Filename "onnxruntime-linux-x64-${OnnxRuntime_Version}.tgz")
-    set(OnnxRuntime_URL https://github.com/microsoft/onnxruntime/releases/download/v1.17.1/${OnnxRuntime_Filename})
-    message("[Lite.AI.Toolkit][I] Downloading onnxruntimelibrary: ${OnnxRuntime_URL}")
-    download_and_decompress(${OnnxRuntime_URL} ${OnnxRuntime_Filename} ${OnnxRuntime_DIR}) 
+# download from github if MNN library is not exists
+if (NOT EXISTS ${MNN_DIR})
+    set(MNN_Filename "MNN-${MNN_Version}-linux-cpu-x86_64.tgz")
+    set(MNN_URL https://github.com/DefTruth/lite.ai.toolkit/releases/download/v0.2.0-rc0/${MNN_Filename})
+    message("[Lite.AI.Toolkit][I] Downloading MNN library: ${MNN_URL}")
+    download_and_decompress(${MNN_URL} ${MNN_Filename} ${MNN_DIR}) 
 else() 
-    message("[Lite.AI.Toolkit][I] Found local onnxruntime library: ${OnnxRuntime_DIR}")
+    message("[Lite.AI.Toolkit][I] Found local MNN library: ${MNN_DIR}")
 endif() 
 
 if(NOT EXISTS ${OnnxRuntime_DIR})
