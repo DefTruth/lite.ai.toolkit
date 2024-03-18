@@ -1,4 +1,3 @@
-############################## Source Files of LiteHub Based on TNN #################################
 set(TNN_DIR ${THIRD_PARTY_PATH}/TNN)
 if(NOT EXISTS ${TNN_DIR})
     message(FATAL_ERROR "${TNN_DIR} is not exists!")
