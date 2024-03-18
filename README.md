@@ -111,7 +111,7 @@ add_executable(lite_yolov5 examples/test_lite_yolov5.cpp)
 target_link_libraries(lite_yolov5 ${lite.ai.toolkit_LIBS})
 ```
 <details>
-<summary> 🔑️ Supported Models Matrix </summary>    
+<summary> 🔑️ Supported Models Matrix！Click here! </summary>    
 
 ## Supported Models Matrix
 <div id="lite.ai.toolkit-Supported-Models-Matrix"></div>
@@ -228,6 +228,9 @@ target_link_libraries(lite_yolov5 ${lite.ai.toolkit_LIBS})
 </details>
 
 
+<details>
+<summary> 🔑️ Model Zoo！Click here! </summary>    
+
 ## Model Zoo.
 
 <div id="lite.ai.toolkit-Model-Zoo"></div>
@@ -253,8 +256,7 @@ target_link_libraries(lite_yolov5 ${lite.ai.toolkit_LIBS})
   docker pull qyjdefdocker/lite.ai.toolkit-tnn-hub:v0.1.22.02.02   # (217M) + YOLO5Face
 ```
 
-<details>
-<summary> 🔑️ How to download Model Zoo from Docker Hub?</summary>    
+### 🔑️ How to download Model Zoo from Docker Hub?
 
 * Firstly, pull the image from docker hub.  
   ```shell
@@ -290,10 +292,11 @@ target_link_libraries(lite_yolov5 ${lite.ai.toolkit_LIBS})
   cp -rf mnn/cv share/
   ```
 
-</details>  
 
 ### Model Hubs
 The pretrained and converted ONNX files provide by lite.ai.toolkit are listed as follows. Also, see [Model Zoo](#lite.ai.toolkit-Model-Zoo) and [ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md), [MNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md), [TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md), [NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md) for more details.
+
+</details>
 
 
 ## Examples.
@@ -975,81 +978,13 @@ auto *segment = new lite::cv::segmentation::FaceParsingBiSeNet(onnx_path); // 50
 auto *segment = new lite::cv::segmentation::FaceParsingBiSeNetDyn(onnx_path); // Dynamic Shape Inference.
 ```
 
-## License.
+## License
 
 <div id="lite.ai.toolkit-License"></div>
 
 The code of [Lite.Ai.ToolKit](#lite.ai.toolkit-Introduction) is released under the GPL-3.0 License.
 
-
-## References.
-
-<div id="lite.ai.toolkit-References"></div>
-
-Many thanks to these following projects. All the Lite.AI.ToolKit's models are sourced from these repos.
-
-* [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting) (🔥🔥🔥new!!↑)
-* [nanodet](https://github.com/RangiLyu/nanodet) (🔥🔥🔥↑)
-* [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥🔥new!!↑)
-* [YOLOP](https://github.com/hustvl/YOLOP) (🔥🔥new!!↑)
-* [YOLOR](https://github.com/WongKinYiu/yolor) (🔥🔥new!!↑)
-* [ScaledYOLOv4](https://github.com/WongKinYiu/ScaledYOLOv4) (🔥🔥🔥↑)
-* [insightface](https://github.com/deepinsight/insightface) (🔥🔥🔥↑)
-* [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑)
-* [TFace](https://github.com/Tencent/TFace) (🔥🔥↑)
-* [YOLOv4-pytorch](https://github.com/argusswift/YOLOv4-pytorch) (🔥🔥🔥↑)
-* [Ultra-Light-Fast-Generic-Face-Detector-1MB](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) (🔥🔥🔥↑)
-
-<details>
-<summary> Expand for More References.</summary>  
-
-* [headpose-fsanet-pytorch](https://github.com/omasaht/headpose-fsanet-pytorch) (🔥↑)
-* [pfld_106_face_landmarks](https://github.com/Hsintao/pfld_106_face_landmarks) (🔥🔥↑)
-* [onnx-models](https://github.com/onnx/models) (🔥🔥🔥↑)
-* [SSR_Net_Pytorch](https://github.com/oukohou/SSR_Net_Pytorch) (🔥↑)
-* [colorization](https://github.com/richzhang/colorization) (🔥🔥🔥↑)
-* [SUB_PIXEL_CNN](https://github.com/niazwazir/SUB_PIXEL_CNN) (🔥↑)
-* [torchvision](https://github.com/pytorch/vision) (🔥🔥🔥↑)
-* [facenet-pytorch](https://github.com/timesler/facenet-pytorch) (🔥↑)
-* [face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch) (🔥🔥🔥↑)
-* [center-loss.pytorch](https://github.com/louis-she/center-loss.pytorch) (🔥🔥↑)
-* [sphereface_pytorch](https://github.com/clcarwin/sphereface_pytorch) (🔥🔥↑)
-* [DREAM](https://github.com/penincillin/DREAM) (🔥🔥↑)
-* [MobileFaceNet_Pytorch](https://github.com/Xiaoccer/MobileFaceNet_Pytorch) (🔥🔥↑)
-* [cavaface.pytorch](https://github.com/cavalleria/cavaface.pytorch) (🔥🔥↑)
-* [CurricularFace](https://github.com/HuangYG123/CurricularFace) (🔥🔥↑)
-* [face-emotion-recognition](https://github.com/HSE-asavchenko/face-emotion-recognition) (🔥↑)
-* [face_recognition.pytorch](https://github.com/grib0ed0v/face_recognition.pytorch) (🔥🔥↑)
-* [PFLD-pytorch](https://github.com/polarisZhao/PFLD-pytorch) (🔥🔥↑)
-* [pytorch_face_landmark](https://github.com/cunjian/pytorch_face_landmark) (🔥🔥↑)
-* [FaceLandmark1000](https://github.com/Single430/FaceLandmark1000) (🔥🔥↑)
-* [Pytorch_Retinaface](https://github.com/biubug6/Pytorch_Retinaface) (🔥🔥🔥↑)
-* [FaceBoxes](https://github.com/zisianw/FaceBoxes.PyTorch) (🔥🔥↑)
-
-</details>  
-
-
-## Compilation Options.
-
-In addition, [MNN](https://github.com/alibaba/MNN), [NCNN](https://github.com/Tencent/ncnn) and [TNN](https://github.com/Tencent/TNN) support for some models will be added in the future, but due to operator compatibility and some other reasons, it is impossible to ensure that all models supported by [ONNXRuntime C++](https://github.com/microsoft/onnxruntime) can run through [MNN](https://github.com/alibaba/MNN), [NCNN](https://github.com/Tencent/ncnn) and [TNN](https://github.com/Tencent/TNN). So, if you want to use all the models supported by this repo and don't care about the performance gap of *1~2ms*, just let [ONNXRuntime](https://github.com/microsoft/onnxruntime) as default inference engine for this repo. However, you can follow the steps below if you want to build with [MNN](https://github.com/alibaba/MNN), [NCNN](https://github.com/Tencent/ncnn) or [TNN](https://github.com/Tencent/TNN) support.
-
-* change the `build.sh` with `DENABLE_MNN=ON`,`DENABLE_NCNN=ON` or `DENABLE_TNN=ON`, such as
-```shell
-cd build && cmake \
-  -DCMAKE_BUILD_TYPE=MinSizeRel \
-  -DINCLUDE_OPENCV=ON \   # Whether to package OpenCV into lite.ai.toolkit, default ON; otherwise, you need to setup OpenCV yourself.
-  -DENABLE_MNN=ON \       # Whether to build with MNN,  default OFF, only some models are supported now.
-  -DENABLE_NCNN=OFF \     # Whether to build with NCNN, default OFF, only some models are supported now.
-  -DENABLE_TNN=OFF \      # Whether to build with TNN,  default OFF, only some models are supported now.
-  .. && make -j8
-```
-* use the MNN, NCNN or TNN version interface, see [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp), such as
-```C++
-auto *nanodet = new lite::mnn::cv::detection::NanoDet(mnn_path);
-auto *nanodet = new lite::tnn::cv::detection::NanoDet(proto_path, model_path);
-auto *nanodet = new lite::ncnn::cv::detection::NanoDet(param_path, bin_path);
-```
-## 10. Contribute
+## Contribute
 <div id="lite.ai.toolkit-Contribute"></div>  
 
 How to add your own models and become a contributor? See [CONTRIBUTING.zh.md](https://github.com/DefTruth/lite.ai.toolkit/issues/191).
