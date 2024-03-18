@@ -9,11 +9,10 @@ if (NOT EXISTS ${MNN_DIR})
 else() 
     message(STATUS "[Lite.AI.Toolkit][I] Found local MNN library: ${MNN_DIR}")
 endif() 
-
-set(MNN_DIR ${THIRD_PARTY_PATH}/MNN)
 if(NOT EXISTS ${MNN_DIR})
     message(FATAL_ERROR "[Lite.AI.Toolkit][E] ${MNN_DIR} is not exists!")
 endif()
+
 include_directories(${MNN_DIR}/include)
 link_directories(${MNN_DIR}/lib)
 
