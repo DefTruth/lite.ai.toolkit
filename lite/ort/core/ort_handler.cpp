@@ -88,9 +88,9 @@ void BasicOrtHandler::print_debug_string()
 {
   std::cout << "LITEORT_DEBUG LogId: " << onnx_path << "\n";
   std::cout << "=============== Input-Dims ==============\n";
-  std::cout << "Name: " << input_node_names[0];
+  std::cout << "Name: " << input_node_names[0] << "\n";
   for (unsigned int i = 0; i < input_node_dims.size(); ++i)
-    std::cout << " Dims: " << input_node_dims.at(i) << "\n";
+    std::cout << "Dims: " << input_node_dims.at(i) << "\n";
   std::cout << "=============== Output-Dims ==============\n";
   for (unsigned int i = 0; i < num_outputs; ++i)
     for (unsigned int j = 0; j < output_node_dims.at(i).size(); ++j)
