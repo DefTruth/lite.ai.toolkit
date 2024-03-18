@@ -110,65 +110,8 @@ find_package(lite.ai.toolkit REQUIRED PATHS ${LITE_AI_DIR})
 add_executable(lite_yolov5 examples/test_lite_yolov5.cpp)
 target_link_libraries(lite_yolov5 ${lite.ai.toolkit_LIBS})
 ```
-
-
-## ❇️ Lite.Ai.ToolKit modules.
-
-### Namespace and Lite.Ai.ToolKit modules.
-
-| Namespace                  | Details                                                                                 |
-|:---------------------------|:----------------------------------------------------------------------------------------|
-| *lite::cv::detection*      | Object Detection. one-stage and anchor-free detectors, YoloV5, YoloV4, SSD, etc. ✅      |
-| *lite::cv::classification* | Image Classification. DensNet, ShuffleNet, ResNet, IBNNet, GhostNet, etc. ✅             |
-| *lite::cv::faceid*         | Face Recognition. ArcFace, CosFace, CurricularFace, etc. ❇️                             |
-| *lite::cv::face*           | Face Analysis. *detect*, *align*, *pose*, *attr*, etc. ❇️                               |
-| *lite::cv::face::detect*   | Face Detection. UltraFace, RetinaFace, FaceBoxes, PyramidBox, etc. ❇️                   |
-| *lite::cv::face::align*    | Face Alignment. PFLD(106), FaceLandmark1000(1000 landmarks), PRNet, etc. ❇️             |
-| *lite::cv::face::align3d*  | 3D Face Alignment. FaceMesh(468 3D landmarks), IrisLandmark(71+5 3D landmarks), etc. ❇️ |
-| *lite::cv::face::pose*     | Head Pose Estimation.  FSANet, etc. ❇️                                                  |
-| *lite::cv::face::attr*     | Face Attributes. Emotion, Age, Gender. EmotionFerPlus, VGG16Age, etc. ❇️                |
-| *lite::cv::segmentation*   | Object Segmentation. Such as FCN, DeepLabV3, etc.  ❇️ ️                                 |
-| *lite::cv::style*          | Style Transfer. Contains neural style transfer now, such as FastStyleTransfer.  ⚠️      |
-| *lite::cv::matting*        | Image Matting. Object and Human matting.   ❇️ ️                                         |
-| *lite::cv::colorization*   | Colorization. Make Gray image become RGB. ⚠️                                            |
-| *lite::cv::resolution*     | Super Resolution.  ⚠️                                                                   |
-
-
-### Lite.Ai.ToolKit's Classes and Pretrained Files.
-
-Correspondence between the classes in **Lite.AI.ToolKit** and pretrained model files can be found at [lite.ai.toolkit.hub.onnx.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md). For examples, the pretrained model files for *lite::cv::detection::YoloV5* and *lite::cv::detection::YoloX* are listed as follows.
-
-
-|             Class             | Pretrained ONNX Files |                 Rename or Converted From (Repo)                  | Size  |
-|:-----------------------------:|:---------------------:|:----------------------------------------------------------------:|:-----:|
-| *lite::cv::detection::YoloV5* |     yolov5l.onnx      |    [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑)     | 188Mb |
-| *lite::cv::detection::YoloV5* |     yolov5m.onnx      |    [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑)     | 85Mb  |
-| *lite::cv::detection::YoloV5* |     yolov5s.onnx      |    [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑)     | 29Mb  |
-| *lite::cv::detection::YoloV5* |     yolov5x.onnx      |    [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑)     | 351Mb |
-| *lite::cv::detection::YoloX*  |     yolox_x.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 378Mb |
-| *lite::cv::detection::YoloX*  |     yolox_l.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 207Mb |
-| *lite::cv::detection::YoloX*  |     yolox_m.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 97Mb  |
-| *lite::cv::detection::YoloX*  |     yolox_s.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 34Mb  |
-| *lite::cv::detection::YoloX*  |    yolox_tiny.onnx    | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 19Mb  |
-| *lite::cv::detection::YoloX*  |    yolox_nano.onnx    | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 3.5Mb |
-
-It means that you can load the the any one `yolov5*.onnx` and  `yolox_*.onnx` according to your application through the same Lite.AI.ToolKit's classes, such as *YoloV5*, *YoloX*, etc.
-
-```c++
-auto *yolov5 = new lite::cv::detection::YoloV5("yolov5x.onnx");  // for server
-auto *yolov5 = new lite::cv::detection::YoloV5("yolov5l.onnx"); 
-auto *yolov5 = new lite::cv::detection::YoloV5("yolov5m.onnx");  
-auto *yolov5 = new lite::cv::detection::YoloV5("yolov5s.onnx");  // for mobile device 
-auto *yolox = new lite::cv::detection::YoloX("yolox_x.onnx");  
-auto *yolox = new lite::cv::detection::YoloX("yolox_l.onnx");  
-auto *yolox = new lite::cv::detection::YoloX("yolox_m.onnx");  
-auto *yolox = new lite::cv::detection::YoloX("yolox_s.onnx");  
-auto *yolox = new lite::cv::detection::YoloX("yolox_tiny.onnx");  
-auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only !
-```
-
 <details>
-<summary>  ❇️ Supported Models Matrix </summary>  
+<summary> 🔑️ Supported Models Matrix </summary>    
 
 ## Supported Models Matrix
 <div id="lite.ai.toolkit-Supported-Models-Matrix"></div>
