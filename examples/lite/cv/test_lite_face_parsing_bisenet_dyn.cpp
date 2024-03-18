@@ -6,9 +6,9 @@
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/face_parsing_dynamic.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/face_parsing_dynamic.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_face_parsing.png";
-  std::string save_img_path = "../../../logs/test_lite_face_parsing_bisenet_dyn.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_face_parsing_bisenet_dyn.jpg";
 
   lite::cv::segmentation::FaceParsingBiSeNetDyn *face_parsing_bisenet_dyn =
       new lite::cv::segmentation::FaceParsingBiSeNetDyn(onnx_path, 4); // 4 threads
@@ -29,9 +29,9 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string onnx_path = "../../../hub/onnx/cv/face_parsing_dynamic.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/face_parsing_dynamic.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_face_parsing.png";
-  std::string save_img_path = "../../../logs/test_lite_face_parsing_bisenet_dyn_onnx.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_face_parsing_bisenet_dyn_onnx.jpg";
 
   lite::onnxruntime::cv::segmentation::FaceParsingBiSeNetDyn *face_parsing_bisenet_dyn =
       new lite::onnxruntime::cv::segmentation::FaceParsingBiSeNetDyn(onnx_path, 4); // 4 threads

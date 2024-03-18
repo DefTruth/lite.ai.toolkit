@@ -6,11 +6,11 @@
 
 static void test_default()
 {
-  std::string head_seg_onnx_path = "../../../hub/onnx/cv/minivision_head_seg.onnx";
-  std::string cartoon_onnx_path = "../../../hub/onnx/cv/minivision_female_photo2cartoon.onnx";
+  std::string head_seg_onnx_path = "../../../examples/hub/onnx/cv/minivision_head_seg.onnx";
+  std::string cartoon_onnx_path = "../../../examples/hub/onnx/cv/minivision_female_photo2cartoon.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_head_seg.png";
-  std::string save_mask_path = "../../../logs/test_lite_female_photo2cartoon_seg.jpg";
-  std::string save_cartoon_path = "../../../logs/test_lite_female_photo2cartoon_cartoon.jpg";
+  std::string save_mask_path = "../../../examples/logs/test_lite_female_photo2cartoon_seg.jpg";
+  std::string save_cartoon_path = "../../../examples/logs/test_lite_female_photo2cartoon_cartoon.jpg";
 
   lite::cv::segmentation::HeadSeg *head_seg =
       new lite::cv::segmentation::HeadSeg(head_seg_onnx_path, 4); // 4 threads
@@ -43,11 +43,11 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string head_seg_onnx_path = "../../../hub/onnx/cv/minivision_head_seg.onnx";
-  std::string cartoon_onnx_path = "../../../hub/onnx/cv/minivision_female_photo2cartoon.onnx";
+  std::string head_seg_onnx_path = "../../../examples/hub/onnx/cv/minivision_head_seg.onnx";
+  std::string cartoon_onnx_path = "../../../examples/hub/onnx/cv/minivision_female_photo2cartoon.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_female_photo2cartoon.jpg";
-  std::string save_mask_path = "../../../logs/test_lite_female_photo2cartoon_seg_1_onnx.jpg";
-  std::string save_cartoon_path = "../../../logs/test_lite_female_photo2cartoon_cartoon_1_onnx.jpg";
+  std::string save_mask_path = "../../../examples/logs/test_lite_female_photo2cartoon_seg_1_onnx.jpg";
+  std::string save_cartoon_path = "../../../examples/logs/test_lite_female_photo2cartoon_cartoon_1_onnx.jpg";
 
   lite::onnxruntime::cv::segmentation::HeadSeg *head_seg =
       new lite::onnxruntime::cv::segmentation::HeadSeg(head_seg_onnx_path, 4); // 4 threads
@@ -81,11 +81,11 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
-  std::string head_seg_mnn_path = "../../../hub/mnn/cv/minivision_head_seg.mnn";
-  std::string cartoon_mnn_path = "../../../hub/mnn/cv/minivision_female_photo2cartoon.mnn";
+  std::string head_seg_mnn_path = "../../../examples/hub/mnn/cv/minivision_head_seg.mnn";
+  std::string cartoon_mnn_path = "../../../examples/hub/mnn/cv/minivision_female_photo2cartoon.mnn";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_female_photo2cartoon.jpg";
-  std::string save_mask_path = "../../../logs/test_lite_female_photo2cartoon_seg_1_mnn.jpg";
-  std::string save_cartoon_path = "../../../logs/test_lite_female_photo2cartoon_cartoon_1_mnn.jpg";
+  std::string save_mask_path = "../../../examples/logs/test_lite_female_photo2cartoon_seg_1_mnn.jpg";
+  std::string save_cartoon_path = "../../../examples/logs/test_lite_female_photo2cartoon_cartoon_1_mnn.jpg";
 
   lite::mnn::cv::segmentation::HeadSeg *head_seg =
       new lite::mnn::cv::segmentation::HeadSeg(head_seg_mnn_path, 4); // 4 threads
@@ -120,12 +120,12 @@ static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
   // WARN: TEST FAILED !!!
-  std::string head_seg_onnx_path = "../../../hub/onnx/cv/minivision_head_seg.onnx"; // helper
-  std::string cartoon_param_path = "../../../hub/ncnn/cv/minivision_female_photo2cartoon.opt.param";
-  std::string cartoon_bin_path = "../../../hub/ncnn/cv/minivision_female_photo2cartoon.opt.bin";
+  std::string head_seg_onnx_path = "../../../examples/hub/onnx/cv/minivision_head_seg.onnx"; // helper
+  std::string cartoon_param_path = "../../../examples/hub/ncnn/cv/minivision_female_photo2cartoon.opt.param";
+  std::string cartoon_bin_path = "../../../examples/hub/ncnn/cv/minivision_female_photo2cartoon.opt.bin";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_female_photo2cartoon.jpg";
-  std::string save_mask_path = "../../../logs/test_lite_female_photo2cartoon_seg_1_ncnn.jpg";
-  std::string save_cartoon_path = "../../../logs/test_lite_female_photo2cartoon_cartoon_1_ncnn.jpg";
+  std::string save_mask_path = "../../../examples/logs/test_lite_female_photo2cartoon_seg_1_ncnn.jpg";
+  std::string save_cartoon_path = "../../../examples/logs/test_lite_female_photo2cartoon_cartoon_1_ncnn.jpg";
 
   lite::cv::segmentation::HeadSeg *head_seg =
       new lite::cv::segmentation::HeadSeg(head_seg_onnx_path, 4); // 4 threads
@@ -160,12 +160,12 @@ static void test_ncnn()
 static void test_tnn()
 {
 #ifdef ENABLE_TNN
-  std::string head_seg_onnx_path = "../../../hub/onnx/cv/minivision_head_seg.onnx"; // helper
-  std::string cartoon_proto_path = "../../../hub/tnn/cv/minivision_female_photo2cartoon.opt.tnnproto";
-  std::string cartoon_model_path = "../../../hub/tnn/cv/minivision_female_photo2cartoon.opt.tnnmodel";
+  std::string head_seg_onnx_path = "../../../examples/hub/onnx/cv/minivision_head_seg.onnx"; // helper
+  std::string cartoon_proto_path = "../../../examples/hub/tnn/cv/minivision_female_photo2cartoon.opt.tnnproto";
+  std::string cartoon_model_path = "../../../examples/hub/tnn/cv/minivision_female_photo2cartoon.opt.tnnmodel";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_female_photo2cartoon.jpg";
-  std::string save_mask_path = "../../../logs/test_lite_female_photo2cartoon_seg_1_tnn.jpg";
-  std::string save_cartoon_path = "../../../logs/test_lite_female_photo2cartoon_cartoon_1_tnn.jpg";
+  std::string save_mask_path = "../../../examples/logs/test_lite_female_photo2cartoon_seg_1_tnn.jpg";
+  std::string save_cartoon_path = "../../../examples/logs/test_lite_female_photo2cartoon_cartoon_1_tnn.jpg";
 
   lite::cv::segmentation::HeadSeg *head_seg =
       new lite::cv::segmentation::HeadSeg(head_seg_onnx_path, 4); // 4 threads

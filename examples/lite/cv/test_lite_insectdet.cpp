@@ -6,9 +6,9 @@
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/quarrying_insect_detector.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/quarrying_insect_detector.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_insect.jpg";
-  std::string save_img_path = "../../../logs/test_lite_insectdet.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_insectdet.jpg";
 
   // 1. Test Default Engine ONNXRuntime
   lite::cv::detection::InsectDet *insectdet = new lite::cv::detection::InsectDet(onnx_path); // default
@@ -30,9 +30,9 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string onnx_path = "../../../hub/onnx/cv/quarrying_insect_detector.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/quarrying_insect_detector.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_insect.jpg";
-  std::string save_img_path = "../../../logs/test_lite_insectdet_onnx.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_insectdet_onnx.jpg";
 
   // 2. Test Specific Engine ONNXRuntime
   lite::onnxruntime::cv::detection::InsectDet *insectdet =
@@ -55,9 +55,9 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
-  std::string mnn_path = "../../../hub/mnn/cv/quarrying_insect_detector.mnn";
+  std::string mnn_path = "../../../examples/hub/mnn/cv/quarrying_insect_detector.mnn";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_insect.jpg";
-  std::string save_img_path = "../../../logs/test_lite_insectdet_mnn.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_insectdet_mnn.jpg";
 
   // 3. Test Specific Engine MNN
   lite::mnn::cv::detection::InsectDet *insectdet =
@@ -86,10 +86,10 @@ static void test_ncnn()
 static void test_tnn()
 {
 #ifdef ENABLE_TNN
-  std::string proto_path = "../../../hub/tnn/cv/quarrying_insect_detector.tnnproto";
-  std::string model_path = "../../../hub/tnn/cv/quarrying_insect_detector.tnnmodel";
+  std::string proto_path = "../../../examples/hub/tnn/cv/quarrying_insect_detector.tnnproto";
+  std::string model_path = "../../../examples/hub/tnn/cv/quarrying_insect_detector.tnnmodel";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_insect.jpg";
-  std::string save_img_path = "../../../logs/test_lite_insectdet_tnn.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_insectdet_tnn.jpg";
 
   // 5. Test Specific Engine TNN
   lite::tnn::cv::detection::InsectDet *insectdet =

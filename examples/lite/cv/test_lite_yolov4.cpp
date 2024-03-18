@@ -6,9 +6,9 @@
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/voc-mobilenetv2-yolov4-640.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/voc-mobilenetv2-yolov4-640.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_yolov4.jpg";
-  std::string save_img_path = "../../../logs/test_lite_yolov4.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_yolov4.jpg";
 
   lite::cv::detection::YoloV4 *yolov4 = new lite::cv::detection::YoloV4(onnx_path);
 
@@ -28,9 +28,9 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string onnx_path = "../../../hub/onnx/cv/voc-mobilenetv2-yolov4-640.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/voc-mobilenetv2-yolov4-640.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_yolov4.jpg";
-  std::string save_img_path = "../../../logs/test_onnx_yolov4.jpg";
+  std::string save_img_path = "../../../examples/logs/test_onnx_yolov4.jpg";
 
   lite::onnxruntime::cv::detection::YoloV4 *yolov4 =
       new lite::onnxruntime::cv::detection::YoloV4(onnx_path);

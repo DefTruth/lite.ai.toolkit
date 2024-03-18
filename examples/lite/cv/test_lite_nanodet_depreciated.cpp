@@ -6,9 +6,9 @@
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/nanodet_m.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/nanodet_m.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_detection_1.jpg";
-  std::string save_img_path = "../../../logs/test_lite_nanodet_1.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_nanodet_1.jpg";
 
   // 1. Test Default Engine ONNXRuntime
   lite::cv::detection::NanoDet *nanodet = new lite::cv::detection::NanoDet(onnx_path); // default
@@ -30,9 +30,9 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string onnx_path = "../../../hub/onnx/cv/nanodet_m.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/nanodet_m.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_detection_2.jpg";
-  std::string save_img_path = "../../../logs/test_lite_nanodet_2.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_nanodet_2.jpg";
 
   // 2. Test Specific Engine ONNXRuntime
   lite::onnxruntime::cv::detection::NanoDet *nanodet =
@@ -55,9 +55,9 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
-  std::string mnn_path = "../../../hub/mnn/cv/nanodet_m.mnn";
+  std::string mnn_path = "../../../examples/hub/mnn/cv/nanodet_m.mnn";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_detection_2.jpg";
-  std::string save_img_path = "../../../logs/test_lite_nanodet_mnn_2.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_nanodet_mnn_2.jpg";
 
   // 3. Test Specific Engine MNN
   lite::mnn::cv::detection::NanoDet *nanodet =
@@ -79,10 +79,10 @@ static void test_mnn()
 static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
-  std::string param_path = "../../../hub/ncnn/cv/nanodet_m-depreciated-opt.param";
-  std::string bin_path = "../../../hub/ncnn/cv/nanodet_m-depreciated-opt.bin";
+  std::string param_path = "../../../examples/hub/ncnn/cv/nanodet_m-depreciated-opt.param";
+  std::string bin_path = "../../../examples/hub/ncnn/cv/nanodet_m-depreciated-opt.bin";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_detection_2.jpg";
-  std::string save_img_path = "../../../logs/test_lite_nanodet_depreciated_ncnn_2.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_nanodet_depreciated_ncnn_2.jpg";
 
   // 4. Test Specific Engine NCNN
   lite::ncnn::cv::detection::NanoDetDepreciated *nanodet =

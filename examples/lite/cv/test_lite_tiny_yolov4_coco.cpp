@@ -6,9 +6,9 @@
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/yolov4_tiny_weights_coco.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/yolov4_tiny_weights_coco.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_detection_1.jpg";
-  std::string save_img_path = "../../../logs/test_lite_tiny_yolov4_coco_1.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_tiny_yolov4_coco_1.jpg";
 
   // 1. Test Default Engine ONNXRuntime
   lite::cv::detection::TinyYoloV4COCO *tiny_yolov4_coco = new lite::cv::detection::TinyYoloV4COCO(onnx_path); // default
@@ -30,9 +30,9 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string onnx_path = "../../../hub/onnx/cv/yolov4_tiny_weights_coco.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/yolov4_tiny_weights_coco.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_detection_2.jpg";
-  std::string save_img_path = "../../../logs/test_lite_tiny_yolov4_coco_2.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_tiny_yolov4_coco_2.jpg";
 
   // 2. Test Specific Engine ONNXRuntime
   lite::onnxruntime::cv::detection::TinyYoloV4COCO *tiny_yolov4_coco =

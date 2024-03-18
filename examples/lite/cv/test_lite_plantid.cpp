@@ -6,7 +6,7 @@
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/quarrying_plantid_model.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/quarrying_plantid_model.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_plantid.jpg";
 
   lite::cv::classification::PlantID *plantid = new lite::cv::classification::PlantID(onnx_path);
@@ -37,7 +37,7 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string onnx_path = "../../../hub/onnx/cv/quarrying_plantid_model.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/quarrying_plantid_model.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_plantid.jpg";
 
   lite::onnxruntime::cv::classification::PlantID *plantid =
@@ -69,7 +69,7 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
-  std::string mnn_path = "../../../hub/mnn/cv/quarrying_plantid_model.mnn";
+  std::string mnn_path = "../../../examples/hub/mnn/cv/quarrying_plantid_model.mnn";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_plantid.jpg";
 
   lite::mnn::cv::classification::PlantID *plantid =
@@ -101,8 +101,8 @@ static void test_mnn()
 static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
-  std::string param_path = "../../../hub/ncnn/cv/quarrying_plantid_model.opt.param";
-  std::string bin_path = "../../../hub/ncnn/cv/quarrying_plantid_model.opt.bin";
+  std::string param_path = "../../../examples/hub/ncnn/cv/quarrying_plantid_model.opt.param";
+  std::string bin_path = "../../../examples/hub/ncnn/cv/quarrying_plantid_model.opt.bin";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_plantid.jpg";
 
   lite::ncnn::cv::classification::PlantID *plantid =
@@ -134,8 +134,8 @@ static void test_ncnn()
 static void test_tnn()
 {
 #ifdef ENABLE_TNN
-  std::string proto_path = "../../../hub/tnn/cv/quarrying_plantid_model.opt.tnnproto";
-  std::string model_path = "../../../hub/tnn/cv/quarrying_plantid_model.opt.tnnmodel";
+  std::string proto_path = "../../../examples/hub/tnn/cv/quarrying_plantid_model.opt.tnnproto";
+  std::string model_path = "../../../examples/hub/tnn/cv/quarrying_plantid_model.opt.tnnmodel";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_plantid.jpg";
 
   lite::tnn::cv::classification::PlantID *plantid =

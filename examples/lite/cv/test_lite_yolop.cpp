@@ -6,12 +6,12 @@
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/yolop-640-640.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/yolop-640-640.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_yolop.jpg";
-  std::string save_det_path = "../../../logs/test_lite_yolop_det.jpg";
-  std::string save_da_path = "../../../logs/test_lite_yolop_da.jpg";
-  std::string save_ll_path = "../../../logs/test_lite_yolop_ll.jpg";
-  std::string save_merge_path = "../../../logs/test_lite_yolop_merge.jpg";
+  std::string save_det_path = "../../../examples/logs/test_lite_yolop_det.jpg";
+  std::string save_da_path = "../../../examples/logs/test_lite_yolop_da.jpg";
+  std::string save_ll_path = "../../../examples/logs/test_lite_yolop_ll.jpg";
+  std::string save_merge_path = "../../../examples/logs/test_lite_yolop_merge.jpg";
 
   lite::cv::detection::YOLOP *yolop = new lite::cv::detection::YOLOP(onnx_path, 16); // 16 threads
 
@@ -67,12 +67,12 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string onnx_path = "../../../hub/onnx/cv/yolop-640-640.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/yolop-640-640.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_yolop.jpg";
-  std::string save_det_path = "../../../logs/test_lite_yolop_det_onnx.jpg";
-  std::string save_da_path = "../../../logs/test_lite_yolop_da_onnx.jpg";
-  std::string save_ll_path = "../../../logs/test_lite_yolop_ll_onnx.jpg";
-  std::string save_merge_path = "../../../logs/test_lite_yolop_merge_onnx.jpg";
+  std::string save_det_path = "../../../examples/logs/test_lite_yolop_det_onnx.jpg";
+  std::string save_da_path = "../../../examples/logs/test_lite_yolop_da_onnx.jpg";
+  std::string save_ll_path = "../../../examples/logs/test_lite_yolop_ll_onnx.jpg";
+  std::string save_merge_path = "../../../examples/logs/test_lite_yolop_merge_onnx.jpg";
 
   lite::onnxruntime::cv::detection::YOLOP *yolop =
       new lite::onnxruntime::cv::detection::YOLOP(onnx_path, 16); // 16 threads
@@ -130,12 +130,12 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
-  std::string mnn_path = "../../../hub/mnn/cv/yolop-640-640.mnn";
+  std::string mnn_path = "../../../examples/hub/mnn/cv/yolop-640-640.mnn";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_yolop.jpg";
-  std::string save_det_path = "../../../logs/test_lite_yolop_det_mnn.jpg";
-  std::string save_da_path = "../../../logs/test_lite_yolop_da_mnn.jpg";
-  std::string save_ll_path = "../../../logs/test_lite_yolop_ll_mnn.jpg";
-  std::string save_merge_path = "../../../logs/test_lite_yolop_merge_mnn.jpg";
+  std::string save_det_path = "../../../examples/logs/test_lite_yolop_det_mnn.jpg";
+  std::string save_da_path = "../../../examples/logs/test_lite_yolop_da_mnn.jpg";
+  std::string save_ll_path = "../../../examples/logs/test_lite_yolop_ll_mnn.jpg";
+  std::string save_merge_path = "../../../examples/logs/test_lite_yolop_merge_mnn.jpg";
 
   lite::mnn::cv::detection::YOLOP *yolop =
       new lite::mnn::cv::detection::YOLOP(mnn_path, 16); // 16 threads
@@ -193,13 +193,13 @@ static void test_mnn()
 static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
-  std::string param_path = "../../../hub/ncnn/cv/yolop-640-640.opt.param";
-  std::string bin_path = "../../../hub/ncnn/cv/yolop-640-640.opt.bin";
+  std::string param_path = "../../../examples/hub/ncnn/cv/yolop-640-640.opt.param";
+  std::string bin_path = "../../../examples/hub/ncnn/cv/yolop-640-640.opt.bin";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_yolop.jpg";
-  std::string save_det_path = "../../../logs/test_lite_yolop_det_ncnn.jpg";
-  std::string save_da_path = "../../../logs/test_lite_yolop_da_ncnn.jpg";
-  std::string save_ll_path = "../../../logs/test_lite_yolop_ll_ncnn.jpg";
-  std::string save_merge_path = "../../../logs/test_lite_yolop_merge_ncnn.jpg";
+  std::string save_det_path = "../../../examples/logs/test_lite_yolop_det_ncnn.jpg";
+  std::string save_da_path = "../../../examples/logs/test_lite_yolop_da_ncnn.jpg";
+  std::string save_ll_path = "../../../examples/logs/test_lite_yolop_ll_ncnn.jpg";
+  std::string save_merge_path = "../../../examples/logs/test_lite_yolop_merge_ncnn.jpg";
 
   lite::ncnn::cv::detection::YOLOP *yolop =
       new lite::ncnn::cv::detection::YOLOP(param_path, bin_path, 16); // 16 threads
@@ -257,13 +257,13 @@ static void test_ncnn()
 static void test_tnn()
 {
 #ifdef ENABLE_TNN
-  std::string proto_path = "../../../hub/tnn/cv/yolop-640-640.opt.tnnproto";
-  std::string model_path = "../../../hub/tnn/cv/yolop-640-640.opt.tnnmodel";
+  std::string proto_path = "../../../examples/hub/tnn/cv/yolop-640-640.opt.tnnproto";
+  std::string model_path = "../../../examples/hub/tnn/cv/yolop-640-640.opt.tnnmodel";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_yolop.jpg";
-  std::string save_det_path = "../../../logs/test_lite_yolop_det_tnn.jpg";
-  std::string save_da_path = "../../../logs/test_lite_yolop_da_tnn.jpg";
-  std::string save_ll_path = "../../../logs/test_lite_yolop_ll_tnn.jpg";
-  std::string save_merge_path = "../../../logs/test_lite_yolop_merge_tnn.jpg";
+  std::string save_det_path = "../../../examples/logs/test_lite_yolop_det_tnn.jpg";
+  std::string save_da_path = "../../../examples/logs/test_lite_yolop_da_tnn.jpg";
+  std::string save_ll_path = "../../../examples/logs/test_lite_yolop_ll_tnn.jpg";
+  std::string save_merge_path = "../../../examples/logs/test_lite_yolop_merge_tnn.jpg";
 
   lite::tnn::cv::detection::YOLOP *yolop =
       new lite::tnn::cv::detection::YOLOP(proto_path, model_path, 16); // 16 threads

@@ -6,9 +6,9 @@
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/ssd_mobilenet_v1_10.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/ssd_mobilenet_v1_10.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_ssd_mobilenetv1.png";
-  std::string save_img_path = "../../../logs/test_lite_ssd_mobilenetv1.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_ssd_mobilenetv1.jpg";
 
   lite::cv::detection::SSDMobileNetV1 *ssd_mobilenetv1 =
       new lite::cv::detection::SSDMobileNetV1(onnx_path);
@@ -29,9 +29,9 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string onnx_path = "../../../hub/onnx/cv/ssd_mobilenet_v1_10.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/ssd_mobilenet_v1_10.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_ssd_mobilenetv1.png";
-  std::string save_img_path = "../../../logs/test_onnx_ssd_mobilenetv1.jpg";
+  std::string save_img_path = "../../../examples/logs/test_onnx_ssd_mobilenetv1.jpg";
 
   lite::onnxruntime::cv::detection::SSDMobileNetV1 *ssd_mobilenetv1 =
       new lite::onnxruntime::cv::detection::SSDMobileNetV1(onnx_path);

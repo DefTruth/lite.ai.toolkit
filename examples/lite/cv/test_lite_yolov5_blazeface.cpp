@@ -6,9 +6,9 @@
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/yolov5face-blazeface-640x640.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/yolov5face-blazeface-640x640.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_face_detector.jpg";
-  std::string save_img_path = "../../../logs/test_lite_yolov5_blazeface.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_yolov5_blazeface.jpg";
 
   lite::cv::face::detect::YOLOv5BlazeFace *yolov5_blazeface =
       new lite::cv::face::detect::YOLOv5BlazeFace(onnx_path);
@@ -29,9 +29,9 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string onnx_path = "../../../hub/onnx/cv/yolov5face-blazeface-640x640.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/yolov5face-blazeface-640x640.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_face_detector_2.jpg";
-  std::string save_img_path = "../../../logs/test_lite_yolov5_blazeface_onnx_2.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_yolov5_blazeface_onnx_2.jpg";
 
   lite::onnxruntime::cv::face::detect::YOLOv5BlazeFace *yolov5_blazeface =
       new lite::onnxruntime::cv::face::detect::YOLOv5BlazeFace(onnx_path);
@@ -53,9 +53,9 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
-  std::string mnn_path = "../../../hub/mnn/cv/yolov5face-blazeface-640x640.mnn";
+  std::string mnn_path = "../../../examples/hub/mnn/cv/yolov5face-blazeface-640x640.mnn";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_face_detector_2.jpg";
-  std::string save_img_path = "../../../logs/test_lite_yolov5_blazeface_mnn_2.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_yolov5_blazeface_mnn_2.jpg";
 
   lite::mnn::cv::face::detect::YOLOv5BlazeFace *yolov5_blazeface =
       new lite::mnn::cv::face::detect::YOLOv5BlazeFace(mnn_path);

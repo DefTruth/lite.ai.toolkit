@@ -6,9 +6,9 @@
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/mobile_human_matting_256x256.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/mobile_human_matting_256x256.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_face_hair.png";
-  std::string save_img_path = "../../../logs/test_lite_mobile_human_matting.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_mobile_human_matting.jpg";
 
   lite::cv::matting::MobileHumanMatting *mobile_human_matting =
       new lite::cv::matting::MobileHumanMatting(onnx_path, 4); // 4 threads
@@ -29,9 +29,9 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string onnx_path = "../../../hub/onnx/cv/mobile_human_matting_256x256.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/mobile_human_matting_256x256.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_face_hair.png";
-  std::string save_img_path = "../../../logs/test_lite_mobile_human_matting_onnx.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_mobile_human_matting_onnx.jpg";
 
   lite::onnxruntime::cv::matting::MobileHumanMatting *mobile_human_matting =
       new lite::onnxruntime::cv::matting::MobileHumanMatting(onnx_path, 4); // 4 threads
@@ -53,9 +53,9 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
-  std::string mnn_path = "../../../hub/mnn/cv/mobile_human_matting_256x256.mnn";
+  std::string mnn_path = "../../../examples/hub/mnn/cv/mobile_human_matting_256x256.mnn";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_face_hair.png";
-  std::string save_img_path = "../../../logs/test_lite_mobile_human_matting_mnn.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_mobile_human_matting_mnn.jpg";
 
   lite::mnn::cv::matting::MobileHumanMatting *mobile_human_matting =
       new lite::mnn::cv::matting::MobileHumanMatting(mnn_path, 4); // 4 threads

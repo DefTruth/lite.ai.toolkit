@@ -6,9 +6,9 @@
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/vgg_ilsvrc_16_gender_imdb_wiki.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/vgg_ilsvrc_16_gender_imdb_wiki.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_vgg16_gender.jpg";
-  std::string save_img_path = "../../../logs/test_lite_vgg16_gender.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_vgg16_gender.jpg";
 
   lite::cv::face::attr::VGG16Gender *vgg16_gender = new lite::cv::face::attr::VGG16Gender(onnx_path);
 
@@ -29,9 +29,9 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string onnx_path = "../../../hub/onnx/cv/vgg_ilsvrc_16_gender_imdb_wiki.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/vgg_ilsvrc_16_gender_imdb_wiki.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_vgg16_gender.jpg";
-  std::string save_img_path = "../../../logs/test_onnx_vgg16_gender.jpg";
+  std::string save_img_path = "../../../examples/logs/test_onnx_vgg16_gender.jpg";
 
   lite::onnxruntime::cv::face::attr::VGG16Gender *vgg16_gender =
       new lite::onnxruntime::cv::face::attr::VGG16Gender(onnx_path);

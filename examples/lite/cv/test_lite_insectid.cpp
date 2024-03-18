@@ -6,7 +6,7 @@
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/quarrying_insect_identifier.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/quarrying_insect_identifier.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_insectid.jpg";
 
   lite::cv::classification::InsectID *insectid = new lite::cv::classification::InsectID(onnx_path);
@@ -36,7 +36,7 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string onnx_path = "../../../hub/onnx/cv/quarrying_insect_identifier.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/quarrying_insect_identifier.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_insectid.jpg";
 
   lite::onnxruntime::cv::classification::InsectID *insectid =
@@ -68,7 +68,7 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
-  std::string mnn_path = "../../../hub/mnn/cv/quarrying_insect_identifier.mnn";
+  std::string mnn_path = "../../../examples/hub/mnn/cv/quarrying_insect_identifier.mnn";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_insectid.jpg";
 
   lite::mnn::cv::classification::InsectID *insectid =
@@ -100,8 +100,8 @@ static void test_mnn()
 static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
-  std::string param_path = "../../../hub/ncnn/cv/quarrying_insect_identifier.opt.param";
-  std::string bin_path = "../../../hub/ncnn/cv/quarrying_insect_identifier.opt.bin";
+  std::string param_path = "../../../examples/hub/ncnn/cv/quarrying_insect_identifier.opt.param";
+  std::string bin_path = "../../../examples/hub/ncnn/cv/quarrying_insect_identifier.opt.bin";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_insectid.jpg";
 
   lite::ncnn::cv::classification::InsectID *insectid =
@@ -133,8 +133,8 @@ static void test_ncnn()
 static void test_tnn()
 {
 #ifdef ENABLE_TNN
-  std::string proto_path = "../../../hub/tnn/cv/quarrying_insect_identifier.opt.tnnproto";
-  std::string model_path = "../../../hub/tnn/cv/quarrying_insect_identifier.opt.tnnmodel";
+  std::string proto_path = "../../../examples/hub/tnn/cv/quarrying_insect_identifier.opt.tnnproto";
+  std::string model_path = "../../../examples/hub/tnn/cv/quarrying_insect_identifier.opt.tnnmodel";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_insectid.jpg";
 
   lite::tnn::cv::classification::InsectID *insectid =

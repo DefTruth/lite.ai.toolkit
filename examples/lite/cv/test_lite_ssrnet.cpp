@@ -6,9 +6,9 @@
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/ssrnet.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/ssrnet.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_ssrnet.jpg";
-  std::string save_img_path = "../../../logs/test_lite_ssrnet.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_ssrnet.jpg";
 
   lite::cv::face::attr::SSRNet *ssrnet = new lite::cv::face::attr::SSRNet(onnx_path);
 
@@ -28,9 +28,9 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string onnx_path = "../../../hub/onnx/cv/ssrnet.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/ssrnet.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_ssrnet.jpg";
-  std::string save_img_path = "../../../logs/test_onnx_ssrnet.jpg";
+  std::string save_img_path = "../../../examples/logs/test_onnx_ssrnet.jpg";
 
   lite::onnxruntime::cv::face::attr::SSRNet *ssrnet =
       new lite::onnxruntime::cv::face::attr::SSRNet(onnx_path);
@@ -52,9 +52,9 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
-  std::string mnn_path = "../../../hub/mnn/cv/ssrnet.mnn";
+  std::string mnn_path = "../../../examples/hub/mnn/cv/ssrnet.mnn";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_ssrnet.jpg";
-  std::string save_img_path = "../../../logs/test_ssrnet_mnn.jpg";
+  std::string save_img_path = "../../../examples/logs/test_ssrnet_mnn.jpg";
 
   lite::mnn::cv::face::attr::SSRNet *ssrnet =
       new lite::mnn::cv::face::attr::SSRNet(mnn_path);
@@ -82,10 +82,10 @@ static void test_ncnn()
 static void test_tnn()
 {
 #ifdef ENABLE_TNN
-  std::string proto_path = "../../../hub/tnn/cv/ssrnet.opt.tnnproto";
-  std::string model_path = "../../../hub/tnn/cv/ssrnet.opt.tnnmodel";
+  std::string proto_path = "../../../examples/hub/tnn/cv/ssrnet.opt.tnnproto";
+  std::string model_path = "../../../examples/hub/tnn/cv/ssrnet.opt.tnnmodel";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_ssrnet.jpg";
-  std::string save_img_path = "../../../logs/test_ssrnet_tnn.jpg";
+  std::string save_img_path = "../../../examples/logs/test_ssrnet_tnn.jpg";
 
   lite::tnn::cv::face::attr::SSRNet *ssrnet =
       new lite::tnn::cv::face::attr::SSRNet(proto_path, model_path);

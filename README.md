@@ -8,10 +8,10 @@
 ![logo-v3](https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/f99f5300-ece6-4572-8c4b-56b90e6e4d74)
 
 <div align='center'>
-  <img src=https://img.shields.io/badge/mac|linux|win-pass-brightgreen.svg >
+  <img src=https://img.shields.io/badge/Linux-pass-brightgreen.svg >
   <img src=https://img.shields.io/badge/device-GPU/CPU-yellow.svg >
-  <img src=https://img.shields.io/badge/onnxruntime-1.10.0-turquoise.svg >
-  <img src=https://img.shields.io/badge/mnn-1.2.0-hotpink.svg >
+  <img src=https://img.shields.io/badge/onnxruntime-1.17.1-turquoise.svg >
+  <img src=https://img.shields.io/badge/mnn-2.8.2-hotpink.svg >
   <img src=https://img.shields.io/badge/ncnn-1.0.21-orange.svg >
   <img src=https://img.shields.io/badge/tnn-0.3.0-blue.svg >
 </div>   
@@ -36,19 +36,7 @@
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/3d8ec05e-f850-40e5-b4a9-2914c4ac5b9e' height="90px" width="90px">
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/5684e1d9-b3b1-45af-ac38-d9201490d46e' height="90px" width="90px">
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/b6a431d2-225b-416b-8a1e-cf9617d79a63' height="90px" width="90px">
-  <br>
-  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/32532cbc-ef90-4afb-9fa9-0a1f52b18654' height="90px" width="90px">
-  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/157b9e11-fc92-445b-ae0d-0d859c8663ee' height="90px" width="90px">
-  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/5684e1d9-b3b1-45af-ac38-d9201490d46e' height="90px" width="90px">
-  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/84d3ed6a-b711-4c0a-8e92-a2da05a0d04e' height="90px" width="90px">
-  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/ef0eeabe-6dbe-4837-9aad-b806a8398697' height="90px" width="90px">  
-  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/7d3e929e-c363-4457-862c-8b725f0463ec' height="90px" width="90px">
-  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/95106e7e-c6bc-433d-b20c-95b579e85a06' height="90px" width="90px">
-  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/bbaa6e7e-50c0-4993-b6e9-aee681e61fdb' height="90px" width="90px">
 </div>  
-
-<p align="center">English | <a href="README.zh.md">中文文档</a> | <a href=#lite.ai.toolkit-Build-MacOS>MacOS</a> | <a href=#lite.ai.toolkit-Build-Linux>Linux</a> | <a href=#lite.ai.toolkit-Build-Windows>Windows</a> </p>
-
 
 ## Features 👏👋
 <div id="lite.ai.toolkit-Core-Features"></div>
@@ -56,12 +44,6 @@
 * **Simply and User friendly.** Simply and Consistent syntax like **lite::cv::Type::Class**, see [examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
 * **Minimum Dependencies.** Only **OpenCV** and **ONNXRuntime** are required by default, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit).
 * **Lots of Algorithm Modules.** Contains almost **[300+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** C++ re-implementations and **[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** weights.
-
-## Others 🌟🌟
-
-|🛠[lite.ai.toolkit](https://github.com/DefTruth/lite.ai.toolkit) | 💎[torchlm](https://github.com/DefTruth/torchlm) | 📒[statistic-learning-R-note](https://github.com/DefTruth/statistic-learning-R-note) | 🎉[cuda-learn-note](https://github.com/DefTruth/cuda-learn-note) | 📖[Awesome-LLM-Inference](https://github.com/DefTruth/Awesome-LLM-Inference) |   
-|:---:|:---:|:---:|:---:|:---:|
-|![](https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social) ![](https://img.shields.io/github/downloads/DefTruth/lite.ai.toolkit/total?color=ccf&label=downloads&logo=github&logoColor=lightgrey)| ![](https://img.shields.io/github/stars/DefTruth/torchlm.svg?style=social)   ![](https://static.pepy.tech/personalized-badge/torchlm?period=total&units=international_system&left_color=grey&right_color=blue&left_text=downloads)| ![](https://img.shields.io/github/stars/DefTruth/statistic-learning-R-note.svg?style=social) ![](https://img.shields.io/github/downloads/DefTruth/statistic-learning-R-note/total?color=ccf&label=downloads&logo=github&logoColor=lightgrey) |![](https://img.shields.io/github/stars/DefTruth/cuda-learn-note.svg?style=social) ![](https://img.shields.io/github/issues/DefTruth/cuda-learn-note?color=9cc)|  ![](https://img.shields.io/github/stars/DefTruth/Awesome-LLM-Inference.svg?style=social) ![](https://img.shields.io/github/downloads/DefTruth/Awesome-LLM-Inference/total?color=ccf&label=downloads&logo=github&logoColor=lightgrey)|
 
 ## Citations 🎉🎉
 ```BibTeX
@@ -74,55 +56,26 @@
 }
 ```
 
-## Downloads & RoadMap ✅  
-
-<div id="lite.ai.toolkit-RoadMap"></div>
-
-![](https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/f521540d-41d5-4d1c-8d5b-219ca96b5d2d)
-
-Some prebuilt lite.ai.toolkit libs for MacOS(x64) and Linux(x64) are available, you can download the libs from the release links. Further, prebuilt libs for Windows(x64) and Android will be coming soon ~ Please, see [issues#48](https://github.com/DefTruth/lite.ai.toolkit/issues/48) for more details of the prebuilt plan and refer to [releases](https://github.com/DefTruth/lite.ai.toolkit/releases) for more available prebuilt libs.
-
-* [x]  [lite0.1.1-osx10.15.x-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.8.1.zip](https://github.com/DefTruth/lite.ai.toolkit/releases/download/v0.1.1/lite0.1.1-osx10.15.x-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.8.1.zip)
-* [x]  [lite0.1.1-osx10.15.x-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.9.0.zip](https://github.com/DefTruth/lite.ai.toolkit/releases/download/v0.1.1/lite0.1.1-osx10.15.x-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.9.0.zip)
-* [x]  [lite0.1.1-osx10.15.x-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.10.0.zip](https://github.com/DefTruth/lite.ai.toolkit/releases/download/v0.1.1/lite0.1.1-osx10.15.x-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.10.0.zip)
-* [x]  [lite0.1.1-ubuntu18.04-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.8.1.zip](https://github.com/DefTruth/lite.ai.toolkit/releases/download/v0.1.1/lite0.1.1-ubuntu18.04-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.8.1.zip)  
-* [x]  [lite0.1.1-ubuntu18.04-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.9.0.zip](https://github.com/DefTruth/lite.ai.toolkit/releases/download/v0.1.1/lite0.1.1-ubuntu18.04-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.9.0.zip)  
-* [x]  [lite0.1.1-ubuntu18.04-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.10.0.zip](https://github.com/DefTruth/lite.ai.toolkit/releases/download/v0.1.1/lite0.1.1-ubuntu18.04-ocv4.5.2-ffmpeg4.2.2-onnxruntime1.10.0.zip)  
-
-In Linux, in order to link the prebuilt libs, you need to export `lite.ai.toolkit/lib` to LD_LIBRARY_PATH first.  
-```shell
-export LD_LIBRARY_PATH=YOUR-PATH-TO/lite.ai.toolkit/lib:$LD_LIBRARY_PATH
-export LIBRARY_PATH=YOUR-PATH-TO/lite.ai.toolkit/lib:$LIBRARY_PATH  # (may need)
-```
-## Quick Setup 👀
-
-To quickly setup `lite.ai.toolkit`, you can follow the `CMakeLists.txt` listed as belows. 👇👀
-
-```cmake
-set(LITE_AI_DIR ${CMAKE_SOURCE_DIR}/lite.ai.toolkit)
-include_directories(${LITE_AI_DIR}/include)
-link_directories(${LITE_AI_DIR}/lib})
-set(TOOLKIT_LIBS lite.ai.toolkit onnxruntime)
-set(OpenCV_LIBS opencv_core opencv_imgcodecs opencv_imgproc opencv_video opencv_videoio)
-
-add_executable(lite_yolov5 examples/test_lite_yolov5.cpp)
-target_link_libraries(lite_yolov5 ${TOOLKIT_LIBS} ${OpenCV_LIBS})
-```
-
 ## Contents 📖💡
 * [Core Features](#lite.ai.toolkit-Core-Features)
 * [Quick Start](#lite.ai.toolkit-Quick-Start)
-* [RoadMap](#lite.ai.toolkit-RoadMap) 
-* [Important Updates](#lite.ai.toolkit-Important-Updates)
 * [Supported Models Matrix](#lite.ai.toolkit-Supported-Models-Matrix)
-* [Build Docs](#lite.ai.toolkit-Build-Lite.AI.ToolKit)
+* [Build Docs](#lite.ai.toolkit-Build)
 * [Model Zoo](#lite.ai.toolkit-Model-Zoo)
 * [Examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit)
 * [License](#lite.ai.toolkit-License)
 * [References](#lite.ai.toolkit-References)
 * [Contribute](#lite.ai.toolkit-Contribute)
 
-## 1. Quick Start 🌟🌟
+## Build Docs.
+<div id="lite.ai.toolkit-Build"></div>  
+
+```shell
+git clone --depth=1 https://github.com/DefTruth/lite.ai.toolkit.git  # latest
+cd lite.ai.toolkit && sh ./build.sh 
+```
+
+## Quick Start 🌟🌟
 <div id="lite.ai.toolkit-Quick-Start"></div>
 
 #### Example0: Object Detection using [YOLOv5](https://github.com/ultralytics/yolov5). Download model from Model-Zoo[<sup>2</sup>](#lite.ai.toolkit-2).
@@ -131,9 +84,9 @@ target_link_libraries(lite_yolov5 ${TOOLKIT_LIBS} ${OpenCV_LIBS})
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/yolov5s.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/yolov5s.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_yolov5_1.jpg";
-  std::string save_img_path = "../../../logs/test_lite_yolov5_1.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_yolov5_1.jpg";
 
   auto *yolov5 = new lite::cv::detection::YoloV5(onnx_path); 
   std::vector<lite::types::Boxf> detected_boxes;
@@ -147,30 +100,77 @@ static void test_default()
 }
 ```
 
-## 2. Important Updates 🆕
-<div id="lite.ai.toolkit-Important-Updates"></div>
+## Quick Setup 👀
 
-<details> 
-<summary> Click here to see details of Important Updates! </summary>
+To quickly setup `lite.ai.toolkit`, you can follow the `CMakeLists.txt` listed as belows. 👇👀
+```cmake
+set(LITE_AI_DIR YOUR-PATH-TO/lite.ai.toolkit)
+find_package(lite.ai.toolkit REQUIRED PATHS ${LITE_AI_DIR})
 
-|     Date     |                                        Model                                         |                                                    C++                                                    |                         Paper                         |                                      Code                                       |                                        Awesome                                        |     Type     | 
-|:------------:|:------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------:|:-------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------:|:------------:|  
-| 【2022/04/03】 |                      [MODNet](https://github.com/ZHKKKe/MODNet)                      |    [link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_modnet.cpp)    |   [AAAI 2022](https://arxiv.org/pdf/2011.11961.pdf)   |                    [code](https://github.com/ZHKKKe/MODNet)                     |        ![](https://img.shields.io/github/stars/ZHKKKe/MODNet.svg?style=social)        |   matting    |
-| 【2022/03/23】 |                   [PIPNtet](https://github.com/jhb86253817/PIPNet)                   |   [link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_pipnet98.cpp)   |     [CVPR 2021](https://arxiv.org/abs/2003.03771)     |                  [code](https://github.com/jhb86253817/PIPNet)                  |     ![](https://img.shields.io/github/stars/jhb86253817/PIPNet.svg?style=social)      | face::align  |
-| 【2022/01/19】 |                [YOLO5Face](https://github.com/deepcam-cn/yolov5-face)                |  [link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolo5face.cpp)   |    [arXiv 2021](https://arxiv.org/abs/2105.12931)     |                [code](https://github.com/deepcam-cn/yolov5-face)                |   ![](https://img.shields.io/github/stars/deepcam-cn/yolov5-face.svg?style=social)    | face::detect |
-| 【2022/01/07】 |   [SCRFD](https://github.com/deepinsight/insightface/blob/master/detection/scrfd/)   |    [link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_scrfd.cpp)     |     [CVPR 2021](https://arxiv.org/abs/2105.04714)     | [code](https://github.com/deepinsight/insightface/blob/master/detection/scrfd/) |   ![](https://img.shields.io/github/stars/deepinsight/insightface.svg?style=social)   | face::detect |
-| 【2021/12/27】 |                  [NanoDetPlus](https://github.com/RangiLyu/nanodet)                  | [link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet_plus.cpp) |    [blog](https://zhuanlan.zhihu.com/p/449912627)     |                   [code](https://github.com/RangiLyu/nanodet)                   |      ![](https://img.shields.io/github/stars/RangiLyu/nanodet.svg?style=social)       |  detection   |
-| 【2021/12/08】 |                 [MGMatting](https://github.com/yucornetto/MGMatting)                 |  [link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_mg_matting.cpp)  |     [CVPR 2021](https://arxiv.org/abs/2012.06722)     |                 [code](https://github.com/yucornetto/MGMatting)                 |    ![](https://img.shields.io/github/stars/yucornetto/MGMatting.svg?style=social)     |   matting    |
-| 【2021/11/11】 |       [YoloV5_V_6_0](https://github.com/ultralytics/yolov5/releases/tag/v6.0)        | [link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolov5_v6.0.cpp)  | [doi](https://zenodo.org/record/5563715#.YbXffH1Bzfs) |         [code](https://github.com/ultralytics/yolov5/releases/tag/v6.0)         |     ![](https://img.shields.io/github/stars/ultralytics/yolov5.svg?style=social)      |  detection   |
-| 【2021/10/26】 | [YoloX_V_0_1_1](https://github.com/Megvii-BaseDetection/YOLOX/releases/tag/0.1.1rc0) | [link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolox_v0.1.1.cpp) |    [arXiv 2021](https://arxiv.org/abs/2107.08430)     |              [code](https://github.com/Megvii-BaseDetection/YOLOX)              | ![](https://img.shields.io/github/stars/Megvii-BaseDetection/YOLOX.svg?style=social)  |  detection   |
-| 【2021/10/02】 |                    [NanoDet](https://github.com/RangiLyu/nanodet)                    |   [link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_nanodet.cpp)    |    [blog](https://zhuanlan.zhihu.com/p/306530300)     |                   [code](https://github.com/RangiLyu/nanodet)                   |      ![](https://img.shields.io/github/stars/RangiLyu/nanodet.svg?style=social)       |  detection   |
-| 【2021/09/20】 |         [RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)         |     [link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_rvm.cpp)      |     [WACV 2022](https://arxiv.org/abs/2108.11515)     |             [code](https://github.com/PeterL1n/RobustVideoMatting)              | ![](https://img.shields.io/github/stars/PeterL1n/RobustVideoMatting.svg?style=social) |   matting    |
-| 【2021/09/02】 |                       [YOLOP](https://github.com/hustvl/YOLOP)                       |    [link](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_yolop.cpp)     |    [arXiv 2021](https://arxiv.org/abs/2108.11250)     |                     [code](https://github.com/hustvl/YOLOP)                     |        ![](https://img.shields.io/github/stars/hustvl/YOLOP.svg?style=social)         |  detection   |
-
-</details>
+add_executable(lite_yolov5 examples/test_lite_yolov5.cpp)
+target_link_libraries(lite_yolov5 ${lite.ai.toolkit_LIBS})
+```
 
 
-## 3. Supported Models Matrix
+## ❇️ Lite.Ai.ToolKit modules.
+
+### Namespace and Lite.Ai.ToolKit modules.
+
+| Namespace                  | Details                                                                                 |
+|:---------------------------|:----------------------------------------------------------------------------------------|
+| *lite::cv::detection*      | Object Detection. one-stage and anchor-free detectors, YoloV5, YoloV4, SSD, etc. ✅      |
+| *lite::cv::classification* | Image Classification. DensNet, ShuffleNet, ResNet, IBNNet, GhostNet, etc. ✅             |
+| *lite::cv::faceid*         | Face Recognition. ArcFace, CosFace, CurricularFace, etc. ❇️                             |
+| *lite::cv::face*           | Face Analysis. *detect*, *align*, *pose*, *attr*, etc. ❇️                               |
+| *lite::cv::face::detect*   | Face Detection. UltraFace, RetinaFace, FaceBoxes, PyramidBox, etc. ❇️                   |
+| *lite::cv::face::align*    | Face Alignment. PFLD(106), FaceLandmark1000(1000 landmarks), PRNet, etc. ❇️             |
+| *lite::cv::face::align3d*  | 3D Face Alignment. FaceMesh(468 3D landmarks), IrisLandmark(71+5 3D landmarks), etc. ❇️ |
+| *lite::cv::face::pose*     | Head Pose Estimation.  FSANet, etc. ❇️                                                  |
+| *lite::cv::face::attr*     | Face Attributes. Emotion, Age, Gender. EmotionFerPlus, VGG16Age, etc. ❇️                |
+| *lite::cv::segmentation*   | Object Segmentation. Such as FCN, DeepLabV3, etc.  ❇️ ️                                 |
+| *lite::cv::style*          | Style Transfer. Contains neural style transfer now, such as FastStyleTransfer.  ⚠️      |
+| *lite::cv::matting*        | Image Matting. Object and Human matting.   ❇️ ️                                         |
+| *lite::cv::colorization*   | Colorization. Make Gray image become RGB. ⚠️                                            |
+| *lite::cv::resolution*     | Super Resolution.  ⚠️                                                                   |
+
+
+### Lite.Ai.ToolKit's Classes and Pretrained Files.
+
+Correspondence between the classes in **Lite.AI.ToolKit** and pretrained model files can be found at [lite.ai.toolkit.hub.onnx.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md). For examples, the pretrained model files for *lite::cv::detection::YoloV5* and *lite::cv::detection::YoloX* are listed as follows.
+
+
+|             Class             | Pretrained ONNX Files |                 Rename or Converted From (Repo)                  | Size  |
+|:-----------------------------:|:---------------------:|:----------------------------------------------------------------:|:-----:|
+| *lite::cv::detection::YoloV5* |     yolov5l.onnx      |    [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑)     | 188Mb |
+| *lite::cv::detection::YoloV5* |     yolov5m.onnx      |    [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑)     | 85Mb  |
+| *lite::cv::detection::YoloV5* |     yolov5s.onnx      |    [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑)     | 29Mb  |
+| *lite::cv::detection::YoloV5* |     yolov5x.onnx      |    [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑)     | 351Mb |
+| *lite::cv::detection::YoloX*  |     yolox_x.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 378Mb |
+| *lite::cv::detection::YoloX*  |     yolox_l.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 207Mb |
+| *lite::cv::detection::YoloX*  |     yolox_m.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 97Mb  |
+| *lite::cv::detection::YoloX*  |     yolox_s.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 34Mb  |
+| *lite::cv::detection::YoloX*  |    yolox_tiny.onnx    | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 19Mb  |
+| *lite::cv::detection::YoloX*  |    yolox_nano.onnx    | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 3.5Mb |
+
+It means that you can load the the any one `yolov5*.onnx` and  `yolox_*.onnx` according to your application through the same Lite.AI.ToolKit's classes, such as *YoloV5*, *YoloX*, etc.
+
+```c++
+auto *yolov5 = new lite::cv::detection::YoloV5("yolov5x.onnx");  // for server
+auto *yolov5 = new lite::cv::detection::YoloV5("yolov5l.onnx"); 
+auto *yolov5 = new lite::cv::detection::YoloV5("yolov5m.onnx");  
+auto *yolov5 = new lite::cv::detection::YoloV5("yolov5s.onnx");  // for mobile device 
+auto *yolox = new lite::cv::detection::YoloX("yolox_x.onnx");  
+auto *yolox = new lite::cv::detection::YoloX("yolox_l.onnx");  
+auto *yolox = new lite::cv::detection::YoloX("yolox_m.onnx");  
+auto *yolox = new lite::cv::detection::YoloX("yolox_s.onnx");  
+auto *yolox = new lite::cv::detection::YoloX("yolox_tiny.onnx");  
+auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only !
+```
+
+<details>
+<summary>  ❇️ Supported Models Matrix </summary>  
+
+## Supported Models Matrix
 <div id="lite.ai.toolkit-Supported-Models-Matrix"></div>
 
 * / = not supported now.
@@ -282,187 +282,10 @@ static void test_default()
 |                     [FaceParsingBiSeNet](https://github.com/zllrunning/face-parsing.PyTorch)                      |  50M  |  *segmentation*  |   [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_face_parsing_bisenet.cpp)    |      ✅      |  ✅  |  ✅   |  ✅  |   ✅   |  ✔️   |   ✔️    |    ❔    |
 |                    [FaceParsingBiSeNetDyn](https://github.com/zllrunning/face-parsing.PyTorch)                    |  50M  |  *segmentation*  | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_face_parsing_bisenet_dyn.cpp)  |      ✅      |  /  |  /   |  /  |   /   |  ✔️   |   ✔️    |    ❔    |
 
-
-## 4. Build Docs.
-<div id="lite.ai.toolkit-Build-MacOS"></div>
-<div id="lite.ai.toolkit-Build-Lite.AI.ToolKit"></div>
-
-* MacOS: Build the shared lib of **Lite.Ai.ToolKit** for **MacOS** from sources. Note that Lite.Ai.ToolKit uses **onnxruntime** as default backend, for the reason that onnxruntime supports the most of onnx's operators. 
-
-```shell
-    git clone --depth=1 https://github.com/DefTruth/lite.ai.toolkit.git  # latest
-    cd lite.ai.toolkit && sh ./build.sh  # On MacOS, you can use the built OpenCV, ONNXRuntime, MNN, NCNN and TNN libs in this repo.
-```
-
-<div id="lite.ai.toolkit-Build-Linux"></div>
-<div id="lite.ai.toolkit-Build-Windows"></div>
-
-<details>
-<summary>💡 Linux and Windows. </summary>  
-
-### Linux and Windows.
-
-⚠️ **Lite.Ai.ToolKit** is not directly support Linux and Windows now. For Linux and Windows, you need to build or download(if have official builts) the shared libs of **OpenCV**、**ONNXRuntime** and any other Engines(like MNN, NCNN, TNN) firstly, then put the headers into the specific directories or just let these directories unchange(use the headers offer by this repo, the header file of the dependent library of this project is directly copied from the corresponding official library). However, the dynamic libraries under different operating systems need to be recompiled or downloaded. MacOS users can directly use the dynamic libraries of each dependent library provided by this project:
-* **lite.ai.toolkit/opencv2**
-  ```shell
-    cp -r you-path-to-downloaded-or-built-opencv/include/opencv4/opencv2 lite.ai.toolkit/opencv2
-  ```
-* **lite.ai.toolkit/onnxruntime**
-  ```shell
-    cp -r you-path-to-downloaded-or-built-onnxruntime/include/onnxruntime lite.ai.toolkit/onnxruntime
-  ```
-* **lite.ai.toolkit/MNN**
-  ```shell
-    cp -r you-path-to-downloaded-or-built-MNN/include/MNN lite.ai.toolkit/MNN
-  ```
-* **lite.ai.toolkit/ncnn**
-  ```shell
-    cp -r you-path-to-downloaded-or-built-ncnn/include/ncnn lite.ai.toolkit/ncnn
-  ```
-* **lite.ai.toolkit/tnn**
-  ```shell
-    cp -r you-path-to-downloaded-or-built-TNN/include/tnn lite.ai.toolkit/tnn
-  ```
-
-and put the libs into **lite.ai.toolkit/lib/(linux|windows)** directory. Please reference the build-docs[<sup>1</sup>](#lite.ai.toolkit-1) for **third_party**.
-* **lite.ai.toolkit/lib/(linux|windows)**
-  ```shell
-    cp you-path-to-downloaded-or-built-opencv/lib/*opencv* lite.ai.toolkit/lib/(linux|windows)/
-    cp you-path-to-downloaded-or-built-onnxruntime/lib/*onnxruntime* lite.ai.toolkit/lib/(linux|windows)/
-    cp you-path-to-downloaded-or-built-MNN/lib/*MNN* lite.ai.toolkit/lib/(linux|windows)/
-    cp you-path-to-downloaded-or-built-ncnn/lib/*ncnn* lite.ai.toolkit/lib/(linux|windows)/
-    cp you-path-to-downloaded-or-built-TNN/lib/*TNN* lite.ai.toolkit/lib/(linux|windows)/
-  ```
-
-Note, your also need to install ffmpeg(<=4.2.2) in Linux to support the opencv videoio module. See [issue#203](https://github.com/DefTruth/lite.ai.toolkit/issues/6). In MacOS, ffmpeg4.2.2 was been package into lite.ai.toolkit, thus, no installation need in OSX. In Windows, ffmpeg was been package into opencv dll prebuilt by the team of opencv. Please make sure -DWITH_FFMPEG=ON and check the configuration info when building opencv.
-* first, build ffmpeg(<=4.2.2) from source.
-```shell
-git clone --depth=1 https://git.ffmpeg.org/ffmpeg.git -b n4.2.2
-cd ffmpeg
-./configure --enable-shared --disable-x86asm --prefix=/usr/local/opt/ffmpeg --disable-static
-make -j8
-make install
-```
-* then, build opencv with -DWITH_FFMPEG=ON, just like
-```shell
-#!/bin/bash
-
-mkdir build
-cd build
-
-cmake .. \
-  -D CMAKE_BUILD_TYPE=Release \
-  -D CMAKE_INSTALL_PREFIX=your-path-to-custom-dir \
-  -D BUILD_TESTS=OFF \
-  -D BUILD_PERF_TESTS=OFF \
-  -D BUILD_opencv_python3=OFF \
-  -D BUILD_opencv_python2=OFF \
-  -D BUILD_SHARED_LIBS=ON \
-  -D BUILD_opencv_apps=OFF \
-  -D WITH_FFMPEG=ON 
-  
-make -j8
-make install
-cd ..
-```
-after built opencv, you can follow the steps to build lite.ai.toolkit.
-
-* Windows: You can reference to [issue#6](https://github.com/DefTruth/lite.ai.toolkit/issues/6)
-* Linux: The Docs and Docker image for Linux will be coming soon ~ [issue#2](https://github.com/DefTruth/lite.ai.toolkit/issues/2)
-* Happy News !!! : 🚀 You can download the latest **ONNXRuntime** official built libs of Windows, Linux, MacOS and Arm !!! Both CPU and GPU versions are available. No more attentions needed pay to build it from source. Download the official built libs from [v1.8.1](https://github.com/microsoft/onnxruntime/releases). I have used version 1.7.0 for Lite.Ai.ToolKit now, you can download it from [v1.7.0](https://github.com/microsoft/onnxruntime/releases/tag/v1.7.0), but version 1.8.1 should also work, I guess ~  🙃🤪🍀. For **OpenCV**, try to build from source(Linux) or down load the official built(Windows) from [OpenCV 4.5.3](https://github.com/opencv/opencv/releases). Then put the includes and libs into specific directory of Lite.Ai.ToolKit.
-
-* GPU Compatibility for Windows: See [issue#10](https://github.com/DefTruth/lite.ai.toolkit/issues/10).
-* GPU Compatibility for Linux: See [issue#97](https://github.com/DefTruth/lite.ai.toolkit/issues/97).
-
-</details>  
-
-
-<details>
-<summary>🔑️ How to link Lite.Ai.ToolKit?</summary>  
-* To link Lite.Ai.ToolKit, you can follow the CMakeLists.txt listed belows.
-
-```cmake
-cmake_minimum_required(VERSION 3.10)
-project(lite.ai.toolkit.demo)
-
-set(CMAKE_CXX_STANDARD 11)
-
-# setting up lite.ai.toolkit
-set(LITE_AI_DIR ${CMAKE_SOURCE_DIR}/lite.ai.toolkit)
-set(LITE_AI_INCLUDE_DIR ${LITE_AI_DIR}/include)
-set(LITE_AI_LIBRARY_DIR ${LITE_AI_DIR}/lib)
-include_directories(${LITE_AI_INCLUDE_DIR})
-link_directories(${LITE_AI_LIBRARY_DIR})
-
-set(OpenCV_LIBS
-        opencv_highgui
-        opencv_core
-        opencv_imgcodecs
-        opencv_imgproc
-        opencv_video
-        opencv_videoio
-        )
-# add your executable
-set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/examples/build)
-
-add_executable(lite_rvm examples/test_lite_rvm.cpp)
-target_link_libraries(lite_rvm
-        lite.ai.toolkit
-        onnxruntime
-        MNN  # need, if built lite.ai.toolkit with ENABLE_MNN=ON,  default OFF
-        ncnn # need, if built lite.ai.toolkit with ENABLE_NCNN=ON, default OFF 
-        TNN  # need, if built lite.ai.toolkit with ENABLE_TNN=ON,  default OFF 
-        ${OpenCV_LIBS})  # link lite.ai.toolkit & other libs.
-```
-
-```shell
-cd ./build/lite.ai.toolkit/lib && otool -L liblite.ai.toolkit.0.0.1.dylib 
-liblite.ai.toolkit.0.0.1.dylib:
-        @rpath/liblite.ai.toolkit.0.0.1.dylib (compatibility version 0.0.1, current version 0.0.1)
-        @rpath/libopencv_highgui.4.5.dylib (compatibility version 4.5.0, current version 4.5.2)
-        @rpath/libonnxruntime.1.7.0.dylib (compatibility version 0.0.0, current version 1.7.0)
-        ...
-```
-
-
-```shell
-cd ../ && tree .
-├── bin
-├── include
-│   ├── lite
-│   │   ├── backend.h
-│   │   ├── config.h
-│   │   └── lite.h
-│   └── ort
-└── lib
-    └── liblite.ai.toolkit.0.0.1.dylib
-```
-* Run the built examples:
-```shell
-cd ./build/lite.ai.toolkit/bin && ls -lh | grep lite
--rwxr-xr-x  1 root  staff   301K Jun 26 23:10 liblite.ai.toolkit.0.0.1.dylib
-...
--rwxr-xr-x  1 root  staff   196K Jun 26 23:10 lite_yolov4
--rwxr-xr-x  1 root  staff   196K Jun 26 23:10 lite_yolov5
-...
-```
-
-```shell
-./lite_yolov5
-LITEORT_DEBUG LogId: ../../../hub/onnx/cv/yolov5s.onnx
-=============== Input-Dims ==============
-...
-detected num_anchors: 25200
-generate_bboxes num: 66
-Default Version Detected Boxes Num: 5
-```
-
-To link `lite.ai.toolkit` shared lib. You need to make sure that `OpenCV` and `onnxruntime` are linked correctly. A minimum example to show you how to link the shared lib of Lite.AI.ToolKit correctly for your own project can be found at [CMakeLists.txt](https://github.com/DefTruth/RobustVideoMatting-ncnn-mnn-tnn-onnxruntime/blob/main/CMakeLists.txt).
-
 </details>
 
 
-## 5. Model Zoo.
+## Model Zoo.
 
 <div id="lite.ai.toolkit-Model-Zoo"></div>
 <div id="lite.ai.toolkit-2"></div>
@@ -486,64 +309,6 @@ To link `lite.ai.toolkit` shared lib. You need to make sure that `OpenCV` and `o
   docker pull qyjdefdocker/lite.ai.toolkit-ncnn-hub:v0.1.22.02.02  # (197M) + YOLO5Face
   docker pull qyjdefdocker/lite.ai.toolkit-tnn-hub:v0.1.22.02.02   # (217M) + YOLO5Face
 ```
-
-<details>
-<summary>  ❇️ Lite.Ai.ToolKit modules.</summary>  
-
-### Namespace and Lite.Ai.ToolKit modules.
-
-| Namespace                  | Details                                                                                 |
-|:---------------------------|:----------------------------------------------------------------------------------------|
-| *lite::cv::detection*      | Object Detection. one-stage and anchor-free detectors, YoloV5, YoloV4, SSD, etc. ✅      |
-| *lite::cv::classification* | Image Classification. DensNet, ShuffleNet, ResNet, IBNNet, GhostNet, etc. ✅             |
-| *lite::cv::faceid*         | Face Recognition. ArcFace, CosFace, CurricularFace, etc. ❇️                             |
-| *lite::cv::face*           | Face Analysis. *detect*, *align*, *pose*, *attr*, etc. ❇️                               |
-| *lite::cv::face::detect*   | Face Detection. UltraFace, RetinaFace, FaceBoxes, PyramidBox, etc. ❇️                   |
-| *lite::cv::face::align*    | Face Alignment. PFLD(106), FaceLandmark1000(1000 landmarks), PRNet, etc. ❇️             |
-| *lite::cv::face::align3d*  | 3D Face Alignment. FaceMesh(468 3D landmarks), IrisLandmark(71+5 3D landmarks), etc. ❇️ |
-| *lite::cv::face::pose*     | Head Pose Estimation.  FSANet, etc. ❇️                                                  |
-| *lite::cv::face::attr*     | Face Attributes. Emotion, Age, Gender. EmotionFerPlus, VGG16Age, etc. ❇️                |
-| *lite::cv::segmentation*   | Object Segmentation. Such as FCN, DeepLabV3, etc.  ❇️ ️                                 |
-| *lite::cv::style*          | Style Transfer. Contains neural style transfer now, such as FastStyleTransfer.  ⚠️      |
-| *lite::cv::matting*        | Image Matting. Object and Human matting.   ❇️ ️                                         |
-| *lite::cv::colorization*   | Colorization. Make Gray image become RGB. ⚠️                                            |
-| *lite::cv::resolution*     | Super Resolution.  ⚠️                                                                   |
-
-
-### Lite.Ai.ToolKit's Classes and Pretrained Files.
-
-Correspondence between the classes in **Lite.AI.ToolKit** and pretrained model files can be found at [lite.ai.toolkit.hub.onnx.md](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md). For examples, the pretrained model files for *lite::cv::detection::YoloV5* and *lite::cv::detection::YoloX* are listed as follows.
-
-
-|             Class             | Pretrained ONNX Files |                 Rename or Converted From (Repo)                  | Size  |
-|:-----------------------------:|:---------------------:|:----------------------------------------------------------------:|:-----:|
-| *lite::cv::detection::YoloV5* |     yolov5l.onnx      |    [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑)     | 188Mb |
-| *lite::cv::detection::YoloV5* |     yolov5m.onnx      |    [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑)     | 85Mb  |
-| *lite::cv::detection::YoloV5* |     yolov5s.onnx      |    [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑)     | 29Mb  |
-| *lite::cv::detection::YoloV5* |     yolov5x.onnx      |    [yolov5](https://github.com/ultralytics/yolov5) (🔥🔥💥↑)     | 351Mb |
-| *lite::cv::detection::YoloX*  |     yolox_x.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 378Mb |
-| *lite::cv::detection::YoloX*  |     yolox_l.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 207Mb |
-| *lite::cv::detection::YoloX*  |     yolox_m.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 97Mb  |
-| *lite::cv::detection::YoloX*  |     yolox_s.onnx      | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 34Mb  |
-| *lite::cv::detection::YoloX*  |    yolox_tiny.onnx    | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 19Mb  |
-| *lite::cv::detection::YoloX*  |    yolox_nano.onnx    | [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (🔥🔥!!↑) | 3.5Mb |
-
-It means that you can load the the any one `yolov5*.onnx` and  `yolox_*.onnx` according to your application through the same Lite.AI.ToolKit's classes, such as *YoloV5*, *YoloX*, etc.
-
-```c++
-auto *yolov5 = new lite::cv::detection::YoloV5("yolov5x.onnx");  // for server
-auto *yolov5 = new lite::cv::detection::YoloV5("yolov5l.onnx"); 
-auto *yolov5 = new lite::cv::detection::YoloV5("yolov5m.onnx");  
-auto *yolov5 = new lite::cv::detection::YoloV5("yolov5s.onnx");  // for mobile device 
-auto *yolox = new lite::cv::detection::YoloX("yolox_x.onnx");  
-auto *yolox = new lite::cv::detection::YoloX("yolox_l.onnx");  
-auto *yolox = new lite::cv::detection::YoloX("yolox_m.onnx");  
-auto *yolox = new lite::cv::detection::YoloX("yolox_s.onnx");  
-auto *yolox = new lite::cv::detection::YoloX("yolox_tiny.onnx");  
-auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only !
-```
-
-</details>
 
 <details>
 <summary> 🔑️ How to download Model Zoo from Docker Hub?</summary>    
@@ -588,7 +353,7 @@ auto *yolox = new lite::cv::detection::YoloX("yolox_nano.onnx");  // 3.5Mb only 
 The pretrained and converted ONNX files provide by lite.ai.toolkit are listed as follows. Also, see [Model Zoo](#lite.ai.toolkit-Model-Zoo) and [ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md), [MNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md), [TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md), [NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md) for more details.
 
 
-## 6. Examples.
+## Examples.
 
 <div id="lite.ai.toolkit-Examples-for-Lite.AI.ToolKit"></div>
 
@@ -602,9 +367,9 @@ More examples can be found at [examples](https://github.com/DefTruth/lite.ai.too
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/yolov5s.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/yolov5s.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_yolov5_1.jpg";
-  std::string save_img_path = "../../../logs/test_lite_yolov5_1.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_yolov5_1.jpg";
 
   auto *yolov5 = new lite::cv::detection::YoloV5(onnx_path); 
   std::vector<lite::types::Boxf> detected_boxes;
@@ -663,9 +428,9 @@ auto *detector = new lite::cv::detection::YOLOv6(onnx_path);  // Newest 2022 YOL
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/rvm_mobilenetv3_fp32.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/rvm_mobilenetv3_fp32.onnx";
   std::string video_path = "../../../examples/lite/resources/test_lite_rvm_0.mp4";
-  std::string output_path = "../../../logs/test_lite_rvm_0.mp4";
+  std::string output_path = "../../../examples/logs/test_lite_rvm_0.mp4";
   std::string background_path = "../../../examples/lite/resources/test_lite_matting_bgr.jpg";
   
   auto *rvm = new lite::cv::matting::RobustVideoMatting(onnx_path, 16); // 16 threads
@@ -715,9 +480,9 @@ auto *matting = new lite::cv::matting::MobileHumanMatting(onnx_path); // 3Mb onl
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/FaceLandmark1000.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/FaceLandmark1000.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_face_landmarks_0.png";
-  std::string save_img_path = "../../../logs/test_lite_face_landmarks_1000.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_face_landmarks_1000.jpg";
     
   auto *face_landmarks_1000 = new lite::cv::face::align::FaceLandmark1000(onnx_path);
 
@@ -762,9 +527,9 @@ auto *align = new lite::cv::face::align::PIPNet19(onnx_path);  // 19 landmarks, 
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/eccv16-colorizer.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/eccv16-colorizer.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_colorizer_1.jpg";
-  std::string save_img_path = "../../../logs/test_lite_eccv16_colorizer_1.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_eccv16_colorizer_1.jpg";
   
   auto *colorizer = new lite::cv::colorization::Colorizer(onnx_path);
   
@@ -804,7 +569,7 @@ auto *colorizer = new lite::cv::colorization::Colorizer(onnx_path);
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/ms1mv3_arcface_r100.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/ms1mv3_arcface_r100.onnx";
   std::string test_img_path0 = "../../../examples/lite/resources/test_lite_faceid_0.png";
   std::string test_img_path1 = "../../../examples/lite/resources/test_lite_faceid_1.png";
   std::string test_img_path2 = "../../../examples/lite/resources/test_lite_faceid_2.png";
@@ -871,9 +636,9 @@ auto *recognition = new lite::cv::faceid::MobileSEFocalFace(onnx_path); // 4.5Mb
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/scrfd_2.5g_bnkps_shape640x640.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/scrfd_2.5g_bnkps_shape640x640.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_face_detector.jpg";
-  std::string save_img_path = "../../../logs/test_lite_scrfd.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_scrfd.jpg";
   
   auto *scrfd = new lite::cv::face::detect::SCRFD(onnx_path);
   
@@ -915,9 +680,9 @@ auto *detector = new lite::face::detect::YOLOv5BlazeFace(onnx_path);  // 2021, S
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/deeplabv3_resnet101_coco.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/deeplabv3_resnet101_coco.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_deeplabv3_resnet101.png";
-  std::string save_img_path = "../../../logs/test_lite_deeplabv3_resnet101.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_deeplabv3_resnet101.jpg";
 
   auto *deeplabv3_resnet101 = new lite::cv::segmentation::DeepLabV3ResNet101(onnx_path, 16); // 16 threads
 
@@ -964,9 +729,9 @@ auto *segment = new lite::cv::segmentation::DeepLabV3ResNet101(onnx_path);
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/ssrnet.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/ssrnet.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_ssrnet.jpg";
-  std::string save_img_path = "../../../logs/test_lite_ssrnet.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_ssrnet.jpg";
 
   auto *ssrnet = new lite::cv::face::attr::SSRNet(onnx_path);
 
@@ -1010,7 +775,7 @@ auto *attribute = new lite::cv::face::attr::SSRNet(onnx_path); // age estimation
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/densenet121.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/densenet121.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_densenet.jpg";
 
   auto *densenet = new lite::cv::classification::DenseNet(onnx_path);
@@ -1064,9 +829,9 @@ auto *classifier = new lite::cv::classification::ResNeXt(onnx_path);
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/fsanet-var.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/fsanet-var.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_fsanet.jpg";
-  std::string save_img_path = "../../../logs/test_lite_fsanet.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_fsanet.jpg";
 
   auto *fsanet = new lite::cv::face::pose::FSANet(onnx_path);
   cv::Mat img_bgr = cv::imread(test_img_path);
@@ -1105,9 +870,9 @@ auto *pose = new lite::cv::face::pose::FSANet(onnx_path); // 1.2Mb only!
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/style-candy-8.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/style-candy-8.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_fast_style_transfer.jpg";
-  std::string save_img_path = "../../../logs/test_lite_fast_style_transfer_candy.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_fast_style_transfer_candy.jpg";
   
   auto *fast_style_transfer = new lite::cv::style::FastStyleTransfer(onnx_path);
  
@@ -1144,9 +909,9 @@ auto *transfer = new lite::cv::style::FastStyleTransfer(onnx_path); // 6.4Mb onl
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/minivision_head_seg.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/minivision_head_seg.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_head_seg.png";
-  std::string save_img_path = "../../../logs/test_lite_head_seg.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_head_seg.jpg";
 
   auto *head_seg = new lite::cv::segmentation::HeadSeg(onnx_path, 4); // 4 threads
 
@@ -1186,11 +951,11 @@ auto *segment = new lite::cv::segmentation::MobileHairSeg(onnx_path); // 14M
 
 static void test_default()
 {
-  std::string head_seg_onnx_path = "../../../hub/onnx/cv/minivision_head_seg.onnx";
-  std::string cartoon_onnx_path = "../../../hub/onnx/cv/minivision_female_photo2cartoon.onnx";
+  std::string head_seg_onnx_path = "../../../examples/hub/onnx/cv/minivision_head_seg.onnx";
+  std::string cartoon_onnx_path = "../../../examples/hub/onnx/cv/minivision_female_photo2cartoon.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_female_photo2cartoon.jpg";
-  std::string save_mask_path = "../../../logs/test_lite_female_photo2cartoon_seg.jpg";
-  std::string save_cartoon_path = "../../../logs/test_lite_female_photo2cartoon_cartoon.jpg";
+  std::string save_mask_path = "../../../examples/logs/test_lite_female_photo2cartoon_seg.jpg";
+  std::string save_cartoon_path = "../../../examples/logs/test_lite_female_photo2cartoon_cartoon.jpg";
 
   auto *head_seg = new lite::cv::segmentation::HeadSeg(head_seg_onnx_path, 4); // 4 threads
   auto *female_photo2cartoon = new lite::cv::style::FemalePhoto2Cartoon(cartoon_onnx_path, 4); // 4 threads
@@ -1236,9 +1001,9 @@ auto *transfer = new lite::cv::style::FemalePhoto2Cartoon(onnx_path);
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/face_parsing_512x512.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/face_parsing_512x512.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_face_parsing.png";
-  std::string save_img_path = "../../../logs/test_lite_face_parsing_bisenet.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_face_parsing_bisenet.jpg";
 
   auto *face_parsing_bisenet = new lite::cv::segmentation::FaceParsingBiSeNet(onnx_path, 8); // 8 threads
 
@@ -1267,14 +1032,14 @@ auto *segment = new lite::cv::segmentation::FaceParsingBiSeNet(onnx_path); // 50
 auto *segment = new lite::cv::segmentation::FaceParsingBiSeNetDyn(onnx_path); // Dynamic Shape Inference.
 ```
 
-## 7. License.
+## License.
 
 <div id="lite.ai.toolkit-License"></div>
 
 The code of [Lite.Ai.ToolKit](#lite.ai.toolkit-Introduction) is released under the GPL-3.0 License.
 
 
-## 8. References.
+## References.
 
 <div id="lite.ai.toolkit-References"></div>
 
@@ -1321,7 +1086,7 @@ Many thanks to these following projects. All the Lite.AI.ToolKit's models are so
 </details>  
 
 
-## 9. Compilation Options.
+## Compilation Options.
 
 In addition, [MNN](https://github.com/alibaba/MNN), [NCNN](https://github.com/Tencent/ncnn) and [TNN](https://github.com/Tencent/TNN) support for some models will be added in the future, but due to operator compatibility and some other reasons, it is impossible to ensure that all models supported by [ONNXRuntime C++](https://github.com/microsoft/onnxruntime) can run through [MNN](https://github.com/alibaba/MNN), [NCNN](https://github.com/Tencent/ncnn) and [TNN](https://github.com/Tencent/TNN). So, if you want to use all the models supported by this repo and don't care about the performance gap of *1~2ms*, just let [ONNXRuntime](https://github.com/microsoft/onnxruntime) as default inference engine for this repo. However, you can follow the steps below if you want to build with [MNN](https://github.com/alibaba/MNN), [NCNN](https://github.com/Tencent/ncnn) or [TNN](https://github.com/Tencent/TNN) support.
 
@@ -1346,7 +1111,7 @@ auto *nanodet = new lite::ncnn::cv::detection::NanoDet(param_path, bin_path);
 
 How to add your own models and become a contributor? See [CONTRIBUTING.zh.md](https://github.com/DefTruth/lite.ai.toolkit/issues/191).
 
-## 11. Many Thanks !!! 🤗🎉🎉  
+## Many Thanks !!! 🤗🎉🎉  
 * [Windows10 VS2019 CUDA 11.1 Build Docs](https://github.com/DefTruth/lite.ai.toolkit/issues/207) ([@zhanghongyong123456](https://github.com/zhanghongyong123456))
 * [Linux Build Docs](https://github.com/DefTruth/lite.ai.toolkit/blob/main/docs/build/Linux.zh.md) ([@lee1221ee](https://github.com/lee1221ee))
 * [Some Windows10 Bugs Fixed](https://github.com/DefTruth/lite.ai.toolkit/pull/105) ([@ysc3839](https://github.com/ysc3839), [@AvenSun](https://github.com/AvenSun))

@@ -6,7 +6,7 @@
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/dream_ijba_res18_naive.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/dream_ijba_res18_naive.onnx";
   std::string test_img_path0 = "../../../examples/lite/resources/test_lite_faceid_0.png";
   std::string test_img_path1 = "../../../examples/lite/resources/test_lite_faceid_1.png";
 
@@ -32,7 +32,7 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string onnx_path = "../../../hub/onnx/cv/dream_ijba_res18_naive.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/dream_ijba_res18_naive.onnx";
   std::string test_img_path0 = "../../../examples/lite/resources/test_lite_faceid_0.png";
   std::string test_img_path1 = "../../../examples/lite/resources/test_lite_faceid_2.png";
 

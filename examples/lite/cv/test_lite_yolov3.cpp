@@ -6,9 +6,9 @@
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/yolov3-10.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/yolov3-10.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_yolov3.jpg";
-  std::string save_img_path = "../../../logs/test_lite_yolov3.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_yolov3.jpg";
 
   lite::cv::detection::YoloV3 *yolov3 = new lite::cv::detection::YoloV3(onnx_path);
 
@@ -28,9 +28,9 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string onnx_path = "../../../hub/onnx/cv/yolov3-10.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/yolov3-10.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_yolov3.jpg";
-  std::string save_img_path = "../../../logs/test_onnx_yolov3.jpg";
+  std::string save_img_path = "../../../examples/logs/test_onnx_yolov3.jpg";
 
   lite::onnxruntime::cv::detection::YoloV3 *yolov3 =
       new lite::onnxruntime::cv::detection::YoloV3(onnx_path);

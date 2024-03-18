@@ -6,13 +6,13 @@
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/modnet_photographic_portrait_matting.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/modnet_photographic_portrait_matting.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_matting_input.jpg";
   std::string test_bgr_path = "../../../examples/lite/resources/test_lite_matting_bgr.jpg";
-  std::string save_fgr_path = "../../../logs/test_lite_modnet_dyn_fgr.jpg";
-  std::string save_pha_path = "../../../logs/test_lite_modnet_dyn_pha.jpg";
-  std::string save_merge_path = "../../../logs/test_lite_modnet_dyn_merge.jpg";
-  std::string save_swap_path = "../../../logs/test_lite_modnet_dyn_swap.jpg";
+  std::string save_fgr_path = "../../../examples/logs/test_lite_modnet_dyn_fgr.jpg";
+  std::string save_pha_path = "../../../examples/logs/test_lite_modnet_dyn_pha.jpg";
+  std::string save_merge_path = "../../../examples/logs/test_lite_modnet_dyn_merge.jpg";
+  std::string save_swap_path = "../../../examples/logs/test_lite_modnet_dyn_swap.jpg";
 
   lite::cv::matting::MODNetDyn *modnet_dyn =
       new lite::cv::matting::MODNetDyn(onnx_path, 4); // 4 threads
@@ -51,13 +51,13 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string onnx_path = "../../../hub/onnx/cv/modnet_photographic_portrait_matting.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/modnet_photographic_portrait_matting.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_matting_input.jpg";
   std::string test_bgr_path = "../../../examples/lite/resources/test_lite_matting_bgr.jpg";
-  std::string save_fgr_path = "../../../logs/test_lite_modnet_dyn_fgr_onnx.jpg";
-  std::string save_pha_path = "../../../logs/test_lite_modnet_dyn_pha_onnx.jpg";
-  std::string save_merge_path = "../../../logs/test_lite_modnet_dyn_merge_onnx.jpg";
-  std::string save_swap_path = "../../../logs/test_lite_modnet_dyn_swap_onnx.jpg";
+  std::string save_fgr_path = "../../../examples/logs/test_lite_modnet_dyn_fgr_onnx.jpg";
+  std::string save_pha_path = "../../../examples/logs/test_lite_modnet_dyn_pha_onnx.jpg";
+  std::string save_merge_path = "../../../examples/logs/test_lite_modnet_dyn_merge_onnx.jpg";
+  std::string save_swap_path = "../../../examples/logs/test_lite_modnet_dyn_swap_onnx.jpg";
 
   lite::onnxruntime::cv::matting::MODNetDyn *modnet_dyn =
       new lite::onnxruntime::cv::matting::MODNetDyn(onnx_path, 4); // 4 threads

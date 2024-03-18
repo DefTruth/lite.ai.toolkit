@@ -6,9 +6,9 @@
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/face_hair_seg_224x224.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/face_hair_seg_224x224.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_face_hair.png";
-  std::string save_img_path = "../../../logs/test_lite_face_hair_seg.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_face_hair_seg.jpg";
 
   lite::cv::segmentation::FaceHairSeg *face_hair_seg =
       new lite::cv::segmentation::FaceHairSeg(onnx_path, 4); // 4 threads
@@ -29,9 +29,9 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string onnx_path = "../../../hub/onnx/cv/face_hair_seg_224x224.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/face_hair_seg_224x224.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_face_hair.png";
-  std::string save_img_path = "../../../logs/test_lite_face_hair_seg_onnx.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_face_hair_seg_onnx.jpg";
 
   lite::onnxruntime::cv::segmentation::FaceHairSeg *face_hair_seg =
       new lite::onnxruntime::cv::segmentation::FaceHairSeg(onnx_path, 4); // 4 threads
@@ -53,9 +53,9 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
-  std::string mnn_path = "../../../hub/mnn/cv/face_hair_seg_224x224.mnn";
+  std::string mnn_path = "../../../examples/hub/mnn/cv/face_hair_seg_224x224.mnn";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_face_hair.png";
-  std::string save_img_path = "../../../logs/test_lite_face_hair_seg_mnn.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_face_hair_seg_mnn.jpg";
 
   lite::mnn::cv::segmentation::FaceHairSeg *face_hair_seg =
       new lite::mnn::cv::segmentation::FaceHairSeg(mnn_path, 4); // 4 threads
