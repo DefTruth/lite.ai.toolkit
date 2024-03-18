@@ -6,9 +6,9 @@
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/efficientdet-d7.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/efficientdet-d7.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_detection_1.jpg";
-  std::string save_img_path = "../../../logs/test_lite_efficientdet_d7_1.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_efficientdet_d7_1.jpg";
 
   // 1. Test Default Engine ONNXRuntime
   lite::cv::detection::EfficientDetD7 *efficientdet_d7 =
@@ -31,9 +31,9 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string onnx_path = "../../../hub/onnx/cv/efficientdet-d7.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/efficientdet-d7.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_detection_2.jpg";
-  std::string save_img_path = "../../../logs/test_onnx_efficientdet_d7_2.jpg";
+  std::string save_img_path = "../../../examples/logs/test_onnx_efficientdet_d7_2.jpg";
 
   // 2. Test Specific Engine ONNXRuntime
   lite::onnxruntime::cv::detection::EfficientDetD7 *efficientdet_d7 =

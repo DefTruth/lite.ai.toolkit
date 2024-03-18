@@ -6,9 +6,9 @@
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/yolov5s.v6.1.640x640.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/yolov5s.v6.1.640x640.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_yolov5_1.jpg";
-  std::string save_img_path = "../../../logs/test_lite_yolov5_v6.1_1.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_yolov5_v6.1_1.jpg";
 
   // 1. Test Default Engine ONNXRuntime
   lite::cv::detection::YoloV5_V_6_1 *yolov5 = new lite::cv::detection::YoloV5_V_6_1(onnx_path); // default
@@ -30,9 +30,9 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string onnx_path = "../../../hub/onnx/cv/yolov5s.v6.1.640x640.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/yolov5s.v6.1.640x640.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_yolov5_2.jpg";
-  std::string save_img_path = "../../../logs/test_lite_yolov5_v6.1_2.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_yolov5_v6.1_2.jpg";
 
   // 2. Test Specific Engine ONNXRuntime
   lite::onnxruntime::cv::detection::YoloV5_V_6_1 *yolov5 =
@@ -55,9 +55,9 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
-  std::string mnn_path = "../../../hub/mnn/cv/yolov5s.v6.1.640x640.mnn";
+  std::string mnn_path = "../../../examples/hub/mnn/cv/yolov5s.v6.1.640x640.mnn";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_yolov5_2.jpg";
-  std::string save_img_path = "../../../logs/test_lite_yolov5_v6.1_2_mnn.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_yolov5_v6.1_2_mnn.jpg";
 
   // 3. Test Specific Engine MNN
   lite::mnn::cv::detection::YoloV5_V_6_1 *yolov5 =

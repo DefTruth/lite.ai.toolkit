@@ -8,3 +8,6 @@ __pycache__
 scripts
 prebuilt
 debug.txt
+tmp
+third_party
+build/

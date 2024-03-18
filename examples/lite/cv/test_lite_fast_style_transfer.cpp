@@ -6,17 +6,17 @@
 
 static void test_default()
 {
-  std::string candy_onnx_path = "../../../hub/onnx/cv/style-candy-8.onnx";
-  std::string mosaic_onnx_path = "../../../hub/onnx/cv/style-mosaic-8.onnx";
-  std::string pointilism_onnx_path = "../../../hub/onnx/cv/style-pointilism-8.onnx";
-  std::string rain_princess_onnx_path = "../../../hub/onnx/cv/style-rain-princess-8.onnx";
-  std::string udnie_onnx_path = "../../../hub/onnx/cv/style-udnie-8.onnx";
+  std::string candy_onnx_path = "../../../examples/hub/onnx/cv/style-candy-8.onnx";
+  std::string mosaic_onnx_path = "../../../examples/hub/onnx/cv/style-mosaic-8.onnx";
+  std::string pointilism_onnx_path = "../../../examples/hub/onnx/cv/style-pointilism-8.onnx";
+  std::string rain_princess_onnx_path = "../../../examples/hub/onnx/cv/style-rain-princess-8.onnx";
+  std::string udnie_onnx_path = "../../../examples/hub/onnx/cv/style-udnie-8.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_fast_style_transfer.jpg";
-  std::string save_candy_path = "../../../logs/test_lite_fast_style_transfer_candy.jpg";
-  std::string save_mosaic_path = "../../../logs/test_lite_fast_style_transfer_mosaic.jpg";
-  std::string save_pointilism_path = "../../../logs/test_lite_fast_style_transfer_pointilism.jpg";
-  std::string save_rain_princess_path = "../../../logs/test_lite_fast_style_transfer_rain_princes.jpg";
-  std::string save_udnie_path = "../../../logs/test_lite_fast_style_transfer_udnie.jpg";
+  std::string save_candy_path = "../../../examples/logs/test_lite_fast_style_transfer_candy.jpg";
+  std::string save_mosaic_path = "../../../examples/logs/test_lite_fast_style_transfer_mosaic.jpg";
+  std::string save_pointilism_path = "../../../examples/logs/test_lite_fast_style_transfer_pointilism.jpg";
+  std::string save_rain_princess_path = "../../../examples/logs/test_lite_fast_style_transfer_rain_princes.jpg";
+  std::string save_udnie_path = "../../../examples/logs/test_lite_fast_style_transfer_udnie.jpg";
 
   lite::cv::style::FastStyleTransfer *candy_fast_style_transfer =
       new lite::cv::style::FastStyleTransfer(candy_onnx_path);
@@ -62,17 +62,17 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string candy_onnx_path = "../../../hub/onnx/cv/style-candy-8.onnx";
-  std::string mosaic_onnx_path = "../../../hub/onnx/cv/style-mosaic-8.onnx";
-  std::string pointilism_onnx_path = "../../../hub/onnx/cv/style-pointilism-8.onnx";
-  std::string rain_princess_onnx_path = "../../../hub/onnx/cv/style-rain-princess-8.onnx";
-  std::string udnie_onnx_path = "../../../hub/onnx/cv/style-udnie-8.onnx";
+  std::string candy_onnx_path = "../../../examples/hub/onnx/cv/style-candy-8.onnx";
+  std::string mosaic_onnx_path = "../../../examples/hub/onnx/cv/style-mosaic-8.onnx";
+  std::string pointilism_onnx_path = "../../../examples/hub/onnx/cv/style-pointilism-8.onnx";
+  std::string rain_princess_onnx_path = "../../../examples/hub/onnx/cv/style-rain-princess-8.onnx";
+  std::string udnie_onnx_path = "../../../examples/hub/onnx/cv/style-udnie-8.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_fast_style_transfer.jpg";
-  std::string save_candy_path = "../../../logs/test_onnx_fast_style_transfer_candy.jpg";
-  std::string save_mosaic_path = "../../../logs/test_onnx_fast_style_transfer_mosaic.jpg";
-  std::string save_pointilism_path = "../../../logs/test_onnx_fast_style_transfer_pointilism.jpg";
-  std::string save_rain_princess_path = "../../../logs/test_onnx_fast_style_transfer_rain_princes.jpg";
-  std::string save_udnie_path = "../../../logs/test_onnx_fast_style_transfer_udnie.jpg";
+  std::string save_candy_path = "../../../examples/logs/test_onnx_fast_style_transfer_candy.jpg";
+  std::string save_mosaic_path = "../../../examples/logs/test_onnx_fast_style_transfer_mosaic.jpg";
+  std::string save_pointilism_path = "../../../examples/logs/test_onnx_fast_style_transfer_pointilism.jpg";
+  std::string save_rain_princess_path = "../../../examples/logs/test_onnx_fast_style_transfer_rain_princes.jpg";
+  std::string save_udnie_path = "../../../examples/logs/test_onnx_fast_style_transfer_udnie.jpg";
 
   lite::onnxruntime::cv::style::FastStyleTransfer *candy_fast_style_transfer =
       new lite::onnxruntime::cv::style::FastStyleTransfer(candy_onnx_path);
@@ -118,9 +118,9 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
-  std::string mnn_path = "../../../hub/mnn/cv/style-candy-8.mnn";
+  std::string mnn_path = "../../../examples/hub/mnn/cv/style-candy-8.mnn";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_fast_style_transfer.jpg";
-  std::string save_path = "../../../logs/test_fast_style_transfer_candy_mnn.jpg";
+  std::string save_path = "../../../examples/logs/test_fast_style_transfer_candy_mnn.jpg";
 
   lite::mnn::cv::style::FastStyleTransfer *candy_fast_style_transfer =
       new lite::mnn::cv::style::FastStyleTransfer(mnn_path);
@@ -143,10 +143,10 @@ static void test_mnn()
 static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
-  std::string param_path = "../../../hub/ncnn/cv/style-candy-8.opt.param";
-  std::string bin_path = "../../../hub/ncnn/cv/style-candy-8.opt.bin";
+  std::string param_path = "../../../examples/hub/ncnn/cv/style-candy-8.opt.param";
+  std::string bin_path = "../../../examples/hub/ncnn/cv/style-candy-8.opt.bin";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_fast_style_transfer.jpg";
-  std::string save_path = "../../../logs/test_fast_style_transfer_candy_ncnn.jpg";
+  std::string save_path = "../../../examples/logs/test_fast_style_transfer_candy_ncnn.jpg";
 
   lite::ncnn::cv::style::FastStyleTransfer *candy_fast_style_transfer =
       new lite::ncnn::cv::style::FastStyleTransfer(param_path, bin_path);
@@ -170,10 +170,10 @@ static void test_ncnn()
 static void test_tnn()
 {
 #ifdef ENABLE_TNN
-  std::string proto_path = "../../../hub/tnn/cv/style-candy-8.opt.tnnproto";
-  std::string model_path = "../../../hub/tnn/cv/style-candy-8.opt.tnnmodel";
+  std::string proto_path = "../../../examples/hub/tnn/cv/style-candy-8.opt.tnnproto";
+  std::string model_path = "../../../examples/hub/tnn/cv/style-candy-8.opt.tnnmodel";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_fast_style_transfer.jpg";
-  std::string save_path = "../../../logs/test_fast_style_transfer_candy_tnn.jpg";
+  std::string save_path = "../../../examples/logs/test_fast_style_transfer_candy_tnn.jpg";
 
   lite::tnn::cv::style::FastStyleTransfer *candy_fast_style_transfer =
       new lite::tnn::cv::style::FastStyleTransfer(proto_path, model_path);

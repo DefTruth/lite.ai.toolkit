@@ -6,9 +6,9 @@
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/face_parsing_512x512.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/face_parsing_512x512.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_face_parsing.png";
-  std::string save_img_path = "../../../logs/test_lite_face_parsing_bisenet.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_face_parsing_bisenet.jpg";
 
   lite::cv::segmentation::FaceParsingBiSeNet *face_parsing_bisenet =
       new lite::cv::segmentation::FaceParsingBiSeNet(onnx_path, 4); // 4 threads
@@ -29,9 +29,9 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string onnx_path = "../../../hub/onnx/cv/face_parsing_512x512.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/face_parsing_512x512.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_face_parsing.png";
-  std::string save_img_path = "../../../logs/test_lite_face_parsing_bisenet_onnx.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_face_parsing_bisenet_onnx.jpg";
 
   lite::onnxruntime::cv::segmentation::FaceParsingBiSeNet *face_parsing_bisenet =
       new lite::onnxruntime::cv::segmentation::FaceParsingBiSeNet(onnx_path, 4); // 4 threads
@@ -53,9 +53,9 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
-  std::string mnn_path = "../../../hub/mnn/cv/face_parsing_512x512.mnn";
+  std::string mnn_path = "../../../examples/hub/mnn/cv/face_parsing_512x512.mnn";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_face_parsing.png";
-  std::string save_img_path = "../../../logs/test_lite_face_parsing_bisenet_mnn.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_face_parsing_bisenet_mnn.jpg";
 
   lite::mnn::cv::segmentation::FaceParsingBiSeNet *face_parsing_bisenet =
       new lite::mnn::cv::segmentation::FaceParsingBiSeNet(mnn_path, 4); // 4 threads
@@ -77,10 +77,10 @@ static void test_mnn()
 static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
-  std::string proto_path = "../../../hub/ncnn/cv/face_parsing_512x512.opt.param";
-  std::string bin_path = "../../../hub/ncnn/cv/face_parsing_512x512.opt.bin";
+  std::string proto_path = "../../../examples/hub/ncnn/cv/face_parsing_512x512.opt.param";
+  std::string bin_path = "../../../examples/hub/ncnn/cv/face_parsing_512x512.opt.bin";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_face_parsing.png";
-  std::string save_img_path = "../../../logs/test_lite_face_parsing_bisenet_ncnn.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_face_parsing_bisenet_ncnn.jpg";
 
   lite::ncnn::cv::segmentation::FaceParsingBiSeNet *face_parsing_bisenet =
       new lite::ncnn::cv::segmentation::FaceParsingBiSeNet(
@@ -103,10 +103,10 @@ static void test_ncnn()
 static void test_tnn()
 {
 #ifdef ENABLE_TNN
-  std::string proto_path = "../../../hub/tnn/cv/face_parsing_512x512.opt.tnnproto";
-  std::string model_path = "../../../hub/tnn/cv/face_parsing_512x512.opt.tnnmodel";
+  std::string proto_path = "../../../examples/hub/tnn/cv/face_parsing_512x512.opt.tnnproto";
+  std::string model_path = "../../../examples/hub/tnn/cv/face_parsing_512x512.opt.tnnmodel";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_face_parsing.png";
-  std::string save_img_path = "../../../logs/test_lite_face_parsing_bisenet_tnn.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_face_parsing_bisenet_tnn.jpg";
 
   lite::tnn::cv::segmentation::FaceParsingBiSeNet *face_parsing_bisenet =
       new lite::tnn::cv::segmentation::FaceParsingBiSeNet(

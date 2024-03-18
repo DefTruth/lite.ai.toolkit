@@ -21,6 +21,7 @@ namespace ortcv
     // hardcode input node names
     unsigned int num_inputs = 2;
     std::vector<const char *> input_node_names;
+    std::vector<std::string> input_node_names_;
     std::vector<std::vector<int64_t>> dynamic_input_node_dims;
     unsigned int dynamic_input_height = 512; // init only, will change according to input mat.
     unsigned int dynamic_input_width = 512; // init only, will change according to input mat.
@@ -29,6 +30,7 @@ namespace ortcv
     // hardcode output node names
     unsigned int num_outputs = 6;
     std::vector<const char *> output_node_names;
+    std::vector<std::string> output_node_names_;
     const LITEORT_CHAR *onnx_path = nullptr;
     const char *log_id = nullptr;
     // input values handlers

@@ -32,7 +32,9 @@ MODNetDyn::MODNetDyn(const std::string &_onnx_path, unsigned int _num_threads) :
   ort_session = new Ort::Session(ort_env, onnx_path, session_options);
   // 2. input name & input dims
   input_node_names.resize(num_inputs); // num_inputs=1
-  input_node_names[0] = ort_session->GetInputName(0, allocator);
+  input_node_names_.resize(num_inputs); // num_inputs=1
+  input_node_names_[0] = OrtCompatiableGetInputName(0, allocator, ort_session);
+  input_node_names[0] = input_node_names_[0].data();
   // 3. initial input node dims.
   dynamic_input_node_dims.push_back({1, 3, dynamic_input_height, dynamic_input_width});
   dynamic_input_tensor_size = 1 * 3 * dynamic_input_height * dynamic_input_width;
@@ -40,8 +42,11 @@ MODNetDyn::MODNetDyn(const std::string &_onnx_path, unsigned int _num_threads) :
   // 4. output names & output dimms
   num_outputs = ort_session->GetOutputCount();
   output_node_names.resize(num_outputs);
-  for (unsigned int i = 0; i < num_outputs; ++i)
-    output_node_names[i] = ort_session->GetOutputName(i, allocator);
+  output_node_names_.resize(num_outputs);
+  for (unsigned int i = 0; i < num_outputs; ++i) {
+    output_node_names_[i] = OrtCompatiableGetOutputName(i, allocator, ort_session);
+    output_node_names[i] = output_node_names_[i].data();
+  }
 #if LITEORT_DEBUG
   this->print_debug_string();
 #endif

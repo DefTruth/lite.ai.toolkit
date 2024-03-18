@@ -6,20 +6,20 @@
 
 static void test_default()
 {
-  std::string eccv16_onnx_path = "../../../hub/onnx/cv/eccv16-colorizer.onnx";
-  std::string siggraph17_onnx_path = "../../../hub/onnx/cv/siggraph17-colorizer.onnx";
+  std::string eccv16_onnx_path = "../../../examples/hub/onnx/cv/eccv16-colorizer.onnx";
+  std::string siggraph17_onnx_path = "../../../examples/hub/onnx/cv/siggraph17-colorizer.onnx";
   std::string test_img_path1 = "../../../examples/lite/resources/test_lite_colorizer_1.jpg";
   std::string test_img_path2 = "../../../examples/lite/resources/test_lite_colorizer_2.jpg";
   std::string test_img_path3 = "../../../examples/lite/resources/test_lite_colorizer_3.jpg";
   std::string test_img_path4 = "../../../examples/lite/resources/test_lite_colorizer_one_piece_0.png";
-  std::string save_eccv_img_path1 = "../../../logs/test_lite_eccv16_colorizer_1.jpg";
-  std::string save_eccv_img_path2 = "../../../logs/test_lite_eccv16_colorizer_2.jpg";
-  std::string save_eccv_img_path3 = "../../../logs/test_lite_eccv16_colorizer_3.jpg";
-  std::string save_eccv_img_path4 = "../../../logs/test_lite_eccv16_colorizer_one_piece_0.jpg";
-  std::string save_siggraph_img_path1 = "../../../logs/test_lite_siggraph17_colorizer_1.jpg";
-  std::string save_siggraph_img_path2 = "../../../logs/test_lite_siggraph17_colorizer_2.jpg";
-  std::string save_siggraph_img_path3 = "../../../logs/test_lite_siggraph17_colorizer_3.jpg";
-  std::string save_siggraph_img_path4 = "../../../logs/test_lite_siggraph17_colorizer_one_piece_0.jpg";
+  std::string save_eccv_img_path1 = "../../../examples/logs/test_lite_eccv16_colorizer_1.jpg";
+  std::string save_eccv_img_path2 = "../../../examples/logs/test_lite_eccv16_colorizer_2.jpg";
+  std::string save_eccv_img_path3 = "../../../examples/logs/test_lite_eccv16_colorizer_3.jpg";
+  std::string save_eccv_img_path4 = "../../../examples/logs/test_lite_eccv16_colorizer_one_piece_0.jpg";
+  std::string save_siggraph_img_path1 = "../../../examples/logs/test_lite_siggraph17_colorizer_1.jpg";
+  std::string save_siggraph_img_path2 = "../../../examples/logs/test_lite_siggraph17_colorizer_2.jpg";
+  std::string save_siggraph_img_path3 = "../../../examples/logs/test_lite_siggraph17_colorizer_3.jpg";
+  std::string save_siggraph_img_path4 = "../../../examples/logs/test_lite_siggraph17_colorizer_one_piece_0.jpg";
 
   lite::cv::colorization::Colorizer *eccv16_colorizer =
       new lite::cv::colorization::Colorizer(eccv16_onnx_path);
@@ -70,20 +70,20 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string eccv16_onnx_path = "../../../hub/onnx/cv/eccv16-colorizer.onnx";
-  std::string siggraph17_onnx_path = "../../../hub/onnx/cv/siggraph17-colorizer.onnx";
+  std::string eccv16_onnx_path = "../../../examples/hub/onnx/cv/eccv16-colorizer.onnx";
+  std::string siggraph17_onnx_path = "../../../examples/hub/onnx/cv/siggraph17-colorizer.onnx";
   std::string test_img_path1 = "../../../examples/lite/resources/test_lite_colorizer_1.jpg";
   std::string test_img_path2 = "../../../examples/lite/resources/test_lite_colorizer_2.jpg";
   std::string test_img_path3 = "../../../examples/lite/resources/test_lite_colorizer_3.jpg";
   std::string test_img_path4 = "../../../examples/lite/resources/test_lite_colorizer_one_piece_0.png";
-  std::string save_eccv_img_path1 = "../../../logs/test_onnx_eccv16_colorizer_1.jpg";
-  std::string save_eccv_img_path2 = "../../../logs/test_onnx_eccv16_colorizer_2.jpg";
-  std::string save_eccv_img_path3 = "../../../logs/test_onnx_eccv16_colorizer_3.jpg";
-  std::string save_eccv_img_path4 = "../../../logs/test_onnx_eccv16_colorizer_one_piece_0.jpg";
-  std::string save_siggraph_img_path1 = "../../../logs/test_onnx_siggraph17_colorizer_1.jpg";
-  std::string save_siggraph_img_path2 = "../../../logs/test_onnx_siggraph17_colorizer_2.jpg";
-  std::string save_siggraph_img_path3 = "../../../logs/test_onnx_siggraph17_colorizer_3.jpg";
-  std::string save_siggraph_img_path4 = "../../../logs/test_onnx_siggraph17_colorizer_one_piece_0.jpg";
+  std::string save_eccv_img_path1 = "../../../examples/logs/test_onnx_eccv16_colorizer_1.jpg";
+  std::string save_eccv_img_path2 = "../../../examples/logs/test_onnx_eccv16_colorizer_2.jpg";
+  std::string save_eccv_img_path3 = "../../../examples/logs/test_onnx_eccv16_colorizer_3.jpg";
+  std::string save_eccv_img_path4 = "../../../examples/logs/test_onnx_eccv16_colorizer_one_piece_0.jpg";
+  std::string save_siggraph_img_path1 = "../../../examples/logs/test_onnx_siggraph17_colorizer_1.jpg";
+  std::string save_siggraph_img_path2 = "../../../examples/logs/test_onnx_siggraph17_colorizer_2.jpg";
+  std::string save_siggraph_img_path3 = "../../../examples/logs/test_onnx_siggraph17_colorizer_3.jpg";
+  std::string save_siggraph_img_path4 = "../../../examples/logs/test_onnx_siggraph17_colorizer_one_piece_0.jpg";
 
   lite::onnxruntime::cv::colorization::Colorizer *eccv16_colorizer =
       new lite::onnxruntime::cv::colorization::Colorizer(eccv16_onnx_path);
@@ -135,10 +135,10 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
-  std::string mnn_path = "../../../hub/mnn/cv/eccv16-colorizer.mnn";
-  // std::string mnn_path = "../../../hub/mnn/cv/eccv16-colorizer.opt.mnn";
+  std::string mnn_path = "../../../examples/hub/mnn/cv/eccv16-colorizer.mnn";
+  // std::string mnn_path = "../../../examples/hub/mnn/cv/eccv16-colorizer.opt.mnn";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_colorizer_1.jpg";
-  std::string save_img_path = "../../../logs/test_lite_colorizer_1_mnn.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_colorizer_1_mnn.jpg";
 
   lite::mnn::cv::colorization::Colorizer *eccv16_colorizer =
       new lite::mnn::cv::colorization::Colorizer(mnn_path, 8);
@@ -160,10 +160,10 @@ static void test_mnn()
 static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
-  std::string param_path = "../../../hub/ncnn/cv/eccv16-colorizer.opt.param";
-  std::string bin_path = "../../../hub/ncnn/cv/eccv16-colorizer.opt.bin";
+  std::string param_path = "../../../examples/hub/ncnn/cv/eccv16-colorizer.opt.param";
+  std::string bin_path = "../../../examples/hub/ncnn/cv/eccv16-colorizer.opt.bin";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_colorizer_1.jpg";
-  std::string save_img_path = "../../../logs/test_lite_colorizer_1_ncnn.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_colorizer_1_ncnn.jpg";
 
   lite::ncnn::cv::colorization::Colorizer *eccv16_colorizer =
       new lite::ncnn::cv::colorization::Colorizer(param_path, bin_path, 1);
@@ -185,10 +185,10 @@ static void test_ncnn()
 static void test_tnn()
 {
 #ifdef ENABLE_TNN
-  std::string proto_path = "../../../hub/tnn/cv/eccv16-colorizer.opt.tnnproto";
-  std::string model_path = "../../../hub/tnn/cv/eccv16-colorizer.opt.tnnmodel";
+  std::string proto_path = "../../../examples/hub/tnn/cv/eccv16-colorizer.opt.tnnproto";
+  std::string model_path = "../../../examples/hub/tnn/cv/eccv16-colorizer.opt.tnnmodel";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_colorizer_1.jpg";
-  std::string save_img_path = "../../../logs/test_lite_colorizer_1_tnn.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_colorizer_1_tnn.jpg";
 
   lite::tnn::cv::colorization::Colorizer *eccv16_colorizer =
       new lite::tnn::cv::colorization::Colorizer(proto_path, model_path, 1);

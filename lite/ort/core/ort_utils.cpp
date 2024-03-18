@@ -10,7 +10,6 @@ Ort::Value ortcv::utils::transform::create_tensor(const cv::Mat &mat,
                                                   const Ort::MemoryInfo &memory_info_handler,
                                                   std::vector<float> &tensor_value_handler,
                                                   unsigned int data_format)
-throw(std::runtime_error)
 {
   const unsigned int rows = mat.rows;
   const unsigned int cols = mat.cols;

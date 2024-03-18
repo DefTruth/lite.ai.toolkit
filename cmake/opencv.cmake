@@ -1,26 +1,28 @@
-# 1. setup 3rd-party dependencies
-message(STATUS "Setting up OpenCV libs for: ${CMAKE_CURRENT_SOURCE_DIR}")
+set(OpenCV_Version "4.9.0-ffmpeg4.2.2" CACHE STRING "OpenCV version" FORCE)
+set(OpenCV_DIR ${THIRD_PARTY_PATH}/opencv)
+# download from github if opencv library is not exists
+if (NOT EXISTS ${OpenCV_DIR})
+    set(OpenCV_Filename "opencv-${OpenCV_Version}-linux-x86_64.tgz")
+    set(OpenCV_URL https://github.com/DefTruth/lite.ai.toolkit/releases/download/v0.2.0-rc0/${OpenCV_Filename})
+    message("[Lite.AI.Toolkit][I] Downloading library: ${OpenCV_URL}")
+    download_and_decompress(${OpenCV_URL} ${OpenCV_Filename} ${OpenCV_DIR}) 
+    create_ffmpeg_syslinks_if_not_found(${OpenCV_DIR}/lib)
+else() 
+    message("[Lite.AI.Toolkit][I] Found local OpenCV library: ${OpenCV_DIR}")
+endif() 
+if(NOT EXISTS ${OpenCV_DIR})
+    message(FATAL_ERROR "[Lite.AI.Toolkit][E] ${OpenCV_DIR} is not exists!")
+endif()
 
-if (NOT WIN32)
-    if (ENABLE_OPENCV_VIDEOIO OR LITE_AI_BUILD_TEST)
-        set(
-                OpenCV_LIBS
-                opencv_core
-                opencv_imgproc
-                opencv_imgcodecs
-                opencv_video
-                opencv_videoio
-        )
-    else ()
-        set(
-                OpenCV_LIBS
-                opencv_core
-                opencv_imgproc
-                opencv_imgcodecs
-        ) # no videoio, video module
-    endif ()
-else ()
-    set(OpenCV_LIBS opencv_world452)
-endif ()
+include_directories(${OpenCV_DIR}/include/opencv4)
+link_directories(${OpenCV_DIR}/lib)
 
-message(STATUS "Setting up OpenCV libs done! OpenCV_LIBS:+[${OpenCV_LIBS}]")
+if(NOT WIN32)
+    if(ENABLE_OPENCV_VIDEOIO OR LITE_AI_BUILD_TEST)
+        set(OpenCV_LIBS opencv_core opencv_imgproc opencv_imgcodecs opencv_video opencv_videoio)
+    else()
+        set(OpenCV_LIBS opencv_core opencv_imgproc opencv_imgcodecs) # no videoio, video module
+    endif()
+else()
+    set(OpenCV_LIBS opencv_world490)
+endif()

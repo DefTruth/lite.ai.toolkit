@@ -32,10 +32,12 @@ PoseRobustFace::PoseRobustFace(const std::string &_onnx_path, unsigned int _num_
   // 2. input name & input dims
   num_inputs = ort_session->GetInputCount();
   input_node_names.resize(num_inputs);
+  input_node_names_.resize(num_inputs);
   // 3. initial input node dims. "input" & "yaw"
   for (unsigned int i = 0; i < num_inputs; ++i)
   {
-    input_node_names[i] = ort_session->GetInputName(i, allocator);
+    input_node_names_[i] = OrtCompatiableGetInputName(i, allocator, ort_session);
+    input_node_names[i] = input_node_names_[i].data();
     Ort::TypeInfo type_info = ort_session->GetInputTypeInfo(i);
     auto tensor_info = type_info.GetTensorTypeAndShapeInfo();
     unsigned int input_size = 1;
@@ -50,9 +52,11 @@ PoseRobustFace::PoseRobustFace(const std::string &_onnx_path, unsigned int _num_
   // 4. output names & output dims
   num_outputs = ort_session->GetOutputCount();
   output_node_names.resize(num_outputs);
+  output_node_names_.resize(num_outputs);
   for (unsigned int i = 0; i < num_outputs; ++i)
   {
-    output_node_names[i] = ort_session->GetOutputName(i, allocator);
+    output_node_names_[i] = OrtCompatiableGetOutputName(i, allocator, ort_session);
+    output_node_names[i] = output_node_names_[i].data();
     Ort::TypeInfo output_type_info = ort_session->GetOutputTypeInfo(i);
     auto output_tensor_info = output_type_info.GetTensorTypeAndShapeInfo();
     auto output_dims = output_tensor_info.GetShape();

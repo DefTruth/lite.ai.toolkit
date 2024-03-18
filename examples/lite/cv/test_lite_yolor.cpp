@@ -6,9 +6,9 @@
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/yolor-p6-640-640.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/yolor-p6-640-640.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_detection_1.jpg";
-  std::string save_img_path = "../../../logs/test_lite_yolor_1.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_yolor_1.jpg";
 
   // 1. Test Default Engine ONNXRuntime
   lite::cv::detection::YoloR *yolor = new lite::cv::detection::YoloR(onnx_path); // default
@@ -30,9 +30,9 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string onnx_path = "../../../hub/onnx/cv/yolor-p6-640-640.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/yolor-p6-640-640.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_detection_2.jpg";
-  std::string save_img_path = "../../../logs/test_lite_yolor_2.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_yolor_2.jpg";
 
   // 2. Test Specific Engine ONNXRuntime
   lite::onnxruntime::cv::detection::YoloR *yolor =
@@ -55,9 +55,9 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
-  std::string mnn_path = "../../../hub/mnn/cv/yolor-p6-640-640.mnn";
+  std::string mnn_path = "../../../examples/hub/mnn/cv/yolor-p6-640-640.mnn";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_detection_2.jpg";
-  std::string save_img_path = "../../../logs/test_lite_yolor_mnn_2.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_yolor_mnn_2.jpg";
 
   // 3. Test Specific Engine MNN
   lite::mnn::cv::detection::YoloR *yolor =
@@ -80,12 +80,12 @@ static void test_mnn()
 static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
-  std::string param_path = "../../../hub/ncnn/cv/yolor-p6-640-640.opt.param";
-  std::string bin_path = "../../../hub/ncnn/cv/yolor-p6-640-640.opt.bin";
-  // std::string param_path = "../../../hub/ncnn/cv/yolor-ssss-s2d-640-640.opt.param";
-  // std::string bin_path = "../../../hub/ncnn/cv/yolor-ssss-s2d-640-640.opt.bin";
+  std::string param_path = "../../../examples/hub/ncnn/cv/yolor-p6-640-640.opt.param";
+  std::string bin_path = "../../../examples/hub/ncnn/cv/yolor-p6-640-640.opt.bin";
+  // std::string param_path = "../../../examples/hub/ncnn/cv/yolor-ssss-s2d-640-640.opt.param";
+  // std::string bin_path = "../../../examples/hub/ncnn/cv/yolor-ssss-s2d-640-640.opt.bin";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_detection_2.jpg";
-  std::string save_img_path = "../../../logs/test_lite_yolor_ncnn_2.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_yolor_ncnn_2.jpg";
 
   // 4. Test Specific Engine NCNN
   if (param_path.find("ssss") != std::string::npos) // yolor-ssss-xxx
@@ -128,10 +128,10 @@ static void test_ncnn()
 static void test_tnn()
 {
 #ifdef ENABLE_TNN
-  std::string proto_path = "../../../hub/tnn/cv/yolor-p6-640-640.opt.tnnproto";
-  std::string model_path = "../../../hub/tnn/cv/yolor-p6-640-640.opt.tnnmodel";
+  std::string proto_path = "../../../examples/hub/tnn/cv/yolor-p6-640-640.opt.tnnproto";
+  std::string model_path = "../../../examples/hub/tnn/cv/yolor-p6-640-640.opt.tnnmodel";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_detection_2.jpg";
-  std::string save_img_path = "../../../logs/test_lite_yolor_tnn_2.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_yolor_tnn_2.jpg";
 
   // 5. Test Specific Engine TNN
   lite::tnn::cv::detection::YoloR *yolor =

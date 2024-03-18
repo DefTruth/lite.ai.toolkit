@@ -16,6 +16,7 @@ namespace ortcv
     Ort::Session *ort_session = nullptr;
     Ort::AllocatorWithDefaultOptions allocator;
     std::vector<const char *> input_node_names;
+    std::vector<std::string> input_node_names_;
     std::vector<std::vector<int64_t>> dynamic_input_node_dims; // >=1 inputs.
     unsigned int dynamic_input_height = 512; // init only, will change according to input mat.
     unsigned int dynamic_input_width = 512; // init only, will change according to input mat.
@@ -23,6 +24,7 @@ namespace ortcv
     Ort::MemoryInfo memory_info_handler = Ort::MemoryInfo::CreateCpu(
         OrtArenaAllocator, OrtMemTypeDefault);
     std::vector<const char *> output_node_names;
+    std::vector<std::string> output_node_names_;
     const LITEORT_CHAR *onnx_path = nullptr;
     const char *log_id = nullptr;
     unsigned int num_outputs = 1;

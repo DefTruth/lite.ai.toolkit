@@ -6,9 +6,9 @@
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/fast_portrait_seg_SINet_bi_320_256.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/fast_portrait_seg_SINet_bi_320_256.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_head_seg.png";
-  std::string save_img_path = "../../../logs/test_lite_fast_portrait_seg.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_fast_portrait_seg.jpg";
 
   lite::cv::segmentation::FastPortraitSeg *fast_portrait_seg =
       new lite::cv::segmentation::FastPortraitSeg(onnx_path, 4); // 4 threads
@@ -29,9 +29,9 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string onnx_path = "../../../hub/onnx/cv/fast_portrait_seg_SINet_bi_320_256.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/fast_portrait_seg_SINet_bi_320_256.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_head_seg_1.png";
-  std::string save_img_path = "../../../logs/test_lite_fast_portrait_seg_1_onnx.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_fast_portrait_seg_1_onnx.jpg";
 
   lite::onnxruntime::cv::segmentation::FastPortraitSeg *fast_portrait_seg =
       new lite::onnxruntime::cv::segmentation::FastPortraitSeg(onnx_path, 4); // 4 threads
@@ -53,9 +53,9 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
-  std::string mnn_path = "../../../hub/mnn/cv/fast_portrait_seg_SINet_bi_320_256.mnn";
+  std::string mnn_path = "../../../examples/hub/mnn/cv/fast_portrait_seg_SINet_bi_320_256.mnn";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_head_seg_1.png";
-  std::string save_img_path = "../../../logs/test_lite_fast_portrait_seg_1_mnn.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_fast_portrait_seg_1_mnn.jpg";
 
   lite::mnn::cv::segmentation::FastPortraitSeg *fast_portrait_seg =
       new lite::mnn::cv::segmentation::FastPortraitSeg(mnn_path, 4); // 4 threads

@@ -6,12 +6,12 @@
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/BGMv2_mobilenetv2_hd_dynamic.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/BGMv2_mobilenetv2_hd_dynamic.onnx";
   std::string test_src_path = "../../../examples/lite/resources/test_lite_bgmv2_src.png";
   std::string test_bgr_path = "../../../examples/lite/resources/test_lite_bgmv2_bgr.png";
-  std::string save_fgr_path = "../../../logs/test_lite_bgmv2_dyn_fgr.jpg";
-  std::string save_pha_path = "../../../logs/test_lite_bgmv2_dyn_pha.jpg";
-  std::string save_merge_path = "../../../logs/test_lite_bgmv2_dyn_merge.jpg";
+  std::string save_fgr_path = "../../../examples/logs/test_lite_bgmv2_dyn_fgr.jpg";
+  std::string save_pha_path = "../../../examples/logs/test_lite_bgmv2_dyn_pha.jpg";
+  std::string save_merge_path = "../../../examples/logs/test_lite_bgmv2_dyn_merge.jpg";
 
   lite::cv::matting::BackgroundMattingV2Dyn *bgmv2_dyn =
       new lite::cv::matting::BackgroundMattingV2Dyn(onnx_path, 16); // 16 threads
@@ -37,12 +37,12 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string onnx_path = "../../../hub/onnx/cv/BGMv2_mobilenetv2_hd_dynamic.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/BGMv2_mobilenetv2_hd_dynamic.onnx";
   std::string test_src_path = "../../../examples/lite/resources/test_lite_bgmv2_src.png";
   std::string test_bgr_path = "../../../examples/lite/resources/test_lite_bgmv2_bgr.png";
-  std::string save_fgr_path = "../../../logs/test_lite_bgmv2_dyn_fgr_onnx.jpg";
-  std::string save_pha_path = "../../../logs/test_lite_bgmv2_dyn_pha_onnx.jpg";
-  std::string save_merge_path = "../../../logs/test_lite_bgmv2_dyn_merge_onnx.jpg";
+  std::string save_fgr_path = "../../../examples/logs/test_lite_bgmv2_dyn_fgr_onnx.jpg";
+  std::string save_pha_path = "../../../examples/logs/test_lite_bgmv2_dyn_pha_onnx.jpg";
+  std::string save_merge_path = "../../../examples/logs/test_lite_bgmv2_dyn_merge_onnx.jpg";
 
   lite::onnxruntime::cv::matting::BackgroundMattingV2Dyn *bgmv2_dyn =
       new lite::onnxruntime::cv::matting::BackgroundMattingV2Dyn(onnx_path, 16); // 16 threads

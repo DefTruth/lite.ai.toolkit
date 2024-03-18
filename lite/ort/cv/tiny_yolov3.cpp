@@ -37,6 +37,7 @@ TinyYoloV3::TinyYoloV3(const std::string &_onnx_path, unsigned int _num_threads)
   // 2. input name & input dims
   num_inputs = ort_session->GetInputCount();
   input_node_names.resize(num_inputs);
+  input_node_names_.resize(num_inputs);
   // 3. initial input node dims.
   input_node_dims.push_back({batch_size, 3, input_height, input_width}); // input_1 dims
   input_node_dims.push_back({batch_size, 2}); // image_shape dims
@@ -44,13 +45,18 @@ TinyYoloV3::TinyYoloV3(const std::string &_onnx_path, unsigned int _num_threads)
   input_tensor_sizes.push_back(batch_size * 2);
   input_1_values_handler.resize(batch_size * 3 * input_height * input_width);
   image_shape_values_handler.resize(batch_size * 2);
-  for (unsigned int i = 0; i < num_inputs; ++i)
-    input_node_names[i] = ort_session->GetInputName(i, allocator);
+  for (unsigned int i = 0; i < num_inputs; ++i) {
+    input_node_names_[i] = OrtCompatiableGetInputName(i, allocator, ort_session);
+    input_node_names[i] = input_node_names_[i].data();
+  }
   // 4. output names & output dimms
   num_outputs = ort_session->GetOutputCount();
   output_node_names.resize(num_outputs);
-  for (unsigned int i = 0; i < num_outputs; ++i)
-    output_node_names[i] = ort_session->GetOutputName(i, allocator);
+  output_node_names_.resize(num_outputs);
+  for (unsigned int i = 0; i < num_outputs; ++i) {
+    output_node_names_[i] = OrtCompatiableGetOutputName(i, allocator, ort_session);
+    output_node_names[i] = output_node_names_[i].data();
+  }
 #if LITEORT_DEBUG
   this->print_debug_string();
 #endif

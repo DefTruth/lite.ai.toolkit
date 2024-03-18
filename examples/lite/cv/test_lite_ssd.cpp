@@ -6,9 +6,9 @@
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/ssd-10.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/ssd-10.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_ssd.jpg";
-  std::string save_img_path = "../../../logs/test_lite_ssd.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_ssd.jpg";
 
   lite::cv::detection::SSD *ssd = new lite::cv::detection::SSD(onnx_path);
 
@@ -28,9 +28,9 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string onnx_path = "../../../hub/onnx/cv/ssd-10.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/ssd-10.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_ssd.jpg";
-  std::string save_img_path = "../../../logs/test_onnx_ssd.jpg";
+  std::string save_img_path = "../../../examples/logs/test_onnx_ssd.jpg";
 
   lite::onnxruntime::cv::detection::SSD *ssd = new lite::onnxruntime::cv::detection::SSD(onnx_path);
 

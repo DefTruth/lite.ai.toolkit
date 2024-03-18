@@ -6,7 +6,7 @@
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/resnext50.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/resnext50.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_resnext.jpg";
 
   lite::cv::classification::ResNeXt *resnext = new lite::cv::classification::ResNeXt(onnx_path);
@@ -36,7 +36,7 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string onnx_path = "../../../hub/onnx/cv/resnext50.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/resnext50.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_resnext.jpg";
 
   lite::onnxruntime::cv::classification::ResNeXt *resnext =
@@ -68,7 +68,7 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
-  std::string mnn_path = "../../../hub/mnn/cv/resnext50.mnn";
+  std::string mnn_path = "../../../examples/hub/mnn/cv/resnext50.mnn";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_resnext.jpg";
 
   lite::mnn::cv::classification::ResNeXt *resnext =
@@ -100,8 +100,8 @@ static void test_mnn()
 static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
-  std::string param_path = "../../../hub/ncnn/cv/resnext50.opt.param";
-  std::string bin_path = "../../../hub/ncnn/cv/resnext50.opt.bin";
+  std::string param_path = "../../../examples/hub/ncnn/cv/resnext50.opt.param";
+  std::string bin_path = "../../../examples/hub/ncnn/cv/resnext50.opt.bin";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_resnext.jpg";
 
   lite::ncnn::cv::classification::ResNeXt *resnext =
@@ -133,8 +133,8 @@ static void test_ncnn()
 static void test_tnn()
 {
 #ifdef ENABLE_TNN
-  std::string proto_path = "../../../hub/tnn/cv/resnext50.opt.tnnproto";
-  std::string model_path = "../../../hub/tnn/cv/resnext50.opt.tnnmodel";
+  std::string proto_path = "../../../examples/hub/tnn/cv/resnext50.opt.tnnproto";
+  std::string model_path = "../../../examples/hub/tnn/cv/resnext50.opt.tnnmodel";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_resnext.jpg";
 
   lite::tnn::cv::classification::ResNeXt *resnext =

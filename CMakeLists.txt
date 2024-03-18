@@ -1,81 +1,83 @@
 cmake_minimum_required(VERSION 3.10)
 project(lite.ai.toolkit)
 
-set(CMAKE_CXX_STANDARD 11)
-set(VERSION_STRING 0.1.1)
-set(SOVERSION_STRING 0.1.1)
-include(cmake/platform.cmake)  # checking platform
+set(CMAKE_CXX_STANDARD 17)
+set(VERSION_STRING 0.2.0)
+set(SOVERSION_STRING 0.2.0)
+include(cmake/utils.cmake)
 
-message(STATUS "Lite.AI.ToolKit  ${VERSION_STRING}")
-message(STATUS "Project: lite.ai.toolkit")
-message(STATUS "Version: ${VERSION_STRING}")
-message(STATUS "SO Version: ${SOVERSION_STRING}")
-message(STATUS "Build Type: ${CMAKE_BUILD_TYPE}")
-message(STATUS "Platform Name: ${PLATFORM_NAME}")
-message(STATUS "Root Path: ${CMAKE_SOURCE_DIR}")
+if (NOT (UNIX AND NOT APPLE))
+  message(FATAL_ERROR "lite.ai.toolkit>=0.2 not support for windows/mac now!")
+endif()
+
+set(THIRD_PARTY_PATH "${CMAKE_SOURCE_DIR}/third_party")
+if(NOT EXISTS ${THIRD_PARTY_PATH})
+    file(MAKE_DIRECTORY ${THIRD_PARTY_PATH})
+endif()
 
 # Linux GCC Compiler Options
 if (CMAKE_COMPILER_IS_GNUCXX)
-    set(CMAKE_CXX_FLAGS "-std=c++11 -Wno-deprecated ${CMAKE_CXX_FLAGS} ")
-    message(STATUS "[Linux GCC Compiler Options]+:-std=c++11 -Wno-deprecated")
+    set(CMAKE_CXX_FLAGS "-std=c++17 -Wno-deprecated ${CMAKE_CXX_FLAGS} ")
+    message(STATUS "[Linux GCC Compiler Options]+:-std=c++17 -Wno-deprecated")
 endif ()
 # message(STATUS "CMAKE_CXX_COMPILER: [${CMAKE_CXX_COMPILER}]")
 
 # root dir
 set(LITE_AI_ROOT_DIR ${CMAKE_SOURCE_DIR})
-# set default build dir for lite.ai.toolkit
-if (NOT DEFINED BUILD_LITE_AI_DIR)
-    set(BUILD_LITE_AI_DIR ${LITE_AI_ROOT_DIR}/build/lite.ai.toolkit)
-endif ()
-set(LIBRARY_OUTPUT_PATH ${BUILD_LITE_AI_DIR}/lib)
-set(EXECUTABLE_OUTPUT_PATH ${BUILD_LITE_AI_DIR}/bin)
 
 # compile options for lite.ai.toolkit
-option(LITE_AI_BUILD_LIB "build shared libraries." ON) # now, ON only
 option(LITE_AI_BUILD_TEST "build test examples." ON)
-option(INCLUDE_OPENCV "package OpenCV into lite.ai.toolkit." ON)
 # inference engines setups: config.h.in -> config.h
 option(ENABLE_DEBUG_STRING "enable DEBUG string or not" ON)
 option(ENABLE_ONNXRUNTIME "enable ONNXRuntime engine" ON)
-option(ENABLE_MNN "enable MNN engine" ON)  # unstable now, DON'T use
-option(ENABLE_NCNN "enable NCNN engine" ON) # unstable now, DON'T use
-option(ENABLE_TNN "enable TNN engine" ON) # unstable now, DON'T use
+option(ENABLE_MNN "enable MNN engine" OFF)  # unstable now, DON'T use
+option(ENABLE_NCNN "enable NCNN engine" OFF) # unstable now, DON'T use
+option(ENABLE_TNN "enable TNN engine" OFF) # unstable now, DON'T use
 # cuda provider setups: config.h.in -> config.h (only for onnxruntime)
 option(ENABLE_ONNXRUNTIME_CUDA "enable ONNXRuntime engine with CUDA provider" OFF)
-# openmp/opengl/vulkan/cuda setups: config.h.in -> config.h (for future use)
-option(ENABLE_LITE_OPENMP "enable OPENMP accelerate for some post processes" OFF)  # for future use, DON'T use NOW!
-option(ENABLE_LITE_OPENGL "enable OPENGL accelerate for some post processes" OFF)  # for future use, DON'T use NOW!
-option(ENABLE_LITE_VULKAN "enable VULKAN accelerate for some post processes" OFF)  # for future use, DON'T use NOW!
-option(ENABLE_LITE_CUDA "enable CUDA accelerate for some post processes" OFF)  # for future use, DON'T use NOW!
-# videoio interface setups, for future use
 option(ENABLE_OPENCV_VIDEOIO "enable opencv videoio modules for detect_video apis" ON) # now, ON only
-# inference engines backend setups for lite.ai.toolkit
-option(BACKEND_ONNXRUNTIME "set ONNXRuntime as the main backend of lite.ai.toolkit" ON)
-option(BACKEND_MNN "set MNN as the main backend of lite.ai.toolkit" OFF)  # now, OFF only
-option(BACKEND_NCNN "set NCNN as the main backend of lite.ai.toolkit" OFF)  # now, OFF only
-option(BACKEND_TNN "set TNN as the main backend of lite.ai.toolkit" OFF)  # now, OFF only
 
-message(STATUS "Engines Enable Details ... ")
-message(STATUS "INCLUDE_OPENCV: ${INCLUDE_OPENCV}")
-message(STATUS "ENABLE_ONNXRUNTIME: ${ENABLE_ONNXRUNTIME}")
-message(STATUS "ENABLE_MNN: ${ENABLE_MNN}")
-message(STATUS "ENABLE_NCNN: ${ENABLE_NCNN}")
-message(STATUS "ENABLE_TNN: ${ENABLE_TNN}")
+if (NOT ENABLE_ONNXRUNTIME)
+    message(FATAL_ERROR "ENABLE_ONNXRUNTIME must be enbled now!")
+endif()
 
 # setup include dir and lib dir
 include_directories(${LITE_AI_ROOT_DIR})
-link_directories(${LITE_AI_ROOT_DIR}/lib/${PLATFORM_NAME})
+configure_file(cmake/lite.ai.toolkit.cmake.in ${CMAKE_SOURCE_DIR}/cmake/lite.ai.toolkit.cmake @ONLY)
 
 # include custom cmake files.
 include(cmake/opencv.cmake)
-include(cmake/command.cmake)
 
-# configuration for lite.ai shared lib.
-if (LITE_AI_BUILD_LIB)
-    include(cmake/lite.ai.toolkit.cmake)
-endif ()
+add_lite_ai_toolkit_shared_library(${VERSION_STRING} ${SOVERSION_STRING})
+install(TARGETS lite.ai.toolkit LIBRARY DESTINATION lib)
+install(DIRECTORY ${CMAKE_SOURCE_DIR}/lite 
+        DESTINATION ${CMAKE_INSTALL_PREFIX}/include
+        FILES_MATCHING
+        PATTERN "*.h")
+install(DIRECTORY ${THIRD_PARTY_PATH} DESTINATION ${CMAKE_INSTALL_PREFIX}/include/)
+install(FILES ${CMAKE_SOURCE_DIR}/cmake/lite.ai.toolkit.cmake 
+        DESTINATION ${CMAKE_INSTALL_PREFIX})
+install(FILES ${CMAKE_SOURCE_DIR}/cmake/lite.ai.toolkit-config.cmake 
+        DESTINATION ${CMAKE_INSTALL_PREFIX})
 
 # configuration for test examples.
-if (LITE_AI_BUILD_LIB AND LITE_AI_BUILD_TEST)
+if (LITE_AI_BUILD_TEST)
+    set(EXECUTABLE_OUTPUT_PATH ${CMAKE_INSTALL_PREFIX}/bin)
     add_subdirectory(examples/lite)
+    if ((UNIX AND NOT APPLE))
+        file(GLOB_RECURSE ALL_THIRD_LIBS ${THIRD_PARTY_PATH} FOLLOW_SYMLINKS *.so*)
+        install(FILES ${ALL_THIRD_LIBS} DESTINATION ${EXECUTABLE_OUTPUT_PATH})
+    endif()
 endif ()
+
+message(STATUS "-------------------------- lite.ai.toolkit Configuration Summary --------------------------")
+message(STATUS "        Version: ${VERSION_STRING}")
+message(STATUS "     SO Version: ${SOVERSION_STRING}")
+message(STATUS "     Build Type: ${CMAKE_BUILD_TYPE}")
+message(STATUS "      Root Path: ${CMAKE_SOURCE_DIR}")
+message(STATUS "         OpenCV: ON Version: ${OpenCV_Version}")
+message(STATUS "    ONNXRUNTIME: ${ENABLE_ONNXRUNTIME} Version: ${OnnxRuntime_Version}")
+message(STATUS "            MNN: ${ENABLE_MNN} Version: ${MNN_Version}")
+message(STATUS "           NCNN: ${ENABLE_NCNN} Version: ${NCNN_Version}")
+message(STATUS "            TNN: ${ENABLE_TNN} Version: ${TNN_Version}")
+message(STATUS "-------------------------- lite.ai.toolkit Configuration Summary --------------------------")

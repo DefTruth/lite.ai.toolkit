@@ -6,9 +6,9 @@
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/face-emotion-recognition-enet_b0_7.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/face-emotion-recognition-enet_b0_7.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_emotion.jpg";
-  std::string save_img_path = "../../../logs/test_lite_emotion7.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_emotion7.jpg";
 
   lite::cv::face::attr::EfficientEmotion7 *efficient_emotion7 =
       new lite::cv::face::attr::EfficientEmotion7(onnx_path);
@@ -31,9 +31,9 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string onnx_path = "../../../hub/onnx/cv/face-emotion-recognition-enet_b0_7.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/face-emotion-recognition-enet_b0_7.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_emotion.jpg";
-  std::string save_img_path = "../../../logs/test_lite_emotion7.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_emotion7.jpg";
 
   lite::onnxruntime::cv::face::attr::EfficientEmotion7 *efficient_emotion7 =
       new lite::onnxruntime::cv::face::attr::EfficientEmotion7(onnx_path);
@@ -56,9 +56,9 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
-  std::string mnn_path = "../../../hub/mnn/cv/face-emotion-recognition-enet_b0_7.mnn";
+  std::string mnn_path = "../../../examples/hub/mnn/cv/face-emotion-recognition-enet_b0_7.mnn";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_emotion.jpg";
-  std::string save_img_path = "../../../logs/test_lite_emotion7_mnn.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_emotion7_mnn.jpg";
 
   lite::mnn::cv::face::attr::EfficientEmotion7 *efficient_emotion7 =
       new lite::mnn::cv::face::attr::EfficientEmotion7(mnn_path);
@@ -81,10 +81,10 @@ static void test_mnn()
 static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
-  std::string param_path = "../../../hub/ncnn/cv/face-emotion-recognition-enet_b0_7.opt.param";
-  std::string bin_path = "../../../hub/ncnn/cv/face-emotion-recognition-enet_b0_7.opt.bin";
+  std::string param_path = "../../../examples/hub/ncnn/cv/face-emotion-recognition-enet_b0_7.opt.param";
+  std::string bin_path = "../../../examples/hub/ncnn/cv/face-emotion-recognition-enet_b0_7.opt.bin";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_emotion.jpg";
-  std::string save_img_path = "../../../logs/test_lite_emotion7_ncnn.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_emotion7_ncnn.jpg";
 
   lite::ncnn::cv::face::attr::EfficientEmotion7 *efficient_emotion7 =
       new lite::ncnn::cv::face::attr::EfficientEmotion7(param_path, bin_path);
@@ -107,10 +107,10 @@ static void test_ncnn()
 static void test_tnn()
 {
 #ifdef ENABLE_TNN
-  std::string proto_path = "../../../hub/tnn/cv/face-emotion-recognition-enet_b0_7.opt.tnnproto";
-  std::string model_path = "../../../hub/tnn/cv/face-emotion-recognition-enet_b0_7.opt.tnnmodel";
+  std::string proto_path = "../../../examples/hub/tnn/cv/face-emotion-recognition-enet_b0_7.opt.tnnproto";
+  std::string model_path = "../../../examples/hub/tnn/cv/face-emotion-recognition-enet_b0_7.opt.tnnmodel";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_emotion.jpg";
-  std::string save_img_path = "../../../logs/test_lite_emotion7_tnn.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_emotion7_tnn.jpg";
 
   lite::tnn::cv::face::attr::EfficientEmotion7 *efficient_emotion7 =
       new lite::tnn::cv::face::attr::EfficientEmotion7(proto_path, model_path);

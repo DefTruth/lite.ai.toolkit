@@ -6,9 +6,9 @@
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/face-emotion-recognition-affectnet_7_vggface2_rexnet150.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/face-emotion-recognition-affectnet_7_vggface2_rexnet150.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_emotion.jpg";
-  std::string save_img_path = "../../../logs/test_lite_emotion.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_emotion.jpg";
 
   lite::cv::face::attr::ReXNetEmotion7 *rexnet_emotion7 =
       new lite::cv::face::attr::ReXNetEmotion7(onnx_path);
@@ -31,9 +31,9 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string onnx_path = "../../../hub/onnx/cv/face-emotion-recognition-affectnet_7_vggface2_rexnet150.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/face-emotion-recognition-affectnet_7_vggface2_rexnet150.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_emotion.jpg";
-  std::string save_img_path = "../../../logs/test_lite_emotion.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_emotion.jpg";
 
   lite::onnxruntime::cv::face::attr::ReXNetEmotion7 *rexnet_emotion7 =
       new lite::onnxruntime::cv::face::attr::ReXNetEmotion7(onnx_path);
@@ -56,9 +56,9 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
-  std::string mnn_path = "../../../hub/mnn/cv/face-emotion-recognition-affectnet_7_vggface2_rexnet150.mnn";
+  std::string mnn_path = "../../../examples/hub/mnn/cv/face-emotion-recognition-affectnet_7_vggface2_rexnet150.mnn";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_emotion.jpg";
-  std::string save_img_path = "../../../logs/test_lite_emotion_mnn.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_emotion_mnn.jpg";
 
   lite::mnn::cv::face::attr::ReXNetEmotion7 *rexnet_emotion7 =
       new lite::mnn::cv::face::attr::ReXNetEmotion7(mnn_path);
@@ -87,10 +87,10 @@ static void test_ncnn()
 static void test_tnn()
 {
 #ifdef ENABLE_TNN
-  std::string proto_path = "../../../hub/tnn/cv/face-emotion-recognition-affectnet_7_vggface2_rexnet150.opt.tnnproto";
-  std::string model_path = "../../../hub/tnn/cv/face-emotion-recognition-affectnet_7_vggface2_rexnet150.opt.tnnmodel";
+  std::string proto_path = "../../../examples/hub/tnn/cv/face-emotion-recognition-affectnet_7_vggface2_rexnet150.opt.tnnproto";
+  std::string model_path = "../../../examples/hub/tnn/cv/face-emotion-recognition-affectnet_7_vggface2_rexnet150.opt.tnnmodel";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_emotion.jpg";
-  std::string save_img_path = "../../../logs/test_lite_emotion_tnn.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_emotion_tnn.jpg";
 
   lite::tnn::cv::face::attr::ReXNetEmotion7 *rexnet_emotion7 =
       new lite::tnn::cv::face::attr::ReXNetEmotion7(proto_path, model_path);

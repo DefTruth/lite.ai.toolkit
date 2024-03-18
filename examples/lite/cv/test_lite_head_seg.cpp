@@ -6,9 +6,9 @@
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/minivision_head_seg.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/minivision_head_seg.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_head_seg.png";
-  std::string save_img_path = "../../../logs/test_lite_head_seg.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_head_seg.jpg";
 
   lite::cv::segmentation::HeadSeg *head_seg =
       new lite::cv::segmentation::HeadSeg(onnx_path, 4); // 4 threads
@@ -29,9 +29,9 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string onnx_path = "../../../hub/onnx/cv/minivision_head_seg.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/minivision_head_seg.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_head_seg_1.png";
-  std::string save_img_path = "../../../logs/test_lite_head_seg_1_onnx.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_head_seg_1_onnx.jpg";
 
   lite::onnxruntime::cv::segmentation::HeadSeg *head_seg =
       new lite::onnxruntime::cv::segmentation::HeadSeg(onnx_path, 4); // 4 threads
@@ -53,9 +53,9 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
-  std::string mnn_path = "../../../hub/mnn/cv/minivision_head_seg.mnn";
+  std::string mnn_path = "../../../examples/hub/mnn/cv/minivision_head_seg.mnn";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_head_seg_1.png";
-  std::string save_img_path = "../../../logs/test_lite_head_seg_1_mnn.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_head_seg_1_mnn.jpg";
 
   lite::mnn::cv::segmentation::HeadSeg *head_seg =
       new lite::mnn::cv::segmentation::HeadSeg(mnn_path, 4); // 4 threads
@@ -84,10 +84,10 @@ static void test_tnn()
 {
 #ifdef ENABLE_TNN
   // WARN: BAD RESULTS !!!!
-  std::string proto_path = "../../../hub/tnn/cv/minivision_head_seg.opt.tnnproto";
-  std::string model_path = "../../../hub/tnn/cv/minivision_head_seg.opt.tnnmodel";
+  std::string proto_path = "../../../examples/hub/tnn/cv/minivision_head_seg.opt.tnnproto";
+  std::string model_path = "../../../examples/hub/tnn/cv/minivision_head_seg.opt.tnnmodel";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_head_seg_1.png";
-  std::string save_img_path = "../../../logs/test_lite_head_seg_1_tnn.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_head_seg_1_tnn.jpg";
 
   lite::tnn::cv::segmentation::HeadSeg *head_seg =
       new lite::tnn::cv::segmentation::HeadSeg(proto_path, model_path, 4); // 4 threads

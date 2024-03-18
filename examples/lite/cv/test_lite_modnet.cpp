@@ -6,13 +6,13 @@
 
 static void test_default()
 {
-  std::string onnx_path = "../../../hub/onnx/cv/modnet_photographic_portrait_matting-512x512.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/modnet_photographic_portrait_matting-512x512.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_matting_input.jpg";
   std::string test_bgr_path = "../../../examples/lite/resources/test_lite_matting_bgr.jpg";
-  std::string save_fgr_path = "../../../logs/test_lite_modnet_fgr.jpg";
-  std::string save_pha_path = "../../../logs/test_lite_modnet_pha.jpg";
-  std::string save_merge_path = "../../../logs/test_lite_modnet_merge.jpg";
-  std::string save_swap_path = "../../../logs/test_lite_modnet_swap.jpg";
+  std::string save_fgr_path = "../../../examples/logs/test_lite_modnet_fgr.jpg";
+  std::string save_pha_path = "../../../examples/logs/test_lite_modnet_pha.jpg";
+  std::string save_merge_path = "../../../examples/logs/test_lite_modnet_merge.jpg";
+  std::string save_swap_path = "../../../examples/logs/test_lite_modnet_swap.jpg";
 
   lite::cv::matting::MODNet *modnet =
       new lite::cv::matting::MODNet(onnx_path, 16); // 16 threads
@@ -51,13 +51,13 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string onnx_path = "../../../hub/onnx/cv/modnet_photographic_portrait_matting-512x512.onnx";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/modnet_photographic_portrait_matting-512x512.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_matting_input.jpg";
   std::string test_bgr_path = "../../../examples/lite/resources/test_lite_matting_bgr.jpg";
-  std::string save_fgr_path = "../../../logs/test_lite_modnet_fgr_onnx.jpg";
-  std::string save_pha_path = "../../../logs/test_lite_modnet_pha_onnx.jpg";
-  std::string save_merge_path = "../../../logs/test_lite_modnet_merge_onnx.jpg";
-  std::string save_swap_path = "../../../logs/test_lite_modnet_swap_onnx.jpg";
+  std::string save_fgr_path = "../../../examples/logs/test_lite_modnet_fgr_onnx.jpg";
+  std::string save_pha_path = "../../../examples/logs/test_lite_modnet_pha_onnx.jpg";
+  std::string save_merge_path = "../../../examples/logs/test_lite_modnet_merge_onnx.jpg";
+  std::string save_swap_path = "../../../examples/logs/test_lite_modnet_swap_onnx.jpg";
 
   lite::onnxruntime::cv::matting::MODNet *modnet =
       new lite::onnxruntime::cv::matting::MODNet(onnx_path, 16); // 16 threads
@@ -97,13 +97,13 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
-  std::string mnn_path = "../../../hub/mnn/cv/modnet_photographic_portrait_matting-512x512.mnn";
+  std::string mnn_path = "../../../examples/hub/mnn/cv/modnet_photographic_portrait_matting-512x512.mnn";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_matting_input.jpg";
   std::string test_bgr_path = "../../../examples/lite/resources/test_lite_matting_bgr.jpg";
-  std::string save_fgr_path = "../../../logs/test_lite_modnet_fgr_mnn.jpg";
-  std::string save_pha_path = "../../../logs/test_lite_modnet_pha_mnn.jpg";
-  std::string save_merge_path = "../../../logs/test_lite_modnet_merge_mnn.jpg";
-  std::string save_swap_path = "../../../logs/test_lite_modnet_swap_mnn.jpg";
+  std::string save_fgr_path = "../../../examples/logs/test_lite_modnet_fgr_mnn.jpg";
+  std::string save_pha_path = "../../../examples/logs/test_lite_modnet_pha_mnn.jpg";
+  std::string save_merge_path = "../../../examples/logs/test_lite_modnet_merge_mnn.jpg";
+  std::string save_swap_path = "../../../examples/logs/test_lite_modnet_swap_mnn.jpg";
 
   lite::mnn::cv::matting::MODNet *modnet =
       new lite::mnn::cv::matting::MODNet(mnn_path, 16); // 16 threads
@@ -142,14 +142,14 @@ static void test_mnn()
 static void test_ncnn()
 {
 #ifdef ENABLE_NCNN
-  std::string proto_path = "../../../hub/ncnn/cv/modnet_photographic_portrait_matting-512x512.opt.param";
-  std::string bin_path = "../../../hub/ncnn/cv/modnet_photographic_portrait_matting-512x512.opt.bin";
+  std::string proto_path = "../../../examples/hub/ncnn/cv/modnet_photographic_portrait_matting-512x512.opt.param";
+  std::string bin_path = "../../../examples/hub/ncnn/cv/modnet_photographic_portrait_matting-512x512.opt.bin";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_matting_input.jpg";
   std::string test_bgr_path = "../../../examples/lite/resources/test_lite_matting_bgr.jpg";
-  std::string save_fgr_path = "../../../logs/test_lite_modnet_fgr_ncnn.jpg";
-  std::string save_pha_path = "../../../logs/test_lite_modnet_pha_ncnn.jpg";
-  std::string save_merge_path = "../../../logs/test_lite_modnet_merge_ncnn.jpg";
-  std::string save_swap_path = "../../../logs/test_lite_modnet_swap_ncnn.jpg";
+  std::string save_fgr_path = "../../../examples/logs/test_lite_modnet_fgr_ncnn.jpg";
+  std::string save_pha_path = "../../../examples/logs/test_lite_modnet_pha_ncnn.jpg";
+  std::string save_merge_path = "../../../examples/logs/test_lite_modnet_merge_ncnn.jpg";
+  std::string save_swap_path = "../../../examples/logs/test_lite_modnet_swap_ncnn.jpg";
 
   lite::ncnn::cv::matting::MODNet *modnet =
       new lite::ncnn::cv::matting::MODNet(proto_path, bin_path, 16, 512, 512); // 16 threads
@@ -188,14 +188,14 @@ static void test_ncnn()
 static void test_tnn()
 {
 #ifdef ENABLE_TNN
-  std::string proto_path = "../../../hub/tnn/cv/modnet_photographic_portrait_matting-512x512.tnnproto";
-  std::string model_path = "../../../hub/tnn/cv/modnet_photographic_portrait_matting-512x512.tnnmodel";
+  std::string proto_path = "../../../examples/hub/tnn/cv/modnet_photographic_portrait_matting-512x512.tnnproto";
+  std::string model_path = "../../../examples/hub/tnn/cv/modnet_photographic_portrait_matting-512x512.tnnmodel";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_matting_input.jpg";
   std::string test_bgr_path = "../../../examples/lite/resources/test_lite_matting_bgr.jpg";
-  std::string save_fgr_path = "../../../logs/test_lite_modnet_fgr_tnn.jpg";
-  std::string save_pha_path = "../../../logs/test_lite_modnet_pha_tnn.jpg";
-  std::string save_merge_path = "../../../logs/test_lite_modnet_merge_tnn.jpg";
-  std::string save_swap_path = "../../../logs/test_lite_modnet_swap_tnn.jpg";
+  std::string save_fgr_path = "../../../examples/logs/test_lite_modnet_fgr_tnn.jpg";
+  std::string save_pha_path = "../../../examples/logs/test_lite_modnet_pha_tnn.jpg";
+  std::string save_merge_path = "../../../examples/logs/test_lite_modnet_merge_tnn.jpg";
+  std::string save_swap_path = "../../../examples/logs/test_lite_modnet_swap_tnn.jpg";
 
   lite::tnn::cv::matting::MODNet *modnet =
       new lite::tnn::cv::matting::MODNet(proto_path, model_path, 16); // 16 threads

@@ -6,10 +6,10 @@
 
 static void test_default()
 {
-  std::string var_onnx_path = "../../../hub/onnx/cv/fsanet-var.onnx";
-  std::string conv_onnx_path = "../../../hub/onnx/cv/fsanet-1x1.onnx";
+  std::string var_onnx_path = "../../../examples/hub/onnx/cv/fsanet-var.onnx";
+  std::string conv_onnx_path = "../../../examples/hub/onnx/cv/fsanet-1x1.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_fsanet.jpg";
-  std::string save_img_path = "../../../logs/test_lite_fsanet.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_fsanet.jpg";
 
   lite::cv::face::pose::FSANet *var_fsanet = new lite::cv::face::pose::FSANet(var_onnx_path);
   lite::cv::face::pose::FSANet *conv_fsanet = new lite::cv::face::pose::FSANet(conv_onnx_path);
@@ -47,10 +47,10 @@ static void test_default()
 static void test_onnxruntime()
 {
 #ifdef ENABLE_ONNXRUNTIME
-  std::string var_onnx_path = "../../../hub/onnx/cv/fsanet-var.onnx";
-  std::string conv_onnx_path = "../../../hub/onnx/cv/fsanet-1x1.onnx";
+  std::string var_onnx_path = "../../../examples/hub/onnx/cv/fsanet-var.onnx";
+  std::string conv_onnx_path = "../../../examples/hub/onnx/cv/fsanet-1x1.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_fsanet.jpg";
-  std::string save_img_path = "../../../logs/test_fsanet_onnx.jpg";
+  std::string save_img_path = "../../../examples/logs/test_fsanet_onnx.jpg";
 
   lite::onnxruntime::cv::face::pose::FSANet *var_fsanet =
       new lite::onnxruntime::cv::face::pose::FSANet(var_onnx_path);
@@ -89,10 +89,10 @@ static void test_onnxruntime()
 static void test_mnn()
 {
 #ifdef ENABLE_MNN
-  std::string var_mnn_path = "../../../hub/mnn/cv/fsanet-var.mnn";
-  std::string conv_mnn_path = "../../../hub/mnn/cv/fsanet-1x1.mnn";
+  std::string var_mnn_path = "../../../examples/hub/mnn/cv/fsanet-var.mnn";
+  std::string conv_mnn_path = "../../../examples/hub/mnn/cv/fsanet-1x1.mnn";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_fsanet.jpg";
-  std::string save_img_path = "../../../logs/test_fsanet_mnn.jpg";
+  std::string save_img_path = "../../../examples/logs/test_fsanet_mnn.jpg";
 
   lite::mnn::cv::face::pose::FSANet *var_fsanet =
       new lite::mnn::cv::face::pose::FSANet(var_mnn_path);
@@ -137,12 +137,12 @@ static void test_ncnn()
 static void test_tnn()
 {
 #ifdef ENABLE_TNN
-  std::string var_proto_path = "../../../hub/tnn/cv/fsanet-var.opt.tnnproto";
-  std::string var_model_path = "../../../hub/tnn/cv/fsanet-var.opt.tnnmodel";
-  std::string conv_proto_path = "../../../hub/tnn/cv/fsanet-1x1.opt.tnnproto";
-  std::string conv_model_path = "../../../hub/tnn/cv/fsanet-1x1.opt.tnnmodel";
+  std::string var_proto_path = "../../../examples/hub/tnn/cv/fsanet-var.opt.tnnproto";
+  std::string var_model_path = "../../../examples/hub/tnn/cv/fsanet-var.opt.tnnmodel";
+  std::string conv_proto_path = "../../../examples/hub/tnn/cv/fsanet-1x1.opt.tnnproto";
+  std::string conv_model_path = "../../../examples/hub/tnn/cv/fsanet-1x1.opt.tnnmodel";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_fsanet.jpg";
-  std::string save_img_path = "../../../logs/test_fsanet_tnn.jpg";
+  std::string save_img_path = "../../../examples/logs/test_fsanet_tnn.jpg";
 
   lite::tnn::cv::face::pose::FSANet *var_fsanet =
       new lite::tnn::cv::face::pose::FSANet(var_proto_path, var_model_path);
