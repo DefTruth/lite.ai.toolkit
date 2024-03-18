@@ -4,14 +4,14 @@ set(OnnxRuntime_DIR ${THIRD_PARTY_PATH}/onnxruntime)
 if (NOT EXISTS ${OnnxRuntime_DIR})
     set(OnnxRuntime_Filename "onnxruntime-linux-x64-${OnnxRuntime_Version}.tgz")
     set(OnnxRuntime_URL https://github.com/microsoft/onnxruntime/releases/download/v1.17.1/${OnnxRuntime_Filename})
-    message(STATUS "Downloading onnxruntime library: ${OnnxRuntime_URL}")
+    message(STATUS "[Lite.AI.Toolkit][I] Downloading onnxruntime library: ${OnnxRuntime_URL}")
     download_and_decompress(${OnnxRuntime_URL} ${OnnxRuntime_Filename} ${OnnxRuntime_DIR}) 
 else() 
-    message(STATUS "Found local onnxruntime library: ${OnnxRuntime_DIR}")
+    message(STATUS "[Lite.AI.Toolkit][I] Found local onnxruntime library: ${OnnxRuntime_DIR}")
 endif() 
 
 if(NOT EXISTS ${OnnxRuntime_DIR})
-    message(FATAL_ERROR "${OnnxRuntime_DIR} is not exists!")
+    message(FATAL_ERROR "[Lite.AI.Toolkit][E] ${OnnxRuntime_DIR} is not exists!")
 endif()
 include_directories(${OnnxRuntime_DIR}/include)
 link_directories(${OnnxRuntime_DIR}/lib)
@@ -27,14 +27,9 @@ file(GLOB ONNXRUNTIME_CV_HEAD ${CMAKE_SOURCE_DIR}/lite/ort/cv/*.h)
 file(GLOB ONNXRUNTIME_NLP_HEAD ${CMAKE_SOURCE_DIR}/lite/ort/nlp/*.h)
 file(GLOB ONNXRUNTIME_ASR_HEAD ${CMAKE_SOURCE_DIR}/lite/ort/asr/*.h)
 
-set(ORT_SRCS
-        ${ONNXRUNTIME_CV_SRCS}
-        ${ONNXRUNTIME_NLP_SRCS}
-        ${ONNXRUNTIME_ASR_SRCS}
-        ${ONNXRUNTIME_CORE_SRCS})
-
+set(ORT_SRCS ${ONNXRUNTIME_CV_SRCS} ${ONNXRUNTIME_NLP_SRCS} ${ONNXRUNTIME_ASR_SRCS} ${ONNXRUNTIME_CORE_SRCS})
 # 3. copy
-message("Installing Lite.AI.ToolKit Headers for ONNXRuntime Backend ...")
+message("[Lite.AI.Toolkit][I] Installing Lite.AI.ToolKit Headers for ONNXRuntime Backend ...")
 # "INSTALL" can copy all files from the list to the specified path.
 # "COPY" only copies one file to a specified path
 file(INSTALL ${ONNXRUNTIME_CORE_HEAD} DESTINATION ${CMAKE_INSTALL_PREFIX}/include/lite/ort/core)
