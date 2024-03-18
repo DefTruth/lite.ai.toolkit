@@ -1,6 +1,6 @@
 set(TNN_DIR ${THIRD_PARTY_PATH}/TNN)
 if(NOT EXISTS ${TNN_DIR})
-    message(FATAL_ERROR "${TNN_DIR} is not exists!")
+    message(FATAL_ERROR "[Lite.AI.Toolkit][E] ${TNN_DIR} is not exists!")
 endif()
 include_directories(${TNN_DIR}/include)
 link_directories(${TNN_DIR}/lib)
@@ -16,14 +16,9 @@ file(GLOB TNN_CV_HEAD ${CMAKE_SOURCE_DIR}/lite/tnn/cv/*.h)
 file(GLOB TNN_NLP_HEAD ${CMAKE_SOURCE_DIR}/lite/tnn/nlp/*.h)
 file(GLOB TNN_ASR_HEAD ${CMAKE_SOURCE_DIR}/lite/tnn/asr/*.h)
 
-set(TNN_SRCS
-        ${TNN_CV_SRCS}
-        ${TNN_NLP_SRCS}
-        ${TNN_ASR_SRCS}
-        ${TNN_CORE_SRCS})
-
+set(TNN_SRCS ${TNN_CV_SRCS} ${TNN_NLP_SRCS} ${TNN_ASR_SRCS} ${TNN_CORE_SRCS})
 # 3. copy
-message("Installing Lite.AI.ToolKit Headers for TNN Backend ...")
+message("[Lite.AI.Toolkit][I] Installing Lite.AI.ToolKit Headers for TNN Backend ...")
 # "INSTALL" can copy all files from the list to the specified path.
 # "COPY" only copies one file to a specified path
 file(INSTALL ${TNN_CORE_HEAD} DESTINATION ${CMAKE_INSTALL_PREFIX}/include/lite/tnn/core)
