@@ -60,14 +60,14 @@
 * [Core Features](#lite.ai.toolkit-Core-Features)
 * [Quick Start](#lite.ai.toolkit-Quick-Start)
 * [Supported Models Matrix](#lite.ai.toolkit-Supported-Models-Matrix)
-* [Build Docs](#lite.ai.toolkit-Build)
+* [Build from source](#lite.ai.toolkit-Build)
 * [Model Zoo](#lite.ai.toolkit-Model-Zoo)
 * [Examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit)
 * [License](#lite.ai.toolkit-License)
 * [References](#lite.ai.toolkit-References)
 * [Contribute](#lite.ai.toolkit-Contribute)
 
-## Build Docs.
+## Build from source
 <div id="lite.ai.toolkit-Build"></div>  
 
 ```shell
