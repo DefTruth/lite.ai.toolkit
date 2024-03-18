@@ -1,4 +1,3 @@
-############################## Source Files of LiteHub Based on NCNN #################################
 set(NCNN_DIR ${THIRD_PARTY_PATH}/ncnn)
 if(NOT EXISTS ${NCNN_DIR})
     message(FATAL_ERROR "${NCNN_DIR} is not exists!")
