@@ -49,7 +49,7 @@ configure_file(cmake/lite.ai.toolkit.cmake.in ${CMAKE_SOURCE_DIR}/cmake/lite.ai.
 include(cmake/opencv.cmake)
 
 add_lite_ai_toolkit_shared_library(${VERSION_STRING} ${SOVERSION_STRING})
-install(TARGETS ${LIBRARY_NAME} LIBRARY DESTINATION lib)
+install(TARGETS lite.ai.toolkit LIBRARY DESTINATION lib)
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/lite 
         DESTINATION ${CMAKE_INSTALL_PREFIX}/include
         FILES_MATCHING
