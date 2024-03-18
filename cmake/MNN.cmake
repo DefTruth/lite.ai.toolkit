@@ -1,4 +1,3 @@
-include(utils.cmake)
 set(MNN_Version "2.8.2" CACHE STRING "MNN version" FORCE)
 set(MNN_DIR ${THIRD_PARTY_PATH}/MNN)
 # download from github if MNN library is not exists
