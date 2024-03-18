@@ -16,6 +16,23 @@ function(download_and_decompress url filename decompress_dir)
   file(RENAME ${CMAKE_CURRENT_BINARY_DIR}/${strip_filename} ${decompress_dir})
 endfunction()
 
+function(_create_syslink_if_not_found lib_dir src_lib dest_lib)
+  if (NOT EXISTS ${lib_dir}/${dest_lib})
+    if (EXISTS ${lib_dir}/${src_lib})
+      message("[Lite.AI.Toolkit][I] CREATE_LINK ${lib_dir}/${src_lib} -> ${lib_dir}/${dest_lib}")
+      file(CREATE_LINK ${lib_dir}/${src_lib} ${lib_dir}/${dest_lib})
+    endif()
+  endif()
+endfunction()
+
+function(create_ffmpeg_syslinks_if_not_found lib_dir)
+  _create_syslink_if_not_found(${lib_dir} libavcodec.so libavcodec.so.58)
+  _create_syslink_if_not_found(${lib_dir} libavformat.so libavformat.so.58)
+  _create_syslink_if_not_found(${lib_dir} libavutil.so libavutil.so.56)
+  _create_syslink_if_not_found(${lib_dir} libswscale.so libswscale.so.5)
+  _create_syslink_if_not_found(${lib_dir} libswresample.so libswresample.so.3)
+endfunction()
+
 # config lite.ai shared lib.
 function(add_lite_ai_toolkit_shared_library version soversion)
     configure_file(
