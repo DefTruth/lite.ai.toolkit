@@ -26,7 +26,7 @@ endif ()
 set(LITE_AI_ROOT_DIR ${CMAKE_SOURCE_DIR})
 
 # compile options for lite.ai.toolkit
-option(LITE_AI_BUILD_TEST "build test examples." ON)
+option(LITE_AI_BUILD_TEST "build test examples." OFF)
 # inference engines setups: config.h.in -> config.h
 option(ENABLE_DEBUG_STRING "enable DEBUG string or not" ON)
 option(ENABLE_ONNXRUNTIME "enable ONNXRuntime engine" ON)
