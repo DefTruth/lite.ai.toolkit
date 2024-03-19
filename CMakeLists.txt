@@ -54,7 +54,7 @@ install(DIRECTORY ${CMAKE_SOURCE_DIR}/lite
         DESTINATION ${CMAKE_INSTALL_PREFIX}/include
         FILES_MATCHING
         PATTERN "*.h")
-install(DIRECTORY ${THIRD_PARTY_PATH} DESTINATION ${CMAKE_INSTALL_PREFIX}/include/)
+install(DIRECTORY ${THIRD_PARTY_PATH} DESTINATION ${CMAKE_INSTALL_PREFIX})
 install(FILES ${CMAKE_SOURCE_DIR}/cmake/lite.ai.toolkit.cmake 
         DESTINATION ${CMAKE_INSTALL_PREFIX})
 install(FILES ${CMAKE_SOURCE_DIR}/cmake/lite.ai.toolkit-config.cmake 
