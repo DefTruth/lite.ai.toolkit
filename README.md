@@ -21,19 +21,10 @@
 <div align='center'>
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/44dbf4ac-0f38-41b6-930b-55b032b3c2ee' height="90px" width="90px">
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/5b28aed1-e207-4256-b3ea-3b52f9e68aed' height="90px" width="90px">
-  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/e3743596-1efb-48c6-95d5-b5a62f34eff3' height="90px" width="90px">
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/28274741-8745-4665-abff-3a384b75f7fa' height="90px" width="90px">
-  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/64fea806-f13b-4dc9-98fc-cd01319b75f4' height="90px" width="90px">
-  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/c802858c-6899-4246-8839-5721c43faffe' height="90px" width="90px">
-  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/20a18d56-297c-4c72-8153-76d4380fc9ec' height="90px" width="90px">
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/f4dd5263-8514-4bb0-a0dd-dbe532481aff' height="90px" width="90px">
-  <br>
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/c1411bb7-5537-4d6e-81f7-c902c2256a72' height="90px" width="90px">
-  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/6344f307-15e3-4593-9866-50f5ee777f43' height="90px" width="90px">
-  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/42bb2991-333a-4524-b874-6ab6156b3425' height="90px" width="90px">
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/f8d65d8c-2a3d-4634-9169-3bc36452d997' height="90px" width="90px">  
-  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/7f6983f2-7319-4c26-a71b-dcdf89a4e483' height="90px" width="90px">
-  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/3d8ec05e-f850-40e5-b4a9-2914c4ac5b9e' height="90px" width="90px">
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/5684e1d9-b3b1-45af-ac38-d9201490d46e' height="90px" width="90px">
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/b6a431d2-225b-416b-8a1e-cf9617d79a63' height="90px" width="90px">
 </div>  
@@ -88,6 +79,19 @@ add_executable(lite_yolov5 test_lite_yolov5.cpp)
 target_link_libraries(lite_yolov5 ${lite.ai.toolkit_LIBS})
 ```
 
+## Mixed with MNN or ORT
+The goal of lite.ai.toolkit is not to abstract on top of MNN and ORT. So, you can use lite.ai.toolkit mixed with MNN(-DENABLE_MNN=ON) or ORT. The lite.ai.toolkit installation package contains complete MNN and ORT. The workflow may looks like:
+```C++
+#include "lite/lite.h"
+// 0. use yolov5 from lite.ai.toolkit to detect objs.
+auto *yolov5 = new lite::cv::detection::YoloV5(onnx_path);
+// 1. use naive OnnxRuntime or MNN to implement classfier.
+interpreter = std::shared_ptr<MNN::Interpreter>(MNN::Interpreter::createFromFile(mnn_path));
+// or: ort_session = new Ort::Session(ort_env, onnx_path, session_options);
+classfier = interpreter->createSession(schedule_config);
+// 2. classify the detected objs use your own classfier ...
+```
+The included headers of MNN and ORT can be found at [mnn_config.h](./lite/mnn/core/mnn_config.h) and [ort_config.h](./lite/ort/core/ort_config.h).
 <details>
 <summary> 🔑️ Check the output log！Click here! </summary>    
   
