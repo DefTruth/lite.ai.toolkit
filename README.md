@@ -16,7 +16,7 @@
   <img src=https://img.shields.io/badge/tnn-0.3.0-blue.svg >
 </div>   
 
-🛠**Lite.Ai.ToolKit**: A lite C++ toolkit of awesome AI models, such as [Object Detection](#lite.ai.toolkit-object-detection), [Face Detection](#lite.ai.toolkit-face-detection), [Face Recognition](#lite.ai.toolkit-face-recognition), [Segmentation](#lite.ai.toolkit-segmentation), [Matting](#lite.ai.toolkit-matting), etc. See [Model Zoo](#lite.ai.toolkit-Model-Zoo) and [ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md), [MNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md), [TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md), [NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md). (❤️ Star 🌟👆🏻 this repo to support me if it does any helps to you, thanks ~)
+🛠**Lite.Ai.ToolKit**: A lite C++ toolkit of awesome AI models, such as [Object Detection](#lite.ai.toolkit-object-detection), [Face Detection](#lite.ai.toolkit-face-detection), [Face Recognition](#lite.ai.toolkit-face-recognition), [Segmentation](#lite.ai.toolkit-segmentation), [Matting](#lite.ai.toolkit-matting), etc. See [Model Zoo](#lite.ai.toolkit-Model-Zoo) and [ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md), [MNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md), [TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md), [NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md).
 
 <div align='center'>
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/44dbf4ac-0f38-41b6-930b-55b032b3c2ee' height="90px" width="90px">
@@ -43,7 +43,7 @@
 
 * **Simply and User friendly.** Simply and Consistent syntax like **lite::cv::Type::Class**, see [examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
 * **Minimum Dependencies.** Only **OpenCV** and **ONNXRuntime** are required by default, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit).
-* **Lots of Algorithm Modules.** Contains almost **[300+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** C++ re-implementations and **[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** weights.
+* **Many Models Supported.** **[300+](#lite.ai.toolkit-Supported-Models-Matrix)** C++ implementations and **[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** weights 👉 [Supported-Matrix](#lite.ai.toolkit-Supported-Models-Matrix).
 
 ## Build 👇👇
 <div id="lite.ai.toolkit-Build"></div>  
@@ -60,8 +60,7 @@ cd lite.ai.toolkit && sh ./build.sh
 ```c++
 #include "lite/lite.h"
 
-static void test_default()
-{
+static void test_default() {
   std::string onnx_path = "../../../examples/hub/onnx/cv/yolov5s.onnx";
   std::string test_img_path = "../../../examples/lite/resources/test_lite_yolov5_1.jpg";
   std::string save_img_path = "../../../examples/logs/test_lite_yolov5_1.jpg";
@@ -73,7 +72,6 @@ static void test_default()
   
   lite::utils::draw_boxes_inplace(img_bgr, detected_boxes);
   cv::imwrite(save_img_path, img_bgr);  
-  
   delete yolov5;
 }
 ```
@@ -84,7 +82,6 @@ To quickly setup `lite.ai.toolkit`, you can follow the `CMakeLists.txt` listed a
 ```cmake
 set(LITE_AI_DIR YOUR-PATH-TO/lite.ai.toolkit)
 find_package(lite.ai.toolkit REQUIRED PATHS ${LITE_AI_DIR})
-
 add_executable(lite_yolov5 examples/test_lite_yolov5.cpp)
 target_link_libraries(lite_yolov5 ${lite.ai.toolkit_LIBS})
 ```
@@ -970,7 +967,7 @@ The code of [Lite.Ai.ToolKit](#lite.ai.toolkit-Introduction) is released under t
 ## Contribute
 <div id="lite.ai.toolkit-Contribute"></div>  
 
-How to add your own models and become a contributor? See [CONTRIBUTING.zh.md](https://github.com/DefTruth/lite.ai.toolkit/issues/191).
+How to add your own models and become a contributor? See [CONTRIBUTING.zh.md](https://github.com/DefTruth/lite.ai.toolkit/issues/191). ❤️ Star 🌟👆🏻 this repo to support me if it does any helps to you, thanks ~
 
 ## Citations 🎉🎉
 ```BibTeX
