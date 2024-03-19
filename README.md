@@ -94,7 +94,30 @@ endif()
 add_executable(lite_yolov5 test_lite_yolov5.cpp)
 target_link_libraries(lite_yolov5 ${lite.ai.toolkit_LIBS})
 ```
-
+log output:
+```bash
+./lite_yolov5
+LITEORT_DEBUG LogId: ../examples/hub/onnx/cv/yolov5s.onnx
+=============== Input-Dims ==============
+Name: images
+Dims: 1
+Dims: 3
+Dims: 640
+Dims: 640
+=============== Output-Dims ==============
+Output: 0 Name: pred Dim: 0 :1
+Output: 0 Name: pred Dim: 1 :25200
+Output: 0 Name: pred Dim: 2 :85
+Output: 1 Name: output2 Dim: 0 :1
+......
+Output: 3 Name: output4 Dim: 1 :3
+Output: 3 Name: output4 Dim: 2 :20
+Output: 3 Name: output4 Dim: 3 :20
+Output: 3 Name: output4 Dim: 4 :85
+========================================
+detected num_anchors: 25200
+generate_bboxes num: 48
+```
 <div id="lite.ai.toolkit-Supported-Models-Matrix"></div>
 <details>
 <summary> 🔑️ Supported Models Matrix！Click here! </summary>    
