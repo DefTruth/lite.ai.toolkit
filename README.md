@@ -79,19 +79,20 @@ add_executable(lite_yolov5 test_lite_yolov5.cpp)
 target_link_libraries(lite_yolov5 ${lite.ai.toolkit_LIBS})
 ```
 
-## Mixed with MNN or ORT
-The goal of lite.ai.toolkit is not to abstract on top of MNN and ORT. So, you can use lite.ai.toolkit mixed with MNN(-DENABLE_MNN=ON) or ORT. The lite.ai.toolkit installation package contains complete MNN and ORT. The workflow may looks like:
+## Mixed with MNN or ONNXRuntime 👇👇
+The goal of lite.ai.toolkit is not to abstract on top of MNN and ONNXRuntime. So, you can use lite.ai.toolkit mixed with MNN(`-DENABLE_MNN=ON, default OFF`) or ONNXRuntime(`-DENABLE_ONNXRUNTIME=ON, default ON`). The lite.ai.toolkit installation package contains complete MNN and ONNXRuntime. The workflow may looks like:
 ```C++
 #include "lite/lite.h"
 // 0. use yolov5 from lite.ai.toolkit to detect objs.
 auto *yolov5 = new lite::cv::detection::YoloV5(onnx_path);
-// 1. use naive OnnxRuntime or MNN to implement classfier.
+// 1. use OnnxRuntime or MNN to implement your own classfier.
 interpreter = std::shared_ptr<MNN::Interpreter>(MNN::Interpreter::createFromFile(mnn_path));
-// or: ort_session = new Ort::Session(ort_env, onnx_path, session_options);
+// or: session = new Ort::Session(ort_env, onnx_path, session_options);
 classfier = interpreter->createSession(schedule_config);
-// 2. classify the detected objs use your own classfier ...
+// 2. then, classify the detected objs use your own classfier ...
 ```
-The included headers of MNN and ORT can be found at [mnn_config.h](./lite/mnn/core/mnn_config.h) and [ort_config.h](./lite/ort/core/ort_config.h).
+The included headers of MNN and ONNXRuntime can be found at [mnn_config.h](./lite/mnn/core/mnn_config.h) and [ort_config.h](./lite/ort/core/ort_config.h). 
+
 <details>
 <summary> 🔑️ Check the output log！Click here! </summary>    
   
