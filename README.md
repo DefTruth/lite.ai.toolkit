@@ -15,32 +15,23 @@
 🛠**Lite.Ai.ToolKit**: A lite C++ toolkit of awesome AI models, such as [Object Detection](#lite.ai.toolkit-object-detection), [Face Detection](#lite.ai.toolkit-face-detection), [Face Recognition](#lite.ai.toolkit-face-recognition), [Segmentation](#lite.ai.toolkit-segmentation), [Matting](#lite.ai.toolkit-matting), etc. See [Model Zoo](#lite.ai.toolkit-Model-Zoo) and [ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md), [MNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md), [TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md), [NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md).
 
 <div align='center'>
-  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/44dbf4ac-0f38-41b6-930b-55b032b3c2ee' height="90px" width="90px">
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/5b28aed1-e207-4256-b3ea-3b52f9e68aed' height="90px" width="90px">
-  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/e3743596-1efb-48c6-95d5-b5a62f34eff3' height="90px" width="90px">
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/28274741-8745-4665-abff-3a384b75f7fa' height="90px" width="90px">
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/64fea806-f13b-4dc9-98fc-cd01319b75f4' height="90px" width="90px">
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/c802858c-6899-4246-8839-5721c43faffe' height="90px" width="90px">
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/20a18d56-297c-4c72-8153-76d4380fc9ec' height="90px" width="90px">
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/f4dd5263-8514-4bb0-a0dd-dbe532481aff' height="90px" width="90px">
-  <br>
-  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/c1411bb7-5537-4d6e-81f7-c902c2256a72' height="90px" width="90px">
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/6344f307-15e3-4593-9866-50f5ee777f43' height="90px" width="90px">
-  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/42bb2991-333a-4524-b874-6ab6156b3425' height="90px" width="90px">
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/f8d65d8c-2a3d-4634-9169-3bc36452d997' height="90px" width="90px">  
-  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/7f6983f2-7319-4c26-a71b-dcdf89a4e483' height="90px" width="90px">
+  <br>
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/3d8ec05e-f850-40e5-b4a9-2914c4ac5b9e' height="90px" width="90px">
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/5684e1d9-b3b1-45af-ac38-d9201490d46e' height="90px" width="90px">
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/b6a431d2-225b-416b-8a1e-cf9617d79a63' height="90px" width="90px">
-  <br>
-  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/32532cbc-ef90-4afb-9fa9-0a1f52b18654' height="90px" width="90px">
-  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/157b9e11-fc92-445b-ae0d-0d859c8663ee' height="90px" width="90px">
-  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/5684e1d9-b3b1-45af-ac38-d9201490d46e' height="90px" width="90px">
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/84d3ed6a-b711-4c0a-8e92-a2da05a0d04e' height="90px" width="90px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/157b9e11-fc92-445b-ae0d-0d859c8663ee' height="90px" width="90px">
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/ef0eeabe-6dbe-4837-9aad-b806a8398697' height="90px" width="90px">  
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/7d3e929e-c363-4457-862c-8b725f0463ec' height="90px" width="90px">
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/95106e7e-c6bc-433d-b20c-95b579e85a06' height="90px" width="90px">
-  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/bbaa6e7e-50c0-4993-b6e9-aee681e61fdb' height="90px" width="90px">
 </div>  
 
 ## Features 👏👋
