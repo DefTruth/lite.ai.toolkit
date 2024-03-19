@@ -99,7 +99,7 @@ The included headers of MNN and ONNXRuntime can be found at [mnn_config.h](./lit
 <details>
 <summary> 🔑️ Check the output log！Click here! </summary>    
   
-- setup CMakeLists.txt 
+### Setup CMakeLists.txt 
 ```cmake
 cmake_minimum_required(VERSION 3.10)
 project(lite_yolov5)
@@ -114,12 +114,12 @@ endif()
 add_executable(lite_yolov5 test_lite_yolov5.cpp)
 target_link_libraries(lite_yolov5 ${lite.ai.toolkit_LIBS})
 ```
-- build example
+### Build example
 
 ```bash
 mkdir build && cd build && cmake .. && make -j1
 ```
-- run binary:
+### Run binary:
 ```bash
 ./lite_yolov5
 LITEORT_DEBUG LogId: ../examples/hub/onnx/cv/yolov5s.onnx
