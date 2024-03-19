@@ -45,29 +45,7 @@
 * **Minimum Dependencies.** Only **OpenCV** and **ONNXRuntime** are required by default, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit).
 * **Lots of Algorithm Modules.** Contains almost **[300+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** C++ re-implementations and **[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** weights.
 
-## Citations 🎉🎉
-```BibTeX
-@misc{lite.ai.toolkit@2021,
-  title={lite.ai.toolkit: A lite C++ toolkit of awesome AI models.},
-  url={https://github.com/DefTruth/lite.ai.toolkit},
-  note={Open-source software available at https://github.com/DefTruth/lite.ai.toolkit},
-  author={Yanjun Qiu},
-  year={2021}
-}
-```
-
-## Contents 📖💡
-* [Core Features](#lite.ai.toolkit-Core-Features)
-* [Quick Start](#lite.ai.toolkit-Quick-Start)
-* [Supported Models Matrix](#lite.ai.toolkit-Supported-Models-Matrix)
-* [Build from source](#lite.ai.toolkit-Build)
-* [Model Zoo](#lite.ai.toolkit-Model-Zoo)
-* [Examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit)
-* [License](#lite.ai.toolkit-License)
-* [References](#lite.ai.toolkit-References)
-* [Contribute](#lite.ai.toolkit-Contribute)
-
-## Build from source
+## Build 👇👇
 <div id="lite.ai.toolkit-Build"></div>  
 
 ```shell
@@ -298,6 +276,9 @@ The pretrained and converted ONNX files provide by lite.ai.toolkit are listed as
 
 </details>
 
+
+<details>
+<summary> 🔑️ More Examples！Click here! </summary>    
 
 ## Examples.
 
@@ -978,6 +959,8 @@ auto *segment = new lite::cv::segmentation::FaceParsingBiSeNet(onnx_path); // 50
 auto *segment = new lite::cv::segmentation::FaceParsingBiSeNetDyn(onnx_path); // Dynamic Shape Inference.
 ```
 
+</details>
+
 ## License
 
 <div id="lite.ai.toolkit-License"></div>
@@ -989,8 +972,14 @@ The code of [Lite.Ai.ToolKit](#lite.ai.toolkit-Introduction) is released under t
 
 How to add your own models and become a contributor? See [CONTRIBUTING.zh.md](https://github.com/DefTruth/lite.ai.toolkit/issues/191).
 
-## Many Thanks !!! 🤗🎉🎉  
-* [Windows10 VS2019 CUDA 11.1 Build Docs](https://github.com/DefTruth/lite.ai.toolkit/issues/207) ([@zhanghongyong123456](https://github.com/zhanghongyong123456))
-* [Linux Build Docs](https://github.com/DefTruth/lite.ai.toolkit/blob/main/docs/build/Linux.zh.md) ([@lee1221ee](https://github.com/lee1221ee))
-* [Some Windows10 Bugs Fixed](https://github.com/DefTruth/lite.ai.toolkit/pull/105) ([@ysc3839](https://github.com/ysc3839), [@AvenSun](https://github.com/AvenSun))
+## Citations 🎉🎉
+```BibTeX
+@misc{lite.ai.toolkit@2021,
+  title={lite.ai.toolkit: A lite C++ toolkit of awesome AI models.},
+  url={https://github.com/DefTruth/lite.ai.toolkit},
+  note={Open-source software available at https://github.com/DefTruth/lite.ai.toolkit},
+  author={Yanjun Qiu},
+  year={2021}
+}
+```
 
