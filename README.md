@@ -50,7 +50,7 @@
 
 ```shell
 git clone --depth=1 https://github.com/DefTruth/lite.ai.toolkit.git  # latest
-cd lite.ai.toolkit && sh ./build.sh 
+cd lite.ai.toolkit && sh ./build.sh # >= 0.2.0, support Linux only.
 ```
 
 ## Quick Start 🌟🌟
