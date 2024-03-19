@@ -38,7 +38,7 @@
 
 * **Simply and User friendly.** Simply and Consistent syntax like **lite::cv::Type::Class**, see [examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
 * **Minimum Dependencies.** Only **OpenCV** and **ONNXRuntime** are required by default, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit).
-* **Many Models Supported.** **[300+](#lite.ai.toolkit-Supported-Models-Matrix)** C++ implementations and **[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** weights 👉 [Supported-Matrix](#lite.ai.toolkit-Supported-Models-Matrix).
+* **Many Models Supported.** **[300+](#lite.ai.toolkit-Supported-Models-Matrix)** C++ implementations and **[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** weights 👉 **[Supported-Matrix](#lite.ai.toolkit-Supported-Models-Matrix)**.
 
 ## Build 👇👇
 
@@ -97,15 +97,37 @@ classfier = interpreter->createSession(schedule_config);
 The included headers of MNN and ONNXRuntime can be found at [mnn_config.h](./lite/mnn/core/mnn_config.h) and [ort_config.h](./lite/ort/core/ort_config.h). 
 
 <details>
-<summary> 🔑️ Check the output log！Click here! </summary>    
+<summary> 🔑️ Check the detailed Quick Start！Click here! </summary>    
+
+### Write test code
+write YOLOv5 example codes and name it `test_lite_yolov5.cpp`:
+```c++
+#include "lite/lite.h"
+
+int main(int argc, char *argv[]) {
+  std::string onnx_path = "../examples/hub/onnx/cv/yolov5s.onnx";
+  std::string test_img_path = "../examples/lite/resources/test_lite_yolov5_1.jpg";
+  std::string save_img_path = "../examples/logs/test_lite_yolov5_1.jpg";
+
+  auto *yolov5 = new lite::cv::detection::YoloV5(onnx_path); 
+  std::vector<lite::types::Boxf> detected_boxes;
+  cv::Mat img_bgr = cv::imread(test_img_path);
+  yolov5->detect(img_bgr, detected_boxes);
   
+  lite::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+  cv::imwrite(save_img_path, img_bgr);  
+  delete yolov5;
+  return 0;
+}
+```
+
 ### Setup CMakeLists.txt 
 ```cmake
 cmake_minimum_required(VERSION 3.10)
 project(lite_yolov5)
 set(CMAKE_CXX_STANDARD 17)
 
-set(lite.ai.toolkit_DIR YOUR-PATH-TO/lite.ai.toolkit/build/install)
+set(lite.ai.toolkit_DIR YOUR-PATH-TO-LITE-INSTALL)
 find_package(lite.ai.toolkit REQUIRED PATHS ${lite.ai.toolkit_DIR})
 if (lite.ai.toolkit_Found)
     message(STATUS "lite.ai.toolkit_INCLUDE_DIRS: ${lite.ai.toolkit_INCLUDE_DIRS}")
@@ -119,6 +141,13 @@ target_link_libraries(lite_yolov5 ${lite.ai.toolkit_LIBS})
 
 ```bash
 mkdir build && cd build && cmake .. && make -j1
+```
+Your need to export the lib paths to `LD_LIBRARY_PATH` which listed by cmake variable `lite.ai.toolkit_LIBS_DIRS`. For example:
+```bash
+export LD_LIBRARY_PATH=YOUR-PATH-TO-LITE-INSTALL/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=YOUR-PATH-TO-LITE-INSTALL/third_party/opencv/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=YOUR-PATH-TO-LITE-INSTALL/third_party/onnxruntime/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=YOUR-PATH-TO-LITE-INSTALL/third_party/MNN/lib:$LD_LIBRARY_PATH # if -DENABLE_MNN=ON
 ```
 ### Run binary:
 ```bash
