@@ -1,8 +1,4 @@
 
-<!---
-##  <p align="center"> 🍅🍅Lite.AI.ToolKit: A lite C++ toolkit of awesome AI models. </p>
---->
-
 <div id="lite.ai.toolkit-Introduction"></div>  
 
 ![logo-v3](https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/f99f5300-ece6-4572-8c4b-56b90e6e4d74)
