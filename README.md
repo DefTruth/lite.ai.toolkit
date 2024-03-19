@@ -60,10 +60,10 @@ cd lite.ai.toolkit && sh ./build.sh # >= 0.2.0, support Linux only.
 ```c++
 #include "lite/lite.h"
 
-static void test_default() {
-  std::string onnx_path = "examples/hub/onnx/cv/yolov5s.onnx";
-  std::string test_img_path = "examples/lite/resources/test_lite_yolov5_1.jpg";
-  std::string save_img_path = "examples/logs/test_lite_yolov5_1.jpg";
+int main(int argc, char *argv[]) {
+  std::string onnx_path = "../examples/hub/onnx/cv/yolov5s.onnx";
+  std::string test_img_path = "../examples/lite/resources/test_lite_yolov5_1.jpg";
+  std::string save_img_path = "../examples/logs/test_lite_yolov5_1.jpg";
 
   auto *yolov5 = new lite::cv::detection::YoloV5(onnx_path); 
   std::vector<lite::types::Boxf> detected_boxes;
@@ -73,6 +73,7 @@ static void test_default() {
   lite::utils::draw_boxes_inplace(img_bgr, detected_boxes);
   cv::imwrite(save_img_path, img_bgr);  
   delete yolov5;
+  return 0;
 }
 ```
 
@@ -80,9 +81,17 @@ static void test_default() {
 
 To quickly setup `lite.ai.toolkit`, you can follow the `CMakeLists.txt` listed as belows. 👇👀
 ```cmake
-set(LITE_AI_DIR YOUR-PATH-TO/lite.ai.toolkit)
-find_package(lite.ai.toolkit REQUIRED PATHS ${LITE_AI_DIR})
-add_executable(lite_yolov5 examples/test_lite_yolov5.cpp)
+cmake_minimum_required(VERSION 3.10)
+project(lite_yolov5)
+set(CMAKE_CXX_STANDARD 17)
+
+set(lite.ai.toolkit_DIR YOUR-PATH-TO/lite.ai.toolkit/build/install)
+find_package(lite.ai.toolkit REQUIRED PATHS ${lite.ai.toolkit_DIR})
+if (lite.ai.toolkit_Found)
+    message(STATUS "lite.ai.toolkit_INCLUDE_DIRS: ${lite.ai.toolkit_INCLUDE_DIRS}")
+    message(STATUS "lite.ai.toolkit_LIBS: ${lite.ai.toolkit_LIBS}")
+endif()
+add_executable(lite_yolov5 test_lite_yolov5.cpp)
 target_link_libraries(lite_yolov5 ${lite.ai.toolkit_LIBS})
 ```
 
