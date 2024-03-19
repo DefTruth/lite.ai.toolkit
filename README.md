@@ -80,6 +80,18 @@ int main(int argc, char *argv[]) {
 ## Quick Setup 👀
 
 To quickly setup `lite.ai.toolkit`, you can follow the `CMakeLists.txt` listed as belows. 👇👀
+
+```cmake
+set(lite.ai.toolkit_DIR YOUR-PATH-TO/lite.ai.toolkit/build/install)
+find_package(lite.ai.toolkit REQUIRED PATHS ${lite.ai.toolkit_DIR})
+add_executable(lite_yolov5 test_lite_yolov5.cpp)
+target_link_libraries(lite_yolov5 ${lite.ai.toolkit_LIBS})
+```
+
+<details>
+<summary> 🔑️ Check the output log！Click here! </summary>    
+  
+- setup CMakeLists.txt 
 ```cmake
 cmake_minimum_required(VERSION 3.10)
 project(lite_yolov5)
@@ -94,7 +106,12 @@ endif()
 add_executable(lite_yolov5 test_lite_yolov5.cpp)
 target_link_libraries(lite_yolov5 ${lite.ai.toolkit_LIBS})
 ```
-log output:
+- build example
+
+```bash
+mkdir build && cd build && cmake .. && make -j1
+```
+- run binary:
 ```bash
 ./lite_yolov5
 LITEORT_DEBUG LogId: ../examples/hub/onnx/cv/yolov5s.onnx
@@ -118,6 +135,8 @@ Output: 3 Name: output4 Dim: 4 :85
 detected num_anchors: 25200
 generate_bboxes num: 48
 ```
+</details>
+  
 <div id="lite.ai.toolkit-Supported-Models-Matrix"></div>
 <details>
 <summary> 🔑️ Supported Models Matrix！Click here! </summary>    
