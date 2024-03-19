@@ -61,9 +61,9 @@ cd lite.ai.toolkit && sh ./build.sh # >= 0.2.0, support Linux only.
 #include "lite/lite.h"
 
 static void test_default() {
-  std::string onnx_path = "../../../examples/hub/onnx/cv/yolov5s.onnx";
-  std::string test_img_path = "../../../examples/lite/resources/test_lite_yolov5_1.jpg";
-  std::string save_img_path = "../../../examples/logs/test_lite_yolov5_1.jpg";
+  std::string onnx_path = "examples/hub/onnx/cv/yolov5s.onnx";
+  std::string test_img_path = "examples/lite/resources/test_lite_yolov5_1.jpg";
+  std::string save_img_path = "examples/logs/test_lite_yolov5_1.jpg";
 
   auto *yolov5 = new lite::cv::detection::YoloV5(onnx_path); 
   std::vector<lite::types::Boxf> detected_boxes;
