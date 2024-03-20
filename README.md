@@ -41,7 +41,7 @@
 * **Many Models Supported.** **[300+](#lite.ai.toolkit-Supported-Models-Matrix)** C++ implementations and **[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** weights 👉 **[Supported-Matrix](#lite.ai.toolkit-Supported-Models-Matrix)**.
 
 ## Build 👇👇
-
+Download lite.ai.toolkit library from [prebuilt](https://github.com/DefTruth/lite.ai.toolkit/releases/tag/v0.2.0-rc3), or just build it from source:
 ```shell
 git clone --depth=1 https://github.com/DefTruth/lite.ai.toolkit.git  # latest
 cd lite.ai.toolkit && sh ./build.sh # >= 0.2.0, support Linux only.
