@@ -5,34 +5,45 @@ set(ENABLE_MNN @ENABLE_MNN@)
 set(ENABLE_NCNN @ENABLE_NCNN@)
 set(ENABLE_TNN @ENABLE_TNN@)
 
+# system and backend check
+if (NOT (UNIX AND NOT APPLE))
+  message(FATAL_ERROR "lite.ai.toolkit>=0.2 not support for windows/mac now!")
+endif()
+
+if ((NOT ENABLE_ONNXRUNTIME) AND (NOT ENABLE_MNN))
+    message(FATAL_ERROR "One of ONNXRuntime/MNN Backend must be enable!")
+endif()
+
+# lite.ai.toolkit 
 set(LITE_AI_INCLUDE_DIR ${CMAKE_CURRENT_LIST_DIR}/include)
 set(THIRD_PARTY_PATH ${CMAKE_CURRENT_LIST_DIR}/third_party)
 set(LITE_AI_LIB_DIR ${CMAKE_CURRENT_LIST_DIR}/lib)
 
-set(TOOLKIT_LIBS lite.ai.toolkit)
-if ((UNIX AND NOT APPLE))
-  set(OpenCV_LIBS opencv_core opencv_imgcodecs opencv_imgproc opencv_video opencv_videoio)
-else()
-  message(FATAL_ERROR "lite.ai.toolkit>=0.2 not support for windows/mac now!")
-endif()
-
 set(Lite_AI_INCLUDE_DIRS ${LITE_AI_INCLUDE_DIR})
 set(Lite_AI_LIBS_DIRS ${LITE_AI_LIB_DIR})
-set(Lite_AI_LIBS ${TOOLKIT_LIBS} ${OpenCV_LIBS})
+set(Lite_AI_LIBS lite.ai.toolkit)
 
 include_directories(${LITE_AI_INCLUDE_DIR})
-include_directories(${THIRD_PARTY_PATH}/opencv/include/opencv4)
-include_directories(${THIRD_PARTY_PATH}/onnxruntime/include)
 link_directories(${LITE_AI_LIB_DIR})
+
+# opencv
+include_directories(${THIRD_PARTY_PATH}/opencv/include/opencv4)
 link_directories(${THIRD_PARTY_PATH}/opencv/lib)
-link_directories(${THIRD_PARTY_PATH}/onnxruntime/lib)
-
 list(APPEND Lite_AI_INCLUDE_DIRS ${THIRD_PARTY_PATH}/opencv/include/opencv4)
-list(APPEND Lite_AI_INCLUDE_DIRS ${THIRD_PARTY_PATH}/onnxruntime/include)
 list(APPEND Lite_AI_LIBS_DIRS ${THIRD_PARTY_PATH}/opencv/lib)
-list(APPEND Lite_AI_LIBS_DIRS ${THIRD_PARTY_PATH}/onnxruntime/lib)
-list(APPEND Lite_AI_LIBS onnxruntime)
+set(OpenCV_LIBS opencv_core opencv_imgcodecs opencv_imgproc opencv_video opencv_videoio) # linux only
+list(APPEND Lite_AI_LIBS ${OpenCV_LIBS})
 
+# onnxruntime
+if (ENABLE_ONNXRUNTIME)
+  include_directories(${THIRD_PARTY_PATH}/onnxruntime/include)
+  link_directories(${THIRD_PARTY_PATH}/onnxruntime/lib)
+  list(APPEND Lite_AI_INCLUDE_DIRS ${THIRD_PARTY_PATH}/onnxruntime/include)
+  list(APPEND Lite_AI_LIBS_DIRS ${THIRD_PARTY_PATH}/onnxruntime/lib)
+  list(APPEND Lite_AI_LIBS onnxruntime)
+endif()
+
+# MNN
 if (ENABLE_MNN)
   include_directories(${THIRD_PARTY_PATH}/MNN/include)
   link_directories(${THIRD_PARTY_PATH}/MNN/lib)
@@ -41,6 +52,7 @@ if (ENABLE_MNN)
   list(APPEND Lite_AI_LIBS MNN)
 endif()
 
+# TNN
 if (ENABLE_TNN)
   include_directories(${THIRD_PARTY_PATH}/TNN/include)
   link_directories(${THIRD_PARTY_PATH}/TNN/lib)
@@ -49,6 +61,7 @@ if (ENABLE_TNN)
   list(APPEND Lite_AI_LIBS TNN)
 endif()
 
+# ncnn
 if (ENABLE_NCNN)
   include_directories(${THIRD_PARTY_PATH}/ncnn/include)
   link_directories(${THIRD_PARTY_PATH}/ncnn/lib)
