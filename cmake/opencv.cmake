@@ -18,7 +18,7 @@ include_directories(${OpenCV_DIR}/include/opencv4)
 link_directories(${OpenCV_DIR}/lib)
 
 if(NOT WIN32)
-    if(ENABLE_OPENCV_VIDEOIO OR LITE_AI_BUILD_TEST)
+    if(ENABLE_OPENCV_VIDEOIO OR ENABLE_TEST)
         set(OpenCV_LIBS opencv_core opencv_imgproc opencv_imgcodecs opencv_video opencv_videoio)
     else()
         set(OpenCV_LIBS opencv_core opencv_imgproc opencv_imgcodecs) # no videoio, video module
