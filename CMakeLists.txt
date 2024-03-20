@@ -41,6 +41,11 @@ if ((NOT ENABLE_ONNXRUNTIME) AND (NOT ENABLE_MNN))
     message(FATAL_ERROR "One of ONNXRuntime/MNN Backend must be enable!")
 endif()
 
+if ((NOT ENABLE_ONNXRUNTIME) AND ENABLE_TEST)
+    set(ENABLE_TEST OFF CACHE BOOL "ENABLE_TEST" FORCE)
+    message(WARNING "Only support build tests while ONNXRuntime backend is enable, force ENABLE_TEST=OFF.")
+endif()
+
 # setup include dir and lib dir
 include_directories(${LITE_AI_ROOT_DIR})
 configure_file(cmake/lite.ai.toolkit.cmake.in ${CMAKE_SOURCE_DIR}/cmake/lite.ai.toolkit.cmake @ONLY)
