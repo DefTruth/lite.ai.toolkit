@@ -17,6 +17,19 @@
 <div align='center'>
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/5b28aed1-e207-4256-b3ea-3b52f9e68aed' height="90px" width="90px">
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/28274741-8745-4665-abff-3a384b75f7fa' height="90px" width="90px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/c802858c-6899-4246-8839-5721c43faffe' height="90px" width="90px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/20a18d56-297c-4c72-8153-76d4380fc9ec' height="90px" width="90px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/f4dd5263-8514-4bb0-a0dd-dbe532481aff' height="90px" width="90px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/b6a431d2-225b-416b-8a1e-cf9617d79a63' height="90px" width="90px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/84d3ed6a-b711-4c0a-8e92-a2da05a0d04e' height="90px" width="90px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/157b9e11-fc92-445b-ae0d-0d859c8663ee' height="90px" width="90px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/ef0eeabe-6dbe-4837-9aad-b806a8398697' height="90px" width="90px">  
+</div>  
+
+<!-- 
+<div align='center'>
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/5b28aed1-e207-4256-b3ea-3b52f9e68aed' height="90px" width="90px">
+  <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/28274741-8745-4665-abff-3a384b75f7fa' height="90px" width="90px">
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/64fea806-f13b-4dc9-98fc-cd01319b75f4' height="90px" width="90px">
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/c802858c-6899-4246-8839-5721c43faffe' height="90px" width="90px">
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/20a18d56-297c-4c72-8153-76d4380fc9ec' height="90px" width="90px">
@@ -33,6 +46,8 @@
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/7d3e929e-c363-4457-862c-8b725f0463ec' height="90px" width="90px">
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/95106e7e-c6bc-433d-b20c-95b579e85a06' height="90px" width="90px">
 </div>  
+
+-->
 
 ## Features 👏👋
 
@@ -1048,17 +1063,6 @@ auto *segment = new lite::cv::segmentation::FaceParsingBiSeNetDyn(onnx_path); //
 ```
 
 </details>
-
-## License
-
-<div id="lite.ai.toolkit-License"></div>
-
-The code of [Lite.Ai.ToolKit](#lite.ai.toolkit-Introduction) is released under the GPL-3.0 License.
-
-## Contribute
-<div id="lite.ai.toolkit-Contribute"></div>  
-
-How to add your own models and become a contributor? See [CONTRIBUTING.zh.md](https://github.com/DefTruth/lite.ai.toolkit/issues/191). ❤️ Star 🌟👆🏻 this repo to support me if it does any helps to you, thanks ~
 
 ## Citations 🎉🎉
 ```BibTeX
