@@ -191,8 +191,12 @@ generate_bboxes num: 48
 </details>
   
 <div id="lite.ai.toolkit-Supported-Models-Matrix"></div>
+
+<!-- 
+
 <details>
 <summary> 🔑️ Supported Models Matrix！Click here! </summary>    
+-->
 
 ## Supported Models Matrix
 
@@ -305,8 +309,10 @@ generate_bboxes num: 48
 |                     [FaceParsingBiSeNet](https://github.com/zllrunning/face-parsing.PyTorch)                      |  50M  |  *segmentation*  |   [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_face_parsing_bisenet.cpp)    |      ✅      |  ✅  |  ✅   |  ✅  |   ✅   |  ✔️   |   ✔️    |    ❔    |
 |                    [FaceParsingBiSeNetDyn](https://github.com/zllrunning/face-parsing.PyTorch)                    |  50M  |  *segmentation*  | [demo](https://github.com/DefTruth/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_face_parsing_bisenet_dyn.cpp)  |      ✅      |  /  |  /   |  /  |   /   |  ✔️   |   ✔️    |    ❔    |
 
-</details>
+<!-- 
 
+</details>
+-->
 
 <div id="lite.ai.toolkit-Model-Zoo"></div>
 
