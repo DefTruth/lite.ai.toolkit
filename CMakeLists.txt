@@ -15,26 +15,21 @@ if(NOT EXISTS ${THIRD_PARTY_PATH})
     file(MAKE_DIRECTORY ${THIRD_PARTY_PATH})
 endif()
 
-# Linux GCC Compiler Options
 if (CMAKE_COMPILER_IS_GNUCXX)
     set(CMAKE_CXX_FLAGS "-std=c++17 -Wno-deprecated ${CMAKE_CXX_FLAGS} ")
     message(STATUS "[Linux GCC Compiler Options]+:-std=c++17 -Wno-deprecated")
 endif ()
 # message(STATUS "CMAKE_CXX_COMPILER: [${CMAKE_CXX_COMPILER}]")
 
-# root dir
 set(LITE_AI_ROOT_DIR ${CMAKE_SOURCE_DIR})
 
-# compile options for lite.ai.toolkit
 option(ENABLE_TEST "build test examples." OFF)
-# inference engines setups: config.h.in -> config.h
 option(ENABLE_DEBUG_STRING "enable DEBUG string or not" ON)
 option(ENABLE_ONNXRUNTIME "enable ONNXRuntime engine" ON)
-option(ENABLE_MNN "enable MNN engine" OFF)  # unstable now, DON'T use
-option(ENABLE_NCNN "enable NCNN engine" OFF) # unstable now, DON'T use
-option(ENABLE_TNN "enable TNN engine" OFF) # unstable now, DON'T use
-# cuda provider setups: config.h.in -> config.h (only for onnxruntime)
-option(ENABLE_ONNXRUNTIME_CUDA "enable ONNXRuntime engine with CUDA provider" OFF)
+option(ENABLE_MNN "enable MNN engine" OFF)
+option(ENABLE_NCNN "enable NCNN engine" OFF) 
+option(ENABLE_TNN "enable TNN engine" OFF)
+option(ENABLE_ONNXRUNTIME_CUDA "enable ONNXRuntime engine with CUDA provider" OFF) # for future use
 option(ENABLE_OPENCV_VIDEOIO "enable opencv videoio modules for detect_video apis" ON) # now, ON only
 
 if ((NOT ENABLE_ONNXRUNTIME) AND (NOT ENABLE_MNN))
@@ -46,11 +41,9 @@ if ((NOT ENABLE_ONNXRUNTIME) AND ENABLE_TEST)
     message(WARNING "Only support build tests while ONNXRuntime backend is enable, force ENABLE_TEST=OFF.")
 endif()
 
-# setup include dir and lib dir
 include_directories(${LITE_AI_ROOT_DIR})
 configure_file(cmake/lite.ai.toolkit.cmake.in ${CMAKE_SOURCE_DIR}/cmake/lite.ai.toolkit.cmake @ONLY)
 
-# include custom cmake files.
 include(cmake/opencv.cmake)
 
 add_lite_ai_toolkit_shared_library(${VERSION_STRING} ${SOVERSION_STRING})
@@ -65,7 +58,6 @@ install(FILES ${CMAKE_SOURCE_DIR}/cmake/lite.ai.toolkit.cmake
 install(FILES ${CMAKE_SOURCE_DIR}/cmake/lite.ai.toolkit-config.cmake 
         DESTINATION ${CMAKE_INSTALL_PREFIX})
 
-# configuration for test examples.
 if (ENABLE_TEST)
     set(EXECUTABLE_OUTPUT_PATH ${CMAKE_INSTALL_PREFIX}/bin)
     add_subdirectory(examples/lite)
