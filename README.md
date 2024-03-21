@@ -157,7 +157,7 @@ target_link_libraries(lite_yolov5 ${lite.ai.toolkit_LIBS})
 ```bash
 mkdir build && cd build && cmake .. && make -j1
 ```
-Your need to export the lib paths to `LD_LIBRARY_PATH` which listed by cmake variable `lite.ai.toolkit_LIBS_DIRS`. For example:
+Then, export the lib paths to `LD_LIBRARY_PATH` which listed by `lite.ai.toolkit_LIBS_DIRS`. 
 ```bash
 export LD_LIBRARY_PATH=YOUR-PATH-TO-LITE-INSTALL/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=YOUR-PATH-TO-LITE-INSTALL/third_party/opencv/lib:$LD_LIBRARY_PATH
