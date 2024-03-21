@@ -76,7 +76,7 @@ int main(int argc, char *argv[]) {
 To quickly setup `lite.ai.toolkit`, you can follow the `CMakeLists.txt` listed as belows. 👇👀
 
 ```cmake
-set(lite.ai.toolkit_DIR YOUR-PATH-TO/lite.ai.toolkit/build/install)
+set(lite.ai.toolkit_DIR YOUR-PATH-TO-LITE-INSTALL)
 find_package(lite.ai.toolkit REQUIRED PATHS ${lite.ai.toolkit_DIR})
 add_executable(lite_yolov5 test_lite_yolov5.cpp)
 target_link_libraries(lite_yolov5 ${lite.ai.toolkit_LIBS})
