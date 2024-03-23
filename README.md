@@ -56,10 +56,10 @@
 * **Many Models Supported.** **[300+](#lite.ai.toolkit-Supported-Models-Matrix)** C++ implementations and **[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** weights 👉 **[Supported-Matrix](#lite.ai.toolkit-Supported-Models-Matrix)**.
 
 ## Build 👇👇
-Download lite.ai.toolkit library from [prebuilt](https://github.com/DefTruth/lite.ai.toolkit/releases/tag/v0.2.0), or just build it from source:
+Download prebuilt lite.ai.toolkit library from [tag/v0.2.0](https://github.com/DefTruth/lite.ai.toolkit/releases/tag/v0.2.0), or just build it from source:
 ```shell
 git clone --depth=1 https://github.com/DefTruth/lite.ai.toolkit.git  # latest
-cd lite.ai.toolkit && sh ./build.sh # >= 0.2.0, support Linux only.
+cd lite.ai.toolkit && sh ./build.sh # >= 0.2.0, support Linux only, tested on Ubuntu 20.04.6 LTS
 ```
 
 ## Quick Start 🌟🌟
@@ -70,9 +70,9 @@ cd lite.ai.toolkit && sh ./build.sh # >= 0.2.0, support Linux only.
 #include "lite/lite.h"
 
 int main(int argc, char *argv[]) {
-  std::string onnx_path = "../examples/hub/onnx/cv/yolov5s.onnx";
-  std::string test_img_path = "../examples/lite/resources/test_lite_yolov5_1.jpg";
-  std::string save_img_path = "../examples/logs/test_lite_yolov5_1.jpg";
+  std::string onnx_path = "yolov5s.onnx";
+  std::string test_img_path = "test_yolov5.jpg";
+  std::string save_img_path = "test_results.jpg";
 
   auto *yolov5 = new lite::cv::detection::YoloV5(onnx_path); 
   std::vector<lite::types::Boxf> detected_boxes;
@@ -84,6 +84,12 @@ int main(int argc, char *argv[]) {
   delete yolov5;
   return 0;
 }
+```
+You can download the prebuilt lite.ai.tooklit library and test resources from [tag/v0.2.0](https://github.com/DefTruth/lite.ai.toolkit/releases/tag/v0.2.0).
+```bash
+export LITE_AI_TAG_URL=https://github.com/DefTruth/lite.ai.toolkit/releases/download/v0.2.0
+wget ${LITE_AI_TAG_URL}/lite-ort1.17.1+ocv4.9.0+ffmpeg4.2.2-linux-x86_64.tgz
+wget ${LITE_AI_TAG_URL}/yolov5s.onnx && wget ${LITE_AI_TAG_URL}/test_yolov5.jpg
 ```
 
 ## Quick Setup 👀
@@ -114,15 +120,25 @@ The included headers of MNN and ONNXRuntime can be found at [mnn_config.h](./lit
 <details>
 <summary> 🔑️ Check the detailed Quick Start！Click here! </summary>    
 
+### Download resources
+
+You can download the prebuilt lite.ai.tooklit library and test resources from [tag/v0.2.0](https://github.com/DefTruth/lite.ai.toolkit/releases/tag/v0.2.0).
+```bash
+export LITE_AI_TAG_URL=https://github.com/DefTruth/lite.ai.toolkit/releases/download/v0.2.0
+wget ${LITE_AI_TAG_URL}/lite-ort1.17.1+ocv4.9.0+ffmpeg4.2.2-linux-x86_64.tgz
+wget ${LITE_AI_TAG_URL}/yolov5s.onnx && wget ${LITE_AI_TAG_URL}/test_yolov5.jpg
+tar -zxvf lite-ort1.17.1+ocv4.9.0+ffmpeg4.2.2-linux-x86_64.tgz
+```
 ### Write test code
+
 write YOLOv5 example codes and name it `test_lite_yolov5.cpp`:
 ```c++
 #include "lite/lite.h"
 
 int main(int argc, char *argv[]) {
-  std::string onnx_path = "../examples/hub/onnx/cv/yolov5s.onnx";
-  std::string test_img_path = "../examples/lite/resources/test_lite_yolov5_1.jpg";
-  std::string save_img_path = "../examples/logs/test_lite_yolov5_1.jpg";
+  std::string onnx_path = "yolov5s.onnx";
+  std::string test_img_path = "test_yolov5.jpg";
+  std::string save_img_path = "test_results.jpg";
 
   auto *yolov5 = new lite::cv::detection::YoloV5(onnx_path); 
   std::vector<lite::types::Boxf> detected_boxes;
@@ -164,9 +180,14 @@ export LD_LIBRARY_PATH=YOUR-PATH-TO-LITE-INSTALL/third_party/opencv/lib:$LD_LIBR
 export LD_LIBRARY_PATH=YOUR-PATH-TO-LITE-INSTALL/third_party/onnxruntime/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=YOUR-PATH-TO-LITE-INSTALL/third_party/MNN/lib:$LD_LIBRARY_PATH # if -DENABLE_MNN=ON
 ```
+
 ### Run binary:
 ```bash
+cp ../yolov5s.onnx ../test_yolov.jpg .
 ./lite_yolov5
+```
+The output logs:
+```bash
 LITEORT_DEBUG LogId: ../examples/hub/onnx/cv/yolov5s.onnx
 =============== Input-Dims ==============
 Name: images
