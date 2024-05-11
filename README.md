@@ -55,13 +55,6 @@
 * **Minimum Dependencies.** Only **OpenCV** and **ONNXRuntime** are required by default, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit).
 * **Many Models Supported.** **[300+](#lite.ai.toolkit-Supported-Models-Matrix)** C++ implementations and **[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** weights 👉 **[Supported-Matrix](#lite.ai.toolkit-Supported-Models-Matrix)**.
 
-## Other Repos 🔥🔥 
-
-|🛠[lite.ai.toolkit](https://github.com/DefTruth/lite.ai.toolkit) | 💎[torchlm](https://github.com/DefTruth/torchlm) | 📒[statistic-learning-R-note](https://github.com/DefTruth/statistic-learning-R-note) | 🎉[cuda-learn-note](https://github.com/DefTruth/cuda-learn-note) | 📖[Awesome-LLM-Inference](https://github.com/DefTruth/Awesome-LLM-Inference) |   
-|:---:|:---:|:---:|:---:|:---:|
-|![](https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social) ![](https://img.shields.io/github/downloads/DefTruth/lite.ai.toolkit/total?color=ccf&label=downloads&logo=github&logoColor=lightgrey)| ![](https://img.shields.io/github/stars/DefTruth/torchlm.svg?style=social)   ![](https://static.pepy.tech/personalized-badge/torchlm?period=total&units=international_system&left_color=grey&right_color=blue&left_text=downloads)| ![](https://img.shields.io/github/stars/DefTruth/statistic-learning-R-note.svg?style=social) ![](https://img.shields.io/github/downloads/DefTruth/statistic-learning-R-note/total?color=ccf&label=downloads&logo=github&logoColor=lightgrey) |![](https://img.shields.io/github/stars/DefTruth/cuda-learn-note.svg?style=social) ![](https://img.shields.io/github/issues/DefTruth/cuda-learn-note?color=9cc)|  ![](https://img.shields.io/github/stars/DefTruth/Awesome-LLM-Inference.svg?style=social) ![](https://img.shields.io/github/downloads/DefTruth/Awesome-LLM-Inference/total?color=ccf&label=downloads&logo=github&logoColor=lightgrey)|
-
-
 ## Build 👇👇
 Download prebuilt lite.ai.toolkit library from [tag/v0.2.0](https://github.com/DefTruth/lite.ai.toolkit/releases/tag/v0.2.0), or just build it from source:
 ```shell
