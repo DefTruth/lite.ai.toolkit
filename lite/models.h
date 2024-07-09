@@ -112,6 +112,7 @@
 #include "lite/ort/cv/yolov6.h"
 #include "lite/ort/cv/face_parsing_bisenet.h"
 #include "lite/ort/cv/face_parsing_bisenet_dyn.h"
+#include "lite/ort/cv/yolofacev8.h"
 
 #endif
 
@@ -472,6 +473,7 @@ namespace lite
       typedef ortcv::YOLOv6 _ONNXYOLOv6;
       typedef ortcv::FaceParsingBiSeNet _ONNXFaceParsingBiSeNet;
       typedef ortcv::FaceParsingBiSeNetDyn _ONNXFaceParsingBiSeNetDyn;
+      typedef ortcv::YoloFaceV8 _ONNXYOLOFaceNet;
 
       // 1. classification
       namespace classification
@@ -528,6 +530,7 @@ namespace lite
           typedef _ONNXYOLO5Face YOLO5Face;
           typedef _ONNXFaceBoxesV2 FaceBoxesV2;
           typedef _ONNXYOLOv5BlazeFace YOLOv5BlazeFace;
+          typedef _ONNXYOLOFaceNet YOLOV8Face;
         }
 
         namespace align
