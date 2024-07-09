@@ -63,7 +63,15 @@ namespace lite {
       { types::__assert_type<value_type, score_type>(); }
     }; // End BoundingBox.
 
-    // specific alias.
+      typedef struct
+      {
+          float xmin;
+          float ymin;
+          float xmax;
+          float ymax;
+      } Bbox;
+
+      // specific alias.
     template class LITE_EXPORTS BoundingBoxType<int, float>;
     template class LITE_EXPORTS BoundingBoxType<float, float>;
     template class LITE_EXPORTS BoundingBoxType<double, double>;
