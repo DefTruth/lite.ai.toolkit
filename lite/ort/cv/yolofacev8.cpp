@@ -6,27 +6,27 @@
 using namespace cv;
 using namespace ortcv;
 using namespace std;
-#include "lite/ort/core/ort_utils.h" // 引入onnxruntime特定的自定义功能函数，依赖于推理引擎
-#include "lite/utils.h" // 引入全局定义的功能函数，不依赖推理引擎，如NMS
+#include "lite/ort/core/ort_utils.h"
+#include "lite/utils.h"
 
 
-float YoloFaceV8::GetIoU(const lite::types::Bbox box1, const lite::types::Bbox box2) {
+float YoloFaceV8::GetIoU(const lite::types::BoundingBoxType<float, float> box1, const lite::types::BoundingBoxType<float, float> box2) {
     // 获取IOU参数
-    float x1 = max(box1.xmin, box2.xmin);
-    float y1 = max(box1.ymin, box2.ymin);
-    float x2 = min(box1.xmax, box2.xmax);
-    float y2 = min(box1.ymax, box2.ymax);
+    float x1 = max(box1.x1, box2.x1);
+    float y1 = max(box1.y1, box2.y1);
+    float x2 = min(box1.x2, box2.x2);
+    float y2 = min(box1.y2, box2.y2);
     float w = max(0.f, x2 - x1);
     float h = max(0.f, y2 - y1);
     float over_area = w * h;
     if (over_area == 0)
         return 0.0;
-    float union_area = (box1.xmax - box1.xmin) * (box1.ymax - box1.ymin) + (box2.xmax - box2.xmin) * (box2.ymax - box2.ymin) - over_area;
+    float union_area = (box1.x2 - box1.x1) * (box1.y2 - box1.y1) + (box2.x2 - box2.x1) * (box2.y2 - box2.y1) - over_area;
     return over_area / union_area;
 }
 
-// NMS参数
-std::vector<int> YoloFaceV8::nms(std::vector<lite::types::Bbox> boxes, std::vector<float> confidences, const float nms_thresh) {
+// NMS func
+std::vector<int> YoloFaceV8::nms(std::vector<lite::types::BoundingBoxType<float, float>> boxes, std::vector<float> confidences, const float nms_thresh) {
     sort(confidences.begin(), confidences.end(), [&confidences](size_t index_1, size_t index_2)
     { return confidences[index_1] > confidences[index_2]; });
     const int num_box = confidences.size();
@@ -64,7 +64,7 @@ std::vector<int> YoloFaceV8::nms(std::vector<lite::types::Bbox> boxes, std::vect
 }
 
 
-// 归一化
+// normalize func
 cv::Mat YoloFaceV8::normalize(cv::Mat srcimg) {
     const int height = srcimg.rows;
     const int width = srcimg.cols;
@@ -98,10 +98,7 @@ cv::Mat YoloFaceV8::normalize(cv::Mat srcimg) {
 }
 
 
-// 返回Ort的Value放在最后写
 Ort::Value YoloFaceV8::transform(const cv::Mat &mat_rs) {
-    // 得到归一化之后的Mat
-//    cv::Mat resize_mat = YoloFaceV8::normalize(mat_rs);
 
     return ortcv::utils::transform::create_tensor(
             mat_rs, input_node_dims, memory_info_handler,
@@ -109,29 +106,36 @@ Ort::Value YoloFaceV8::transform(const cv::Mat &mat_rs) {
 }
 
 
-//void YoloFaceV8::generate_box(std::vector<Ort::Value> &ort_outputs,std::vector<Bbox> &boxes)
-void YoloFaceV8::generate_box(std::vector<Ort::Value> &ort_outputs,std::vector<lite::types::Bbox> &boxes)
+void YoloFaceV8::generate_box(std::vector<Ort::Value> &ort_outputs, std::vector<lite::types::BoundingBoxType<float, float>> &boxes)
 {
-    float *pdata = ort_outputs[0].GetTensorMutableData<float>(); /// 形状是(1, 20, 8400),不考虑第0维batchsize，每一列的长度20,前4个元素是检测框坐标(cx,cy,w,h)，第4个元素是置信度，剩下的15个元素是5个关键点坐标x,y和置信度
+    float *pdata = ort_outputs[0].GetTensorMutableData<float>(); // 形状是(1, 20, 8400),不考虑第0维batchsize，每一列的长度20,前4个元素是检测框坐标(cx,cy,w,h)，第4个元素是置信度，剩下的15个元素是5个关键点坐标x,y和置信度
     const int num_box = ort_outputs[0].GetTensorTypeAndShapeInfo().GetShape()[2];
-    vector<lite::types::Bbox> bounding_box_raw;
-    vector<float> score_raw;
+    std::vector<lite::types::BoundingBoxType<float, float>> bounding_box_raw;
+    std::vector<float> score_raw;
     for (int i = 0; i < num_box; i++)
     {
         const float score = pdata[4 * num_box + i];
         if (score > conf_threshold)
         {
-            float xmin = (pdata[i] - 0.5 * pdata[2 * num_box + i]) * ratio_width;            ///(cx,cy,w,h)转到(x,y,w,h)并还原到原图
-            float ymin = (pdata[num_box + i] - 0.5 * pdata[3 * num_box + i]) * ratio_height; ///(cx,cy,w,h)转到(x,y,w,h)并还原到原图
-            float xmax = (pdata[i] + 0.5 * pdata[2 * num_box + i]) * ratio_width;            ///(cx,cy,w,h)转到(x,y,w,h)并还原到原图
-            float ymax = (pdata[num_box + i] + 0.5 * pdata[3 * num_box + i]) * ratio_height; ///(cx,cy,w,h)转到(x,y,w,h)并还原到原图
-            ////坐标的越界检查保护，可以添加一下
-            bounding_box_raw.emplace_back(lite::types::Bbox{xmin, ymin, xmax, ymax});
-            score_raw.emplace_back(score);
+            float x1 = (pdata[i] - 0.5 * pdata[2 * num_box + i]) * ratio_width; // (cx,cy,w,h) to (x,y,w,h) and in origin pic
+            float y1 = (pdata[num_box + i] - 0.5 * pdata[3 * num_box + i]) * ratio_height;
+            float x2 = (pdata[i] + 0.5 * pdata[2 * num_box + i]) * ratio_width;
+            float y2 = (pdata[num_box + i] + 0.5 * pdata[3 * num_box + i]) * ratio_height;
+            // 坐标的越界检查保护，可以添加一下
 
+            // 创建 BoundingBoxType 对象并设置其成员变量
+            lite::types::BoundingBoxType<float, float> bbox;
+            bbox.x1 = x1;
+            bbox.y1 = y1;
+            bbox.x2 = x2;
+            bbox.y2 = y2;
+            bbox.score = score; // 设置置信度
+            // 其他成员变量可以保持默认值或根据需要设置
+            bounding_box_raw.emplace_back(bbox);
+            score_raw.emplace_back(score);
         }
     }
-    vector<int> keep_inds = nms(bounding_box_raw, score_raw, iou_threshold);
+    std::vector<int> keep_inds = nms(bounding_box_raw, score_raw, iou_threshold);
     const int keep_num = keep_inds.size();
     boxes.clear();
     boxes.resize(keep_num);
@@ -140,29 +144,23 @@ void YoloFaceV8::generate_box(std::vector<Ort::Value> &ort_outputs,std::vector<l
         const int ind = keep_inds[i];
         boxes[i] = bounding_box_raw[ind];
     }
-
 }
 
 
-
-// 函数：保存 Ort::Value 数据到文本文件
 void save_tensor_to_file(const Ort::Value& tensor, const std::string& filename) {
     // 获取张量的类型和形状信息
     auto type_and_shape_info = tensor.GetTensorTypeAndShapeInfo();
     std::vector<int64_t> shape = type_and_shape_info.GetShape();
     size_t element_count = type_and_shape_info.GetElementCount();
 
-    // 检查数据类型是否为浮点数
     ONNXTensorElementDataType type = type_and_shape_info.GetElementType();
     if (type != ONNX_TENSOR_ELEMENT_DATA_TYPE_FLOAT) {
         std::cerr << "Unsupported tensor data type. Only float tensors are supported." << std::endl;
         return;
     }
 
-    // 使用 GetTensorData<float>() 获取数据指针
     const float* pdata = tensor.GetTensorData<float>();
 
-    // 将数据写入文件
     std::ofstream file(filename);
     if (!file.is_open()) {
         std::cerr << "Could not open file for writing: " << filename << std::endl;
@@ -178,19 +176,14 @@ void save_tensor_to_file(const Ort::Value& tensor, const std::string& filename) 
 
 
 
-void YoloFaceV8::detect(const cv::Mat &mat,std::vector<lite::types::Bbox> &boxes) {
-    // 确认基本信息
+void YoloFaceV8::detect(const cv::Mat &mat,std::vector<lite::types::BoundingBoxType<float, float>> &boxes) {
 
-    // 传入进来的是待检测的图片 真好在这里把缩放值计算一下
     if (mat.empty()) return;
 
     cv::Mat mat_rs = YoloFaceV8::normalize(mat);
 
     // 1. make input tensor
     Ort::Value input_tensor = this->transform(mat_rs);
-
-    // 打印输出对比
-    // save_tensor_to_file(input_tensor,"./lite.ai.toolkit/TestExamples/input-2012.txt");
 
     Ort::RunOptions runOptions;
 
@@ -199,8 +192,6 @@ void YoloFaceV8::detect(const cv::Mat &mat,std::vector<lite::types::Bbox> &boxes
             runOptions, input_node_names.data(),
             &input_tensor, 1, output_node_names.data(), num_outputs
     );
-
-    // save_tensor_to_file(output_tensors[0],"/home/ai-test1/wangzijian/lite.ai.toolkit/TestExamples/out.txt");
 
     this->generate_box(output_tensors,boxes);
 

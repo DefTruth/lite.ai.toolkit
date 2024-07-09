@@ -19,7 +19,6 @@ namespace ortcv{
         ~YoloFaceV8() override = default;
 
     private:
-        // 归一化的值
         float mean = -127.5 / 128.0;
         float scale = 1 / 128.0;
         const float conf_threshold = 0.5f;
@@ -29,21 +28,22 @@ namespace ortcv{
 
 
     private:
-        // 需要被重写的方法
+        // need override's function
         Ort::Value transform(const cv::Mat &mat_rs) override;
 
-        float GetIoU(const lite::types::Bbox box1, const lite::types::Bbox box2);
 
-        std::vector<int> nms(std::vector<lite::types::Bbox> boxes, std::vector<float> confidences, const float nms_thresh);
+        float GetIoU(const lite::types::BoundingBoxType<float, float> box1, const lite::types::BoundingBoxType<float, float> box2);
+
+        std::vector<int> nms(std::vector<lite::types::BoundingBoxType<float, float>> boxes, std::vector<float> confidences, const float nms_thresh);
 
         cv::Mat normalize(cv::Mat srcImg);
 
-        void generate_box(std::vector<Ort::Value> &ort_outputs,std::vector<lite::types::Bbox> &boxes);
+        void generate_box(std::vector<Ort::Value> &ort_outputs,std::vector<lite::types::BoundingBoxType<float, float>> &boxes);
 
 
     public:
-        // 请保持detect、detect_video等的命名规范，detect是图片级别的检测接口，detect_video是视频级别的检测接口
-        void detect(const cv::Mat &mat,std::vector<lite::types::Bbox> &boxes);
+
+        void detect(const cv::Mat &mat,std::vector<lite::types::BoundingBoxType<float, float>> &boxes);
     };
 }
 
