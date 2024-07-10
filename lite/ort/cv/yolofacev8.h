@@ -32,7 +32,7 @@ namespace ortcv{
         Ort::Value transform(const cv::Mat &mat_rs) override;
 
 
-        float GetIoU(const lite::types::BoundingBoxType<float, float> box1, const lite::types::BoundingBoxType<float, float> box2);
+        float get_iou(const lite::types::BoundingBoxType<float, float> box1, const lite::types::BoundingBoxType<float, float> box2);
 
         std::vector<int> nms(std::vector<lite::types::BoundingBoxType<float, float>> boxes, std::vector<float> confidences, const float nms_thresh);
 

@@ -10,7 +10,7 @@ using namespace std;
 #include "lite/utils.h"
 
 
-float YoloFaceV8::GetIoU(const lite::types::BoundingBoxType<float, float> box1, const lite::types::BoundingBoxType<float, float> box2) {
+float YoloFaceV8::get_iou(const lite::types::BoundingBoxType<float, float> box1, const lite::types::BoundingBoxType<float, float> box2) {
     // 获取IOU参数
     float x1 = max(box1.x1, box2.x1);
     float y1 = max(box1.y1, box2.y1);
@@ -44,7 +44,7 @@ std::vector<int> YoloFaceV8::nms(std::vector<lite::types::BoundingBoxType<float,
                 continue;
             }
 
-            float ovr = GetIoU(boxes[i], boxes[j]);
+            float ovr = get_iou(boxes[i], boxes[j]);
             if (ovr > nms_thresh)
             {
                 isSuppressed[j] = true;

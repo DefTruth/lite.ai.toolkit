@@ -14,14 +14,12 @@ void draw_bboxes(cv::Mat& image, const  std::vector<lite::types::BoundingBoxType
 
 static void test_default()
 {
-    std::string onnx_path = "../..//hub/onnx/cv/yoloface_8n.onnx";
-    std::string test_img_path = "./resources/test_lite_face_detector_2.jpg";
-    std::string save_img_path = "Lite-Face-Detect-2043.jpg";
+    std::string onnx_path = "../../hub/onnx/cv/yoloface_8n.onnx";
+    std::string test_img_path = "../resources/test_lite_face_detector_2.jpg";
+    std::string save_img_path = "../Lite-Face-Detect-11111.jpg";
 
     // 1. Test Default Engine ONNXRuntime
     lite::cv::face::detect::YOLOV8Face *yolov8Face = new lite::cv::face::detect::YOLOV8Face(onnx_path);
-
-    std::vector<lite::types::Bbox> detected_boxes;
 
     std::vector<lite::types::BoundingBoxType<float,float>> detect_boxs;
 
