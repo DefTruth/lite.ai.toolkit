@@ -100,5 +100,5 @@ add_lite_executable(lite_mobile_hair_seg cv)
 add_lite_executable(lite_yolov6 cv)
 add_lite_executable(lite_face_parsing_bisenet cv)
 add_lite_executable(lite_face_parsing_bisenet_dyn cv)
-add_lite_executable(lite_yolovfacev8 cv)
+add_lite_executable(lite_yolov8face cv)
 
