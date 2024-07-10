@@ -8,9 +8,8 @@
 #include "algorithm"
 #include <vector>
 
+namespace ortcv {
 
-
-namespace ortcv{
     class LITE_EXPORTS YoloFaceV8 : public BasicOrtHandler{
     public:
         explicit YoloFaceV8(const std::string &_onnx_path, unsigned int _num_threads = 1) :
@@ -32,18 +31,18 @@ namespace ortcv{
         Ort::Value transform(const cv::Mat &mat_rs) override;
 
 
-        float get_iou(const lite::types::BoundingBoxType<float, float> box1, const lite::types::BoundingBoxType<float, float> box2);
+        float get_iou(const lite::types::Boxf box1, const lite::types::Boxf box2);
 
-        std::vector<int> nms(std::vector<lite::types::BoundingBoxType<float, float>> boxes, std::vector<float> confidences, const float nms_thresh);
+        std::vector<int> nms(std::vector<lite::types::Boxf> boxes, std::vector<float> confidences, const float nms_thresh);
 
         cv::Mat normalize(cv::Mat srcImg);
 
-        void generate_box(std::vector<Ort::Value> &ort_outputs,std::vector<lite::types::BoundingBoxType<float, float>> &boxes);
+        void generate_box(std::vector<Ort::Value> &ort_outputs,std::vector<lite::types::Boxf> &boxes);
 
 
     public:
 
-        void detect(const cv::Mat &mat,std::vector<lite::types::BoundingBoxType<float, float>> &boxes);
+        void detect(const cv::Mat &mat,std::vector<lite::types::Boxf> &boxes);
     };
 }
 
