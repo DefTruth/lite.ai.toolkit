@@ -3,37 +3,28 @@
 //
 
 #include "lite/lite.h"
-#include "lite/ort/cv/yolofacev8.h"
-
-// 检测并绘制检测框
-void draw_bboxes(cv::Mat& image, const  std::vector<lite::types::BoundingBoxType<float,float>>& bboxes) {
-    for (const auto& bbox : bboxes) {
-        cv::rectangle(image, cv::Point(bbox.x1, bbox.y1), cv::Point(bbox.x2, bbox.y2), cv::Scalar(0, 255, 0), 2);
-    }
-}
 
 static void test_default()
 {
-    std::string onnx_path = "../../hub/onnx/cv/yoloface_8n.onnx";
-    std::string test_img_path = "../resources/test_lite_face_detector_2.jpg";
-    std::string save_img_path = "../Lite-Face-Detect-11111.jpg";
+    std::string onnx_path = "../../../examples/hub/onnx/cv/yoloface_8n.onnx";
+    std::string test_img_path = "../../../examples/lite/resources/test_lite_face_detector_2.jpg";
+    std::string save_img_path = "../../../examples/logs/test_lite_yolov8face.jpg";
 
     // 1. Test Default Engine ONNXRuntime
-    lite::cv::face::detect::YOLOV8Face *yolov8Face = new lite::cv::face::detect::YOLOV8Face(onnx_path);
+    lite::cv::face::detect::YOLOV8Face *yolov8_face = new lite::cv::face::detect::YOLOV8Face(onnx_path);
 
-    std::vector<lite::types::BoundingBoxType<float,float>> detect_boxs;
+    std::vector<lite::types::Boxf> detected_boxes;
 
     cv::Mat img_bgr = cv::imread(test_img_path);
 
-    yolov8Face->detect(img_bgr, detect_boxs);
+    yolov8_face->detect(img_bgr, detected_boxes);
+    lite::utils::draw_boxes_inplace(img_bgr, detected_boxes);
 
-    draw_bboxes(img_bgr,detect_boxs);
-
-    cv::imwrite(save_img_path,img_bgr);
+    cv::imwrite(save_img_path, img_bgr);
 
     std::cout<<"face detect done!"<<std::endl;
 
-    delete yolov8Face;
+    delete yolov8_face;
 
 }
 
