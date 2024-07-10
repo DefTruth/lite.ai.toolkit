@@ -9,7 +9,6 @@
 using ortcv::YoloFaceV8;
 
 float YoloFaceV8::get_iou(const lite::types::Boxf box1, const lite::types::Boxf box2) {
-    // 获取IOU参数
     float x1 = std::max(box1.x1, box2.x1);
     float y1 = std::max(box1.y1, box2.y1);
     float x2 = std::min(box1.x2, box2.x2);
@@ -23,7 +22,6 @@ float YoloFaceV8::get_iou(const lite::types::Boxf box1, const lite::types::Boxf 
     return over_area / union_area;
 }
 
-// NMS func
 std::vector<int> YoloFaceV8::nms(std::vector<lite::types::Boxf> boxes, std::vector<float> confidences, const float nms_thresh) {
     sort(confidences.begin(), confidences.end(), [&confidences](size_t index_1, size_t index_2)
     { return confidences[index_1] > confidences[index_2]; });
@@ -62,7 +60,6 @@ std::vector<int> YoloFaceV8::nms(std::vector<lite::types::Boxf> boxes, std::vect
 }
 
 
-// normalize func
 cv::Mat YoloFaceV8::normalize(cv::Mat srcimg) {
     const int height = srcimg.rows;
     const int width = srcimg.cols;
@@ -105,9 +102,13 @@ Ort::Value YoloFaceV8::transform(const cv::Mat &mat_rs) {
 }
 
 
-void YoloFaceV8::generate_box(std::vector<Ort::Value> &ort_outputs, std::vector<lite::types::Boxf> &boxes)
+void YoloFaceV8::generate_box(std::vector<Ort::Value> &ort_outputs, 
+                              std::vector<lite::types::Boxf> &boxes,
+                              float conf_threshold, float iou_threshold)
 {
-    float *pdata = ort_outputs[0].GetTensorMutableData<float>(); // 形状是(1, 20, 8400),不考虑第0维batchsize，每一列的长度20,前4个元素是检测框坐标(cx,cy,w,h)，第4个元素是置信度，剩下的15个元素是5个关键点坐标x,y和置信度
+    // 形状是(1, 20, 8400),不考虑第0维batchsize，每一列的长度20,
+    // 前4个元素是检测框坐标(cx,cy,w,h)，第4个元素是置信度，剩下的15个元素是5个关键点坐标x,y和置信度
+    float *pdata = ort_outputs[0].GetTensorMutableData<float>(); 
     const int num_box = ort_outputs[0].GetTensorTypeAndShapeInfo().GetShape()[2];
     std::vector<lite::types::BoundingBoxType<float, float>> bounding_box_raw;
     std::vector<float> score_raw;
@@ -116,11 +117,12 @@ void YoloFaceV8::generate_box(std::vector<Ort::Value> &ort_outputs, std::vector<
         const float score = pdata[4 * num_box + i];
         if (score > conf_threshold)
         {
-            float x1 = (pdata[i] - 0.5 * pdata[2 * num_box + i]) * ratio_width; // (cx,cy,w,h) to (x,y,w,h) and in origin pic
+            // (cx,cy,w,h) to (x,y,w,h) and in origin pic
+            float x1 = (pdata[i] - 0.5 * pdata[2 * num_box + i]) * ratio_width; 
             float y1 = (pdata[num_box + i] - 0.5 * pdata[3 * num_box + i]) * ratio_height;
             float x2 = (pdata[i] + 0.5 * pdata[2 * num_box + i]) * ratio_width;
             float y2 = (pdata[num_box + i] + 0.5 * pdata[3 * num_box + i]) * ratio_height;
-            // 坐标的越界检查保护，可以添加一下
+            // TODO: 坐标的越界检查保护，可以添加一下
 
             // 创建 BoundingBoxType 对象并设置其成员变量
             lite::types::BoundingBoxType<float, float> bbox;
@@ -144,6 +146,10 @@ void YoloFaceV8::generate_box(std::vector<Ort::Value> &ort_outputs, std::vector<
         const int ind = keep_inds[i];
         boxes[i] = bounding_box_raw[ind];
     }
+#if LITEORT_DEBUG
+    std::cout << "detected num_anchors: " << num_box << "\n";
+    std::cout << "generate_bboxes num: " << boxes.size() << "\n";
+#endif
 }
 
 
@@ -174,7 +180,8 @@ void save_tensor_to_file(const Ort::Value& tensor, const std::string& filename) 
 }
 
 
-void YoloFaceV8::detect(const cv::Mat &mat,std::vector<lite::types::Boxf> &boxes) {
+void YoloFaceV8::detect(const cv::Mat &mat,std::vector<lite::types::Boxf> &boxes,
+                        float conf_threshold, float iou_threshold) {
 
     if (mat.empty()) return;
 
@@ -191,5 +198,5 @@ void YoloFaceV8::detect(const cv::Mat &mat,std::vector<lite::types::Boxf> &boxes
             &input_tensor, 1, output_node_names.data(), num_outputs
     );
 
-    this->generate_box(output_tensors,boxes);
+    this->generate_box(output_tensors, boxes, conf_threshold, iou_threshold);
 }
