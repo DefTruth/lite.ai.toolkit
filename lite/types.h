@@ -63,7 +63,8 @@ namespace lite {
       { types::__assert_type<value_type, score_type>(); }
     }; // End BoundingBox.
 
-    // specific alias.
+
+      // specific alias.
     template class LITE_EXPORTS BoundingBoxType<int, float>;
     template class LITE_EXPORTS BoundingBoxType<float, float>;
     template class LITE_EXPORTS BoundingBoxType<double, double>;
