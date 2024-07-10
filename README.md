@@ -1097,7 +1097,7 @@ auto *segment = new lite::cv::segmentation::FaceParsingBiSeNetDyn(onnx_path); //
   title={lite.ai.toolkit: A lite C++ toolkit of awesome AI models.},
   url={https://github.com/DefTruth/lite.ai.toolkit},
   note={Open-source software available at https://github.com/DefTruth/lite.ai.toolkit},
-  author={Yanjun Qiu},
+  author={DefTruth, wangzijian1010 etc},
   year={2021}
 }
 ```
