@@ -26,6 +26,10 @@
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/ef0eeabe-6dbe-4837-9aad-b806a8398697' height="80px" width="80px">  
 </div>  
 
+## News 👇👇
+Most of my time now is focused on **LLM/VLM** Inference. Please check 📖[Awesome-LLM-Inference](https://github.com/DefTruth/Awesome-LLM-Inference)  ![](https://img.shields.io/github/stars/DefTruth/Awesome-LLM-Inference.svg?style=social), 📖[Awesome-SD-Distributed-Inference](https://github.com/DefTruth/Awesome-SD-Distributed-Inference)  ![](https://img.shields.io/github/stars/DefTruth/Awesome-SD-Distributed-Inference.svg?style=social) and 📖[CUDA-Learn-Notes](https://github.com/DefTruth/CUDA-Learn-Notes)  ![](https://img.shields.io/github/stars/DefTruth/CUDA-Learn-Notes.svg?style=social) for more details.
+
+
 <!-- 
 <div align='center'>
   <img src='https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/5b28aed1-e207-4256-b3ea-3b52f9e68aed' height="90px" width="90px">
@@ -54,10 +58,6 @@
 * **Simply and User friendly.** Simply and Consistent syntax like **lite::cv::Type::Class**, see [examples](#lite.ai.toolkit-Examples-for-Lite.AI.ToolKit).
 * **Minimum Dependencies.** Only **OpenCV** and **ONNXRuntime** are required by default, see [build](#lite.ai.toolkit-Build-Lite.AI.ToolKit).
 * **Many Models Supported.** **[300+](#lite.ai.toolkit-Supported-Models-Matrix)** C++ implementations and **[500+](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md)** weights 👉 **[Supported-Matrix](#lite.ai.toolkit-Supported-Models-Matrix)**.
-
-## News 👇👇
-Most of my time now is focused on **LLM/VLM** Inference. Please check 📖[Awesome-LLM-Inference](https://github.com/DefTruth/Awesome-LLM-Inference)  ![](https://img.shields.io/github/stars/DefTruth/Awesome-LLM-Inference.svg?style=social), 📖[Awesome-SD-Distributed-Inference](https://github.com/DefTruth/Awesome-SD-Distributed-Inference)  ![](https://img.shields.io/github/stars/DefTruth/Awesome-SD-Distributed-Inference.svg?style=social) and 📖[CUDA-Learn-Notes](https://github.com/DefTruth/CUDA-Learn-Notes)  ![](https://img.shields.io/github/stars/DefTruth/CUDA-Learn-Notes.svg?style=social) for more details.
-
 
 ## Build 👇👇
 Download prebuilt lite.ai.toolkit library from [tag/v0.2.0](https://github.com/DefTruth/lite.ai.toolkit/releases/tag/v0.2.0), or just build it from source:
