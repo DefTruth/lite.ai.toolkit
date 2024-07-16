@@ -48,6 +48,13 @@ function(add_lite_ai_toolkit_shared_library version soversion)
         set(LITE_DEPENDENCIES ${LITE_DEPENDENCIES} onnxruntime)
     endif ()
 
+    if (ENABLE_TENSORRT)
+        include(cmake/tensorrt.cmake)
+        set(LITE_SRCS ${LITE_SRCS} ${TRT_SRCS})
+        set(LITE_DEPENDENCIES ${LITE_DEPENDENCIES}  cudart nvinfer nvonnxparser nvinfer_plugin)
+    endif ()
+
+
     if (ENABLE_MNN)
         include(cmake/MNN.cmake)
         set(LITE_SRCS ${LITE_SRCS} ${MNN_SRCS})
@@ -70,7 +77,6 @@ function(add_lite_ai_toolkit_shared_library version soversion)
     add_library(lite.ai.toolkit SHARED ${LITE_SRCS})
     target_link_libraries(lite.ai.toolkit ${LITE_DEPENDENCIES})
     set_target_properties(lite.ai.toolkit PROPERTIES VERSION ${version} SOVERSION ${soversion})
-
     message("[Lite.AI.Toolkit][I] Added Shared Library: lite.ai.toolkit !")
 
 endfunction()
