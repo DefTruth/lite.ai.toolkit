@@ -44,8 +44,6 @@ static void test_tensorrt()
 
     yolov8_face->detect(test_image,detected_boxes,0.5f,0.4f);
 
-    cv::imwrite(save_img_path,test_image);
-
     std::cout<<"trt face detect done!"<<std::endl;
 #endif
 
