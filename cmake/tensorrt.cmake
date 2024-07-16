@@ -1,7 +1,10 @@
-set(TensorRT_Version "8.6.1.6" CACHE STRING "TensorRT version" FORCE)
-set(TensorRT_DIR ${THIRD_PARTY_PATH}/TensorRT-8.6.1.6)
+set(TensorRT_Version "10.1.0.27" CACHE STRING "TensorRT version" FORCE)
+set(TensorRT_DIR ${THIRD_PARTY_PATH}/TensorRT-10.1.0.27)
 #set(TensorRT_DIR /usr/local/TensorRT-8.6.1.6)
-set(CUDA_DIR /usr/local/cuda)
+set(CUDA_DIR  ${THIRD_PARTY_PATH}/cuda)
+
+message("_______________________")
+message(${CUDA_DIR})
 
 
 # download tensorrt need user operation if trt doesn't exist

@@ -10,9 +10,10 @@
 namespace trtcore{
     class LITE_EXPORTS BasicTRTHandler{
     protected:
-        nvinfer1::IRuntime* trt_runtime = nullptr;
-        nvinfer1::ICudaEngine* trt_engine = nullptr;
-        nvinfer1::IExecutionContext* trt_context = nullptr;
+        // update to TensorRT version 10+
+        std::unique_ptr<nvinfer1::IRuntime> trt_runtime;
+        std::unique_ptr<nvinfer1::ICudaEngine> trt_engine;
+        std::unique_ptr<nvinfer1::IExecutionContext> trt_context;
 
         Logger trt_logger;
         // single input and single output

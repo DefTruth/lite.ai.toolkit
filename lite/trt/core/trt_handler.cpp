@@ -14,9 +14,9 @@ BasicTRTHandler::BasicTRTHandler(const std::string &_trt_model_path, unsigned in
 }
 
 BasicTRTHandler::~BasicTRTHandler() {
-    if (trt_context) trt_context->destroy();
-    if (trt_engine) trt_engine->destroy();
-    if (trt_runtime) trt_runtime->destroy();
+    // don't need free by manunly
+    cudaFree(buffers[0]);
+    cudaFree(buffers[1]);
     cudaStreamDestroy(stream);
 }
 
@@ -36,13 +36,22 @@ void BasicTRTHandler::initialize_handler() {
     file.read(model_data.data(), model_size);
     file.close();
 
-    trt_runtime = nvinfer1::createInferRuntime(trt_logger);
+    trt_runtime.reset(nvinfer1::createInferRuntime(trt_logger));
     // engine deserialize
-    trt_engine = trt_runtime->deserializeCudaEngine(model_data.data(), model_size, nullptr);
-    trt_context = trt_engine->createExecutionContext();
+    trt_engine.reset(trt_runtime->deserializeCudaEngine(model_data.data(), model_size));
+    if (!trt_engine) {
+        std::cerr << "Failed to deserialize the TensorRT engine." << std::endl;
+        return;
+    }
+    trt_context.reset(trt_engine->createExecutionContext());
+    if (!trt_context) {
+        std::cerr << "Failed to create execution context." << std::endl;
+        return;
+    }
     cudaStreamCreate(&stream);
-    nvinfer1::Dims input_dims = trt_engine->getBindingDimensions(0);
-    nvinfer1::Dims output_dims = trt_engine->getBindingDimensions(1);
+
+    nvinfer1::Dims input_dims = trt_engine->getTensorShape("images");
+    nvinfer1::Dims output_dims = trt_engine->getTensorShape("output0");
 
 
     input_tensor_size = 1;
@@ -59,6 +68,9 @@ void BasicTRTHandler::initialize_handler() {
 
     cudaMalloc(&buffers[0], input_tensor_size * sizeof(float));
     cudaMalloc(&buffers[1], output_tensor_size * sizeof(float));
+
+    trt_context->setTensorAddress("images", buffers[0]);
+    trt_context->setTensorAddress("output0", buffers[1]);
 
 }
 

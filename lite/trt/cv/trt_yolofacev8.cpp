@@ -163,7 +163,14 @@ void TRTYoloFaceV8::detect(const cv::Mat &mat, std::vector<lite::types::Boxf> &b
 
     cudaMemcpyAsync(buffers[0], input, 1 * 3 * 640 * 640 * sizeof(float), cudaMemcpyHostToDevice, stream);
     // 3.infer
-    trt_context->enqueue(1,buffers,stream, nullptr);
+    // 3. infer
+    bool status = trt_context->enqueueV3(stream);
+
+    if (!status){
+        std::cerr << "Failed to infer by TensorRT." << std::endl;
+        return;
+    }
+
 
     float* output = new float[1 * 20 * 8400];
 
