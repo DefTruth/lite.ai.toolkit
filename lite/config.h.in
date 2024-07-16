@@ -2,6 +2,7 @@
 #define LITE_AI_CONFIG_H
 
 #cmakedefine ENABLE_ONNXRUNTIME
+#cmakedefine ENABLE_TENSORRT
 #cmakedefine ENABLE_MNN
 #cmakedefine ENABLE_NCNN
 #cmakedefine ENABLE_TNN
