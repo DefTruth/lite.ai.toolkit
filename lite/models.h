@@ -676,11 +676,11 @@ namespace lite{
             typedef trtcv::TRTYoloFaceV8 _TRT_YOLOFaceNet;
             namespace classification
             {
-                // TODO
+
             }
             namespace detection
             {
-                // TODO
+
             }
             namespace face
             {
