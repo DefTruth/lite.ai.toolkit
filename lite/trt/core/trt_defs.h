@@ -9,7 +9,7 @@
 #include "lite/lite.ai.defs.h"
 
 #ifdef ENABLE_DEBUG_STRING
-# define LITEORT_DEBUG 1
+# define LITETRT_DEBUG 1
 #else
 # define LITEORT_DEBUG 0
 #endif
