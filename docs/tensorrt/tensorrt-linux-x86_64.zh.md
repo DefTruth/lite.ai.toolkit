@@ -28,4 +28,4 @@ source ~/.bashrc
 ```shell
 ./sample_onnx_mnist
 ```
-如果有输出则说明安装成功
+如果有输出则说明安装成功  
