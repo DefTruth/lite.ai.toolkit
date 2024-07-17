@@ -5,7 +5,6 @@
 #include "trt_utils.h"
 
 
-
 float* trtcv::utils::transform::create_tensor(const cv::Mat &mat,std::vector<int64_t> input_node_dims,unsigned int data_format){
     // make mat to float type's vector
 
