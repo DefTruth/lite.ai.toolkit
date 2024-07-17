@@ -50,9 +50,13 @@ void BasicTRTHandler::initialize_handler() {
     }
     cudaStreamCreate(&stream);
 
-    nvinfer1::Dims input_dims = trt_engine->getTensorShape("images");
-    nvinfer1::Dims output_dims = trt_engine->getTensorShape("output0");
 
+    auto input_name = trt_engine->getIOTensorName(0);
+    auto output_name = trt_engine->getIOTensorName(1);
+
+
+    nvinfer1::Dims input_dims = trt_engine->getTensorShape(input_name);
+    nvinfer1::Dims output_dims = trt_engine->getTensorShape(output_name);
 
     input_tensor_size = 1;
     for (int i = 0; i < input_dims.nbDims; ++i) {
@@ -69,8 +73,8 @@ void BasicTRTHandler::initialize_handler() {
     cudaMalloc(&buffers[0], input_tensor_size * sizeof(float));
     cudaMalloc(&buffers[1], output_tensor_size * sizeof(float));
 
-    trt_context->setTensorAddress("images", buffers[0]);
-    trt_context->setTensorAddress("output0", buffers[1]);
+    trt_context->setTensorAddress(input_name, buffers[0]);
+    trt_context->setTensorAddress(output_name, buffers[1]);
 
 }
 
