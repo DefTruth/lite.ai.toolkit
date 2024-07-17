@@ -143,7 +143,8 @@ void TRTYoloFaceV8::detect(const cv::Mat &mat, std::vector<lite::types::Boxf> &b
     auto input = trtcv::utils::transform::create_tensor(normalized_image,input_node_dims,trtcv::utils::transform::CHW);
 
     // 3. infer
-    cudaMemcpyAsync(buffers[0], input, input_node_dims[0] * input_node_dims[1] * input_node_dims[2] * input_node_dims[3] * sizeof(float), cudaMemcpyHostToDevice, stream);
+    cudaMemcpyAsync(buffers[0], input, input_node_dims[0] * input_node_dims[1] * input_node_dims[2] * input_node_dims[3] * sizeof(float),
+                    cudaMemcpyHostToDevice, stream);
     bool status = trt_context->enqueueV3(stream);
 
     if (!status){
@@ -153,7 +154,8 @@ void TRTYoloFaceV8::detect(const cv::Mat &mat, std::vector<lite::types::Boxf> &b
 
     float* output = new float[output_node_dims[0] * output_node_dims[1] * output_node_dims[2]];
 
-    cudaMemcpyAsync(output, buffers[1], output_node_dims[0] * output_node_dims[1] * output_node_dims[2] * sizeof(float), cudaMemcpyDeviceToHost, stream);
+    cudaMemcpyAsync(output, buffers[1], output_node_dims[0] * output_node_dims[1] * output_node_dims[2] * sizeof(float),
+                    cudaMemcpyDeviceToHost, stream);
     // 4. generate box
     generate_box(output,boxes,0.45f,0.5f);
 
