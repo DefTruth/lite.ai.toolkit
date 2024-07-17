@@ -28,14 +28,13 @@ static void test_default()
 
 }
 
-
-
 static void test_tensorrt()
 {
 #ifdef ENABLE_TENSORRT
     std::string engine_path = "../../../examples/hub/trt/cv/yoloface_8n.engine";
     std::string test_img_path = "../../../examples/lite/resources/test_lite_yolov5_1.jpg";
     std::string save_img_path = "../../../examples/logs/test_lite_yolov8face_trt.jpg";
+
     lite::trt::cv::face::detection::YOLOV8Face *yolov8_face  = new lite::trt::cv::face::detection::YOLOV8Face (engine_path);
 
     cv::Mat test_image = cv::imread(test_img_path);
@@ -45,8 +44,9 @@ static void test_tensorrt()
     yolov8_face->detect(test_image,detected_boxes,0.5f,0.4f);
 
     std::cout<<"trt face detect done!"<<std::endl;
-#endif
 
+    delete yolov8_face;
+#endif
 }
 
 
