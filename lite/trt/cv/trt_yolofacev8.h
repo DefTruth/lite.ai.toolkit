@@ -5,6 +5,7 @@
 #ifndef LITE_AI_TOOLKIT_TRT_YOLOFACEV8_H
 #define LITE_AI_TOOLKIT_TRT_YOLOFACEV8_H
 #include "lite/trt/core/trt_core.h"
+#include "lite/trt/core/trt_utils.h"
 
 
 namespace trtcv{
@@ -31,9 +32,6 @@ namespace trtcv{
         cv::Mat normalize(cv::Mat srcImg);
 
         void generate_box(float* trt_outputs, std::vector<lite::types::Boxf>& boxes,float conf_threshold, float iou_threshold);
-
-        float* transform(const cv::Mat &mat) override;
-
     public:
         void detect(const cv::Mat &mat,std::vector<lite::types::Boxf> &boxes,
                     float conf_threshold, float iou_threshold);

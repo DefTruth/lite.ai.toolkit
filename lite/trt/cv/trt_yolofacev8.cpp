@@ -91,32 +91,11 @@ cv::Mat TRTYoloFaceV8::normalize(cv::Mat srcimg) {
 }
 
 
-void hwc_to_chw(const cv::Mat& img, float* data) {
-    int channels = img.channels();
-    int height = img.rows;
-    int width = img.cols;
-
-    for (int c = 0; c < channels; ++c) {
-        for (int h = 0; h < height; ++h) {
-            for (int w = 0; w < width; ++w) {
-                data[c * height * width + h * width + w] = img.at<cv::Vec3f>(h, w)[c];
-            }
-        }
-    }
-}
-
-float* TRTYoloFaceV8::transform(const cv::Mat &mat) {
-    // need to trans mat type to vector type
-
-    float* input_vector = new float [input_node_dims[1] *input_node_dims[2] * input_node_dims[3]];
-    hwc_to_chw(mat,input_vector);
-    return input_vector;
-}
 
 void TRTYoloFaceV8::generate_box(float *trt_outputs, std::vector<lite::types::Boxf> &boxes, float conf_threshold,
                                  float iou_threshold) {
 
-    int num_box = 8400;
+    int num_box = output_node_dims[2];
     std::vector<lite::types::BoundingBoxType<float, float>> bounding_box_raw;
     std::vector<float> score_raw;
     for (int i = 0; i < num_box; i++)
@@ -155,15 +134,16 @@ void TRTYoloFaceV8::generate_box(float *trt_outputs, std::vector<lite::types::Bo
 
 void TRTYoloFaceV8::detect(const cv::Mat &mat, std::vector<lite::types::Boxf> &boxes, float conf_threshold,
                            float iou_threshold) {
+
+
     // 1.normalized the input
     cv::Mat normalized_image = normalize(mat);
 
     // 2.trans to input vector
-    auto input = transform(normalized_image);
+    auto input = trtcv::utils::transform::create_tensor(normalized_image,input_node_dims,trtcv::utils::transform::CHW);
 
-    cudaMemcpyAsync(buffers[0], input, 1 * 3 * 640 * 640 * sizeof(float), cudaMemcpyHostToDevice, stream);
-    // 3.infer
     // 3. infer
+    cudaMemcpyAsync(buffers[0], input, input_node_dims[0] * input_node_dims[1] * input_node_dims[2] * input_node_dims[3] * sizeof(float), cudaMemcpyHostToDevice, stream);
     bool status = trt_context->enqueueV3(stream);
 
     if (!status){
@@ -171,11 +151,10 @@ void TRTYoloFaceV8::detect(const cv::Mat &mat, std::vector<lite::types::Boxf> &b
         return;
     }
 
+    float* output = new float[output_node_dims[0] * output_node_dims[1] * output_node_dims[2]];
 
-    float* output = new float[1 * 20 * 8400];
-
-    cudaMemcpyAsync(output, buffers[1], 1 * 20 * 8400 * sizeof(float), cudaMemcpyDeviceToHost, stream);
-
+    cudaMemcpyAsync(output, buffers[1], output_node_dims[0] * output_node_dims[1] * output_node_dims[2] * sizeof(float), cudaMemcpyDeviceToHost, stream);
+    // 4. generate box
     generate_box(output,boxes,0.45f,0.5f);
 
 }
