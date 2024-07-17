@@ -2,11 +2,8 @@ set(TensorRT_Version "10.1.0.27" CACHE STRING "TensorRT version" FORCE)
 #set(TensorRT_DIR ${THIRD_PARTY_PATH}/TensorRT-10.1.0.27)
 set(TensorRT_DIR /usr/local/TensorRT-10.1.0.27)
 set(CUDA_DIR  /usr/local/cuda)
-#set(CUDA_DIR  ${THIRD_PARTY_PATH}/cuda)
 
-# download tensorrt need user operation if trt doesn't exist
-
-
+# TODO: download tensorrt need user operation if trt doesn't exist
 if(NOT EXISTS ${TensorRT_DIR})
     message(FATAL_ERROR "[Lite.AI.Toolkit][E] ${TensorRT_DIR} is not exists!")
 endif()
