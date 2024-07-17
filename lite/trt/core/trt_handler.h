@@ -40,8 +40,6 @@ namespace trtcore{
         BasicTRTHandler& operator=(const BasicTRTHandler&) = delete;
         BasicTRTHandler& operator=(BasicTRTHandler&&) = delete;
 
-    protected:
-        virtual float* transform(const cv::Mat &mat) = 0;
 
     private:
         void initialize_handler();
