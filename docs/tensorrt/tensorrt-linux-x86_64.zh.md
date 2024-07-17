@@ -3,13 +3,13 @@
 ## 1.环境准备
 
 首先确定本机是否存在CUDA和cudnn环境(必须),文档默认用户已经正常安装CUDA和cudnn,
-测试本机的CUDA版本 在shell中输入nvcc -V即可
+测试本机的CUDA版本 在shell中输入nvcc -V即可，这里建议CUDA为12.4+cudnn9.1.0.70+TensorRT10.1.0.27
 
 ## 2.TensorRT安装包下载
 
 在确定本机环境中存在CUDA和cudnn之后,就可以开始配置TensorRT的环境了,首先需要去Nvidia
 官网下载TensorRT的安装包 这里需要注册一个Nvidia的账号才能下载,可以用Google账号登陆,
-本项目用的TensorRT版本为8.6.0.12 [下载链接](https://developer.nvidia.com/nvidia-tensorrt-8x-download)
+本项目用的TensorRT版本为10.1.0.27
 千万不要去下载CSDN上的付费(真的很难绷)资源 后期有时间的话会将本项目的TensorRT的安装包上传到百度网盘或者谷歌网盘,这里要注意的是CUDA和cudnn和TensorRT的版本必须对应不然没办法使用,
 其实还是预备环境需要完成配置,如果CUDA和cudnn配置好的话,只需要对应好TensorRT和CUDA的版本就好了,本项目配置的是CUDA11.8+TensorRT8.6.0.12版本测试是OK的
 
@@ -19,8 +19,8 @@
 ```shell
 vim ~/.bashrc
 # 将你TensorRT的安装位置加入到bashrc当中
-export LD_LIBRARY_PATH=/usr/local/TensorRT-8.6.1.6/lib:$LD_LIBRARY_PATH
-export PATH=/usr/local/TensorRT-8.6.1.6/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/TensorRT-10.1.0.27/lib:$LD_LIBRARY_PATH
+export PATH=/usr/local/TensorRT-10.1.0.27/bin:$PATH
 # 加完之后需要source一下bashrc
 source ~/.bashrc
 ```
