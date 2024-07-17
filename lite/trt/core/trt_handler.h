@@ -5,7 +5,7 @@
 #ifndef LITE_AI_TOOLKIT_TRT_HANDLER_H
 #define LITE_AI_TOOLKIT_TRT_HANDLER_H
 #include "trt_config.h"
-#include "Logger.h"
+#include "trt_logger.h"
 
 namespace trtcore{
     class LITE_EXPORTS BasicTRTHandler{

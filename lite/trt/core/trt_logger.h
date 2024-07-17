@@ -2,8 +2,8 @@
 // Created by ai-test1 on 24-7-11.
 //
 
-#ifndef LITE_AI_TOOLKIT_LOGGER_H
-#define LITE_AI_TOOLKIT_LOGGER_H
+#ifndef LITE_AI_TOOLKIT_TRT_LOGGER_H
+#define LITE_AI_TOOLKIT_TRT_LOGGER_H
 #ifndef LOGGER_H
 #define LOGGER_H
 
@@ -20,4 +20,4 @@ public:
 };
 
 #endif // LOGGER_H
-#endif //LITE_AI_TOOLKIT_LOGGER_H
+#endif //LITE_AI_TOOLKIT_TRT_LOGGER_H
