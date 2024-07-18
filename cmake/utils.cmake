@@ -54,7 +54,6 @@ function(add_lite_ai_toolkit_shared_library version soversion)
         set(LITE_DEPENDENCIES ${LITE_DEPENDENCIES}  cudart nvinfer nvonnxparser nvinfer_plugin)
     endif ()
 
-
     if (ENABLE_MNN)
         include(cmake/MNN.cmake)
         set(LITE_SRCS ${LITE_SRCS} ${MNN_SRCS})
