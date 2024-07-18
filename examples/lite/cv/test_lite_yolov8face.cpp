@@ -35,7 +35,7 @@ static void test_tensorrt()
     std::string test_img_path = "../../../examples/lite/resources/test_lite_yolov5_1.jpg";
     std::string save_img_path = "../../../examples/logs/test_lite_yolov8face_trtbbbb.jpg";
 
-    lite::trt::cv::face::detection::YOLOV8Face *yolov8_face  = new lite::trt::cv::face::detection::YOLOV8Face (engine_path);
+    lite::trt::cv::face::detection::YOLOV8Face *yolov8_face  = new lite::trt::cv::face::detection::YOLOV8Face(engine_path);
 
     cv::Mat test_image = cv::imread(test_img_path);
 
