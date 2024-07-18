@@ -1,12 +1,37 @@
-set(TensorRT_Version "10.1.0.27" CACHE STRING "TensorRT version" FORCE)
-#set(TensorRT_DIR ${THIRD_PARTY_PATH}/TensorRT-10.1.0.27)
-set(TensorRT_DIR /usr/local/TensorRT-10.1.0.27)
-set(CUDA_DIR  /usr/local/cuda)
+set(CUDA_DIR "" CACHE PATH "If build tensorrt backend, need to define path of cuda library.")
+set(TensorRT_DIR "" CACHE PATH "If build tensorrt backend, need to define path of tensorrt library.")
+
+if(NOT CUDA_DIR)
+  set(CUDA_DIR "/usr/local/cuda")
+  message(STATUS "CUDA_DIR is not defined, use default dir: ${CUDA_DIR}")
+else()
+  message(STATUS "custom CUDA_DIR is defined as: ${CUDA_DIR}") 
+endif()
+
+if(NOT TensorRT_DIR)
+  set(TensorRT_DIR "/usr/local/tensorrt")
+  message(STATUS "TensorRT_DIR is not defined, use default dir: ${TensorRT_DIR}")
+else()
+  message(STATUS "custom TensorRT_DIR is defined as: ${TensorRT_DIR}") 
+endif()
 
 # TODO: download tensorrt need user operation if trt doesn't exist
-if(NOT EXISTS ${TensorRT_DIR})
-    message(FATAL_ERROR "[Lite.AI.Toolkit][E] ${TensorRT_DIR} is not exists!")
+if(NOT EXISTS ${CUDA_DIR})
+    message(FATAL_ERROR "[Lite.AI.Toolkit][E] ${CUDA_DIR} is not exists! Please define -DCUDA_DIR=xxx while TensorRT Backend is enabled.")
 endif()
+
+if(NOT EXISTS ${TensorRT_DIR})
+    message(FATAL_ERROR "[Lite.AI.Toolkit][E] ${TensorRT_DIR} is not exists! Please define -DTensorRT_DIR=xxx while TensorRT Backend is enabled.")
+endif()
+
+execute_process(COMMAND sh -c "nm -D libnvinfer.so | grep tensorrt_version" 
+                WORKING_DIRECTORY ${TensorRT_DIR}/lib
+                RESULT_VARIABLE result
+                OUTPUT_VARIABLE curr_out
+                ERROR_VARIABLE  curr_out)
+
+string(STRIP ${curr_out} TensorRT_Version)
+set(TensorRT_Version ${TensorRT_Version} CACHE STRING "TensorRT version" FORCE)
 
 include_directories(${CUDA_DIR}/include)
 link_directories(${CUDA_DIR}/lib64)
