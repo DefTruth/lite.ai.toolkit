@@ -669,6 +669,7 @@ namespace lite
 
 // TRT version
 namespace lite{
+#ifdef ENABLE_TENSORRT
     namespace trt
     {
         namespace cv
@@ -691,6 +692,7 @@ namespace lite{
             }
         }
     }
+#endif
 }
 
 
