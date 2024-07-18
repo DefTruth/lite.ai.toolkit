@@ -116,6 +116,15 @@
 
 #endif
 
+
+// ENABLE_TRT
+#ifdef ENABLE_TENSORRT
+
+#include "lite/trt/core/trt_utils.h"
+#include "lite/trt/core/trt_core.h"
+#include "lite/trt/cv/trt_yolofacev8.h"
+#endif
+
 // ENABLE_MNN
 #ifdef ENABLE_MNN
 
@@ -656,6 +665,37 @@ namespace lite
   }
 #endif
 }
+
+
+// TRT version
+namespace lite{
+#ifdef ENABLE_TENSORRT
+    namespace trt
+    {
+        namespace cv
+        {
+            typedef trtcv::TRTYoloFaceV8 _TRT_YOLOFaceNet;
+            namespace classification
+            {
+
+            }
+            namespace detection
+            {
+
+            }
+            namespace face
+            {
+                namespace detection
+                {
+                    typedef _TRT_YOLOFaceNet YOLOV8Face;
+                }
+            }
+        }
+    }
+#endif
+}
+
+
 
 // MNN version
 namespace lite
