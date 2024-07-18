@@ -14,17 +14,17 @@
 其实还是预备环境需要完成配置,如果CUDA和cudnn配置好的话,只需要对应好TensorRT和CUDA的版本就好了,本项目配置的是CUDA12.4+TensorRT10.1.0.27版本测试是OK的
 
 ## 3.TensorRT环境配置
-下载完成之后,直接将其解压对应的位置,这里推荐解压到/usr/local的目录下和cuda在同一级目录下,当然这个看个人喜好,你想解压在哪里都是可以的,解压完成之后需要将解压位置加入到环境变量当中,
+下载完成之后,直接将其解压对应的位置,这里推荐解压到/usr/local的目录下和cuda在同一级目录下, 并重命名为tensorrt，当然这个看个人喜好,你想解压在哪里都是可以的,解压完成之后需要将解压位置加入到环境变量当中,
 需要编辑你的环境配置文件bashrc
 ```shell
 vim ~/.bashrc
 # 将你TensorRT的安装位置加入到bashrc当中
-export LD_LIBRARY_PATH=/usr/local/TensorRT-10.1.0.27/lib:$LD_LIBRARY_PATH
-export PATH=/usr/local/TensorRT-10.1.0.27/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/tensorrt/lib:$LD_LIBRARY_PATH
+export PATH=/usr/local/tensorrt/bin:$PATH
 # 加完之后需要source一下bashrc
 source ~/.bashrc
 ```
-安装完成之后测试TensorRT能否正常工作可以去/path/to/TensorRT/samples/sampleOnnxMNIST路径下执行make命令 如果正常执行完成会出现可执行文件的路径一般是../bin,执行命令
+安装完成之后测试TensorRT能否正常工作可以去/path/to/tensorrt/samples/sampleOnnxMNIST路径下执行make命令 如果正常执行完成会出现可执行文件的路径一般是../bin,执行命令
 ```shell
 ./sample_onnx_mnist
 ```
