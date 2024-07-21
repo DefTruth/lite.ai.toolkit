@@ -95,7 +95,7 @@ cv::Mat TRTYoloFaceV8::normalize(cv::Mat srcimg) {
 void TRTYoloFaceV8::generate_box(float *trt_outputs, std::vector<lite::types::Boxf> &boxes, float conf_threshold,
                                  float iou_threshold) {
 
-    int num_box = output_node_dims[2];
+    int num_box = output_node_dims[0][2];
     std::vector<lite::types::BoundingBoxType<float, float>> bounding_box_raw;
     std::vector<float> score_raw;
     for (int i = 0; i < num_box; i++)
@@ -152,9 +152,9 @@ void TRTYoloFaceV8::detect(const cv::Mat &mat, std::vector<lite::types::Boxf> &b
         return;
     }
 
-    float* output = new float[output_node_dims[0] * output_node_dims[1] * output_node_dims[2]];
+    float* output = new float[output_node_dims[0][0] * output_node_dims[0][1] * output_node_dims[0][2]];
 
-    cudaMemcpyAsync(output, buffers[1], output_node_dims[0] * output_node_dims[1] * output_node_dims[2] * sizeof(float),
+    cudaMemcpyAsync(output, buffers[1], output_node_dims[0][0] * output_node_dims[0][1] * output_node_dims[0][2] * sizeof(float),
                     cudaMemcpyDeviceToHost, stream);
     // 4. generate box
     generate_box(output,boxes,0.45f,0.5f);
