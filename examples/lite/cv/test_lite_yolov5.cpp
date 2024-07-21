@@ -132,6 +132,7 @@ static void test_tnn()
 
 static void test_tensorrt()
 {
+#ifdef ENABLE_TENSORRT
     std::string engine_path = "../../../examples/hub/trt/yolov5s_fp32.engine";
     std::string test_img_path = "../../../examples/lite/resources/test_lite_yolov5_1.jpg";
     std::string save_img_path = "../../../examples/logs/test_lite_yolov5_1647.jpg";
@@ -149,7 +150,7 @@ static void test_tensorrt()
     std::cout << "Default Version Detected Boxes Num: " << detected_boxes.size() << std::endl;
 
     delete yolov5;
-
+#endif
 }
 
 
@@ -157,10 +158,10 @@ static void test_lite()
 {
   test_tensorrt();
   test_default();
-//  test_onnxruntime();
-//  test_mnn();
-//  test_ncnn();
-//  test_tnn();
+  test_onnxruntime();
+  test_mnn();
+  test_ncnn();
+  test_tnn();
 }
 
 int main(__unused int argc, __unused char *argv[])

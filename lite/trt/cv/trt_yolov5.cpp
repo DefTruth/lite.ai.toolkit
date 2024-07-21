@@ -60,23 +60,6 @@ cv::Mat TRTYoloV5::normalized(const cv::Mat input_image) {
 }
 
 
-void writeFloatArrayToFile(const float* input, size_t length, const std::string& filename) {
-    // 打开文件进行写入
-    std::ofstream outFile(filename);
-
-    // 检查文件是否成功打开
-    if (!outFile.is_open()) {
-        std::cerr << "Error: Could not open the file for writing." << std::endl;
-        return;
-    }
-    // 写入浮点数到文件中，每个浮点数占一行
-    for (size_t i = 0; i < length; ++i) {
-        outFile << input[i] << std::endl;
-    }
-    // 关闭文件
-    outFile.close();
-}
-
 void TRTYoloV5::generate_bboxes(const trtcv::TRTYoloV5::YoloV5ScaleParams &scale_params,
                                 std::vector<types::Boxf> &bbox_collection, float* output, float score_threshold,
                                 int img_height, int img_width) {
@@ -180,19 +163,16 @@ void TRTYoloV5::detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_bo
     // get the first output dim
     auto pred_dims = output_node_dims[0];
 
-
     float* output = new float[pred_dims[0] * pred_dims[1] * pred_dims[2]];
 
     cudaMemcpyAsync(output, buffers[1], pred_dims[0] * pred_dims[1] * pred_dims[2] * sizeof(float),
                     cudaMemcpyDeviceToHost, stream);
     cudaStreamSynchronize(stream);
-    writeFloatArrayToFile(output,pred_dims[0] * pred_dims[1] * pred_dims[2],"/home/wangzijian/lite.ai.toolkit/output-test-0720.txt");
 
     //3. generate the boxes
     std::vector<types::Boxf> bbox_collection;
     generate_bboxes(scale_params, bbox_collection, output, score_threshold, img_height, img_width);
     nms(bbox_collection, detected_boxes, iou_threshold, topk, nms_type);
-
 }
 
 
