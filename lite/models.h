@@ -123,6 +123,7 @@
 #include "lite/trt/core/trt_utils.h"
 #include "lite/trt/core/trt_core.h"
 #include "lite/trt/cv/trt_yolofacev8.h"
+#include "lite/trt/cv/trt_yolov5.h"
 #endif
 
 // ENABLE_MNN
@@ -675,12 +676,14 @@ namespace lite{
         namespace cv
         {
             typedef trtcv::TRTYoloFaceV8 _TRT_YOLOFaceNet;
+            typedef trtcv::TRTYoloV5 _TRT_YOLOv5;
             namespace classification
             {
 
             }
             namespace detection
             {
+                typedef _TRT_YOLOv5 YOLOV5;
 
             }
             namespace face
