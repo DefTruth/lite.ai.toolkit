@@ -6,9 +6,9 @@
 
 static void test_default()
 {
-  std::string onnx_path = "/home/wangzijian/lite.ai.toolkit/examples/hub/onnx/cv/yolov5s.onnx";
-  std::string test_img_path = "/home/wangzijian/lite.ai.toolkit/examples/lite/resources/test_lite_yolov5_1.jpg";
-  std::string save_img_path = "/home/wangzijian/lite.ai.toolkit/examples/logs/test_lite_yolov5_1.jpg";
+  std::string onnx_path = "../../../examples/hub/onnx/cv/yolov5s.onnx";
+  std::string test_img_path = "../../../examples/lite/resources/test_lite_yolov5_1.jpg";
+  std::string save_img_path = "../../../examples/logs/test_lite_yolov5_1647_onnx.jpg";
 
   // 1. Test Default Engine ONNXRuntime
   lite::cv::detection::YoloV5 *yolov5 = new lite::cv::detection::YoloV5(onnx_path); // default
@@ -132,9 +132,9 @@ static void test_tnn()
 
 static void test_tensorrt()
 {
-    std::string engine_path = "/home/wangzijian/lite.ai.toolkit/examples/hub/trt/yolov5s_fp32.engine";
-    std::string test_img_path = "/home/wangzijian/lite.ai.toolkit/examples/lite/resources/test_lite_yolov5_1.jpg";
-    std::string save_img_path = "/home/wangzijian/lite.ai.toolkit/examples/logs/test_lite_yolov5_1.jpg";
+    std::string engine_path = "../../../examples/hub/trt/yolov5s_fp32.engine";
+    std::string test_img_path = "../../../examples/lite/resources/test_lite_yolov5_1.jpg";
+    std::string save_img_path = "../../../examples/logs/test_lite_yolov5_1647.jpg";
 
     // 1. Test TensorRT Engine
     lite::trt::cv::detection::YOLOV5  *yolov5 = new lite::trt::cv::detection::YOLOV5(engine_path);
