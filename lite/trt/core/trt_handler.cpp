@@ -15,8 +15,9 @@ BasicTRTHandler::BasicTRTHandler(const std::string &_trt_model_path, unsigned in
 
 BasicTRTHandler::~BasicTRTHandler() {
     // don't need free by manunly
-    cudaFree(buffers[0]);
-    cudaFree(buffers[1]);
+    for (auto buffer : buffers) {
+        cudaFree(buffer);
+    }
     cudaStreamDestroy(stream);
 }
 
@@ -50,31 +51,69 @@ void BasicTRTHandler::initialize_handler() {
     }
     cudaStreamCreate(&stream);
 
+    // make the flexible one input and multi output
+    int num_io_tensors = trt_engine->getNbIOTensors(); // get the input and output's num
+    buffers.resize(num_io_tensors);
 
-    auto input_name = trt_engine->getIOTensorName(0);
-    auto output_name = trt_engine->getIOTensorName(1);
+
+//    auto input_name = trt_engine->getIOTensorName(0);
+//    auto output_name = trt_engine->getIOTensorName(1);
+//
+//
+//    nvinfer1::Dims input_dims = trt_engine->getTensorShape(input_name);
+//    nvinfer1::Dims output_dims = trt_engine->getTensorShape(output_name);
+//
+//    input_tensor_size = 1;
+//    for (int i = 0; i < input_dims.nbDims; ++i) {
+//        input_node_dims.push_back(input_dims.d[i]);
+//        input_tensor_size *= input_dims.d[i];
+//    }
+//
+//    output_tensor_size = 1;
+//    for (int i = 0; i < output_dims.nbDims; ++i) {
+//        output_node_dims.push_back(output_dims.d[i]);
+//        output_tensor_size *= output_dims.d[i];
+//    }
+//
+//    cudaMalloc(&buffers[0], input_tensor_size * sizeof(float));
+//    cudaMalloc(&buffers[1], output_tensor_size * sizeof(float));
+//
+//    trt_context->setTensorAddress(input_name, buffers[0]);
+//    trt_context->setTensorAddress(output_name, buffers[1]);
 
 
-    nvinfer1::Dims input_dims = trt_engine->getTensorShape(input_name);
-    nvinfer1::Dims output_dims = trt_engine->getTensorShape(output_name);
+    for (int i = 0; i < num_io_tensors; ++i) {
+        auto tensor_name = trt_engine->getIOTensorName(i);
+        nvinfer1::Dims tensor_dims = trt_engine->getTensorShape(tensor_name);
 
-    input_tensor_size = 1;
-    for (int i = 0; i < input_dims.nbDims; ++i) {
-        input_node_dims.push_back(input_dims.d[i]);
-        input_tensor_size *= input_dims.d[i];
+        // input
+        if (i==0)
+        {
+            size_t tensor_size = 1;
+            for (int j = 0; j < tensor_dims.nbDims; ++j) {
+                tensor_size *= tensor_dims.d[j];
+                input_node_dims.push_back(tensor_dims.d[j]);
+            }
+            cudaMalloc(&buffers[i], tensor_size * sizeof(float));
+            trt_context->setTensorAddress(tensor_name, buffers[i]);
+            continue;
+        }
+
+        // output
+        size_t tensor_size = 1;
+
+        std::vector<int64_t> output_node;
+        for (int j = 0; j < tensor_dims.nbDims; ++j) {
+            output_node.push_back(tensor_dims.d[j]);
+            tensor_size *= tensor_dims.d[j];
+        }
+        output_node_dims.push_back(output_node);
+
+        cudaMalloc(&buffers[i], tensor_size * sizeof(float));
+        trt_context->setTensorAddress(tensor_name, buffers[i]);
+        output_tensor_size++;
     }
 
-    output_tensor_size = 1;
-    for (int i = 0; i < output_dims.nbDims; ++i) {
-        output_node_dims.push_back(output_dims.d[i]);
-        output_tensor_size *= output_dims.d[i];
-    }
-
-    cudaMalloc(&buffers[0], input_tensor_size * sizeof(float));
-    cudaMalloc(&buffers[1], output_tensor_size * sizeof(float));
-
-    trt_context->setTensorAddress(input_name, buffers[0]);
-    trt_context->setTensorAddress(output_name, buffers[1]);
 
 }
 
