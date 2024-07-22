@@ -156,12 +156,12 @@ static void test_tensorrt()
 
 static void test_lite()
 {
-  test_tensorrt();
   test_default();
   test_onnxruntime();
   test_mnn();
   test_ncnn();
   test_tnn();
+  test_tensorrt();
 }
 
 int main(__unused int argc, __unused char *argv[])
