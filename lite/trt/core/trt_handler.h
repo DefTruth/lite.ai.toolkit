@@ -16,14 +16,13 @@ namespace trtcore{
         std::unique_ptr<nvinfer1::IExecutionContext> trt_context;
 
         Logger trt_logger;
-        // single input and single output
-        void* buffers[2];
+        std::vector<void*> buffers;
         cudaStream_t stream;
 
         std::vector<int64_t> input_node_dims;
-        std::vector<int64_t> output_node_dims;
+        std::vector<std::vector<int64_t>> output_node_dims;
         std::size_t input_tensor_size = 1;
-        std::size_t output_tensor_size = 1;
+        std::size_t output_tensor_size = 0;
 
         const char* trt_model_path = nullptr;
         const char* log_id = nullptr;

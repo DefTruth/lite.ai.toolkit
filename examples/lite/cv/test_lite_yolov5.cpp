@@ -129,6 +129,31 @@ static void test_tnn()
 #endif
 }
 
+
+static void test_tensorrt()
+{
+#ifdef ENABLE_TENSORRT
+    std::string engine_path = "../../../examples/hub/trt/yolov5s_fp32.engine";
+    std::string test_img_path = "../../../examples/lite/resources/test_lite_yolov5_1.jpg";
+    std::string save_img_path = "../../../examples/logs/test_lite_yolov5_1_trt.jpg";
+
+    // 1. Test TensorRT Engine
+    lite::trt::cv::detection::YOLOV5  *yolov5 = new lite::trt::cv::detection::YOLOV5(engine_path);
+    std::vector<lite::types::Boxf> detected_boxes;
+    cv::Mat img_bgr = cv::imread(test_img_path);
+    yolov5->detect(img_bgr, detected_boxes);
+
+    lite::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+
+    cv::imwrite(save_img_path, img_bgr);
+
+    std::cout << "Default Version Detected Boxes Num: " << detected_boxes.size() << std::endl;
+
+    delete yolov5;
+#endif
+}
+
+
 static void test_lite()
 {
   test_default();
@@ -136,6 +161,7 @@ static void test_lite()
   test_mnn();
   test_ncnn();
   test_tnn();
+  test_tensorrt();
 }
 
 int main(__unused int argc, __unused char *argv[])

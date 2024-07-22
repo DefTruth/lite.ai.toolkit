@@ -11,6 +11,7 @@
 
 namespace trtcv{
     class LITE_EXPORTS TRTYoloFaceV8; // [1] * reference: https://github.com/derronqi/yolov8-face
+    class LITE_EXPORTS TRTYoloV5;     // [2] * reference: https://github.com/ultralytics/yolov5
 }
 
 namespace trtcv{
