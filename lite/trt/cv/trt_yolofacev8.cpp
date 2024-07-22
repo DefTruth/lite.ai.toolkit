@@ -147,6 +147,9 @@ void TRTYoloFaceV8::detect(const cv::Mat &mat, std::vector<lite::types::Boxf> &b
                     cudaMemcpyHostToDevice, stream);
     bool status = trt_context->enqueueV3(stream);
 
+    delete[] input;
+    input = nullptr;
+
     if (!status){
         std::cerr << "Failed to infer by TensorRT." << std::endl;
         return;
@@ -158,5 +161,9 @@ void TRTYoloFaceV8::detect(const cv::Mat &mat, std::vector<lite::types::Boxf> &b
                     cudaMemcpyDeviceToHost, stream);
     // 4. generate box
     generate_box(output,boxes,0.45f,0.5f);
+
+    // free pointer
+    delete[] output;
+    output = nullptr;
 
 }
