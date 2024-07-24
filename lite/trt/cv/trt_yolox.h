@@ -1,27 +1,33 @@
 //
-// Created by root on 7/20/24.
+// Created by wangzijian on 7/22/24.
 //
 
-#ifndef LITE_AI_TOOLKIT_TRT_YOLOV5_H
-#define LITE_AI_TOOLKIT_TRT_YOLOV5_H
-
+#ifndef LITE_AI_TOOLKIT_TRT_YOLOX_H
+#define LITE_AI_TOOLKIT_TRT_YOLOX_H
 #include "lite/trt/core/trt_core.h"
 #include "lite/utils.h"
 #include "lite/trt/core/trt_utils.h"
 
 namespace trtcv
 {
-    class LITE_EXPORTS TRTYoloV5 : public BasicTRTHandler
+    class LITE_EXPORTS TRTYoloX : public BasicTRTHandler
     {
     public:
-        explicit TRTYoloV5(const std::string &_trt_model_path, unsigned int _num_threads = 1) :
+        explicit TRTYoloX(const std::string &_trt_model_path, unsigned int _num_threads = 1) :
                 BasicTRTHandler(_trt_model_path, _num_threads)
         {};
 
-        ~TRTYoloV5() override = default;
+        ~TRTYoloX() override = default;
 
     private:
         // nested classes
+        typedef struct GridAndStride
+        {
+            int grid0;
+            int grid1;
+            int stride;
+        } YoloXAnchor;
+
         typedef struct
         {
             float r;
@@ -30,11 +36,13 @@ namespace trtcv
             int new_unpad_w;
             int new_unpad_h;
             bool flag;
-        } YoloV5ScaleParams;
+        } YoloXScaleParams;
+
 
     private:
-        static constexpr const float mean_val = 0.f;
-        static constexpr const float scale_val = 1.0 / 255.f;
+        const float mean_vals[3] = {255.f * 0.485f, 255.f * 0.456, 255.f * 0.406f};
+        const float scale_vals[3] = {1 / (255.f * 0.229f), 1 / (255.f * 0.224f), 1 / (255.f * 0.225f)};
+
         const char *class_names[80] = {
                 "person", "bicycle", "car", "motorcycle", "airplane", "bus", "train", "truck", "boat", "traffic light",
                 "fire hydrant", "stop sign", "parking meter", "bench", "bird", "cat", "dog", "horse", "sheep", "cow",
@@ -52,16 +60,22 @@ namespace trtcv
         };
         static constexpr const unsigned int max_nms = 30000;
 
+
     private:
         void resize_unscale(const cv::Mat &mat,
                             cv::Mat &mat_rs,
                             int target_height,
                             int target_width,
-                            YoloV5ScaleParams &scale_params);
+                            YoloXScaleParams &scale_params);
 
-        cv::Mat normalized(const cv::Mat input_image);
+        void generate_anchors(const int target_height,
+                              const int target_width,
+                              std::vector<int> &strides,
+                              std::vector<YoloXAnchor> &anchors);
 
-        void generate_bboxes(const YoloV5ScaleParams &scale_params,
+        void normalized(cv::Mat &mat_inplace, const float *mean, const float *scale);
+
+        void generate_bboxes(const YoloXScaleParams &scale_params,
                              std::vector<types::Boxf> &bbox_collection,
                              float* output,
                              float score_threshold, int img_height,
@@ -74,7 +88,9 @@ namespace trtcv
         void detect(const cv::Mat &mat, std::vector<types::Boxf> &detected_boxes,
                     float score_threshold = 0.25f, float iou_threshold = 0.45f,
                     unsigned int topk = 100, unsigned int nms_type = NMS::OFFSET);
+
     };
+
 }
 
-#endif //LITE_AI_TOOLKIT_TRT_YOLOV5_H
+#endif //LITE_AI_TOOLKIT_TRT_YOLOX_H

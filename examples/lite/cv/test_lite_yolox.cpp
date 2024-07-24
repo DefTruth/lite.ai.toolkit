@@ -129,6 +129,32 @@ static void test_tnn()
 #endif
 }
 
+static void test_tensorrt()
+{
+#ifdef ENABLE_TENSORRT
+
+    std::string engine_path = "../../..//examples/hub/trt/yolox_s_fp32.engine";
+    std::string test_img_path = "../../..//examples/lite/resources/test_lite_yolox_2.jpg";
+    std::string save_img_path = "../../..//examples/logs/test_lite_yolox_trt_4.jpg";
+
+    // 2. Test Specific Engine TensorRT
+    lite::trt::cv::detection::YoloX  *yolox =
+            new lite::trt::cv::detection::YoloX (engine_path);
+
+    std::vector<lite::types::Boxf> detected_boxes;
+    cv::Mat img_bgr = cv::imread(test_img_path);
+    yolox->detect(img_bgr, detected_boxes);
+
+    lite::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+
+    cv::imwrite(save_img_path, img_bgr);
+
+    delete yolox;
+#endif
+}
+
+
+
 static void test_lite()
 {
   test_default();
@@ -136,6 +162,7 @@ static void test_lite()
   test_mnn();
   test_ncnn();
   test_tnn();
+  test_tensorrt();
 }
 
 int main(__unused int argc, __unused char *argv[])
