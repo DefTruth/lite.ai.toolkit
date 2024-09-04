@@ -44,4 +44,43 @@ void trtcv::utils::transform::create_tensor(const cv::Mat &mat,std::vector<float
 }
 
 
+std::vector<float> trtcv::utils::transform::trt_load_from_bin(const std::string &filename) {
+    std::ifstream infile(filename, std::ios::in | std::ios::binary);
+    std::vector<float> data;
 
+    if (infile.is_open()) {
+        infile.seekg(0, std::ios::end);
+        size_t size = infile.tellg();
+        infile.seekg(0, std::ios::beg);
+
+        data.resize(size / sizeof(float));
+        infile.read(reinterpret_cast<char*>(data.data()), size);
+        infile.close();
+    } else {
+        std::cerr << "Failed to open file: " << filename << std::endl;
+    }
+
+    return data;
+}
+
+void trtcv::utils::transform::trt_save_to_bin(const std::vector<float> &data, const std::string &filename) {
+    std::ofstream outfile(filename, std::ios::out | std::ios::binary);
+    if (outfile.is_open()) {
+        outfile.write(reinterpret_cast<const char*>(data.data()), data.size() * sizeof(float));
+        outfile.close();
+    } else {
+        std::cerr << "Failed to open file: " << filename << std::endl;
+    }
+}
+
+void trtcv::utils::transform::trt_generate_latents(std::vector<float> &latents, int batch_size, int unet_channels,
+                                                   int latent_height, int latent_width, float init_noise_sigma) {
+    size_t total_size = batch_size * unet_channels * latent_height * latent_width;
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::normal_distribution<float> dist(0.0f, 1.0f);
+
+    for (size_t i = 0; i < total_size; ++i) {
+        latents[i] = dist(gen) * init_noise_sigma;
+    }
+}

@@ -57,7 +57,6 @@ TRTClip::TRTClip(const std::string &engine_path) {
 
 void TRTClip::encode_text(std::vector<std::string> input_text, std::vector<std::vector<int>> &output) {
 
-
     CLIPTokenizer tokenizer(VERSION_1_x);
     std::string str(reinterpret_cast<char*>(merges_utf8_c_str),sizeof(merges_utf8_c_str));
     tokenizer.load_from_merges(str);
@@ -69,9 +68,9 @@ void TRTClip::encode_text(std::vector<std::string> input_text, std::vector<std::
     for (int i = 0 ; i < input_text.size(); ++i)
     {
         auto temp = tokenizer.tokenize(input_text[i], on_new_token_cb);
-        temp.push_back(49407);
-        if (temp.size() < 77) {
-            temp.resize(77, 0);
+        temp.push_back(end_flag_num);
+        if (temp.size() < input_axes) {
+            temp.resize(input_axes, 0);
         }
         output.push_back(temp);
     }
@@ -99,7 +98,10 @@ void TRTClip::inference(std::vector<std::string> input, std::vector<std::vector<
     cudaMalloc(&buffers[1],batch * output_tensor_size * sizeof (float));
     trt_context->setTensorAddress(output_names,buffers[1]);
 
-    std::vector<int> input_dims = { static_cast<int>(batch), 77 };
+    cudaMalloc(&buffers[2], output_tensor_size * sizeof (float));
+    trt_context->setTensorAddress("2233",buffers[2]);
+
+    std::vector<int> input_dims = { static_cast<int>(batch), input_axes};
 
     // infer
     cudaMemcpyAsync(buffers[0], flat_output_encode.data(), flat_output_encode.size() * sizeof(int32_t ),
@@ -108,9 +110,9 @@ void TRTClip::inference(std::vector<std::string> input, std::vector<std::vector<
     nvinfer1::Dims inputDims;
     inputDims.nbDims = 2;
     inputDims.d[0] = batch;
-    inputDims.d[1] = 77;
+    inputDims.d[1] = input_axes;
     // input name should be equal
-    trt_context->setInputShape("TEXT", inputDims);
+    trt_context->setInputShape("input_ids", inputDims);
 
     bool status = trt_context->enqueueV3(stream);
 
@@ -127,9 +129,9 @@ void TRTClip::inference(std::vector<std::string> input, std::vector<std::vector<
     for (int i = 0 ; i < batch ; ++i)
     {
         std::vector<float> temp;
-        for (int j = 0 ; j < 512 ; ++j)
+        for (int j = 0 ; j < output_tensor_size ; ++j)
         {
-            temp.push_back(output_trt[ i * 512 + j]);
+            temp.push_back(output_trt[ i * output_tensor_size + j]);
         }
         output.push_back(temp);
         temp.clear();

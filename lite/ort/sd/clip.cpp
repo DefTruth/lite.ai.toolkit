@@ -45,8 +45,6 @@ void Clip::inference(std::vector<std::string> input, std::vector<std::vector<flo
     std::vector<std::vector<int>> output_encode;
 
     encode_text(input,output_encode);
-
-
     // flat out output_encode
     std::vector<int32_t> flat_output_encode;
     for (const auto& vec : output_encode) {
@@ -56,7 +54,7 @@ void Clip::inference(std::vector<std::string> input, std::vector<std::vector<flo
 
     // make tensor
     int batch = output_encode.size();
-    std::vector<int64_t> input_node_dims1 = {batch, 77};
+    std::vector<int64_t> input_node_dims1 = {batch, input_axes};
 
     Ort::MemoryInfo allocator_info = Ort::MemoryInfo::CreateCpu(OrtArenaAllocator, OrtMemTypeDefault);
 
@@ -83,18 +81,18 @@ void Clip::inference(std::vector<std::string> input, std::vector<std::vector<flo
 
     const float *text_feature_ptr = ort_outputs[0].GetTensorMutableData<float>();
 
+
+    // update to [b,77,768]
     for (int i = 0 ; i < batch ; ++i)
     {
         std::vector<float> temp;
-        for (int j = 0 ; j < 512 ; ++j)
+        for (int j = 0 ; j < output_tensor_size  ; ++j)
         {
-            temp.push_back(text_feature_ptr[ i * 512 + j]);
+            temp.push_back(text_feature_ptr[ i * output_tensor_size + j]);
         }
         output.push_back(temp);
         temp.clear();
     }
-
-
 
 }
 
@@ -111,9 +109,9 @@ void Clip::encode_text(std::vector<std::string> input_text, std::vector<std::vec
     for (int i = 0 ; i < input_text.size(); ++i)
     {
        auto temp = tokenizer.tokenize(input_text[i], on_new_token_cb);
-       temp.push_back(49407);
-        if (temp.size() < 77) {
-            temp.resize(77, 0);
+       temp.push_back(end_flag_num);
+        if (temp.size() < input_axes) {
+            temp.resize(input_axes, 0);
         }
        output.push_back(temp);
     }
