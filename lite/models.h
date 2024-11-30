@@ -115,6 +115,11 @@
 #include "lite/ort/cv/yolofacev8.h"
 #include "lite/ort/cv/light_enhance.h"
 #include "lite/ort/cv/real_esr_gan.h"
+#include "lite/ort/cv/face_68landmarks.h"
+#include "lite/ort/cv/face_recognizer.h"
+#include "lite/ort/cv/face_swap.h"
+#include "lite/ort/cv/face_restoration.h"
+#include "lite/ort/cv/face_fusion_pipeline.h"
 #include "lite/ort/sd/clip.h"
 #include "lite/ort/sd/unet.h"
 #include "lite/ort/sd/vae.h"
@@ -136,6 +141,11 @@
 #include "lite/trt/cv/trt_yolov5_blazeface.h"
 #include "lite/trt/cv/trt_lightenhance.h"
 #include "lite/trt/cv/trt_realesrgan.h"
+#include "lite/trt/cv/trt_face_68landmarks.h"
+#include "lite/trt/cv/trt_face_recognizer.h"
+#include "lite/trt/cv/trt_face_swap.h"
+#include "lite/trt/cv/trt_face_restoration.h"
+#include "lite/trt/cv/trt_facefusion_pipeline.h"
 #include "lite/trt/sd/trt_clip.h"
 #include "lite/trt/sd/trt_vae.h"
 #include "lite/trt/sd/trt_unet.h"
@@ -502,6 +512,11 @@ namespace lite
       typedef ortcv::YoloFaceV8 _ONNXYOLOFaceNet;
       typedef ortcv::LightEnhance _ONNXLightEnhance;
       typedef ortcv::RealESRGAN _ONNXRealESRGAN;
+      typedef ortcv::Face_68Landmarks _ONNXFace_68Landmarks;
+      typedef ortcv::Face_Recognizer _ONNXFace_Recognizer;
+      typedef ortcv::Face_Swap _ONNXFace_Swap;
+      typedef ortcv::Face_Restoration _ONNXFace_Restoration;
+      typedef ortcv::Face_Fusion_Pipeline _ONNXFace_Fusion_Pipeline;
 
       // 1. classification
       namespace classification
@@ -580,6 +595,25 @@ namespace lite
 
         }
 
+        namespace swap
+        {
+            namespace facefusion
+            {
+                typedef _ONNXYOLOFaceNet YOLOV8Face;
+                typedef _ONNXFace_Swap InSwapper;
+                typedef _ONNXFace_Restoration GFPGAN;
+                typedef _ONNXFace_68Landmarks Face_68Landmarks;
+                typedef _ONNXFace_Recognizer Face_Recognizer;
+                typedef _ONNXFace_Fusion_Pipeline PipeLine;
+            }
+            typedef _ONNXFace_Swap InSwapper;
+        }
+
+        namespace restoration
+        {
+            typedef _ONNXFace_Restoration GFPGAN;
+        }
+
         namespace pose
         {
           typedef _ONNXFSANet FSANet; // head pose estimation.
@@ -618,7 +652,8 @@ namespace lite
         typedef _ONNXCavaGhostArcFace CavaGhostArcFace;
         typedef _ONNXCavaCombinedFace CavaCombinedFace;
         typedef _ONNXMobileSEFocalFace MobileSEFocalFace;
-
+        typedef _ONNXFace_68Landmarks Face_68Landmarks;
+        typedef _ONNXFace_Recognizer Face_Recognizer;
       }
       // 5. segmentation
       namespace segmentation
@@ -733,6 +768,11 @@ namespace lite{
             typedef trtcv::TRTLightEnhance _TRT_LightEnhance;
             typedef trtcv::TRTRealESRGAN _TRT_RealESRGAN;
             typedef trtcv::TRTMODNet _TRT_MODNet;
+            typedef trtcv::TRTFaceFusionFace68Landmarks _TRT_FaceFusionFace68Landmarks;
+            typedef trtcv::TRTFaceFusionFaceRecognizer _TRTFaceFusionFaceRecognizer;
+            typedef trtcv::TRTFaceFusionFaceSwap _TRTFaceFusionFaceSwap;
+            typedef trtcv::TRTFaceFusionFaceRestoration _TRTFaceFusionFaceRestoration;
+            typedef trtcv::TRTFaceFusionPipeLine _TRTFaceFusionPipeLine;
             namespace classification
             {
 
@@ -755,6 +795,20 @@ namespace lite{
                     typedef _TRT_YOLOFaceNet YOLOV8Face;
                     typedef _TRT_YOLO5Face  YOLOV5Face;
                 }
+                namespace swap
+                {
+                    typedef _TRTFaceFusionFaceSwap FaceFusionFaceSwap;
+                    typedef _TRTFaceFusionPipeLine FaceFusionPipeLine;
+                }
+                namespace restoration
+                {
+                    typedef _TRTFaceFusionFaceRestoration TRTGFPGAN;
+                }
+            }
+            namespace faceid
+            {
+                typedef _TRT_FaceFusionFace68Landmarks FaceFusionFace68Landmarks;
+                typedef _TRTFaceFusionFaceRecognizer FaceFusionFaceRecognizer;
             }
             namespace lightenhance
             {
