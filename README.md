@@ -1,7 +1,11 @@
 
 <div id="lite.ai.toolkit-Introduction"></div>  
 
+<!--
 ![logo-v3](https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/f99f5300-ece6-4572-8c4b-56b90e6e4d74)
+-->
+
+![lite-ai-toolkit](https://github.com/user-attachments/assets/dc567d38-3fc4-4c9c-84de-3bfdf524aeab)
 
 <div align='center'>
   <img src=https://img.shields.io/badge/Linux-pass-brightgreen.svg >
@@ -10,7 +14,6 @@
   <img src=https://img.shields.io/badge/MNN-2.8.2-hotpink.svg >
   <img src=https://img.shields.io/badge/TensorRT-10-turquoise.svg >
   <img src=https://img.shields.io/github/stars/DefTruth/lite.ai.toolkit.svg?style=social >
-  <img src=https://img.shields.io/github/downloads/DefTruth/lite.ai.toolkit/total?color=ccf&label=downloads&logo=github&logoColor=lightgrey >
 </div>   
 
 🛠**Lite.Ai.ToolKit**: A lite C++ toolkit of awesome AI models, such as [Object Detection](#lite.ai.toolkit-object-detection), [Face Detection](#lite.ai.toolkit-face-detection), [Face Recognition](#lite.ai.toolkit-face-recognition), [Segmentation](#lite.ai.toolkit-segmentation), [Matting](#lite.ai.toolkit-matting), etc. See [Model Zoo](#lite.ai.toolkit-Model-Zoo) and [ONNX Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.onnx.md), [MNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.mnn.md), [TNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.tnn.md), [NCNN Hub](https://github.com/DefTruth/lite.ai.toolkit/tree/main/docs/hub/lite.ai.toolkit.hub.ncnn.md).
