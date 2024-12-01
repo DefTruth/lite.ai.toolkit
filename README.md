@@ -3,9 +3,11 @@
 
 <!--
 ![logo-v3](https://github.com/DefTruth/lite.ai.toolkit/assets/31974251/f99f5300-ece6-4572-8c4b-56b90e6e4d74)
+![lite-ai-toolkit](https://github.com/user-attachments/assets/dc567d38-3fc4-4c9c-84de-3bfdf524aeab)
 -->
 
-![lite-ai-toolkit](https://github.com/user-attachments/assets/dc567d38-3fc4-4c9c-84de-3bfdf524aeab)
+
+![lite-ai-toolkit](https://github.com/user-attachments/assets/11568474-57e3-4ef7-96c0-d2ce7028bb5f)
 
 <div align='center'>
   <img src=https://img.shields.io/badge/Linux-pass-brightgreen.svg >
