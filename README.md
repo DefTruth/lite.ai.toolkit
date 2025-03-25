@@ -1,4 +1,8 @@
+# Notes 👇👇
 
+This project has been moved to [xlite-dev/lite.ai.toolkit](https://github.com/xlite-dev/lite.ai.toolkit). Please check [xlite-dev/lite.ai.toolkit](https://github.com/xlite-dev/lite.ai.toolkit) for latest updates! 👏👋
+
+---
 <div id="lite.ai.toolkit-Introduction"></div>  
 
 <!--
