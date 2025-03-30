@@ -1,14 +1,10 @@
 # Notes 👇👇
 
 This project has been moved to [xlite-dev/lite.ai.toolkit](https://github.com/xlite-dev/lite.ai.toolkit). Please check [xlite-dev/lite.ai.toolkit](https://github.com/xlite-dev/lite.ai.toolkit) for latest updates! 👏👋
+<!---
 
 ---
 <div id="lite.ai.toolkit-Introduction"></div>  
-
-<!--
-![logo-v3](https://github.com/xlite-dev/lite.ai.toolkit/assets/31974251/f99f5300-ece6-4572-8c4b-56b90e6e4d74)
-![lite-ai-toolkit](https://github.com/user-attachments/assets/dc567d38-3fc4-4c9c-84de-3bfdf524aeab)
--->
 
 
 ![lite-ai-toolkit](https://github.com/user-attachments/assets/11568474-57e3-4ef7-96c0-d2ce7028bb5f)
@@ -220,10 +216,6 @@ generate_bboxes num: 48
   
 <div id="lite.ai.toolkit-Supported-Models-Matrix"></div>
 
-<!--
-<details>
-<summary> 🔑️ Supported Models Matrix！Click here! </summary>    
--->
 
 ## Supported Models Matrix
 
@@ -345,9 +337,6 @@ generate_bboxes num: 48
 |                     [FaceParsingBiSeNet](https://github.com/zllrunning/face-parsing.PyTorch)                      |  50M  |  *segmentation*  |   [demo](https://github.com/xlite-dev/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_face_parsing_bisenet.cpp)    |      ✅      |  ✅  |  ✅   |  ✅  |   ✅   |  ✔️   |   ✔️    |    ❔    |
 |                    [FaceParsingBiSeNetDyn](https://github.com/zllrunning/face-parsing.PyTorch)                    |  50M  |  *segmentation*  | [demo](https://github.com/xlite-dev/lite.ai.toolkit/blob/main/examples/lite/cv/test_lite_face_parsing_bisenet_dyn.cpp)  |      ✅      |  /  |  /   |  /  |   /   |  ✔️   |   ✔️    |    ❔    |
 
-<!--
-</details>
--->
 
 <div id="lite.ai.toolkit-Model-Zoo"></div>
 
@@ -1119,4 +1108,4 @@ Please consider ⭐ this repo if you like it, as it is the simplest way to suppo
   </picture>
 </a>  
 </div>
-
+--->
